@@ -1,22 +1,9 @@
-import { renderToBuffer } from '@react-pdf/renderer'
+import { pdf } from '@react-pdf/renderer'
 import { MinimalTemplate } from './templates/minimal'
-import { FloralTemplate } from './templates/floral'
-import { ProfessionalTemplate } from './templates/professional'
-import { ElegantTemplate } from './templates/elegant'
-import { RusticTemplate } from './templates/rustic'
 import { QuizQuestion } from '@/lib/quiz/questions'
 import { BirthTeam, TemplateStyle } from '@/types'
 
-// Map template styles to their corresponding template components
-const templateMap = {
-  minimal: MinimalTemplate,
-  floral: FloralTemplate,
-  professional: ProfessionalTemplate,
-  elegant: ElegantTemplate,
-  rustic: RusticTemplate,
-} as const
-
-interface GeneratePDFOptions {
+interface GeneratePreviewOptions {
   answers: Record<string, string>
   customNotes: Record<string, string>
   birthTeam: BirthTeam
@@ -24,7 +11,11 @@ interface GeneratePDFOptions {
   questions: QuizQuestion[]
 }
 
-export async function generateBirthPlanPDF(options: GeneratePDFOptions): Promise<Buffer> {
+/**
+ * Generates a PDF blob URL for client-side preview
+ * This function is designed for browser use, unlike the server-side generateBirthPlanPDF
+ */
+export async function generatePDFPreview(options: GeneratePreviewOptions): Promise<string> {
   const { answers, customNotes, birthTeam, templateStyle, questions } = options
 
   // Build the birth plan content
@@ -49,12 +40,20 @@ export async function generateBirthPlanPDF(options: GeneratePDFOptions): Promise
     return acc
   }, {} as Record<string, typeof planContent>)
 
-  // Select the template based on templateStyle, defaulting to minimal
-  const Template = templateMap[templateStyle] || MinimalTemplate
+  // For now, we use the minimal template regardless of selection
+  // In production, you'd switch based on templateStyle
+  const document = MinimalTemplate({ birthTeam, groupedContent })
 
-  const buffer = await renderToBuffer(
-    Template({ birthTeam, groupedContent })
-  )
+  // Generate the PDF blob
+  const blob = await pdf(document).toBlob()
 
-  return Buffer.from(buffer)
+  // Create and return the blob URL
+  return URL.createObjectURL(blob)
+}
+
+/**
+ * Cleans up a blob URL to prevent memory leaks
+ */
+export function revokePDFPreviewUrl(url: string): void {
+  URL.revokeObjectURL(url)
 }

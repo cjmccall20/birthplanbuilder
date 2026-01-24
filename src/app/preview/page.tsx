@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { QuizProvider, useQuiz } from '@/lib/quiz/context'
@@ -13,13 +13,76 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Textarea } from '@/components/ui/textarea'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
-import { FileText, ArrowLeft, ArrowRight, Edit2 } from 'lucide-react'
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from '@/components/ui/dialog'
+import { FileText, ArrowLeft, ArrowRight, Edit2, Eye, Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { generatePDFPreview, revokePDFPreviewUrl } from '@/lib/pdf/client-preview'
 
 function PreviewContent() {
   const { state, setBirthTeam, setTemplateStyle, goToStep } = useQuiz()
   const router = useRouter()
   const [activeTab, setActiveTab] = useState<'preview' | 'style' | 'details'>('preview')
+
+  // PDF Preview state
+  const [isPdfModalOpen, setIsPdfModalOpen] = useState(false)
+  const [pdfUrl, setPdfUrl] = useState<string | null>(null)
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false)
+  const [pdfError, setPdfError] = useState<string | null>(null)
+
+  // Cleanup blob URL when modal closes or component unmounts
+  useEffect(() => {
+    return () => {
+      if (pdfUrl) {
+        revokePDFPreviewUrl(pdfUrl)
+      }
+    }
+  }, [pdfUrl])
+
+  const handlePreviewPdf = useCallback(async () => {
+    setIsGeneratingPdf(true)
+    setPdfError(null)
+    setIsPdfModalOpen(true)
+
+    try {
+      // Revoke old URL if exists
+      if (pdfUrl) {
+        revokePDFPreviewUrl(pdfUrl)
+      }
+
+      const url = await generatePDFPreview({
+        answers: state.answers,
+        customNotes: state.customNotes,
+        birthTeam: state.birthTeam,
+        templateStyle: state.templateStyle as TemplateStyle,
+        questions: quizQuestions,
+      })
+
+      setPdfUrl(url)
+    } catch (error) {
+      console.error('Failed to generate PDF preview:', error)
+      setPdfError('Failed to generate PDF preview. Please try again.')
+    } finally {
+      setIsGeneratingPdf(false)
+    }
+  }, [state.answers, state.customNotes, state.birthTeam, state.templateStyle, pdfUrl])
+
+  const handleClosePdfModal = useCallback(() => {
+    setIsPdfModalOpen(false)
+    // Cleanup blob URL after modal close animation
+    setTimeout(() => {
+      if (pdfUrl) {
+        revokePDFPreviewUrl(pdfUrl)
+        setPdfUrl(null)
+      }
+      setPdfError(null)
+    }, 300)
+  }, [pdfUrl])
 
   // Get answered questions with their display text
   const answeredQuestions = quizQuestions
@@ -95,6 +158,15 @@ function PreviewContent() {
             <p className="text-muted-foreground">
               Review your answers below. Click edit to change any response.
             </p>
+            <Button
+              variant="outline"
+              className="mt-4"
+              onClick={handlePreviewPdf}
+              disabled={Object.keys(state.answers).length === 0}
+            >
+              <Eye className="h-4 w-4 mr-2" />
+              Preview PDF
+            </Button>
           </div>
 
           {Object.entries(groupedAnswers).map(([category, questions]) => (
@@ -289,6 +361,45 @@ function PreviewContent() {
           <ArrowRight className="h-4 w-4 ml-2" />
         </Button>
       </div>
+
+      {/* PDF Preview Modal */}
+      <Dialog open={isPdfModalOpen} onOpenChange={(open) => !open && handleClosePdfModal()}>
+        <DialogContent className="max-w-4xl h-[90vh] flex flex-col">
+          <DialogHeader>
+            <DialogTitle>Birth Plan Preview</DialogTitle>
+            <DialogDescription>
+              Preview how your birth plan will look as a PDF document.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="flex-1 min-h-0 relative">
+            {isGeneratingPdf && (
+              <div className="absolute inset-0 flex items-center justify-center bg-background/80">
+                <div className="flex flex-col items-center gap-2">
+                  <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                  <p className="text-sm text-muted-foreground">Generating PDF preview...</p>
+                </div>
+              </div>
+            )}
+            {pdfError && (
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="text-center">
+                  <p className="text-destructive mb-4">{pdfError}</p>
+                  <Button variant="outline" onClick={handlePreviewPdf}>
+                    Try Again
+                  </Button>
+                </div>
+              </div>
+            )}
+            {pdfUrl && !isGeneratingPdf && !pdfError && (
+              <iframe
+                src={pdfUrl}
+                className="w-full h-full border rounded-lg"
+                title="Birth Plan PDF Preview"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </div>
   )
 }
