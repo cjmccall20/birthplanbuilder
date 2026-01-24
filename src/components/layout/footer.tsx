@@ -5,7 +5,7 @@ export function Footer() {
   return (
     <footer className="border-t bg-muted/30">
       <div className="container py-12">
-        <div className="grid gap-8 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-4">
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
               <Heart className="h-5 w-5 text-primary fill-primary/20" />
@@ -31,6 +31,31 @@ export function Footer() {
               <li>
                 <Link href="#templates" className="hover:text-foreground transition-colors">
                   View Templates
+                </Link>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h4 className="font-semibold mb-4">Birth Decisions</h4>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>
+                <Link href="/vitamin-k" className="hover:text-foreground transition-colors">
+                  Vitamin K Shot
+                </Link>
+              </li>
+              <li>
+                <Link href="/delayed-cord-clamping" className="hover:text-foreground transition-colors">
+                  Delayed Cord Clamping
+                </Link>
+              </li>
+              <li>
+                <Link href="/eye-ointment" className="hover:text-foreground transition-colors">
+                  Eye Ointment
+                </Link>
+              </li>
+              <li>
+                <Link href="/skin-to-skin" className="hover:text-foreground transition-colors">
+                  Skin-to-Skin Contact
                 </Link>
               </li>
             </ul>

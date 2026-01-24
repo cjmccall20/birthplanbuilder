@@ -47,6 +47,7 @@ export interface QuizState {
   birthTeam: BirthTeam
   templateStyle: string
   sessionId: string
+  plannedBirthType?: 'csection' | 'vaginal' | 'unsure'
 }
 
 export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic'

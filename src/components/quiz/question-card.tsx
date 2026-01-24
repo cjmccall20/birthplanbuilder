@@ -35,15 +35,15 @@ export function QuestionCard({ question }: QuestionCardProps) {
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
-      <CardHeader>
+      <CardHeader className="px-4 sm:px-6">
         <div className="text-sm text-primary font-medium mb-1">{question.category}</div>
-        <CardTitle className="font-serif text-2xl">{question.title}</CardTitle>
-        <CardDescription className="text-base">{question.description}</CardDescription>
+        <CardTitle className="font-serif text-xl sm:text-2xl">{question.title}</CardTitle>
+        <CardDescription className="text-sm sm:text-base">{question.description}</CardDescription>
 
         {question.learnMoreContent && (
           <button
             onClick={() => setShowLearnMore(!showLearnMore)}
-            className="flex items-center gap-1 text-sm text-primary hover:underline mt-2 w-fit"
+            className="flex items-center gap-1 text-sm text-primary hover:underline mt-2 w-fit min-h-[44px]"
           >
             {showLearnMore ? (
               <>
@@ -65,7 +65,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
           </div>
         )}
       </CardHeader>
-      <CardContent className="space-y-6">
+      <CardContent className="space-y-6 px-4 sm:px-6">
         <RadioGroup
           value={currentAnswer || ''}
           onValueChange={handleAnswer}
@@ -75,7 +75,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
             <div
               key={option.value}
               className={cn(
-                "flex items-center space-x-3 rounded-lg border p-4 cursor-pointer transition-colors",
+                "flex items-center space-x-3 rounded-lg border p-3 sm:p-4 cursor-pointer transition-colors min-h-[44px]",
                 currentAnswer === option.value
                   ? "border-primary bg-primary/5"
                   : "hover:bg-muted/50",
@@ -87,7 +87,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
               <Label
                 htmlFor={`${question.id}-${option.value}`}
                 className={cn(
-                  "flex-1 cursor-pointer",
+                  "flex-1 cursor-pointer text-sm sm:text-base",
                   option.isUnsure && "italic text-muted-foreground"
                 )}
               >
@@ -100,7 +100,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
         <div>
           <button
             onClick={() => setShowCustomNote(!showCustomNote)}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] flex items-center"
           >
             {showCustomNote ? '- Hide custom note' : '+ Add a custom note for this section'}
           </button>
@@ -110,17 +110,18 @@ export function QuestionCard({ question }: QuestionCardProps) {
               value={currentNote}
               onChange={(e) => setCustomNote(question.id, e.target.value)}
               placeholder="Add any specific instructions or notes for your care team..."
-              className="mt-2"
+              className="mt-2 text-base"
               rows={3}
             />
           )}
         </div>
 
-        <div className="flex justify-between pt-4">
+        <div className="flex flex-col sm:flex-row justify-between gap-3 pt-4">
           <Button
             variant="outline"
             onClick={prevStep}
             disabled={state.currentStep === 0}
+            className="min-h-[44px] w-full sm:w-auto"
           >
             <ArrowLeft className="h-4 w-4 mr-2" />
             Previous
@@ -128,6 +129,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
           <Button
             onClick={handleNext}
             disabled={!currentAnswer}
+            className="min-h-[44px] w-full sm:w-auto"
           >
             Next
             <ArrowRight className="h-4 w-4 ml-2" />

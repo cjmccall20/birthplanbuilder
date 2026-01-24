@@ -127,9 +127,9 @@ function PreviewContent() {
   }
 
   return (
-    <div className="container py-8 max-w-4xl">
+    <div className="container py-6 sm:py-8 max-w-4xl px-4">
       {/* Tabs */}
-      <div className="flex gap-2 mb-8 border-b">
+      <div className="flex gap-1 sm:gap-2 mb-6 sm:mb-8 border-b overflow-x-auto">
         {[
           { id: 'preview', label: 'Review Answers' },
           { id: 'style', label: 'Choose Style' },
@@ -139,7 +139,7 @@ function PreviewContent() {
             key={tab.id}
             onClick={() => setActiveTab(tab.id as typeof activeTab)}
             className={cn(
-              'px-4 py-2 text-sm font-medium border-b-2 -mb-px transition-colors',
+              'px-3 sm:px-4 py-2 text-xs sm:text-sm font-medium border-b-2 -mb-px transition-colors whitespace-nowrap min-h-[44px]',
               activeTab === tab.id
                 ? 'border-primary text-primary'
                 : 'border-transparent text-muted-foreground hover:text-foreground'
@@ -152,15 +152,15 @@ function PreviewContent() {
 
       {/* Preview Tab */}
       {activeTab === 'preview' && (
-        <div className="space-y-6">
-          <div className="text-center mb-8">
-            <h1 className="font-serif text-3xl font-bold mb-2">Review Your Birth Plan</h1>
-            <p className="text-muted-foreground">
+        <div className="space-y-4 sm:space-y-6">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold mb-2">Review Your Birth Plan</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Review your answers below. Click edit to change any response.
             </p>
             <Button
               variant="outline"
-              className="mt-4"
+              className="mt-4 min-h-[44px]"
               onClick={handlePreviewPdf}
               disabled={Object.keys(state.answers).length === 0}
             >
@@ -174,14 +174,14 @@ function PreviewContent() {
               <CardHeader>
                 <CardTitle className="text-lg">{category}</CardTitle>
               </CardHeader>
-              <CardContent className="space-y-4">
+              <CardContent className="space-y-3 sm:space-y-4">
                 {questions.map((q) => (
-                  <div key={q.id} className="flex items-start justify-between gap-4 py-2 border-b last:border-0">
-                    <div className="flex-1">
-                      <p className="font-medium text-sm">{q.title}</p>
-                      <p className="text-sm text-primary">{q.answerLabel}</p>
+                  <div key={q.id} className="flex items-start justify-between gap-2 sm:gap-4 py-2 border-b last:border-0">
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-xs sm:text-sm">{q.title}</p>
+                      <p className="text-xs sm:text-sm text-primary">{q.answerLabel}</p>
                       {q.customNote && (
-                        <p className="text-xs text-muted-foreground mt-1 italic">
+                        <p className="text-xs text-muted-foreground mt-1 italic break-words">
                           Note: {q.customNote}
                         </p>
                       )}
@@ -189,6 +189,7 @@ function PreviewContent() {
                     <Button
                       variant="ghost"
                       size="sm"
+                      className="min-h-[44px] min-w-[44px] flex-shrink-0"
                       onClick={() => {
                         const index = quizQuestions.findIndex((qq) => qq.id === q.id)
                         goToStep(index)
@@ -207,10 +208,10 @@ function PreviewContent() {
 
       {/* Style Tab */}
       {activeTab === 'style' && (
-        <div className="space-y-6">
-          <div className="text-center mb-8">
-            <h1 className="font-serif text-3xl font-bold mb-2">Choose Your Template</h1>
-            <p className="text-muted-foreground">
+        <div className="space-y-4 sm:space-y-6">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold mb-2">Choose Your Template</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Select a design style for your birth plan PDF.
             </p>
           </div>
@@ -218,7 +219,7 @@ function PreviewContent() {
           <RadioGroup
             value={state.templateStyle}
             onValueChange={setTemplateStyle}
-            className="grid gap-4 md:grid-cols-3 lg:grid-cols-5"
+            className="grid gap-3 sm:gap-4 grid-cols-2 sm:grid-cols-3 lg:grid-cols-5"
           >
             {templateStyles.map((template) => (
               <div key={template.id}>
@@ -230,17 +231,17 @@ function PreviewContent() {
                 <Label
                   htmlFor={template.id}
                   className={cn(
-                    "flex flex-col items-center justify-center rounded-lg border-2 p-4 cursor-pointer transition-all",
+                    "flex flex-col items-center justify-center rounded-lg border-2 p-3 sm:p-4 cursor-pointer transition-all min-h-[44px]",
                     "hover:bg-muted/50 hover:border-primary/50",
                     state.templateStyle === template.id
                       ? "border-primary bg-primary/5"
                       : "border-muted"
                   )}
                 >
-                  <div className="w-full aspect-[8.5/11] bg-muted rounded mb-3 flex items-center justify-center">
-                    <FileText className="h-8 w-8 text-muted-foreground/50" />
+                  <div className="w-full aspect-[8.5/11] bg-muted rounded mb-2 sm:mb-3 flex items-center justify-center">
+                    <FileText className="h-6 w-6 sm:h-8 sm:w-8 text-muted-foreground/50" />
                   </div>
-                  <span className="font-semibold">{template.name}</span>
+                  <span className="font-semibold text-sm sm:text-base">{template.name}</span>
                   <span className="text-xs text-muted-foreground text-center">
                     {template.description}
                   </span>
@@ -253,10 +254,10 @@ function PreviewContent() {
 
       {/* Details Tab */}
       {activeTab === 'details' && (
-        <div className="space-y-6">
-          <div className="text-center mb-8">
-            <h1 className="font-serif text-3xl font-bold mb-2">Add Your Birth Team</h1>
-            <p className="text-muted-foreground">
+        <div className="space-y-4 sm:space-y-6">
+          <div className="text-center mb-6 sm:mb-8">
+            <h1 className="font-serif text-2xl sm:text-3xl font-bold mb-2">Add Your Birth Team</h1>
+            <p className="text-sm sm:text-base text-muted-foreground">
               Add the names of your care team to personalize your birth plan.
             </p>
           </div>
@@ -273,6 +274,7 @@ function PreviewContent() {
                   <Input
                     id="mother_name"
                     placeholder="Your name"
+                    className="min-h-[44px] text-base"
                     value={state.birthTeam.mother_name || ''}
                     onChange={(e) => setBirthTeam({ mother_name: e.target.value })}
                   />
@@ -282,6 +284,7 @@ function PreviewContent() {
                   <Input
                     id="partner_name"
                     placeholder="Partner's name (optional)"
+                    className="min-h-[44px] text-base"
                     value={state.birthTeam.partner_name || ''}
                     onChange={(e) => setBirthTeam({ partner_name: e.target.value })}
                   />
@@ -292,6 +295,7 @@ function PreviewContent() {
                 <Input
                   id="due_date"
                   type="date"
+                  className="min-h-[44px] text-base"
                   value={state.birthTeam.due_date || ''}
                   onChange={(e) => setBirthTeam({ due_date: e.target.value })}
                 />
@@ -311,6 +315,7 @@ function PreviewContent() {
                   <Input
                     id="provider_name"
                     placeholder="Dr. Smith / Midwife Jane"
+                    className="min-h-[44px] text-base"
                     value={state.birthTeam.provider_name || ''}
                     onChange={(e) => setBirthTeam({ provider_name: e.target.value })}
                   />
@@ -320,6 +325,7 @@ function PreviewContent() {
                   <Input
                     id="provider_type"
                     placeholder="OB-GYN / Midwife / CNM"
+                    className="min-h-[44px] text-base"
                     value={state.birthTeam.provider_type || ''}
                     onChange={(e) => setBirthTeam({ provider_type: e.target.value })}
                   />
@@ -331,6 +337,7 @@ function PreviewContent() {
                   <Input
                     id="doula_name"
                     placeholder="Doula name (optional)"
+                    className="min-h-[44px] text-base"
                     value={state.birthTeam.doula_name || ''}
                     onChange={(e) => setBirthTeam({ doula_name: e.target.value })}
                   />
@@ -340,6 +347,7 @@ function PreviewContent() {
                   <Input
                     id="hospital_name"
                     placeholder="Hospital / Birth center name"
+                    className="min-h-[44px] text-base"
                     value={state.birthTeam.hospital_name || ''}
                     onChange={(e) => setBirthTeam({ hospital_name: e.target.value })}
                   />
@@ -351,12 +359,12 @@ function PreviewContent() {
       )}
 
       {/* Navigation */}
-      <div className="flex justify-between mt-8">
-        <Button variant="outline" onClick={handleBack}>
+      <div className="flex flex-col sm:flex-row justify-between gap-3 mt-6 sm:mt-8">
+        <Button variant="outline" onClick={handleBack} className="min-h-[44px] w-full sm:w-auto">
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
         </Button>
-        <Button onClick={handleContinue}>
+        <Button onClick={handleContinue} className="min-h-[44px] w-full sm:w-auto">
           {activeTab === 'details' ? 'Get My Birth Plan' : 'Continue'}
           <ArrowRight className="h-4 w-4 ml-2" />
         </Button>
@@ -364,10 +372,10 @@ function PreviewContent() {
 
       {/* PDF Preview Modal */}
       <Dialog open={isPdfModalOpen} onOpenChange={(open) => !open && handleClosePdfModal()}>
-        <DialogContent className="max-w-4xl h-[90vh] flex flex-col">
+        <DialogContent className="max-w-4xl h-[90vh] w-[95vw] sm:w-full flex flex-col p-4 sm:p-6">
           <DialogHeader>
-            <DialogTitle>Birth Plan Preview</DialogTitle>
-            <DialogDescription>
+            <DialogTitle className="text-lg sm:text-xl">Birth Plan Preview</DialogTitle>
+            <DialogDescription className="text-sm">
               Preview how your birth plan will look as a PDF document.
             </DialogDescription>
           </DialogHeader>

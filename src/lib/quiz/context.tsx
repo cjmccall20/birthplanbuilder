@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react'
 import { QuizState, BirthTeam } from '@/types'
-import { quizQuestions } from './questions'
+import { quizQuestions, getVisibleQuestions } from './questions'
 
 const STORAGE_KEY = 'birthplan_quiz_state'
 
@@ -101,6 +101,7 @@ interface QuizContextType {
   goToStep: (step: number) => void
   reset: () => void
   currentQuestion: typeof quizQuestions[0] | null
+  visibleQuestions: typeof quizQuestions
   progress: number
   isComplete: boolean
   unsureTopics: string[]
@@ -155,12 +156,15 @@ export function QuizProvider({ children }: { children: ReactNode }) {
   const goToStep = (step: number) => dispatch({ type: 'GO_TO_STEP', step })
   const reset = () => dispatch({ type: 'RESET' })
 
-  const currentQuestion = state.currentStep < quizQuestions.length
-    ? quizQuestions[state.currentStep]
+  // Get visible questions based on conditional logic
+  const visibleQuestions = getVisibleQuestions(state.answers)
+
+  const currentQuestion = state.currentStep < visibleQuestions.length
+    ? visibleQuestions[state.currentStep]
     : null
 
-  const progress = (Object.keys(state.answers).length / quizQuestions.length) * 100
-  const isComplete = Object.keys(state.answers).length === quizQuestions.length
+  const progress = (Object.keys(state.answers).length / visibleQuestions.length) * 100
+  const isComplete = Object.keys(state.answers).length === visibleQuestions.length
 
   // Get list of topics where user selected "unsure"
   const unsureTopics = Object.entries(state.answers)
@@ -180,6 +184,7 @@ export function QuizProvider({ children }: { children: ReactNode }) {
         goToStep,
         reset,
         currentQuestion,
+        visibleQuestions,
         progress,
         isComplete,
         unsureTopics,

@@ -9,14 +9,14 @@ import { QuestionCard } from '@/components/quiz/question-card'
 import { QuizProgressBar } from '@/components/quiz/progress-bar'
 
 function QuizContent() {
-  const { state, currentQuestion, isComplete } = useQuiz()
+  const { state, currentQuestion, isComplete, visibleQuestions } = useQuiz()
   const router = useRouter()
 
   useEffect(() => {
-    if (isComplete || state.currentStep >= quizQuestions.length) {
+    if (isComplete || state.currentStep >= visibleQuestions.length) {
       router.push('/preview')
     }
-  }, [isComplete, state.currentStep, router])
+  }, [isComplete, state.currentStep, visibleQuestions.length, router])
 
   if (!currentQuestion) {
     return (
@@ -29,7 +29,7 @@ function QuizContent() {
   }
 
   return (
-    <div className="container py-8">
+    <div className="container py-6 sm:py-8 px-4">
       <QuizProgressBar />
       <QuestionCard question={currentQuestion} />
     </div>

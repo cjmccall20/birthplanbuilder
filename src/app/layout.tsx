@@ -13,20 +13,29 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: "Free Birth Plan Builder | Create Your Perfect Birth Plan",
-  description: "Build a beautiful, personalized birth plan in minutes. Free PDF download, 5 gorgeous templates, research-backed options. Make informed decisions for your baby's birth.",
-  keywords: ["birth plan", "birth plan builder", "birth plan template", "free birth plan", "pregnancy", "labor preferences"],
+  title: "Free Birth Plan Template | Create Your Personalized Birth Plan",
+  description: "Use our free natural birth plan generator to create a beautiful, personalized birth plan in minutes. Choose from 5 professional templates. No account needed - get your PDF instantly!",
+  keywords: ["free birth plan template", "natural birth plan generator", "birth plan builder", "birth plan template", "free birth plan", "pregnancy planning", "labor preferences", "birth plan pdf"],
   openGraph: {
-    title: "Free Birth Plan Builder | Create Your Perfect Birth Plan",
-    description: "Build a beautiful, personalized birth plan in minutes. Free PDF download, 5 gorgeous templates.",
+    title: "Free Birth Plan Template | Create Your Personalized Birth Plan",
+    description: "Use our free natural birth plan generator to create a beautiful, personalized birth plan in minutes. Choose from 5 professional templates - get your PDF instantly!",
     url: "https://birthplanbuilder.com",
     siteName: "Birth Plan Builder",
     type: "website",
+    images: [
+      {
+        url: "https://birthplanbuilder.com/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Free Birth Plan Template - Birth Plan Builder"
+      }
+    ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Free Birth Plan Builder",
-    description: "Build a beautiful, personalized birth plan in minutes.",
+    title: "Free Birth Plan Template | Natural Birth Plan Generator",
+    description: "Create a beautiful, personalized birth plan in minutes. 5 professional templates, 100% free, instant PDF download.",
+    images: ["https://birthplanbuilder.com/og-image.jpg"],
   },
 };
 

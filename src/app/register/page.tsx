@@ -66,13 +66,13 @@ function RegisterContent() {
   }
 
   return (
-    <div className="container py-8 max-w-lg">
-      <div className="text-center mb-8">
+    <div className="container py-6 sm:py-8 max-w-lg px-4">
+      <div className="text-center mb-6 sm:mb-8">
         <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4">
           <Mail className="h-8 w-8 text-primary" />
         </div>
-        <h1 className="font-serif text-3xl font-bold mb-2">Almost Done!</h1>
-        <p className="text-muted-foreground">
+        <h1 className="font-serif text-2xl sm:text-3xl font-bold mb-2">Almost Done!</h1>
+        <p className="text-sm sm:text-base text-muted-foreground">
           Enter your email and we'll send your personalized birth plan PDF.
         </p>
       </div>
@@ -92,6 +92,7 @@ function RegisterContent() {
                 id="name"
                 type="text"
                 placeholder="Your name"
+                className="min-h-[44px] text-base"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
@@ -104,6 +105,7 @@ function RegisterContent() {
                 id="email"
                 type="email"
                 placeholder="you@example.com"
+                className="min-h-[44px] text-base"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
@@ -130,7 +132,7 @@ function RegisterContent() {
 
             <Button
               type="submit"
-              className="w-full"
+              className="w-full min-h-[44px]"
               size="lg"
               disabled={isSubmitting || !email || !name}
             >
@@ -151,6 +153,7 @@ function RegisterContent() {
         <Button
           variant="ghost"
           onClick={() => router.push('/preview')}
+          className="min-h-[44px]"
         >
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back to preview
