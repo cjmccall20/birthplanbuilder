@@ -20,8 +20,11 @@ export async function POST(request: NextRequest) {
       unsureTopics,
     } = body
 
+    console.log('[API] Starting birth plan creation for:', email)
+
     // Validate required fields
     if (!email || !name || !sessionId || !answers) {
+      console.log('[API] Validation failed - missing fields')
       return NextResponse.json(
         { error: 'Missing required fields' },
         { status: 400 }
@@ -29,6 +32,7 @@ export async function POST(request: NextRequest) {
     }
 
     // Create or update user
+    console.log('[API] Creating/updating user...')
     const { data: user, error: userError } = await supabaseAdmin
       .from('users')
       .upsert(
@@ -45,14 +49,16 @@ export async function POST(request: NextRequest) {
       .single()
 
     if (userError) {
-      console.error('User creation error:', userError)
+      console.error('[API] User creation error:', userError)
       return NextResponse.json(
         { error: 'Failed to create user' },
         { status: 500 }
       )
     }
+    console.log('[API] User created/updated:', user.id)
 
     // Create birth plan
+    console.log('[API] Creating birth plan...')
     const { data: birthPlan, error: planError } = await supabaseAdmin
       .from('birth_plans')
       .insert({
@@ -67,14 +73,16 @@ export async function POST(request: NextRequest) {
       .single()
 
     if (planError) {
-      console.error('Birth plan creation error:', planError)
+      console.error('[API] Birth plan creation error:', planError)
       return NextResponse.json(
         { error: 'Failed to create birth plan' },
         { status: 500 }
       )
     }
+    console.log('[API] Birth plan created:', birthPlan.id)
 
     // Save decisions
+    console.log('[API] Saving decisions...')
     const decisions = Object.entries(answers).map(([key, value]) => ({
       birth_plan_id: birthPlan.id,
       decision_key: key,
@@ -87,26 +95,47 @@ export async function POST(request: NextRequest) {
       .insert(decisions)
 
     if (decisionsError) {
-      console.error('Decisions creation error:', decisionsError)
+      console.error('[API] Decisions creation error:', decisionsError)
       // Don't fail the whole request for this
     }
 
     // Generate PDF
-    const pdfBuffer = await generateBirthPlanPDF({
-      answers,
-      customNotes,
-      birthTeam,
-      templateStyle,
-      questions: quizQuestions,
-    })
+    console.log('[API] Generating PDF...')
+    let pdfBuffer: Buffer
+    try {
+      pdfBuffer = await generateBirthPlanPDF({
+        answers,
+        customNotes: customNotes || {},
+        birthTeam: birthTeam || { mother_name: name },
+        templateStyle: templateStyle || 'minimal',
+        questions: quizQuestions,
+      })
+      console.log('[API] PDF generated, size:', pdfBuffer.length, 'bytes')
+    } catch (pdfError) {
+      console.error('[API] PDF generation error:', pdfError)
+      return NextResponse.json(
+        { error: 'Failed to generate PDF' },
+        { status: 500 }
+      )
+    }
 
     // Send email with PDF
-    await sendBirthPlanEmail({
-      to: email,
-      name,
-      pdfBuffer,
-      unsureTopics,
-    })
+    console.log('[API] Sending email...')
+    try {
+      await sendBirthPlanEmail({
+        to: email,
+        name,
+        pdfBuffer,
+        unsureTopics: unsureTopics || [],
+      })
+      console.log('[API] Email sent successfully')
+    } catch (emailError) {
+      console.error('[API] Email send error:', emailError)
+      return NextResponse.json(
+        { error: 'Failed to send email' },
+        { status: 500 }
+      )
+    }
 
     // Track email send
     await supabaseAdmin.from('email_sends').insert({
@@ -115,12 +144,13 @@ export async function POST(request: NextRequest) {
       email_type: 'birth_plan_delivery',
     })
 
+    console.log('[API] Birth plan creation complete')
     return NextResponse.json({
       success: true,
       birthPlanId: birthPlan.id,
     })
   } catch (error) {
-    console.error('Birth plan creation error:', error)
+    console.error('[API] Unexpected error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

@@ -17,7 +17,6 @@ function RegisterContent() {
 
   const [email, setEmail] = useState('')
   const [name, setName] = useState(state.birthTeam.mother_name || '')
-  const [dueDate, setDueDate] = useState(state.birthTeam.due_date || '')
   const [marketingConsent, setMarketingConsent] = useState(false)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
@@ -34,7 +33,7 @@ function RegisterContent() {
         body: JSON.stringify({
           email,
           name,
-          dueDate,
+          dueDate: state.birthTeam.due_date || null,
           marketingConsent,
           sessionId: state.sessionId,
           answers: state.answers,
@@ -42,7 +41,6 @@ function RegisterContent() {
           birthTeam: {
             ...state.birthTeam,
             mother_name: name,
-            due_date: dueDate,
           },
           templateStyle: state.templateStyle,
           unsureTopics,
@@ -110,19 +108,6 @@ function RegisterContent() {
                 onChange={(e) => setEmail(e.target.value)}
                 required
               />
-            </div>
-
-            <div className="space-y-2">
-              <Label htmlFor="dueDate">Due Date</Label>
-              <Input
-                id="dueDate"
-                type="date"
-                value={dueDate}
-                onChange={(e) => setDueDate(e.target.value)}
-              />
-              <p className="text-xs text-muted-foreground">
-                Optional - helps us send you timely information
-              </p>
             </div>
 
             <div className="flex items-start space-x-2 pt-2">

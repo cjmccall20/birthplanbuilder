@@ -100,7 +100,7 @@ export async function sendBirthPlanEmail({
     attachments: [
       {
         filename: 'Birth-Plan.pdf',
-        content: pdfBuffer,
+        content: pdfBuffer.toString('base64'),
       },
     ],
   })
