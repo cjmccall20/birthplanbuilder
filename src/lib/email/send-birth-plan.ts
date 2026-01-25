@@ -21,30 +21,91 @@ export async function sendBirthPlanEmail({
     .map((topic) => quizQuestions.find((q) => q.id === topic)?.title)
     .filter(Boolean)
 
-  // Build personalized upsell message if they have unsure topics
-  const upsellSection = unsureQuestionTitles.length > 0
+  // Build personalized upsell message with guide content
+  const unsureSection = unsureQuestionTitles.length > 0
     ? `
-      <div style="background-color: #fef3c7; padding: 20px; border-radius: 8px; margin: 20px 0;">
-        <h3 style="color: #92400e; margin-top: 0;">Still researching some decisions?</h3>
-        <p style="color: #78350f;">
-          We noticed you marked ${unsureQuestionTitles.length} decision${unsureQuestionTitles.length > 1 ? 's' : ''} as needing more research:
+      <div style="background-color: #fef3c7; padding: 16px; border-radius: 8px; margin-bottom: 16px;">
+        <p style="color: #92400e; font-weight: 600; margin: 0 0 8px 0;">
+          You marked ${unsureQuestionTitles.length} decision${unsureQuestionTitles.length > 1 ? 's' : ''} as needing more research:
         </p>
-        <ul style="color: #78350f;">
-          ${unsureQuestionTitles.map((title) => `<li>${title}</li>`).join('')}
+        <ul style="color: #78350f; margin: 0; padding-left: 20px;">
+          ${unsureQuestionTitles.map((title) => `<li style="margin-bottom: 4px;">${title}</li>`).join('')}
         </ul>
-        <p style="color: #78350f;">
-          Our <strong>Birth Plan Research Guide</strong> gives you balanced pros and cons
-          for each decision, with citations to medical research so you can make informed choices.
-        </p>
-        <a href="https://birthplanbuilder.com/guide"
-           style="display: inline-block; background-color: #92400e; color: white;
-                  padding: 12px 24px; text-decoration: none; border-radius: 6px;
-                  font-weight: bold;">
-          Get the Research Guide ($39)
-        </a>
       </div>
     `
     : ''
+
+  // Guide topics list
+  const guideTopics = [
+    'Choosing Your Birth Setting — Hospital vs. birth center vs. home',
+    'Understanding Birth Modes — Vaginal birth vs. cesarean section',
+    'Pain Management Options — From natural techniques to epidurals',
+    'When to Go to the Hospital — Timing your arrival perfectly',
+    'Fetal Monitoring — Continuous vs. intermittent monitoring',
+    'GBS & Antibiotics — Group B Strep testing and treatment',
+    'Skin-to-Skin & Golden Hour — The critical first 60 minutes',
+    'Cord Clamping Timing — When to clamp and why it matters',
+    'Vitamin K & Eye Ointment — Newborn procedures explained',
+    'Hepatitis B Vaccine — Birth dose considerations',
+    'Circumcision (for boys) — The research and considerations',
+  ]
+
+  const upsellSection = `
+    <div style="background: linear-gradient(to bottom right, rgba(212, 165, 165, 0.1), rgba(251, 243, 219, 0.5)); padding: 24px; border-radius: 12px; margin: 24px 0; border: 1px solid rgba(212, 165, 165, 0.2);">
+      <h2 style="color: #333; margin: 0 0 8px 0; font-size: 20px;">
+        📚 The Birth Decisions Research Guide
+      </h2>
+      <p style="color: #666; margin: 0 0 16px 0; font-style: italic;">
+        What They Don't Tell You at the Hospital
+      </p>
+
+      ${unsureSection}
+
+      <blockquote style="border-left: 4px solid rgba(212, 165, 165, 0.5); padding-left: 16px; margin: 16px 0; color: #555; font-style: italic;">
+        "Your decisions matter. The choices you make during pregnancy and childbirth <em>do</em> lead to different outcomes.
+        This isn't about blame—it's about information. It's about going into one of the most significant experiences
+        of your life with your eyes open."
+      </blockquote>
+
+      <h4 style="color: #333; margin: 16px 0 8px 0;">What You'll Get:</h4>
+      <ul style="color: #555; margin: 0 0 16px 0; padding-left: 20px;">
+        <li><strong>Both sides of every decision</strong> — what your doctor will recommend AND what they often don't mention</li>
+        <li><strong>Research citations you can verify</strong> — bring them to your provider for an informed conversation</li>
+        <li><strong>The BRAIN framework</strong> — how to evaluate any intervention in the moment (Benefits, Risks, Alternatives, Intuition, Nothing/wait)</li>
+      </ul>
+
+      <h4 style="color: #333; margin: 16px 0 8px 0;">Your Complete Journey:</h4>
+      <table style="width: 100%; border-collapse: collapse;">
+        ${guideTopics.map((topic, i) => `
+          <tr>
+            <td style="padding: 4px 0; color: #555; font-size: 14px;">
+              ${i + 1}. ${topic}
+            </td>
+          </tr>
+        `).join('')}
+      </table>
+
+      <p style="text-align: center; margin: 20px 0 8px 0; font-weight: 600; color: #333;">
+        The goal—the only goal that really matters—is a healthy baby and a healthy mom.
+      </p>
+      <p style="text-align: center; color: #666; font-size: 14px; margin: 0 0 20px 0;">
+        But "healthy" means more than survival. It means a mother who feels respected and heard.
+        A family that emerges feeling empowered rather than traumatized.
+      </p>
+
+      <div style="text-align: center;">
+        <a href="https://birthplanbuilder.com/guide"
+           style="display: inline-block; background-color: #d4a5a5; color: white;
+                  padding: 14px 32px; text-decoration: none; border-radius: 8px;
+                  font-weight: bold; font-size: 16px;">
+          Get the Research Guide — $39
+        </a>
+        <p style="color: #888; font-size: 12px; margin: 8px 0 0 0;">
+          Instant PDF Download • Save hours of research
+        </p>
+      </div>
+    </div>
+  `
 
   const { data, error } = await resend.emails.send({
     from: 'Birth Plan Builder <noreply@birthplanbuilder.com>',
