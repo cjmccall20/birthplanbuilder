@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
@@ -105,11 +105,24 @@ function IconDisplay({ name, className }: { name: string; className?: string }) 
 interface DecisionItemProps {
   preference: PreferenceDefinition
   sectionId: EditorSectionId
+  isSelected?: boolean
 }
 
-function DecisionItem({ preference, sectionId }: DecisionItemProps) {
+function DecisionItem({ preference, sectionId, isSelected }: DecisionItemProps) {
   const { state, setPreference } = useEditor()
   const [isExpanded, setIsExpanded] = useState(false)
+  const itemRef = useRef<HTMLDivElement>(null)
+
+  // Auto-expand and scroll into view when selected
+  useEffect(() => {
+    if (isSelected) {
+      setIsExpanded(true)
+      // Scroll into view after a brief delay to allow expansion
+      setTimeout(() => {
+        itemRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+      }, 100)
+    }
+  }, [isSelected])
 
   const section = state.sections[sectionId]
   const value = section?.preferences.find(p => p.preferenceId === preference.id)
@@ -147,9 +160,11 @@ function DecisionItem({ preference, sectionId }: DecisionItemProps) {
 
   return (
     <div
+      ref={itemRef}
       className={cn(
         'border rounded-lg transition-all',
-        isIncluded ? 'bg-white border-border' : 'bg-muted/30 border-dashed opacity-60'
+        isIncluded ? 'bg-white border-border' : 'bg-muted/30 border-dashed opacity-60',
+        isSelected && 'ring-2 ring-primary ring-offset-2'
       )}
     >
       <div className="flex items-center gap-3 p-3">
@@ -289,11 +304,22 @@ interface SectionGroupProps {
   icon: string
   preferences: PreferenceDefinition[]
   defaultExpanded?: boolean
+  selectedPreferenceId?: string | null
 }
 
-function SectionGroup({ sectionId, title, icon, preferences, defaultExpanded = true }: SectionGroupProps) {
+function SectionGroup({ sectionId, title, icon, preferences, defaultExpanded = true, selectedPreferenceId }: SectionGroupProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
   const { state } = useEditor()
+
+  // Auto-expand section if it contains the selected preference
+  const hasSelectedPreference = selectedPreferenceId && preferences.some(p => p.id === selectedPreferenceId)
+
+  // Effect to auto-expand when a preference in this section is selected
+  useEffect(() => {
+    if (hasSelectedPreference && !isExpanded) {
+      setIsExpanded(true)
+    }
+  }, [hasSelectedPreference, selectedPreferenceId])
 
   const section = state.sections[sectionId]
   const includedCount = preferences.filter(p => {
@@ -337,6 +363,7 @@ function SectionGroup({ sectionId, title, icon, preferences, defaultExpanded = t
                 key={preference.id}
                 preference={preference}
                 sectionId={sectionId}
+                isSelected={selectedPreferenceId === preference.id}
               />
             ))}
           </div>
@@ -346,7 +373,12 @@ function SectionGroup({ sectionId, title, icon, preferences, defaultExpanded = t
   )
 }
 
-export function DecisionChecklist() {
+interface DecisionChecklistProps {
+  selectedPreferenceId?: string | null
+  onClearSelection?: () => void
+}
+
+export function DecisionChecklist({ selectedPreferenceId, onClearSelection }: DecisionChecklistProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [showOnlyIncluded, setShowOnlyIncluded] = useState(false)
   const { state } = useEditor()
@@ -431,6 +463,7 @@ export function DecisionChecklist() {
             icon={section.icon}
             preferences={section.preferences}
             defaultExpanded={index === 0}
+            selectedPreferenceId={selectedPreferenceId}
           />
         ))}
       </div>
