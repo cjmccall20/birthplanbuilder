@@ -7,7 +7,6 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Label } from '@/components/ui/label'
-import { Textarea } from '@/components/ui/textarea'
 import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -16,12 +15,10 @@ interface QuestionCardProps {
 }
 
 export function QuestionCard({ question }: QuestionCardProps) {
-  const { state, setAnswer, setCustomNote, nextStep, prevStep } = useQuiz()
+  const { state, setAnswer, nextStep, prevStep } = useQuiz()
   const [showLearnMore, setShowLearnMore] = useState(false)
-  const [showCustomNote, setShowCustomNote] = useState(false)
 
   const currentAnswer = state.answers[question.id]
-  const currentNote = state.customNotes[question.id] || ''
 
   const handleAnswer = (value: string) => {
     setAnswer(question.id, value)
@@ -96,25 +93,6 @@ export function QuestionCard({ question }: QuestionCardProps) {
             </div>
           ))}
         </RadioGroup>
-
-        <div>
-          <button
-            onClick={() => setShowCustomNote(!showCustomNote)}
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors min-h-[44px] flex items-center"
-          >
-            {showCustomNote ? '- Hide custom note' : '+ Add a custom note for this section'}
-          </button>
-
-          {showCustomNote && (
-            <Textarea
-              value={currentNote}
-              onChange={(e) => setCustomNote(question.id, e.target.value)}
-              placeholder="Add any specific instructions or notes for your care team..."
-              className="mt-2 text-base"
-              rows={3}
-            />
-          )}
-        </div>
 
         <div className="flex flex-col sm:flex-row justify-between gap-3 pt-4">
           <Button

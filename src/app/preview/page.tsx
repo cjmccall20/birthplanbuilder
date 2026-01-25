@@ -167,6 +167,14 @@ function PreviewContent() {
               <Eye className="h-4 w-4 mr-2" />
               Preview PDF
             </Button>
+            <Button
+              variant="default"
+              className="mt-4 ml-2 min-h-[44px]"
+              onClick={() => router.push('/editor?from=quiz')}
+            >
+              <Edit2 className="h-4 w-4 mr-2" />
+              Edit in Visual Editor
+            </Button>
           </div>
 
           {Object.entries(groupedAnswers).map(([category, questions]) => (
@@ -364,10 +372,22 @@ function PreviewContent() {
           <ArrowLeft className="h-4 w-4 mr-2" />
           Back
         </Button>
-        <Button onClick={handleContinue} className="min-h-[44px] w-full sm:w-auto">
-          {activeTab === 'details' ? 'Get My Birth Plan' : 'Continue'}
-          <ArrowRight className="h-4 w-4 ml-2" />
-        </Button>
+        <div className="flex flex-col sm:flex-row gap-3">
+          {activeTab === 'details' && (
+            <Button
+              variant="outline"
+              onClick={() => router.push('/editor?from=quiz')}
+              className="min-h-[44px] w-full sm:w-auto"
+            >
+              <Edit2 className="h-4 w-4 mr-2" />
+              Edit in Full Editor
+            </Button>
+          )}
+          <Button onClick={handleContinue} className="min-h-[44px] w-full sm:w-auto">
+            {activeTab === 'details' ? 'Get My Birth Plan' : 'Continue'}
+            <ArrowRight className="h-4 w-4 ml-2" />
+          </Button>
+        </div>
       </div>
 
       {/* PDF Preview Modal */}

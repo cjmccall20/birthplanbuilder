@@ -123,8 +123,8 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'pushing_position',
     category: 'Labor Preferences',
     title: 'Pushing Positions',
-    description: 'What are your preferences for positions during pushing?',
-    learnMoreContent: 'You can push in many positions: on your back, side-lying, squatting, hands-and-knees, or using a birthing stool. Different positions can help baby descend and reduce tearing. Many hospitals default to back-lying, but you can request to try other positions.',
+    description: 'What are your preferences for positions during pushing? (Note: Options may be limited with an epidural due to reduced mobility)',
+    learnMoreContent: 'You can push in many positions: on your back, side-lying, squatting, hands-and-knees, or using a birthing stool. Different positions can help baby descend and reduce tearing. Many hospitals default to back-lying, but you can request to try other positions. Important note: If you have an epidural, your mobility will be limited and you will likely need to stay in bed and push on your back (semi-reclined) or side-lying.',
     conditionalOn: {
       questionId: 'planned_birth_type',
       values: ['vaginal', 'unsure'],
@@ -132,7 +132,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'freedom', label: 'I want freedom to choose positions', birthPlanText: 'I would like the freedom to push in different positions as feels natural.' },
       { value: 'upright', label: 'Prefer upright positions', birthPlanText: 'I prefer upright pushing positions (squatting, hands-and-knees, etc.).' },
-      { value: 'standard', label: 'Standard position is fine', birthPlanText: 'Standard pushing position is acceptable.' },
+      { value: 'standard', label: 'Back-lying (semi-reclined) is fine', birthPlanText: 'Standard pushing position is acceptable.' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss pushing position options with us.', isUnsure: true },
     ],
   },

@@ -103,18 +103,44 @@ export default function HomePage() {
               </h1>
               <p className="mt-6 text-base text-muted-foreground sm:text-lg md:text-xl">
                 Use our free birth plan template to create a personalized, professional document in minutes.
-                Answer simple questions and get a beautiful PDF to share with your care team - 100% free, no account needed.
+                Choose your path: take a quick guided quiz or jump straight into the full editor.
               </p>
-              <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild size="lg" className="min-h-[44px] text-base sm:text-lg px-6 sm:px-8">
-                  <Link href="/quiz">Start My Birth Plan</Link>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="min-h-[44px] text-base sm:text-lg px-6 sm:px-8">
-                  <Link href="#templates">View Templates</Link>
-                </Button>
+
+              {/* Two Path Options */}
+              <div className="mt-10 grid gap-6 sm:grid-cols-2 max-w-2xl mx-auto">
+                {/* Quiz Path */}
+                <div className="bg-card border-2 border-primary/20 rounded-lg p-6 text-center hover:border-primary/40 transition-colors">
+                  <div className="mb-3">
+                    <Clock className="h-8 w-8 text-primary mx-auto" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Guided Quiz</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Quick guided experience with simple questions. Perfect if you're just starting to explore your options.
+                  </p>
+                  <p className="text-xs text-muted-foreground mb-4 font-medium">Takes about 5 minutes</p>
+                  <Button asChild size="lg" className="w-full min-h-[44px]">
+                    <Link href="/quiz">Take the Quiz</Link>
+                  </Button>
+                </div>
+
+                {/* Visual Editor Path */}
+                <div className="bg-card border-2 border-muted rounded-lg p-6 text-center hover:border-muted-foreground/40 transition-colors">
+                  <div className="mb-3">
+                    <Sparkles className="h-8 w-8 text-primary mx-auto" />
+                  </div>
+                  <h3 className="font-semibold text-lg mb-2">Visual Editor</h3>
+                  <p className="text-sm text-muted-foreground mb-4">
+                    Full control to customize everything directly. Ideal if you know what you want.
+                  </p>
+                  <p className="text-xs text-muted-foreground mb-4 font-medium">Build at your own pace</p>
+                  <Button asChild variant="outline" size="lg" className="w-full min-h-[44px]">
+                    <Link href="/editor">Use Visual Editor</Link>
+                  </Button>
+                </div>
               </div>
-              <p className="mt-4 text-sm text-muted-foreground">
-                No account required. Takes about 5 minutes.
+
+              <p className="mt-6 text-sm text-muted-foreground">
+                100% free, no account required. Both options deliver a professional PDF via email.
               </p>
             </div>
           </div>

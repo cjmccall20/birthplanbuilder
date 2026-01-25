@@ -1,0 +1,86 @@
+import type { BirthTeam } from '@/types'
+
+// The 6 editor sections
+export type EditorSectionId =
+  | 'pre_hospital'
+  | 'during_labor'
+  | 'at_birth'
+  | 'newborn_procedures'
+  | 'hospital_stay'
+  | 'csection'
+
+export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic'
+
+export interface EditorSection {
+  id: EditorSectionId
+  title: string
+  description: string
+  icon: string // Lucide icon name
+}
+
+export interface PreferenceOption {
+  value: string
+  label: string
+  birthPlanText: string // Text that appears in the PDF
+  isPopular?: boolean // For sorting common options to top
+}
+
+export interface PreferenceDefinition {
+  id: string
+  sectionId: EditorSectionId
+  title: string
+  description?: string
+  options: PreferenceOption[]
+  allowCustom: boolean
+  icon?: string
+  quizQuestionId?: string // Maps to quiz question for importing
+}
+
+export interface PreferenceValue {
+  preferenceId: string
+  selectedOption: string | null // null = using custom text only
+  customText?: string
+  isOmitted: boolean
+  sortOrder: number
+}
+
+export interface CustomPreferenceItem {
+  id: string
+  title: string
+  text: string
+  sortOrder: number
+}
+
+export interface EditorSectionState {
+  sectionId: EditorSectionId
+  preferences: PreferenceValue[]
+  customItems: CustomPreferenceItem[]
+  notes: string
+}
+
+export interface EditorState {
+  id: string | null // Birth plan ID (null if unsaved)
+  title: string
+  templateStyle: TemplateStyle
+  birthTeam: BirthTeam
+  sections: Record<EditorSectionId, EditorSectionState>
+  isDirty: boolean
+  lastSaved: string | null
+  createdFromQuiz: boolean
+}
+
+// Action types for reducer
+export type EditorAction =
+  | { type: 'SET_TITLE'; payload: string }
+  | { type: 'SET_TEMPLATE'; payload: TemplateStyle }
+  | { type: 'SET_BIRTH_TEAM'; payload: Partial<BirthTeam> }
+  | { type: 'SET_PREFERENCE'; payload: { sectionId: EditorSectionId; preferenceId: string; value: Partial<PreferenceValue> } }
+  | { type: 'ADD_CUSTOM_ITEM'; payload: { sectionId: EditorSectionId; item: Omit<CustomPreferenceItem, 'id' | 'sortOrder'> } }
+  | { type: 'REMOVE_CUSTOM_ITEM'; payload: { sectionId: EditorSectionId; itemId: string } }
+  | { type: 'UPDATE_CUSTOM_ITEM'; payload: { sectionId: EditorSectionId; itemId: string; updates: Partial<CustomPreferenceItem> } }
+  | { type: 'SET_SECTION_NOTES'; payload: { sectionId: EditorSectionId; notes: string } }
+  | { type: 'REORDER_PREFERENCES'; payload: { sectionId: EditorSectionId; preferenceIds: string[] } }
+  | { type: 'REORDER_CUSTOM_ITEMS'; payload: { sectionId: EditorSectionId; itemIds: string[] } }
+  | { type: 'LOAD_STATE'; payload: EditorState }
+  | { type: 'MARK_SAVED'; payload: { id: string; savedAt: string } }
+  | { type: 'RESET' }
