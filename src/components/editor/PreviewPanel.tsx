@@ -3,12 +3,14 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { pdf } from '@react-pdf/renderer'
 import { useEditor } from '@/lib/editor/context'
+import { useAuth } from '@/components/auth/AuthProvider'
 import { editorStateToPDFData } from '@/lib/editor/editorToPdf'
 import { MinimalTemplate } from '@/lib/pdf/templates/minimal'
 import { FloralTemplate } from '@/lib/pdf/templates/floral'
 import { ProfessionalTemplate } from '@/lib/pdf/templates/professional'
 import { ElegantTemplate } from '@/lib/pdf/templates/elegant'
 import { RusticTemplate } from '@/lib/pdf/templates/rustic'
+import { EmailPdfModal } from './EmailPdfModal'
 import { Button } from '@/components/ui/button'
 import {
   Select,
@@ -17,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Loader2, Download, RefreshCw, ZoomOut, Maximize } from 'lucide-react'
+import { Loader2, Download, RefreshCw, ZoomOut, Maximize, Mail } from 'lucide-react'
 import type { TemplateStyle } from '@/types'
 
 const templateMap = {
@@ -32,11 +34,13 @@ type ZoomLevel = 'fit-width' | '100%' | 'fit-page'
 
 export function PreviewPanel() {
   const { state, setTemplate } = useEditor()
+  const { user } = useAuth()
   const [pdfUrl, setPdfUrl] = useState<string | null>(null)
   const [isGenerating, setIsGenerating] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [zoomLevel, setZoomLevel] = useState<ZoomLevel>('fit-width')
   const [isClient, setIsClient] = useState(false)
+  const [showEmailModal, setShowEmailModal] = useState(false)
 
   const debounceTimerRef = useRef<NodeJS.Timeout | undefined>(undefined)
   const iframeRef = useRef<HTMLIFrameElement>(null)
@@ -119,7 +123,7 @@ export function PreviewPanel() {
     setTemplate(value)
   }
 
-  // Handle download
+  // Handle download - for logged-in users only
   const handleDownload = async () => {
     if (!pdfUrl) return
 
@@ -137,6 +141,17 @@ export function PreviewPanel() {
     } catch (err) {
       console.error('Download error:', err)
       setError('Failed to download PDF. Please try again.')
+    }
+  }
+
+  // Handle get PDF button click
+  const handleGetPdf = () => {
+    if (user) {
+      // Logged in - direct download
+      handleDownload()
+    } else {
+      // Not logged in - show email modal
+      setShowEmailModal(true)
     }
   }
 
@@ -236,16 +251,25 @@ export function PreviewPanel() {
               <span className="ml-2 hidden sm:inline">Regenerate</span>
             </Button>
 
-            {/* Download */}
+            {/* Get/Download PDF */}
             <Button
               variant="default"
               size="sm"
-              onClick={handleDownload}
+              onClick={handleGetPdf}
               disabled={!pdfUrl || isGenerating}
               className="min-h-[44px]"
             >
-              <Download className="h-4 w-4" />
-              <span className="ml-2">Download PDF</span>
+              {user ? (
+                <>
+                  <Download className="h-4 w-4" />
+                  <span className="ml-2">Download PDF</span>
+                </>
+              ) : (
+                <>
+                  <Mail className="h-4 w-4" />
+                  <span className="ml-2">Get PDF</span>
+                </>
+              )}
             </Button>
           </div>
         </div>
@@ -285,6 +309,13 @@ export function PreviewPanel() {
           </div>
         )}
       </div>
+
+      {/* Email PDF Modal for anonymous users */}
+      <EmailPdfModal
+        isOpen={showEmailModal}
+        onClose={() => setShowEmailModal(false)}
+        editorState={state}
+      />
     </div>
   )
 }

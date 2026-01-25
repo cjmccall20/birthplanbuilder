@@ -27,19 +27,20 @@ export function SaveStatus({ isSaving, lastSaved, error, isLoggedIn }: SaveStatu
     }
   }, [error])
 
-  // Not logged in - prompt to sign in
+  // Not logged in - encourage free account creation
   if (!isLoggedIn) {
     return (
       <div className="flex items-center gap-2 text-sm text-muted-foreground">
         <LogIn className="h-4 w-4" />
-        <span>Sign in to save</span>
+        <span className="hidden sm:inline">Create a free account to save & edit later</span>
+        <span className="sm:hidden">Free account to save</span>
         <Button
-          variant="ghost"
+          variant="outline"
           size="sm"
-          onClick={() => router.push('/auth/login')}
-          className="h-8 px-3"
+          onClick={() => router.push('/auth/login?redirect=/editor')}
+          className="h-8 px-3 text-primary border-primary hover:bg-primary/10"
         >
-          Sign in
+          Sign Up Free
         </Button>
       </div>
     )
