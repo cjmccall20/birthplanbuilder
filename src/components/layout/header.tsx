@@ -24,10 +24,10 @@ export function Header() {
         </Link>
         <nav className="flex items-center gap-2 sm:gap-6">
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex text-sm font-medium">
-            <Link href="#how-it-works">How It Works</Link>
+            <Link href="/#how-it-works">How It Works</Link>
           </Button>
           <Button asChild variant="ghost" size="sm" className="hidden sm:inline-flex text-sm font-medium">
-            <Link href="#templates">Templates</Link>
+            <Link href="/#templates">Templates</Link>
           </Button>
           <Button asChild size="sm" className="min-h-[44px] text-sm font-medium">
             <Link href="/quiz">Start Plan</Link>

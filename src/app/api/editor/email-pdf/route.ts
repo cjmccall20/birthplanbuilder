@@ -117,7 +117,7 @@ function editorStateToPDFData(state: EditorState): PDFData {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
-    const { email, name, marketingConsent, editorState } = body
+    const { email, name, editorState } = body
 
     console.log('[API] Starting editor PDF email for:', email)
 

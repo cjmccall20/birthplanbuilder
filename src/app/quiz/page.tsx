@@ -13,7 +13,7 @@ function QuizContent() {
 
   useEffect(() => {
     if (isComplete || state.currentStep >= visibleQuestions.length) {
-      router.push('/preview')
+      router.push('/quiz-results')
     }
   }, [isComplete, state.currentStep, visibleQuestions.length, router])
 
