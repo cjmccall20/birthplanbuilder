@@ -12,12 +12,13 @@ import type {
 } from './editorTypes'
 import type { BirthTeam } from '@/types'
 import { SECTION_ORDER } from './sections'
+import { getDefaultPreferencesForSection } from './preferences'
 
-// Initial empty section state
-function createEmptySectionState(sectionId: EditorSectionId): EditorSectionState {
+// Initial section state with default preferences populated
+function createSectionState(sectionId: EditorSectionId): EditorSectionState {
   return {
     sectionId,
-    preferences: [],
+    preferences: getDefaultPreferencesForSection(sectionId) as PreferenceValue[],
     customItems: [],
     notes: '',
   }
@@ -27,7 +28,7 @@ function createEmptySectionState(sectionId: EditorSectionId): EditorSectionState
 function createInitialState(): EditorState {
   const sections = {} as Record<EditorSectionId, EditorSectionState>
   SECTION_ORDER.forEach(id => {
-    sections[id] = createEmptySectionState(id)
+    sections[id] = createSectionState(id)
   })
 
   return {

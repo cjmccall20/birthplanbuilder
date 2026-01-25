@@ -681,3 +681,24 @@ export function getPreferenceById(preferenceId: string): PreferenceDefinition | 
 export function getQuizMappedPreferences(): PreferenceDefinition[] {
   return PREFERENCES.filter(p => p.quizQuestionId)
 }
+
+// Get default preference values for a section
+// Initializes all preferences with their first "popular" option or first option
+export function getDefaultPreferencesForSection(sectionId: string): Array<{
+  preferenceId: string
+  selectedOption: string | null
+  isOmitted: boolean
+  sortOrder: number
+}> {
+  const prefs = getPreferencesBySection(sectionId)
+  return prefs.map((pref, index) => {
+    // Find first popular option, or first option
+    const defaultOption = pref.options.find(o => o.isPopular) || pref.options[0]
+    return {
+      preferenceId: pref.id,
+      selectedOption: defaultOption?.value || null,
+      isOmitted: false,
+      sortOrder: index,
+    }
+  })
+}

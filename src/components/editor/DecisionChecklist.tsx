@@ -116,6 +116,11 @@ function DecisionItem({ preference, sectionId }: DecisionItemProps) {
   const isIncluded = !value?.isOmitted
   const selectedOption = preference.options.find(o => o.value === value?.selectedOption)
 
+  // Get the text that will appear in the birth plan PDF
+  const defaultBirthPlanText = selectedOption?.birthPlanText || ''
+  const currentBirthPlanText = value?.customText || defaultBirthPlanText
+  const hasCustomText = value?.customText && value.customText !== defaultBirthPlanText
+
   const handleToggle = (checked: boolean) => {
     setPreference(sectionId, preference.id, { isOmitted: !checked })
   }
@@ -123,9 +128,21 @@ function DecisionItem({ preference, sectionId }: DecisionItemProps) {
   const handleSelectOption = (optionValue: string) => {
     setPreference(sectionId, preference.id, {
       selectedOption: optionValue,
+      customText: undefined, // Clear custom text when selecting a new option
       isOmitted: false
     })
-    setIsExpanded(false)
+  }
+
+  const handleCustomTextChange = (text: string) => {
+    setPreference(sectionId, preference.id, {
+      customText: text || undefined
+    })
+  }
+
+  const handleResetToDefault = () => {
+    setPreference(sectionId, preference.id, {
+      customText: undefined
+    })
   }
 
   return (
@@ -146,17 +163,22 @@ function DecisionItem({ preference, sectionId }: DecisionItemProps) {
 
         {/* Content */}
         <div className="flex-1 min-w-0">
-          <div className="flex items-center gap-2">
-            <h4 className="font-medium text-sm truncate">{preference.title}</h4>
+          <div className="flex items-center gap-2 flex-wrap">
+            <h4 className="font-medium text-sm">{preference.title}</h4>
             {selectedOption && isIncluded && (
-              <Badge variant="secondary" className="text-xs truncate max-w-[150px]">
+              <Badge variant="secondary" className="text-xs">
                 {selectedOption.label}
               </Badge>
             )}
+            {hasCustomText && (
+              <Badge variant="outline" className="text-xs text-orange-600 border-orange-300">
+                Customized
+              </Badge>
+            )}
           </div>
-          {preference.description && (
-            <p className="text-xs text-muted-foreground truncate">
-              {preference.description}
+          {isIncluded && currentBirthPlanText && (
+            <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
+              &ldquo;{currentBirthPlanText}&rdquo;
             </p>
           )}
         </div>
@@ -183,40 +205,78 @@ function DecisionItem({ preference, sectionId }: DecisionItemProps) {
         </div>
       </div>
 
-      {/* Expanded Options */}
+      {/* Expanded Options & Custom Text */}
       {isExpanded && (
-        <div className="border-t bg-muted/20 p-3">
-          <div className="grid gap-2">
-            {preference.options.map((option) => (
-              <button
-                key={option.value}
-                onClick={() => handleSelectOption(option.value)}
-                className={cn(
-                  'w-full text-left p-3 rounded-md border transition-all',
-                  'hover:bg-muted/50',
-                  value?.selectedOption === option.value
-                    ? 'border-primary bg-primary/5'
-                    : 'border-transparent bg-white'
-                )}
-              >
-                <div className="flex items-center gap-2">
-                  {value?.selectedOption === option.value && (
-                    <Check className="h-4 w-4 text-primary flex-shrink-0" />
+        <div className="border-t bg-muted/20 p-3 space-y-4">
+          {/* Option Selection */}
+          <div>
+            <p className="text-xs font-medium text-muted-foreground mb-2">Select an option:</p>
+            <div className="grid gap-2">
+              {preference.options.map((option) => (
+                <button
+                  key={option.value}
+                  onClick={() => handleSelectOption(option.value)}
+                  className={cn(
+                    'w-full text-left p-3 rounded-md border transition-all',
+                    'hover:bg-muted/50',
+                    value?.selectedOption === option.value
+                      ? 'border-primary bg-primary/5'
+                      : 'border-transparent bg-white'
                   )}
-                  <div className={cn(
-                    value?.selectedOption === option.value ? '' : 'ml-6'
-                  )}>
-                    <span className="font-medium text-sm">{option.label}</span>
-                    {option.birthPlanText && (
-                      <p className="text-xs text-muted-foreground mt-0.5">
-                        {option.birthPlanText}
-                      </p>
+                >
+                  <div className="flex items-center gap-2">
+                    {value?.selectedOption === option.value && (
+                      <Check className="h-4 w-4 text-primary flex-shrink-0" />
                     )}
+                    <div className={cn(
+                      value?.selectedOption === option.value ? '' : 'ml-6'
+                    )}>
+                      <span className="font-medium text-sm">{option.label}</span>
+                      {option.birthPlanText && (
+                        <p className="text-xs text-muted-foreground mt-0.5">
+                          {option.birthPlanText}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-              </button>
-            ))}
+                </button>
+              ))}
+            </div>
           </div>
+
+          {/* Custom Text Editor */}
+          {selectedOption && (
+            <div className="pt-2 border-t">
+              <div className="flex items-center justify-between mb-2">
+                <p className="text-xs font-medium text-muted-foreground">
+                  Customize the text for your birth plan:
+                </p>
+                {hasCustomText && (
+                  <Button
+                    variant="ghost"
+                    size="sm"
+                    className="h-6 px-2 text-xs"
+                    onClick={handleResetToDefault}
+                  >
+                    Reset to default
+                  </Button>
+                )}
+              </div>
+              <textarea
+                value={currentBirthPlanText}
+                onChange={(e) => handleCustomTextChange(e.target.value)}
+                placeholder={defaultBirthPlanText}
+                className={cn(
+                  'w-full min-h-[80px] p-3 rounded-md border bg-white text-sm',
+                  'focus:outline-none focus:ring-2 focus:ring-primary/20 focus:border-primary',
+                  'placeholder:text-muted-foreground/50'
+                )}
+              />
+              <p className="text-xs text-muted-foreground mt-1">
+                This is the exact text that will appear in your birth plan PDF.
+              </p>
+            </div>
+          )}
         </div>
       )}
     </div>
