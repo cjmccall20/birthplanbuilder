@@ -15,13 +15,37 @@ import {
   CheckCircle2,
   HelpCircle,
   ArrowRight,
-  Sparkles,
   FileText,
-  Clock,
   UserPlus,
   Mail,
   Loader2,
+  Heart,
+  Baby,
+  Shield,
+  Stethoscope,
+  Home,
+  Clock,
+  Syringe,
+  Activity,
+  Scissors,
+  AlertTriangle,
+  Quote,
 } from 'lucide-react'
+
+// Topics covered in the guide - comprehensive journey from provider selection to coming home
+const guideTopics = [
+  { icon: Home, title: 'Choosing Your Birth Setting', desc: 'Hospital vs. birth center vs. home' },
+  { icon: Stethoscope, title: 'Understanding Birth Modes', desc: 'Vaginal birth vs. cesarean section' },
+  { icon: Heart, title: 'Pain Management Options', desc: 'From natural techniques to epidurals' },
+  { icon: Clock, title: 'When to Go to the Hospital', desc: 'Timing your arrival perfectly' },
+  { icon: Activity, title: 'Fetal Monitoring', desc: 'Continuous vs. intermittent monitoring' },
+  { icon: Shield, title: 'GBS & Antibiotics', desc: 'Group B Strep testing and treatment' },
+  { icon: Baby, title: 'Skin-to-Skin & Golden Hour', desc: 'The critical first 60 minutes' },
+  { icon: Scissors, title: 'Cord Clamping Timing', desc: 'When to clamp and why it matters' },
+  { icon: Syringe, title: 'Vitamin K & Eye Ointment', desc: 'Newborn procedures explained' },
+  { icon: Shield, title: 'Hepatitis B Vaccine', desc: 'Birth dose considerations' },
+  { icon: Baby, title: 'Circumcision (for boys)', desc: 'The research and considerations' },
+]
 
 function QuizResultsContent() {
   const { state, unsureTopics, setBirthTeam } = useQuiz()
@@ -49,7 +73,6 @@ function QuizResultsContent() {
   }, [name, dueDate, setBirthTeam, state.birthTeam.mother_name, state.birthTeam.due_date])
 
   const handleContinueToEditor = () => {
-    // The quiz context already saves to localStorage, so just navigate
     router.push('/editor?from=quiz')
   }
 
@@ -111,86 +134,136 @@ function QuizResultsContent() {
         </p>
       </div>
 
-      {/* Upsell Section - Only show if they have unsure topics */}
-      {hasUnsureTopics && (
-        <Card className="mb-8 border-amber-200 bg-amber-50">
-          <CardHeader className="pb-4">
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center flex-shrink-0">
-                <HelpCircle className="h-5 w-5 text-amber-600" />
-              </div>
-              <div>
-                <CardTitle className="text-lg text-amber-900">
-                  Still Researching {unsureQuestions.length} Decision{unsureQuestions.length > 1 ? 's' : ''}?
-                </CardTitle>
-                <CardDescription className="text-amber-800">
-                  You marked these topics as needing more research:
-                </CardDescription>
-              </div>
+      {/* Research Guide Upsell - Always show, but personalize if they have unsure topics */}
+      <Card className="mb-8 border-primary/20 bg-gradient-to-br from-primary/5 to-amber-50/50 overflow-hidden">
+        <CardHeader className="pb-4">
+          <div className="flex items-start gap-4">
+            <div className="w-14 h-14 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <BookOpen className="h-7 w-7 text-primary" />
             </div>
-          </CardHeader>
-          <CardContent className="pt-0">
-            {/* List of unsure topics */}
-            <ul className="space-y-2 mb-6">
-              {unsureQuestions.map((q) => (
-                <li key={q.id} className="flex items-center gap-2 text-sm text-amber-900">
-                  <HelpCircle className="h-4 w-4 text-amber-500 flex-shrink-0" />
-                  <span>{q.title}</span>
-                </li>
-              ))}
-            </ul>
-
-            {/* Research Guide Pitch */}
-            <div className="bg-white rounded-lg p-4 sm:p-6 border border-amber-200">
-              <div className="flex items-start gap-4">
-                <div className="hidden sm:flex w-12 h-12 rounded-lg bg-primary/10 items-center justify-center flex-shrink-0">
-                  <BookOpen className="h-6 w-6 text-primary" />
-                </div>
-                <div className="flex-1">
-                  <h3 className="font-semibold text-lg mb-2">
-                    Birth Decision Research Guide
-                  </h3>
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Get balanced pros and cons for each decision, with citations to medical research.
-                    No need to read the studies yourself — we've done the work so you can make informed choices confidently.
+            <div className="flex-1">
+              <CardTitle className="text-xl sm:text-2xl text-foreground mb-1">
+                The Birth Decisions Research Guide
+              </CardTitle>
+              <CardDescription className="text-base text-muted-foreground">
+                What They Don&apos;t Tell You at the Hospital
+              </CardDescription>
+            </div>
+          </div>
+        </CardHeader>
+        <CardContent className="space-y-6">
+          {/* Personalized message if they have unsure topics */}
+          {hasUnsureTopics && (
+            <div className="bg-amber-100/50 border border-amber-200 rounded-lg p-4">
+              <div className="flex items-start gap-3">
+                <AlertTriangle className="h-5 w-5 text-amber-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <p className="font-medium text-amber-900 mb-2">
+                    You marked {unsureQuestions.length} decision{unsureQuestions.length > 1 ? 's' : ''} as needing more research:
                   </p>
-
-                  <div className="grid gap-2 sm:grid-cols-2 mb-4">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Sparkles className="h-4 w-4 text-primary" />
-                      <span>Evidence-based insights</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <FileText className="h-4 w-4 text-primary" />
-                      <span>All {quizQuestions.length} decisions covered</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <Clock className="h-4 w-4 text-primary" />
-                      <span>Save hours of research</span>
-                    </div>
-                    <div className="flex items-center gap-2 text-sm">
-                      <CheckCircle2 className="h-4 w-4 text-primary" />
-                      <span>Written at your level</span>
-                    </div>
-                  </div>
-
-                  <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
-                    <Button asChild size="lg" className="min-h-[44px]">
-                      <a href="https://birthplanbuilder.com/guide" target="_blank" rel="noopener noreferrer">
-                        Get the Research Guide - $39
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
-                    </Button>
-                    <span className="text-xs text-muted-foreground">
-                      Instant PDF download
-                    </span>
-                  </div>
+                  <ul className="space-y-1">
+                    {unsureQuestions.map((q) => (
+                      <li key={q.id} className="flex items-center gap-2 text-sm text-amber-800">
+                        <HelpCircle className="h-3.5 w-3.5 text-amber-500 flex-shrink-0" />
+                        <span>{q.title}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </div>
             </div>
-          </CardContent>
-        </Card>
-      )}
+          )}
+
+          {/* Introduction quote */}
+          <div className="relative pl-4 border-l-4 border-primary/30">
+            <Quote className="absolute -left-3 -top-2 h-6 w-6 text-primary/20" />
+            <p className="text-muted-foreground italic">
+              &quot;Your decisions matter. The choices you make during pregnancy and childbirth <em>do</em> lead to different outcomes.
+              Different approaches carry different risks, different benefits, different trade-offs. This isn&apos;t about blame—it&apos;s about information.
+              It&apos;s about going into one of the most significant experiences of your life with your eyes open.&quot;
+            </p>
+          </div>
+
+          {/* What the guide offers */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg">What You&apos;ll Get</h3>
+            <div className="grid gap-3 text-sm">
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">Both sides of every decision</span>
+                  <span className="text-muted-foreground"> — what your doctor will likely recommend AND what they often don&apos;t mention</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">Research citations you can verify</span>
+                  <span className="text-muted-foreground"> — bring them to your provider for an informed conversation</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">Written at your level</span>
+                  <span className="text-muted-foreground"> — no need to read medical studies yourself (unless you want to)</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">The BRAIN framework</span>
+                  <span className="text-muted-foreground"> — how to evaluate any intervention in the moment (Benefits, Risks, Alternatives, Intuition, Nothing/wait)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Topics covered */}
+          <div className="space-y-4">
+            <h3 className="font-semibold text-lg">Your Complete Journey — From Provider Selection to Coming Home</h3>
+            <div className="grid gap-2 sm:grid-cols-2">
+              {guideTopics.map((topic, i) => (
+                <div key={i} className="flex items-center gap-2 text-sm bg-white/50 rounded-lg p-2">
+                  <topic.icon className="h-4 w-4 text-primary flex-shrink-0" />
+                  <div>
+                    <span className="font-medium">{topic.title}</span>
+                    {topic.desc && (
+                      <span className="text-muted-foreground hidden sm:inline"> — {topic.desc}</span>
+                    )}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* The goal */}
+          <div className="bg-white/70 rounded-lg p-4 border border-primary/10">
+            <p className="text-center">
+              <span className="font-semibold">The goal—the only goal that really matters—is a healthy baby and a healthy mom.</span>
+              <br />
+              <span className="text-muted-foreground text-sm">
+                But &quot;healthy&quot; means more than survival. It means a mother who feels respected and heard.
+                A baby who gets the gentlest possible entry into the world. A family that emerges feeling empowered rather than traumatized.
+              </span>
+            </p>
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-col sm:flex-row gap-4 items-center justify-center pt-2">
+            <Button asChild size="lg" className="min-h-[52px] text-base px-8">
+              <a href="https://birthplanbuilder.com/guide" target="_blank" rel="noopener noreferrer">
+                Get the Research Guide — $39
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </a>
+            </Button>
+            <div className="text-center sm:text-left">
+              <p className="text-sm font-medium">Instant PDF Download</p>
+              <p className="text-xs text-muted-foreground">Save hours of research</p>
+            </div>
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Email Entry Section */}
       <Card className="mb-6">
@@ -298,10 +371,10 @@ function QuizResultsContent() {
             <div className="flex-1">
               <h3 className="font-semibold mb-1">Want to Save & Edit Later?</h3>
               <p className="text-sm text-muted-foreground">
-                Create a <strong>free account</strong> to save your birth plan and come back to edit it anytime.
+                Create a <strong>free account</strong> to save your birth plan and come back to edit it anytime as your preferences evolve.
               </p>
               <p className="text-xs text-muted-foreground mt-1">
-                100% Free - No Credit Card Required
+                100% Free — No Credit Card Required
               </p>
             </div>
             <Button
