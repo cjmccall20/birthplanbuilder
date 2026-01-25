@@ -16,7 +16,7 @@ interface GeneratePreviewOptions {
  * This function is designed for browser use, unlike the server-side generateBirthPlanPDF
  */
 export async function generatePDFPreview(options: GeneratePreviewOptions): Promise<string> {
-  const { answers, customNotes, birthTeam, templateStyle, questions } = options
+  const { answers, customNotes, birthTeam, questions } = options
 
   // Build the birth plan content
   const planContent = questions

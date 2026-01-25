@@ -17,7 +17,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
-import { Loader2, Download, RefreshCw, ZoomIn, ZoomOut, Maximize } from 'lucide-react'
+import { Loader2, Download, RefreshCw, ZoomOut, Maximize } from 'lucide-react'
 import type { TemplateStyle } from '@/types'
 
 const templateMap = {

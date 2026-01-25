@@ -3,7 +3,6 @@
 import { useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import { QuizProvider, useQuiz } from '@/lib/quiz/context'
-import { quizQuestions } from '@/lib/quiz/questions'
 import { Header } from '@/components/layout/header'
 import { QuestionCard } from '@/components/quiz/question-card'
 import { QuizProgressBar } from '@/components/quiz/progress-bar'

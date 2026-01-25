@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 import { Header } from '@/components/layout/header'
 import { Footer } from '@/components/layout/footer'
@@ -9,34 +9,34 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { CheckCircle2, Mail, Download, Share2, BookOpen, ArrowRight, Printer, Link2, CheckCircle, Sparkles } from 'lucide-react'
 import { quizQuestions } from '@/lib/quiz/questions'
 
+// Helper function to get initial email from localStorage
+function getInitialEmail(): string {
+  if (typeof window === 'undefined') return ''
+  return localStorage.getItem('birthplan_email') || ''
+}
+
+// Helper function to get initial unsure topics from localStorage
+function getInitialUnsureTopics(): string[] {
+  if (typeof window === 'undefined') return []
+  const savedState = localStorage.getItem('birthplan_quiz_state')
+  if (!savedState) return []
+  try {
+    const state = JSON.parse(savedState)
+    return Object.entries(state.answers)
+      .filter(([, answer]) => answer === 'unsure')
+      .map(([questionId]) => {
+        const question = quizQuestions.find(q => q.id === questionId)
+        return question ? question.title : questionId
+      })
+  } catch {
+    return []
+  }
+}
+
 export default function SuccessPage() {
-  const [email, setEmail] = useState('')
-  const [unsureTopics, setUnsureTopics] = useState<string[]>([])
+  const [email] = useState(getInitialEmail)
+  const [unsureTopics] = useState(getInitialUnsureTopics)
   const [copied, setCopied] = useState(false)
-
-  useEffect(() => {
-    const storedEmail = localStorage.getItem('birthplan_email')
-    if (storedEmail) {
-      setEmail(storedEmail)
-    }
-
-    // Get unsure topics from quiz state
-    const savedState = localStorage.getItem('birthplan_quiz_state')
-    if (savedState) {
-      try {
-        const state = JSON.parse(savedState)
-        const unsure = Object.entries(state.answers)
-          .filter(([, answer]) => answer === 'unsure')
-          .map(([questionId]) => {
-            const question = quizQuestions.find(q => q.id === questionId)
-            return question ? question.title : questionId
-          })
-        setUnsureTopics(unsure)
-      } catch {
-        // ignore parse errors
-      }
-    }
-  }, [])
 
   const handleCopyLink = async () => {
     const url = window.location.origin

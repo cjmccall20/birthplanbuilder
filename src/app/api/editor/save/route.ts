@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
-import type { EditorState, EditorSectionId } from '@/lib/editor/editorTypes'
+import type { EditorState } from '@/lib/editor/editorTypes'
 import type { BirthTeam } from '@/types'
 
 // Define the payload type (EditorState minus UI-only fields)

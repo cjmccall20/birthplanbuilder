@@ -1,10 +1,10 @@
 import { useEffect, useRef, useState } from 'react'
 import type { User } from '@supabase/supabase-js'
-import type { EditorState } from './editorTypes'
+import type { EditorState, EditorAction } from './editorTypes'
 
 interface UseAutoSaveOptions {
   state: EditorState
-  dispatch: React.Dispatch<any>
+  dispatch: React.Dispatch<EditorAction>
   user: User | null
   isLoading: boolean
 }

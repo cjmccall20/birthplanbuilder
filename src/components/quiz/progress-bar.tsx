@@ -1,7 +1,7 @@
 'use client'
 
 import { useQuiz } from '@/lib/quiz/context'
-import { quizQuestions, getCategories } from '@/lib/quiz/questions'
+import { getCategories } from '@/lib/quiz/questions'
 import { Progress } from '@/components/ui/progress'
 
 export function QuizProgressBar() {

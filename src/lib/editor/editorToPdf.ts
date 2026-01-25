@@ -1,6 +1,6 @@
 import type { EditorState } from './editorTypes'
 import type { BirthTeam } from '@/types'
-import { PREFERENCES, getPreferenceById } from './preferences'
+import { getPreferenceById } from './preferences'
 import { EDITOR_SECTIONS } from './sections'
 
 /**

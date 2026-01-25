@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { useEditor } from '@/lib/editor/context'
-import { EDITOR_SECTIONS, getSectionById } from '@/lib/editor/sections'
+import { EDITOR_SECTIONS } from '@/lib/editor/sections'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
@@ -20,7 +20,6 @@ import {
   Plus,
   GripVertical,
 } from 'lucide-react'
-import { cn } from '@/lib/utils'
 
 // Map section icon names to lucide-react components
 const ICON_MAP = {

@@ -1,4 +1,4 @@
-import type { QuizState } from '@/types'
+import type { QuizState, TemplateStyle } from '@/types'
 import type { EditorState, EditorSectionId, PreferenceValue, EditorSectionState } from './editorTypes'
 import { PREFERENCES, getQuizMappedPreferences } from './preferences'
 import { SECTION_ORDER } from './sections'
@@ -56,7 +56,7 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
 
   return {
     birthTeam: quizState.birthTeam,
-    templateStyle: (quizState.templateStyle || 'minimal') as any,
+    templateStyle: (quizState.templateStyle || 'minimal') as TemplateStyle,
     sections,
     createdFromQuiz: true,
     title: quizState.birthTeam.mother_name
