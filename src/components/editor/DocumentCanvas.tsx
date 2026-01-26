@@ -15,8 +15,10 @@ import {
 } from '@/components/ui/select'
 import { templateStyles } from '@/types'
 import { Download, Mail, Settings, ChevronRight } from 'lucide-react'
+import * as Icons from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
+import { canvasThemes } from '@/lib/editor/canvasThemes'
 
 interface CanvasItem {
   sectionId: EditorSectionId
@@ -25,6 +27,49 @@ interface CanvasItem {
   birthPlanText: string
   isCustomItem?: boolean
   customItemId?: string
+  baseIcon?: string
+  optionIcon?: string
+}
+
+// Helper to get Lucide icon component by name
+function getLucideIcon(iconName?: string) {
+  if (!iconName) return null
+  const IconComponent = (Icons as any)[iconName]
+  return IconComponent || null
+}
+
+// Component to display an icon with an overlay badge
+function IconWithOverlay({
+  baseIcon,
+  overlayIcon,
+  color
+}: {
+  baseIcon?: string
+  overlayIcon?: string
+  color: string
+}) {
+  const BaseIcon = getLucideIcon(baseIcon)
+  const OverlayIcon = getLucideIcon(overlayIcon)
+
+  if (!BaseIcon) return null
+
+  return (
+    <div className="relative flex-shrink-0" style={{ width: '20px', height: '20px' }}>
+      <BaseIcon className="w-5 h-5" style={{ color }} />
+      {OverlayIcon && (
+        <div
+          className="absolute -bottom-1 -right-1 bg-white rounded-full flex items-center justify-center"
+          style={{
+            width: '12px',
+            height: '12px',
+            border: `1px solid ${color}`
+          }}
+        >
+          <OverlayIcon className="w-2.5 h-2.5" style={{ color }} />
+        </div>
+      )}
+    </div>
+  )
 }
 
 interface DocumentCanvasProps {
@@ -45,7 +90,10 @@ export function DocumentCanvas({
   const { state, setPreference, setTemplate, setBirthTeam, setTitle } = useEditor()
   const [editingItem, setEditingItem] = useState<string | null>(null)
   const [editText, setEditText] = useState('')
+  const [editingTitle, setEditingTitle] = useState<string | null>(null)
+  const [editTitleText, setEditTitleText] = useState('')
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+  const titleInputRef = useRef<HTMLInputElement>(null)
 
   // Process editor state into canvas items grouped by section
   const groupedContent = useCallback(() => {
@@ -80,8 +128,10 @@ export function DocumentCanvas({
         items.push({
           sectionId: section.id,
           preferenceId: prefValue.preferenceId,
-          title: prefDef.title,
+          title: prefValue.customTitle || prefDef.title,
           birthPlanText,
+          baseIcon: prefDef.icon,
+          optionIcon: selectedOption?.icon,
         })
       })
 
@@ -109,6 +159,7 @@ export function DocumentCanvas({
   }, [state.sections])
 
   const content = groupedContent()
+  const theme = canvasThemes[state.templateStyle]
 
   // Handle click on item to edit
   const handleItemClick = (item: CanvasItem) => {
@@ -144,6 +195,34 @@ export function DocumentCanvas({
     }
   }
 
+  // Handle title click to edit
+  const handleTitleClick = (item: CanvasItem, e: React.MouseEvent) => {
+    e.stopPropagation()
+    setEditingTitle(item.preferenceId)
+    setEditTitleText(item.title)
+  }
+
+  // Save title edit
+  const handleSaveTitleEdit = (item: CanvasItem) => {
+    if (!item.isCustomItem) {
+      setPreference(item.sectionId, item.preferenceId, {
+        customTitle: editTitleText || undefined
+      })
+    }
+    setEditingTitle(null)
+  }
+
+  // Handle title key press
+  const handleTitleKeyDown = (e: React.KeyboardEvent, item: CanvasItem) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      handleSaveTitleEdit(item)
+    }
+    if (e.key === 'Escape') {
+      setEditingTitle(null)
+    }
+  }
+
   // Focus textarea when entering edit mode
   useEffect(() => {
     if (editingItem && textareaRef.current) {
@@ -151,6 +230,14 @@ export function DocumentCanvas({
       textareaRef.current.select()
     }
   }, [editingItem])
+
+  // Focus title input when entering title edit mode
+  useEffect(() => {
+    if (editingTitle && titleInputRef.current) {
+      titleInputRef.current.focus()
+      titleInputRef.current.select()
+    }
+  }, [editingTitle])
 
   // Format due date
   const formattedDueDate = state.birthTeam.due_date
@@ -200,11 +287,23 @@ export function DocumentCanvas({
 
       {/* Document Canvas */}
       <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
-        <div className="max-w-[650px] mx-auto bg-white shadow-lg rounded-sm">
+        <div
+          className="max-w-[650px] mx-auto shadow-lg rounded-sm"
+          style={{ backgroundColor: theme.backgroundColor }}
+        >
           {/* Document Content */}
-          <div className="p-8 md:p-12" style={{ fontFamily: 'Georgia, serif' }}>
+          <div
+            className="p-8 md:p-12"
+            style={{
+              fontFamily: theme.fontFamily,
+              color: theme.textColor
+            }}
+          >
             {/* Header */}
-            <div className="text-center border-b-2 border-primary/30 pb-6 mb-8">
+            <div
+              className="text-center pb-6 mb-8 border-b-2"
+              style={{ borderColor: theme.borderColor }}
+            >
               {/* Editable Title */}
               <Input
                 value={state.title}
@@ -222,7 +321,7 @@ export function DocumentCanvas({
               />
 
               {formattedDueDate && (
-                <p className="text-sm text-muted-foreground mt-2">
+                <p className="text-sm mt-2" style={{ color: theme.textColor, opacity: 0.7 }}>
                   Due Date: {formattedDueDate}
                 </p>
               )}
@@ -230,29 +329,32 @@ export function DocumentCanvas({
               {/* Birth Team Info */}
               {(state.birthTeam.partner_name || state.birthTeam.provider_name ||
                 state.birthTeam.hospital_name || state.birthTeam.doula_name) && (
-                <div className="mt-4 p-4 bg-primary/5 rounded-md text-sm text-left">
+                <div
+                  className="mt-4 p-4 rounded-md text-sm text-left"
+                  style={{ backgroundColor: theme.sectionHeaderBg }}
+                >
                   {state.birthTeam.partner_name && (
                     <div className="flex gap-2">
-                      <span className="font-semibold w-24 text-muted-foreground">Partner:</span>
-                      <span>{state.birthTeam.partner_name}</span>
+                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Partner:</span>
+                      <span style={{ color: theme.textColor }}>{state.birthTeam.partner_name}</span>
                     </div>
                   )}
                   {state.birthTeam.provider_name && (
                     <div className="flex gap-2">
-                      <span className="font-semibold w-24 text-muted-foreground">Provider:</span>
-                      <span>{state.birthTeam.provider_name}</span>
+                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Provider:</span>
+                      <span style={{ color: theme.textColor }}>{state.birthTeam.provider_name}</span>
                     </div>
                   )}
                   {state.birthTeam.hospital_name && (
                     <div className="flex gap-2">
-                      <span className="font-semibold w-24 text-muted-foreground">Location:</span>
-                      <span>{state.birthTeam.hospital_name}</span>
+                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Location:</span>
+                      <span style={{ color: theme.textColor }}>{state.birthTeam.hospital_name}</span>
                     </div>
                   )}
                   {state.birthTeam.doula_name && (
                     <div className="flex gap-2">
-                      <span className="font-semibold w-24 text-muted-foreground">Doula:</span>
-                      <span>{state.birthTeam.doula_name}</span>
+                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Doula:</span>
+                      <span style={{ color: theme.textColor }}>{state.birthTeam.doula_name}</span>
                     </div>
                   )}
                 </div>
@@ -262,7 +364,14 @@ export function DocumentCanvas({
             {/* Content Sections */}
             {Object.entries(content).map(([category, items]) => (
               <div key={category} className="mb-8">
-                <h2 className="text-lg font-semibold text-primary border-b border-gray-200 pb-2 mb-4">
+                <h2
+                  className="text-lg font-semibold pb-2 mb-4 border-b"
+                  style={{
+                    color: theme.primaryColor,
+                    borderColor: theme.borderColor,
+                    backgroundColor: theme.sectionHeaderBg
+                  }}
+                >
                   {category}
                 </h2>
                 <div className="space-y-4">
@@ -272,19 +381,60 @@ export function DocumentCanvas({
                       className={cn(
                         'group pl-3 border-l-2 transition-all cursor-pointer',
                         editingItem === item.preferenceId
-                          ? 'border-primary bg-primary/5 py-2 px-3 -mx-3 rounded-r'
+                          ? 'py-2 px-3 -mx-3 rounded-r'
                           : selectedPreferenceId === item.preferenceId
-                          ? 'border-primary/50 bg-primary/5 py-1'
-                          : 'border-transparent hover:border-primary/30 hover:bg-gray-50'
+                          ? 'py-1'
+                          : 'border-transparent'
                       )}
+                      style={{
+                        borderColor: editingItem === item.preferenceId
+                          ? theme.primaryColor
+                          : selectedPreferenceId === item.preferenceId
+                          ? `${theme.primaryColor}80`
+                          : 'transparent',
+                        backgroundColor: editingItem === item.preferenceId || selectedPreferenceId === item.preferenceId
+                          ? theme.sectionHeaderBg
+                          : 'transparent'
+                      }}
                       onClick={() => editingItem !== item.preferenceId && handleItemClick(item)}
                       onDoubleClick={() => handleItemDoubleClick(item)}
                     >
                       <div className="flex items-start gap-2">
+                        {/* Icon with overlay */}
+                        {(item.baseIcon || item.optionIcon) && (
+                          <div className="mt-0.5">
+                            <IconWithOverlay
+                              baseIcon={item.baseIcon}
+                              overlayIcon={item.optionIcon}
+                              color={theme.primaryColor}
+                            />
+                          </div>
+                        )}
                         <div className="flex-1">
-                          <p className="font-semibold text-sm text-gray-700 mb-0.5">
-                            {item.title}
-                          </p>
+                          {editingTitle === item.preferenceId ? (
+                            <input
+                              ref={titleInputRef}
+                              value={editTitleText}
+                              onChange={(e) => setEditTitleText(e.target.value)}
+                              onBlur={() => handleSaveTitleEdit(item)}
+                              onKeyDown={(e) => handleTitleKeyDown(e, item)}
+                              className="w-full font-semibold text-sm mb-0.5 p-1 border rounded focus:ring-2"
+                              style={{
+                                color: theme.textColor,
+                                borderColor: theme.borderColor,
+                                backgroundColor: 'transparent'
+                              }}
+                              placeholder="Enter title..."
+                            />
+                          ) : (
+                            <p
+                              className="font-semibold text-sm mb-0.5 cursor-text hover:bg-gray-50 rounded px-1 py-0.5 -mx-1"
+                              style={{ color: theme.textColor }}
+                              onClick={(e) => handleTitleClick(item, e)}
+                            >
+                              {item.title}
+                            </p>
+                          )}
                           {editingItem === item.preferenceId ? (
                             <textarea
                               ref={textareaRef}
@@ -292,11 +442,15 @@ export function DocumentCanvas({
                               onChange={(e) => setEditText(e.target.value)}
                               onBlur={() => handleSaveEdit(item)}
                               onKeyDown={(e) => handleKeyDown(e, item)}
-                              className="w-full min-h-[60px] p-2 text-sm border rounded-md focus:ring-2 focus:ring-primary/20 focus:border-primary resize-none"
+                              className="w-full min-h-[60px] p-2 text-sm border rounded-md focus:ring-2 resize-none"
+                              style={{
+                                color: theme.textColor,
+                                borderColor: theme.borderColor
+                              }}
                               placeholder="Enter your preference..."
                             />
                           ) : (
-                            <p className="text-sm text-gray-600 leading-relaxed">
+                            <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
                               {item.birthPlanText}
                             </p>
                           )}
@@ -305,19 +459,24 @@ export function DocumentCanvas({
                           <Button
                             variant="ghost"
                             size="sm"
-                            className="opacity-0 group-hover:opacity-100 h-6 w-6 p-0 flex-shrink-0"
+                            className="opacity-0 group-hover:opacity-100 h-10 w-10 p-0 flex-shrink-0"
                             onClick={(e) => {
                               e.stopPropagation()
                               handleItemDoubleClick(item)
                             }}
                             title="Edit options"
                           >
-                            <ChevronRight className="h-4 w-4" />
+                            <ChevronRight className="h-5 w-5" />
                           </Button>
                         )}
                       </div>
                       {editingItem === item.preferenceId && (
-                        <p className="text-xs text-muted-foreground mt-1">
+                        <p className="text-xs mt-1" style={{ color: theme.textColor, opacity: 0.6 }}>
+                          Press Enter to save, Escape to cancel
+                        </p>
+                      )}
+                      {editingTitle === item.preferenceId && (
+                        <p className="text-xs mt-1" style={{ color: theme.textColor, opacity: 0.6 }}>
                           Press Enter to save, Escape to cancel
                         </p>
                       )}
@@ -329,14 +488,21 @@ export function DocumentCanvas({
 
             {/* Empty State */}
             {Object.keys(content).length === 0 && (
-              <div className="text-center py-12 text-muted-foreground">
+              <div className="text-center py-12" style={{ color: theme.textColor, opacity: 0.6 }}>
                 <p>Your birth plan is empty.</p>
                 <p className="text-sm mt-1">Use the options panel to add decisions.</p>
               </div>
             )}
 
             {/* Disclaimer */}
-            <div className="mt-8 p-4 bg-gray-50 rounded-md text-xs text-gray-500 leading-relaxed">
+            <div
+              className="mt-8 p-4 rounded-md text-xs leading-relaxed"
+              style={{
+                backgroundColor: theme.sectionHeaderBg,
+                color: theme.textColor,
+                opacity: 0.8
+              }}
+            >
               This birth plan represents my preferences for labor and delivery. I understand
               that circumstances may change and medical decisions may need to be made for
               the safety of myself and my baby. I trust my care team to keep us informed
@@ -344,7 +510,7 @@ export function DocumentCanvas({
             </div>
 
             {/* Footer */}
-            <div className="mt-6 text-center text-xs text-gray-400">
+            <div className="mt-6 text-center text-xs" style={{ color: theme.textColor, opacity: 0.5 }}>
               Created with Birth Plan Builder | birthplanbuilder.com
             </div>
           </div>

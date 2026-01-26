@@ -23,6 +23,7 @@ export interface PreferenceOption {
   label: string
   birthPlanText: string // Text that appears in the PDF
   isPopular?: boolean // For sorting common options to top
+  icon?: string // Lucide icon name for this specific choice
 }
 
 export interface PreferenceDefinition {
@@ -40,6 +41,7 @@ export interface PreferenceValue {
   preferenceId: string
   selectedOption: string | null // null = using custom text only
   customText?: string
+  customTitle?: string
   isOmitted: boolean
   sortOrder: number
 }

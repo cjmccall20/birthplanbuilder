@@ -168,8 +168,8 @@ export function MinimalTemplate({ birthTeam, groupedContent }: MinimalTemplatePr
         </View>
 
         {/* Content Sections */}
-        {Object.entries(groupedContent).map(([category, items]) => (
-          <View key={category} style={styles.section}>
+        {Object.entries(groupedContent).map(([category, items], index) => (
+          <View key={category} style={styles.section} break={index > 0}>
             <Text style={styles.sectionTitle}>{category}</Text>
             {items.map((item, index) => (
               <View key={index} style={styles.item}>

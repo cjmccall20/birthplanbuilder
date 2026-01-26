@@ -241,8 +241,8 @@ export function FloralTemplate({ birthTeam, groupedContent }: FloralTemplateProp
         </View>
 
         {/* Content Sections */}
-        {Object.entries(groupedContent).map(([category, items]) => (
-          <View key={category} style={styles.section}>
+        {Object.entries(groupedContent).map(([category, items], index) => (
+          <View key={category} style={styles.section} break={index > 0}>
             <View style={styles.sectionDecoration}>
               <View style={styles.decorativeLine} />
               <Text style={styles.sectionTitleText}>{category}</Text>

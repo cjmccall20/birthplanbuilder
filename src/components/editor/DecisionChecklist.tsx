@@ -6,6 +6,7 @@ import { Button } from '@/components/ui/button'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
+import { Tabs, TabsList, TabsTrigger, TabsContent } from '@/components/ui/tabs'
 import { cn } from '@/lib/utils'
 import { useEditor } from '@/lib/editor/context'
 import { PREFERENCES, getPreferencesBySection } from '@/lib/editor/preferences'
@@ -106,23 +107,27 @@ interface DecisionItemProps {
   preference: PreferenceDefinition
   sectionId: EditorSectionId
   isSelected?: boolean
+  isExpanded: boolean
+  onToggleExpand: () => void
 }
 
-function DecisionItem({ preference, sectionId, isSelected }: DecisionItemProps) {
+function DecisionItem({ preference, sectionId, isSelected, isExpanded, onToggleExpand }: DecisionItemProps) {
   const { state, setPreference } = useEditor()
-  const [isExpanded, setIsExpanded] = useState(false)
   const itemRef = useRef<HTMLDivElement>(null)
+  const [showLearnMore, setShowLearnMore] = useState(false)
 
   // Auto-expand and scroll into view when selected
   useEffect(() => {
+    if (isSelected && !isExpanded) {
+      onToggleExpand()
+    }
     if (isSelected) {
-      setIsExpanded(true)
       // Scroll into view after a brief delay to allow expansion
       setTimeout(() => {
         itemRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
       }, 100)
     }
-  }, [isSelected])
+  }, [isSelected, isExpanded, onToggleExpand])
 
   const section = state.sections[sectionId]
   const value = section?.preferences.find(p => p.preferenceId === preference.id)
@@ -209,7 +214,7 @@ function DecisionItem({ preference, sectionId, isSelected }: DecisionItemProps) 
             variant="ghost"
             size="sm"
             className="h-8 w-8 p-0"
-            onClick={() => setIsExpanded(!isExpanded)}
+            onClick={onToggleExpand}
           >
             {isExpanded ? (
               <ChevronDown className="h-4 w-4" />
@@ -259,6 +264,30 @@ function DecisionItem({ preference, sectionId, isSelected }: DecisionItemProps) 
             </div>
           </div>
 
+          {/* Learn More Section */}
+          {preference.description && preference.description.length > 100 && (
+            <div className="pt-2 border-t">
+              <button
+                onClick={() => setShowLearnMore(!showLearnMore)}
+                className="flex items-center gap-2 text-sm text-primary hover:text-primary/80 transition-colors"
+              >
+                <span className="font-medium">Learn more</span>
+                {showLearnMore ? (
+                  <ChevronDown className="h-4 w-4" />
+                ) : (
+                  <ChevronRight className="h-4 w-4" />
+                )}
+              </button>
+              {showLearnMore && (
+                <div className="mt-2 p-3 bg-muted/30 rounded-md">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
+                    {preference.description}
+                  </p>
+                </div>
+              )}
+            </div>
+          )}
+
           {/* Custom Text Editor */}
           {selectedOption && (
             <div className="pt-2 border-t">
@@ -305,9 +334,20 @@ interface SectionGroupProps {
   preferences: PreferenceDefinition[]
   defaultExpanded?: boolean
   selectedPreferenceId?: string | null
+  expandedItemId: string | null
+  onToggleItem: (itemId: string) => void
 }
 
-function SectionGroup({ sectionId, title, icon, preferences, defaultExpanded = true, selectedPreferenceId }: SectionGroupProps) {
+function SectionGroup({
+  sectionId,
+  title,
+  icon,
+  preferences,
+  defaultExpanded = true,
+  selectedPreferenceId,
+  expandedItemId,
+  onToggleItem
+}: SectionGroupProps) {
   const [isExpanded, setIsExpanded] = useState(defaultExpanded)
   const { state } = useEditor()
 
@@ -364,6 +404,8 @@ function SectionGroup({ sectionId, title, icon, preferences, defaultExpanded = t
                 preference={preference}
                 sectionId={sectionId}
                 isSelected={selectedPreferenceId === preference.id}
+                isExpanded={expandedItemId === preference.id}
+                onToggleExpand={() => onToggleItem(preference.id)}
               />
             ))}
           </div>
@@ -381,7 +423,19 @@ interface DecisionChecklistProps {
 export function DecisionChecklist({ selectedPreferenceId, onClearSelection }: DecisionChecklistProps) {
   const [searchQuery, setSearchQuery] = useState('')
   const [showOnlyIncluded, setShowOnlyIncluded] = useState(false)
+  const [activeTab, setActiveTab] = useState('all')
+  const [expandedItemId, setExpandedItemId] = useState<string | null>(null)
   const { state } = useEditor()
+
+  // Reset expanded item when tab changes
+  useEffect(() => {
+    setExpandedItemId(null)
+  }, [activeTab])
+
+  // Handler for toggling item expansion (accordion behavior)
+  const handleToggleItem = (itemId: string) => {
+    setExpandedItemId(prev => prev === itemId ? null : itemId)
+  }
 
   // Group preferences by section
   const sections = useMemo(() => {
@@ -453,26 +507,86 @@ export function DecisionChecklist({ selectedPreferenceId, onClearSelection }: De
         </div>
       </div>
 
-      {/* Section Groups */}
-      <div className="space-y-4">
-        {sections.map((section, index) => (
-          <SectionGroup
-            key={section.id}
-            sectionId={section.id}
-            title={section.title}
-            icon={section.icon}
-            preferences={section.preferences}
-            defaultExpanded={index === 0}
-            selectedPreferenceId={selectedPreferenceId}
-          />
-        ))}
-      </div>
+      {/* Tab Navigation */}
+      <Tabs value={activeTab} onValueChange={setActiveTab} className="w-full">
+        <TabsList className="flex flex-wrap h-auto gap-1 bg-transparent">
+          <TabsTrigger value="all" className="data-[state=active]:bg-primary/10">
+            All
+          </TabsTrigger>
+          {EDITOR_SECTIONS.map(section => (
+            <TabsTrigger key={section.id} value={section.id} className="data-[state=active]:bg-primary/10">
+              <IconDisplay name={section.icon} className="h-4 w-4 mr-1" />
+              <span className="hidden sm:inline text-xs">{section.title.split(' ')[0]}</span>
+            </TabsTrigger>
+          ))}
+        </TabsList>
 
-      {sections.length === 0 && (
-        <div className="text-center py-12 text-muted-foreground">
-          <p>No decisions match your search.</p>
-        </div>
-      )}
+        {/* All Sections Tab */}
+        <TabsContent value="all" className="mt-4">
+          <div className="space-y-4">
+            {sections.map((section, index) => (
+              <SectionGroup
+                key={section.id}
+                sectionId={section.id}
+                title={section.title}
+                icon={section.icon}
+                preferences={section.preferences}
+                defaultExpanded={index === 0}
+                selectedPreferenceId={selectedPreferenceId}
+                expandedItemId={expandedItemId}
+                onToggleItem={handleToggleItem}
+              />
+            ))}
+          </div>
+          {sections.length === 0 && (
+            <div className="text-center py-12 text-muted-foreground">
+              <p>No decisions match your search.</p>
+            </div>
+          )}
+        </TabsContent>
+
+        {/* Individual Section Tabs */}
+        {EDITOR_SECTIONS.map(section => {
+          const filteredPreferences = getPreferencesBySection(section.id).filter(pref => {
+            // Filter by search query
+            if (searchQuery) {
+              const query = searchQuery.toLowerCase()
+              const matchesTitle = pref.title.toLowerCase().includes(query)
+              const matchesDesc = pref.description?.toLowerCase().includes(query) || false
+              if (!matchesTitle && !matchesDesc) return false
+            }
+
+            // Filter by included status
+            if (showOnlyIncluded) {
+              const sectionState = state.sections[section.id]
+              const value = sectionState?.preferences.find(p => p.preferenceId === pref.id)
+              if (value?.isOmitted) return false
+            }
+
+            return true
+          })
+
+          return (
+            <TabsContent key={section.id} value={section.id} className="mt-4">
+              <SectionGroup
+                sectionId={section.id}
+                title={section.title}
+                icon={section.icon}
+                preferences={filteredPreferences}
+                defaultExpanded={true}
+                selectedPreferenceId={selectedPreferenceId}
+                expandedItemId={expandedItemId}
+                onToggleItem={handleToggleItem}
+              />
+              {filteredPreferences.length === 0 && (
+                <div className="text-center py-12 text-muted-foreground">
+                  <p>No decisions match your search.</p>
+                </div>
+              )}
+            </TabsContent>
+          )
+        })}
+      </Tabs>
     </div>
   )
 }

@@ -328,8 +328,8 @@ export function RusticTemplate({ birthTeam, groupedContent }: RusticTemplateProp
         </View>
 
         {/* Content Sections */}
-        {Object.entries(groupedContent).map(([category, items]) => (
-          <View key={category} style={styles.section}>
+        {Object.entries(groupedContent).map(([category, items], index) => (
+          <View key={category} style={styles.section} break={index > 0}>
             <View style={styles.sectionHeader}>
               <Text style={styles.sectionIcon}>*</Text>
               <Text style={styles.sectionTitle}>{category}</Text>

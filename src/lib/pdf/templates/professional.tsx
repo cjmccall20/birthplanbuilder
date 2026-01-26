@@ -270,10 +270,10 @@ export function ProfessionalTemplate({ birthTeam, groupedContent }: Professional
         </View>
 
         {/* Content Sections */}
-        {Object.entries(groupedContent).map(([category, items]) => {
+        {Object.entries(groupedContent).map(([category, items], index) => {
           sectionNumber++
           return (
-            <View key={category} style={styles.section}>
+            <View key={category} style={styles.section} break={index > 0}>
               <View style={styles.sectionHeader}>
                 <View style={styles.sectionNumber}>
                   <Text style={styles.sectionNumberText}>{sectionNumber}</Text>
