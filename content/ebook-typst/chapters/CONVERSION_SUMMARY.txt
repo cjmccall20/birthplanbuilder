@@ -1,0 +1,60 @@
+CONVERSION SUMMARY
+==================
+
+Date: January 26, 2026
+Task: Convert final chapters from compiled ebook to Typst format
+
+FILES CREATED:
+--------------
+1. 36-directed-pushing.typ (62 lines, 2.6 KB)
+   - Directed vs Spontaneous Pushing
+
+2. 37-water-birth.typ (501 lines, 25 KB)
+   - Water Birth: A Complete Guide
+
+3. 38-vbac.typ (653 lines, 36 KB)
+   - VBAC: Vaginal Birth After Cesarean
+
+4. 39-cascade-interventions.typ (520 lines, 42 KB)
+   - The Cascade of Interventions
+
+5. 40-childbirth-education.typ (613 lines, 32 KB)
+   - Childbirth Education Methods: A Complete Comparison Guide
+   - Includes properly formatted comparison table
+
+6. 41-microbiome.typ (448 lines, 27 KB)
+   - The Microbiome and Birth: Your Baby's Invisible Inheritance
+
+7. 42-informed-refusal.typ (568 lines, 34 KB)
+   - Informed Refusal Rights: The Right to Say No
+
+8. 43-doula-support.typ (630 lines, 30 KB)
+   - Doula Support: The Evidence-Based Difference
+
+9. 99-resources.typ (266 lines, 12 KB)
+   - Recommended Reading & Resources (appendix)
+
+CONVERSION RULES APPLIED:
+--------------------------
+✓ Headers: # → =, ## → ==, ### → ===, #### → ====
+✓ Bold: **text** → *text*
+✓ Italic: *text* → _text_
+✓ Links: [text](url) → #link("url")[text]
+✓ Horizontal rules: --- → #line(length: 100%)
+✓ Tables: Markdown tables → #table() syntax (where applicable)
+
+MANUAL FIXES:
+-------------
+- Fixed URL with parentheses in VBAC chapter (line 622)
+- Converted comparison table in childbirth education chapter to proper Typst table syntax
+
+SOURCE LOCATION:
+----------------
+/Users/coopermccall/birthplanbuilder/content/ebook/birth-decisions-guide-v3-complete.md
+
+DESTINATION:
+------------
+/Users/coopermccall/birthplanbuilder/content/ebook-typst/chapters/
+
+TOTAL: 9 chapters converted (4,261 lines total)
+ALL CONTENT PRESERVED
