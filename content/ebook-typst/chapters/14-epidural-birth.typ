@@ -41,7 +41,7 @@ Epidurals are a powerful tool that provides excellent pain relief. They also sta
 === The Intervention Cascade
 
 Epidurals don't exist in isolation. They trigger a predictable sequence of additional interventions:
-(For a comprehensive look at how interventions lead to other interventions, see the #link(<ch-cascade-interventions>)[Cascade of Interventions chapter].)
+(For a comprehensive look at how interventions lead to other interventions, see the #link(<ch-cascade>)[Cascade of Interventions chapter].)
 
 *Continuous monitoring required.* Once you have an epidural, you'll be attached to fetal monitors continuously. This confines you to bed and makes position changes difficult.
 

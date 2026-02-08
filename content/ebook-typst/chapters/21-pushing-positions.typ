@@ -31,7 +31,7 @@ This isn't just theory. Studies show that upright positions are associated with:
 
 === The Problem with Lying Flat
 
-The lithotomy position—lying on your back with legs up in stirrups—became standard in hospitals not because it's best for women, but because it's convenient for providers. In this position:
+The lithotomy position—lying on your back with legs up in stirrups—became standard in hospitals due to various factors including provider convenience, provider visibility, monitoring equipment compatibility, and medical training traditions. In this position:
 
 - Your pelvis is at its narrowest
 - You're pushing against gravity
@@ -54,9 +54,10 @@ _Why it works:_ Squatting opens your pelvic outlet by up to 30% compared to lyin
 _How to do it:_
 - Supported squat: Partner stands behind you, supporting under your arms
 - Squat bar: Many hospital beds have a bar you can hang onto
+- Bed rail squat: The side of the hospital bed can also double as a squat bar--hold onto the raised side rail for support while squatting beside the bed
 - Deep squat with support: Hold onto the bed or a chair for balance
 
-_Consider this:_ Most people in Western cultures don't squat regularly, so your legs may tire quickly. Practice during pregnancy if you want to use this position.
+_Consider this:_ Most women in Western cultures don't squat regularly, so your legs may tire quickly. Practice during pregnancy if you want to use this position.
 
 === Standing
 
@@ -66,8 +67,9 @@ _How to do it:_
 - Lean against your partner
 - Drape yourself over the raised head of the bed
 - Stand and sway or lunge during contractions
+- Supported hang: Put your arms around your partner's (or doula's) neck and let them hold you up. _Pro tip:_ If your partner steps back slightly so you're leaning forward rather than hanging straight down, it can help alleviate extra pressure and be much more comfortable for both of you.
 
-_Good to know:_ Many people find standing helpful early in pushing, then transition to another position as baby descends.
+_Good to know:_ Many women find standing helpful early in pushing, then transition to another position as baby descends.
 
 === Kneeling
 
@@ -161,7 +163,7 @@ _Semi-reclined with legs supported:_
 - Better than flat on your back, though not ideal
 
 _Hands and knees (sometimes possible):_
-- With a light epidural or as it wears off, some people can do this
+- With a light epidural or as it wears off, some women can do this
 - You'll need lots of support and help
 - Talk to your nurse about whether this is safe for you
 
@@ -206,9 +208,7 @@ If lying on your back is one of the worst positions for pushing, why is it the d
 
 === Provider Convenience
 
-Let's be honest: the lithotomy position is convenient for the person catching the baby. They can see everything clearly, have easy access for interventions, and don't have to adjust their position.
-
-This isn't necessarily your provider being lazy or uncaring—it's what they were trained to do and what they've done hundreds of times. But their convenience shouldn't override what's best for you.
+The lithotomy position offers certain advantages from a clinical perspective: clear visibility, straightforward access for interventions if needed, and consistency with standard medical training. Understanding these factors can help you have productive conversations with your care team about alternatives.
 
 === Electronic Fetal Monitoring
 
@@ -226,7 +226,7 @@ Medicine has become increasingly defensive. Providers may prefer you on your bac
 - They feel more in control if something goes wrong
 - They're less familiar with catching babies in other positions
 
-But "we've always done it this way" isn't a medical reason.
+You can ask about the specific medical rationale for position recommendations in your particular situation.
 
 === How to Advocate for Alternatives
 
@@ -258,7 +258,7 @@ How you push matters just as much as what position you're in. There are two main
 
 === Directed Pushing ("Purple Pushing")
 
-This is what you see in movies: everyone counts to ten while the woman holds her breath and pushes with all their might.
+This is what you see in movies: everyone counts to ten while the woman holds her breath and pushes with all her might.
 
 _What it looks like:_
 - Take a deep breath
@@ -268,7 +268,7 @@ _What it looks like:_
 - Three pushes per contraction
 - Start pushing as soon as you're fully dilated, whether you feel the urge or not
 
-_Why it's called "purple pushing":_ Many people's faces turn purple from the strain of holding their breath while pushing forcefully.
+_Why it's called "purple pushing":_ Many women's faces turn purple from the strain of holding their breath while pushing forcefully.
 
 _The problems:_
 - Reduces oxygen to baby (you're not breathing)
@@ -310,6 +310,20 @@ But research shows that spontaneous pushing is associated with:
 - Less pelvic floor trauma
 - More satisfying birth experiences
 
+=== Contraction Crest Pushing
+
+One technique worth knowing about is contraction crest pushing, which works with the natural rhythm of your contractions rather than against them. The idea is simple: instead of pushing from the very start of a contraction, you wait until it crests--when the contraction reaches its most intense point, usually about halfway through--and then push. This way, you're working _with_ the involuntary contracting muscles at their strongest, rather than trying to generate all the force yourself.
+
+_How to do it:_
+- When you feel a contraction building, take two very deep, slow breaths
+- By the end of those two breaths, the contraction will be near its peak
+- Begin pushing at that point, riding the wave of the contraction's strongest force
+- Stop pushing as the contraction fades
+
+_Why it works:_ Your uterus is already doing a tremendous amount of pushing on its own during a contraction. By timing your voluntary effort to coincide with the peak of that involuntary force, you get maximum effect with less personal effort. Women who use this technique often find pushing far less exhausting than pushing throughout the entire contraction. You're doing less work for more result.
+
+This technique pairs naturally with spontaneous pushing--your body's urge to push tends to align with the contraction crest anyway.
+
 === What About With an Epidural?
 
 If you have an epidural, you may not feel the urge to push. In this case:
@@ -339,6 +353,16 @@ Knowledge is power. Now that you understand why position matters, here's how to 
 
 4. _Prepare your support team:_ Make sure your partner or doula knows your preferences and can remind staff if needed.
 
+=== Your Positioning Support Team
+
+You don't have to figure out positions on your own during labor. Several resources can help:
+
+_Doulas_ are specifically trained on labor and pushing positions and can be invaluable in the moment, suggesting new positions based on how labor is progressing and what your body needs. They've seen what works across many births and can offer hands-on guidance when you're deep in labor and not thinking about options.
+
+_Bradley Method courses_ train partners extensively on positioning, comfort techniques, and when to suggest changes. If your partner has done this preparation, they can be the one actively suggesting positions during labor rather than leaving it to hospital staff.
+
+_Your own body_ is also a guide. With unmedicated birth especially, your body will naturally direct you toward positions that help. You may feel a strong urge to get on hands and knees, to squat, or to stand and sway. Trust those instincts--they're your body's way of finding the path of least resistance for your baby.
+
 === During Birth
 
 1. _Move before you're fully dilated:_ Get into positions you want to try during labor. It's easier to stay in a good position than to move once pushing starts.
@@ -363,7 +387,7 @@ Sometimes staff may resist position changes. Try:
 
 - _Being firm (if needed):_ "I understand your recommendation, but I'd like to try this position. Please document that this is my choice."
 
-Remember: This is your body and your birth. You have the right to make decisions about your position—and to be supported in those decisions.
+Remember: This is your body and your birth. You have the right to make informed decisions about your position.
 
 === The Bottom Line
 

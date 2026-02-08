@@ -100,7 +100,16 @@ This isn't about challenging your provider. It's about having a deeper, more inf
 
 *Share this with your partner.* If you have a birth partner—whether that's a spouse, parent, friend, or doula—get them on the same page. Talk through the decisions you're likely to face. Discuss what matters to you. Agree on your priorities. When you're in labor, you'll have enough to focus on. Having a partner who understands your preferences and can advocate for you is invaluable.
 
-*Create Your Birth Plan.* Use #link("https://birthplanbuilder.com")[birthplanbuilder.com] to build a personalized birth plan that reflects your preferences. Walk through each decision point, understand your options, and generate a professional document to share with your birth team. Print multiple copies—one for your medical records, and one for your partner so they fully understand your wishes and can advocate for you during labor when you're focused on the work of birth.
+*Create Your Birth Plan.* Use #link("https://birthplanbuilder.com")[birthplanbuilder.com] to build a personalized birth plan that reflects your preferences. Walk through each decision point, understand your options, and generate a professional document to share with your birth team.
+
+*Print more copies than you think you'll need.* Seriously—you'd be surprised how many hands your birth plan passes through during a hospital stay. Here's what we recommend:
+- One copy for every shift of nurses (shifts change, and the nurse who read your plan at 7 AM won't be the one caring for you at 7 PM)
+- One to post on the door of your room so anyone entering knows your preferences at a glance
+- One for your health records so it becomes part of your official chart
+- One for you and one for your advocate so you can both reference it quickly
+- A few extras, just in case—for a new resident, a lactation consultant, or anyone else who joins your care team unexpectedly
+
+*Pro tip:* This isn't necessary by any means, but attaching a small gift card to each copy you give to your nurses is a really nice gesture. Nurses play a _huge_ role in your hospital experience—they're the ones at your bedside through the long hours, and a little appreciation goes a long way. Chick-fil-A and Starbucks gift cards are nearly universally appreciated.
 
 #line(length: 100%)
 
@@ -130,9 +139,13 @@ So how do you navigate this?
 
 *The goal is partnership, not conflict.*
 
-You're not trying to fight your care team. You're trying to work with them while also advocating for yourself. Here's how:
+You're not trying to fight your care team. You're trying to work with them while also advocating for yourself. Ideally, you should not walk into your birth feeling apprehensive about the people who will be caring for you. You should feel confident that your team understands your wishes, respects your autonomy, and shares your goal of a safe, positive birth experience. That kind of trust doesn't happen by accident—it's built through the choices and conversations you have during pregnancy.
 
-*Ask questions before you're in labor.* Your prenatal appointments aren't just about measuring your belly and checking your blood pressure—they're your opportunity to ask questions, understand your options, and build a relationship with your provider. Have conversations about hospital protocols. Ask what interventions are routine. Ask under what circumstances they would recommend certain procedures. Get a sense of your provider's philosophy. If there are major disconnects between what you want and what they typically do, address it now—not when you're having contractions.
+*Choose a provider who is supportive of your preferences.* This is one of the most consequential decisions you'll make during pregnancy—and one that many women don't realize they have. Not all providers practice the same way. Some are more intervention-heavy; others are more hands-off. Some welcome birth plans and patient involvement; others view them as obstacles. You want a provider whose philosophy aligns with yours so that when the big day comes, you're working together rather than negotiating. We cover this in depth in our #link(<ch-birth-team>)[Choosing Your Birth Team chapter], including what questions to ask during interviews and what red flags to watch for.
+
+*Make your desires known beforehand.* Your prenatal appointments aren't just about measuring your belly and checking your blood pressure—they're your opportunity to ask questions, understand your options, and build a relationship with your provider. Have conversations about hospital protocols. Ask what interventions are routine. Ask under what circumstances they would recommend certain procedures. Get a sense of your provider's philosophy. Don't wait until you're in active labor to bring up something that matters to you—by then, you'll have enough to focus on. If there are major disconnects between what you want and what they typically do, address it now—not when you're having contractions.
+
+*Give your provider a copy of your birth plan.* By talking through your preferences during prenatal visits, choosing a provider who respects your wishes, communicating openly about your birth goals, and handing them a clear, written plan—you set the stage for everyone to go into your birth as a team with the same goal. That's the ideal: not a patient versus a doctor, but a partnership where everyone is pulling in the same direction.
 
 *Use the BRAIN framework* when interventions are suggested:
 - #strong[B]enefits: What are the benefits of this intervention?

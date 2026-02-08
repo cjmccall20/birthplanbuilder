@@ -6,17 +6,29 @@ This guide walks you through the typical admission process, explains your option
 
 #line(length: 100%)
 
+== EVERY HOSPITAL IS DIFFERENT
+
+Before diving into what admission typically looks like, here's something worth knowing: no two hospitals handle it exactly the same way. Policies around monitoring, IV requirements, eating during labor, visitor rules, and even who does your initial assessment can vary widely from one facility to the next.
+
+*Tour your hospital ahead of time.* Most hospitals offer labor and delivery tours, and taking one is one of the best things you can do to prepare. You'll see the rooms, learn the layout, find out where to park and which entrance to use at 2 a.m., and — most importantly — get a feel for how that facility approaches labor. Ask questions during the tour: What's your monitoring policy? Can I eat during labor? What's your nurse-to-patient ratio? Do you have tubs or showers available? Understanding these policies before you're having contractions takes a huge weight off game day.
+
+*What if you end up somewhere unplanned?* Life doesn't always cooperate. Maybe you go into labor while traveling. Maybe your home birth doesn't go as planned and you transfer in. Maybe your hospital is on diversion and sends you elsewhere. If you end up at a facility you haven't toured and aren't familiar with, that's okay — but know that the procedures and culture may be different from what you researched. Lean on your partner or doula to ask questions, communicate your preferences clearly, and remember that the core principles in this chapter still apply no matter where you are.
+
+#line(length: 100%)
+
 == THE TRIAGE PROCESS
 
 === What Happens When You Arrive
 
 When you walk into Labor and Delivery (or get dropped off at the entrance while your partner parks), your first stop is usually triage. Think of triage as the "assessment area" where staff determines whether you're in active labor and need to be admitted.
 
+_Call the hospital on your way in._ Before you leave the house — or as soon as you decide it's go time — call the labor and delivery unit and let them know you're coming. Tell them how far apart your contractions are, whether your water has broken, and how far away you are. This gives them time to get a room ready, pull up your pre-registration, and have a nurse waiting for you. It's a simple step that can make your arrival significantly smoother.
+
 Here's what typically happens:
 
 _Check-in at the desk._ You'll give your name and let them know you think you're in labor. If you pre-registered (highly recommended!), this goes much faster.
 
-_Move to a triage room._ This is usually a smaller room with a bed, monitoring equipment, and a curtain for privacy. You may share the triage area with other people also being evaluated.
+_Move to a triage room._ This is usually a smaller room with a bed, monitoring equipment, and a curtain for privacy. You may share the triage area with other women also being evaluated.
 
 _Put on a hospital gown._ A nurse will ask you to change and get into bed so they can assess you.
 
@@ -30,7 +42,7 @@ The main question triage needs to answer: Are you in active labor?
 
 To figure this out, a nurse or provider will likely:
 
-- _Do a cervical check_ to see how dilated (open) and effaced (thinned) your cervix is
+- _Do a cervical check_ to see how dilated (open) and effaced (thinned) your cervix is. Fair warning: cervical checks are uncomfortable at best and genuinely painful for many women, especially during active contractions. They're brief, but it helps to know it's coming so you can breathe through it.
 - _Monitor contractions_ to see their pattern and strength
 - _Check baby's heart rate_ to make sure baby is tolerating labor well
 - _Review your history_ including any complications or risk factors
@@ -86,6 +98,8 @@ Why do they want this?
 - Emergency access if complications arise
 - Required if you want an epidural
 
+See our #link(<ch-iv-hep-lock>)[IV vs Hep Lock chapter] for more on this decision.
+
 === Fetal Monitoring Strip
 
 You'll have the same monitoring belts from triage placed again. The initial strip usually lasts 20-30 minutes and establishes a "baseline" for how your baby is doing.
@@ -94,14 +108,20 @@ _Continuous monitoring_ means wearing the belts throughout labor. Many hospitals
 
 _Intermittent monitoring_ means checking baby's heart rate periodically (often every 15-30 minutes in active labor) rather than constantly.
 
+See our #link(<ch-fetal-monitoring>)[Fetal Monitoring chapter] for a deeper dive.
+
 === Cervical Check
 
-The admitting nurse or provider will typically do a cervical exam to establish where you are in labor. They're checking:
+The admitting nurse or provider will typically do a cervical exam to establish where you are in labor. As mentioned above, this will be uncomfortable — it involves a gloved hand reaching into the vaginal canal to feel the cervix, and during labor when everything is already sensitive and tight, it can be quite painful. It's usually quick (under a minute), but knowing that ahead of time helps you prepare mentally. Ask your nurse to wait until you're between contractions if possible, and focus on slow breathing through it.
+
+They're checking:
 
 - _Dilation:_ How open your cervix is (measured 0-10 centimeters)
 - _Effacement:_ How thin your cervix has become (measured as a percentage)
 - _Station:_ How far baby has descended into your pelvis (-3 to +3)
 - _Position:_ Which way baby is facing
+
+*A note on infection risk:* Every cervical check introduces a small risk of infection, and this risk goes up significantly if your water has already broken. Once membranes have ruptured, the protective barrier between the outside world and your baby is gone, and each exam can potentially introduce bacteria. This is one reason to be thoughtful about how many cervical checks you consent to — especially after your water breaks. You can always ask, "Is this check necessary right now, or can we wait?"
 
 === Vital Signs
 
@@ -135,7 +155,7 @@ _When this might not be an option:_ If you have risk factors, are being induced,
 
 _What you can ask for:_ Fewer cervical checks. You can decline or delay these exams, especially if your water has broken (each check slightly increases infection risk once membranes have ruptured).
 
-_Good to know:_ Dilation isn't the only sign of progress. Many people find frequent checks discouraging when numbers don't change quickly.
+_Good to know:_ Dilation isn't the only sign of progress. Many women find frequent checks discouraging when numbers don't change quickly.
 
 _When they're more important:_ If your provider needs information to make decisions about your care, or if you want to know where you are.
 
@@ -179,17 +199,22 @@ _Ways to build rapport:_
 
 _If it's not working:_ If you and your nurse aren't clicking, your partner can quietly ask the charge nurse about switching. This happens and isn't personal—sometimes personalities just don't mesh.
 
-=== Partner as Advocate
+=== Partner as Protector and Advocate
 
-The support person's role during admission is crucial. While you're managing contractions and medical procedures, your partner can:
+Here's the golden rule for partners: *Your job is to make sure she is as comfortable as possible and shield her from handling anything else.* She has one job right now — labor. It is the hardest physical thing she may ever do, a genuine marathon, and every ounce of her focus and energy needs to go toward that. She's not helpless, but she shouldn't have to split her attention. You handle everything else.
 
-- _Handle logistics:_ Parking, bags, paperwork, calling family
-- _Take notes:_ Write down names, what people say, and any numbers given
-- _Ask questions:_ You might be too focused to remember your questions
-- _Communicate preferences:_ "She was really hoping to avoid continuous monitoring if possible—is that an option?"
-- _Run interference:_ Politely redirect visitors or ask for space when needed
+That means:
 
-_The golden rule for partners:_ Don't fight battles you don't need to fight, but don't give up things that matter just to avoid discomfort. Find the middle ground of firm but friendly.
+- _Handle all logistics:_ Parking, bags, paperwork, checking in at the desk, finding the room — all of it. She shouldn't be fumbling with insurance cards between contractions.
+- _Manage communications:_ You're the point of contact for family and friends. Send the updates, answer the texts, field the phone calls. She doesn't need her phone buzzing while she's working through transition.
+- _Advocate with staff:_ You know her birth preferences. If she wanted intermittent monitoring, speak up. If a nurse is suggesting something she'd want to discuss first, buy her time. "Can we have a minute to talk about that?" is one of the most powerful sentences you can learn.
+- _Read the room — literally:_ If the lights are bright and you know she labors better in dim lighting, figure out how to get them turned down. If she's cold, get a blanket. If she's hungry and allowed to eat, go find her food. If the room is too loud, quietly ask people to lower their voices. You are managing her environment so she doesn't have to.
+- _Run interference:_ Visitors showing up too early? Redirect them to the waiting room. Someone being too chatty? Politely create space. A well-meaning family member calling for the fifth time? Handle it.
+- _Be her memory:_ Write down names of nurses and providers, note any numbers they give you (dilation, baby's heart rate), and keep track of the birth preferences so you can reference them when decisions come up. She won't remember — and shouldn't have to.
+
+Think of it this way: she is running a marathon. Your job is to hand her water, clear the road, and make sure nobody gets in her way. She's doing the extraordinary physical work. You're doing everything else.
+
+*Consider having a doula.* With both a partner and a doula present, there's always someone by her side — even when you need to step out for food, use the restroom, or take a breather. A doula brings experience and calm to the room, can suggest comfort measures you might not think of, and frees you up to be emotionally present rather than scrambling to figure out what to do next. Two support people means more hands, more coverage, and a better experience for everyone.
 
 === "Starting As You Mean to Go On"
 
@@ -263,7 +288,7 @@ _Pre-registration makes everything easier._ Seriously. Do it around 36 weeks.
 
 _Bring multiple copies of your birth plan._ Nurses change shifts, and you may see different providers.
 
-_Arrive during the right stage of labor._ If possible, wait until contractions are 4-5 minutes apart, lasting about a minute, for at least an hour (the 4-1-1 rule). Coming too early often means being sent home.
+_Arrive during the right stage of labor._ You may have heard of the "4-1-1 rule" — contractions 4 minutes apart, lasting 1 minute, for 1 hour. This book advocates the *3-1-1 rule* instead: contractions 3 minutes apart, lasting 1 minute, for 1 hour. See our #link(<ch-when-to-go>)[Stages of Labor chapter] for why we recommend the 3-1-1 rule. Coming too early often means being sent home, but don't wait too long either.
 
 _Bring your own pillow._ It's more comfortable, smells like home, and instantly makes the room feel more yours. Put it in a colorful pillowcase so it doesn't get mixed up with hospital linens.
 
@@ -271,7 +296,7 @@ _Know the parking situation._ Where is the drop-off? Where does your partner par
 
 _Have phone chargers ready._ Labor can be long. Dead phones are the last thing you need.
 
-_Wear your own labor gown if you want._ Hospital gowns are free and functional, but many people prefer their own birthing gowns. Just know it might get messy.
+_Wear your own labor gown if you want._ Hospital gowns are free and functional, but many women prefer their own birthing gowns. Just know it might get messy.
 
 === The Words That Open Doors
 
@@ -301,6 +326,22 @@ When declining:
 
 #line(length: 100%)
 
+== TRUST YOUR INSTINCTS
+
+This might be the most important section in this chapter.
+
+You know your body. You know your baby. If something feels off — if baby isn't moving as much as normal, if contractions feel different from what you expected, if you just have a gut feeling that something isn't right — *go to the hospital.* Don't wait. Don't second-guess yourself. Don't let anyone talk you out of it.
+
+If you get there and they want to send you home but you're still worried, *insist on staying.* You are allowed to advocate for yourself. You can say, "I understand I'm not far enough along by the numbers, but something doesn't feel right and I'd like to be monitored." A good care team will take that seriously.
+
+This is especially true for decreased fetal movement. If your baby's kick patterns have changed, if they're quieter than usual, or if you just feel like something is different — don't sit at home timing kicks and hoping for the best. Go in. Let them put you on the monitor. Let them check. It is always, always better to be the woman who "came in for nothing" than to ignore a warning sign.
+
+And if you've already been sent home once but the feeling persists, go back. There is no limit on how many times you're allowed to show up at labor and delivery. You are not being dramatic. You are not wasting anyone's time.
+
+At the end of the day, the only thing that truly matters is a healthy mother and a healthy baby. Everything else — the birth plan, the timing, the "right" amount of dilation — is secondary to that. Trust your instincts. They exist for a reason.
+
+#line(length: 100%)
+
 == KEY TAKEAWAYS
 
 The hospital admission process can feel like a lot, but remember:
@@ -315,6 +356,10 @@ The hospital admission process can feel like a lot, but remember:
 
 5. _Different admissions require different approaches._ Know what to expect whether you're in spontaneous labor, being induced, or having a planned cesarean.
 
-6. _Preparation pays off._ Pre-register, pack smart, and know the logistics ahead of time.
+6. _Preparation pays off._ Pre-register, pack smart, tour the hospital, and know the logistics ahead of time.
+
+7. _Your partner handles everything but labor._ She focuses on the marathon. The partner protects, advocates, and manages every other detail.
+
+8. _Trust your instincts._ If something feels wrong, go in. If they want to send you home and you're not comfortable, insist on staying. A healthy mother and healthy baby are all that matters.
 
 You're about to meet your baby. The admission process is just the doorway to that incredible moment. Walk through it feeling informed, empowered, and ready.

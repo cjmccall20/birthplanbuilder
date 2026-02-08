@@ -6,7 +6,7 @@ When your baby undergoes painful procedures—circumcision, heel pricks, injecti
 
 *The philosophy:* Any substance entering your newborn's body deserves scrutiny. These interventions aren't "free"—they have effects, some well-studied and some not.
 
-*A note on "proven" links:* Throughout this section, you'll see language like "no proven causal link" or "research is conflicting." Understand what this actually means: in many cases, the rigorous studies needed to prove or disprove a connection simply haven't been done. Absence of evidence is not evidence of absence. When dealing with newborn brains and bodies, the precautionary principle suggests erring on the side of caution—especially when less-studied interventions can be avoided entirely.
+*A note on "proven" links:* Throughout this section, you'll see language like "no proven causal link" or "research is conflicting." Understand what this actually means: in many cases, the rigorous studies needed to prove or disprove a connection simply haven't been done. Absence of evidence is not evidence of absence. When dealing with newborn brains and bodies, the precautionary principle is one framework some families use when weighing these decisions — others prioritize reducing immediate discomfort. Both approaches reflect thoughtful parenting.
 
 *The better alternative:* For many procedures, breastfeeding during the procedure provides significant pain reduction without any substances at all.
 
@@ -22,7 +22,7 @@ Acetaminophen (brand name Tylenol) is the most commonly used pain reliever and f
 - For teething discomfort
 - For fever
 
-=== What They Tell You
+=== The Standard Position
 
 "Tylenol is safe for infants and has been used for decades."
 
@@ -44,7 +44,7 @@ Acetaminophen (brand name Tylenol) is the most commonly used pain reliever and f
 
 *What this actually means:* The absence of a proven causal link does not mean there is no link. It means we don't have definitive proof either way. True double-blind placebo-controlled studies of acetaminophen in newborns—comparing outcomes against a genuine placebo over years of follow-up—have not been conducted. Such studies would be difficult and expensive, and there's little incentive for pharmaceutical companies to fund research that might reveal problems with a generic, inexpensive medication.
 
-When you hear "no proven link," understand this often means "not yet studied rigorously enough to prove or disprove." The precautionary principle suggests that when dealing with developing brains, the burden of proof should be on demonstrating safety, not on parents to prove harm.
+When you hear "no proven link," understand this often means "not yet studied rigorously enough to prove or disprove." Some families apply the precautionary principle here, preferring to minimize exposure until more definitive research is available. Others find the existing safety record and organizational endorsements sufficient. Both positions are reasonable given the current state of the evidence.
 
 === Other Concerns
 
@@ -89,7 +89,7 @@ Oral sucrose is a concentrated sugar solution (typically 24% sucrose) given to n
 
 Sugar activates the brain's opioid and dopamine pathways, creating a brief analgesic (pain-reducing) effect. It doesn't eliminate pain but appears to reduce pain responses—babies cry less, show lower pain scores, and have smaller heart rate spikes.
 
-=== What They Tell You
+=== The Standard Position
 
 "Sugar water is safe and helps reduce pain during procedures. It's been well-studied in NICUs."
 
@@ -99,7 +99,7 @@ Sugar activates the brain's opioid and dopamine pathways, creating a brief analg
 
 *Concerns about what it actually does:*
 
-*May mask pain rather than reduce it:* A 2010 study in _The Lancet_ found that while oral sucrose reduced crying and facial expressions of pain, it did NOT reduce the brain's pain processing (measured by EEG) [7]. The pain signal still reached the brain—the baby just didn't express it outwardly. This raises ethical questions about whether we're helping babies feel less pain or just making procedures easier for providers to perform.
+*May mask pain rather than reduce it:* A 2010 study in _The Lancet_ found that while oral sucrose reduced crying and facial expressions of pain, it did NOT reduce the brain's pain processing (measured by EEG) [7]. The pain signal still reached the brain—the baby just didn't express it outwardly. This raises questions about the mechanism — whether sucrose reduces the experience of pain or primarily reduces the outward expression of pain.
 
 *NICU concerns:* Research in premature infants has raised concerns:
 - One study found repeated sucrose doses in preterm infants were associated with lower neurodevelopmental scores at 40 weeks

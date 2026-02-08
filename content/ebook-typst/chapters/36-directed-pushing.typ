@@ -56,6 +56,27 @@ Spontaneous pushing (following your body's urges) and directed pushing (coached 
 - Many midwifery organizations prefer spontaneous pushing
 - Upright positions often make spontaneous pushing more intuitive
 
+== PUSHING WITH THE CREST: THE BRADLEY METHOD APPROACH
+
+One of the most practical spontaneous pushing techniques comes from the Bradley Method. Instead of pushing throughout an entire contraction — which is exhausting and wastes energy — you wait until the contraction crests at its most intense point before adding your voluntary effort.
+
+Here is how it works: a contraction builds, peaks (usually about halfway through), and then fades. The peak is when your uterine muscles are contracting hardest on their own. If you push at that moment, you are adding your voluntary effort on top of maximum involuntary force — the most pushing power with the least wasted energy.
+
+*The technique:*
+- When you feel a contraction beginning, do not push immediately
+- Take two very deep, slow breaths as the contraction builds
+- By the end of those two breaths, the contraction is reaching its crest
+- Now push — bearing down with the wave at its strongest
+- You are working _with_ the muscles that are already contracting involuntarily, not fighting to do all the work yourself
+
+*Why this matters:*
+- Pushing through an entire contraction means you are straining hard during the buildup and tail end, when your uterine muscles are doing relatively little — that is wasted effort
+- Timing your push to the crest means shorter, more powerful pushes instead of long, exhausting ones
+- Women who use this approach report significantly less fatigue during the pushing stage
+- It aligns with the spontaneous pushing research: shorter pushes, better oxygenation for baby, less pelvic floor strain
+
+This technique works best in unmedicated births where you can feel your contractions clearly. With an epidural, you may not be able to sense the crest, and some coached guidance from your team about contraction timing can substitute.
+
 == OUR TAKE
 
 This is a genuine decision with real trade-offs, and the right answer depends on your circumstances and preferences.
@@ -64,7 +85,7 @@ The strongest case for spontaneous pushing is the research on outcomes: studies 
 
 The strongest case for directed pushing is the structure it provides. First-time mothers often feel genuinely lost during the pushing stage, and clear coaching can be reassuring and confidence-building. When an epidural has dulled or eliminated the natural urge to push, directed guidance helps you work with your contractions even when you cannot feel them. In prolonged or complicated deliveries, coordinated pushing efforts guided by your care team can make a meaningful difference.
 
-Families who value a less-interventional, body-led experience tend to lean toward spontaneous pushing. Families who value structured guidance, or who are planning an epidural, often appreciate some degree of coached pushing. Both are legitimate approaches, and many births use a blend of the two.
+Women who value a less-interventional, body-led experience tend to lean toward spontaneous pushing. Women who value structured guidance, or who are planning an epidural, often appreciate some degree of coached pushing. Both are legitimate approaches, and many births use a blend of the two.
 
 *If you prefer spontaneous pushing:* "I'd like to push following my own cues. Please let me find my rhythm before offering coaching."
 

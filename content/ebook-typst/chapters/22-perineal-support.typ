@@ -198,7 +198,9 @@ In rare situations, episiotomy may be medically necessary:
 - _Instrumental delivery_ (forceps or vacuum) where more space is urgently needed
 - _When the baby needs to be delivered immediately_ and there isn't time for natural stretching
 
-These situations are uncommon. Most births do not require episiotomy.
+One of the clearest medical indications for episiotomy is the risk of a clitoral tear. It is possible for a mother to tear upward — toward and into the clitoris — rather than downward toward the perineum. This is extremely painful and serious. If your provider sees during crowning that an upward tear is imminent, they may strongly recommend a controlled episiotomy — a deliberate downward cut — to redirect the tear away from the clitoris. This is a situation where your provider's recommendation deserves serious weight. A clitoral tear can cause significant long-term consequences for sensation, sexual function, and recovery that go well beyond what a typical perineal tear involves. Unlike routine episiotomy, which the evidence clearly argues against, a targeted cut to prevent clitoral damage is one of the strongest reasons the procedure still exists.
+
+Outside of situations like these, episiotomy is uncommon. Most births do not require one.
 
 === Questions to Ask Your Provider
 
