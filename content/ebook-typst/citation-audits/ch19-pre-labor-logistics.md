@@ -1,209 +1,107 @@
 # Citation Audit: Chapter 19 — Pre-Labor Logistics
+## VERIFIED VERSION
 
 **Chapter File:** `/Users/coopermccall/birthplanbuilder/content/ebook-typst/chapters/19-pre-labor-logistics.typ`
 **Audit Date:** 2026-02-08
-**Auditor:** Claude Sonnet 4.5
+**Verification Date:** 2026-02-08
+**Verifier:** Claude Sonnet 4.5 with Academic Search Tools
 
 ---
 
 ## Executive Summary
 
 **Total Claims Identified:** 6
-**Already Cited:** 0
-**Need Citation:** 1
-**No Citation Needed:** 5
+**Verification Status:**
+- ✅ VERIFIED: 1 (doula effectiveness - needs citation added)
+- NO CITATION NEEDED: 5 (practical/logistical advice)
 
-**Chapter Character:** This is a logistical/practical planning chapter with minimal medical claims. Most content is advisory, procedural, or common knowledge about pre-labor preparation. Only one medical claim requires citation (doula efficacy).
+**Chapter Character:** This is a logistical/practical planning chapter with minimal medical claims. Most content is advisory, procedural, or common knowledge about pre-labor preparation. Only one medical claim requires citation.
 
-**Overall Assessment:** ✅ Strong — Only one claim needs sourcing. All other content appropriately presents practical advice without making unsupported factual assertions.
+**Overall Assessment:** ✅ STRONG — Only one claim needs sourcing. All other content appropriately presents practical advice without making unsupported factual assertions.
 
 ---
 
-## Detailed Claim-by-Claim Analysis
+## Citations Required
 
-### SECTION: WHO'S IN THE DELIVERY ROOM
-
-#### CLAIM 1: Doula effectiveness
+### ✅ VERIFIED: Doula Effectiveness (HIGH PRIORITY)
 
 **Location:** Lines 183-184
 
-**Text:**
-> "Studies show doulas reduce the need for pain medication and cesarean sections."
+**Text:** "Studies show doulas reduce the need for pain medication and cesarean sections."
 
-**Category:** ⚠️ NEEDS CITATION
+**Verification Status:** ✅ VERIFIED (DOI: 10.1002/14651858.CD003766.pub6)
 
-**Analysis:**
-This is a specific claim about medical/clinical outcomes that requires sourcing. The claim references "studies" but provides no citation.
+**Required Citation:**
+Bohren MA, Hofmeyr GJ, Sakala C, Fukuzawa RK, Cuthbert A. "Continuous support for women during childbirth." *Cochrane Database of Systematic Reviews* 2017, Issue 7. Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6
 
-**Proposed Citation:**
-Bohren MA, Hofmeyr GJ, Sakala C, Fukuzawa RK, Cuthbert A. Continuous support for women during childbirth. Cochrane Database of Systematic Reviews 2017, Issue 7. Art. No.: CD003766.
+**Evidence Found:**
+- Systematic review of 26 trials, 15,858 women
+- ✅ Continuous labor support associated with **decreased use of pain medication**
+- ✅ Continuous labor support associated with **decreased cesarean birth**
+- Also found: increased spontaneous vaginal birth, decreased operative birth, increased satisfaction
+- This is the gold standard Cochrane review on continuous labor support (doulas)
 
-**Key Findings from Source:**
-- Continuous labor support associated with increased spontaneous vaginal birth
-- Decreased use of pain medication
-- Decreased operative birth (vacuum, forceps, cesarean)
-- Decreased cesarean birth specifically
-- Increased satisfaction with birth experience
+**Confidence Level:** HIGH — Direct support for both claims
 
-**Confidence Level:** HIGH — This is the gold standard Cochrane review on continuous labor support (doulas). It directly supports the claim made.
-
-**Recommendation:** Add `#citation[X]` after "cesarean sections." where X is the citation number assigned to the Bohren et al. Cochrane review.
+**Action Required:** Add `#citation[X]` after "cesarean sections." where X is assigned citation number
 
 ---
 
-### SECTION: CHILDCARE & PET CARE
+## Claims Requiring No Citation (5 items)
 
-#### CLAIM 2: Labor duration variability
+### 1. Labor Duration Variability
+**Location:** Line 11
+**Text:** "Labor can last hours—or days."
+**Status:** ✅ NO CITATION NEEDED
+**Reason:** General medical knowledge about labor duration variability; advisory statement about planning flexibility, not a specific statistical claim
 
-**Location:** Lines 11
-
-**Text:**
-> "Labor can last hours—or days."
-
-**Category:** ✅ NO CITATION NEEDED
-
-**Reason:** General medical knowledge. Labor duration varies widely and is common knowledge to anyone who has studied or experienced childbirth. This is an advisory statement about planning flexibility, not a specific statistical claim.
-
----
-
-### SECTION: PRIVACY DECISIONS
-
-#### CLAIM 3: Golden hour importance
-
+### 2. Golden Hour Definition
 **Location:** Line 141
+**Text:** "Golden Hour: The first hour after birth is for skin-to-skin contact and initial breastfeeding."
+**Status:** ✅ NO CITATION NEEDED
+**Reason:** Definitional statement describing standard term in birth settings; not making outcome claims
 
-**Text:**
-> "Golden Hour: The first hour after birth is for skin-to-skin contact and initial breastfeeding."
-
-**Category:** ✅ NO CITATION NEEDED
-
-**Reason:** This is definitional, not a claim requiring proof. The text describes what the "golden hour" is (a standard term in birth settings) and notes its typical use. It doesn't make outcome claims that require citation.
-
----
-
-### SECTION: HOSPITAL PRE-REGISTRATION
-
-#### CLAIM 4: Pre-registration timing
-
+### 3. Pre-registration Timing
 **Location:** Line 234
+**Text:** "Typically around 30-36 weeks pregnant."
+**Status:** ✅ NO CITATION NEEDED
+**Reason:** Standard practice/procedural advice; hospital policy information, not medical claim
 
-**Text:**
-> "Typically around 30-36 weeks pregnant."
-
-**Category:** ✅ NO CITATION NEEDED
-
-**Reason:** This is standard practice/procedural advice, not a medical claim. Hospital pre-registration windows are institutional policies, not research findings.
-
----
-
-#### CLAIM 5: Insurance timing for adding baby
-
+### 4. Insurance Timing for Adding Baby
 **Location:** Line 252
+**Text:** "Added the baby to your insurance (you usually have 30 days after birth)"
+**Status:** ✅ NO CITATION NEEDED
+**Reason:** Standard insurance policy information (qualifying life event window); administrative/legal information using qualifier "usually"
 
-**Text:**
-> "Added the baby to your insurance (you usually have 30 days after birth)"
-
-**Category:** ✅ NO CITATION NEEDED
-
-**Reason:** This is standard insurance policy information (qualifying life event window). The text uses "usually" to indicate typical practice. This is administrative/legal information, not a medical claim requiring research citation.
-
----
-
-### SECTION: THE WEEK BEFORE
-
-#### CLAIM 6: Term pregnancy timing
-
+### 5. Term Pregnancy Definition
 **Location:** Line 374
-
-**Text:**
-> "Starting at 37 weeks (term pregnancy), you could go into labor anytime."
-
-**Category:** ✅ NO CITATION NEEDED
-
-**Reason:** This is definitional medical knowledge. 37 weeks is widely recognized as "term" or "early term" in obstetric practice. This is standard medical terminology, not a research finding requiring citation.
+**Text:** "Starting at 37 weeks (term pregnancy), you could go into labor anytime."
+**Status:** ✅ NO CITATION NEEDED
+**Reason:** Definitional medical knowledge; 37 weeks widely recognized as "term" or "early term" in obstetric practice; standard medical terminology
 
 ---
 
-## SECTION-BY-SECTION SUMMARY
+## Section-by-Section Summary
 
-### CHILDCARE & PET CARE (Lines 9-62)
-- **Claims:** 1 (labor duration)
-- **Citations Needed:** 0
-- **Notes:** Pure logistical advice about planning for contingencies
-
-### WHO TO NOTIFY (Lines 65-110)
-- **Claims:** 0
-- **Citations Needed:** 0
-- **Notes:** Entirely advisory about communication strategy
-
-### PRIVACY DECISIONS (Lines 113-172)
-- **Claims:** 1 (golden hour definition)
-- **Citations Needed:** 0
-- **Notes:** Practical advice about boundaries and privacy choices
-
-### WHO'S IN THE DELIVERY ROOM (Lines 175-225)
-- **Claims:** 1 (doula effectiveness)
-- **Citations Needed:** 1 ⚠️
-- **Notes:** Contains the chapter's only medical effectiveness claim
-
-### HOSPITAL PRE-REGISTRATION (Lines 228-267)
-- **Claims:** 2 (pre-reg timing, insurance timing)
-- **Citations Needed:** 0
-- **Notes:** Administrative/procedural information
-
-### SHARING YOUR BIRTH PREFERENCES (Lines 270-319)
-- **Claims:** 0
-- **Citations Needed:** 0
-- **Notes:** Practical communication advice
-
-### PRACTICAL HOME PREP (Lines 322-369)
-- **Claims:** 0
-- **Citations Needed:** 0
-- **Notes:** Logistical preparation advice
-
-### THE WEEK BEFORE (Lines 372-418)
-- **Claims:** 1 (term pregnancy definition)
-- **Citations Needed:** 0
-- **Notes:** Checklist format with standard medical terminology
-
-### A NOTE ON FLEXIBILITY (Lines 421-433)
-- **Claims:** 0
-- **Citations Needed:** 0
-- **Notes:** Philosophical/emotional encouragement
+- **CHILDCARE & PET CARE** (Lines 9-62): Pure logistical advice - 0 citations needed
+- **WHO TO NOTIFY** (Lines 65-110): Communication strategy advice - 0 citations needed
+- **PRIVACY DECISIONS** (Lines 113-172): Practical boundaries advice - 0 citations needed
+- **WHO'S IN THE DELIVERY ROOM** (Lines 175-225): ⚠️ Contains 1 medical claim requiring citation
+- **HOSPITAL PRE-REGISTRATION** (Lines 228-267): Administrative info - 0 citations needed
+- **SHARING YOUR BIRTH PREFERENCES** (Lines 270-319): Communication advice - 0 citations needed
+- **PRACTICAL HOME PREP** (Lines 322-369): Logistical preparation - 0 citations needed
+- **THE WEEK BEFORE** (Lines 372-418): Checklist with standard terminology - 0 citations needed
+- **A NOTE ON FLEXIBILITY** (Lines 421-433): Philosophical encouragement - 0 citations needed
 
 ---
 
-## RECOMMENDED ACTIONS
-
-### HIGH PRIORITY
-
-1. **Add citation for doula effectiveness (Line 183-184)**
-   - Use Bohren et al. Cochrane review (2017)
-   - This is the only medical outcome claim in the chapter
-   - Well-supported by high-quality evidence
-
-### NO ACTION NEEDED
-
-All other content appropriately presents:
-- Practical advice
-- Procedural information
-- Standard medical terminology
-- Logistical planning strategies
-- Communication recommendations
-
-None of these require research citations.
-
----
-
-## NOTES ON CHAPTER STYLE
+## Alignment with Project Philosophy
 
 **Strengths:**
 - Appropriately avoids making unsupported medical claims
 - Focuses on practical preparation rather than medical assertions
 - Uses qualifying language ("usually," "typically") for procedural norms
 - Provides actionable checklists without overstating certainty
-
-**Alignment with Project Philosophy:**
 - Respects reader autonomy in all planning decisions
 - Presents options without prescriptive language
 - Acknowledges flexibility and unpredictability
@@ -211,30 +109,29 @@ None of these require research citations.
 
 ---
 
-## CITATION FORMAT REMINDER
+## Required Action
 
-When adding citations in Typst format:
-```typst
-Studies show doulas reduce the need for pain medication and cesarean sections.#citation[X]
+### HIGH PRIORITY: Add Citation for Doula Effectiveness
+
+**Recommended Citation Entry:**
+```
+Bohren MA, Hofmeyr GJ, Sakala C, Fukuzawa RK, Cuthbert A. "Continuous support for women during childbirth." Cochrane Database of Systematic Reviews 2017, Issue 7. Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6
 ```
 
-Where `X` is the citation number from the main bibliography.
+**In-text Addition:**
+Add citation marker after "cesarean sections." at line 183-184
 
 ---
 
-## APPENDIX: Full Proposed Citation
+## Final Recommendation
 
-**For the Doula Claim:**
+**Status:** ✅ APPROVED PENDING 1 CITATION
 
-Bohren MA, Hofmeyr GJ, Sakala C, Fukuzawa RK, Cuthbert A. "Continuous support for women during childbirth." *Cochrane Database of Systematic Reviews* 2017, Issue 7. Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6.
-
-**Why This Citation:**
-- Cochrane review = highest level of evidence
-- Systematic review of 26 trials, 15,858 women
-- Directly addresses both claims (reduced pain medication AND reduced cesareans)
-- Most authoritative source on doula/continuous labor support
-- Widely cited in birth literature
+Add the Bohren et al. (2017) Cochrane review citation for the doula effectiveness claim. No other changes required.
 
 ---
 
-**Audit Complete**
+**Verification Complete**
+**Tools Used:** mcp__academic-search__search_papers, mcp__academic-search__fetch_paper_details
+**Citations Verified:** 1/1 (100%)
+**Result:** Chapter approved pending addition of 1 verified citation
