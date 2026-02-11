@@ -180,7 +180,7 @@ The people in your delivery room can make or break your birth experience. Choose
 
 _Your partner:_ Most people want their partner present. Make sure they know their role—advocate, comfort provider, emotional support.
 
-_A doula:_ A trained labor support professional who provides continuous physical and emotional support. Studies show doulas reduce the need for pain medication and cesarean sections. They don't replace your partner—they support both of you.
+_A doula:_ A trained labor support professional who provides continuous physical and emotional support. Studies show doulas reduce the need for pain medication and cesarean sections.#citation[1] They don't replace your partner—they support both of you.
 
 === Who Else?
 
@@ -527,3 +527,9 @@ The goal isn't perfection. It's preparation. When things don't go according to p
 What matters most isn't whether everything goes according to plan. It's that you have a plan at all, that your support team knows their roles, and that you can focus on labor and your baby instead of scrambling to organize everything at the last minute.
 
 You've got this.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Bohren, M. A., Hofmeyr, G. J., Sakala, C., Fukuzawa, R. K., & Cuthbert, A. (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6

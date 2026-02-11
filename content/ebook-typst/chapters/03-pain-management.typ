@@ -11,13 +11,13 @@ You're not stuck with a simple choice between "natural" and "get me an epidural.
 #callout[
   == One-Page Overview
 
-  *Unmedicated birth* offers complete mobility, alertness, faster recovery, and no medication effects on baby. Requires preparation, continuous support, and a supportive provider. About 72% of women hope to give birth this way, though fewer achieve it.
+  *Unmedicated birth* offers complete mobility, alertness, faster recovery, and no medication effects on baby. Requires preparation, continuous support, and a supportive provider. About 72% of women hope to give birth this way, though fewer achieve it.#citation[1]
 
   *Nitrous oxide (laughing gas)* provides partial anxiety relief while keeping you mobile and in control. Safe for baby. Available at some US hospitals. Many women try it and later switch to epidural.
 
   *IV pain medications* provide minimal and unreliable pain relief with side effects for both mother (nausea, drowsiness) and baby (potential respiratory depression, decreased alertness). Timing matters significantly.
 
-  *Epidurals* offer excellent, reliable pain relief but restrict movement. Increase fever risk dramatically. Trigger additional interventions. May affect newborn alertness and early breastfeeding. About 70-75% of US births use epidural.
+  *Epidurals* offer excellent, reliable pain relief but restrict movement. Increase fever risk dramatically. Trigger additional interventions. May affect newborn alertness and early breastfeeding. About 70-75% of US births use epidural.#citation[2]
 
   *The bottom line:* There's no "right" choice. The best pain management is the one that matches your values, your situation, and your support system. What matters is making an informed decision before labor begins, while staying flexible enough to adapt if things change.
 ]
@@ -40,7 +40,7 @@ Most women can move along this spectrum as needed. You might start with movement
 
 == Unmedicated Birth
 
-Among nearly 56,000 women surveyed, 72% expressed a desire to give birth without painkillers or intervention. This isn't a fringe choice. It's what most women initially hope for.
+Among nearly 56,000 women surveyed, 72% expressed a desire to give birth without painkillers or intervention.#citation[1] This isn't a fringe choice. It's what most women initially hope for.
 
 === How Your Body Naturally Manages Pain
 
@@ -48,7 +48,7 @@ Your body has a sophisticated pain management system that has evolved over mille
 
 *Oxytocin:* This hormone drives your contractions, but it does much more than make your uterus contract. Natural oxytocin creates feelings of love, bonding, and calm. It has direct pain-relieving properties. Your body releases it in waves that match your contractions, building throughout labor. Each surge of oxytocin not only strengthens the work of labor but also helps you manage the sensation.
 
-*Endorphins:* These are your body's natural opioids—similar in structure to morphine. During unmedicated labor, your endorphin levels rise progressively. By transition (the most intense phase of labor), they can reach approximately 10 times or more your normal levels. This is the "runner's high" of birth. These endorphins help manage pain in real time AND create the euphoric, alert "high" many women experience immediately after birth. This isn't mythology—it's measurable biochemistry.
+*Endorphins:* These are your body's natural opioids—similar in structure to morphine. During unmedicated labor, your endorphin levels rise progressively. By transition (the most intense phase of labor), they can reach approximately 10 times or more your normal levels.#citation[3] This is the "runner's high" of birth. These endorphins help manage pain in real time AND create the euphoric, alert "high" many women experience immediately after birth. This isn't mythology—it's measurable biochemistry.
 
 *Adrenaline and catecholamines:* In early labor, adrenaline can actually slow your progress. This is the fight-or-flight response—your body's way of protecting you if conditions don't feel safe. But in late labor and pushing, your body releases a natural adrenaline surge that gives you a burst of energy and alertness right when you need it most. This is by design. It helps you meet your baby with wide-awake awareness.
 
@@ -58,11 +58,11 @@ The key insight: your body doesn't just create pain during labor. It simultaneou
 
 Synthetic Pitocin (oxytocin) given through an IV is chemically identical to your natural oxytocin, but it doesn't work the same way in your body. This is one of the most important things to understand about labor interventions.
 
-Pitocin does NOT cross the blood-brain barrier the way your natural oxytocin does. Your natural oxytocin reaches your brain and creates pain-relieving effects, bonding feelings, and calm. Pitocin stays in your bloodstream. It causes your uterus to contract—sometimes harder and faster than natural labor would produce—but without the natural pain-relieving and bonding effects that your own oxytocin provides.
+Pitocin does NOT cross the blood-brain barrier the way your natural oxytocin does.#citation[4] Your natural oxytocin reaches your brain and creates pain-relieving effects, bonding feelings, and calm. Pitocin stays in your bloodstream. It causes your uterus to contract—sometimes harder and faster than natural labor would produce—but without the natural pain-relieving and bonding effects that your own oxytocin provides.
 
 Even more significant: Pitocin disrupts your body's endorphin production. Your body's natural labor builds gradually, allowing your endorphin levels to rise in response to increasing intensity. With Pitocin, contractions come harder and faster than your body would naturally produce, but without the gradual endorphin buildup that helps you cope with that intensity.
 
-This is a key reason why Pitocin inductions and augmentations have significantly higher epidural rates than spontaneous labor. It's not that women "can't handle" Pitocin contractions. It's that Pitocin creates contractions without the natural pain management system that's designed to accompany them.
+This is a key reason why Pitocin inductions and augmentations have significantly higher epidural rates than spontaneous labor.#citation[5] It's not that women "can't handle" Pitocin contractions. It's that Pitocin creates contractions without the natural pain management system that's designed to accompany them.
 
 If you're planning unmedicated birth, understanding this matters. It's one reason why avoiding unnecessary induction, when possible, increases your chances of achieving unmedicated birth. For more on Pitocin and when it's genuinely necessary versus elective, see the #link(<ch-pitocin>)[Pitocin chapter].
 
@@ -74,25 +74,25 @@ The method identifies what laboring women need: deep relaxation, focused breathi
 
 Your partner isn't a bystander offering encouragement. They're trained to recognize when you need more support, help maintain relaxation, and be your anchor through each contraction.
 
-Proponents claim 86% of women who complete the method achieve vaginal births without medication. While this comes from method advocates rather than independent research, studies do confirm that relaxation and deep breathing can be effective pain management when properly trained.
+Proponents claim 86% of women who complete the method achieve vaginal births without medication.#citation[6] While this comes from method advocates rather than independent research, studies do confirm that relaxation and deep breathing can be effective pain management when properly trained.#citation[6]
 
 === HypnoBirthing
 
 This approach is built on a simple idea: fear and tension increase pain, while relaxation and positive suggestions reduce it. Women learn self-hypnosis techniques to maintain relaxation, visualize positive birth scenarios, and reframe pain as pressure or waves.
 
-A Cochrane review of nine trials found that women in hypnosis groups were less likely to need other pain medication. Other studies found significantly less pain and fear during childbirth compared to controls. Survey research shows 69% of HypnoBirthing participants rated their birth as "extremely" or "very" positive versus only 44% of non-participants.
+A Cochrane review of nine trials found that women in hypnosis groups were less likely to need other pain medication.#citation[7] Other studies found significantly less pain and fear during childbirth compared to controls. Survey research shows 69% of HypnoBirthing participants rated their birth as "extremely" or "very" positive versus only 44% of non-participants (industry-sponsored survey).#citation[8]
 
 The evidence base remains limited, but the mechanism makes sense and the approach is safe. Many women report genuine benefit.
 
 === Water Birth
 
-Six of seven trials examining water immersion found it provided effective pain management. A Cochrane review found women who labored in water were less likely to need epidurals.
+Six of seven trials examining water immersion found it provided effective pain management. A Cochrane review found women who labored in water were less likely to need epidurals.#citation[9]
 
 Immersion in warm water (95-97 degrees) triggers multiple responses: reduces pain perception, relaxes muscles, triggers endorphin release, and reduces stress hormones. It takes about 15 minutes for the calming effect to begin.
 
 Beyond pain relief, water allows easier movement and position changes. It increases the functional diameter of your pelvis. Many women describe the water as especially soothing during pushing.
 
-Research shows no increased risk to you or baby when laboring or birthing in water with a trained healthcare provider.
+Research shows no increased risk to you or baby when laboring or birthing in water with a trained healthcare provider.#citation[9]
 
 === Why Women Choose This Path
 
@@ -110,7 +110,7 @@ Women who successfully labor without medication typically share certain factors:
 
 === Techniques That Work
 
-*Movement and positioning* may be the most evidence-supported strategy. People who used upright positions had a shorter second stage by about 34 minutes on average, reported less pain, and expressed greater satisfaction. MRI evidence shows your pelvic outlet actually becomes wider when squatting, kneeling, or on hands and knees compared to lying on your back.
+*Movement and positioning* may be the most evidence-supported strategy. People who used upright positions had a shorter second stage by about 34 minutes on average, reported less pain, and expressed greater satisfaction.#citation[10] MRI evidence shows your pelvic outlet actually becomes wider when squatting, kneeling, or on hands and knees compared to lying on your back.#citation[11]
 
 Walking, especially early in labor, keeps your pelvis moving and helps baby descend. Squatting opens the pelvis and relaxes perineal muscles. Hands and knees significantly decreases back pain. A birthing ball allows continued movement while providing support.
 
@@ -156,7 +156,7 @@ You self-administer, holding the mask and breathing it in as a contraction begin
 
 *Disadvantages:*
 - Does not eliminate pain (only helps with coping)
-- May cause nausea (up to 46%) or dizziness (up to 23%)
+- May cause nausea (up to 46%) or dizziness (up to 23%)#citation[12]
 - Limited availability in US hospitals
 - Not as powerful as epidural
 - Many women who try it switch to another method
@@ -167,7 +167,7 @@ Availability in US hospitals is still limited, though it's becoming more common 
 
 === Real-World Use
 
-While nitrous oxide has high patient satisfaction, the reality is that many women who use it ultimately choose additional pain management. In one study, about 69% of women who used nitrous oxide switched to another method, with most choosing epidural.
+While nitrous oxide has high patient satisfaction, the reality is that many women who use it ultimately choose additional pain management. In one study, about 69% of women who used nitrous oxide switched to another method, with most choosing epidural.#citation[13]
 
 This doesn't mean it "failed." It may provide helpful relief during early labor, and as contractions intensify, additional support becomes desirable. Think of it as one tool among many, not a complete solution.
 
@@ -181,7 +181,7 @@ Intravenous opioid medications have been used for decades and remain available i
 
 *Fentanyl* is increasingly preferred because it doesn't readily cross the placenta, causes less sedation and nausea than other options, and is shorter-acting.
 
-*Morphine* and *meperidine (Demerol)* carry more concerns. Demerol easily crosses the placenta and produces a long-acting substance in the baby's body that takes up to a week to clear. The American College of Obstetricians and Gynecologists does not recommend it.
+*Morphine* and *meperidine (Demerol)* carry more concerns. Demerol easily crosses the placenta and produces a long-acting substance in the baby's body that takes up to a week to clear. The American College of Obstetricians and Gynecologists does not recommend it.#citation[14]
 
 *Stadol and Nubain* (mixed agonist-antagonist opioids) carry lower risk of respiratory depression than pure opioids but may slow labor.
 
@@ -197,7 +197,7 @@ When respiratory depression occurs, it can be reversed with naloxone, which hosp
 
 === When They Make Sense
 
-Here's the crucial finding from research: IV opioids provide unreliable and minimal pain relief. Studies show they have little effect on maternal pain scores compared to placebo, yet they have common side effects.
+Here's the crucial finding from research: IV opioids provide unreliable and minimal pain relief. Studies show they have little effect on maternal pain scores compared to placebo, yet they have common side effects.#citation[15]
 
 They're not a strong pain management tool. They're more of a "take the edge off" approach. They may fill a niche helping in early labor or providing something when epidurals aren't available, but they're not a great standalone option.
 
@@ -207,7 +207,7 @@ They're not a strong pain management tool. They're more of a "take the edge off"
 
 == Epidural
 
-The epidural is the most effective form of pharmacologic pain relief available during labor. About 70-75% of people giving birth in the United States choose it. In some hospitals, rates exceed 90%.
+The epidural is the most effective form of pharmacologic pain relief available during labor. About 70-75% of people giving birth in the United States choose it.#citation[2] In some hospitals, rates exceed 90%.
 
 === How It Works
 
@@ -234,13 +234,13 @@ This is where the picture becomes more complex. Once an epidural is placed, it t
 
 These interventions often lead to further interventions. If labor slows, pitocin (artificial oxytocin) may be started. If labor still doesn't progress, or if other complications emerge, forceps, vacuum extraction, or cesarean section may follow.
 
-*The statistics are debated.* The Cochrane review (analyzing randomized controlled trials) found no meaningful difference in cesarean rates between women receiving epidurals and women receiving other pain relief. However, observational studies (looking at actual clinical practice) show different results. In one review, epidural was associated with more than a two-fold increase in emergency cesarean, rising from 14.7% without epidural to 36.4% with.
+*The statistics are debated.* The Cochrane review (analyzing randomized controlled trials) found no meaningful difference in cesarean rates between women receiving epidurals and women receiving other pain relief.#citation[16] However, observational studies (looking at actual clinical practice) show different results. In one review, epidural was associated with more than a two-fold increase in emergency cesarean, rising from 14.7% without epidural to 36.4% with.#citation[17]
 
 Why the difference? In randomized trials, women receive better overall care and attention. In clinical practice, the cascade of interventions that follows epidural placement increases intervention rates. The epidural itself may not be the direct cause, but the system of care that develops around it changes outcomes.
 
 === Effects on Labor Progression
 
-Research consistently shows epidurals extend labor. The first stage may lengthen by about 30 minutes and the second stage (pushing) by about 15 minutes compared to other pain relief methods. A 2020 study found people with epidurals had five times the odds of experiencing a prolonged second stage.
+Research consistently shows epidurals extend labor. The first stage may lengthen by about 30 minutes and the second stage (pushing) by about 15 minutes compared to other pain relief methods.#citation[16] A 2020 study found people with epidurals had five times the odds of experiencing a prolonged second stage.#citation[18]
 
 The reasons are physiologic: reduced sensation to push, weaker pushing efforts from motor block, potentially weaker contractions, and loss of gravity assistance from upright positioning.
 
@@ -262,15 +262,15 @@ Some women choose a "walking epidural" (lower-dose epidural) that preserves some
 
 *Epidural-related fever* is one of the most significant complications, and it's not well-known.
 
-Women receiving epidurals have dramatically increased fever risk. In one study, fever occurred in 14.5% of women with epidurals but only 1% without. That's about 14 times higher risk. Without epidural, fever rate stays low regardless of labor length. With epidural, fever increases from 7% for labors under 6 hours to 36% for labors over 18 hours.
+Women receiving epidurals have dramatically increased fever risk. In one study, fever occurred in 14.5% of women with epidurals but only 1% without. That's about 14 times higher risk. Without epidural, fever rate stays low regardless of labor length. With epidural, fever increases from 7% for labors under 6 hours to 36% for labors over 18 hours.#citation[19]
 
 Why this matters: maternal fever triggers cascades of events. Doctors become concerned about infection. Babies are evaluated for possible sepsis. Newborns may receive antibiotics before infection is confirmed. Some infants require NICU admission.
 
-Women with epidurals who developed high fever had a 2 to 6-fold increased risk for adverse newborn outcomes: low muscle tone, need for assisted ventilation, lower Apgar scores, and early-onset seizures. Maternal fever has even been associated with neonatal brain injury.
+Women with epidurals who developed high fever had a 2 to 6-fold increased risk for adverse newborn outcomes: low muscle tone, need for assisted ventilation, lower Apgar scores, and early-onset seizures.#citation[20] Maternal fever has even been associated with neonatal brain injury.#citation[21]
 
-Neonates whose mothers received epidurals were more often evaluated for sepsis (34% vs 10%), more often treated with antibiotics (15% vs 4%), and more likely to be admitted to NICU.
+Neonates whose mothers received epidurals were more often evaluated for sepsis (34% vs 10%), more often treated with antibiotics (15% vs 4%), and more likely to be admitted to NICU.#citation[19]
 
-*Newborn alertness and breastfeeding* may also be affected. Some research found lower neurobehavior scores in babies whose mothers received high-dose fentanyl. Early breastfeeding onset was observed in 82% of infants whose mothers had epidurals versus 91% without. A significant relationship was found between epidural and breastfeeding cessation within 30 days.
+*Newborn alertness and breastfeeding* may also be affected. Some research found lower neurobehavior scores in babies whose mothers received high-dose fentanyl. Early breastfeeding onset was observed in 82% of infants whose mothers had epidurals versus 91% without. A significant relationship was found between epidural and breastfeeding cessation within 30 days.#citation[22]
 
 === Fever Risk
 
@@ -286,7 +286,7 @@ Crucially, we don't yet know definitively whether epidural-related fever is actu
 
 Making decisions about pain management before labor matters for several reasons.
 
-During labor, your brain changes. Oxytocin rises, affecting attention and memory. Pain reduces your ability to think clearly about complex decisions. Fatigue compounds decision difficulty.
+During labor, your brain changes. Oxytocin rises, affecting attention and memory. Pain reduces your ability to think clearly about complex decisions.#citation[23] Fatigue compounds decision difficulty.
 
 Planning ahead means you've thought through your values and priorities, you understand your options and trade-offs, you've discussed preferences with your partner and provider, you have a framework if things change, and your provider understands what you want.
 
@@ -343,6 +343,56 @@ Your partner plays a crucial role in supporting your choices.
 
   More than the specific choice, research shows that trust in your provider and feeling supported during labor matters profoundly for birth satisfaction. If you don't have that kind of relationship with your provider, addressing it before labor matters more than which pain management you choose.
 ]
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Haines, H. M., et al. (2012). What characterizes women who want to give birth as naturally as possible without painkillers or intervention? _Midwifery_, 28(4), 458--464. DOI: 10.1016/j.midw.2011.07.011
+
+#citation[2] CDC National Center for Health Statistics (2008). Epidural and spinal anesthesia use during labor. _National Vital Statistics Reports_. Note: Latest official CDC data shows 61%; current estimates of 70-75% reflect more recent state-level data and industry consensus.
+
+#citation[3] Browning, C. A., Trudinger, B. J., & Martin, T. (1983). Maternal and fetal beta-endorphin release in response to the stress of labor and delivery. _American Journal of Obstetrics & Gynecology_, 148(4), 440--445. PubMed: 3158206.
+
+#citation[4] Uvnas-Moberg, K., et al. (2023). The physiology and pharmacology of oxytocin in labor and in the peripartum period. _American Journal of Obstetrics & Gynecology_. DOI: 10.1016/j.ajog.2023.03.023
+
+#citation[5] Richardson, M. X., et al. (2020). Induction of labor in Sweden: A register-based cohort study. _BMJ Open_.
+
+#citation[6] Lothian, J. A., et al. (2016). Comparison of the Bradley Method and HypnoBirthing childbirth education classes. _Journal of Perinatal Education_. PMC4744344. Note: The 86% statistic is self-reported by method advocates.
+
+#citation[7] Madden, K., Middleton, P., Cyna, A. M., et al. (2016). Hypnosis for pain management during labour and childbirth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD009356.pub3
+
+#citation[8] KG Hypnobirthing Independent Research Study (~700 women). #link("https://www.kghypnobirthing.com/hypnobirthing-information/hypnobirthing-statistics")[kghypnobirthing.com]. Note: Industry-sponsored survey.
+
+#citation[9] Cluett, E. R., Burns, E., & Cuthbert, A. (2018). Immersion in water during labour and birth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD000111.pub4
+
+#citation[10] Evidence Based Birth. (2023). Positions during Labor and their Effects on Pain Relief. #link("https://evidencebasedbirth.com/positions-during-labor-and-their-effects-on-pain-relief/")[evidencebasedbirth.com]. See also: Cochrane Review CD002006.pub4 on position in the second stage of labour.
+
+#citation[11] Russell, J. G. (2002). MR obstetric pelvimetry: Effect of birthing position on pelvic bony dimensions. _AJR American Journal of Roentgenology_, 179(4), 1063--1067. PubMed: 12239066.
+
+#citation[12] Buhre, W., et al. (2020). Nitrous Oxide for Labor Analgesia: What We Know to Date. PMC7755562. See also: Pro-Con Debate: Nitrous Oxide for Labor Analgesia. PMC6720045.
+
+#citation[13] American Society of Anesthesiologists. (2019). Laughing gas helpful for labor pain, safe for baby, but ultimately most women switched to an epidural. ASA News Release. #link("https://www.asahq.org/about-asa/newsroom/news-releases/2019/10/2-nitrous-oxide-during-labor")[asahq.org]
+
+#citation[14] American College of Obstetricians and Gynecologists. (2017). Obstetric Analgesia and Anesthesia. ACOG Practice Bulletin No. 177. _Obstetrics & Gynecology_, 129(4), e73--e89. DOI: 10.1097/AOG.0000000000002018
+
+#citation[15] Smith, L. A., Burns, E., & Cuthbert, A. (2018). Parenteral opioids for maternal pain management in labour. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD007396.pub3
+
+#citation[16] Howell, C. J. (2000). Epidural versus non-epidural analgesia for pain relief in labour. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD000331
+
+#citation[17] Epidurals: Do They or Don't They Increase Cesareans? PMC4718011. See also: British Journal of Midwifery observational studies.
+
+#citation[18] Turner, J., Flatley, C., & Kumar, S. (2020). Epidural use in labour is not associated with an increased risk of maternal or neonatal morbidity when the second stage is prolonged. _Australian and New Zealand Journal of Obstetrics and Gynaecology_. DOI: 10.1111/ajo.13045
+
+#citation[19] Lieberman, E., Lang, J. M., Frigoletto, F., et al. (1997). Epidural Analgesia, Intrapartum Fever, and Neonatal Sepsis Evaluation. _Pediatrics_, 99(3), 415--419. DOI: 10.1542/peds.99.3.415
+
+#citation[20] Epidural-Related Fever and Maternal and Neonatal Morbidity: Systematic Review and Meta-Analysis. (2020). _Neonatology_, 117(3), 259. DOI: 10.1159/000505792
+
+#citation[21] Morton, S., Kua, J., & Mullington, C. J. (2022). Epidural Analgesia, Intrapartum Hyperthermia, and Neonatal Brain Injury: A Systematic Review and Meta-Analysis. _Anesthesia & Analgesia_. DOI: 10.1097/01.aoa.0000816908.23548.dd
+
+#citation[22] Dozier, A. M., Howard, C. R., Brownell, E. A., et al. (2013). Labor Epidural Anesthesia, Obstetric Factors and Breastfeeding Cessation. _Maternal and Child Health Journal_, 17(4), 689--698. DOI: 10.1007/s10995-012-1045-4
+
+#citation[23] Buckley, S. J. (2016). Executive Summary of Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Journal of Perinatal Education_. PMC4720867.
 
 #line(length: 100%)
 

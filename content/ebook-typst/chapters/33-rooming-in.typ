@@ -2,7 +2,7 @@
 
 == THE QUICK ANSWER
 
-Rooming in (keeping baby in your room 24/7) has real benefits for bonding and breastfeeding. But it can be exhausting when you're recovering from birth. If a nursery is available and you need rest, using it doesn't make you a bad parent.
+Rooming in (keeping baby in your room 24/7) has real benefits for bonding and breastfeeding #citation[1]. But it can be exhausting when you're recovering from birth. If a nursery is available and you need rest, using it doesn't make you a bad parent.
 
 == WHAT IT IS
 
@@ -17,7 +17,7 @@ That said, you also just went through one of the most physically demanding exper
 == THE EVIDENCE
 
 *Benefits of rooming in:*
-- Better breastfeeding: Feeding on demand is easier when baby is right there. You catch hunger cues early — rooting, lip-smacking, hand-to-mouth — before baby escalates to crying. This leads to calmer, more effective feedings.
+- Better breastfeeding: Feeding on demand is easier when baby is right there #citation[1]. You catch hunger cues early — rooting, lip-smacking, hand-to-mouth — before baby escalates to crying. This leads to calmer, more effective feedings.
 - Bonding: Constant proximity triggers bonding hormones in both you and your baby. Oxytocin flows when you hold, touch, and smell your newborn. These early hours and days set the foundation for attachment.
 - Learning baby's cues: You observe patterns before going home. By the time you leave the hospital, you have a head start on understanding what your baby's different sounds and movements mean.
 - Some research suggests it may reduce hospital errors
@@ -26,10 +26,10 @@ That said, you also just went through one of the most physically demanding exper
 - You just gave birth — your body needs recovery
 - Newborns feed every 2-3 hours, leaving little sustained sleep
 - Hospital rooms have constant interruptions: vitals, meals, staff
-- Sleep deprivation is linked to postpartum mood disorders
+- Sleep deprivation is linked to postpartum mood disorders #citation[2]
 - Partners often can't stay comfortably, leaving you alone overnight
 
-*What research shows:* While rooming in supports breastfeeding, studies don't account well for maternal exhaustion and mental health. A few hours of nursery care so you can sleep has not been shown to harm outcomes.
+*What research shows:* While rooming in supports breastfeeding #citation[1], studies don't account well for maternal exhaustion and mental health #citation[3]. A few hours of nursery care so you can sleep has not been shown to harm outcomes.
 
 #line(length: 100%)
 
@@ -145,3 +145,11 @@ Rooming in is wonderful in theory — and often wonderful in practice too. But i
 *The bottom line:* If you can room in, especially with your partner there to share the work, do it. The bonding, the breastfeeding support, the oversight, the family time — it adds up. But if you are running on empty and need a break, take the break. There is no trophy for suffering, and your baby needs you healthy more than they need you exhausted and heroic.
 
 There is no shame in needing rest. A rested parent is a safer, more present parent.
+
+== Citations
+
+#citation[1] Jaafar SH, Ho JJ, Lee KS. Rooming-in for new mother and infant versus separate care for increasing the duration of breastfeeding. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd006641.pub3
+
+#citation[2] Okun ML. Disturbed Sleep and Postpartum Depression. _Curr Psychiatry Rep_. 2016;18(7):66. DOI: 10.1007/s11920-016-0705-2
+
+#citation[3] Kawashima A, Detsuka N, Yano R. Sleep deprivation and fatigue in early postpartum and their association with postpartum depression in primiparas intending to establish breastfeeding. _J Reprod Med_. 2022;67(1-2):e1-e9. DOI: 10.2185/jrm.2021-027

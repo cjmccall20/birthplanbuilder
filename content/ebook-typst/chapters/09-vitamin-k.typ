@@ -28,7 +28,7 @@ Vitamin K Deficiency Bleeding (VKDB) happens when a baby's blood can't clot prop
 
 *Classical (Days 2-7)*
 - Occurs as the small amount of vitamin K that crossed the placenta depletes
-- Incidence without prophylaxis: 1 in 60 to 1 in 250 babies
+- Incidence without prophylaxis: 1 in 60 to 1 in 250 babies #citation[1]
 - Usually milder: bleeding from the umbilical cord, circumcision site, or digestive tract
 - Some cases resolve on their own; others become serious
 
@@ -36,19 +36,19 @@ Vitamin K Deficiency Bleeding (VKDB) happens when a baby's blood can't clot prop
 - The form that has returned as more parents decline vitamin K
 - Peak occurrence: 2-8 weeks of age
 - Highest risk: exclusively breastfed babies
-- *Brain hemorrhage occurs in 50-82% of cases*
+- *Brain hemorrhage occurs in about 50% of cases* #citation[1]
 - This is the most serious form
 
 === Actual Incidence Rates
 
 *Without any vitamin K:*
 - All forms combined: roughly 1 in 400 to 1 in 1,600 births
-- Late-onset alone (US/Europe): 4-7 per 100,000 births
-- Global median: 35 per 100,000 births
+- Late-onset alone (US/Europe): 4-7 per 100,000 births #citation[2]
+- Global median: 35 per 100,000 births #citation[3]
 
 *With intramuscular vitamin K:*
-- Late-onset VKDB: less than 1 per 100,000 births
-- Approximately 95-99% reduction in risk
+- Late-onset VKDB: less than 1 per 100,000 births #citation[4]
+- Approximately 95-99% reduction in risk #citation[1]
 
 === What Happens When VKDB Occurs
 
@@ -57,8 +57,8 @@ When vitamin K deficiency becomes severe enough, babies can bleed almost anywher
 *Brain bleeding is the biggest concern.* In late-onset VKDB, intracranial hemorrhage occurs in about half of all cases. This isn't a rare complication; it's the typical presentation.
 
 *Outcomes for babies with late-onset VKDB:*
-- Mortality: 10-25% even with treatment
-- Among survivors with brain bleeding: 50% have permanent neurological damage
+- Mortality: 10-25% even with treatment #citation[1]
+- Among survivors with brain bleeding: 50% have permanent neurological damage #citation[5]
 - Possible outcomes include cerebral palsy, developmental delays, and vision problems
 
 Many parents assume they'd notice symptoms in time to get help. Unfortunately, VKDB often has no warning signs before a life-threatening bleed. The first sign may be a seizure or sudden lethargy.
@@ -69,7 +69,7 @@ Many parents assume they'd notice symptoms in time to get help. Unfortunately, V
 
 === The Injection
 
-The American Academy of Pediatrics has recommended vitamin K injections for all newborns since 1961. The standard protocol is:
+The American Academy of Pediatrics has recommended vitamin K injections for all newborns since 1961 #citation[6]. The standard protocol is:
 
 - *Timing:* Within 6 hours after birth (ideally in the first hour, after initial skin-to-skin)
 - *Dose:* 1.0 mg for babies over 3.3 pounds; 0.5 mg for smaller babies
@@ -86,7 +86,7 @@ The American Academy of Pediatrics has recommended vitamin K injections for all 
 
 *Proven track record:* Decades of use and research support its effectiveness and safety.
 
-The injection is especially important for breastfed babies. Breast milk contains very little vitamin K (only about 1-2 micrograms per liter, compared to 50+ micrograms per liter in formula). The injection compensates for this.
+The injection is especially important for breastfed babies. Breast milk contains very little vitamin K (only about 1-2 micrograms per liter, compared to 50+ micrograms per liter in formula) #citation[7]. The injection compensates for this.
 
 === Understanding the Dose: Pharmacological vs. Nutritional
 
@@ -202,13 +202,13 @@ When making your decision, consider both what we know (vitamin K prevents VKDB) 
   [Intramuscular vitamin K], [Less than 0.3 per 100,000 births],
 )
 
-The injection reduces risk by approximately 81-fold compared to no prophylaxis.
+The injection reduces risk by approximately 81-fold compared to no prophylaxis #citation[1].
 
 === Risk Factors That Actually Matter
 
 *Exclusive breastfeeding:* The strongest risk factor. Breast milk is low in vitamin K. Exclusively breastfed babies have about 15 times higher risk of late-onset VKDB than formula-fed babies.
 
-One study found that 67% of exclusively breastfed babies tested after discharge were vitamin K insufficient, compared to just 4% of babies receiving formula or mixed feeding.
+One study found that 67% of exclusively breastfed babies tested after discharge were vitamin K insufficient, compared to just 4% of babies receiving formula or mixed feeding #citation[8].
 
 *Malabsorption conditions:* Cystic fibrosis, celiac disease, cholestasis (bile flow problems), biliary atresia, and alpha-1 antitrypsin deficiency all increase risk because they impair vitamin K absorption.
 
@@ -251,7 +251,7 @@ Oral vitamin K is standard practice in several countries, including the Netherla
 *Denmark Weekly Protocol (historical, highly effective but discontinued):*
 - 2 mg at birth
 - 1 mg weekly for 12 weeks (3 months)
-- Achieved near-zero VKDB cases (0.0 per 100,000 births)
+- Achieved near-zero VKDB cases (0.0 per 100,000 births) #citation[16]
 - Discontinued due to market availability issues and compliance challenges
 
 *The Netherlands Daily Protocol (2011-present):*
@@ -283,7 +283,7 @@ If you choose oral vitamin K, the success of the regimen depends on your commitm
 - Stronger evidence supports the injection
 - US healthcare system is less reliable for ensuring multi-dose follow-up
 - Oral absorption can be compromised by undiagnosed gut problems
-- No oral vitamin K product is FDA-approved specifically for this purpose in the United States
+- No oral vitamin K product is FDA-approved specifically for this purpose in the United States #citation[2]
 - The formulations used in Europe (such as Konakion MM) are not available in the US
 - Compounded or imported formulations may be used, raising additional regulatory and quality concerns
 
@@ -293,21 +293,21 @@ If you choose oral vitamin K, the success of the regimen depends on your commitm
 
 === The Debunked Cancer Link
 
-*What you may have heard:* A 1990s study reported that children who received intramuscular vitamin K were almost 3 times as likely to develop leukemia.
+*What you may have heard:* A 1992 study by Golding et al. reported that children who received intramuscular vitamin K were almost 3 times as likely to develop leukemia #citation[9].
 
 *What actually happened:* Multiple subsequent studies involving thousands of children found no association. Key research:
 
-- A UK Childhood Cancer Study found no increased risk of any childhood cancer among children who received neonatal vitamin K
-- Analysis of individual patient data from six case-control studies found no association
-- US cancer incidence data showed childhood leukemia rates didn't increase when vitamin K became universal (if vitamin K caused leukemia, we'd expect rates to rise)
+- A UK Childhood Cancer Study found no increased risk of any childhood cancer among children who received neonatal vitamin K #citation[10]
+- Analysis of individual patient data from six case-control studies found no association #citation[11]
+- US cancer incidence data showed childhood leukemia rates didn't increase when vitamin K became universal #citation[12] (if vitamin K caused leukemia, we'd expect rates to rise)
 
-*Current scientific consensus:* The original finding was not replicated. The AAP's Vitamin K Task Force concluded the cancer concern was effectively dispelled.
+*Current scientific consensus:* The original finding was not replicated. The AAP's Vitamin K Task Force concluded the cancer concern was effectively dispelled #citation[13].
 
 === Ingredient Concerns
 
 *Polysorbate 80:* The injection contains about 10 mg of polysorbate 80, an emulsifier that helps vitamin K dissolve. This same ingredient is found in many oral medications, vaccines, foods, and vitamin supplements.
 
-The European Medicines Agency determined that short-term exposure to polysorbate 80 at less than 10 mg/kg per day is safe even in newborns. A typical newborn receives about 0.33 mg/kg, well within the safe range.
+The European Medicines Agency determined that short-term exposure to polysorbate 80 at less than 10 mg/kg per day is safe even in newborns #citation[14]. A typical newborn receives about 0.33 mg/kg, well within the safe range.
 
 *Claims about fertility:* One 1992 rat study is sometimes cited, but no human data supports any link between the vitamin K injection and fertility problems.
 
@@ -324,7 +324,7 @@ The European Medicines Agency determined that short-term exposure to polysorbate
 
 === Historical Jaundice Issue (Resolved)
 
-In the 1950s, high doses of water-soluble vitamin K analogs caused jaundice in newborns. This was a real problem that has been completely solved by:
+In the 1950s, high doses of water-soluble vitamin K analogs caused jaundice in newborns #citation[15]. This was a real problem that has been completely solved by:
 
 - Switching to fat-soluble vitamin K1 (which doesn't cause jaundice)
 - Using the current lower dose (1 mg instead of 50+ mg)
@@ -506,6 +506,42 @@ For additional context on related newborn interventions and decisions:
 - _Evidence Based Birth: Vitamin K_ - evidencebasedbirth.com/evidence-for-the-vitamin-k-shot-in-newborns/
 - _Gentle Birth, Gentle Mothering_ by Sarah Buckley, MD - Chapter on newborn procedures
 - _The Vaccine-Friendly Plan_ by Paul Thomas, MD - Discusses delayed/alternative approaches
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] CDC. About Vitamin K Deficiency Bleeding. Centers for Disease Control and Prevention. https://www.cdc.gov/vitamin-k-deficiency/about/index.html
+
+#citation[2] Evidence Based Birth. (2023). The Evidence for the Vitamin K Shot in Newborns. https://evidencebasedbirth.com/evidence-for-the-vitamin-k-shot-in-newborns/
+
+#citation[3] Sankar MJ, et al. (2016). Optimal breastfeeding practices and infant and child mortality: A systematic review and meta-analysis. _Journal of Perinatology_. https://www.nature.com/articles/jp201630
+
+#citation[4] Puckett RM, Offringa M. (2000). Prophylactic vitamin K for vitamin K deficiency bleeding in neonates. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd002776
+
+#citation[5] Shearer MJ. (2009). Vitamin K deficiency bleeding (VKDB) in early infancy. _Blood Reviews_, 23(2), 49-59. DOI: 10.1016/j.blre.2008.06.001
+
+#citation[6] Hand I, Noble L, Abrams SA. (2022). Vitamin K and the Newborn Infant. _Pediatrics_, 149(3), e2021056036. DOI: 10.1542/peds.2021-056036
+
+#citation[7] NCBI LactMed Database. Vitamin K. National Library of Medicine. https://www.ncbi.nlm.nih.gov/books/NBK500922/
+
+#citation[8] Loyal J, Shapiro ED. (2020). Refusal of Intramuscular Vitamin K by Parents of Newborns: A Review. _Hospital Pediatrics_. DOI: 10.1542/hpeds.2019-0228
+
+#citation[9] Golding J, Greenwood R, Birmingham K, Mott M. (1992). Childhood cancer, intramuscular vitamin K, and pethidine given during labour. _BMJ_, 305(6849), 341-346. DOI: 10.1136/bmj.305.6849.341
+
+#citation[10] Fear NT, Roman E, Ansell P, et al. (2003). Vitamin K and childhood cancer: a report from the United Kingdom Childhood Cancer Study. _British Journal of Cancer_, 89(7), 1228-1231. DOI: 10.1038/sj.bjc.6601278
+
+#citation[11] Roman E, Fear NT, Ansell P, et al. (2002). Vitamin K and childhood cancer: analysis of individual patient data from six case-control studies. _British Journal of Cancer_, 86(1), 63-69. DOI: 10.1038/sj.bjc.6600007
+
+#citation[12] Klebanoff MA, Read JS, Mills JL, Shiono PH. (1993). The Risk of Childhood Cancer after Neonatal Exposure to Vitamin K. _New England Journal of Medicine_, 329(13), 905-908. DOI: 10.1056/nejm199309233291301
+
+#citation[13] American Academy of Pediatrics Vitamin K Ad Hoc Task Force. (1993). Controversies concerning vitamin K and the newborn. _Pediatrics_, 91(5), 1001-1003.
+
+#citation[14] European Medicines Agency. Information for package leaflet regarding polysorbates used as excipients in medicinal products for human use. https://www.ema.europa.eu/en/documents/scientific-guideline/
+
+#citation[15] Historical medical literature on menadione (vitamin K3) toxicity. Cordon RR. (1949). Water-Soluble Vitamin K in the Newborn. _The Lancet_. DOI: 10.1016/s0140-6736(49)91960-1
+
+#citation[16] Hansen KN, Minousis M, Ebbesen F. (2003). Weekly oral vitamin K prophylaxis in Denmark. _Acta Paediatrica_, 92(7), 802-805. DOI: 10.1080/08035250310002858
 
 #line(length: 100%)
 

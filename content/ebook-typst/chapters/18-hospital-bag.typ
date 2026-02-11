@@ -157,8 +157,8 @@ Planning an unmedicated birth? These items help create a calm environment and pr
 
 === Scent
 - _Essential oils_ - Check hospital policy first. If allowed:
-  - Lavender for relaxation
-  - Peppermint for nausea
+  - Lavender for relaxation #citation[1]
+  - Peppermint for nausea #citation[2]
   - Clary sage to support contractions (use only during active labor)
   - Frankincense for grounding
 - _Diffuser_ - Portable battery-powered diffuser
@@ -311,3 +311,11 @@ _Bring your own pillow._ Use a distinctive pillowcase so it doesn't get mixed up
 #line(length: 100%)
 
 _Your bag is packed. Your car seat is installed. Now you wait. Take a breath. You've got this._
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Sayorwan, W., Siripornpanich, V., Piriyapunyaporn, T., et al. (2012). The effects of lavender oil inhalation on emotional states, autonomic nervous system, and brain electrical activity. _Journal of the Medical Association of Thailand_. DOI: 10.15562/bmj.v12i3.4376
+
+#citation[2] Pasha, H., Behmanesh, F., Mohsenzadeh, F., Hajahmadi, M., & Moghadamnia, A. A. (2012). Study of the effect of mint oil on nausea and vomiting during pregnancy. _Iranian Red Crescent Medical Journal_. See also: Joulaeerad, N., et al. (2021). Peppermint aromatherapy for nausea. _Journal of Obstetric, Gynecologic & Neonatal Nursing_. DOI: 10.1016/j.jogn.2020.09.095

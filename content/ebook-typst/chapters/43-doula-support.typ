@@ -10,7 +10,7 @@ This guide explains what doulas actually do, what the research shows, and how to
 
 _A doula_ is a trained professional who provides continuous physical, emotional, and informational support during labor and birth. They are NOT medical providers—they don't perform clinical tasks or make medical decisions.
 
-_The evidence_ is remarkably strong. Continuous labor support from a doula reduces cesarean sections by 39%, shortens labor by 41 minutes on average, reduces use of pain medication, and increases satisfaction with the birth experience [1,2]. This is backed by a Cochrane systematic review of nearly 16,000 women [1].
+_The evidence_ is remarkably strong. Continuous labor support from a doula reduces cesarean sections by 39%, shortens labor by 41 minutes on average, reduces use of pain medication, and increases satisfaction with the birth experience #citation[1] #citation[2]. This is backed by a Cochrane systematic review of nearly 16,000 women #citation[1].
 
 _What they do:_ Physical comfort techniques (massage, positioning, breathing support), emotional reassurance, information about what's happening, advocacy for your preferences, and partner support. They work alongside your partner, not instead of them.
 
@@ -65,24 +65,24 @@ The gold-standard evidence comes from a Cochrane systematic review titled "Conti
 _Key findings when comparing continuous support to usual care:_
 
 _Cesarean section rates:_
-- 25% overall reduction in cesarean births [1]
-- When support came specifically from a doula (not hospital staff or family): 39% reduction in cesarean risk [1]
+- 25% overall reduction in cesarean births #citation[1]
+- When support came specifically from a doula (not hospital staff or family): 39% reduction in cesarean risk #citation[1]
 
 _Labor duration:_
-- Average labor was 41 minutes shorter with continuous support [1]
-- Both first and second stages of labor progressed more efficiently [1]
+- Average labor was 41 minutes shorter with continuous support #citation[1]
+- Both first and second stages of labor progressed more efficiently #citation[1]
 
 _Pain medication use:_
-- 10% decrease in use of any pain relief medication [1]
-- 16% decrease in epidural or spinal analgesia use [1]
+- 10% decrease in use of any pain relief medication #citation[1]
+- 16% decrease in epidural or spinal analgesia use #citation[1]
 
 _Birth satisfaction:_
-- 31% decrease in risk of negative birth experience [1]
-- Women with continuous support were significantly more likely to rate their birth positively [1]
+- 31% decrease in risk of negative birth experience #citation[1]
+- Women with continuous support were significantly more likely to rate their birth positively #citation[1]
 
 _Newborn outcomes:_
-- 38% decrease in baby's risk of low five-minute Apgar score [1]
-- No adverse effects on baby from having doula support [1]
+- 38% decrease in baby's risk of low five-minute Apgar score #citation[1]
+- No adverse effects on baby from having doula support #citation[1]
 
 _Instrumental deliveries:_
 - Reduced use of vacuum extraction or forceps
@@ -91,19 +91,19 @@ _Instrumental deliveries:_
 
 More recent studies continue to strengthen these findings:
 
-_Cesarean reduction:_ A 2023 meta-analysis published in the American Journal of Obstetrics & Gynecology found that pregnant patients supported by doula services are 68% less likely to undergo cesarean delivery than those receiving standard prenatal care [4].
+_Cesarean reduction:_ A 2023 meta-analysis published in the American Journal of Obstetrics & Gynecology found that pregnant patients supported by doula services are 68% less likely to undergo cesarean delivery than those receiving standard prenatal care #citation[4].
 
-_Broader outcomes:_ A 2022 study in eClinicalMedicine examined doula programs across three states using propensity score matching [3]. Women who received doula care had:
-- 52.9% lower odds of cesarean delivery (OR: 0.471) [3]
-- 57.5% lower odds of postpartum depression/anxiety [3]
-- Improved attendance at postpartum checkups [3]
+_Broader outcomes:_ A 2022 study in eClinicalMedicine examined doula programs across three states using propensity score matching #citation[3]. Women who received doula care had:
+- 52.9% lower odds of cesarean delivery (OR: 0.471) #citation[3]
+- 57.5% lower odds of postpartum depression/anxiety #citation[3]
+- Improved attendance at postpartum checkups #citation[3]
 
-_Medicaid populations:_ A 2024 study in the American Journal of Public Health examined 722 matched pairs of Medicaid enrollees [5]. Those with doulas had:
-- 47% lower risk of cesarean delivery [5]
-- 29% lower risk of preterm birth [5]
-- 46% more likely to attend postpartum checkup [5]
+_Medicaid populations:_ A 2024 study in the American Journal of Public Health examined 722 matched pairs of Medicaid enrollees #citation[5]. Those with doulas had:
+- 47% lower risk of cesarean delivery #citation[5]
+- 29% lower risk of preterm birth #citation[5]
+- 46% more likely to attend postpartum checkup #citation[5]
 
-_Meta-analysis findings:_ A 2025 systematic review (Dias et al., Obstetrics & Gynecology) confirmed that intrapartum doula support significantly reduces cesarean delivery rates, with the American College of Obstetricians and Gynecologists identifying continuous labor support as one of the most effective strategies to reduce cesareans [6].
+_Meta-analysis findings:_ A 2025 systematic review (Dias et al., Obstetrics & Gynecology) confirmed that intrapartum doula support significantly reduces cesarean delivery rates, with the American College of Obstetricians and Gynecologists identifying continuous labor support as one of the most effective strategies to reduce cesareans #citation[6].
 
 === Why the Effect Is So Consistent
 
@@ -585,6 +585,20 @@ This needs to change. Doula support should be considered standard care, not opti
 Until then, if you have the option to hire a doula—take it. The evidence is too strong to ignore.
 
 #line(length: 100%)
+
+== Citations
+
+#citation[1] Bohren MA, Hofmeyr GJ, Sakala C, Fukuzawa RK, Cuthbert A (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_, Issue 7, Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6
+
+#citation[2] Bohren MA, et al. (2017). Cochrane Review Update Key Takeaways. _PMC_ 6491161.
+
+#citation[3] Falconi AM, Bromfield SG, Tang T, et al. (2022). Doula care across the maternity care continuum and impact on maternal health: Evaluation of doula programs across three states using propensity score matching. _eClinicalMedicine_, 51:101531. DOI: 10.1016/j.eclinm.2022.101531
+
+#citation[4] American Journal of Obstetrics & Gynecology (2023). A meta-analysis on the impact of doula care on Cesarean section rates. _AJOG_, S0002-9378(23)00926-2.
+
+#citation[5] American Journal of Public Health (2024). Role of Doulas in Improving Maternal Health and Health Equity Among Medicaid Enrollees, 2014-2023. _AJPH_, 114(11). DOI: 10.2105/AJPH.2024.307805
+
+#citation[6] Dias Y, Achebe NE, Doering MM, et al. (2025). Intrapartum Doula Support and Cesarean Delivery Rates: A Systematic Review and Meta-analysis. _Obstetrics & Gynecology_. DOI: 10.1097/AOG.0000000000005937
 
 == Key Sources
 

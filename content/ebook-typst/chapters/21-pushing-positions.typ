@@ -2,7 +2,7 @@
 
 == THE QUICK ANSWER
 
-Your pushing position can change your pelvic opening by up to 30%, yet most women end up flat on their backs -- the position that makes pushing hardest. Upright positions (squatting, kneeling, hands and knees) use gravity, open the pelvis wider, and are associated with shorter pushing stages, fewer assisted deliveries, and fewer episiotomies. Side-lying is an excellent option for everyone, including women with epidurals. Hospitals default to the lithotomy position (on your back, legs in stirrups) for provider convenience and monitoring compatibility, not because it produces better outcomes. You also have a choice between directed "purple pushing" (holding your breath and pushing on command) and spontaneous pushing (following your body's cues), which research shows is gentler on both you and your baby.
+Your pushing position can change your pelvic opening by up to 28-30%, yet most women end up flat on their backs -- the position that makes pushing hardest. Upright positions (squatting, kneeling, hands and knees) use gravity, open the pelvis wider, and are associated with shorter pushing stages, fewer assisted deliveries, and fewer episiotomies. Side-lying is an excellent option for everyone, including women with epidurals. Hospitals default to the lithotomy position (on your back, legs in stirrups) for provider convenience and monitoring compatibility, not because it produces better outcomes. You also have a choice between directed "purple pushing" (holding your breath and pushing on command) and spontaneous pushing (following your body's cues), which research shows is gentler on both you and your baby.
 
 *Bottom line:* The position you push in is your choice, and it matters. Ask about options during a prenatal visit, include your preferences in your birth plan, and don't be afraid to try different positions during labor.
 
@@ -16,7 +16,7 @@ Here's what the research says about pushing positions, why hospitals default to 
 
 == WHY POSITION MATTERS
 
-Your pelvis isn't a fixed, rigid structure. It's designed to move and open during birth. Different positions can change the diameter of your pelvic outlet by up to 30%—that's a significant difference when you're trying to fit a baby through.
+Your pelvis isn't a fixed, rigid structure. It's designed to move and open during birth. Different positions can change the diameter of your pelvic outlet by up to 28-30%#citation[1]—that's a significant difference when you're trying to fit a baby through.
 
 === How Your Pelvis Changes Shape
 
@@ -31,7 +31,7 @@ When you change positions, these dimensions change too. Squatting, for example, 
 
 Think about it: when you're upright, gravity helps pull your baby down and out. When you're on your back, you're essentially pushing your baby uphill. It's like trying to roll a ball up a slope versus letting it roll down.
 
-This isn't just theory. Studies show that upright positions are associated with:
+This isn't just theory. Studies show that upright positions are associated with:#citation[2]
 - Shorter pushing stages
 - Fewer interventions
 - Less severe tearing
@@ -43,8 +43,8 @@ The lithotomy position—lying on your back with legs up in stirrups—became st
 
 - Your pelvis is at its narrowest
 - You're pushing against gravity
-- Your sacrum (tailbone) can't move out of the way
-- Major blood vessels can be compressed, reducing oxygen to baby
+- Your sacrum (tailbone) can't move out of the way #citation[3]
+- Major blood vessels can be compressed, reducing oxygen to baby #citation[4]
 - You have less control and strength in your pushes
 
 Despite all this, it remains the default in most hospitals. Understanding why—and what alternatives exist—gives you the power to make different choices.
@@ -57,7 +57,7 @@ If you don't have an epidural, you have the most options. Upright positions use 
 
 === Squatting
 
-_Why it works:_ Squatting opens your pelvic outlet by up to 30% compared to lying down. It's the position humans used for thousands of years before hospital birth became standard.
+_Why it works:_ Squatting opens your pelvic outlet by up to 28-30% compared to lying down.#citation[1] It's the position humans used for thousands of years before hospital birth became standard.
 
 _How to do it:_
 - Supported squat: Partner stands behind you, supporting under your arms
@@ -99,17 +99,17 @@ _How to do it:_
 - Drape upper body over the raised head of the bed or a birth ball
 - Rock your hips during contractions
 
-_Research shows:_ This position is associated with less perineal tearing and can help baby rotate into a better position.
+_Research shows:_ This position is associated with less perineal tearing and can help baby rotate into a better position.#citation[5]
 
 === What the Evidence Says
 
-A Cochrane review (the gold standard of medical research) found that upright positions during pushing are associated with:
+A Cochrane review (the gold standard of medical research) found that upright positions during pushing are associated with:#citation[2]
 - A reduction in assisted deliveries (vacuum, forceps)
 - Shorter pushing time (on average about 6 minutes shorter)
 - Fewer episiotomies
 - Fewer abnormal fetal heart rate patterns
 
-The main trade-off noted was a slight increase in blood loss and second-degree tears in some studies—but many experts believe this is related to how the studies were conducted, not the positions themselves.
+The main trade-off noted was a slight increase in blood loss and second-degree tears in some studies#citation[2]—but many experts believe this is related to how the studies were conducted, not the positions themselves.
 
 #line(length: 100%)
 
@@ -122,8 +122,8 @@ Side-lying is an underrated position that works well for almost everyone, includ
 - _Better than on your back:_ Your pelvis can still open, and you're not compressing blood vessels
 - _Restful:_ You can relax between pushes without holding yourself up
 - _Works with epidural:_ You can use this position even with limited leg control
-- _Reduces tearing:_ Associated with less severe perineal tears
-- _Good for baby:_ No blood vessel compression means better oxygen flow
+- _Reduces tearing:_ Associated with less severe perineal tears #citation[5]
+- _Good for baby:_ No blood vessel compression means better oxygen flow #citation[4]
 
 === How to Do It
 
@@ -185,9 +185,9 @@ _How to use it:_
 - Switch sides every 30-60 minutes
 - Can use during both labor and pushing
 
-_Research shows:_ Using a peanut ball is associated with:
-- Shorter labor (by about 90 minutes on average)
-- Shorter pushing stages
+_Research shows:_ Using a peanut ball is associated with:#citation[6]
+- Shorter first stage of labor (by about 29 minutes on average)
+- Shorter pushing stages (by about 11 minutes on average)
 - Fewer cesareans
 
 Many hospitals have peanut balls available, but you can also bring your own to be sure.
@@ -206,7 +206,7 @@ When getting your epidural, you can ask:
 - "Can we keep the dose low enough that I have some movement?"
 - "I'd like to be able to feel pressure and the urge to push—is that possible?"
 
-A "walking epidural" or lower-dose epidural may give you more position options.
+A "walking epidural" or lower-dose epidural may give you more position options.#citation[7]
 
 #line(length: 100%)
 
@@ -279,10 +279,10 @@ _What it looks like:_
 _Why it's called "purple pushing":_ Many women's faces turn purple from the strain of holding their breath while pushing forcefully.
 
 _The problems:_
-- Reduces oxygen to baby (you're not breathing)
+- Reduces oxygen to baby (you're not breathing) #citation[8]
 - More exhausting for you
-- Associated with more pelvic floor damage
-- Can cause blood vessel damage in your face and eyes
+- Associated with more pelvic floor damage #citation[9]
+- Can cause blood vessel damage in your face and eyes #citation[10]
 - May not be as effective as following your body's cues
 
 === Spontaneous Pushing (Following Your Body)
@@ -312,7 +312,7 @@ Directed pushing became common because:
 - It works with epidurals (when you can't feel the urge to push)
 - It became the cultural norm
 
-But research shows that spontaneous pushing is associated with:
+But research shows that spontaneous pushing is associated with:#citation[8]
 - Similar or shorter total pushing time
 - Better outcomes for baby (higher oxygen levels)
 - Less pelvic floor trauma
@@ -328,14 +328,14 @@ _How to do it:_
 - Begin pushing at that point, riding the wave of the contraction's strongest force
 - Stop pushing as the contraction fades
 
-_Why it works:_ Your uterus is already doing a tremendous amount of pushing on its own during a contraction. By timing your voluntary effort to coincide with the peak of that involuntary force, you get maximum effect with less personal effort. Women who use this technique often find pushing far less exhausting than pushing throughout the entire contraction. You're doing less work for more result.
+_Why it works:_ Your uterus is already doing a tremendous amount of pushing on its own during a contraction. By timing your voluntary effort to coincide with the peak of that involuntary force, you get maximum effect with less personal effort.#citation[11] Women who use this technique often find pushing far less exhausting than pushing throughout the entire contraction. You're doing less work for more result.
 
 This technique pairs naturally with spontaneous pushing--your body's urge to push tends to align with the contraction crest anyway.
 
 === What About With an Epidural?
 
 If you have an epidural, you may not feel the urge to push. In this case:
-- _"Labor down":_ Wait 1-2 hours after you're fully dilated before starting to push. This lets baby descend on their own.
+- _"Labor down":_ Wait 1-2 hours after you're fully dilated before starting to push. This lets baby descend on their own.#citation[12]
 - _Gentle guidance:_ Your nurse can tell you when you're having a contraction so you know when to push.
 - _Avoid prolonged breath-holding:_ Push in shorter bursts with breaths in between.
 
@@ -464,3 +464,31 @@ _Best for back labor:_ Hands and knees, kneeling
 #line(length: 100%)
 
 _The information in this guide is for educational purposes and should not replace advice from your healthcare provider. Every birth is unique, and the best position is often whatever works in the moment. Use this knowledge as a starting point for conversations with your care team._
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Russell, J. G. B. (1969). Moulding of the pelvic outlet. _Journal of Obstetrics and Gynaecology of the British Commonwealth_, 76(9), 817-820. DOI: 10.1111/j.1471-0528.1969.tb06185.x
+
+#citation[2] Gupta, J. K., Sood, A., Hofmeyr, G. J., & Vogel, J. P. (2017). Position in the second stage of labour for women without epidural anaesthesia. _Cochrane Database of Systematic Reviews_, Issue 5. Art. No.: CD002006. DOI: 10.1002/14651858.CD002006.pub4
+
+#citation[3] Simkin, P., Hanson, L., & Ancheta, R. (2017). _The Labor Progress Handbook: Early Interventions to Prevent and Treat Dystocia_ (4th ed.). Wiley-Blackwell. ISBN: 9781119170464
+
+#citation[4] Humphrey, M. D., Hounslow, D., Morgan, S., & Wood, C. (1973). The influence of maternal posture at birth on the fetus. _Journal of Obstetrics and Gynaecology of the British Commonwealth_, 80(12), 1075-1080. DOI: 10.1111/j.1471-0528.1973.tb02982.x
+
+#citation[5] Soong, B., & Barnes, M. (2005). Maternal position at midwife-attended birth and perineal trauma: Is there an association? _Birth_, 32(3), 164-169. DOI: 10.1111/j.0730-7659.2005.00365.x
+
+#citation[6] Tussey, C. M., Botsios, E., Gerkin, R. D., Kelly, L. A., Gamez, J., & Mensik, J. (2015). Reducing length of labor and cesarean surgery rate using a peanut ball for women laboring with an epidural. _Journal of Perinatal Education_, 24(1), 16-24. DOI: 10.1891/1058-1243.24.1.16
+
+#citation[7] Comparative Obstetric Mobile Epidural Trial (COMET) Study Group UK. (2001). Effect of low-dose mobile versus traditional epidural techniques on mode of delivery: A randomised controlled trial. _The Lancet_, 358(9275), 19-23. DOI: 10.1016/S0140-6736(00)05251-X
+
+#citation[8] Prins, M., Boxem, J., Lucas, C., & Hutton, E. (2011). Effect of spontaneous pushing versus Valsalva pushing in the second stage of labour on mother and fetus: A systematic review of randomised trials. _BJOG_, 118(6), 662-670. DOI: 10.1111/j.1471-0528.2011.02910.x
+
+#citation[9] Schaffer, J. I., Bloom, S. L., Casey, B. M., McIntire, D. D., Nihira, M. A., & Leveno, K. J. (2005). A randomized trial of the effects of coached vs uncoached maternal pushing during the second stage of labor on postpartum pelvic floor structure and function. _American Journal of Obstetrics and Gynecology_, 192(5), 1692-1696. DOI: 10.1016/j.ajog.2004.11.043
+
+#citation[10] Bloom, S. L., Casey, B. M., Schaffer, J. I., McIntire, D. D., & Leveno, K. J. (2006). A randomized trial of coached versus uncoached maternal pushing during the second stage of labor. _American Journal of Obstetrics and Gynecology_, 194(1), 10-13. DOI: 10.1016/j.ajog.2005.06.022
+
+#citation[11] Roberts, J. E. (2002). The "push" for evidence: Management of the second stage. _Journal of Midwifery & Women's Health_, 47(1), 2-15. DOI: 10.1016/S1526-9523(01)00233-1
+
+#citation[12] Fraser, W. D., Marcoux, S., Krauss, I., Douglas, J., Goulet, C., & Boulvain, M. (2000). Multicenter, randomized, controlled trial of delayed pushing for nulliparous women in the second stage of labor with continuous epidural analgesia. _American Journal of Obstetrics and Gynecology_, 182(5), 1165-1172. DOI: 10.1067/mob.2000.105197

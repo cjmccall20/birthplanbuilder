@@ -6,11 +6,11 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 
 *Five Key Takeaways:*
 
-1. *Most women can do this.* With proper preparation and support, the Bradley Method reports that the majority of trained couples achieve unmedicated delivery [12]. This isn't about pain tolerance—it's about preparation.
+1. *Most women can do this.* With proper preparation and support, the Bradley Method reports that the majority of trained couples achieve unmedicated delivery #citation[12]. This isn't about pain tolerance—it's about preparation.
 
 2. *It requires real preparation.* A 12-week childbirth class, daily practice of techniques, physical fitness, and building your birth team are essential. You should not wing it.
 
-3. *Continuous support changes everything.* Having a doula reduces cesarean rates by between 39% and 68% depending on the study (Bohren 2017 Cochrane review; Dias 2025 meta-analysis) [1,9,13]. Having trained, committed support people makes the difference between coping and struggling.
+3. *Continuous support changes everything.* Having a doula significantly reduces cesarean rates #citation[1] #citation[9] #citation[13]. Having trained, committed support people makes the difference between coping and struggling.
 
 4. *Environment matters more than you think.* Dim lights, quiet, privacy, and freedom to move promote the hormones that drive labor and reduce pain. Bright hospital rooms with constant interruptions work against you.
 
@@ -32,13 +32,13 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 
 == THE FULL PICTURE
 
-*The environment works against you.* Most hospital labor rooms feature bright fluorescent lights, frequent interruptions (vitals every hour, shift changes, resident check-ins), continuous fetal monitoring that restricts movement, and a clinical atmosphere that triggers stress hormones. Stress hormones directly inhibit oxytocin—the hormone driving your contractions.
+*The environment works against you.* Most hospital labor rooms feature bright fluorescent lights, frequent interruptions (vitals every hour, shift changes, resident check-ins), continuous fetal monitoring that restricts movement, and a clinical atmosphere that triggers stress hormones. Stress hormones directly inhibit oxytocin—the hormone driving your contractions #citation[5] #citation[6].
 
 *The epidural rate reflects the system, not your choices.* When the hospital epidural rate is 90%, it means 90% of women who wanted unmedicated birth didn't get it. That's not because 90% of women can't handle labor—it's because the hospital environment, policies, and culture create conditions where medication becomes necessary.
 
-*Continuous monitoring limits your options.* 89% of hospital births involve continuous electronic fetal monitoring, despite evidence showing it doesn't improve outcomes for low-risk births. It does restrict your movement and increase cesarean rates. You have the right to request intermittent monitoring -- see #link(<ch-fetal-monitoring>)[our Fetal Monitoring chapter] for the full evidence and how to advocate for it.
+*Continuous monitoring limits your options.* 89% of hospital births involve electronic fetal monitoring #citation[16], despite evidence showing it doesn't improve outcomes for low-risk births. It does restrict your movement and increase cesarean rates. You have the right to request intermittent monitoring -- see #link(<ch-fetal-monitoring>)[our Fetal Monitoring chapter] for the full evidence and how to advocate for it.
 
-*Early admission starts the intervention clock.* Once you're admitted, there's pressure to "progress." If you arrive at 2 cm dilated, you might be there for 20 hours before delivery. Hospitals often intervene to speed things up—and each intervention can trigger another [2].
+*Early admission starts the intervention clock.* Once you're admitted, there's pressure to "progress." If you arrive at 2 cm dilated, you might be there for 20 hours before delivery. Hospitals often intervene to speed things up—and each intervention can trigger another #citation[2].
 
 *Nurses may not have time.* Labor nurses in busy hospitals often manage multiple patients. They cannot provide continuous one-on-one support. That's why having your own doula or trained support person is so critical.
 
@@ -48,17 +48,17 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 
 == THE SCIENCE: BENEFITS
 
-- *Lower intervention rates:* Women who labor without medication have lower cesarean rates, fewer instrumental deliveries (forceps/vacuum), and less need for Pitocin. [1,2]
+- *Lower intervention rates:* Women who labor without medication have lower cesarean rates, fewer instrumental deliveries (forceps/vacuum), and less need for Pitocin #citation[1] #citation[2].
 
-- *Faster recovery:* Without epidural numbness or post-surgical healing, most women can walk and shower within hours of birth. Many describe feeling "themselves" immediately. [3]
+- *Faster recovery:* Without epidural numbness or post-surgical healing, most women can walk and shower within hours of birth. Many describe feeling "themselves" immediately #citation[3].
 
-- *More alert baby:* Medications cross the placenta. Babies born without maternal medication tend to be more alert, interested in breastfeeding, and responsive. [4]
+- *More alert baby:* Medications cross the placenta. Babies born without maternal medication tend to be more alert, interested in breastfeeding, and responsive #citation[4].
 
-- *Optimal hormone cascade:* Undisturbed birth triggers surges of oxytocin (bonding, contractions), endorphins (natural pain relief), and catecholamines (alertness for both mother and baby). Synthetic oxytocin and epidurals disrupt this sequence. [5,6]
+- *Optimal hormone cascade:* Undisturbed birth triggers surges of oxytocin (bonding, contractions), endorphins (natural pain relief), and catecholamines (alertness for both mother and baby). Synthetic oxytocin and epidurals disrupt this sequence #citation[5] #citation[6].
 
-- *Breastfeeding advantages:* Studies connect unmedicated birth with faster milk production, better initial latching, and longer breastfeeding duration. [7]
+- *Breastfeeding advantages:* Studies connect unmedicated birth with faster milk production, better initial latching, and longer breastfeeding duration #citation[7].
 
-- *Sense of empowerment:* Many women describe unmedicated birth as transformative—building confidence in their bodies and parenting abilities. [8]
+- *Sense of empowerment:* Many women describe unmedicated birth as transformative—building confidence in their bodies and parenting abilities #citation[8].
 
 #line(length: 100%)
 
@@ -144,7 +144,7 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 - *HypnoBirthing* if you respond well to visualization, meditation, and reframing techniques
 - *Lamaze* if you want evidence-based education with flexibility in your approach
 
-*Hire a doula.* This is the single highest-impact intervention for achieving an unmedicated birth. Doula support reduces cesarean rates by between 39% and 68% depending on the study (Bohren 2017 Cochrane review; Dias 2025 meta-analysis) and epidural use by up to 60% (Bohren 2017). [9] See #link(<ch-doula-support>)[our Doula Support chapter] for how to find, interview, and hire the right doula.
+*Hire a doula.* This is the single highest-impact intervention for achieving an unmedicated birth. Doula support significantly reduces cesarean rates and epidural use #citation[9]. See #link(<ch-doula-support>)[our Doula Support chapter] for how to find, interview, and hire the right doula.
 
 *Choose your provider carefully.* If your OB's practice has a 35% cesarean rate, that tells you something. Midwife-led care is associated with lower intervention rates. CNMs (certified nurse-midwives) who practice in hospitals bring this midwifery philosophy into the hospital setting, giving you lower intervention rates with hospital-level backup. Ask about their unmedicated birth rate.
 
@@ -154,7 +154,7 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 
 *Create your birth environment plan.* Know how you'll transform the hospital room: battery-operated candles, playlist, essential oils, door sign requesting quiet, pillow from home.
 
-*Don't go to the hospital too early.* Research shows women admitted before 6 cm have higher cesarean rates. For first babies, stay home until contractions are 3-4 minutes apart, lasting 60 seconds, for at least an hour. Call your provider for guidance, but resist the urge to "be somewhere safe" too soon.
+*Don't go to the hospital too early.* Research shows women admitted before 6 cm have higher cesarean rates #citation[17]. For first babies, stay home until contractions are 3-4 minutes apart, lasting 60 seconds, for at least an hour. Call your provider for guidance, but resist the urge to "be somewhere safe" too soon.
 
 #line(length: 100%)
 
@@ -179,7 +179,7 @@ The hospital measures two things: *dilation* (cervix opening from 0-10 cm) and *
 
 *Why this matters:*
 
-When labor is induced or artificially accelerated, you may bypass or interrupt these preparations. Synthetic Pitocin mimics oxytocin but doesn't cross the blood-brain barrier—meaning you don't get the emotional and pain-relief benefits of natural oxytocin. Your cervix may be forced to dilate before it's fully effaced. Your baby may not have time to position optimally.
+When labor is induced or artificially accelerated, you may bypass or interrupt these preparations. Synthetic Pitocin mimics oxytocin but doesn't cross the blood-brain barrier #citation[18]—meaning you don't get the emotional and pain-relief benefits of natural oxytocin. Your cervix may be forced to dilate before it's fully effaced. Your baby may not have time to position optimally.
 
 *The message: Trust your body's timeline.* If you're at 39 weeks and 2 cm dilated, your body may be exactly where it needs to be. Dilation isn't a progress report—it's one small piece of a complex process. Your body knows what it's doing.
 
@@ -242,7 +242,7 @@ Environment isn't just about comfort—it's about physiology. The right environm
 
 *What your body needs:*
 
-*Dim lights:* Bright fluorescent lights trigger alertness and stress. Oxytocin flows best in darkness, like other mammals. Think about where you'd want to have sex—that's the environment your body needs to birth. Bring battery-operated candles or ask nurses to turn off overhead lights.
+*Dim lights:* Bright fluorescent lights trigger alertness and stress. Oxytocin flows best in darkness, like other mammals #citation[5] #citation[6]. Think about where you'd want to have sex—that's the environment your body needs to birth. Bring battery-operated candles or ask nurses to turn off overhead lights.
 
 *Privacy:* Being watched inhibits labor. Your neocortex (thinking brain) needs to turn off so your primitive brain can take over. Every person in the room is someone you need to "perform" for. Limit attendees to essential support people.
 
@@ -281,19 +281,19 @@ You can't change the fact that you're in a hospital, but you can modify your spa
 
 *The home birth advantage:*
 
-Women who give birth at home have significantly higher rates of unmedicated birth—not because they're tougher, but because their environment supports physiological birth. If home birth isn't an option for you, try to recreate elements of that environment wherever you are.
+Women who give birth at home have significantly higher rates of unmedicated birth #citation[19]—not because they're tougher, but because their environment supports physiological birth. If home birth isn't an option for you, try to recreate elements of that environment wherever you are.
 
 == COPING TECHNIQUES THAT WORK
 
 *Counter-pressure and hip squeezes.* During contractions, firm pressure on the sacrum (base of spine) or squeezing both hips inward can significantly reduce pain. Practice these with your partner before labor.
 
-*Water immersion.* Laboring in a warm tub reduces pain by 2-3 points on a 10-point scale. Many women describe it as "nature's epidural." Studies show reduced epidural requests with water use [10].
+*Water immersion.* Laboring in a warm tub significantly reduces pain scores. Many women describe it as "nature's epidural." Studies show reduced epidural requests with water use #citation[10].
 
-*Movement and position changes.* Standing, walking, swaying, hands-and-knees, squatting, side-lying—changing positions every 30 minutes helps baby descend and gives you something active to do [11].
+*Movement and position changes.* Standing, walking, swaying, hands-and-knees, squatting, side-lying—changing positions every 30 minutes helps baby descend and gives you something active to do #citation[11].
 
-*Birth ball and peanut ball.* Sitting, rocking, or bouncing on a birth ball opens the pelvis. A peanut ball between your legs (even lying down) can reduce labor time by 90 minutes.
+*Birth ball and peanut ball.* Sitting, rocking, or bouncing on a birth ball opens the pelvis. A peanut ball between your legs (even lying down) can reduce labor time by approximately 40 minutes and reduce cesarean rates #citation[20].
 
-*Low vocalization.* Deep moans and "oooooh" sounds relax the jaw and pelvic floor. Ina May Gaskin's principle: "Open mouth, open bottom." High-pitched sounds indicate fear and tighten muscles.
+*Low vocalization.* Deep moans and "oooooh" sounds relax the jaw and pelvic floor. Ina May Gaskin's principle #citation[14]: "Open mouth, open bottom." High-pitched sounds indicate fear and tighten muscles.
 
 *Hot and cold therapy.* Warm compresses on lower back or perineum, ice packs on back, cool cloth on forehead. Alternating temperatures every 20 minutes provides ongoing relief.
 
@@ -427,32 +427,42 @@ Then trust your body and your team.
 
 == CITATIONS
 
-[1] Hodnett ED, et al. Continuous support for women during childbirth. Cochrane Database of Systematic Reviews. 2013.
+#citation[1] Hodnett, E.D., et al. (2013). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd003766.pub5
 
-[2] ACOG Committee Opinion No. 766. Approaches to Limit Intervention During Labor and Birth. February 2019.
+#citation[2] ACOG Committee Opinion No. 766. (2019). Approaches to Limit Intervention During Labor and Birth. _Obstetrics & Gynecology_. DOI: 10.1097/aog.0000000000003074
 
-[3] Buckley SJ. Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. Childbirth Connection. 2015.
+#citation[3] Buckley, S.J. (2015). Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Journal of Perinatal Education_, 24(3), 145-153. DOI: 10.1891/1058-1243.24.3.145
 
-[4] Lothian JA. The birth of a breastfeeding baby and mother. Journal of Perinatal Education. 2005.
+#citation[4] Lothian, J.A. (2005). The birth of a breastfeeding baby and mother. _Journal of Perinatal Education_. DOI: 10.1624/105812405x23667
 
-[5] Uvnas-Moberg K. The Oxytocin Factor: Tapping the Hormone of Calm, Love and Healing. Da Capo Press. 2003.
+#citation[5] Uvnas-Moberg, K. (2003). _The Oxytocin Factor: Tapping the Hormone of Calm, Love and Healing_. Da Capo Press.
 
-[6] Buckley SJ. Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. National Partnership for Women & Families / Childbirth Connection. 2015.
+#citation[6] Buckley, S.J. (2015). Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. National Partnership for Women & Families / Childbirth Connection.
 
-[7] Dozier AM, et al. Labor epidural anesthesia, obstetric factors and breastfeeding cessation. Maternal and Child Health Journal. 2013.
+#citation[7] Dozier, A.M., et al. (2013). Labor epidural anesthesia, obstetric factors and breastfeeding cessation. _Maternal and Child Health Journal_. DOI: 10.1007/s10995-012-1045-4
 
-[8] Simkin P. Just another day in a woman's life? Women's long-term perceptions of their first birth experience. Birth. 1991.
+#citation[8] Simkin, P. (1991). Just another day in a woman's life? Women's long-term perceptions of their first birth experience. _Birth_. DOI: 10.1111/j.1523-536x.1991.tb00103.x
 
-[9] Bohren MA, et al. Continuous support for women during childbirth. Cochrane Database of Systematic Reviews. 2017.
+#citation[9] Bohren, M.A., et al. (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd003766.pub6
 
-[10] Cluett ER, Burns E, Cuthbert A. Immersion in water during labour and birth. Cochrane Database of Systematic Reviews. 2018.
+#citation[10] Cluett, E.R., Burns, E., Cuthbert, A. (2018). Immersion in water during labour and birth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd000111.pub4
 
-[11] Lawrence A, et al. Maternal positions and mobility during first stage labour. Cochrane Database of Systematic Reviews. 2013.
+#citation[11] Lawrence, A., et al. (2013). Maternal positions and mobility during first stage labour. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd003934.pub3
 
-[12] American Academy of Husband-Coached Childbirth. Bradley Method outcomes. https://www.bradleybirth.com
+#citation[12] American Academy of Husband-Coached Childbirth. Bradley Method outcomes. https://www.bradleybirth.com
 
-[13] Evidence Based Birth. The Evidence on Doulas. https://evidencebasedbirth.com/the-evidence-for-doulas/
+#citation[13] Evidence Based Birth. The Evidence on Doulas. https://evidencebasedbirth.com/the-evidence-for-doulas/
 
-[14] Gaskin IM. Ina May's Guide to Childbirth. Bantam Books. 2003.
+#citation[14] Gaskin, I.M. (2003). _Ina May's Guide to Childbirth_. Bantam Books.
 
-[15] Mongan M. HypnoBirthing: The Mongan Method. 4th Edition. 2015.
+#citation[15] Mongan, M. (2015). _HypnoBirthing: The Mongan Method_. 4th Edition. Health Communications, Inc.
+
+#citation[16] Declercq, E.R., Sakala, C., Corry, M.P., Applebaum, S., Herrlich, A. (2014). Major Survey Findings of Listening to Mothers III: Pregnancy and Birth. _Journal of Perinatal Education_, 23(1), 9-16. DOI: 10.1891/1058-1243.23.1.9
+
+#citation[17] Mikolajczyk, R.T., Zhang, J., Grewal, J., Chan, L.C., Petersen, A., Gross, M.M. (2016). Early versus Late Admission to Labor Affects Labor Progression and Risk of Cesarean Section in Nulliparous Women. _Frontiers in Medicine_. DOI: 10.3389/fmed.2016.00026
+
+#citation[18] Bell, A.F., Erickson, E.N., Carter, C.S. (2014). Beyond labor: the role of natural and synthetic oxytocin in the transition to motherhood. _Journal of Midwifery & Women's Health_, 59(1), 35-42. DOI: 10.1111/jmwh.12101
+
+#citation[19] Olsen, O., Clausen, J.A. (2012). Planned hospital birth versus planned home birth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd000352.pub2
+
+#citation[20] Tussey, C.M., Botsios, E., Gerkin, R.D., Kelly, L.A., Gamez, J., Mensik, J. (2015). Reducing Length of Labor and Cesarean Surgery Rate Using a Peanut Ball for Women Laboring With an Epidural. _Journal of Perinatal Education_, 24(1), 16-24. DOI: 10.1891/1058-1243.24.1.16

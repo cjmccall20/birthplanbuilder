@@ -25,15 +25,15 @@ _Why hospitals want IV access:_
 _Why continuous fluids aren't always necessary:_
 - Healthy women can drink fluids during labor (see Eating/Drinking section)
 - Over-hydration can cause problems: swelling, diluted blood sodium, difficulty with breastfeeding due to breast engorgement
-- One study found women receiving IV fluids had babies who lost more weight initially, possibly due to maternal fluid retention inflating birth weight
+- One study found women receiving IV fluids had babies who lost more weight initially, possibly due to maternal fluid retention inflating birth weight #citation[1]
 - Continuous fluids increase bathroom trips, which can be disruptive during labor
 
-_The mobility issue:_ Freedom to move during labor is associated with shorter labors and less pain. Being tethered to an IV pole limits your options—walking, showering, using the birth ball, changing positions all become harder.
+_The mobility issue:_ Freedom to move during labor is associated with shorter labors and less pain #citation[2]. Being tethered to an IV pole limits your options—walking, showering, using the birth ball, changing positions all become harder.
 
 _When you actually need continuous IV:_
-- GBS+ and receiving antibiotics — though "continuous" is misleading here. Each round of antibiotics typically runs for 15–30 minutes, and then you can be disconnected from the IV until the next dose (usually every 4 hours). Between rounds you can move freely with just the hep lock in place. You do _not_ need to stay tethered to the pole the entire time.
+- GBS+ and receiving antibiotics — though "continuous" is misleading here. Each round of antibiotics typically runs for 15–30 minutes, and then you can be disconnected from the IV until the next dose (usually every 4 hours) #citation[3]. Between rounds you can move freely with just the hep lock in place. You do _not_ need to stay tethered to the pole the entire time.
 - Pitocin induction/augmentation
-- Epidural (fluid bolus required)
+- Epidural (fluid bolus required) #citation[4]
 - Dehydration or inability to drink
 - Certain medical conditions
 
@@ -73,20 +73,20 @@ This is your body and your decision. If you are low-risk, have no GBS+ status re
 
 Most women never think about what the IV bag and tubing are made of — but it is worth knowing.
 
-Roughly 70–75% of IV containers used in US hospitals are made with PVC (polyvinyl chloride) plasticized with DEHP (di-2-ethylhexyl phthalate). DEHP is what keeps the plastic soft and flexible, but it is _not_ chemically bonded to the material — it can leach out of the bag and tubing into the fluid being delivered to you.
+Roughly 70–75% of IV containers used in US hospitals are made with PVC (polyvinyl chloride) plasticized with DEHP (di-2-ethylhexyl phthalate) #citation[5]. DEHP is what keeps the plastic soft and flexible, but it is _not_ chemically bonded to the material — it can leach out of the bag and tubing into the fluid being delivered to you #citation[6].
 
 _Why this matters during labor:_
-- DEHP can cross the placental barrier. It has been detected in umbilical cord blood, meaning your baby is exposed to whatever leaches into your IV fluid.
-- California classifies DEHP as a known reproductive and developmental toxicant under Proposition 65.
-- Animal studies have raised concerns about endocrine disruption, particularly effects on male reproductive development.
+- DEHP can cross the placental barrier. It has been detected in umbilical cord blood, meaning your baby is exposed to whatever leaches into your IV fluid #citation[7].
+- California classifies DEHP as a known reproductive and developmental toxicant under Proposition 65 #citation[8].
+- Animal studies have raised concerns about endocrine disruption, particularly effects on male reproductive development #citation[9].
 
 _Putting it in perspective:_
-- For a standard labor with a hep lock and minimal saline flushes, your total DEHP exposure is modest. Saline extracts significantly less DEHP from tubing than lipid-containing fluids (like TPN or certain medications), so a simple saline lock is on the lower end of the exposure spectrum.
+- For a standard labor with a hep lock and minimal saline flushes, your total DEHP exposure is modest. Saline extracts significantly less DEHP from tubing than lipid-containing fluids (like TPN or certain medications), so a simple saline lock is on the lower end of the exposure spectrum #citation[10].
 - A hep lock with occasional flushes exposes you to far less material than hours of continuous IV drip running through the same tubing.
 - The duration matters — a 12-hour labor is a one-time, short-duration exposure, not chronic daily contact.
 
 _What you can do:_
-- Ask your hospital or birth center whether they use DEHP-free IV sets. Manufacturers like B. Braun and ICU Medical offer PVC-free and DEHP-free alternatives, and many hospitals are transitioning to them — but you may need to ask.
+- Ask your hospital or birth center whether they use DEHP-free IV sets. Manufacturers like B. Braun and ICU Medical offer PVC-free and DEHP-free alternatives #citation[11], and many hospitals are transitioning to them — but you may need to ask.
 - If your hospital does not stock DEHP-free supplies, know that a hep lock with minimal fluid running represents a lower exposure than continuous drip through the same materials.
 - If this concern is important to you, bring it up with your provider well before labor so there is time to check what your facility stocks.
 
@@ -105,3 +105,29 @@ Women who value freedom of movement and a less-medicalized environment tend to p
 Worth knowing: if you start with a hep lock and your situation changes (epidural, Pitocin, dehydration), you can convert to continuous fluids at any point. The reverse is also true—if you start with continuous fluids and want to switch to a hep lock once you're well-hydrated, that's a conversation worth having with your care team.
 
 Whatever you choose, this is your decision to make. Talk with your provider about which approach fits your birth plan, your risk profile, and your comfort.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Chantry CJ, Nommsen-Rivers LA, Peerson JM, Cohen RJ, Dewey KG. Excess weight loss in first-born breastfed newborns relates to maternal intrapartum fluid balance. _Pediatrics_. 2011;127(1):e171-e179. DOI: 10.1542/peds.2009-2663
+
+#citation[2] Lawrence A, Lewis L, Hofmeyr GJ, Styles C. Maternal positions and mobility during first stage labour. _Cochrane Database Syst Rev_. 2013;(8):CD003934. DOI: 10.1002/14651858.CD003934.pub3
+
+#citation[3] ACOG Committee Opinion No. 797: Prevention of Group B Streptococcal Early-Onset Disease in Newborns. _Obstet Gynecol_. 2020;135(2):e51-e72. DOI: 10.1097/aog.0000000000003668
+
+#citation[4] ACOG Practice Bulletin No. 177: Obstetric Analgesia and Anesthesia. _Obstet Gynecol_. 2017;129(4):e73-e89. DOI: 10.1097/aog.0000000000002018
+
+#citation[5] Bernard L, Decaudin B, Lecoeur M, et al. Analytical methods for the determination of DEHP plasticizer alternatives present in medical devices: A review. _Talanta_. 2014;129:39-54. DOI: 10.1016/j.talanta.2014.04.069
+
+#citation[6] Green R, Hauser R, Calafat AM, et al. Use of di(2-ethylhexyl) phthalate-containing medical products and urinary levels of mono(2-ethylhexyl) phthalate in neonatal intensive care unit infants. _Environ Health Perspect_. 2005;113(9):1222-1225. DOI: 10.1289/ehp.7932
+
+#citation[7] Latini G, De Felice C, Presta G, et al. In utero exposure to di-(2-ethylhexyl)phthalate and duration of human pregnancy. _Environ Health Perspect_. 2003;111(14):1783-1785. DOI: 10.1289/ehp.6202
+
+#citation[8] California Office of Environmental Health Hazard Assessment. Proposition 65 List: Di(2-ethylhexyl)phthalate (DEHP). Listed as known to cause cancer and reproductive toxicity. https://www.p65warnings.ca.gov
+
+#citation[9] Gray LE Jr, Ostby J, Furr J, et al. Perinatal exposure to the phthalates DEHP, BBP, and DINP, but not DEP, DMP, or DOTP, alters sexual differentiation of the male rat. _Toxicol Sci_. 2000;58(2):350-365. DOI: 10.1093/toxsci/58.2.350
+
+#citation[10] Loff S, Kabs F, Witt K, et al. Polyvinylchloride infusion lines expose infants to large amounts of toxic plasticizers. _J Pediatr Surg_. 2000;35(12):1775-1781. DOI: 10.1053/jpsu.2000.19249
+
+#citation[11] B. Braun Medical Inc. CARESAFE IV Sets (DEHP-free portfolio, launched 2021); ICU Medical Fleboflex non-PVC containers. Verified via manufacturer product documentation 2024-2026.

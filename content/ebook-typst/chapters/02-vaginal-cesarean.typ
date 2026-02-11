@@ -9,9 +9,9 @@ Understanding your options for delivery is one of the most important parts of pl
 *Quick Summary:*
 - Vaginal birth is the safest option for most healthy pregnancies, with faster recovery and benefits for your baby's immune system
 - Cesarean sections are major surgery that can be lifesaving when truly needed, but carry additional risks
-- The U.S. cesarean rate (32%) is significantly higher than the 15-20% range experts recommend for best outcomes
-- If you have had a previous cesarean, vaginal birth after cesarean (VBAC) is successful 60-80% of the time
-- Breastfeeding can help restore your baby's gut bacteria if cesarean delivery becomes necessary
+- The U.S. cesarean rate (32%) is significantly higher than the 15-20% range experts recommend for best outcomes#citation[1]
+- If you have had a previous cesarean, vaginal birth after cesarean (VBAC) is successful 60-80% of the time#citation[2]
+- Breastfeeding can help restore your baby's gut bacteria if cesarean delivery becomes necessary#citation[3]
 
 *Bottom Line:* For uncomplicated pregnancies, vaginal birth offers real advantages. Cesarean delivery should be reserved for situations where there is a clear medical reason, not performed routinely or for convenience.
 
@@ -43,12 +43,12 @@ Most providers genuinely want the best outcome for you and your baby. However, t
 
 *About cesarean rates:*
 - Cesarean rates at for-profit hospitals are 41% higher than at non-profit hospitals
-- Providers face more legal liability for not performing a cesarean than for performing an unnecessary one
+- Providers face more legal liability for not performing a cesarean than for performing an unnecessary one#citation[4]
 - Your chance of having a cesarean depends heavily on which provider and hospital you choose, not just your medical situation
 
 *About recovery:*
-- Cesarean recovery typically takes 6-8 weeks, compared to 2-4 weeks for most vaginal births
-- 75% of women who deliver vaginally feel recovered within 5 days; only 30% of cesarean patients feel the same
+- Cesarean recovery typically takes 6-8 weeks, compared to 2-4 weeks for most vaginal births#citation[5]
+- 75% of women who deliver vaginally feel recovered within 5 days; only 30% of cesarean patients feel the same#citation[6]
 - Each cesarean increases your risk of serious complications in future pregnancies
 
 *About your baby:*
@@ -59,7 +59,7 @@ Most providers genuinely want the best outcome for you and your baby. However, t
 *About VBAC:*
 - Most women with a previous cesarean can safely attempt vaginal birth
 - Success rates are 60-80%, yet many providers do not offer this option
-- The current U.S. VBAC rate is only about 14%
+- The current U.S. VBAC rate is only about 14%#citation[7]
 
 #line(length: 100%)
 
@@ -84,12 +84,12 @@ Cesarean delivery can be lifesaving. The key is knowing when it is genuinely req
 - Certain heart conditions that make pushing dangerous
 
 *Situations during labor that may require cesarean:*
-- True arrested labor: Labor shows no change in cervical dilation for many hours (typically 4+ hours) despite strong, regular contractions. It's important to know that labor naturally has different rhythms — it can slow, stall, or plateau for reasons including baby's position, pelvic alignment, stress hormones, or simple exhaustion. What hospitals often call "failure to progress" may just be labor taking longer than a standardized timeline prefers. Position changes, movement, rest, hydration, and patience often help labor resume. True arrested labor, where there is genuinely no progress despite adequate time and contractions, is different and less common than you might think.
-- Baby's head does not fit through the pelvis after a genuine trial (cephalopelvic disproportion)
+- True arrested labor: Labor shows no change in cervical dilation for many hours (typically 4+ hours) despite strong, regular contractions.#citation[8] It's important to know that labor naturally has different rhythms — it can slow, stall, or plateau for reasons including baby's position, pelvic alignment, stress hormones, or simple exhaustion. What hospitals often call "failure to progress" may just be labor taking longer than a standardized timeline prefers. Position changes, movement, rest, hydration, and patience often help labor resume. True arrested labor, where there is genuinely no progress despite adequate time and contractions, is different and less common than you might think.
+- Baby's head does not fit through the pelvis after a genuine trial (cephalopelvic disproportion)#citation[9]
 - Concerning heart rate patterns that do not improve with standard measures (position changes, IV fluids, oxygen)
 
 *The gray area:*
-Many cesareans fall into less clear-cut situations. Estimated large baby, gestational diabetes, and advanced maternal age are increasingly used as reasons for cesarean, but research shows most women with these factors deliver vaginally without problems. Ask questions if these are cited as your only indications.
+Many cesareans fall into less clear-cut situations. Estimated large baby, gestational diabetes, and advanced maternal age are increasingly used as reasons for cesarean, but research shows most women with these factors deliver vaginally without problems.#citation[10] Ask questions if these are cited as your only indications.
 
 #line(length: 100%)
 
@@ -97,7 +97,7 @@ Many cesareans fall into less clear-cut situations. Estimated large baby, gestat
 
 Breech presentation (baby positioned feet or bottom first) is one of the most common reasons for planned cesarean delivery. However, breech position does not automatically mean cesarean is your only option. There are several techniques to encourage the baby to turn head-down before labor begins, and some providers are even skilled at vaginal breech delivery (though this expertise is increasingly rare in the U.S.).
 
-Most babies settle into head-down position by 36 weeks. If your baby is still breech at that point, here are options to explore:
+Most babies settle into head-down position by 36 weeks.#citation[11] If your baby is still breech at that point, here are options to explore:
 
 === External Cephalic Version (ECV)
 
@@ -105,7 +105,7 @@ Most babies settle into head-down position by 36 weeks. If your baby is still br
 A doctor manually turns the baby from outside your abdomen, using firm, steady pressure to guide the baby into head-down position. The procedure is usually done at 36-37 weeks.
 
 *Success rate:*
-50-60% overall. Success is higher if this is not your first baby, if there is adequate amniotic fluid, and if the baby's bottom is not deeply engaged in the pelvis.
+50-60% overall.#citation[12] Success is higher if this is not your first baby, if there is adequate amniotic fluid, and if the baby's bottom is not deeply engaged in the pelvis.
 
 *What to expect:*
 - You will be monitored before and after the procedure
@@ -114,7 +114,7 @@ A doctor manually turns the baby from outside your abdomen, using firm, steady p
 - You may receive medication to relax the uterus during the attempt
 
 *Risks:*
-Serious complications are rare (less than 1%), but include:
+Serious complications are rare (less than 1%)#citation[12], but include:
 - Placental abruption (placenta separating from uterine wall)
 - Changes in baby's heart rate requiring emergency delivery
 - Rupture of membranes (water breaking)
@@ -148,7 +148,7 @@ A specific chiropractic analysis and adjustment technique for pregnant women. Th
 When the pelvis is misaligned, it can create tension in the ligaments that support the uterus (particularly the round ligaments). This tension may restrict the baby's ability to move freely or settle into head-down position. Adjusting the pelvis reduces this constraint.
 
 *Success rate:*
-Some studies and case series report success rates of 80% or higher for turning breech babies. However, the research is limited and most studies are small.
+Some studies and case series report success rates of 80% or higher for turning breech babies.#citation[13] However, the research is limited and most studies are small.
 
 *What to expect:*
 - Gentle adjustments to the sacrum and pelvis
@@ -164,7 +164,7 @@ Chiropractic care during pregnancy, when performed by a trained practitioner, is
 A traditional Chinese medicine technique that involves burning moxa (an herb, specifically mugwort) near a specific acupuncture point on the small toe (BL67 point). The warmth is thought to stimulate the point and encourage the baby to become more active and turn.
 
 *Evidence:*
-Multiple randomized controlled trials have examined moxibustion for breech presentation. A 2012 Cochrane review found that moxibustion may reduce the number of babies remaining in breech position, though results vary between studies. It appears to work best when combined with other techniques like acupuncture or postural methods.
+Multiple randomized controlled trials have examined moxibustion for breech presentation. A 2012 Cochrane review found that moxibustion may reduce the number of babies remaining in breech position, though results vary between studies.#citation[14] It appears to work best when combined with other techniques like acupuncture or postural methods.
 
 *When to try it:*
 Usually recommended at 33-35 weeks of pregnancy. Some practitioners continue daily sessions until 37 weeks or until the baby turns.
@@ -190,7 +190,7 @@ Simple, no-cost activities and positions that use gravity and movement to encour
 - *Music or light near the pubic bone:* Some women try placing headphones playing music or a flashlight low on the belly, theorizing that baby may move toward the stimulus
 
 *Evidence:*
-The research on postural techniques alone is mixed — some studies show benefit, others do not. However, these methods have no risks and cost nothing, so many people try them alongside other approaches.
+The research on postural techniques alone is mixed — some studies show benefit, others do not.#citation[15] However, these methods have no risks and cost nothing, so many people try them alongside other approaches.
 
 === Combining Approaches
 
@@ -203,7 +203,7 @@ Many practitioners recommend combining multiple techniques rather than relying o
 
 In some countries, vaginal breech delivery is still a supported option for women with uncomplicated pregnancies when the baby is in frank breech position (bottom down, legs folded up). Skilled providers can safely deliver some breech babies vaginally.
 
-However, in the U.S., most providers are no longer trained in breech delivery technique. The skill has largely been lost from residency training programs. If you are interested in vaginal breech delivery:
+However, in the U.S., most providers are no longer trained in breech delivery technique. The skill has largely been lost from residency training programs.#citation[16] If you are interested in vaginal breech delivery:
 - Seek out the rare providers with this expertise (often midwives or older obstetricians)
 - Expect significant difficulty finding support
 - Understand that many hospitals have policies requiring cesarean for all breech presentations
@@ -217,39 +217,39 @@ Breech position at 36-37 weeks does not mean automatic cesarean. You have option
 == Vaginal Birth Benefits
 
 *For your baby's immune system:*
-During vaginal birth, your baby is exposed to beneficial bacteria in your birth canal. This is not contamination; it is nature's way of seeding your baby's microbiome. These bacteria colonize your baby's gut, skin, mouth, and airways, and help train their developing immune system.
+During vaginal birth, your baby is exposed to beneficial bacteria in your birth canal. This is not contamination; it is nature's way of seeding your baby's microbiome. These bacteria colonize your baby's gut, skin, mouth, and airways, and help train their developing immune system.#citation[17]
 
 Research shows vaginally delivered babies have:
 - Higher levels of beneficial Lactobacillus and Bifidobacterium bacteria
 - Lower levels of potentially harmful bacteria like Staph and C. diff
-- Better gut bacteria diversity in the first year of life
+- Better gut bacteria diversity in the first year of life#citation[18]
 
-This bacterial seeding appears to influence your child's risk of allergies, asthma, and other immune conditions.
+This bacterial seeding appears to influence your child's risk of allergies, asthma, and other immune conditions.#citation[19]
 
 *For your recovery:*
-- Hospital stay: Usually 24-48 hours versus 2-4 days for cesarean
+- Hospital stay: Usually 24-48 hours versus 2-4 days for cesarean#citation[1]
 - Return to normal activities: 2-4 weeks versus 6-8 weeks
 - Less pain medication needed
 - Lower risk of infection
 - No surgical wound to heal
 
 *Hormonal benefits:*
-- Natural oxytocin release supports bonding and breastfeeding
+- Natural oxytocin release supports bonding and breastfeeding#citation[20]
 - The hormonal cascade of labor helps prepare both you and baby for the transition
-- Catecholamine surge during pushing helps your baby be alert and ready to nurse
+- Catecholamine surge during pushing helps your baby be alert and ready to nurse#citation[21]
 
 *For your baby's lungs:*
-Labor contractions squeeze fluid from your baby's lungs, preparing them to breathe air. Babies born by cesarean before labor begins have 2-3 times higher rates of breathing problems at birth.
+Labor contractions squeeze fluid from your baby's lungs, preparing them to breathe air.#citation[22] Babies born by cesarean before labor begins have 2-3 times higher rates of breathing problems at birth.#citation[23]
 
 *For breastfeeding:*
-Vaginal birth is associated with earlier breastfeeding initiation, higher exclusive breastfeeding rates, and better early breastfeeding success.
+Vaginal birth is associated with earlier breastfeeding initiation, higher exclusive breastfeeding rates, and better early breastfeeding success.#citation[24]
 
 #line(length: 100%)
 
 == C-Section Realities
 
 *This is major surgery:*
-A cesarean involves cutting through your skin, fat tissue, fascia (connective tissue), muscle, peritoneum (abdominal lining), and uterus. That is five distinct layers. The incision is typically 4-6 inches long.
+A cesarean involves cutting through your skin, fat tissue, fascia (connective tissue), muscle, peritoneum (abdominal lining), and uterus. That is five distinct layers.#citation[25] The incision is typically 4-6 inches long.
 
 *What recovery actually looks like:*
 
@@ -274,8 +274,8 @@ _6-8 weeks:_
 
 *Short-term risks:*
 - Surgical site infection: 3-5% (versus less than 1% for vaginal birth)
-- Higher blood loss: 500-1000 mL average versus 200-500 mL
-- Blood clots: 5-13 times higher risk than vaginal birth
+- Higher blood loss: 500-1000 mL average versus 200-500 mL#citation[25]
+- Blood clots: 5-13 times higher risk than vaginal birth#citation[26]
 - Spinal headache: Occurs in 0.3-1.3% of women after spinal anesthesia
 
 *Long-term complication: Internal scarring (adhesions):*
@@ -283,7 +283,7 @@ After your incision heals, internal scar tissue can form where tissues abnormall
 - After 1st cesarean: 7% develop adhesions
 - After 2nd cesarean: 24-46%
 - After 3rd cesarean: 43-75%
-- After 4th cesarean: 83%
+- After 4th cesarean: 83%#citation[27]
 
 Adhesions can cause chronic pelvic pain, fertility problems, and complications in future surgeries.
 
@@ -292,7 +292,7 @@ Each cesarean increases your risk of:
 - Placenta previa in future pregnancies
 - Placenta accreta (placenta grows into the uterine wall)
 - Uterine rupture if you attempt VBAC
-- Complications during future cesarean deliveries
+- Complications during future cesarean deliveries#citation[28]
 
 #line(length: 100%)
 
@@ -302,12 +302,12 @@ Each cesarean increases your risk of:
 Vaginal seeding involves placing a gauze pad in the mother's vagina before cesarean delivery, then wiping it across the baby's mouth, nose, and skin immediately after birth. The goal is to expose cesarean-born babies to the beneficial vaginal bacteria they miss by not passing through the birth canal.
 
 *What current research shows:*
-A 2024 systematic review found that vaginal seeding:
+A 2024 systematic review found that vaginal seeding:#citation[29]
 - Does increase some beneficial bacteria (Bacteroides and Lactobacillus) in seeded babies
 - Does not fully replicate natural bacterial transfer
 - Moves the microbiome partway toward what vaginally delivered babies have, but not all the way
 
-One study found babies who received vaginal seeding had better neurodevelopmental scores at 6 months compared to those who did not. However, we do not yet know if this benefit lasts.
+One study found babies who received vaginal seeding had better neurodevelopmental scores at 6 months compared to those who did not.#citation[30] However, we do not yet know if this benefit lasts.
 
 *Important limitations:*
 - Long-term safety and effectiveness are not established
@@ -315,7 +315,7 @@ One study found babies who received vaginal seeding had better neurodevelopmenta
 - More research is needed
 
 *Current official guidance:*
-The American College of Obstetricians and Gynecologists (ACOG) does not recommend vaginal seeding outside of research studies at this time. This is primarily due to safety concerns: bacteria and viruses in the vagina, if not properly screened for, could potentially harm the newborn.
+The American College of Obstetricians and Gynecologists (ACOG) does not recommend vaginal seeding outside of research studies at this time.#citation[31] This is primarily due to safety concerns: bacteria and viruses in the vagina, if not properly screened for, could potentially harm the newborn.
 
 *How to discuss with your provider:*
 If you are interested in vaginal seeding, ask your provider:
@@ -325,9 +325,9 @@ If you are interested in vaginal seeding, ask your provider:
 
 *Evidence-based alternatives:*
 If vaginal seeding is not available or you prefer not to do it:
-- *Breastfeed if possible:* This is the most powerful documented intervention. Breastfed cesarean babies receive about 30% of their gut bacteria from breast milk. Research shows exclusive breastfeeding for 6 months helps cesarean babies develop gut bacteria similar to vaginally delivered babies.
-- *Skin-to-skin contact:* Hold your baby directly against your skin as soon as possible after delivery
-- *Delayed cord clamping:* Ask for at least 30-60 seconds delay before cutting the cord
+- *Breastfeed if possible:* This is the most powerful documented intervention. Breastfed cesarean babies receive about 30% of their gut bacteria from breast milk.#citation[3] Research shows exclusive breastfeeding for 6 months helps cesarean babies develop gut bacteria similar to vaginally delivered babies.#citation[18]
+- *Skin-to-skin contact:* Hold your baby directly against your skin as soon as possible after delivery#citation[32]
+- *Delayed cord clamping:* Ask for at least 30-60 seconds delay before cutting the cord#citation[33]
 
 #line(length: 100%)
 
@@ -335,7 +335,7 @@ If vaginal seeding is not available or you prefer not to do it:
 
 If you have had a previous cesarean, you may have more options than you realize. Vaginal birth after cesarean (VBAC) is successful for the majority of women who attempt it.
 
-*Success rates:*
+*Success rates:*#citation[2]
 - Overall VBAC success: 60-80%
 - After one prior cesarean: Approximately 75%
 - After two prior cesareans: 72%
@@ -345,9 +345,9 @@ These are excellent odds. Most women who try for VBAC deliver vaginally.
 *Who is a good candidate:*
 
 _Ideal candidates:_
-- Had a low-transverse (horizontal) incision on the uterus (this is the most common type, used in about 90% of cesareans)
+- Had a low-transverse (horizontal) incision on the uterus (this is the most common type, used in about 90% of cesareans)#citation[34]
 - Previous cesarean was for a non-recurring reason (like breech presentation, which will not apply this time)
-- At least 18 months since previous cesarean
+- At least 18 months since previous cesarean#citation[35]
 - Healthy pregnancy without complications
 - Access to a hospital with emergency cesarean capability
 
@@ -363,9 +363,9 @@ _Not candidates for VBAC:_
 
 *The primary risk: Uterine rupture:*
 The main concern with VBAC is that the scar from your previous cesarean could open during labor. Here are the actual numbers:
-- Risk of rupture during VBAC: 0.3-0.7% (less than 1 in 100)
-- Risk if VBAC attempted within 18 months of previous cesarean: About 2%
-- Risk with planned repeat cesarean: 0.02-0.03% (extremely rare)
+- Risk of rupture during VBAC: 0.3-0.7% (less than 1 in 100)#citation[2]
+- Risk if VBAC attempted within 18 months of previous cesarean: About 2%#citation[35]
+- Risk with planned repeat cesarean: 0.02-0.03% (extremely rare)#citation[36]
 
 When uterine rupture is recognized and treated promptly, serious complications are uncommon.
 
@@ -379,7 +379,7 @@ When uterine rupture is recognized and treated promptly, serious complications a
 
 *Finding supportive providers:*
 
-This is critical. VBAC support varies enormously between providers and hospitals. The overall VBAC rate in the U.S. is only about 14%, meaning many women who could safely attempt VBAC are not given the option.
+This is critical. VBAC support varies enormously between providers and hospitals. The overall VBAC rate in the U.S. is only about 14%#citation[7], meaning many women who could safely attempt VBAC are not given the option.
 
 _Questions to ask:_
 - "Do you support trial of labor after cesarean?"
@@ -440,17 +440,95 @@ Here is our direct perspective on this topic:
 
 *Vaginal birth should be the default for healthy pregnancies.* The research is clear that for women without genuine medical complications, vaginal birth offers real advantages: faster recovery, better outcomes for baby's microbiome and breathing, and avoidance of surgical risks.
 
-*The U.S. cesarean rate is too high.* At 32%, we are performing roughly 50% more cesareans than the evidence suggests is optimal. This is driven partly by expanded medical definitions, partly by legal liability concerns, and partly by financial incentives at for-profit hospitals. The result is that many women undergo major surgery they do not need.
+*The U.S. cesarean rate is too high.* At 32%, we are performing roughly 50% more cesareans than the evidence suggests is optimal.#citation[1] This is driven partly by expanded medical definitions, partly by legal liability concerns, and partly by financial incentives at for-profit hospitals. The result is that many women undergo major surgery they do not need.
 
 *Cesarean delivery is lifesaving when truly needed.* We are not anti-cesarean. When there is a genuine emergency or clear medical indication, cesarean delivery protects mothers and babies. The surgery exists for good reason.
 
-*Your choice of provider matters enormously.* Cesarean rates vary from 15% to over 50% between different providers and hospitals. This variation is not because patients are different; it is because practice patterns are different. Choosing a provider with evidence-based, low-intervention practices improves your odds of the birth you want.
+*Your choice of provider matters enormously.* Cesarean rates vary from 15% to over 50% between different providers and hospitals. This variation is not because patients are different; it is because practice patterns are different.#citation[37] Choosing a provider with evidence-based, low-intervention practices improves your odds of the birth you want.
 
 *VBAC deserves more support.* With 60-80% success rates, VBAC should be offered to most women with prior cesarean. The fact that only 14% of eligible women attempt it suggests that access, not safety, is the real barrier.
 
 *If you do need a cesarean, breastfeeding helps.* The microbiome disruption from cesarean delivery is real but not permanent. Exclusive breastfeeding for 6 months is the most powerful thing you can do to restore your baby's gut bacteria to something closer to what vaginally delivered babies have.
 
 *Ask questions and advocate for yourself.* If cesarean is recommended, you have the right to understand exactly why. Ask what the specific indication is. Ask if there are alternatives. Ask what happens if you wait. In most non-emergency situations, you have time to get answers.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Martin, J. A., Hamilton, B. E., Osterman, M. J. K., & Driscoll, A. K. (2025). Births: Final Data for 2023. _National Vital Statistics Reports_, 74(1). CDC/NCHS. #link("https://www.cdc.gov/nchs/data/nvsr/nvsr74/nvsr74-1.pdf") See also: World Health Organization (2015). WHO Statement on Caesarean Section Rates. WHO-RHR-15.02.
+
+#citation[2] Guise, J. M., Eden, K., Emeis, C., et al. (2010). Vaginal birth after cesarean: New insights. _Obstetrics & Gynecology_. DOI: 10.1097/aog.0b013e3181df925f
+
+#citation[3] Guo, C., Zhou, Q., Li, M., et al. (2020). Breastfeeding restored the gut microbiota in caesarean section infants and lowered the infection risk in early life. _BMC Pediatrics_. DOI: 10.1186/s12887-020-02433-x
+
+#citation[4] Localio, A. R., Lawthers, A. G., Bengtson, J. M., et al. (1993). Relationship between malpractice claims and cesarean delivery. _JAMA_, 269(3), 366--373. DOI: 10.1001/jama.1993.03500030064034
+
+#citation[5] American College of Obstetricians and Gynecologists. (2018). Optimizing Postpartum Care. ACOG Committee Opinion No. 736 (reaffirmed 2020). #link("https://www.acog.org/womens-health/pregnancy/after-pregnancy")
+
+#citation[6] Declercq, E. R., Sakala, C., Corry, M. P., et al. (2014). Major Survey Findings of Listening to Mothers III: Pregnancy and Birth. _Journal of Perinatal Education_, 23(1), 9--16. DOI: 10.1891/1058-1243.23.1.9
+
+#citation[7] CDC NCHS Data Brief No. 442 (2022). VBAC Statistics. #link("https://cdc.gov/nchs/data/databriefs/db442.pdf")
+
+#citation[8] American College of Obstetricians and Gynecologists. (2019). Approaches to Limit Intervention During Labor and Birth. ACOG Committee Opinion No. 766. _Obstetrics & Gynecology_, 133(2), e164--e173. DOI: 10.1097/aog.0000000000003074
+
+#citation[9] Cohen, W. R., & Friedman, E. A. (2015). Misguided guidelines for managing labor. _American Journal of Obstetrics & Gynecology_, 212(6), 753.e1--753.e3. DOI: 10.1016/j.ajog.2015.04.012
+
+#citation[10] Hehir, M. P., Ananth, C. V., Siddiq, Z., et al. (2018). Cesarean delivery in the United States 2005 through 2014: A population-based analysis using the Robson 10-Group Classification System. _American Journal of Obstetrics & Gynecology_, 219(1), 105.e1--105.e11. DOI: 10.1016/j.ajog.2018.04.012
+
+#citation[11] Hofmeyr, G. J., Hannah, M., & Lawrie, T. A. (2015). Planned caesarean section for term breech delivery. _Cochrane Database of Systematic Reviews_, (7), CD000166. DOI: 10.1002/14651858.cd000166.pub2
+
+#citation[12] American College of Obstetricians and Gynecologists. (2020). External Cephalic Version. ACOG Practice Bulletin No. 221. _Obstetrics & Gynecology_, 135, e203--e212. DOI: 10.1097/aog.0000000000003837
+
+#citation[13] Pistolese, R. A. (2002). The Webster Technique: A chiropractic technique with obstetric implications. _Journal of Manipulative and Physiological Therapeutics_, 25(6), E1--E9. DOI: 10.1067/mmt.2002.126127
+
+#citation[14] Coyle, M. E., Smith, C. A., & Peat, B. (2012). Cephalic version by moxibustion for breech presentation. _Cochrane Database of Systematic Reviews_, (5), CD003928. DOI: 10.1002/14651858.cd003928.pub3
+
+#citation[15] Hofmeyr, G. J., & Kulier, R. (2012). External cephalic version for breech presentation at term. _Cochrane Database of Systematic Reviews_, (10), CD000083. DOI: 10.1002/14651858.cd000083.pub2
+
+#citation[16] Glezerman, M. (2006). Five years to the term breech trial: The rise and fall of a randomized controlled trial. _American Journal of Obstetrics & Gynecology_, 194(1), 20--25. DOI: 10.1016/j.ajog.2005.08.039
+
+#citation[17] Dominguez-Bello, M. G., Costello, E. K., Contreras, M., et al. (2010). Delivery mode shapes the acquisition and structure of the initial microbiota across multiple body habitats in newborns. _Proceedings of the National Academy of Sciences_, 107(26), 11971--11975. DOI: 10.1073/pnas.1002601107
+
+#citation[18] Korpela, K. (2021). Impact of Delivery Mode on Infant Gut Microbiota. _Annals of Nutrition and Metabolism_. DOI: 10.1159/000518498
+
+#citation[19] Sevelsted, A., Stokholm, J., Bonnelykke, K., & Bisgaard, H. (2015). Cesarean section and chronic immune disorders. _Pediatrics_, 135(1), e92--e98. DOI: 10.1542/peds.2014-0596
+
+#citation[20] Buckley, S. J. (2015). Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Childbirth Connection_. DOI: 10.1891/1058-1243.24.3.145
+
+#citation[21] Lagercrantz, H., & Slotkin, T. A. (1986). The "stress" of being born. _Scientific American_, 254(4), 100--107. DOI: 10.1038/scientificamerican0486-100
+
+#citation[22] Jain, L., & Dudell, G. G. (2006). Respiratory transition in infants delivered by cesarean section. _Seminars in Perinatology_, 30(5), 296--304. DOI: 10.1053/j.semperi.2006.07.011
+
+#citation[23] Hansen, A. K., Wisborg, K., Uldbjerg, N., & Henriksen, T. B. (2008). Risk of respiratory morbidity in term infants delivered by elective caesarean section: Cohort study. _BMJ_, 336(7635), 85--87. DOI: 10.1136/bmj.39405.539282.be
+
+#citation[24] Prior, E., Santhakumaran, S., Gale, C., et al. (2012). Breastfeeding after cesarean delivery: A systematic review and meta-analysis of world literature. _American Journal of Clinical Nutrition_, 95(5), 1113--1135. DOI: 10.3945/ajcn.111.030254
+
+#citation[25] Cunningham, F. G., Leveno, K. J., Bloom, S. L., et al. (2018). _Williams Obstetrics_ (25th ed.). McGraw-Hill.
+
+#citation[26] Sultan, A. A., West, J., Tata, L. J., et al. (2013). Risk of first venous thromboembolism in pregnant women in hospital: Population based cohort study from England. _BMJ_, 347, f6099. DOI: 10.1136/bmj.f6099
+
+#citation[27] Tulandi, T., & Lyell, D. J. (2013). Classification of intra-abdominal adhesions after cesarean delivery. _Gynecological Surgery_. DOI: 10.1007/s10397-012-0765-1
+
+#citation[28] Silver, R. M., Landon, M. B., Rouse, D. J., et al. (2006). Maternal morbidity associated with multiple repeat cesarean deliveries. _Obstetrics & Gynecology_, 107(6), 1226--1232.
+
+#citation[29] Melo e Silva, M. T., et al. (2024). Impact of vaginal seeding on the gut microbiome of infants born via cesarean section: A systematic review. _Journal of Infection_. DOI: 10.1016/j.jinf.2024.106334
+
+#citation[30] Zhou, L., et al. (2023). Effects of vaginal microbiota transfer on the neurodevelopment and microbiome of cesarean-born infants: A blinded randomized controlled trial. _Cell Host & Microbe_, 31(7), 1232--1247.e5. DOI: 10.1016/j.chom.2023.05.022
+
+#citation[31] American College of Obstetricians and Gynecologists. (2017). Vaginal Seeding. ACOG Committee Opinion No. 725. _Obstetrics & Gynecology_. DOI: 10.1097/aog.0000000000002402
+
+#citation[32] Moore, E. R., Bergman, N., Anderson, G. C., & Medley, N. (2016). Early skin-to-skin contact for mothers and their healthy newborn infants. _Cochrane Database of Systematic Reviews_, (11), CD003519. DOI: 10.1002/14651858.cd003519.pub4
+
+#citation[33] American College of Obstetricians and Gynecologists. (2020). Delayed Umbilical Cord Clamping After Birth. ACOG Committee Opinion No. 814. _Obstetrics & Gynecology_, 136, e100--e106. DOI: 10.1097/aog.0000000000004167
+
+#citation[34] Landon, M. B. (2008). Vaginal birth after cesarean delivery. _Clinics in Perinatology_, 35(3), 491--504. DOI: 10.1016/j.clp.2008.07.004
+
+#citation[35] Shipp, T. D., Zelop, C. M., Repke, J. T., et al. (2001). Interdelivery interval and risk of symptomatic uterine rupture. _Obstetrics & Gynecology_, 97(2), 175--177. DOI: 10.1016/s0029-7844(00)01129-7
+
+#citation[36] Al-Zirqi, I., Stray-Pedersen, B., Forsen, L., & Vangen, S. (2010). Uterine rupture after previous caesarean section. _BJOG_, 117(7), 809--820. DOI: 10.1111/j.1471-0528.2010.02533.x
+
+#citation[37] Kozhimannil, K. B., Law, M. R., & Virnig, B. A. (2013). Cesarean delivery rates vary tenfold among US hospitals; reducing variation may address quality and cost issues. _Health Affairs_, 32(3), 527--535. DOI: 10.1377/hlthaff.2012.1030
 
 #line(length: 100%)
 

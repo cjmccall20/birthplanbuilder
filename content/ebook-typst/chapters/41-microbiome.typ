@@ -100,7 +100,7 @@ Instead, C-section babies have higher levels of:
 
 === Long-Term Health Implications
 
-Epidemiological studies consistently link cesarean delivery to increased risks of [2,3]:
+Epidemiological studies consistently link cesarean delivery to increased risks of #citation[2] #citation[3]:
 
 - _Obesity_: C-section babies have higher rates of childhood and adult obesity
 - _Asthma_: Significantly increased risk (up to 20-50% higher in some studies)
@@ -108,7 +108,7 @@ Epidemiological studies consistently link cesarean delivery to increased risks o
 - _Autoimmune diseases_: Type 1 diabetes, celiac disease, inflammatory bowel disease
 - _Infection risk_: Increased hospitalization for infections in early childhood
 
-A 2025 systematic review found cesarean delivery associated with a _73% increased risk of autoimmune-related disease_, including a striking _244% increase in atopic dermatitis risk_ [15].
+A 2025 systematic review found cesarean delivery associated with a _73% increased risk of autoimmune-related disease_, including a striking _244% increase in atopic dermatitis risk_ #citation[15].
 
 These associations are _correlational, not causal_—many factors contribute to these outcomes. But the microbiome appears to be a key mediator.
 
@@ -132,20 +132,20 @@ These antibiotics are highly effective at preventing early-onset GBS disease (wh
 
 === How Antibiotics Affect Baby's Microbiome
 
-Intrapartum antibiotic prophylaxis (IAP) has a "_C-section-like effect_" on the infant gut microbiota [12]:
+Intrapartum antibiotic prophylaxis (IAP) has a "_C-section-like effect_" on the infant gut microbiota #citation[12]:
 
-- _Reduced Bifidobacterium_: A 2025 study found significantly lower levels of _Bifidobacterium longum_ at one month of age in IAP-exposed infants—and this deficit _persisted through the first year of life_ [12].
-- _Delayed microbiome maturation_: Babies exposed to antibiotics show delayed development of a healthy, diverse gut community [13].
+- _Reduced Bifidobacterium_: A 2025 study found significantly lower levels of _Bifidobacterium longum_ at one month of age in IAP-exposed infants—and this deficit _persisted through the first year of life_ #citation[12].
+- _Delayed microbiome maturation_: Babies exposed to antibiotics show delayed development of a healthy, diverse gut community #citation[13].
 - _Increased pathogenic bacteria_: Higher levels of hospital-associated and antibiotic-resistant bacteria.
 
 === Long-Term Health Effects of Labor Antibiotics
 
-A 2025 meta-analysis found that IAP exposure is associated with [15]:
+A 2025 meta-analysis found that IAP exposure is associated with #citation[15]:
 
-- _73% increased risk of autoimmune-related diseases_ [15]
-- _244% increased risk of atopic dermatitis_ (eczema) [15]
-- _Modest increases in childhood BMI_ (though not BMI z-score) [15]
-- _Small but significant increase in infectious disease risk_ in childhood [15]
+- _73% increased risk of autoimmune-related diseases_ #citation[15]
+- _244% increased risk of atopic dermatitis_ (eczema) #citation[15]
+- _Modest increases in childhood BMI_ (though not BMI z-score) #citation[15]
+- _Small but significant increase in infectious disease risk_ in childhood #citation[15]
 
 === Recovery Timeline
 
@@ -201,10 +201,10 @@ Breast milk is far more than nutrition—it's a sophisticated delivery system fo
 
 HMOs are complex sugars—the _third most abundant component_ of breast milk (after water and fat). They're indigestible by the infant but serve as _prebiotics_ that selectively feed beneficial bacteria, especially Bifidobacterium.
 
-HMOs [16,17,18,19]:
-- _Feed good bacteria_: Particularly _Bifidobacterium longum subsp. infantis_ (B. infantis), which dominates healthy infant guts [17].
-- _Block pathogens_: HMOs bind to harmful bacteria and viruses, preventing them from attaching to the gut lining [16].
-- _Reduce inflammation_: HMOs modulate immune responses and reduce intestinal inflammation [16].
+HMOs #citation[16] #citation[17] #citation[18] #citation[19]:
+- _Feed good bacteria_: Particularly _Bifidobacterium longum subsp. infantis_ (B. infantis), which dominates healthy infant guts #citation[17].
+- _Block pathogens_: HMOs bind to harmful bacteria and viruses, preventing them from attaching to the gut lining #citation[16].
+- _Reduce inflammation_: HMOs modulate immune responses and reduce intestinal inflammation #citation[16].
 - _Support brain development_: Emerging evidence links HMOs to improved cognitive development.
 
 ==== 2. _Live Probiotics_
@@ -263,16 +263,16 @@ Some families choose vaginal seeding for the same reason some families decline v
 The evidence is emerging and growing:
 
 ==== Evidence Supporting the Practice
-- Studies from 2023-2025 show vaginal seeding produces _partial restoration_ of key gut microbial communities, particularly increased _Bacteroides_ and _Lactobacillus_ — bacteria that cesarean-born babies are typically deficient in [4,5,7,8].
-- A 2025 systematic review of 512 infants found _no serious adverse events_ directly linked to the procedure [8].
-- Some studies show improved _neurodevelopmental outcomes_ and metabolic health markers in animal models [8].
-- Multiple studies confirm that seeded babies' microbiomes more closely resemble those of vaginally born babies than unseeded cesarean babies [4,5].
+- Studies from 2023-2025 show vaginal seeding produces _partial restoration_ of key gut microbial communities, particularly increased _Bacteroides_ and _Lactobacillus_ — bacteria that cesarean-born babies are typically deficient in #citation[4] #citation[5] #citation[7] #citation[8].
+- A 2025 systematic review of 512 infants found _no serious adverse events_ directly linked to the procedure #citation[8].
+- Some studies show improved _neurodevelopmental outcomes_ and metabolic health markers in animal models #citation[8].
+- Multiple studies confirm that seeded babies' microbiomes more closely resemble those of vaginally born babies than unseeded cesarean babies #citation[4] #citation[5].
 
 ==== What It Doesn't Do
-- Vaginal seeding does _not fully replicate_ a vaginal birth microbiome — it's a partial restoration [4,5].
-- Results on microbial diversity are _mixed_ across studies [4,5].
-- A 2022 trial found no significant effect on growth, allergies, or gut microbiota through age 2 [9] — though critics note the study was small and follow-up limited.
-- There is no standardized protocol yet — timing, technique, and materials vary across studies [7].
+- Vaginal seeding does _not fully replicate_ a vaginal birth microbiome — it's a partial restoration #citation[4] #citation[5].
+- Results on microbial diversity are _mixed_ across studies #citation[4] #citation[5].
+- A 2022 trial found no significant effect on growth, allergies, or gut microbiota through age 2 #citation[9] — though critics note the study was small and follow-up limited.
+- There is no standardized protocol yet — timing, technique, and materials vary across studies #citation[7].
 
 === What to Screen For
 
@@ -479,6 +479,36 @@ _What matters most:_
 _The bottom line:_ The microbiome is far more important than most birth providers acknowledge. Making microbiome-informed choices during birth and infancy is one of the most impactful things you can do for your child's long-term health. You have more options than the medical establishment typically presents — and you have the right to use them.
 
 #line(length: 100%)
+
+== Citations
+
+#citation[2] The Effects of Delivery Mode on the Gut Microbiota and Health. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC8733716/
+
+#citation[3] Impact of Delivery Mode on Infant Gut Microbiota. _Karger Publishers_. https://karger.com/anm/article/77/Suppl.%203/11/821438/
+
+#citation[4] Comparison of Gut Microbiome in Neonates Born by Caesarean Section and Vaginal Seeding. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC10545928/
+
+#citation[5] Impact of vaginal seeding on the gut microbiome. _ScienceDirect_. https://www.sciencedirect.com/science/article/pii/S0163445324002834
+
+#citation[7] Microbiome seeding - what's the evidence? Dr Sara Wickham. https://www.sarawickham.com/research-updates/microbiome-seeding/
+
+#citation[8] Can Vaginal Seeding at Birth Improve Health Outcomes. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC12195427/
+
+#citation[9] Vaginal Seeding: The Microbiome and the Baby. _Healthline_. https://www.healthline.com/health/pregnancy/vaginal-seeding
+
+#citation[12] Persistent reduction of Bifidobacterium longum after intrapartum antibiotic exposure. _Frontiers in Immunology_. 2025. https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1540979/full
+
+#citation[13] Effects of Perinatal Antibiotic Exposure on infant microbiome. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC9951864/
+
+#citation[15] Intrapartum Antibiotic Prophylaxis and health outcomes. _BJOG_. 2025. https://obgyn.onlinelibrary.wiley.com/doi/10.1111/1471-0528.70015
+
+#citation[16] Human milk oligosaccharides. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC7332462/
+
+#citation[17] Bifidobacteria in the infant gut use human milk oligosaccharides. _ISAPP_. https://isappscience.org/bifidobacteria-in-the-infant-gut-use-human-milk-oligosaccharides-how-does-this-lead-to-health-benefits/
+
+#citation[18] Probiotics in the New Era of HMOs. _MDPI_. https://www.mdpi.com/2076-2607/12/5/1014
+
+#citation[19] Human milk oligosaccharides combine with Bifidobacterium. _Taylor & Francis_. https://www.tandfonline.com/doi/full/10.1080/19490976.2024.2430418
 
 == Sources
 

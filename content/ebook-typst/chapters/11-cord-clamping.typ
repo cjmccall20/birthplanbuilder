@@ -30,15 +30,15 @@ Before birth, blood flows between your baby and the placenta through the umbilic
 
 *This blood is not "extra." It is your baby's blood, stored temporarily in the placenta and umbilical cord. It belongs to your baby and represents their full blood volume.*
 
-At the moment of birth, approximately one-third of a baby's blood is still outside their body, in the placenta and umbilical cord. Waiting at least 90 seconds (and preferably 5+ minutes) allows this blood to transfer to your baby naturally - the way it has happened for all of human history until hospitals made immediate clamping the norm for their convenience, not for medical reasons.
+At the moment of birth, approximately one-third of a baby's blood is still outside their body, in the placenta and umbilical cord #citation[1]. Waiting at least 90 seconds (and preferably 5+ minutes) allows this blood to transfer to your baby naturally - the way it has happened for all of human history until hospitals made immediate clamping the norm for their convenience, not for medical reasons.
 
-*Important note:* Blood transfer continues even after visible cord pulsing stops. The cord may appear white and limp, but blood continues to transfer from the placenta to the baby via gravity and osmotic pressure. This is why some experts recommend waiting even longer than until pulsing stops - the transfer process may continue for several more minutes.
+*Important note:* Blood transfer continues even after visible cord pulsing stops. The cord may appear white and limp, but blood continues to transfer from the placenta to the baby via gravity and osmotic pressure #citation[2]. This is why some experts recommend waiting even longer than until pulsing stops - the transfer process may continue for several more minutes.
 
 === Historical Context
 
 The current practice of immediate clamping is surprisingly recent. In the early 1900s, it was standard practice to wait for the placenta to deliver and the cord to stop pulsating before clamping. The shift to immediate clamping happened in the mid-20th century, driven by hospital efficiency rather than medical evidence.
 
-By the late 1990s, research began showing that delayed clamping offered significant benefits. In 2012, the World Health Organization recommended delayed clamping for all births. By 2020, the American College of Obstetricians and Gynecologists made the same recommendation. Today, the evidence strongly favors delayed clamping, yet some hospitals have been slow to change.
+By the late 1990s, research began showing that delayed clamping offered significant benefits. In 2012, the World Health Organization recommended delayed clamping for all births #citation[3]. By 2020, the American College of Obstetricians and Gynecologists made the same recommendation #citation[4]. Today, the evidence strongly favors delayed clamping, yet some hospitals have been slow to change.
 
 #line(length: 100%)
 
@@ -46,7 +46,7 @@ By the late 1990s, research began showing that delayed clamping offered signific
 
 === 30% More Blood Volume
 
-When you delay cord clamping, your baby receives 25-40% more blood volume than with immediate clamping. This translates to approximately 25-35 mL of blood per kilogram of your baby's body weight.
+When you delay cord clamping, your baby receives 25-40% more blood volume than with immediate clamping #citation[1]. This translates to approximately 25-35 mL of blood per kilogram of your baby's body weight.
 
 This extra blood volume means:
 - Better oxygen delivery during the critical transition from womb to world
@@ -71,7 +71,7 @@ See #link(<ch-cord-blood>)[our Cord Blood Banking chapter] for more on cord bloo
 
 === 50% More Iron
 
-The blood transferred during delayed clamping is rich in red blood cells and iron. Your baby receives approximately 50% more iron-rich red blood cells with delayed clamping compared to immediate clamping. This additional blood provides 40-50 mg of iron per kilogram of body weight - enough to prevent iron deficiency for the first 6-8 months of life.
+The blood transferred during delayed clamping is rich in red blood cells and iron. Your baby receives approximately 50% more iron-rich red blood cells with delayed clamping compared to immediate clamping. This additional blood provides 40-50 mg of iron per kilogram of body weight - enough to prevent iron deficiency for the first 6-8 months of life #citation[5].
 
 ==== The Iron Deficiency Epidemic
 
@@ -86,14 +86,14 @@ Iron deficiency is the most common nutrient deficiency in the world and a public
 
 ==== Why Iron Matters for Brain Development
 
-Iron is essential for brain development, especially during the first 3 years of life. Iron deficiency during this critical period causes:
+Iron is essential for brain development, especially during the first 3 years of life. Iron deficiency during this critical period causes #citation[6]:
 - *Irreversible neurodevelopmental damage* - even after iron stores are restored
 - *5-10 point deficit in IQ* equivalent
 - Delayed psychomotor development
 - Impaired language skills, motor skills, and coordination
 - Reduced performance that persists into school age
 
-At 4 months of age, infants who received delayed cord clamping had:
+At 4 months of age, infants who received delayed cord clamping had #citation[7]:
 - *45% higher iron stores* (mean ferritin concentration of 117 μg/L vs 81 μg/L)
 - *90% reduction in iron deficiency* (0.6% vs 5.7%)
 - *Lower rates of anemia* at 2 days of age (1.2% vs 6.3%)
@@ -104,7 +104,7 @@ Studies comparing immediate and delayed clamping found that at 3-6 months of age
 
 Perhaps the most exciting research involves brain development. A major study funded by the National Institute of Child Health and Human Development (NICHD) examined the brains of infants who received immediate vs. delayed cord clamping.
 
-At 4 months of age, using MRI scanning, researchers found that infants who underwent delayed cord clamping had significantly more myelin in multiple brain regions. These regions included areas associated with motor function, visual processing, and sensory function.
+At 4 months of age, using MRI scanning, researchers found that infants who underwent delayed cord clamping had significantly more myelin in multiple brain regions #citation[8]. These regions included areas associated with motor function, visual processing, and sensory function.
 
 Myelin is the insulation around nerve fibers that allows rapid electrical signaling in the brain. More myelin means more efficient neural communication. The additional blood volume and iron from delayed clamping supports this process, particularly in the first 3-6 months of life when myelination is most active.
 
@@ -112,11 +112,11 @@ Myelin is the insulation around nerve fibers that allows rapid electrical signal
 
 The benefits of delayed clamping are even more pronounced in preterm (premature) babies:
 
-*Reduced mortality:* A 2023 study of 47 trials found that delays of 120 seconds or more reduced neonatal death by 69% compared to immediate clamping.
+*Reduced mortality:* A 2023 study of 47 trials found that delays of 120 seconds or more reduced neonatal death by 69% compared to immediate clamping #citation[9].
 
-*Fewer blood transfusions:* Delayed clamping significantly reduces the need for transfusions, as much as a 50% reduction in some studies.
+*Fewer blood transfusions:* Delayed clamping significantly reduces the need for transfusions, as much as a 50% reduction in some studies #citation[9].
 
-*Lower rates of serious complications:* Including bleeding in the brain (reduced by up to 40%) and serious intestinal infections (reduced by approximately 30%).
+*Lower rates of serious complications:* Including bleeding in the brain (reduced by up to 40%) and serious intestinal infections (reduced by approximately 30%) #citation[9].
 
 These benefits are so substantial that many neonatal intensive care units have made delayed clamping standard practice for preterm births.
 
@@ -141,13 +141,13 @@ The only clearly documented concern with delayed cord clamping is a small increa
 
 *The concern:* Some feared that the higher red blood cell count could cause polycythemia (excess red blood cells), which theoretically could cause breathing or circulation problems.
 
-*What the research shows:* Polycythemia is not a real risk with delayed clamping. A major Cochrane review found that delayed-clamped infants are NOT exposed to an increased risk of developing polycythemia compared to immediately-clamped infants.
+*What the research shows:* Polycythemia is not a real risk with delayed clamping. A major Cochrane review found that delayed-clamped infants are NOT exposed to an increased risk of developing polycythemia compared to immediately-clamped infants #citation[10].
 
 === Maternal Bleeding
 
 *The concern:* Some providers worried that delayed clamping might increase bleeding after delivery.
 
-*What the research shows:* Multiple studies found that delayed clamping was NOT associated with increased risk of postpartum hemorrhage or increased blood loss at delivery. WHO recommends delayed clamping equally for both vaginal and cesarean deliveries specifically because the safety data support it.
+*What the research shows:* Multiple studies found that delayed clamping was NOT associated with increased risk of postpartum hemorrhage or increased blood loss at delivery #citation[11]. WHO recommends delayed clamping equally for both vaginal and cesarean deliveries specifically because the safety data support it.
 
 #line(length: 100%)
 
@@ -163,7 +163,7 @@ Overall, about 3% of U.S. births involve banking cord blood.
 
 === Actual Usage Statistics
 
-According to comprehensive tracking data, the chance of a child needing their own cord blood is around 0.005% (1 in 20,000) to 0.0004% (1 in 250,000).
+According to comprehensive tracking data, the chance of a child needing their own cord blood is around 0.005% (1 in 20,000) to 0.0004% (1 in 250,000) #citation[12].
 
 To put this in perspective: your child has a 1 in 400 to 1 in 5,000 chance of ever needing their stored cord blood. For most cord blood stored in private banks, it is never used.
 
@@ -176,14 +176,14 @@ When the cord is clamped immediately, the volume of cord blood available for col
 - At 60 seconds: 85-90% has transferred; cord blood volume is significantly reduced
 - When cord stops pulsing: may only collect 10-20 mL
 
-*Public banking:* After 60 seconds of delay, it becomes "almost impossible" to collect enough cord blood for the donation to be accepted by a public bank.
+*Public banking:* After 60 seconds of delay, it becomes "almost impossible" to collect enough cord blood for the donation to be accepted by a public bank #citation[13].
 
 *Your options:*
 1. Request 30 seconds of delay (provides some benefits) followed by immediate collection for banking
 2. Choose cord tissue banking instead (fully compatible with delayed clamping, as the tissue itself is unaffected by timing)
 3. Prioritize delayed clamping and skip banking (given the extremely low usage statistics)
 
-*ACOG's guidance:* "The practice of umbilical cord clamping should not be altered solely for the purpose of collecting cord blood."
+*ACOG's guidance:* "The practice of umbilical cord clamping should not be altered solely for the purpose of collecting cord blood" #citation[4].
 
 #line(length: 100%)
 
@@ -191,7 +191,7 @@ When the cord is clamped immediately, the volume of cord blood available for col
 
 === C-Section
 
-*Yes, you can absolutely do delayed cord clamping during a cesarean birth.* This is one of the most important things to know if you're planning or might need a C-section. Research specifically examining cesarean births found no difference in maternal outcomes and improved outcomes for the baby.
+*Yes, you can absolutely do delayed cord clamping during a cesarean birth.* This is one of the most important things to know if you're planning or might need a C-section. Research specifically examining cesarean births found no difference in maternal outcomes and improved outcomes for the baby #citation[14].
 
 ==== How It Works During C-Section
 
@@ -229,8 +229,8 @@ Delayed cord clamping during cesarean births has become increasingly common:
 
 Some providers offer cord milking as an alternative during C-sections - gently squeezing the cord 2-3 times to push blood toward the baby. *However, recent research has raised concerns about this practice:*
 
-- Cord milking may cause rapid volume changes that stress the infant's heart
-- Some studies have shown increased risk of brain bleeding in premature infants
+- Cord milking may cause rapid volume changes that stress the infant's heart #citation[15]
+- Some studies have shown increased risk of brain bleeding in premature infants #citation[15]
 - The WHO and some medical bodies have cautioned against cord milking, especially for preterm babies
 - For term infants, the evidence is mixed - delayed clamping is generally preferred over milking
 
@@ -240,7 +240,7 @@ If planning a cesarean birth, see #link(<ch-cesarean-birth>)[our Cesarean Birth 
 
 === Preterm Babies
 
-Delayed clamping is especially important for preterm babies. ACOG recommends at least 60 seconds of delay for preterm infants born before 37 weeks who do not require immediate resuscitation. The evidence is particularly strong for these babies.
+Delayed clamping is especially important for preterm babies. ACOG recommends at least 60 seconds of delay for preterm infants born before 37 weeks who do not require immediate resuscitation #citation[4]. The evidence is particularly strong for these babies.
 
 === Nuchal Cord (Cord Around the Neck)
 
@@ -286,7 +286,7 @@ There are genuine situations where immediate clamping may be appropriate:
 - Maternal cardiac arrest
 - Seizures or other emergency requiring immediate treatment
 
-*Important note about resuscitation:* Even if your baby needs resuscitation, new evidence suggests the baby should be stabilized and resuscitated WITH AN INTACT CORD. This allows the placenta to continue its respiratory role in gas exchange while supporting your baby's transition. Cutting the cord removes this support system at the exact moment your baby needs it most.
+*Important note about resuscitation:* Even if your baby needs resuscitation, new evidence suggests the baby should be stabilized and resuscitated WITH AN INTACT CORD #citation[16]. This allows the placenta to continue its respiratory role in gas exchange while supporting your baby's transition. Cutting the cord removes this support system at the exact moment your baby needs it most.
 
 *Important note:* True emergencies requiring immediate clamping are rare. Slow labor, routine concerns, nuchal cord, or "hospital policy" are NOT medical reasons for immediate clamping.
 
@@ -426,6 +426,42 @@ For preterm babies, the evidence is even stronger - delayed clamping can reduce 
 === Bottom Line
 
 Request at least 5 minutes of delayed cord clamping, or until the cord stops pulsing and beyond. This gives your baby their full blood volume, complete with iron, stem cells, and everything nature intended. It's free, it's safe, it's evidence-based, and it's one of the most important decisions you can make for your baby's lifelong health.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Usher R, Shephard M, Lind J. (1963). The Blood Volume of the Newborn Infant and Placental Transfusion. _Acta Paediatrica_. DOI: 10.1111/j.1651-2227.1963.tb03809.x
+
+#citation[2] Mercer JS, Erickson-Owens DA. (2012). Rethinking Placental Transfusion and Cord Clamping Issues. _Journal of Perinatal and Neonatal Nursing_, 26(3), 202-217. DOI: 10.1097/jpn.0b013e31825d2d9a
+
+#citation[3] WHO. (2012). Guideline: Delayed Umbilical Cord Clamping for Improved Maternal and Infant Health and Nutrition Outcomes. World Health Organization.
+
+#citation[4] ACOG. (2020). Committee Opinion 814: Delayed Umbilical Cord Clamping After Birth. American College of Obstetricians and Gynecologists. https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2020/12/delayed-umbilical-cord-clamping-after-birth
+
+#citation[5] Chaparro CM. (2011). Timing of umbilical cord clamping: effect on iron endowment of the newborn and later iron status. _Nutrition Reviews_, 69(Suppl 1), S30-S36. DOI: 10.1111/j.1753-4887.2011.00430.x
+
+#citation[6] Lozoff B, Georgieff MK. (2006). Iron Deficiency and Brain Development. _Seminars in Pediatric Neurology_, 13(3), 158-165. DOI: 10.1016/j.spen.2006.08.004
+
+#citation[7] Andersson O, Hellstrom-Westas L, Andersson D, Domellof M. (2011). Effect of delayed versus early umbilical cord clamping on neonatal outcomes and iron status at 4 months: a randomised controlled trial. _BMJ_, 343, d7157. DOI: 10.1136/bmj.d7157
+
+#citation[8] NICHD Brain Development Research. (2019). National Institute of Child Health and Human Development. Delayed cord clamping and brain myelination at 4 months. https://www.nichd.nih.gov/newsroom/news/022719-delayed-cord-clamping
+
+#citation[9] Seidler AL, et al. (2023). Deferred cord clamping, cord milking, and immediate cord clamping at preterm birth: a systematic review and individual participant data meta-analysis. _The Lancet_. DOI: 10.1016/s0140-6736(23)02468-6
+
+#citation[10] McDonald SJ, Middleton P. (2008, updated 2013). Effect of timing of umbilical cord clamping of term infants on maternal and neonatal outcomes. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd004074.pub2
+
+#citation[11] Andersson O, et al. (2013). Effects of delayed compared with early umbilical cord clamping on maternal postpartum hemorrhage and cord blood gas sampling. _Acta Obstetricia et Gynecologica Scandinavica_, 92(5), 567-574. DOI: 10.1111/j.1600-0412.2012.01530.x
+
+#citation[12] Canadian Blood Services / Parents Guide to Cord Blood. Cord blood usage statistics. https://parentsguidecordblood.org/en/can-i-have-delayed-cord-clamping-and-still-collect-cord-blood
+
+#citation[13] Allan DS, et al. (2016). Delayed clamping of the umbilical cord after delivery and implications for public cord blood banking. _Transfusion_, 56(3), 662-665. DOI: 10.1111/trf.13424
+
+#citation[14] Cavallin F, et al. (2019). Delayed Cord Clamping versus Early Cord Clamping in Elective Cesarean Section. _Neonatology_, 116(3), 252-259. DOI: 10.1159/000500325
+
+#citation[15] Pratesi S, Dani C. (2020). Commentary on cord milking. _Frontiers in Pediatrics_, 8, 178. DOI: 10.3389/fped.2020.00178
+
+#citation[16] Pratesi S, et al. (2018). Placental Circulation Intact Trial (PCI Trial). _Frontiers in Pediatrics_, 6, 364. DOI: 10.3389/fped.2018.00364
 
 #line(length: 100%)
 

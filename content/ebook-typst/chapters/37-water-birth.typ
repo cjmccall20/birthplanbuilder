@@ -38,7 +38,7 @@ _"Available" doesn't mean accessible._ If a hospital has one labor tub and four 
 
 _Staff training varies dramatically._ Some nurses and midwives are experienced with water birth and enthusiastic supporters. Others have never attended one and may discourage you based on outdated concerns. The culture of your labor and delivery unit matters as much as the equipment.
 
-_ACOG's position creates hesitation._ The American College of Obstetricians and Gynecologists considers laboring in water acceptable but calls giving birth underwater "experimental." This 2016 position—unchanged despite years of subsequent research—makes many hospital OBs reluctant to support full water birth.
+_ACOG's position creates hesitation._ The American College of Obstetricians and Gynecologists considers laboring in water acceptable but calls giving birth underwater "experimental" #citation[15]. This 2016 position—unchanged despite years of subsequent research—makes many hospital OBs reluctant to support full water birth.
 
 _Temperature regulation requires vigilance._ Water that's too hot can raise maternal temperature and stress the baby. Water that's too cold defeats the purpose. Proper water birth requires someone actively managing temperature throughout labor—not just filling a tub and forgetting about it.
 
@@ -48,21 +48,21 @@ _Getting out quickly isn't always easy._ If fetal heart tones become concerning 
 
 == THE SCIENCE: BENEFITS
 
-_Significant pain reduction._ The Cochrane review found that water immersion during labor probably reduces the use of regional analgesia and that women report lower pain scores. Women consistently report less pain when using water compared to conventional labor positions. [1,2]
+_Significant pain reduction._ The Cochrane review found that water immersion during labor probably reduces the use of regional analgesia and that women report lower pain scores. Women consistently report less pain when using water compared to conventional labor positions. #citation[1] #citation#citation[2]
 
-_Shorter labor duration._ Studies show women laboring in water experience an average reduction of 32 minutes in first-stage labor. The warm water promotes relaxation, which helps labor progress more efficiently. [2]
+_Shorter labor duration._ Studies show women laboring in water experience an average reduction of 32 minutes in first-stage labor. The warm water promotes relaxation, which helps labor progress more efficiently. #citation[2]
 
-_Reduced epidural use._ The Cochrane review found water immersion during first-stage labor probably results in fewer women requesting epidural anesthesia. In this review, epidural use among water immersion participants dropped from 43% to 39% compared to the control group. [3]
+_Reduced epidural use._ The Cochrane review found water immersion during first-stage labor probably results in fewer women requesting epidural anesthesia. In this review, epidural use among water immersion participants dropped from 43% to 39% compared to the control group. #citation[3]
 
-_Lower intervention rates._ Research shows water birth is associated with reduced use of Pitocin to speed labor, fewer injectable opioids for pain management, and no increase in cesarean rates compared to conventional birth. [4]
+_Lower intervention rates._ Research shows water birth is associated with reduced use of Pitocin to speed labor, fewer injectable opioids for pain management, and no increase in cesarean rates compared to conventional birth. #citation[4]
 
-_No increase in severe tearing._ The UK POOL study of 73,229 women found no significant difference in serious perineal tears between water births (2.5%) and conventional births (3.8%). Some research suggests water may actually reduce tearing. [5]
+_No increase in severe tearing._ The UK POOL study of 73,229 women found no significant difference in serious perineal tears between water births (2.5%) and conventional births (3.8%). Some research suggests water may actually reduce tearing. #citation[5]
 
-_Improved maternal experience._ Women who labor and birth in water report greater satisfaction, better sense of control, and more positive birth memories. The warm water creates a calm, private environment that promotes the hormones of labor. [6]
+_Improved maternal experience._ Women who labor and birth in water report greater satisfaction, better sense of control, and more positive birth memories. The warm water creates a calm, private environment that promotes the hormones of labor. #citation[6]
 
-_Promotes natural hormone cascade._ Undisturbed water birth allows the natural oxytocin surge, endorphin release, and catecholamine peak that facilitate bonding and breastfeeding. The calm environment supports this hormonal orchestration. [7]
+_Promotes natural hormone cascade._ Undisturbed water birth allows the natural oxytocin surge, endorphin release, and catecholamine peak that facilitate bonding and breastfeeding. The calm environment supports this hormonal orchestration. #citation[7]
 
-_No increase in neonatal complications._ Large studies show no increased risk of NICU admissions, infection requiring antibiotics, or neonatal mortality with properly managed water birth. [5]
+_No increase in neonatal complications._ Large studies show no increased risk of NICU admissions, infection requiring antibiotics, or neonatal mortality with properly managed water birth. #citation[5]
 
 #line(length: 100%)
 
@@ -77,7 +77,7 @@ No. Healthy newborns have a dive reflex—an evolutionary adaptation that preven
 - Temperature differential (warm water vs. cooler air) helps signal when to breathe
 - Babies born underwater must be born fully submerged and brought directly to the surface
 
-The dive reflex can be overridden if a baby is severely hypoxic (oxygen-deprived), which is why skilled attendants watch for signs of fetal distress and require exiting the tub if complications arise. [8,9]
+The dive reflex can be overridden if a baby is severely hypoxic (oxygen-deprived), which is why skilled attendants watch for signs of fetal distress and require exiting the tub if complications arise. #citation[8] #citation[9]
 
 _"What about infection risk?"_
 
@@ -89,7 +89,7 @@ Early case reports of waterborne infections created concern, but modern research
 - Don't fill tubs hours in advance and hold at warm temperatures
 - Exit the tub if maternal temperature exceeds 100.4°F (38°C)
 
-With these precautions, infection rates are no higher than conventional birth. [5,10]
+With these precautions, infection rates are no higher than conventional birth. #citation[5] #citation#citation[10]
 
 _"Can water temperature harm the baby?"_
 
@@ -102,7 +102,7 @@ Safe temperature guidelines:
 - Keep room temperature comfortable (not overheated)
 - Stay hydrated
 
-Proper temperature management eliminates thermal risk. [11]
+Proper temperature management eliminates thermal risk. #citation[11]
 
 _"What if something goes wrong?"_
 
@@ -112,7 +112,7 @@ This is a legitimate concern and why water birth requires:
 - Immediate exit plan if complications arise
 - Low-risk pregnancies only
 
-Contraindications exist for a reason. Water birth is not appropriate for high-risk situations requiring immediate intervention. [10]
+Contraindications exist for a reason. Water birth is not appropriate for high-risk situations requiring immediate intervention. #citation[10]
 
 #line(length: 100%)
 
@@ -142,7 +142,7 @@ _Not contraindications (contrary to some outdated advice):_
 - Ruptured membranes without labor (if not prolonged)
 - Desire for immediate skin-to-skin after birth
 
-Water birth is for healthy, low-risk pregnancies. If complications develop during labor, exiting the tub is always an option. [10,12]
+Water birth is for healthy, low-risk pregnancies. If complications develop during labor, exiting the tub is always an option. #citation#citation[10] #citation[12]
 
 #line(length: 100%)
 
@@ -324,7 +324,7 @@ Key requirements for safety:
 - Live within 15-20 minutes of hospital
 - No contraindications
 
-If you're a good candidate for home birth, adding water doesn't increase risk—it likely enhances safety by reducing pain and promoting physiologic birth. [13,14]
+If you're a good candidate for home birth, adding water doesn't increase risk—it likely enhances safety by reducing pain and promoting physiologic birth. #citation[13] #citation[14]
 
 #line(length: 100%)
 
@@ -434,7 +434,7 @@ The largest study ever conducted—73,229 births across 26 UK hospitals—found 
 
 _So why isn't it standard?_
 
-Institutional inertia, primarily. ACOG's 2016 opinion that underwater delivery is "experimental" hasn't been updated despite years of subsequent research. Many hospitals cite this outdated position to justify restrictive policies. Insurance liability concerns and lack of staff training perpetuate the barriers.
+Institutional inertia, primarily. ACOG's 2016 opinion that underwater delivery is "experimental" hasn't been updated despite years of subsequent research #citation[15]. Many hospitals cite this outdated position to justify restrictive policies. Insurance liability concerns and lack of staff training perpetuate the barriers.
 
 Meanwhile, countries like the UK, Netherlands, and New Zealand integrate water birth into standard maternity care. British hospitals have dedicated water birth suites. Dutch women expect water birth as a normal option. The U.S. lags behind.
 
@@ -466,34 +466,36 @@ Until then, know that water birth is a legitimate, evidence-based choice—and w
 
 #line(length: 100%)
 
-== CITATIONS
+== Citations
 
-[1] Cluett ER, Burns E, Cuthbert A. Immersion in water during labour and birth. Cochrane Database of Systematic Reviews. 2018. https://www.cochrane.org/CD000111/PREG_immersion-water-labour-and-birth
+#citation[1] Cluett ER, Burns E, Cuthbert A. Immersion in water during labour and birth. _Cochrane Database of Systematic Reviews_. 2018. https://www.cochrane.org/CD000111/PREG_immersion-water-labour-and-birth
 
-[2] Systematic Reviews and Synthesis without Meta-Analysis on Hydrotherapy for Pain Control in Labor. PMC. 2024. https://pmc.ncbi.nlm.nih.gov/articles/PMC10855539/
+#citation[2] Systematic Reviews and Synthesis without Meta-Analysis on Hydrotherapy for Pain Control in Labor. _PMC_. 2024. https://pmc.ncbi.nlm.nih.gov/articles/PMC10855539/
 
-[3] Featured Review: Immersion in water during labour and birth. Cochrane. https://www.cochrane.org/about-us/news/featured-review-immersion-water-during-labour-and-birth
+#citation[3] Featured Review: Immersion in water during labour and birth. _Cochrane_. https://www.cochrane.org/about-us/news/featured-review-immersion-water-during-labour-and-birth
 
-[4] Sanders J, Bewley S. Effect of labour and birth in water on maternal and neonatal outcomes. BMJ. 2011;342:d2471.
+#citation[4] Sanders J, Bewley S. Effect of labour and birth in water on maternal and neonatal outcomes. _BMJ_. 2011;342:d2471.
 
-[5] Sanders J, et al. (POOL Study). Birth, Bath, and Beyond: The Science and Safety of Water Immersion During Labor and Birth. PMC. https://pmc.ncbi.nlm.nih.gov/articles/PMC4210671/
+#citation[5] Sanders J, et al. (POOL Study). Characteristics of Women, Intrapartum Interventions, and Maternal and Neonatal Outcomes Among Users of Intrapartum Water Immersion. _Birth_. DOI: 10.1111/birt.12921
 
-[6] Experiences of water immersion during childbirth: a qualitative thematic synthesis. BMC Pregnancy and Childbirth. 2023. https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-023-05690-7
+#citation[6] Experiences of water immersion during childbirth: a qualitative thematic synthesis. _BMC Pregnancy and Childbirth_. 2023. https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-023-05690-7
 
-[7] Buckley SJ. Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. Childbirth Connection. 2015.
+#citation[7] Buckley SJ. Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Childbirth Connection_. 2015.
 
-[8] Underwater birth and neonatal respiratory distress. PMC. https://pmc.ncbi.nlm.nih.gov/articles/PMC557235/
+#citation[8] Underwater birth and neonatal respiratory distress. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC557235/
 
-[9] Water birth. Pregnancy Birth and Baby. https://www.pregnancybirthbaby.org.au/water-birth
+#citation[9] Water birth. _Pregnancy Birth and Baby_. https://www.pregnancybirthbaby.org.au/water-birth
 
-[10] Guidelines for Water Immersion and Water Birth. Arizona Department of Health Services. November 2016. https://www.azdhs.gov/documents/licensing/special/midwives/training/guidelines-for-water-immersion-water-birth.pdf
+#citation[10] Guidelines for Water Immersion and Water Birth. _Arizona Department of Health Services_. November 2016. https://www.azdhs.gov/documents/licensing/special/midwives/training/guidelines-for-water-immersion-water-birth.pdf
 
-[11] Waterbirth: water temperature and bathing time--mother knows best! PubMed. https://pubmed.ncbi.nlm.nih.gov/12442600/
+#citation[11] Waterbirth: water temperature and bathing time--mother knows best! _PubMed_. https://pubmed.ncbi.nlm.nih.gov/12442600/
 
-[12] Can I have a water birth in the hospital? Nebraska Medicine. https://www.nebraskamed.com/health/conditions-and-services/pregnancy-and-birth/can-i-have-a-water-birth-in-the-hospital
+#citation[12] Can I have a water birth in the hospital? _Nebraska Medicine_. https://www.nebraskamed.com/health/conditions-and-services/pregnancy-and-birth/can-i-have-a-water-birth-in-the-hospital
 
-[13] Evidence Based Birth. The Evidence on: Waterbirth. https://evidencebasedbirth.com/waterbirth/
+#citation[13] Evidence Based Birth. The Evidence on: Waterbirth. https://evidencebasedbirth.com/waterbirth/
 
-[14] American Association of Birth Centers. https://www.birthcenters.org/
+#citation[14] American Association of Birth Centers. https://www.birthcenters.org/
+
+#citation[15] American College of Obstetricians and Gynecologists. Committee Opinion No. 679: Immersion in Water During Labor and Delivery. _Obstet Gynecol_. 2016 Nov;128(5):e231-e236. DOI: 10.1097/AOG.0000000000001771. PMID: 27776071. (Reaffirmed 2021)
 
 

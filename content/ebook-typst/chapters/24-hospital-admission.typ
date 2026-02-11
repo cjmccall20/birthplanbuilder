@@ -129,7 +129,7 @@ They're checking:
 - _Station:_ How far baby has descended into your pelvis (-3 to +3)
 - _Position:_ Which way baby is facing
 
-*A note on infection risk:* Every cervical check introduces a small risk of infection, and this risk goes up significantly if your water has already broken. Once membranes have ruptured, the protective barrier between the outside world and your baby is gone, and each exam can potentially introduce bacteria. This is one reason to be thoughtful about how many cervical checks you consent to — especially after your water breaks. You can always ask, "Is this check necessary right now, or can we wait?"
+*A note on infection risk:* Every cervical check introduces a small risk of infection, and this risk goes up significantly if your water has already broken #citation[1]#citation[2]#citation[3]#citation[4]. Once membranes have ruptured, the protective barrier between the outside world and your baby is gone, and each exam can potentially introduce bacteria. This is one reason to be thoughtful about how many cervical checks you consent to — especially after your water breaks. You can always ask, "Is this check necessary right now, or can we wait?"
 
 === Vital Signs
 
@@ -155,7 +155,7 @@ _When this might not be an option:_ If you have certain medical conditions, are 
 
 _What you can ask for:_ Intermittent monitoring, where the nurse checks baby's heart rate periodically rather than keeping you attached to monitors continuously.
 
-_Good to know:_ Intermittent monitoring lets you move more freely, use the shower or tub, and change positions easily. Research shows it's safe for low-risk labors.
+_Good to know:_ Intermittent monitoring lets you move more freely, use the shower or tub, and change positions easily. Research shows it's safe for low-risk labors — large studies comparing continuous and intermittent monitoring found no difference in overall outcomes for babies #citation[5]#citation[6]#citation[7]#citation[8].
 
 _When this might not be an option:_ If you have risk factors, are being induced, have an epidural, or if baby showed any concerning patterns on the initial strip.
 
@@ -371,3 +371,23 @@ The hospital admission process can feel like a lot, but remember:
 8. _Trust your instincts._ If something feels wrong, go in. If they want to send you home and you're not comfortable, insist on staying. A healthy mother and healthy baby are all that matters.
 
 You're about to meet your baby. The admission process is just the doorway to that incredible moment. Walk through it feeling informed, empowered, and ready.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] ACOG Practice Bulletin No. 188: Prelabor Rupture of Membranes. _Obstet Gynecol_. 2018;131(1):e1-e14. DOI: 10.1097/aog.0000000000002663
+
+#citation[2] Lemma K, Berhane Y. Assessment of the Association of Repeated Vaginal Examination with Early Onset Neonatal Sepsis Hospital Based Follow Up Study. _Research Square_. DOI: 10.21203/rs.3.rs-3918993/v1
+
+#citation[3] Pesha R, Masenga G, Gaffur R, et al. Frequency of Digital Vaginal Examination and its Association with Chorioamnionitis and Early Neonatal Sepsis: A Prospective Cohort Study. _Research Square_. DOI: 10.21203/rs.3.rs-8398440/v1
+
+#citation[4] Dahlen H, Downe S, Duff M, Gyte G. Vaginal Examination During Normal Labor: Routine Examination or Routine Intervention? _Int J Childbirth_. 2013;3(3):142-152. DOI: 10.1891/2156-5287.3.3.142
+
+#citation[5] Alfirevic Z, Gyte GM, Cuthbert A, Devane D. Continuous cardiotocography (CTG) as a form of electronic fetal monitoring (EFM) for fetal assessment during labour. _Cochrane Database Syst Rev_. 2017;2:CD006066. DOI: 10.1002/14651858.cd006066.pub3
+
+#citation[6] Wisner K. Intermittent Auscultation of the Fetal Heart Rate in Low-Risk Labor. _MCN Am J Matern Child Nurs_. 2024;49(4):206-212. DOI: 10.1097/nmc.0000000000001030
+
+#citation[7] Das S, Sinha T, Sarkar S. Continuous cardiotocography in active labour has no added advantage over intermittent fetal heart rate auscultation in low risk pregnancies. _Perspect J Med Sci_. 2024. DOI: 10.18231/j.pjms.2024.127
+
+#citation[8] Bayes S, Whitehead L. Cardiotocography vs. Intermittent Auscultation in Assessing Fetal Well-Being. _Am J Nurs_. 2018;118(8):51-56. DOI: 10.1097/01.naj.0000534845.27761.cc

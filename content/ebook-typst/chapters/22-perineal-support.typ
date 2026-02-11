@@ -18,7 +18,7 @@ This section covers everything you need to know: what tearing actually means, ho
 
 === What Is Perineal Tearing?
 
-When your baby's head emerges during birth, your perineum stretches significantly. If it stretches beyond its capacity, a tear can occur. This is one of the most common experiences in vaginal birth, especially for first-time mothers.
+When your baby's head emerges during birth, your perineum stretches significantly. If it stretches beyond its capacity, a tear can occur. This is one of the most common experiences in vaginal birth, especially for first-time mothers.#citation[1]
 
 === The Four Degrees of Tears
 
@@ -35,31 +35,31 @@ _Second-Degree Tear_
 - The most common type
 - Affects the skin and the muscle beneath it
 - Requires stitches
-- Takes about 4-6 weeks to heal
+- Takes about 4-6 weeks to heal #citation[2]
 - Causes moderate discomfort that improves daily
 
 _Third-Degree Tear_
 - Extends into the muscle around the anus (the anal sphincter)
 - Requires repair in an operating room
-- Takes 6-8 weeks or longer to heal
+- Takes 6-8 weeks or longer to heal #citation[3]
 - Needs careful follow-up care
-- Occurs in about 3-4% of vaginal births
+- Occurs in about 3-4% of vaginal births #citation[4]
 
 _Fourth-Degree Tear_
 - The most severe type
 - Extends through the anal sphincter into the rectum
 - Requires surgical repair
 - Needs specialized follow-up care
-- Rare—occurs in less than 1% of vaginal births
+- Rare—occurs in less than 1% of vaginal births #citation[4]
 
 === How Common Is Tearing?
 
 Here's what the research tells us:
 
-- About 85-90% of first-time mothers experience some degree of tearing
+- About 85-90% of first-time mothers experience some degree of tearing #citation[5]
 - Most tears are first or second degree
 - Second and later births have lower tearing rates
-- Severe tears (third and fourth degree) happen in less than 5% of births
+- Severe tears (third and fourth degree) happen in less than 5% of births #citation[4]
 
 === What Affects Your Risk?
 
@@ -86,10 +86,10 @@ _Note:_ Many factors are out of your hands, and that's okay. Tearing doesn't mea
 
 === Perineal Massage
 
-Perineal massage is a technique you can do at home starting around 34-36 weeks of pregnancy. Research shows it can:
+Perineal massage is a technique you can do at home starting around 34-36 weeks of pregnancy.#citation[6] Research shows it can:
 
-- Reduce the chance of severe tears (especially for first-time mothers)
-- Decrease the likelihood of needing an episiotomy
+- Reduce the chance of severe tears (especially for first-time mothers) #citation[6]
+- Decrease the likelihood of needing an episiotomy #citation[6]
 - Help you become familiar with the stretching sensation you'll feel during birth
 
 _How to do it:_
@@ -125,9 +125,9 @@ What happens during labor and delivery has the biggest impact on tearing. Here's
 
 === Warm Compresses
 
-Applying warm compresses to your perineum during pushing is one of the most effective prevention techniques:
+Applying warm compresses to your perineum during pushing is one of the most effective prevention techniques:#citation[7]
 
-- Reduces the rate of severe tears
+- Reduces the rate of severe tears #citation[7]
 - Helps the tissue become more flexible
 - Feels soothing during an intense time
 - No risks or downsides
@@ -151,7 +151,7 @@ _What to ask your provider:_
 
 Your birth position affects perineal stretching. Positions that tend to be gentler:
 
-_Side-lying_
+_Side-lying_ #citation[8]
 - Takes pressure off the perineum
 - Allows for slow, controlled delivery
 - One of the gentlest positions for your tissue
@@ -166,7 +166,7 @@ _Semi-reclined (not flat on back)_
 - Still allows some gravity assistance
 - Common in many birth settings
 
-_Positions that increase tearing risk:_
+_Positions that increase tearing risk:_ #citation[8]
 - Lying flat on your back with legs in stirrups
 - Deep squatting (though this can be helpful for other reasons)
 - Lithotomy position (flat on back, legs held up)
@@ -175,9 +175,9 @@ _Important:_ The "best" position is one where you feel comfortable and your baby
 
 === Other Helpful Techniques
 
-_Water birth:_ Some research suggests laboring or delivering in water reduces tearing, possibly because warm water relaxes the perineum.
+_Water birth:_ Some research suggests laboring or delivering in water reduces tearing, possibly because warm water relaxes the perineum.#citation[9]
 
-_Avoid directed pushing:_ When providers count and direct pushing ("Push! Push! Push!"), it can lead to faster, more forceful delivery. Following your body's urges may result in gentler births.
+_Avoid directed pushing:_ When providers count and direct pushing ("Push! Push! Push!"), it can lead to faster, more forceful delivery. Following your body's urges may result in gentler births.#citation[10]
 
 _Allow time between contractions:_ During crowning, pausing between pushes lets tissue stretch gradually.
 
@@ -191,11 +191,11 @@ An episiotomy is a surgical cut made to the perineum to widen the vaginal openin
 
 Here's what major medical organizations now agree on:
 
-- _Routine episiotomy should NOT be performed._ It does not prevent severe tears—it actually increases the risk.
-- _Natural tears heal better than surgical cuts._ Tears follow the natural fiber of the tissue; cuts do not.
-- _Recovery is often harder after episiotomy._ More pain, longer healing, higher infection risk.
+- _Routine episiotomy should NOT be performed._ It does not prevent severe tears—it actually increases the risk.#citation[11]
+- _Natural tears heal better than surgical cuts._ Tears follow the natural fiber of the tissue; cuts do not.#citation[11]
+- _Recovery is often harder after episiotomy._ More pain, longer healing, higher infection risk.#citation[11]
 
-The American College of Obstetricians and Gynecologists recommends against routine episiotomy. If your provider suggests one "just to help things along," you can ask questions.
+The American College of Obstetricians and Gynecologists recommends against routine episiotomy.#citation[12] If your provider suggests one "just to help things along," you can ask questions.
 
 === When Episiotomy Might Actually Be Needed
 
@@ -239,7 +239,7 @@ A provider with a low episiotomy rate (under 10-15%) is following evidence-based
   [Clean edge],
 )
 
-The "clean edge" of an episiotomy was once thought to be an advantage. Research has proven otherwise—irregular natural tears actually heal better because they follow your body's natural structure.
+The "clean edge" of an episiotomy was once thought to be an advantage. Research has proven otherwise—irregular natural tears actually heal better because they follow your body's natural structure.#citation[11]
 
 #line(length: 100%)
 
@@ -268,7 +268,7 @@ _Weeks 2-6:_
 - Stitches fully dissolve
 
 _Third and fourth-degree tears:_
-- Healing takes longer (6-12 weeks)
+- Healing takes longer (6-12 weeks) #citation[3]
 - May need additional follow-up appointments
 - Physical therapy may be recommended
 - Full recovery is possible but takes patience
@@ -295,8 +295,8 @@ _Sitz baths_
 - Pat (don't rub) dry afterward
 
 _Pain medication_
-- Ibuprofen reduces both pain and swelling
-- Acetaminophen is safe while breastfeeding
+- Ibuprofen reduces both pain and swelling #citation[13]
+- Acetaminophen is safe while breastfeeding #citation[14]
 - Prescription options if needed—ask your provider
 - Numbing sprays (like Dermoplast) provide quick relief
 
@@ -347,7 +347,7 @@ _Resuming sex:_
 - Communicate with your partner
 - Some discomfort is normal at first—pain is not
 
-If you had a severe tear, pelvic floor physical therapy can make a significant difference in your recovery. Ask your provider for a referral if you experience ongoing issues.
+If you had a severe tear, pelvic floor physical therapy can make a significant difference in your recovery.#citation[15] Ask your provider for a referral if you experience ongoing issues.
 
 #line(length: 100%)
 
@@ -400,3 +400,37 @@ You may not have complete control over whether you tear, but you have more influ
 #line(length: 100%)
 
 _This guide is for informational purposes only and should not replace advice from your healthcare provider. Every birth is different, and your provider can give you personalized recommendations based on your specific situation._
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Pergialiotis, V., Vlachos, D., Protopapas, A., Pappa, K., & Vlachos, G. (2014). Risk factors for severe perineal lacerations during childbirth. _International Journal of Gynaecology and Obstetrics_, 125(1), 6-14. DOI: 10.1016/j.ijgo.2013.09.034
+
+#citation[2] Salmon, D. (1999). A feminist analysis of women's experiences of perineal trauma in the immediate post-delivery period. _Midwifery_, 15(4), 247-256. DOI: 10.1054/midw.1999.0182
+
+#citation[3] Royal College of Obstetricians and Gynaecologists. (2015). The Management of Third- and Fourth-Degree Perineal Tears. _RCOG Green-top Guideline No. 29_. #link("https://www.rcog.org.uk/media/5jeb5hzu/gtg-29.pdf")
+
+#citation[4] Meister, M. R., Cahill, A. G., Conner, S. N., Woolfolk, C. L., & Lowder, J. L. (2016). Predicting obstetric anal sphincter injuries in a modern obstetric population. _American Journal of Obstetrics and Gynecology_, 215(3), 310.e1-7. DOI: 10.1016/j.ajog.2016.02.041
+
+#citation[5] Smith, L. A., Price, N., Simonite, V., & Burns, E. E. (2013). Incidence of and risk factors for perineal trauma: A prospective observational study. _BMC Pregnancy and Childbirth_, 13, 59. DOI: 10.1186/1471-2393-13-59
+
+#citation[6] Beckmann, M. M., & Stock, O. M. (2013). Antenatal perineal massage for reducing perineal trauma. _Cochrane Database of Systematic Reviews_, Issue 4. Art. No.: CD005123. DOI: 10.1002/14651858.CD005123.pub3
+
+#citation[7] Aasheim, V., Nilsen, A. B. V., Reinar, L. M., & Lukasse, M. (2017). Perineal techniques during the second stage of labour for reducing perineal trauma. _Cochrane Database of Systematic Reviews_, Issue 6. Art. No.: CD006672. DOI: 10.1002/14651858.CD006672.pub3
+
+#citation[8] Gupta, J. K., Sood, A., Hofmeyr, G. J., & Vogel, J. P. (2017). Position in the second stage of labour for women without epidural anaesthesia. _Cochrane Database of Systematic Reviews_, Issue 5. Art. No.: CD002006. DOI: 10.1002/14651858.CD002006.pub4
+
+#citation[9] Cluett, E. R., & Burns, E. (2009). Immersion in water in labour and birth. _Cochrane Database of Systematic Reviews_, Issue 2. Art. No.: CD000111. DOI: 10.1002/14651858.CD000111.pub3
+
+#citation[10] Lemos, A., Amorim, M. M., Dornelas de Andrade, A., de Souza, A. I., Cabral Filho, J. E., & Correia, J. B. (2017). Pushing/bearing down methods for the second stage of labour. _Cochrane Database of Systematic Reviews_, Issue 3. Art. No.: CD009124. DOI: 10.1002/14651858.CD009124.pub3
+
+#citation[11] Carroli, G., & Mignini, L. (2009). Episiotomy for vaginal birth. _Cochrane Database of Systematic Reviews_, Issue 1. Art. No.: CD000081. DOI: 10.1002/14651858.CD000081.pub2
+
+#citation[12] American College of Obstetricians and Gynecologists. (2018). Practice Bulletin No. 198: Prevention and Management of Obstetric Lacerations at Vaginal Delivery. _Obstetrics & Gynecology_, 132(3), e87-e102. DOI: 10.1097/AOG.0000000000002841
+
+#citation[13] Wuytack, F., Smith, V., & Cleary, B. J. (2016). Oral non-steroidal anti-inflammatory drugs (single dose) for perineal pain in the early postpartum period. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD011352. DOI: 10.1002/14651858.CD011352.pub3
+
+#citation[14] National Library of Medicine. (2025). Acetaminophen. _Drugs and Lactation Database (LactMed)_. #link("https://www.ncbi.nlm.nih.gov/books/NBK501194/")
+
+#citation[15] Woodley, S. J., Lawrenson, P., Boyle, R., Cody, J. D., Morkved, S., Kerkhoffs, G. M. M. J., & Hay-Smith, E. J. C. (2020). Pelvic floor muscle training for preventing and treating urinary and faecal incontinence in antenatal and postnatal women. _Cochrane Database of Systematic Reviews_, Issue 5. Art. No.: CD007471. DOI: 10.1002/14651858.CD007471.pub4

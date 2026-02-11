@@ -20,17 +20,17 @@ Several countries, including the UK, Canada, and Scandinavian nations, no longer
 
 === A Brief History
 
-In the 1880s, gonorrhea was a devastating problem for newborns. About 10% of babies born in hospital maternity wards developed eye infections. Without treatment, many went blind. One researcher estimated gonorrhea caused roughly a quarter of all blindness worldwide.
+In the 1880s, gonorrhea was a devastating problem for newborns. About 10% of babies born in hospital maternity wards developed eye infections #citation[1]. Without treatment, many went blind. Gonococcal ophthalmia was a leading cause of childhood blindness in the pre-antibiotic era.
 
-In 1880, German doctor Carl Crede introduced silver nitrate drops applied right after birth. The results were dramatic: infection rates dropped from 10% to less than 1%. This became one of the great successes of preventive medicine. By the early 1900s, Crede's method was mandated by law in most countries, including all 50 U.S. states.
+In 1880, German doctor Carl Crede introduced silver nitrate drops applied right after birth. The results were dramatic: infection rates dropped from 10% to less than 1% #citation[1]. This became one of the great successes of preventive medicine. By the early 1900s, Crede's method was mandated by law in most countries and throughout the United States.
 
-Silver nitrate worked well but caused painful eye irritation in most babies. By the 1980s, erythromycin ointment replaced it. Erythromycin works better against gonorrhea, offers some protection against chlamydia, and causes fewer side effects.
+Silver nitrate worked well but caused painful eye irritation in most babies. By the 1980s, erythromycin ointment replaced it #citation[1]. Erythromycin works better against gonorrhea, offers some protection against chlamydia, and causes fewer side effects.
 
 === What Does It Actually Prevent?
 
-*Gonorrhea:* Erythromycin is about 80% effective at preventing gonococcal eye infections. If a mother has untreated gonorrhea and delivers vaginally, about 30-50% of babies will develop the infection. Left untreated, it can cause blindness within 24 hours.
+*Gonorrhea:* Erythromycin is about 80% effective at preventing gonococcal eye infections. If a mother has untreated gonorrhea and delivers vaginally, about 30-50% of babies will develop the infection #citation[2]. Left untreated, it can cause blindness within 24 hours #citation[2].
 
-*Chlamydia:* Here's something important: research shows erythromycin doesn't effectively prevent chlamydial eye infections. This is a significant limitation since chlamydia is now more common than gonorrhea in the U.S.
+*Chlamydia:* Here's something important: research shows erythromycin doesn't effectively prevent chlamydial eye infections #citation[3]. This is a significant limitation since chlamydia is now more common than gonorrhea in the U.S #citation[4].
 
 *Current reality:* Thanks to prenatal screening and treatment, gonococcal eye infections are now rare in the United States. Many pediatricians practicing today have never seen a case.
 
@@ -46,17 +46,17 @@ Standard prenatal care includes STI screening. If you tested negative for gonorr
 
 === What the AAP Says Now
 
-In 2024, the American Academy of Pediatrics took a significant position. They recommended "ongoing re-evaluation of the medical necessity of legislative mandates in the United States for universal neonatal eye prophylaxis."
+In 2024, the American Academy of Pediatrics took a significant position. They recommended "ongoing re-evaluation of the medical necessity of legislative mandates in the United States for universal neonatal eye prophylaxis" #citation[5].
 
-Their updated guidance says eye ointment should be used "if gonorrhea infection is prevalent in the region and prenatal treatment cannot be ensured, or where required by law." Notice the conditions: regional prevalence, inability to ensure treatment, or legal requirement. Not automatic application to everyone.
+Their updated guidance says eye ointment should be used "if gonorrhea infection is prevalent in the region and prenatal treatment cannot be ensured, or where required by law" #citation[5]. Notice the conditions: regional prevalence, inability to ensure treatment, or legal requirement. Not automatic application to everyone.
 
 === How Other Countries Handle This
 
 Several developed nations have already moved away from mandatory universal prophylaxis:
 
-- *United Kingdom:* No longer requires routine treatment
-- *Canada:* Most provinces no longer require it; Canadian practice has moved toward targeted rather than universal prophylaxis
-- *Denmark, Norway, Sweden:* No universal requirement
+- *United Kingdom:* No longer requires routine treatment #citation[6]
+- *Canada:* Most provinces no longer require it; Canadian practice has moved toward targeted rather than universal prophylaxis #citation[7]
+- *Denmark, Norway, Sweden:* No universal requirement #citation[6]
 
 These countries have healthcare systems comparable to ours. They concluded that prenatal screening and treatment is sufficient, making routine eye ointment unnecessary for low-risk babies.
 
@@ -64,9 +64,9 @@ Countries that still require universal prophylaxis (like France, Italy, and Braz
 
 === The Resistance Problem
 
-There's another concern: antibiotic resistance. Gonorrhea is becoming increasingly resistant to erythromycin. Studies show resistance rates of 23-32% in various regions. The effectiveness studies showing erythromycin works 80% of the time were conducted decades ago, before widespread resistance emerged. This raises serious questions about whether the ointment is as effective as it used to be.
+There's another concern: antibiotic resistance. Gonorrhea is becoming increasingly resistant to erythromycin. Studies show erythromycin resistance rates averaging around 21% globally, though rates vary widely by region and have increased substantially in recent years, reaching as high as 72% in some areas #citation[8]. The effectiveness studies showing erythromycin works 80% of the time were conducted decades ago, before widespread resistance emerged. This raises serious questions about whether the ointment is as effective as it used to be.
 
-More concerning, research shows that erythromycin isn't very effective at preventing chlamydial ophthalmia neonatorum, despite chlamydia now being more common than gonorrhea in the United States. This means the ointment we're using doesn't effectively prevent the infection it's most likely to encounter.
+More concerning, research shows that erythromycin isn't very effective at preventing chlamydial ophthalmia neonatorum #citation[3], despite chlamydia now being more common than gonorrhea in the United States #citation[4]. This means the ointment we're using doesn't effectively prevent the infection it's most likely to encounter.
 
 #line(length: 100%)
 
@@ -78,7 +78,7 @@ Erythromycin causes blurred or cloudy vision for about 15-30 minutes while the o
 
 === Mild Irritation
 
-About 13% of newborns who receive erythromycin develop mild "chemical pink eye," meaning eye redness and irritation without any actual infection. This is generally mild and goes away quickly, but it can be confusing for parents who wonder if something is wrong.
+About 13% of newborns who receive erythromycin develop mild "chemical pink eye," meaning eye redness and irritation without any actual infection #citation[9]. This is generally mild and goes away quickly, but it can be confusing for parents who wonder if something is wrong.
 
 === Potential Microbiome Implications
 
@@ -103,9 +103,9 @@ For a low-risk baby whose mother tested negative for STIs, you're accepting a po
 
 === Impact on Bonding
 
-Research shows that newborns can distinguish between direct and indirect eye contact and prefer mutual gazing with their parents. The "golden hour" after birth is established as important for bonding, skin-to-skin contact, and breastfeeding initiation.
+Research shows that newborns can distinguish between direct and indirect eye contact and prefer mutual gazing with their parents #citation[10]. The "golden hour" after birth is established as important for bonding, skin-to-skin contact, and breastfeeding initiation #citation[11].
 
-Whether temporary blurred vision meaningfully interferes with bonding isn't definitively proven. Bonding involves multiple factors beyond just clear vision in the first 30 minutes. The U.S. Preventive Services Task Force gives erythromycin prophylaxis a Grade A recommendation — meaning they recommend universal application for all newborns. They concluded that erythromycin is "not associated with serious harms." This is the strongest possible recommendation level, and it applies regardless of maternal STI status.
+Whether temporary blurred vision meaningfully interferes with bonding isn't definitively proven. Bonding involves multiple factors beyond just clear vision in the first 30 minutes. The U.S. Preventive Services Task Force gives erythromycin prophylaxis a Grade A recommendation — meaning they recommend universal application for all newborns #citation[2]. They concluded that erythromycin is "not associated with serious harms." This is the strongest possible recommendation level, and it applies regardless of maternal STI status.
 
 *A practical solution:* Many hospitals now delay eye ointment until after the "golden hour" is complete. The AAP recommends that routine procedures can be delayed until the first feeding is complete or at least one hour after delivery. This allows bonding time while still providing the medication within the effective window.
 
@@ -122,7 +122,7 @@ Eye ointment is genuinely important in certain situations. Understanding when it
 *No prenatal care:* If you received little or no prenatal care and your STI status is unknown at delivery, eye ointment is a reasonable precaution.
 
 *Higher-risk situations:* Even without confirmed infection, certain factors increase risk:
-- Age under 25 (higher statistical risk of STI)
+- Age under 25 (higher statistical risk of STI) #citation[4]
 - Multiple sexual partners
 - History of prior STI
 - Symptoms suggesting infection at delivery
@@ -171,9 +171,9 @@ If you're declining eye ointment where legally permitted, here's specific langua
 
 === The Legal Landscape
 
-*State mandates vary widely.* Nearly all U.S. states mandate newborn eye prophylaxis by law. Failure to administer it is typically a misdemeanor for healthcare providers.
+*State mandates vary widely.* Nearly all U.S. states mandate newborn eye prophylaxis by law #citation[5]. Failure to administer it is typically a misdemeanor for healthcare providers.
 
-*Some states allow refusal.* California, Tennessee, and others permit parents to decline after signing a waiver or informed refusal form. West Virginia repealed its mandate entirely in 2025.
+*Some states allow refusal.* California, Tennessee, and others permit parents to decline after signing a waiver or informed refusal form #citation[12]. West Virginia repealed its mandate entirely in 2025 #citation[13].
 
 *Some states have strict liability.* In Texas, even if parents sign a waiver, healthcare providers can face criminal charges for not administering the ointment. New York provides no explicit mechanism for parents to refuse.
 
@@ -205,6 +205,36 @@ At the same time, this isn't a risk-free decision. Eye ointment matters for babi
 The key is understanding your actual risk, knowing your legal options, and making a choice that aligns with your values. You deserve complete information, and your informed decision should be honored.
 
 The procedure itself is quick and likely not harmful.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] StatPearls. Ophthalmia Neonatorum. National Library of Medicine. https://www.ncbi.nlm.nih.gov/books/NBK551572/
+
+#citation[2] U.S. Preventive Services Task Force. (2019). Ocular Prophylaxis for Gonococcal Ophthalmia Neonatorum: Preventive Medication. _JAMA_, 321(4), 394-398. DOI: 10.1001/jama.2018.21443
+
+#citation[3] Smith-Norowitz TA, et al. (2021). Neonatal prophylaxis with antibiotic containing ointments does not reduce incidence of chlamydial conjunctivitis in newborns. _BMC Infectious Diseases_, 21, 244. DOI: 10.1186/s12879-021-05974-3
+
+#citation[4] CDC. (2024). STI Surveillance Data and Statistics. Centers for Disease Control and Prevention. https://www.cdc.gov/sti-statistics/annual/index.html
+
+#citation[5] American Academy of Pediatrics. (2024). Gonococcal Ophthalmia Neonatorum Prevention. In: Red Book: 2024-2027 Report of the Committee on Infectious Diseases. https://publications.aap.org/redbook/book/755/chapter-abstract/14084142/
+
+#citation[6] USPSTF Evidence Review. Countries including the UK, Denmark, Norway, and Sweden no longer require universal prophylaxis. https://www.ncbi.nlm.nih.gov/books/NBK537599/
+
+#citation[7] Moore DL, MacDonald NE; Canadian Paediatric Society. (2015). Preventing ophthalmia neonatorum. _Paediatrics & Child Health_, 20(2), 93-96. DOI: 10.1093/pch/20.2.93
+
+#citation[8] PMC. (2022). Global status of Azithromycin and Erythromycin Resistance Rates in Neisseria gonorrhoeae: A systematic review and meta-analysis. https://pmc.ncbi.nlm.nih.gov/articles/PMC9765340/
+
+#citation[9] Bell TA, et al. (1993). Randomized Trial of Silver Nitrate, Erythromycin, and No Eye Prophylaxis for the Prevention of Conjunctivitis Among Newborns Not at Risk for Gonococcal Ophthalmitis. _Pediatrics_, 92(6), 755-760. DOI: 10.1542/peds.92.6.755
+
+#citation[10] Farroni T, Menon E, Johnson MH. (2006). Factors influencing newborns' preference for faces with eye contact. _Journal of Experimental Child Psychology_, 95(4), 298-308. DOI: 10.1016/j.jecp.2006.08.001
+
+#citation[11] FIGO. Harnessing the golden hour: breastfeeding recommended within first hour of life. https://www.figo.org/resources/figo-statements/harnessing-golden-hour-breastfeeding-recommended-within-first-hour-life
+
+#citation[12] California Code of Regulations, Title 17, Section 2560: Refusal to Allow Treatment of Eyes of Infant with Prophylactic-Efficient Agent. https://www.law.cornell.edu/regulations/california/17-CCR-2560
+
+#citation[13] West Virginia House Bill 3444 (2025). Repeal of mandatory erythromycin prophylaxis. https://westvirginiawatch.com/2025/08/06/new-wv-law-repeals-mandate-that-newborns-receive-eye-ointment-to-prevent-blindness/
 
 #line(length: 100%)
 

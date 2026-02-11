@@ -34,14 +34,14 @@ Stem cells are like blank slates. They can develop into different types of blood
 
 === What Cord Blood Can Treat Today
 
-Right now, cord blood stem cells are FDA-approved to treat about 80 conditions, including:
+Right now, cord blood stem cells are FDA-approved to treat conditions including:#citation[1]
 
 - _Blood cancers_ like leukemia and lymphoma
 - _Blood disorders_ like sickle cell disease and thalassemia
 - _Immune system disorders_
 - _Some inherited metabolic disorders_
 
-There's also ongoing research into using cord blood for conditions like cerebral palsy, autism, and type 1 diabetes—but these are experimental, not proven treatments.
+There's also ongoing research into using cord blood for conditions like cerebral palsy, autism, and type 1 diabetes—but these are experimental, not proven treatments.#citation[2]
 
 === What Cord Blood Cannot Do (Yet)
 
@@ -60,9 +60,9 @@ Here's where the sales pitch meets reality.
 
 === The Actual Usage Rate
 
-The chance of a child using their own stored cord blood is somewhere between _1 in 2,700 and 1 in 200,000_, depending on which study you read. The American Academy of Pediatrics puts it at about 1 in 2,700 for any use (including a family member) over 20 years.
+The chance of a child using their own stored cord blood is somewhere between _1 in 2,700 and 1 in 200,000_, depending on which study you read.#citation[3] The American Academy of Pediatrics puts it at about 1 in 2,700 for any use (including a family member) over 20 years.#citation[4]
 
-To put that in perspective: you're more likely to be struck by lightning in your lifetime (1 in 15,300) than your child is to use their privately banked cord blood.
+To put that in perspective: you're more likely to be struck by lightning in your lifetime (1 in 15,300)#citation[5] than your child is to use their privately banked cord blood.
 
 === Why the Numbers Are So Low
 
@@ -70,11 +70,11 @@ Several factors make privately banked cord blood rarely useful:
 
 1. _Most childhood illnesses don't require stem cell transplants._ Ear infections, broken bones, asthma, even most cancers—cord blood won't help.
 
-2. _For genetic diseases, the child's own cord blood carries the same genetic problem._ If your child develops leukemia related to a genetic mutation, their stored cord blood has that same mutation. They'd need a donor's cells, not their own.
+2. _For genetic diseases, the child's own cord blood carries the same genetic problem._#citation[6] If your child develops leukemia related to a genetic mutation, their stored cord blood has that same mutation. They'd need a donor's cells, not their own.
 
 3. _For many conditions, a matched donor works just as well._ Public cord blood banks and bone marrow registries exist for this reason.
 
-4. _Storage quality degrades over time._ After 15-20 years, viability may decrease.
+4. _Storage quality degrades over time._ After 15-20 years, viability may decrease.#citation[7]
 
 === The Marketing Machine
 
@@ -157,8 +157,8 @@ Instead of storing cord blood for your family, you donate it to a public bank. I
 === The Benefits
 
 - _It's completely free_ for you
-- _It could save a life_—public cord blood has been used in thousands of transplants
-- _It expands the donor pool_, especially for patients from diverse ethnic backgrounds who have trouble finding matches
+- _It could save a life_—public cord blood has been used in thousands of transplants #citation[8]
+- _It expands the donor pool_, especially for patients from diverse ethnic backgrounds who have trouble finding matches #citation[9]
 - _You're not losing a valuable resource_—remember, the odds of your family using it are very low
 
 === Eligibility Requirements
@@ -190,18 +190,18 @@ Here's something cord blood banking companies don't highlight: you may have to c
 
 === What Is Delayed Cord Clamping?
 
-Normally, the umbilical cord is clamped within 15-30 seconds of birth. Delayed clamping means waiting 1-3 minutes (or longer) before cutting the cord.
+Normally, the umbilical cord is clamped within 15-30 seconds of birth.#citation[10] Delayed clamping means waiting 1-3 minutes (or longer) before cutting the cord.#citation[11]
 
 === Why Delayed Clamping Matters
 
 During those extra minutes, blood continues flowing from the placenta to your baby. This provides:
 
-- _30-40% more blood volume_
-- _Higher iron stores_ for the first 6 months of life (reducing anemia risk)
-- _More stem cells_ delivered directly to your baby
-- _Better outcomes for preterm babies_, including lower risk of brain bleeding
+- _30-40% more blood volume_ #citation[12]
+- _Higher iron stores_ for the first 6 months of life (reducing anemia risk) #citation[13]
+- _More stem cells_ delivered directly to your baby #citation[14]
+- _Better outcomes for preterm babies_, including lower risk of brain bleeding #citation[15]
 
-The American College of Obstetricians and Gynecologists (ACOG), the American Academy of Pediatrics (AAP), and the World Health Organization all recommend delayed cord clamping for at least 30-60 seconds.
+The American College of Obstetricians and Gynecologists (ACOG), the American Academy of Pediatrics (AAP), and the World Health Organization all recommend delayed cord clamping for at least 30-60 seconds.#citation[16]
 
 === The Conflict
 
@@ -325,3 +325,39 @@ This isn't about being cheap or uncaring. It's about prioritizing what the evide
 #line(length: 100%)
 
 _Remember: There's no wrong choice here—only the choice that's right for your family, made with clear information rather than fear-based marketing._
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] U.S. Food and Drug Administration. Cord Blood Banking: Information for Consumers. FDA.gov. Updated 2024. #link("https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/cord-blood-banking-information-consumers")
+
+#citation[2] Sun, J. M., & Kurtzberg, J. (2015). Cord blood for brain injury. _Cytotherapy_, 17(7), 775-785. DOI: 10.1016/j.jcyt.2015.03.004
+
+#citation[3] Nietfeld, J. J., Pasquini, M. C., Logan, B. R., Verter, F., & Horowitz, M. M. (2008). Lifetime probabilities of hematopoietic stem cell transplantation in the U.S. _Biology of Blood and Marrow Transplantation_, 14(3), 316-322. DOI: 10.1016/j.bbmt.2007.12.493
+
+#citation[4] Shearer, W. T., Lubin, B. H., Cairo, M. S., & Notarangelo, L. D. (2017). Cord blood banking for potential future transplantation. _Pediatrics_, 140(5), e20172695. DOI: 10.1542/peds.2017-2695
+
+#citation[5] National Weather Service. Lightning Fatalities, Injuries and Damages in the United States. NOAA. #link("https://www.weather.gov/safety/lightning-odds")
+
+#citation[6] Thornley, I., Eapen, M., Sung, L., Lee, S. J., Davies, S. M., & Joffe, S. (2009). Private cord blood banking: Experiences and views of pediatric hematopoietic cell transplantation physicians. _Pediatrics_, 123(3), 1011-1017. DOI: 10.1542/peds.2008-0436
+
+#citation[7] Broxmeyer, H. E., Lee, M. R., Hangoc, G., et al. (2011). Hematopoietic stem/progenitor cells, generation of induced pluripotent stem cells, and isolation of endothelial progenitors from 21- to 23.5-year cryopreserved cord blood. _Blood_, 117(18), 4773-4777. DOI: 10.1182/blood-2011-01-330514
+
+#citation[8] Be The Match / National Marrow Donor Program. Cord Blood Transplant Statistics. NMDP. Updated 2025. #link("https://www.nmdp.org/")
+
+#citation[9] Ballen, K. K., Hicks, J., Dharan, B., et al. (2002). Racial and ethnic composition of volunteer cord blood donors: Comparison with volunteer unrelated marrow donors. _Transfusion_, 42(10), 1279-1284. DOI: 10.1046/j.1537-2995.2002.00191.x
+
+#citation[10] World Health Organization. (2014). Guideline: Delayed Umbilical Cord Clamping for Improved Maternal and Infant Health and Nutrition Outcomes. Geneva: WHO. #link("https://www.ncbi.nlm.nih.gov/books/NBK310511/")
+
+#citation[11] McDonald, S. J., Middleton, P., Dowswell, T., & Morris, P. S. (2013). Effect of timing of umbilical cord clamping of term infants on maternal and neonatal outcomes. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD004074. DOI: 10.1002/14651858.CD004074.pub3
+
+#citation[12] Yao, A. C., & Lind, J. (1974). Placental transfusion. _American Journal of Diseases of Children_, 127(1), 128-141. DOI: 10.1001/archpedi.1974.02110200130021
+
+#citation[13] Chaparro, C. M., Neufeld, L. M., Tena Alavez, G., Eguia-Liz Cedillo, R., & Dewey, K. G. (2006). Effect of timing of umbilical cord clamping on iron status in Mexican infants: A randomised controlled trial. _The Lancet_, 367(9527), 1997-2004. DOI: 10.1016/S0140-6736(06)68889-2
+
+#citation[14] Mercer, J. S., & Erickson-Owens, D. A. (2012). Rethinking placental transfusion and cord clamping issues. _Journal of Perinatal and Neonatal Nursing_, 26(3), 202-217. DOI: 10.1097/JPN.0b013e31825d2d9a
+
+#citation[15] Rabe, H., Gyte, G. M. L., Diaz-Rossello, J. L., & Duley, L. (2019). Effect of timing of umbilical cord clamping and other strategies to influence placental transfusion at preterm birth on maternal and infant outcomes. _Cochrane Database of Systematic Reviews_, Issue 9. Art. No.: CD003248. DOI: 10.1002/14651858.CD003248.pub4
+
+#citation[16] American College of Obstetricians and Gynecologists. (2017). Committee Opinion No. 684: Delayed Umbilical Cord Clamping After Birth. _Obstetrics & Gynecology_, 129(1), e5-e10. DOI: 10.1097/AOG.0000000000001860. See also: AAP Committee on Fetus and Newborn (2017). _Pediatrics_, 139(6), e20170957. DOI: 10.1542/peds.2017-0957. WHO (2014). Guideline: Delayed Umbilical Cord Clamping. Geneva: WHO.

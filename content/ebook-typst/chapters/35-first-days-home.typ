@@ -6,17 +6,17 @@ The first days home are intense: exhaustion, hormones, healing, and learning a n
 
 == WHAT IT IS
 
-You've left the hospital with a tiny human who depends entirely on you. There are no nurses down the hall anymore. This is the "fourth trimester"---the 12 weeks after birth when both you and baby are adjusting to this new world.
+You've left the hospital with a tiny human who depends entirely on you. There are no nurses down the hall anymore. This is the "fourth trimester"---the 12 weeks after birth when both you and baby are adjusting to this new world. #citation[1]
 
 If you haven't already, take a look at #link(<ch-pre-labor-logistics>)[our Pre-Labor Logistics chapter]---setting up your home, stocking meals, arranging help, and getting your practical ducks in a row before baby arrives makes these first days dramatically easier. The more you've prepared in advance, the less you'll be scrambling when you're running on two hours of sleep.
 
 == THE EVIDENCE
 
 *What to expect:*
-- *Exhaustion:* Sleep deprivation is real and cumulative. Newborns eat every 2-3 hours around the clock.
-- *Hormones:* Massive hormonal shifts happen in the first week. Mood swings, crying, and "baby blues" affect up to 80% of mothers.
+- *Exhaustion:* Sleep deprivation is real and cumulative. Newborns eat every 2-3 hours around the clock. #citation[2]
+- *Hormones:* Massive hormonal shifts happen in the first week. Mood swings, crying, and "baby blues" affect up to 80% of mothers. #citation[3]
 - *Physical healing:* Vaginal soreness, lochia (bleeding), breast engorgement, C-section incision pain---your body is recovering from a major event.
-- *Breastfeeding challenges:* Milk typically comes in days 2-5, which can be uncomfortable. Latching takes practice.
+- *Breastfeeding challenges:* Milk typically comes in days 2-5, which can be uncomfortable #citation[4]. Latching takes practice.
 
 #line(length: 100%)
 
@@ -70,8 +70,8 @@ A cesarean is major abdominal surgery. Recovery takes longer---typically 6-8 wee
 Some pain is expected. But certain symptoms mean something needs attention:
 
 - Pain that is getting worse instead of better after the first few days
-- Fever over 100.4 degrees F
-- Heavy bleeding (soaking a pad in an hour or passing clots larger than a golf ball)
+- Fever over 100.4 degrees F #citation[5]
+- Heavy bleeding (soaking through two pads in an hour or passing clots larger than a golf ball) #citation[6]
 - Foul-smelling discharge from the vagina or incision
 - Redness, swelling, or warmth spreading from a C-section incision or perineal tear
 - Chest pain or difficulty breathing
@@ -309,10 +309,10 @@ Partners who are actively involved from day one report feeling more confident, m
 
 Not everything that feels scary is dangerous, but some things need immediate attention. Trust your instincts---if something feels wrong, call.
 
-=== Warning Signs in MOM---Call Your Provider:
+=== Warning Signs in MOM---Call Your Provider: #citation[6]
 
-- Fever over 100.4 degrees F
-- Heavy bleeding (soaking a pad in an hour or passing large clots)
+- Fever over 100.4 degrees F #citation[5]
+- Heavy bleeding (soaking through two pads in an hour or passing large clots) #citation[6]
 - Severe headache or vision changes
 - Chest pain or difficulty breathing
 - Painful, red, swollen area on leg (blood clot)
@@ -321,10 +321,10 @@ Not everything that feels scary is dangerous, but some things need immediate att
 - Thoughts of harming yourself or baby
 - Sadness or anxiety that doesn't improve after 2 weeks or that feels overwhelming
 
-=== Warning Signs in BABY---Call Pediatrician:
+=== Warning Signs in BABY---Call Pediatrician: #citation[7]
 
-- Fever over 100.4 degrees F (rectal)
-- Fewer than 6 wet diapers per day after day 4
+- Fever over 100.4 degrees F (rectal) #citation[7]
+- Fewer than 6 wet diapers per day after day 4 #citation[8]
 - Yellow skin that worsens (jaundice)
 - Difficulty breathing
 - Won't wake to feed
@@ -353,6 +353,24 @@ Not everything that feels scary is dangerous, but some things need immediate att
 
 *Partners: step up.* The first two weeks set the tone. Be proactive. Don't wait to be asked. Mom is recovering from a physical event and learning to feed a new human---she needs you in the trenches, not on the sidelines.
 
-*Baby blues vs. PPD:* Baby blues (weepiness, mood swings) should improve within 2 weeks. If you're still struggling---or if you have thoughts of harm---that's postpartum depression and it's treatable. Tell someone. Call your provider. There is no shame in it, and early treatment makes a real difference.
+*Baby blues vs. PPD:* Baby blues (weepiness, mood swings) should improve within 2 weeks #citation[3]. If you're still struggling---or if you have thoughts of harm---that's postpartum depression and it's treatable. Tell someone. Call your provider. There is no shame in it, and early treatment makes a real difference.
 
 This phase is hard. It's also temporary. You'll find your rhythm.
+
+== Citations
+
+#citation[1] Karp, Harvey. _The Happiest Baby on the Block_. New York: Bantam Books; 2002.
+
+#citation[2] American Academy of Pediatrics. How Often and How Much Should Your Baby Eat? _HealthyChildren.org_. #link("https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/how-often-and-how-much-should-your-baby-eat.aspx")
+
+#citation[3] American Pregnancy Association. The Baby Blues. #link("https://americanpregnancy.org/healthy-pregnancy/first-year-of-life/baby-blues/")
+
+#citation[4] Physiology, Lactation. _StatPearls_ - NCBI Bookshelf. #link("https://www.ncbi.nlm.nih.gov/books/NBK499981/")
+
+#citation[5] Postpartum Infection. _StatPearls_ - NCBI Bookshelf. #link("https://www.ncbi.nlm.nih.gov/books/NBK560804/")
+
+#citation[6] American College of Obstetricians and Gynecologists. ACOG Committee Opinion No. 736: Optimizing Postpartum Care. _Obstet Gynecol_. 2018;131(5):e140-e150. #link("https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care")
+
+#citation[7] American Academy of Pediatrics. Fever and Your Baby. _HealthyChildren.org_. #link("https://www.healthychildren.org/English/health-issues/conditions/fever/Pages/Fever-and-Your-Baby.aspx")
+
+#citation[8] American Academy of Pediatrics. How to Tell if Your Breastfed Baby is Getting Enough Milk. _HealthyChildren.org_. #link("https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/How-to-Tell-if-Baby-is-Getting-Enough-Milk.aspx")

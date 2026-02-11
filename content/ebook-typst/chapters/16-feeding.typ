@@ -57,27 +57,27 @@ _Return to work is a real challenge — but not insurmountable._ Pumping at work
 The evidence for breastfeeding is among the strongest in all of pediatric medicine. This isn't a close call — breast milk is unmatched.
 
 _Immune System Benefits:_
-- Antibodies (especially secretory IgA) provide direct protection against infections [1]
+- Antibodies (especially secretory IgA) provide direct protection against infections #citation[1]
 - Breast milk contains living immune cells — white blood cells, stem cells, and beneficial bacteria that actively protect your baby
-- Breast milk shapes baby's gut microbiome, building the foundation of lifelong immune health [2]
-- Reduced risk of respiratory infections, diarrhea, ear infections, and urinary tract infections in the first year [3]
-- Infants breastfed 6+ months show fewer infections and less chronic inflammation [4]
-- Reduced risk of childhood leukemia and other cancers
+- Breast milk shapes baby's gut microbiome, building the foundation of lifelong immune health #citation[2]
+- Reduced risk of respiratory infections, diarrhea, ear infections, and urinary tract infections in the first year #citation[3]
+- Infants breastfed 6+ months show fewer infections and less chronic inflammation #citation[4]
+- Reduced risk of childhood leukemia and other cancers #citation[20]
 
 _Brain Development:_
 - Breast milk contains DHA, cholesterol, and other fatty acids critical for brain development
-- Studies consistently show higher cognitive scores in breastfed children
-- The longer the duration of breastfeeding, the greater the measured benefit
+- Studies consistently show higher cognitive scores in breastfed children #citation[21] #citation[22]
+- The longer the duration of breastfeeding, the greater the measured benefit #citation[21]
 - Breast milk contains growth factors that support neurological development
 
 _Reduced SIDS Risk:_
-- Breastfeeding is associated with a significantly lower risk of Sudden Infant Death Syndrome
-- Any breastfeeding reduces risk, and exclusive breastfeeding reduces it further
+- Breastfeeding is associated with a significantly lower risk of Sudden Infant Death Syndrome #citation[23]
+- Any breastfeeding reduces risk, and exclusive breastfeeding reduces it further #citation[24]
 - This protective effect is one of the most important safety benefits
 
 _Better Jaw and Palate Development:_
 - The sucking mechanics of breastfeeding promote proper jaw and palate development
-- Breastfed babies have lower rates of malocclusion (crooked teeth) and may need orthodontics less often
+- Breastfed babies have lower rates of malocclusion (crooked teeth) and may need orthodontics less often #citation[25]
 - The effort required to nurse strengthens facial muscles in ways bottles do not
 
 _Bonding:_
@@ -95,13 +95,13 @@ _Convenience:_
 _What Makes Direct Breastfeeding Uniquely Powerful:_
 
 _Direct breastfeeding vs. pumped milk:_ While pumped breast milk is far superior to formula, direct breastfeeding from the breast offers additional unique benefits:
-- _Dynamic antibody response:_ When baby nurses, their saliva communicates with your body through your nipple. Your immune system analyzes the bacteria and viruses in baby's saliva and produces specific antibodies tailored to what your baby is being exposed to [19]
+- _Dynamic antibody response:_ When baby nurses, their saliva communicates with your body through your nipple. Emerging research suggests your immune system may analyze pathogens in baby's saliva and produce specific antibodies tailored to what your baby is being exposed to #citation[19]
 - _Real-time immune protection:_ If your baby is getting sick, your body begins producing targeted antibodies before symptoms even appear
 - _Baby-led feeding:_ Baby controls flow and volume naturally, reducing overfeeding risk
 - _Better jaw development:_ The mechanics of nursing from the breast promote optimal oral-facial development
 
 _Breast milk is alive and constantly changing:_
-- _Throughout the day:_ Morning milk has different hormone profiles than evening milk (evening milk contains more sleep-inducing nucleotides)
+- _Throughout the day:_ Morning milk has different hormone profiles than evening milk (evening milk contains more sleep-inducing nucleotides) #citation[26]
 - _Throughout development:_ The composition shifts as baby grows — milk for a newborn differs from milk for a 6-month-old or toddler
 - _In response to baby's needs:_ During growth spurts, illness, or developmental leaps, your milk composition adjusts automatically
 - _Temperature regulation:_ Breast milk can actually change temperature to help cool or warm your baby
@@ -118,11 +118,11 @@ In the first 2-5 days before your full milk comes in, your body produces colostr
 - Colostrum alone is sufficient nutrition for the first few days until your milk transitions
 
 _Benefits for Mom:_
-- 26% reduced breast cancer risk with 12+ months breastfeeding [5]
-- 37% reduced ovarian cancer risk [5]
+- 26% reduced breast cancer risk with 12+ months breastfeeding #citation[5]
+- 37% reduced ovarian cancer risk #citation[5]
 - Faster postpartum uterine recovery — nursing triggers contractions that help your uterus return to pre-pregnancy size
-- Burns 300-500 extra calories per day (though note: breastfeeding can also cause the body to retain fat stores, and many women find it harder to lose weight while nursing — this is your body protecting its ability to feed your baby)
-- Reduced risk of type 2 diabetes and cardiovascular disease [6]
+- Burns 300-500 extra calories per day #citation[27] (though note: breastfeeding can also cause the body to retain fat stores, and many women find it harder to lose weight while nursing — this is your body protecting its ability to feed your baby)
+- Reduced risk of type 2 diabetes and cardiovascular disease #citation[6]
 - Delays return of menstruation (natural child spacing)
 - Lower rates of postpartum depression in women who breastfeed successfully
 
@@ -132,7 +132,7 @@ Uninterrupted skin-to-skin contact in the first hour after birth:
 - Triggers baby's instinct to crawl to the breast and latch
 - Promotes earlier, more successful first breastfeeding
 - Leads to longer breastfeeding duration overall
-- Initiates baby's microbiome colonization [8]
+- Initiates baby's microbiome colonization #citation[8]
 - This is perhaps the single most important thing you can do to set breastfeeding up for success
 
 #line(length: 100%)
@@ -144,14 +144,14 @@ These factors significantly improve your chances of establishing a strong breast
 _Birth-Related Factors:_
 
 _Vaginal birth over cesarean:_
-- The hormonal cascade of labor naturally supports milk production
+- The hormonal cascade of labor naturally supports milk production #citation[28]
 - Oxytocin released during labor primes your body for breastfeeding
 - Babies born vaginally tend to be more alert and ready to nurse immediately
 - C-section babies can absolutely breastfeed successfully, but may need extra support in the early days
 
 _Unmedicated birth:_
 - Epidurals don't prevent breastfeeding, but they can impact early success
-- Babies exposed to epidural medication may be sleepier and less interested in nursing
+- Babies exposed to epidural medication may be sleepier and less interested in nursing #citation[29] #citation[30]
 - Unmedicated babies tend to be more alert and have stronger rooting reflexes
 - Mother's natural endorphins support bonding and milk letdown
 - Again, this doesn't mean epidurals doom breastfeeding—but unmedicated birth may make the first days easier
@@ -160,12 +160,12 @@ _Golden hour skin-to-skin:_
 - This is perhaps the single most important factor you can control (see #link(<ch-skin-to-skin>)[our Skin-to-Skin chapter])
 - Immediate, uninterrupted skin-to-skin contact triggers baby's instinct to crawl to breast and latch
 - Delays of even 30-60 minutes can impact first nursing success
-- Babies who nurse in the first hour are significantly more likely to breastfeed long-term
+- Babies who nurse in the first hour are significantly more likely to breastfeed long-term #citation[14]
 
 _Avoiding Artificial Nipples Early:_
 - No bottles, pacifiers, or nipple shields in the first 3-4 weeks if possible
 - Artificial nipples require different sucking mechanics than breast
-- "Nipple confusion" is controversial, but "flow preference" is real—bottles flow faster with less work
+- "Nipple confusion" is controversial, but "flow preference" is real—bottles flow faster with less work #citation[31]
 - If supplementation is needed, consider cup feeding, syringe feeding, or supplemental nursing systems (SNS)
 - Once breastfeeding is well-established (4-6 weeks), introducing bottles/pacifiers is generally fine
 
@@ -223,7 +223,7 @@ _Peer support groups:_
 - La Leche League meetings (local and virtual)
 - Hospital-based breastfeeding support groups
 - Online communities like The Boob Group or local Facebook groups
-- Research shows peer support has the greatest impact on breastfeeding duration [16]
+- Research shows peer support has the greatest impact on breastfeeding duration #citation[16]
 
 _Expect it to be hard at first — then it gets easy:_
 The first two weeks of breastfeeding are often the most challenging. Latch is new, your nipples are adjusting, your milk is transitioning from colostrum, and you're exhausted. This is normal. Push through this period with support, and breastfeeding typically becomes second nature — easier and more convenient than any other feeding method. Most mothers who make it past the first month are glad they persevered.
@@ -239,7 +239,7 @@ _By the Numbers:_
 - Only 26% are exclusively breastfeeding at 6 months — this gap represents a massive failure of support, not a failure of women's bodies
 - 64% report latch difficulties — most resolved with proper IBCLC guidance
 - 57% experience pain while breastfeeding — pain means something needs to be adjusted, not that breastfeeding isn't working
-- 32% develop cracked nipples in the first month [9] — proper latch technique and nipple care resolve this
+- 32% develop cracked nipples in the first month #citation[9] — proper latch technique and nipple care resolve this
 
 _Common Problems and Solutions:_
 - _Latch issues:_ When baby doesn't take enough breast tissue, the nipple gets compressed, causing pain and inefficient milk transfer. An IBCLC can assess and correct latch in one or two visits. This is the most common and most solvable problem.
@@ -250,7 +250,7 @@ _Common Problems and Solutions:_
 - _Thrush:_ Yeast infection causing persistent soreness and shooting pain. Treatable with antifungal medication for both mom and baby.
 
 _The Mental Health Connection:_
-Breastfeeding difficulties can trigger or worsen postpartum mood disorders. If you're struggling, seek both lactation support AND mental health support. Getting help with breastfeeding challenges often improves mood — the two are connected. [10]
+Breastfeeding difficulties can trigger or worsen postpartum mood disorders. If you're struggling, seek both lactation support AND mental health support. Getting help with breastfeeding challenges often improves mood — the two are connected #citation[10].
 
 _When Breastfeeding Genuinely Doesn't Work:_
 A small number of women face genuine medical barriers: insufficient glandular tissue, severe thyroid disorders, PCOS with hormonal complications, certain medications, prior breast reduction surgery, or infant conditions affecting sucking and swallowing. For these women, donor milk and then formula are appropriate alternatives. But these situations are the exception, not the rule.
@@ -374,7 +374,7 @@ _What Formula Cannot Do:_
 - It does not change composition throughout the day or as baby grows
 - It does not promote optimal jaw and palate development
 - It does not reduce SIDS risk
-- Research consistently shows worse outcomes across multiple health metrics compared to breastfeeding — higher rates of ear infections, respiratory illness, gastrointestinal problems, obesity, and type 2 diabetes [3]
+- Research consistently shows worse outcomes across multiple health metrics compared to breastfeeding — higher rates of ear infections, respiratory illness, gastrointestinal problems, obesity, and type 2 diabetes #citation[3] #citation[22]
 
 _The Problem with Most U.S. Formulas:_
 
@@ -446,13 +446,13 @@ _Standard U.S. Formula Types (if European options aren't accessible):_
 - _Soy-based:_ For lactose intolerance (though 10-14% of babies allergic to cow's milk are also allergic to soy)
 - _Partially hydrolyzed ("gentle"):_ Easier to digest (Gerber Good Start Gentle, Enfamil Gentlease)
 - _Extensively hydrolyzed:_ For confirmed cow's milk allergy (Nutramigen, Alimentum)
-- _Amino acid-based (elemental):_ For severe allergies — most expensive (Neocate, EleCare) [11]
+- _Amino acid-based (elemental):_ For severe allergies — most expensive (Neocate, EleCare) #citation[11]
 
 _Safety Essentials:_
 - Never use homemade formula (FDA warns of hospitalizations from nutritional deficiencies)
 - Mix powdered formula with water heated to 158°F to kill potential bacteria
 - Never microwave formula (creates dangerous hot spots)
-- Discard leftovers — don't save partially finished bottles [12]
+- Discard leftovers — don't save partially finished bottles #citation[12]
 
 #line(length: 100%)
 
@@ -467,7 +467,7 @@ _What Should Happen:_
 - Uninterrupted bonding time for at least 60 minutes
 
 _Why It Matters:_
-- Babies allowed skin-to-skin in the first hour are more likely to be exclusively breastfeeding later [14]
+- Babies allowed skin-to-skin in the first hour are more likely to be exclusively breastfeeding later #citation[14]
 - Early breastfeeding attempt stimulates milk production
 - Oxytocin release supports uterine contraction and bonding
 - Baby's microbiome begins colonizing from skin contact
@@ -488,7 +488,7 @@ Put your golden hour preferences in your birth plan. Ask for procedures to be de
 Support is the single biggest factor in breastfeeding success.
 
 _Lactation Consultants (IBCLC):_
-The gold standard. Research shows IBCLC support significantly improves breastfeeding initiation, duration, and exclusivity rates [15]. Many insurance plans cover visits under the ACA.
+The gold standard. Research shows IBCLC support significantly improves breastfeeding initiation, duration, and exclusivity rates #citation[15]. Many insurance plans cover visits under the ACA.
 
 _When to Call:_
 - Persistent latch problems
@@ -511,7 +511,7 @@ _#link("https://www.llli.org/")[La Leche League International]_
 - Free monthly meetings (in-person and virtual)
 - Volunteer Leader support via phone/email
 - Meetings create community of experienced and new mothers
-- Research shows peer support has the greatest impact on increasing breastfeeding duration [16]
+- Research shows peer support has the greatest impact on increasing breastfeeding duration #citation[16]
 
 _Hospital-Based Support Groups:_
 - Many hospitals offer free weekly breastfeeding support groups
@@ -526,7 +526,7 @@ _Online Communities:_
 - Kelly Mom website (evidence-based breastfeeding information)
 
 _Your Partner's Role:_
-Women who receive partner support are three times more likely to exclusively breastfeed [17]. Effective partner support includes:
+Women who receive partner support are three times more likely to exclusively breastfeed #citation[17]. Effective partner support includes:
 - Verbal encouragement ("You're doing great, our baby is thriving")
 - Help with household tasks and childcare
 - Learning about breastfeeding challenges (attend a prenatal class together)
@@ -538,7 +538,7 @@ _Workplace Protections (PUMP Act):_
 Federal law requires employers to provide:
 - Reasonable break time to pump for one year after birth
 - Private space (not a bathroom) for pumping
-- Coverage extends to salaried employees [18]
+- Coverage extends to salaried employees #citation[18]
 
 _Additional Resources:_
 - #link("https://kellymom.com/")[KellyMom.com] - Evidence-based breastfeeding and parenting information
@@ -595,40 +595,60 @@ _Breastfeeding support and education:_
 
 == CITATIONS
 
-[1] Frontiers in Pediatrics. "Breastfeeding Contributes to Physiological Immune Programming in the Newborn."
+#citation[1] Frontiers in Pediatrics. Breastfeeding Contributes to Physiological Immune Programming in the Newborn.
 
-[2] PMC. "Lessons from mother: Long-term impact of antibodies in breast milk on the gut microbiota."
+#citation[2] PMC. Lessons from mother: Long-term impact of antibodies in breast milk on the gut microbiota.
 
-[3] World Health Organization. "Infant and young child feeding."
+#citation[3] World Health Organization. Infant and young child feeding. https://www.who.int/news-room/fact-sheets/detail/infant-and-young-child-feeding
 
-[4] Murdoch Children's Research Institute. "Discovery into how breastfeeding impacts immunity in babies."
+#citation[4] Murdoch Children's Research Institute. Discovery into how breastfeeding impacts immunity in babies.
 
-[5] PubMed. "Breastfeeding reduces the risk of breast cancer: A call for action in high-income countries."
+#citation[5] PubMed. Breastfeeding reduces the risk of breast cancer: A call for action in high-income countries.
 
-[6] NCBI Bookshelf. "The Importance of Breastfeeding Across the Life Course."
+#citation[6] NCBI Bookshelf. The Importance of Breastfeeding Across the Life Course.
 
-[7] _Removed._
+#citation[8] PMC. Skin-to-skin contact the first hour after birth, underlying implications and clinical practice.
 
-[8] PMC. "Skin-to-skin contact the first hour after birth, underlying implications and clinical practice."
+#citation[9] PMC. Breastfeeding Difficulties and Risk for Early Breastfeeding Cessation.
 
-[9] PMC. "Breastfeeding Difficulties and Risk for Early Breastfeeding Cessation."
+#citation[10] Nature Scientific Reports. Investigating the impact of breastfeeding difficulties on maternal mental health.
 
-[10] Nature Scientific Reports. "Investigating the impact of breastfeeding difficulties on maternal mental health."
+#citation[11] HealthyChildren.org. Choosing a Baby Formula.
 
-[11] HealthyChildren.org. "Choosing a Baby Formula."
+#citation[12] FDA. Infant Formula: Safety Do's and Don'ts. https://www.fda.gov/food/people-risk-foodborne-illness/questions-answers-consumers-concerning-infant-formula
 
-[12] FDA. "Infant Formula: Safety Do's and Don'ts."
+#citation[14] FIGO. Harnessing the golden hour: breastfeeding recommended within first hour of life.
 
-[13] _Removed._
+#citation[15] D'Hollander, C.J., et al. (2025). Breastfeeding Support Provided by Lactation Consultants: A Systematic Review and Meta-Analysis. _JAMA Pediatrics_. DOI: 10.1001/jamapediatrics.2024.6810
 
-[14] FIGO. "Harnessing the golden hour: breastfeeding recommended within first hour of life."
+#citation[16] Chapman, D.J., et al. (2010). Breastfeeding Peer Counseling: From Efficacy Through Scale-Up. _Journal of Human Lactation_, 26(3):314-326. DOI: 10.1177/0890334410369481
 
-[15] JAMA Pediatrics. "Breastfeeding Support Provided by Lactation Consultants: A Systematic Review and Meta-Analysis." 2025.
+#citation[17] Agrawal, J., Chakole, S., Sachdev, C. (2022). The Role of Fathers in Promoting Exclusive Breastfeeding. _Cureus_, 14(10):e30363. DOI: 10.7759/cureus.30363
 
-[16] PMC. "Breastfeeding Peer Counseling: From Efficacy through Scale-up."
+#citation[18] U.S. Department of Labor. FLSA Protections to Pump at Work. https://www.dol.gov/agencies/whd/pump-at-work
 
-[17] PMC. "The Role of Fathers in Promoting Exclusive Breastfeeding."
+#citation[19] PMC. Mother-to-Infant Microbial Transmission from Different Body Sites Shapes the Developing Infant Gut Microbiome.
 
-[18] U.S. Department of Labor. "FLSA Protections to Pump at Work."
+#citation[20] Amitay, E.L., Keinan-Boker, L. (2015). Breastfeeding and Childhood Leukemia Incidence: A Meta-analysis and Systematic Review. _JAMA Pediatrics_, 169(6):e151025. DOI: 10.1001/jamapediatrics.2015.1025
 
-[19] PMC. "Mother-to-Infant Microbial Transmission from Different Body Sites Shapes the Developing Infant Gut Microbiome." Nature. "Breastfeeding-related changes in the infant's immune system and microbiome."
+#citation[21] Horta, B.L., Loret de Mola, C., Victora, C.G. (2015). Breastfeeding and intelligence: a systematic review and meta-analysis. _Acta Paediatrica_, 104(467):14-19. DOI: 10.1111/apa.13139
+
+#citation[22] Victora, C.G., et al. (2016). Breastfeeding in the 21st century: epidemiology, mechanisms, and lifelong effect. _Lancet_, 387(10017):475-490. DOI: 10.1016/s0140-6736(15)01024-7
+
+#citation[23] Hauck, F.R., et al. (2011). Breastfeeding and Reduced Risk of Sudden Infant Death Syndrome: A Meta-analysis. _Pediatrics_, 128(1):103-110. DOI: 10.1542/peds.2010-3000
+
+#citation[24] Thompson, J.M.D., et al. (2017). Duration of Breastfeeding and Risk of SIDS: An Individual Participant Data Meta-analysis. _Pediatrics_, 140(5):e20171324. DOI: 10.1542/peds.2017-1324
+
+#citation[25] Peres, K.G., et al. (2015). Effect of breastfeeding on malocclusions: a systematic review and meta-analysis. _Acta Paediatrica_, 104(467):54-61. DOI: 10.1111/apa.13103
+
+#citation[26] Sanchez, C.L., et al. (2009). The possible role of human milk nucleotides as sleep inducers. _Nutritional Neuroscience_, 12(1):2-8. DOI: 10.1179/147683009x388922
+
+#citation[27] Butte, N.F., King, J.C. (2005). Energy requirements during pregnancy and lactation. _Public Health Nutrition_, 8(7A):1010-1027. DOI: 10.1079/phn2005793
+
+#citation[28] Buckley, S.J. (2015). Executive Summary of Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Journal of Perinatal Education_, 24(3):145-153. DOI: 10.1891/1058-1243.24.3.145
+
+#citation[29] Jordan, S., et al. (2005). The impact of intrapartum analgesia on infant feeding. _BJOG_, 112(7):927-934. DOI: 10.1111/j.1471-0528.2005.00548.x
+
+#citation[30] French, C.A., Cong, X., Chung, K.S. (2016). Labor Epidural Analgesia and Breastfeeding: A Systematic Review. _Journal of Human Lactation_, 32(3):507-520. DOI: 10.1177/0890334415623779
+
+#citation[31] Zimmerman, E., Thompson, K. (2015). Clarifying nipple confusion. _Journal of Perinatology_, 35(11):895-899. DOI: 10.1038/jp.2015.83

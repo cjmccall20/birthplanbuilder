@@ -40,7 +40,7 @@ You may hear that natural methods lack strong evidence and that medical inductio
 
 === The ARRIVE Trial Isn't Universal Permission
 
-The ARRIVE trial found that elective induction at 39 weeks reduced cesarean rates in low-risk first-time mothers [1,2]. What gets left out:
+The ARRIVE trial found that elective induction at 39 weeks reduced cesarean rates in low-risk first-time mothers #citation[1] #citation[2]. What gets left out:
 
 - _The trial only studied first-time, low-risk mothers with singleton pregnancies_ in well-resourced academic centers
 - Results may not apply to experienced mothers, high-risk pregnancies, or all hospital settings
@@ -70,7 +70,7 @@ Yes, stillbirth risk increases after 40 weeks, but the absolute numbers matter:
   [315],
 )
 
-The jump at 42 weeks is significant. Before that, waiting is reasonable with monitoring.
+The jump at 42 weeks is significant #citation[6]. Before that, waiting is reasonable with monitoring.
 
 === Advanced Pregnancy: What Happens After 40 Weeks
 
@@ -99,15 +99,15 @@ This doesn't mean induction recommendations are wrong. It means understanding _w
 
 === What Natural Labor Provides
 
-When labor starts on its own, a cascade of hormones optimizes the process:
+When labor starts on its own, a cascade of hormones optimizes the process #citation[7]:
 
 - Baby signals readiness through lung maturity hormones
 - Oxytocin pulses naturally, allowing rest between contractions
 - Endorphins build gradually, providing natural pain relief
-- A catecholamine surge near birth helps baby transition to breathing air
+- A catecholamine surge near birth helps baby transition to breathing air #citation[21]
 - Prolactin activates for breastfeeding and bonding
 
-With induction, this cascade is disrupted. Pitocin doesn't cross the blood-brain barrier (no "oxytocin high"), contractions may feel more intense, and babies miss the catecholamine surge that prevents newborn complications.
+With induction, this cascade is disrupted. Pitocin doesn't cross the blood-brain barrier #citation[22] (no "oxytocin high"), contractions may feel more intense, and babies miss the catecholamine surge that prevents newborn complications.
 
 #line(length: 100%)
 
@@ -117,7 +117,7 @@ With induction, this cascade is disrupted. Pitocin doesn't cross the blood-brain
 
 _What it is:_ Manual or electric breast pump stimulation for extended periods (30+ minutes at a time, up to 2 hours cumulative)
 
-_What research shows:_ In multiple trials, 37% of women went into labor within 72 hours vs. 6% without stimulation [4]. Also significantly reduced postpartum hemorrhage.
+_What research shows:_ In multiple trials, 37% of women went into labor within 72 hours vs. 6% without stimulation #citation[4]. Also significantly reduced postpartum hemorrhage.
 
 _How to do it:_
 - Use an electric breast pump or manual stimulation
@@ -131,7 +131,7 @@ _Caution:_ Best done with access to fetal monitoring. Not recommended before 39 
 
 _What it is:_ A vaginal exam where your provider sweeps a finger around your cervix to separate membranes from the uterine wall
 
-_What research shows:_ About 50% effectiveness. 12 sweeps prevent one formal induction [3]. No increased infection or serious complication risk.
+_What research shows:_ About 50% effectiveness. 12 sweeps prevent one formal induction #citation[3]. No increased infection or serious complication risk.
 
 _Requirements:_ Cervix must be at least 1 cm dilated
 
@@ -141,7 +141,7 @@ _Experience:_ Uncomfortable to painful during the procedure. Cramping and spotti
 
 _What it is:_ Penile-vaginal intercourse when membranes are intact
 
-_Why it might work:_ Semen contains high prostaglandin concentrations; orgasm releases oxytocin; cervical contact may stimulate ripening
+_Why it might work:_ Semen contains high prostaglandin concentrations; orgasm releases oxytocin; cervical contact may stimulate ripening #citation[15]
 
 _What research shows:_ Clinical trials are inconclusive, but biological plausibility is strong. Observational data suggests sex at term reduces post-dates pregnancy and induction needs.
 
@@ -151,7 +151,7 @@ _Safety:_ Safe when membranes are intact. Avoid after water breaks.
 
 _What it is:_ Consuming 6 dates daily (70-100 grams) starting at 36-37 weeks
 
-_What research shows:_ 96% of date-eaters went into spontaneous labor vs. 79% of non-date-eaters in one study [5]. Shorter latent phase of labor. Higher cervical dilation at admission.
+_What research shows:_ 96% of date-eaters went into spontaneous labor vs. 79% of non-date-eaters in one study #citation[5]. Shorter latent phase of labor. Higher cervical dilation at admission.
 
 _Caution:_ Not for women with gestational diabetes or glucose intolerance due to high sugar content.
 
@@ -163,7 +163,7 @@ _Caution:_ Not for women with gestational diabetes or glucose intolerance due to
 
 _What it is:_ Regular walking (30 min, 3x weekly at 4 km/hour) starting at 38 weeks
 
-_What research shows:_ One trial found lower induction rates (17.5% vs. 33.3%) and fewer operative deliveries [13]. However, walking didn't change when spontaneous labor started, just whether induction was needed.
+_What research shows:_ One trial found lower induction rates (17.5% vs. 33.3%) and fewer operative deliveries #citation[13]. However, walking didn't change when spontaneous labor started, just whether induction was needed.
 
 _Reality check:_ Walking won't force labor to start. It may support your body's preparation process.
 
@@ -171,7 +171,7 @@ _Reality check:_ Walking won't force labor to start. It may support your body's 
 
 _What it is:_ Needles or pressure applied to specific points (SP6, LI4, ST36)
 
-_What research shows:_ A 2024 trial found 65% of acupuncture recipients were admitted in spontaneous labor vs. 40% of controls. But a 2025 meta-analysis found no association with labor outcomes [12].
+_What research shows:_ A 2024 trial found 65% of acupuncture recipients were admitted in spontaneous labor vs. 40% of controls #citation[12]. But a 2025 meta-analysis found no association with labor outcomes #citation[16] #citation[17].
 
 _Bottom line:_ Mixed results. May help some people. Safe when done by trained practitioners.
 
@@ -187,7 +187,7 @@ _Caution:_ May increase bleeding risk. Wide variation in supplement quality.
 
 _What it is:_ Tea from raspberry leaves, traditionally started in late pregnancy
 
-_What research shows:_ May slightly shorten the second stage of labor (about 10 minutes). Does NOT induce labor. Four major reviews all concluded: insufficient evidence to recommend [11].
+_What research shows:_ May slightly shorten the second stage of labor (about 10 minutes). Does NOT induce labor. Four major reviews all concluded: insufficient evidence to recommend #citation[18].
 
 _Reality:_ Harmless, but unlikely to do much.
 
@@ -197,7 +197,7 @@ _Reality:_ Harmless, but unlikely to do much.
 
 === Castor Oil: Effective But Uncomfortable
 
-_Why people try it:_ It does appear to work. Studies show labor induction rates 3x higher with castor oil [10].
+_Why people try it:_ It does appear to work. Studies show labor induction rates 3x higher with castor oil #citation[10].
 
 _What to know:_ Castor oil is a powerful laxative. Before you go into labor, you may experience diarrhea, nausea, vomiting, cramping, and dehydration. For some, this is manageable; for others, it makes for a rough start to labor.
 
@@ -207,7 +207,7 @@ _The trade-off:_ The research supports its effectiveness, but the gastrointestin
 
 Blue cohosh, black cohosh, and other herbal remedies are sometimes promoted for labor induction. These can have serious side effects including:
 
-- Cardiac problems (especially blue cohosh)
+- Cardiac problems (especially blue cohosh) #citation[19] #citation[20]
 - Liver damage
 - Stroke risk
 - Unpredictable uterine stimulation
@@ -342,30 +342,46 @@ Your body knows how to give birth. Your baby will signal when they're ready, mos
 
 == CITATIONS
 
-1. Evidence Based Birth. "The ARRIVE Trial and Elective Induction at 39 Weeks." https://evidencebasedbirth.com/arrive/
+#citation[1] Evidence Based Birth. The ARRIVE Trial and Elective Induction at 39 Weeks. https://evidencebasedbirth.com/arrive/
 
-2. Grobman WA, et al. "Labor Induction versus Expectant Management in Low-Risk Nulliparous Women." _New England Journal of Medicine_, 2018.
+#citation[2] Grobman, W.A., et al. (2018). Labor Induction versus Expectant Management in Low-Risk Nulliparous Women. _New England Journal of Medicine_, 379(6):513-523. DOI: 10.1056/NEJMoa1800566
 
-3. Cochrane Database of Systematic Reviews. "Membrane sweeping for induction of labour," 2020.
+#citation[3] Finucane, E.M., Murphy, D.J., Biesty, L.M., et al. (2020). Membrane sweeping for induction of labour. _Cochrane Database of Systematic Reviews_, 2:CD000451. DOI: 10.1002/14651858.CD000451.pub3
 
-4. Kavanagh J, Kelly AJ, Thomas J. "Breast stimulation for cervical ripening and induction of labour." _Cochrane Database of Systematic Reviews_.
+#citation[4] Kavanagh, J., Kelly, A.J., Thomas, J. (2005). Breast stimulation for cervical ripening and induction of labour. _Cochrane Database of Systematic Reviews_, (3):CD003392. DOI: 10.1002/14651858.CD003392.pub2
 
-5. Al-Kuran O, et al. "The effect of late pregnancy consumption of date fruit on labour and delivery." _Journal of Obstetrics and Gynaecology_, 2011.
+#citation[5] Al-Kuran, O., et al. (2011). The effect of late pregnancy consumption of date fruit on labour and delivery. _Journal of Obstetrics and Gynaecology_, 31(1):29-31. DOI: 10.3109/01443615.2010.522267
 
-6. PLOS Medicine. "Risks of stillbirth and neonatal death with advancing gestation at term: A systematic review and meta-analysis," 2019.
+#citation[6] Muglu, J., et al. (2019). Risks of stillbirth and neonatal death with advancing gestation at term: a systematic review and meta-analysis of cohort studies of 15 million pregnancies. _PLOS Medicine_, 16(7):e1002838. DOI: 10.1371/journal.pmed.1002838
 
-7. PMC. "Healthy Birth Practice #1: Let Labor Begin on Its Own." https://pmc.ncbi.nlm.nih.gov/articles/PMC4235056/
+#citation[7] Romano, A.M., Lothian, J.A. (2008). Promoting, protecting, and supporting normal birth: a look at the evidence. _Journal of Obstetric, Gynecologic, & Neonatal Nursing_, 37(1):94-105.
 
-8. Cleveland Clinic. "Bishop Score: Purpose, What It Means & How It Impacts Labor."
+#citation[8] Cleveland Clinic. Bishop Score: Purpose, What It Means & How It Impacts Labor. https://my.clevelandclinic.org/health/diagnostics/24252-bishop-score
 
-9. American Journal of Obstetrics & Gynecology. "Methods for the induction of labor: efficacy and safety," 2023.
+#citation[9] American Journal of Obstetrics & Gynecology. (2023). Methods for the induction of labor: efficacy and safety.
 
-10. PMC. "Effect and Safety of Castor Oil on Labor Induction and Prevalence of Vaginal Delivery," 2022.
+#citation[10] Ranjbar, F., Behzadipour, S., Beigi, M. (2022). Effect and Safety of Castor Oil on Labor Induction and Prevalence of Vaginal Delivery: A Systematic Review and Meta-Analysis. _Iranian Journal of Nursing and Midwifery Research_, 27(4):257-263. DOI: 10.4103/ijnmr.ijnmr_417_20
 
-11. Evidence Based Birth. "Evidence on: Evening Primrose Oil (EPO)."
+#citation[11] Evidence Based Birth. Evidence on: Evening Primrose Oil (EPO). https://evidencebasedbirth.com/evidence-on-evening-primrose-oil-epo/
 
-12. Smith CA, et al. "Acupuncture or acupressure for induction of labour." _Cochrane Database of Systematic Reviews_, 2017.
+#citation[12] Zamora-Brito, M., et al. (2024). Acupuncture before planned admission for induction of labor (ACUPUNT study): a randomized controlled trial. _American Journal of Obstetrics & Gynecology MFM_, 6(11):101477. DOI: 10.1016/j.ajogmf.2024.101477
 
-13. PMC. "The effect of walking during late pregnancy on the outcomes of labor and delivery," 2021.
+#citation[13] Shirazi, M., Zarghami, M. (2021). The effect of walking during late pregnancy on the outcomes of labor and delivery: A randomized clinical trial. _Journal of Education and Health Promotion_, 10:272. DOI: 10.4103/jehp.jehp_1381_20
 
-14. Evidence Based Birth. "What is the Evidence for Induction or C-section for a Big Baby?"
+#citation[14] Evidence Based Birth. What is the Evidence for Induction or C-section for a Big Baby? https://evidencebasedbirth.com/evidence-for-induction-or-c-section-for-big-baby/
+
+#citation[15] Kavanagh, J., Kelly, A.J., Thomas, J. (2001). Sexual intercourse for cervical ripening and induction of labour. _Cochrane Database of Systematic Reviews_, (2):CD003093. DOI: 10.1002/14651858.CD003093
+
+#citation[16] Zamora-Brito, M., et al. (2024). The role of acupuncture in the present approach to labor induction: a systematic review and meta-analysis. _American Journal of Obstetrics & Gynecology MFM_, 6(2):101272. DOI: 10.1016/j.ajogmf.2023.101272
+
+#citation[17] Chen, A., et al. (2025). Acupuncture for induction of labor in uncomplicated term pregnancies and the role of the acupoint selection: A systematic review and meta-analysis. _Acta Obstetricia et Gynecologica Scandinavica_, 104(1). DOI: 10.1111/aogs.70036
+
+#citation[18] Simpson, M., Parsons, M., Greenwood, J., Wade, K. (2001). Raspberry leaf in pregnancy: its safety and efficacy in labor. _Journal of Midwifery & Women's Health_, 46(2):51-59. DOI: 10.1016/s1526-9523(01)00095-2
+
+#citation[19] Jones, T.K., Lawson, B.M. (1998). Profound neonatal congestive heart failure caused by maternal consumption of blue cohosh herbal medication. _Journal of Pediatrics_, 132(3 Pt 1):550-552. DOI: 10.1016/s0022-3476(98)70041-1
+
+#citation[20] Gunn, T.R., Wright, I.M. (1996). The use of black and blue cohosh in labour. _New Zealand Medical Journal_, 109(1032):410-411.
+
+#citation[21] Lagercrantz, H., Slotkin, T.A. (1986). The "stress" of being born. _Scientific American_, 254(4):100-107. DOI: 10.1038/scientificamerican0486-100
+
+#citation[22] Kenkel, W.M., et al. (2019). Behavioral and epigenetic consequences of oxytocin treatment at birth. _Science Advances_, 5(5):eaav2244. DOI: 10.1126/sciadv.aav2244

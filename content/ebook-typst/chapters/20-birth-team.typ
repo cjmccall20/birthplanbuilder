@@ -5,9 +5,9 @@
 == One-Page Overview
 
 - _Your care provider shapes your entire birth experience._ Their philosophy, intervention rates, and communication style determine how your birth unfolds far more than hospital policies or birth plans.
-- _OBs and midwives have different training and philosophies._ OB/GYNs are surgeons trained to manage high-risk pregnancies and complications. Midwives are trained in physiologic birth and low-intervention approaches.
+- _OBs and midwives have different training and philosophies._ OB/GYNs are surgeons trained to manage high-risk pregnancies and complications.#citation[1] Midwives are trained in physiologic birth and low-intervention approaches.#citation[2]
 - _Certified Nurse-Midwives (CNMs) are a powerful middle ground._ They hold master's degrees, can prescribe medications, practice in all 50 states, and can serve as your primary pregnancy care provider from first appointment to delivery.
-- _Doulas reduce cesarean rates by 39% (Bohren 2017 Cochrane review), and between 39% and 68% depending on the study (Bohren 2017; Dias 2025 meta-analysis)._ Continuous labor support from a doula is one of the few interventions proven to improve birth outcomes without side effects.
+- _Doulas reduce cesarean rates by 39% (Bohren 2017 Cochrane review), and between 39% and 68% depending on the study (Bohren 2017; Dias 2025 meta-analysis)._ Continuous labor support from a doula is one of the few interventions proven to improve birth outcomes without side effects.#citation[3]
 - _You can switch providers at any point—even at 36 weeks._ If your provider doesn't support your birth preferences or you feel dismissed, changing is almost always possible.
 - _Your birth team includes everyone in the room._ Partner, family, doula, nurses, and provider all influence your experience. Choose intentionally.
 
@@ -21,7 +21,7 @@ _Bottom line:_ The right provider for you shares your birth philosophy, respects
 
 The choice between an OB/GYN and a midwife isn't about who's "better"—it's about different approaches to birth.
 
-_Obstetrician-Gynecologists (OBs)_ are medical doctors who complete four years of medical school plus four years of residency specializing in pregnancy, childbirth, and women's reproductive health. They're surgeons trained to identify and manage complications, perform cesarean sections, and handle high-risk pregnancies.
+_Obstetrician-Gynecologists (OBs)_ are medical doctors who complete four years of medical school plus four years of residency specializing in pregnancy, childbirth, and women's reproductive health.#citation[1] They're surgeons trained to identify and manage complications, perform cesarean sections, and handle high-risk pregnancies.
 
 _Midwives_ are trained specifically in pregnancy, birth, and postpartum care for low-risk pregnancies. Their focus is supporting the body's natural birth process while monitoring for complications that need medical attention.
 
@@ -34,14 +34,14 @@ _Medical model (typical OB approach):_
 - Technology and intervention help ensure safety
 - "What could go wrong?" mindset
 - Time limits on labor stages
-- Higher rates of induction, epidurals, cesareans
+- Higher rates of induction, epidurals, cesareans #citation[4]
 
 _Midwifery model:_
 - Birth is a normal physiologic process
 - Intervention should be reserved for when it's needed
 - "How can we support what's working?" mindset
 - More patience with labor variations
-- Lower intervention rates overall
+- Lower intervention rates overall #citation[5]
 
 _Neither approach is wrong._ If you have a high-risk pregnancy, the medical model's vigilance is exactly what you need. If you have a low-risk pregnancy and want to avoid unnecessary interventions, the midwifery model may serve you better.
 
@@ -59,9 +59,9 @@ If you want a provider who will support your body's ability to give birth while 
 
 CNMs are among the most rigorously trained midwives in the world:
 
-- *Registered Nurse (RN) first.* Every CNM starts as a registered nurse. Many have years of nursing experience—often in labor and delivery, postpartum, or neonatal care—before entering midwifery training.
-- *Master's degree (or higher) in nursing with midwifery specialization.* CNM programs are accredited graduate programs, typically two to three years, covering advanced pharmacology, pathophysiology, health assessment, and the full scope of midwifery care.
-- *National board certification.* After completing their degree, CNMs must pass a rigorous national certification exam administered by the American Midwifery Certification Board (AMCB).
+- *Registered Nurse (RN) first.* Every CNM starts as a registered nurse.#citation[6] Many have years of nursing experience—often in labor and delivery, postpartum, or neonatal care—before entering midwifery training.
+- *Master's degree (or higher) in nursing with midwifery specialization.* CNM programs are accredited graduate programs, typically two to three years, covering advanced pharmacology, pathophysiology, health assessment, and the full scope of midwifery care.#citation[6]
+- *National board certification.* After completing their degree, CNMs must pass a rigorous national certification exam administered by the American Midwifery Certification Board (AMCB).#citation[7]
 - *Continuing education.* CNMs must maintain their certification through ongoing education, keeping their knowledge current.
 
 This level of training means your CNM isn't just someone who "helps with birth." She is a fully qualified healthcare provider with deep expertise in normal pregnancy, complicated pregnancy, newborn care, and women's health across the lifespan.
@@ -77,7 +77,7 @@ This is where many women are surprised. CNMs have a broad scope of practice:
 - *Deliver your baby.* CNMs catch babies. They manage labor, support you through pushing, deliver your baby, repair any tears, and manage your immediate postpartum care.
 - *Provide well-woman care.* Many CNMs also provide annual exams, Pap smears, contraception counseling, and gynecological care outside of pregnancy.
 
-CNMs have *prescriptive authority in all 50 states, the District of Columbia, and U.S. territories.* They are recognized by Medicare, Medicaid, and the vast majority of private insurance plans.
+CNMs have *prescriptive authority in all 50 states, the District of Columbia, and U.S. territories.*#citation[8] They are recognized by Medicare, Medicaid, and the vast majority of private insurance plans.
 
 === Where CNMs Practice
 
@@ -133,18 +133,18 @@ Women sometimes confuse CNMs with CPMs (Certified Professional Midwives), but th
 _Certified Nurse-Midwife (CNM):_
 - Master's degree in nursing with midwifery specialization
 - Starts as a registered nurse
-- Licensed in all 50 states
-- Full prescriptive authority
+- Licensed in all 50 states #citation[8]
+- Full prescriptive authority #citation[8]
 - Hospital privileges available
 - Practices in hospitals, birth centers, and homes
-- Covered by most insurance including Medicaid nationwide
+- Covered by most insurance including Medicaid nationwide #citation[9]
 
 _Certified Professional Midwife (CPM):_
 - Trained specifically in out-of-hospital birth
 - Does not require a nursing degree
-- Certification through the North American Registry of Midwives (NARM)
-- Legal status varies by state (legal in roughly 35 states)
-- Cannot prescribe medications in most states
+- Certification through the North American Registry of Midwives (NARM) #citation[10]
+- Legal status varies by state (legal in roughly 35 states) #citation[10]
+- Cannot prescribe medications in most states #citation[10]
 - Primarily attends home births and birth center births
 - Insurance coverage varies significantly by state and plan
 
@@ -154,10 +154,10 @@ Both are qualified professionals. The difference is scope: CNMs can practice any
 
 This is good news: *CNM care is widely covered by insurance.*
 
-- _Medicaid_ covers CNM services in all 50 states. If you're on Medicaid, you have the right to choose a CNM as your provider.
+- _Medicaid_ covers CNM services in all 50 states.#citation[9] If you're on Medicaid, you have the right to choose a CNM as your provider.
 - _Most private insurance plans_ cover CNM care the same way they cover OB care. Your copays, deductible, and coverage structure should be the same.
 - _Medicare_ recognizes CNMs as primary care providers.
-- Under the _Affordable Care Act_, midwifery care is considered an essential health benefit. Plans sold on the marketplace must cover maternity care, and that includes care provided by CNMs.
+- Under the _Affordable Care Act_, midwifery care is considered an essential health benefit.#citation[11] Plans sold on the marketplace must cover maternity care, and that includes care provided by CNMs.
 
 _What to check:_
 - Call your insurance company and specifically ask: "Are Certified Nurse-Midwives covered as in-network providers under my plan?"
@@ -183,7 +183,7 @@ The sections above cover CNMs and CPMs in detail. Two additional midwife credent
 === Certified Midwife (CM)
 - Master's degree in midwifery without nursing background
 - Same scope of practice as CNMs
-- Currently only licensed in a handful of states (expanding)
+- Currently only licensed in a handful of states (expanding) #citation[12]
 - Identical clinical training to CNMs, different entry path
 - Same certification exam as CNMs
 
@@ -232,7 +232,7 @@ Many midwives practice with physician backup, referring patients who develop com
 
 A doula is a trained professional who provides continuous physical, emotional, and informational support during labor and birth. The evidence for doula support is among the strongest in all of obstetrics.
 
-A Cochrane review analyzing over 15,000 births found that continuous doula support resulted in a 39% reduction in cesarean section, 15% increase in spontaneous vaginal birth, 10% reduction in pain medications, 31% reduction in dissatisfaction, shorter labors (by about 40 minutes on average), and higher Apgar scores for babies. No other single intervention shows this level of improvement without any side effects.
+A Cochrane review analyzing over 15,000 births found that continuous doula support resulted in a 39% reduction in cesarean section, 15% increase in spontaneous vaginal birth, 10% reduction in pain medications, 35% reduction in negative birth experiences, shorter labors (by about 40 minutes on average), and higher Apgar scores for babies.#citation[3] No other single intervention shows this level of improvement without any side effects.
 
 _For the full evidence, detailed guidance on finding and hiring a doula, costs, insurance coverage, and how doulas work alongside your partner, see #link(<ch-doula-support>)[our Doula Support chapter]._
 
@@ -293,7 +293,7 @@ _"How do you feel about birth plans?"_
 - Red flag: Dismissive ("Birth never goes according to plan") or has never been asked
 
 _"What is your cesarean rate? Your induction rate? Your epidural rate?"_
-- Good answer: Knows their numbers and shares them openly. Cesarean rate below 25% for first-time, low-risk mothers. Induction rate around 25% or less.
+- Good answer: Knows their numbers and shares them openly. Cesarean rate below 25% for first-time, low-risk mothers.#citation[13] Induction rate around 25% or less.
 - Great answer: Breaks down their statistics by risk category and explains what drives their numbers
 - Red flag: "I don't know," "I don't track that," or defensive refusal to share
 
@@ -345,12 +345,12 @@ _"Do you routinely use Pitocin for augmentation? Under what circumstances?"_
 - Red flag: "We usually start Pitocin if labor slows down"
 
 _"What's your episiotomy rate?"_
-- Good answer: Under 5%, only in true emergencies
+- Good answer: Under 5%, only in true emergencies #citation[14]
 - Great answer: "I almost never do them—I use warm compresses, perineal support, and patient pushing"
 - Red flag: Rates above 10%, or "I do them to prevent tearing" (this is not supported by evidence)
 
 _"Do you practice delayed cord clamping? For how long?"_
-- Good answer: At least one to three minutes, or until the cord stops pulsing
+- Good answer: At least one to three minutes, or until the cord stops pulsing #citation[15]
 - Great answer: Discusses the evidence for delayed clamping and lets you choose
 - Red flag: Immediate clamping as routine, or seems unaware of the evidence
 
@@ -692,7 +692,7 @@ _1. Find your new provider first._
 Call potential providers and explain you're looking to transfer care late in pregnancy. Many are used to this and welcome patients who are advocates for themselves. Midwifery practices in particular are often flexible about accepting late transfers.
 
 _2. Request your records._
-Your current provider is legally required to give you your prenatal records. Ask for complete records including lab work, ultrasound reports, and visit notes. You can request these even before you've told them you're leaving.
+Your current provider is legally required to give you your prenatal records.#citation[16] Ask for complete records including lab work, ultrasound reports, and visit notes. You can request these even before you've told them you're leaving.
 
 _3. Make the switch._
 Once you have your new provider confirmed:
@@ -899,3 +899,39 @@ _Trust yourself._ If something feels wrong with your provider, it probably is. S
 _Build your team intentionally._ Everyone in that room should be there because they support you—not because they expect to be there.
 
 Your birth team shapes your birth experience. Choose people who believe in you.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] American College of Obstetricians and Gynecologists. ACGME Program Requirements for Graduate Medical Education in Obstetrics and Gynecology. ACOG/ACGME. 2024. #link("https://www.acgme.org/specialties/obstetrics-and-gynecology/program-requirements-and-faqs-and-applications/")
+
+#citation[2] American College of Nurse-Midwives. Philosophy of Midwifery Care. ACNM. 2024. #link("https://midwife.org/issue-areas/")
+
+#citation[3] Bohren, M. A., Hofmeyr, G. J., Sakala, C., Fukuzawa, R. K., & Cuthbert, A. (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6
+
+#citation[4] MacDorman, M. F., & Declercq, E. (2016). Trends and characteristics of United States out-of-hospital births 2004-2014: New information on risk status and access to care. _Birth_, 43(2), 116-124. DOI: 10.1111/birt.12228
+
+#citation[5] Johantgen, M., Fountain, L., Zangaro, G., Newhouse, R., Stanik-Hutt, J., & White, K. (2012). Comparison of labor and delivery care provided by certified nurse-midwives and physicians: A systematic review, 1990 to 2008. _Women's Health Issues_, 22(1), e73-e81. DOI: 10.1016/j.whi.2011.06.005
+
+#citation[6] American College of Nurse-Midwives. Become a Midwife: CNM/CM Education. ACNM. 2024. #link("https://midwife.org/become-a-midwife/")
+
+#citation[7] American Midwifery Certification Board. CNM/CM Certification. AMCB. 2024. #link("https://www.amcbmidwife.org/amcb-certification")
+
+#citation[8] American College of Nurse-Midwives. Prescriptive Authority and Licensure by State. ACNM. 2024. See also: National Conference of State Legislatures. Certified Nurse-Midwife Practice and Prescriptive Authority. #link("https://www.ncsl.org/scope-of-practice-policy/practitioners/advanced-practice-registered-nurses/certified-nurse-midwife-practice-and-prescriptive-authority")
+
+#citation[9] National Academy for State Health Policy. Medicaid Financing of Midwifery Services: A 50-State Analysis. NASHP. 2024. #link("https://nashp.org/medicaid-financing-of-midwifery-services-a-50-state-analysis/")
+
+#citation[10] North American Registry of Midwives. State-by-State Legal Status for CPMs. NARM. 2025. #link("https://narm.org/about/advocacy/state-information/")
+
+#citation[11] HealthCare.gov. Essential Health Benefits. U.S. Department of Health & Human Services. 2024. See also: Center for American Progress. States' Essential Health Benefits Coverage and Maternal Health Equity. #link("https://www.americanprogress.org/article/states-essential-health-benefits-coverage-advance-maternal-health-equity/")
+
+#citation[12] American Midwifery Certification Board. CM State Licensure Map. AMCB. 2024. #link("https://www.amcbmidwife.org/docs/default-source/default-document-library/state-comparison-chart-feb-2021-may-2025.pdf")
+
+#citation[13] Healthy People 2030. Reduce cesarean births among low-risk women with no prior births (MICH-06). U.S. Department of Health & Human Services. Target: 23.6%. #link("https://odphp.health.gov/healthypeople/objectives-and-data/browse-objectives/pregnancy-and-childbirth/reduce-cesarean-births-among-low-risk-women-no-prior-births-mich-06")
+
+#citation[14] American College of Obstetricians and Gynecologists. Practice Bulletin No. 198: Prevention and Management of Obstetric Lacerations at Vaginal Delivery. _Obstetrics & Gynecology_. 2018;132(3):e87-e102. DOI: 10.1097/AOG.0000000000002841
+
+#citation[15] American College of Obstetricians and Gynecologists. Committee Opinion No. 814: Delayed Umbilical Cord Clamping After Birth. _Obstetrics & Gynecology_. 2020;136(6):e100-e106. DOI: 10.1097/AOG.0000000000004167
+
+#citation[16] Health Insurance Portability and Accountability Act (HIPAA). 45 CFR 164.524 — Access of individuals to protected health information. U.S. Department of Health & Human Services. #link("https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html")

@@ -6,7 +6,7 @@ An epidural is regional anesthesia delivered through a catheter in your lower ba
 
 === Five Things to Know
 
-1. *Epidurals are highly effective.* They provide the most reliable pain relief available for labor, with success rates above 90% [1]. No other method provides the same level of pain elimination, though many people find non-pharmacological approaches — like hydrotherapy, movement, and counterpressure — effective for managing labor.
+1. *Epidurals are highly effective.* They provide the most reliable pain relief available for labor, with success rates above 90% #citation[1]. No other method provides the same level of pain elimination, though many people find non-pharmacological approaches — like hydrotherapy, movement, and counterpressure — effective for managing labor.
 
 2. *One intervention often leads to others.* After epidural placement, you'll likely need continuous fetal monitoring, IV fluids, and often Pitocin to keep contractions going. Your mobility will be limited, and you may need a urinary catheter. About 38% of epidural users need help from forceps or vacuum.
 
@@ -26,7 +26,7 @@ Epidurals are a powerful tool that provides excellent pain relief. They also sta
 
 *"Epidurals are safe and effective."* True - epidurals have an excellent safety profile and reliably reduce labor pain. Serious complications are rare.
 
-*"You can get an epidural anytime."* Mostly true - there's no cervical dilation requirement. ACOG says maternal request is sufficient. The practical limits are whether you can hold still for placement and whether delivery is imminent.
+*"You can get an epidural anytime."* Mostly true - there's no cervical dilation requirement. ACOG says maternal request is sufficient #citation[3]. The practical limits are whether you can hold still for placement and whether delivery is imminent.
 
 *"Modern epidurals let you move around."* Partially true - "walking epidurals" preserve more sensation than traditional versions, but most hospitals don't allow actual walking with any epidural due to fall risk.
 
@@ -45,13 +45,13 @@ Epidurals don't exist in isolation. They trigger a predictable sequence of addit
 
 *Continuous monitoring required.* Once you have an epidural, you'll be attached to fetal monitors continuously. This confines you to bed and makes position changes difficult.
 
-*Your body stops making enough oxytocin.* Pain signals trigger oxytocin release. No pain = less oxytocin = weaker contractions. Solution: Synthetic Pitocin through your IV. About 52% of epidural patients need Pitocin augmentation (vs. 7% with other pain relief) [1].
+*Your body stops making enough oxytocin.* Pain signals trigger oxytocin release. No pain = less oxytocin = weaker contractions. Solution: Synthetic Pitocin through your IV. About 52% of epidural patients need Pitocin augmentation (vs. 7% with other pain relief) #citation[1].
 
-*You can't move freely.* Without movement, babies have more trouble rotating into optimal position. Research shows twice as many babies stay in posterior position (facing up) with epidural vs. other pain relief methods.
+*You can't move freely.* Without movement, babies have more trouble rotating into optimal position. Research shows twice as many babies stay in posterior position (facing up) with epidural vs. other pain relief methods #citation[10].
 
-*Pushing gets harder.* The average second stage extends by 15-82 minutes [5]. Without the urge to push, you need directed coaching. About 15% of first-time mothers with epidurals push for over 3 hours.
+*Pushing gets harder.* The average second stage extends by 15-82 minutes #citation[5]. Without the urge to push, you need directed coaching. About 15% of first-time mothers with epidurals push for over 3 hours.
 
-*More instrumental deliveries.* You're 3.6 times more likely to need forceps or vacuum assistance. That's 38% of epidural users vs. 16% without.
+*More instrumental deliveries.* You're about 2.4 times more likely to need forceps or vacuum assistance. That's 38% of epidural users vs. 16% without #citation[1].
 
 === The Real Numbers on C-Sections
 
@@ -63,7 +63,7 @@ Why the discrepancy? Trials have strict protocols. Real hospitals have variable 
 
 === Epidural Fever: A Hidden Problem
 
-15-25% of epidural patients develop fever during labor [6]. By comparison, approximately 1-2% of laboring women without epidurals develop fever during labor. This stark difference confirms the fever is an effect of the epidural itself, not labor in general. This fever isn't from infection, but it looks identical to infection. The result:
+15-25% of epidural patients develop fever during labor #citation[6]. By comparison, approximately 1-2% of laboring women without epidurals develop fever during labor. This stark difference confirms the fever is an effect of the epidural itself, not labor in general. This fever isn't from infection, but it looks identical to infection. The result:
 - More aggressive intervention for you
 - Sepsis workup for your baby (blood draws, possible NICU, antibiotics)
 - Potential mother-baby separation
@@ -73,12 +73,12 @@ No prevention method has proven effective.
 
 === What Medications Actually Reach Your Baby
 
-Both fentanyl (opioid) and bupivacaine (numbing agent) cross the placenta. Fentanyl transfer is nearly 1:1 - meaning your baby has almost the same blood concentration as you.
+Both fentanyl (opioid) and bupivacaine (numbing agent) cross the placenta. Fentanyl transfer is nearly 1:1 #citation[15] - meaning your baby has almost the same blood concentration as you.
 
 At typical doses, most babies do fine on standard assessments. But research shows:
-- Higher fentanyl doses linked to lower neurobehavioral scores [7]
-- Some evidence of reduced ability to self-attach and breastfeed [7]
-- Possible early breastfeeding challenges (17% quit at 6 weeks with high-dose fentanyl vs. 2-5% with lower doses) [7]
+- Higher fentanyl doses linked to lower neurobehavioral scores #citation[7]
+- Some evidence of reduced ability to self-attach and breastfeed #citation[7]
+- Possible early breastfeeding challenges (17% quit at 6 weeks with high-dose fentanyl vs. 2-5% with lower doses) #citation[7]
 
 #line(length: 100%)
 
@@ -86,9 +86,9 @@ At typical doses, most babies do fine on standard assessments. But research show
 
 === Pain Relief That Actually Works
 
-Epidurals are the most effective pharmacological pain relief option for labor, and the evidence supports that. A Cochrane review found epidural patients were 90% less likely to need additional pain relief compared to those using opioid injections. Satisfaction with pain relief is consistently higher.
+Epidurals are the most effective pharmacological pain relief option for labor, and the evidence supports that. A Cochrane review found epidural patients were 90% less likely to need additional pain relief compared to those using opioid injections #citation[1]. Satisfaction with pain relief is consistently higher.
 
-For context: research indicates 10-15% of laboring women report minimal or mild pain, 35-40% experience moderate pain, 30-35% describe it as "intense," and 15-20% call it "overwhelmingly unbearable." For those in the higher pain categories, epidurals reliably address this.
+For context: research indicates 10-15% of laboring women report minimal or mild pain, 35-40% experience moderate pain, 30-35% describe it as "intense," and 15-20% call it "overwhelmingly unbearable" #citation[16]. For those in the higher pain categories, epidurals reliably address this.
 
 === Rest During Marathon Labors
 
@@ -101,7 +101,7 @@ Epidurals allow sleep during active labor. This rest can actually help stuck lab
 
 === Potentially Reduced Serious Complications
 
-A 2024 Scottish study of 567,216 births found epidural use associated with 35% lower rates of severe maternal complications (heart attack, sepsis, hysterectomy) in the 6 weeks after birth [2]. Women delivering preterm saw a 47% reduction.
+A 2024 Scottish study of 567,216 births found epidural use associated with 35% lower rates of severe maternal complications (heart attack, sepsis, hysterectomy) in the 6 weeks after birth #citation[2]. Women delivering preterm saw a 47% reduction.
 
 Important caveat: Correlation isn't causation. Epidural patients also have continuous monitoring and IV access, enabling faster intervention when problems arise.
 
@@ -113,7 +113,7 @@ When labor pain becomes overwhelming, effective relief can:
 - Provide sense of control
 - Potentially lower birth trauma risk
 
-Research suggests what matters most isn't the objective pain level but whether mothers feel "supported, comforted, and emotionally soothed."
+Research suggests what matters most isn't the objective pain level but whether mothers feel "supported, comforted, and emotionally soothed" #citation[17].
 
 #line(length: 100%)
 
@@ -123,13 +123,13 @@ Research suggests what matters most isn't the objective pain level but whether m
 - Continuous monitoring required
 - 52% need Pitocin augmentation
 - 2x posterior babies
-- 3.6x instrumental delivery rate
+- 2.4x instrumental delivery rate
 - 15-25% develop fever (triggering baby sepsis workups)
 - Pushing phase extended 15-82+ minutes
-- Increased tearing risk due to reduced perineal sensation — without the ability to feel feedback from your body during pushing, it's harder to control the pace of delivery and allow tissues to stretch gradually
+- May increase tearing risk due to reduced perineal sensation — without the ability to feel feedback from your body during pushing, it's harder to control the pace of delivery and allow tissues to stretch gradually
 
 === Blood Pressure Drops
-30-36% experience significant hypotension (a drop in blood pressure that can cause dizziness, nausea, and in some cases affect blood flow to the baby). In about 11% of cases, this affects fetal heart rate. Treatable with fluids and medications, but requires monitoring.
+30-36% experience significant hypotension (a drop in blood pressure that can cause dizziness, nausea, and in some cases affect blood flow to the baby) #citation[3]. In about 11% of cases, this affects fetal heart rate. Treatable with fluids and medications, but requires monitoring.
 
 === Urinary Issues
 Dense numbness prevents normal bladder sensation. Most need catheterization at some point. Research suggests intermittent catheterization (only when needed) is better than continuous catheter placement.
@@ -145,24 +145,24 @@ The margin for error is small. The epidural space is only about 4-5mm wide. Comp
 - Dural puncture (needle goes too deep) — occurs in approximately 1-2% of placements, causing severe spinal headache
 - Nerve damage — temporary numbness or weakness occurs in roughly 1 in 1,000 cases; permanent nerve injury is extremely rare (approximately 1 in 20,000-50,000)
 - High or total spinal block (medication reaches too high) — rare but serious, occurring in roughly 1 in 5,000 epidurals
-- Epidural abscess or hematoma — extremely rare (approximately 1 in 50,000-150,000)
+- Epidural abscess or hematoma — extremely rare (approximately 1 in 50,000-150,000) #citation[18]
 
 The vast majority of epidurals are placed without complication by experienced practitioners. Understanding the procedure and its rare risks helps you have an informed conversation with your anesthesia provider.
 
 === Longer Labor
-First stage: 43-51 additional minutes with modern techniques.
-Second stage: 15-82 additional minutes.
+First stage: 43-51 additional minutes with modern techniques #citation[1].
+Second stage: 15-82 additional minutes #citation[5].
 These are averages - individual variation is enormous.
 
 === What Doesn't Happen: Long-Term Back Pain
-Multiple randomized studies have found NO link between epidurals and chronic back pain [11]. About 30% of ALL postpartum women have back pain - regardless of whether they had an epidural. Pregnancy and childbirth are the likely culprits, not the epidural needle.
+Multiple randomized studies have found NO link between epidurals and chronic back pain #citation[11]. About 30% of ALL postpartum women have back pain #citation[11] - regardless of whether they had an epidural. Pregnancy and childbirth are the likely culprits, not the epidural needle.
 
 #line(length: 100%)
 
 == EFFECTS ON BABY
 
 === Medication Exposure
-Both epidural drugs cross the placenta. Fentanyl transfer is rapid and nearly complete (baby's levels approach mom's levels).
+Both epidural drugs cross the placenta. Fentanyl transfer is rapid and nearly complete (baby's levels approach mom's levels) #citation[15].
 
 === Alertness and Neurobehavior
 At typical doses, standard assessments (Apgar scores, blood gases) usually look fine. More sensitive neurobehavioral tests show:
@@ -174,7 +174,7 @@ At typical doses, standard assessments (Apgar scores, blood gases) usually look 
 Evidence is mixed but suggests possible challenges:
 - 17% quit breastfeeding by 6 weeks with high-dose fentanyl (vs. 2-5% with lower doses)
 - More reports of "fussy" babies with feeding difficulty
-- Lower breast milk supply in early postpartum in some studies
+- Lower breast milk supply in early postpartum in some studies #citation[13]
 
 Multiple factors complicate this picture: higher forceps rates mean more bruised babies, maternal fever leads to baby testing and separation, and exhaustion affects everyone.
 
@@ -213,7 +213,7 @@ Without epidural, pushing is guided by intense involuntary urges and propriocept
 === Positions That Work
 Even with limited mobility, position still matters:
 
-*Side-lying with peanut ball* - Research shows peanut balls reduce first stage by 87 minutes and increase vaginal delivery rates by 11% [8]. Place the ball between knees while lying on your side.
+*Side-lying with peanut ball* - Research shows peanut balls reduce first stage by 87 minutes and increase vaginal delivery rates by 11% #citation[8]. Place the ball between knees while lying on your side.
 
 *Semi-sitting* - Head of bed elevated, grab behind thighs when pushing.
 
@@ -224,7 +224,7 @@ Even with limited mobility, position still matters:
 === Immediate vs. Delayed Pushing
 Old advice: Wait 1-2 hours after full dilation before pushing ("laboring down").
 
-Current evidence: ACOG now recommends pushing immediately at full dilation [4,9]. Research shows no improvement in vaginal birth rates with waiting, but increased bleeding and infection risk.
+Current evidence: ACOG now recommends pushing immediately at full dilation #citation[4] #citation[9]. Research shows no improvement in vaginal birth rates with waiting, but increased bleeding and infection risk.
 
 Some nuance: If you have absolutely no urge to push, a brief rest (not hours) may help the epidural wear off slightly and improve sensation.
 
@@ -273,30 +273,38 @@ The "right" choice is the one that helps you through YOUR labor, with YOUR body,
 
 == CITATIONS
 
-1. Anim-Somuah M, Smyth RM, Cyna AM, Cuthbert A. Epidural versus non-epidural or no analgesia for pain management in labour. _Cochrane Database Syst Rev._ 2018;5(5):CD000331.
+#citation[1] Anim-Somuah, M., Smyth, R.M., Cyna, A.M., Cuthbert, A. (2018). Epidural versus non-epidural or no analgesia for pain management in labour. _Cochrane Database Syst Rev._, 5(5):CD000331. DOI: 10.1002/14651858.cd000331.pub4
 
-2. Kearns RJ, et al. Epidural analgesia and severe maternal morbidity: a population-based cohort study. _BMJ._ 2024.
+#citation[2] Kearns, R.J., et al. (2024). Epidural analgesia during labour and severe maternal morbidity: population based study. _BMJ_, 384:e077190. DOI: 10.1136/bmj-2023-077190
 
-3. ACOG Practice Bulletin No. 209: Obstetric Analgesia and Anesthesia. _Obstet Gynecol._ 2019;133(3):e208-e225.
+#citation[3] ACOG Practice Bulletin No. 209. (2019). Obstetric Analgesia and Anesthesia. _Obstet Gynecol._, 133(3):e208-e225.
 
-4. ACOG Clinical Practice Guideline No. 8: First and Second Stage Labor Management. _Obstet Gynecol._ 2024;143(1):144-162.
+#citation[4] ACOG Clinical Practice Guideline No. 8. (2024). First and Second Stage Labor Management. _Obstet Gynecol._, 143(1):144-162.
 
-5. Cheng YW, et al. Second stage of labor and epidural use: a larger effect than previously suggested. _Obstet Gynecol._ 2014;123(3):527-535.
+#citation[5] Cheng, Y.W., et al. (2014). Second stage of labor and epidural use: a larger effect than previously suggested. _Obstet Gynecol._, 123(3):527-535. DOI: 10.1097/aog.0000000000000134
 
-6. Lange EMS, et al. Epidural-related maternal fever: incidence, pathophysiology, outcomes, and management. _Am J Obstet Gynecol._ 2023;228(2):S1147-S1158.
+#citation[6] Patel, S., Ciechanowicz, S., Blumenfeld, Y.J., Sultan, P. (2023). Epidural-related maternal fever: incidence, pathophysiology, outcomes, and management. _Am J Obstet Gynecol._, 228(2):S1147-S1158. DOI: 10.1016/j.ajog.2022.06.026
 
-7. Beilin Y, et al. Effect of labor epidural analgesia with and without fentanyl on infant breastfeeding. _Anesthesiology._ 2005;103(6):1211-1217.
+#citation[7] Beilin, Y., et al. (2005). Effect of labor epidural analgesia with and without fentanyl on infant breastfeeding. _Anesthesiology_, 103(6):1211-1217. DOI: 10.1097/00000542-200512000-00016
 
-8. Tussey CM, et al. Reducing length of labor and cesarean surgery rate using a peanut ball for women laboring with an epidural. _J Perinat Educ._ 2015;24(1):16-24.
+#citation[8] Tussey, C.M., et al. (2015). Reducing length of labor and cesarean surgery rate using a peanut ball for women laboring with an epidural. _J Perinat Educ._, 24(1):16-24. DOI: 10.1891/1058-1243.24.1.16
 
-9. Cahill AG, et al. Effect of Immediate vs Delayed Pushing on Rates of Spontaneous Vaginal Delivery. _JAMA._ 2018;320(14):1444-1454.
+#citation[9] Cahill, A.G., et al. (2018). Effect of Immediate vs Delayed Pushing on Rates of Spontaneous Vaginal Delivery Among Nulliparous Women Receiving Neuraxial Analgesia. _JAMA_, 320(14):1444-1454. DOI: 10.1001/jama.2018.13986
 
-10. Lieberman E, et al. Changes in fetal position during labor and their association with epidural analgesia. _Obstet Gynecol._ 2005;105(5 Pt 1):974-982.
+#citation[10] Lieberman, E., et al. (2005). Changes in fetal position during labor and their association with epidural analgesia. _Obstet Gynecol._, 105(5 Pt 1):974-982. DOI: 10.1097/01.aog.0000177768.02037.10
 
-11. Howell CJ, et al. Randomised study of long term outcome after epidural versus non-epidural analgesia during labour. _BMJ._ 2002;325(7355):357.
+#citation[11] Howell, C.J., et al. (2002). Randomised study of long term outcome after epidural versus non-epidural analgesia during labour. _BMJ_, 325(7360):357. DOI: 10.1136/bmj.325.7360.357
 
-12. Wong CA, Scavone BM, Peaceman AM, et al. The risk of cesarean delivery with neuraxial analgesia given early versus late in labor. _N Engl J Med._ 2005;352(7):655-665.
+#citation[12] Wong, C.A., Scavone, B.M., Peaceman, A.M., et al. (2005). The risk of cesarean delivery with neuraxial analgesia given early versus late in labor. _N Engl J Med._, 352(7):655-665.
 
-13. Jordan S, et al. A longitudinal study of the association of epidural anesthesia and low-dose synthetic oxytocin regimens with breast milk supply. _Sci Rep._ 2023;13:21084.
+#citation[13] Takahata, K., Horiuchi, S., Miyauchi, A., Tadokoro, Y., Shuo, T. (2023). A longitudinal study of the association of epidural anesthesia and low-dose synthetic oxytocin regimens with breast milk supply and breastfeeding rates. _Sci Rep._, 13:21084. DOI: 10.1038/s41598-023-48584-6
 
-14. Dekker R. Epidural during Labor for Pain Management. _Evidence Based Birth._ 2024.
+#citation[14] Dekker, R. (2024). Epidural during Labor for Pain Management. _Evidence Based Birth._
+
+#citation[15] Loftus, J.R., Hill, H., Cohen, S.E. (1995). Placental transfer and neonatal effects of epidural sufentanil and fentanyl administered with bupivacaine during labor. _Anesthesiology_, 83(2):300-308. DOI: 10.1097/00000542-199508000-00010
+
+#citation[16] Melzack, R., Taenzer, P., Kinch, R.A. (1981). Labor pain: nature of the experience and the role of prepared childbirth training. _Pain_, 11(3):291-305. DOI: 10.1016/0304-3959(81)90537-6
+
+#citation[17] Hodnett, E.D. (2002). Pain and women's satisfaction with the experience of childbirth: a systematic review. _Am J Obstet Gynecol._, 186(5):S160-S172. DOI: 10.1016/s0002-9378(02)70189-0
+
+#citation[18] Ruppen, W., Derry, S., McQuay, H., Moore, R.A. (2006). Incidence of epidural hematoma, infection, and neurologic injury in obstetric patients with epidural analgesia/anesthesia. _Anesthesiology_, 103(4):1038-1049. DOI: 10.1097/00000542-200608000-00023

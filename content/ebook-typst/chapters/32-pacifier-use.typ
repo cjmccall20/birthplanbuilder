@@ -2,7 +2,7 @@
 
 == THE QUICK ANSWER
 
-Pacifiers are safe—and may even reduce SIDS risk—once breastfeeding is established (usually 3-4 weeks). The "nipple confusion" concern is largely overstated. If you want to use one, wait until nursing is going well, then introduce without guilt.
+Pacifiers are safe—and may even reduce SIDS risk #citation[1]—once breastfeeding is established (usually 3-4 weeks) #citation[1]. The "nipple confusion" concern is largely overstated #citation[2]. If you want to use one, wait until nursing is going well, then introduce without guilt.
 
 == WHAT IT IS
 
@@ -12,22 +12,22 @@ Pacifiers satisfy a baby's natural urge to suck for comfort rather than nutritio
 
 *The nipple confusion debate:*
 - Theory: Pacifiers teach different sucking mechanics that make breastfeeding harder
-- Reality: A Cochrane review found pacifier use in healthy breastfeeding infants did not significantly affect breastfeeding duration when introduced after nursing was established
+- Reality: A Cochrane review found pacifier use in healthy breastfeeding infants did not significantly affect breastfeeding duration when introduced after nursing was established #citation[2]
 - The association between pacifiers and shorter breastfeeding may be correlation, not causation—mothers struggling with nursing may turn to pacifiers more often
 
 *SIDS risk reduction:*
-- Multiple studies show pacifier use during sleep reduces SIDS risk by 50-90%
-- The AAP recommends offering a pacifier at naptime and bedtime once breastfeeding is established
+- Multiple studies show pacifier use during sleep reduces SIDS risk by approximately 50-60% #citation[3] #citation[4]
+- The AAP recommends offering a pacifier at naptime and bedtime once breastfeeding is established #citation[1]
 - This is one of the strongest arguments for pacifiers
 
 *Other considerations:*
-- Extended use (beyond age 2-3) is associated with dental problems
-- May slightly increase ear infection risk
+- Extended use (beyond age 2-3) is associated with dental problems #citation[5]
+- May slightly increase ear infection risk #citation[6]
 - Provides genuine comfort and helps babies self-soothe
 
 *Hospital policies:*
-- Baby-Friendly hospitals often restrict pacifiers
-- These policies are based on older research and are increasingly questioned
+- Baby-Friendly hospitals often restrict pacifiers #citation[7]
+- These policies have evolved based on newer evidence balancing breastfeeding support with SIDS prevention
 - You can request one regardless of hospital certification
 
 *What IBCLCs (lactation consultants) generally recommend:*
@@ -55,3 +55,19 @@ Plan to wean by age 2-3 to avoid dental issues, but that's future you's problem.
 - *Brands worth trying:* Philips Avent Soothie (the classic hospital pacifier—one-piece silicone, easy to clean), MAM (orthodontic shape, self-sterilizing case), NUK (contoured shape some babies prefer), and Ryan & Rose (one-piece cutie design popular with parents). These are general recommendations based on popularity and design quality, not endorsements. _(For more current reviews and brand comparisons, check our website—we keep an updated guide as new products come to market.)_
 
 Pacifiers are a tool, not a failure.
+
+== Citations
+
+#citation[1] American Academy of Pediatrics Task Force on Sudden Infant Death Syndrome. SIDS and Other Sleep-Related Infant Deaths: Updated 2016 Recommendations for a Safe Infant Sleeping Environment. _Pediatrics_. 2016;138(5):e20162938. DOI: 10.1542/peds.2016-2938
+
+#citation[2] Jaafar SH, Ho JJ, Jahanfar S, Angolkar M. Effect of restricted pacifier use in breastfeeding term infants for increasing duration of breastfeeding. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd007202.pub4
+
+#citation[3] Hauck FR, Omojokun OO, Siadaty MS. Do Pacifiers Reduce the Risk of Sudden Infant Death Syndrome? A Meta-analysis. _Pediatrics_. 2005;116(5):e716-e723.
+
+#citation[4] Moon RY, Tanabe KO, Yang DC, Young HA, Hauck FR. Pacifier Use and SIDS: Evidence for a Consistently Reduced Risk. _Matern Child Health J_. 2012;16(3):609-614. DOI: 10.1007/s10995-011-0793-x
+
+#citation[5] American Academy of Pediatric Dentistry. Policy on Pacifiers (Revised 2024). #link("https://www.aapd.org/globalassets/media/policies_guidelines/p_on-pacifiers.pdf")
+
+#citation[6] Niemela M, Pihakari O, Pokka T, Uhari M. Pacifier as a Risk Factor for Acute Otitis Media. _Pediatric Research_. 1999. DOI: 10.1203/00006450-199904020-01006
+
+#citation[7] WHO/UNICEF. Baby-Friendly Hospital Initiative: Implementation Guidance (2018). #link("https://www.unicef.org/media/95191/file/Baby-friendly-hospital-initiative-implementation-guidance-2018.pdf")

@@ -119,29 +119,29 @@ Each starting point can trigger the sequence.
 
 Research consistently demonstrates that interventions cluster together and correlate with increased cesarean rates:
 
-_Pitocin and Cesarean:_ Among women who received Pitocin for induction or augmentation, #link("https://birthindueseason.org/cascade-interventions/")[32% experienced abnormal fetal heart rate changes compared to 17% who didn't receive Pitocin]. Researchers found that augmentation and induction increase the chance of abnormal heart rate patterns and therefore lead to primary cesareans. // Note: Verify these statistics against birthindueseason.org infographics
+_Pitocin and Cesarean:_ Among women who received Pitocin for induction or augmentation, #link("https://birthindueseason.org/cascade-interventions/")[32% experienced abnormal fetal heart rate changes compared to 17% who didn't receive Pitocin] #citation[1]. Researchers found that augmentation and induction increase the chance of abnormal heart rate patterns and therefore lead to primary cesareans. // Note: Verify these statistics against birthindueseason.org infographics
 
-_Epidural effects:_ Among women who had cesareans, #link("https://birthindueseason.org/cascade-interventions/")[52% with epidurals had their cesarean because of abnormal fetal heart rate, compared with 38% without epidurals]. Inadequate contractions affected 33% of women with epidurals compared to only 10% without—meaning women are three times more likely to have inadequate contractions with epidural anesthesia. // Note: Verify these statistics against birthindueseason.org infographics
+_Epidural effects:_ Among women who had cesareans, #link("https://birthindueseason.org/cascade-interventions/")[52% with epidurals had their cesarean because of abnormal fetal heart rate, compared with 38% without epidurals] #citation[1]. Inadequate contractions affected 33% of women with epidurals compared to only 10% without—meaning women are three times more likely to have inadequate contractions with epidural anesthesia #citation[1]. // Note: Verify these statistics against birthindueseason.org infographics
 
-_Combined intervention impact:_ #link("https://birthindueseason.org/cascade-interventions/")[When both Pitocin and epidural were used, 31% of first-time mothers required cesarean section].
+_Combined intervention impact:_ #link("https://birthindueseason.org/cascade-interventions/")[When both Pitocin and epidural were used, 31% of first-time mothers required cesarean section] #citation[1].
 
-_Continuous monitoring:_ A #link("https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2024.1385343/full")[2024 study from Ethiopia found higher rates of instrumental-assisted vaginal delivery (7% vs. 2.4%) and cesarean sections (16% vs. 2%) with continuous monitoring compared to intermittent auscultation], with no differences in neonatal outcomes.
+_Continuous monitoring:_ A #link("https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2024.1385343/full")[2024 study from Ethiopia found higher rates of instrumental-assisted vaginal delivery (7% vs. 2.4%) and cesarean sections (16% vs. 2%) with continuous monitoring compared to intermittent auscultation] #citation[2], with no differences in neonatal outcomes.
 
-_Intervention acceleration:_ A #link("https://evidencebasedbirth.com/ebb-245-evidence-on-pitocin-augmentation-epidurals-cesarean/")[2021 analysis found not only an increase in intervention use over a 20-year period, but also an increase in the number of interventions each woman received].
+_Intervention acceleration:_ A #link("https://evidencebasedbirth.com/ebb-245-evidence-on-pitocin-augmentation-epidurals-cesarean/")[2021 analysis found not only an increase in intervention use over a 20-year period, but also an increase in the number of interventions each woman received] #citation[3].
 
-_Bed rest cascade:_ Research shows that simply putting a laboring woman in bed can result in #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/")[poor quality contractions, necessitating augmentation, which requires electronic monitoring, leading to more interventions].
+_Bed rest cascade:_ Research shows that simply putting a laboring woman in bed can result in #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/")[poor quality contractions, necessitating augmentation, which requires electronic monitoring, leading to more interventions] #citation[4].
 
 === C-section rates by provider and hospital vary wildly
 
 One of the most striking pieces of evidence for the cascade comes from examining cesarean rate variations. If cesareans were primarily driven by medical necessity, rates would be relatively consistent across similar patient populations. Instead, the data reveals dramatic variation:
 
-_Hospital variation:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC5975533/")[Cesarean rates currently vary from 6% to 69% in U.S. hospitals, unexplained by clinical or demographic factors]. A #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3615450/")[study of 593 hospitals found cesarean rates varied tenfold, from 7.1% to 69.9%].
+_Hospital variation:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC5975533/")[Cesarean rates currently vary from 6% to 69% in U.S. hospitals, unexplained by clinical or demographic factors] #citation[5]. A #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3615450/")[study of 593 hospitals found cesarean rates varied tenfold, from 7.1% to 69.9%] #citation[6].
 
-_Hospital matters more than patient factors:_ Research on 1,373 hospitals from 2009-2010 found that #link("https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/")[birth facility may be a stronger predictor of cesarean risk than maternal factors]. The between-hospital variation was not attributable to maternal characteristics.
+_Hospital matters more than patient factors:_ Research on 1,373 hospitals from 2009-2010 found that #link("https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/")[birth facility may be a stronger predictor of cesarean risk than maternal factors] #citation[7]. The between-hospital variation was not attributable to maternal characteristics.
 
 _Regional differences:_ #link("https://birthguidechicago.com/c-section-rates-at-chicago-area-hospitals-why-they-matter/")[In the Chicago area, primary cesarean rates at individual hospitals range from 7.4% to 24.6%], but higher rates are not associated with better outcomes.
 
-_Provider attitudes matter:_ A #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC5975533/")[study found that as provider attitudes became more favorable toward cesarean and less favorable toward vaginal birth, their cesarean rates increased proportionately]. This suggests provider philosophy drives outcomes more than medical necessity.
+_Provider attitudes matter:_ A #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC5975533/")[study found that as provider attitudes became more favorable toward cesarean and less favorable toward vaginal birth, their cesarean rates increased proportionately] #citation[5]. This suggests provider philosophy drives outcomes more than medical necessity.
 
 These variations prove that cesarean rates depend heavily on practice patterns, hospital culture, and intervention use rather than patient needs.
 
@@ -149,11 +149,11 @@ These variations prove that cesarean rates depend heavily on practice patterns, 
 
 When researchers compare the same types of low-risk women giving birth in different settings, the results are striking:
 
-_Birth center outcomes:_ #link("https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/")[Birth centers show increased odds of spontaneous vaginal birth, decreased risk for cesarean and assisted vaginal birth, and similar intrapartum and neonatal outcomes relative to hospital births]. A #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC4321785/")[retrospective study of 32,174 births found birth center delivery was associated with lower cesarean rates (adjusted RR = 0.73) without increased operative vaginal delivery].
+_Birth center outcomes:_ #link("https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/")[Birth centers show increased odds of spontaneous vaginal birth, decreased risk for cesarean and assisted vaginal birth, and similar intrapartum and neonatal outcomes relative to hospital births] #citation[7]. A #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC4321785/")[retrospective study of 32,174 births found birth center delivery was associated with lower cesarean rates (adjusted RR = 0.73) without increased operative vaginal delivery] #citation[8].
 
-_Home birth data:_ A #link("https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/")[Canadian study comparing 6,692 planned home births to 6,692 planned hospital births for low-risk women found no differences in perinatal mortality rates, but cesarean delivery rates were significantly lower in the home group (5.2% vs. 8.1%)].
+_Home birth data:_ A #link("https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/")[Canadian study comparing 6,692 planned home births to 6,692 planned hospital births for low-risk women found no differences in perinatal mortality rates, but cesarean delivery rates were significantly lower in the home group (5.2% vs. 8.1%)] #citation[7].
 
-_Midwifery model:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC12152675/")[Midwife-led continuity of care models result in higher rates of normal physiological vaginal births, reduced cesarean sections, safer outcomes, more positive birth experiences and lower costs]. Statistics show #link("https://hatchmidwifery.com/cesarean-rates-bay-area-2024/")[midwifery-led care results in 30% reduced risk of cesarean births among first-time mothers and 40% reduced risk among those having second or subsequent babies].
+_Midwifery model:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC12152675/")[Midwife-led continuity of care models result in higher rates of normal physiological vaginal births, reduced cesarean sections, safer outcomes, more positive birth experiences and lower costs] #citation[9]. Statistics show #link("https://hatchmidwifery.com/cesarean-rates-bay-area-2024/")[midwifery-led care results in 30% reduced risk of cesarean births among first-time mothers and 40% reduced risk among those having second or subsequent babies].
 
 The populations in these studies are comparable. The difference is the model of care and intervention rates, not the patients' medical risk.
 
@@ -244,9 +244,9 @@ _Breaking the link:_ Stay home until contractions are strong, regular, and close
 
 _What happens:_ Elastic belts with sensors are strapped around your belly, connecting you to a machine that tracks your baby's heart rate and your contractions continuously. You must stay near the bed for the sensors to maintain good contact.
 
-_Why it matters:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/")[Continuous monitoring restricts your movement, which leads to slower labor]. It also has a #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC4010242/")[99% false-positive rate], meaning it frequently shows "concerning" patterns that don't actually indicate problems.
+_Why it matters:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/")[Continuous monitoring restricts your movement, which leads to slower labor] #citation[4]. It also has a #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC4010242/")[99% false-positive rate] #citation[10], meaning it frequently shows "concerning" patterns that don't actually indicate problems.
 
-_The research:_ #link("https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2024.1385343/full")[A 2024 study found continuous monitoring was associated with higher cesarean rates (16% vs. 2%) compared to intermittent auscultation with no improvement in neonatal outcomes]. "Non-reassuring fetal heart tones" is the #link("https://evidencebasedbirth.com/fetal-monitoring/")[second most common reason for first-time cesareans at 23%].
+_The research:_ #link("https://www.frontiersin.org/journals/global-womens-health/articles/10.3389/fgwh.2024.1385343/full")[A 2024 study found continuous monitoring was associated with higher cesarean rates (16% vs. 2%) compared to intermittent auscultation with no improvement in neonatal outcomes] #citation[2]. "Non-reassuring fetal heart tones" is the #link("https://evidencebasedbirth.com/fetal-monitoring/")[second most common reason for first-time cesareans at 23%] #citation[3].
 
 _How it leads to more:_ Restricted movement slows labor, leading to augmentation. "Concerning" patterns lead to more interventions or cesarean.
 
@@ -258,7 +258,7 @@ _What happens:_ An IV line is placed in your hand or arm, either with continuous
 
 _Why it matters:_ Movement is one of the most effective tools for labor progress and pain management. #link("https://evidencebasedbirth.com/friedmans-curve-and-failure-to-progress-a-leading-cause-of-unplanned-c-sections/")[MRI evidence shows the pelvic outlet becomes wider when squatting, kneeling, or on hands and knees]. Walking helps baby descend. Position changes every 20-30 minutes promote progress.
 
-_The research:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/")[Studies show that bed rest can result in poor quality contractions, slow dilation, prolonged labor, and increased cesarean rates].
+_The research:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/")[Studies show that bed rest can result in poor quality contractions, slow dilation, prolonged labor, and increased cesarean rates] #citation[4].
 
 _How it leads to more:_ Restricted movement → slower labor → "failure to progress" diagnosis → Pitocin augmentation.
 
@@ -294,7 +294,7 @@ _What happens:_ Providers impose time limits on how long each phase of labor sho
 
 _Why it matters:_ Normal labor varies dramatically. Some women labor quickly; others take time. Modern research shows that #link("https://evidencebasedbirth.com/friedmans-curve-and-failure-to-progress-a-leading-cause-of-unplanned-c-sections/")[active labor starts at 6cm, not 4cm as traditionally taught]. Pushing can safely take much longer than the traditional 2-hour limit, especially with epidurals.
 
-_The research:_ "Failure to Progress" (dystocia) is #link("https://evidencebasedbirth.com/friedmans-curve-and-failure-to-progress-a-leading-cause-of-unplanned-c-sections/")[the most common reason for unplanned cesareans]. #link("https://www.thevbaclink.com/failure-to-progress-or-failure-to-wait/")[ACOG released updated guidelines in 2024 calling time limit recommendations "conditional" with "low quality evidence"].
+_The research:_ "Failure to Progress" (dystocia) is #link("https://evidencebasedbirth.com/friedmans-curve-and-failure-to-progress-a-leading-cause-of-unplanned-c-sections/")[the most common reason for unplanned cesareans] #citation[11]. #link("https://www.thevbaclink.com/failure-to-progress-or-failure-to-wait/")[ACOG released updated guidelines in 2024 calling time limit recommendations "conditional" with "low quality evidence"] #citation[12].
 
 _How it leads to more:_ Arbitrary time limit → Pitocin augmentation → cascade continues.
 
@@ -318,7 +318,7 @@ _What happens:_ Surgical delivery through incisions in your abdomen and uterus. 
 
 _Why it matters:_ Cesarean is major abdominal surgery with significant recovery time, risks of infection, blood loss, blood clots, future pregnancy complications, and impacts on breastfeeding initiation.
 
-_The research:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3615450/")[Cesarean rates vary from 7% to 70% across U.S. hospitals for similar populations], proving most cesareans are driven by practice patterns rather than medical necessity. When interventions are minimized, cesarean rates drop dramatically.
+_The research:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC3615450/")[Cesarean rates vary from 7% to 70% across U.S. hospitals for similar populations] #citation[6], proving most cesareans are driven by practice patterns rather than medical necessity. When interventions are minimized, cesarean rates drop dramatically.
 
 _Breaking the link:_ The time to prevent cesarean is before the cascade starts. Once you're at the end of the cascade, genuinely medical situations have often developed. This is why understanding and interrupting the cascade early matters so much.
 
@@ -358,7 +358,7 @@ _Core principles:_
 
 _Practice differences:_ Midwives typically spend longer with patients during appointments, provide education and counseling, emphasize nutrition and lifestyle, practice shared decision-making, attend births with patience rather than time pressure, and use interventions judiciously.
 
-_Evidence:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC12152675/")[A recent systematic review reveals that midwife-led continuity of care models result in higher rates of normal physiological vaginal births, reduced cesarean sections, safer outcomes, more positive birth experiences and lower costs].
+_Evidence:_ #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC12152675/")[A recent systematic review reveals that midwife-led continuity of care models result in higher rates of normal physiological vaginal births, reduced cesarean sections, safer outcomes, more positive birth experiences and lower costs] #citation[9].
 
 _Real-world data:_ #link("https://hatchmidwifery.com/cesarean-rates-bay-area-2024/")[Midwifery-led care shows 30% reduced risk of cesarean births among first-time mothers and 40% reduced risk among those having second or subsequent babies].
 
@@ -467,6 +467,32 @@ Your best protection is knowledge. Understanding how one intervention leads to a
 The research is clear: minimizing early interventions, choosing low-intervention providers, and giving physiological birth the time and freedom it needs results in lower cesarean rates, fewer complications, and better experiences without compromising safety. That evidence should inform how we approach birth, but it often doesn't. That's why understanding the cascade matters.
 
 #line(length: 100%)
+
+== Citations
+
+#citation[1] In Due Season. Cascade of Interventions: How do Pitocin and Epidurals Affect the C-Section Rate? https://birthindueseason.org/cascade-interventions/
+
+#citation[2] The effect of continuous electronic fetal monitoring on mode of delivery. _Frontiers in Global Women's Health_. 2024. DOI: 10.3389/fgwh.2024.1385343
+
+#citation[3] Evidence Based Birth. Evidence on Pitocin Augmentation, Epidurals, Cesarean. https://evidencebasedbirth.com/ebb-245-evidence-on-pitocin-augmentation-epidurals-cesarean/
+
+#citation[4] First Do No Harm: Interventions During Childbirth. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/
+
+#citation[5] Do provider birth attitudes influence cesarean delivery rate? _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC5975533/
+
+#citation[6] Cesarean Delivery Rates Vary 10-Fold Among US Hospitals. _PLOS Medicine_. https://pmc.ncbi.nlm.nih.gov/articles/PMC3615450/
+
+#citation[7] Maternal and Newborn Outcomes by Birth Setting. _NCBI Bookshelf_. https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/
+
+#citation[8] Physician-led, hospital-linked birth care centers can decrease Cesarean section rates. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC4321785/
+
+#citation[9] Midwifery models of care in the context of increasing caesarean delivery rates. _PMC_. 2024. https://pmc.ncbi.nlm.nih.gov/articles/PMC12152675/
+
+#citation[10] Cochrane review on continuous electronic fetal monitoring false positive rates. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC4010242/
+
+#citation[11] Evidence Based Birth. Friedman's Curve and Failure to Progress: A Leading Cause of Unplanned C-Sections. https://evidencebasedbirth.com/friedmans-curve-and-failure-to-progress-a-leading-cause-of-unplanned-c-sections/
+
+#citation[12] American College of Obstetricians and Gynecologists. First and Second Stage Labor Management. Clinical Practice Guideline No. 8. _Obstet Gynecol_. 2024 Jan;143(1):e1-e18.
 
 == Key Sources
 

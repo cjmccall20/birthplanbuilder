@@ -7,7 +7,7 @@
 == One-Page Overview
 
 #callout[
-Group B Streptococcus (GBS) is a common bacterium carried by 15-35% of pregnant women in their vagina or rectum. During pregnancy, you'll be offered a routine screening around 35-37 weeks. If you test positive, providers will recommend IV antibiotics during labor. Some families accept; others decline. Both are legitimate, informed choices.
+Group B Streptococcus (GBS) is a common bacterium carried by 15-35% of pregnant women in their vagina or rectum.#citation[1] During pregnancy, you'll be offered a routine screening around 35-37 weeks. If you test positive, providers will recommend IV antibiotics during labor. Some families accept; others decline. Both are legitimate, informed choices.
 
 Here's what you need to know:
 
@@ -15,7 +15,7 @@ Here's what you need to know:
 
 - *When infection does occur, it's serious.* Early-onset GBS disease can cause blood infections, pneumonia, or meningitis in newborns. Without antibiotics, this affects approximately 1-2 babies per 100 GBS-positive births (1-2%).
 
-- *Antibiotics reduce this risk further.* IV antibiotics during labor bring the rate down to roughly 0.2-0.4%. That's a meaningful reduction in relative terms, from a number that was already low.
+- *Antibiotics reduce this risk further.* IV antibiotics during labor bring the rate down to roughly 0.2-0.4%.#citation[2] That's a meaningful reduction in relative terms, from a number that was already low.
 
 - *Antibiotics come with real trade-offs.* They disrupt your baby's developing gut bacteria at a critical window for immune system development. They carry risks of allergic reaction, yeast infections, and contribute to antibiotic resistance. These are not trivial concerns.
 
@@ -32,7 +32,7 @@ Here's what you need to know:
 
 Group B Streptococcus is a type of bacteria that naturally lives in the bodies of many adults. In pregnant women, it often resides in the vagina or rectum without causing any problems. This is called colonization, and it's completely different from an infection.
 
-Between 15% and 35% of pregnant women carry GBS at any given time. In the US, about 21-30% of women test positive. These numbers vary by region and population. The vast majority of these women will have perfectly healthy pregnancies and babies regardless of whether they receive antibiotics.
+Between 15% and 35% of pregnant women carry GBS at any given time.#citation[1] In the US, about 21-30% of women test positive. These numbers vary by region and population. The vast majority of these women will have perfectly healthy pregnancies and babies regardless of whether they receive antibiotics.
 
 Here's the key point: Having GBS colonization doesn't mean you're sick. Most carriers have no symptoms whatsoever. The bacteria is simply present, living as part of your body's normal bacterial ecosystem. GBS colonization is also transient --- it comes and goes. You may test positive at 36 weeks and be negative at delivery, or vice versa.
 
@@ -42,11 +42,11 @@ When we talk about GBS risk, we're talking about the possibility of the bacteria
 
 - Blood infection (bacteremia) --- most common
 - Pneumonia
-- Meningitis (about 10% of early-onset cases)
+- Meningitis (about 10% of early-onset cases)#citation[3]
 
 Without any treatment, approximately 1-2% of babies born to GBS-positive mothers develop early-onset disease. Put another way: *98-99 out of 100 babies born to untreated GBS-positive mothers remain healthy.* Most babies exposed to GBS during birth clear the bacteria on their own without any issue.
 
-When GBS disease does occur, it typically appears within the first 24-48 hours of life. Even with treatment, meningitis from GBS carries a 4-6% mortality rate and causes permanent neurological problems in 20-30% of survivors.
+When GBS disease does occur, it typically appears within the first 24-48 hours of life. Even with treatment, meningitis from GBS carries a 4-6% mortality rate and causes permanent neurological problems in 20-30% of survivors.#citation[3]
 
 So while GBS disease is uncommon, the consequences when it does happen can be serious. This is why providers take it seriously --- and also why many families who decline antibiotics choose close newborn monitoring as their alternative strategy.
 
@@ -60,23 +60,23 @@ If you test positive for GBS at your 35-37 week screening, the standard recommen
 
 Here's what happens:
 - You'll receive an IV line in your arm
-- The first dose is typically 5 million units of penicillin (or 2 grams of ampicillin as an alternative)
+- The first dose is typically 5 million units of penicillin (or 2 grams of ampicillin as an alternative)#citation[1]
 - Follow-up doses are given every 4 hours until delivery
 - If you have a penicillin allergy, alternatives like cefazolin, clindamycin, or vancomycin are available
 
 The antibiotics travel through your bloodstream, cross the placenta, and reach your baby. This creates antibiotic levels in your baby's blood high enough to kill GBS bacteria during the birth process.
 
-*The 4-hour threshold:* Ideally, you receive at least 4 hours of antibiotics before delivery. Studies show that after 4 hours, the antibiotic concentration in your baby's blood reaches optimal levels. However, the guidelines state: no medically necessary procedure should be delayed to achieve 4 hours. Even shorter durations provide some protection --- though how much is debated.
+*The 4-hour threshold:* Ideally, you receive at least 4 hours of antibiotics before delivery. Studies show that after 4 hours, the antibiotic concentration in your baby's blood reaches optimal levels.#citation[1] However, the guidelines state: no medically necessary procedure should be delayed to achieve 4 hours. Even shorter durations provide some protection --- though how much is debated.
 
 === What Antibiotics Accomplish
 
-The most commonly cited statistic is that intrapartum antibiotics reduce early-onset GBS disease by approximately 83%.
+The most commonly cited statistic is that intrapartum antibiotics reduce early-onset GBS disease by approximately 83%.#citation[2]
 
-This figure comes from a Cochrane review that combined data from three randomized controlled trials. In absolute numbers:
+This figure comes from a Cochrane review that combined data from three randomized controlled trials.#citation[2] In absolute numbers:
 - Without antibiotics for GBS-positive mothers: approximately 1-2 babies per 100 births develop early-onset disease
 - With antibiotics: approximately 2-4 babies per 1,000 births develop disease
 
-In population terms, the CDC estimates that widespread GBS screening and treatment has prevented thousands of cases of early GBS disease since the 1990s.
+In population terms, the CDC estimates that widespread GBS screening and treatment has prevented thousands of cases of early GBS disease since the 1990s.#citation[1]
 
 These are real numbers worth knowing. They are also numbers that deserve context: the baseline risk without antibiotics is already low for most women, and the reduction --- while meaningful --- is from a small number to a smaller number.
 
@@ -96,15 +96,15 @@ When you receive IV antibiotics during labor, those antibiotics cross the placen
 - *Reduced beneficial Bacteroides species* --- still suppressed 3 months after exposure ends
 - *Decreased Bifidobacterium and Lactobacillus* --- species crucial for immune development
 - *Increased potentially harmful bacteria* like Enterobacteriaceae
-- *Delayed recovery* --- sometimes taking many months to normalize
+- *Delayed recovery* --- sometimes taking many months to normalize#citation[4]
 
 What's striking is that infants, unlike adults, don't have an established "normal" to return to. The antibiotics don't just temporarily suppress bacteria; they disrupt the assembly process itself during the most critical window for immune system calibration.
 
 === The Eczema, Allergy, and Long-Term Connection
 
-This microbiome disruption appears to have real downstream consequences. A 2024 study from the CHILD cohort (over 1,000 infants) found that babies exposed to systemic antibiotics in the first year of life had an 81% increased risk of developing atopic dermatitis (eczema), with a dose-response relationship --- each additional antibiotic course corresponded to higher risk.
+This microbiome disruption appears to have real downstream consequences. A 2024 study from the CHILD cohort (over 1,000 infants) found that babies exposed to systemic antibiotics in the first year of life had an 81% increased risk of developing atopic dermatitis (eczema), with a dose-response relationship --- each additional antibiotic course corresponded to higher risk.#citation[5]
 
-The emerging science connects early microbiome disruption to what's sometimes called the "hygiene hypothesis" or, more recently, microbiome science. In Western countries with high antibiotic use, rates of allergies, asthma, eczema, celiac disease, type 1 diabetes, and inflammatory bowel disease have dramatically increased over the past 50 years. In populations with greater microbial diversity and less antibiotic use, these conditions remain rare.
+The emerging science connects early microbiome disruption to what's sometimes called the "hygiene hypothesis" or, more recently, microbiome science. In Western countries with high antibiotic use, rates of allergies, asthma, eczema, celiac disease, type 1 diabetes, and inflammatory bowel disease have dramatically increased over the past 50 years.#citation[6] In populations with greater microbial diversity and less antibiotic use, these conditions remain rare.
 
 The mechanism appears to work through immune system training: a diverse, healthy microbiome in early life "teaches" the developing immune system to respond appropriately. Without this microbial education, the immune system appears prone to overreaction (allergies) and dysregulation (autoimmune conditions).
 
@@ -120,7 +120,7 @@ For the individual family, this matters because: if resistant GBS strains become
 
 Penicillin, the first-line GBS antibiotic, carries a risk of allergic reaction:
 
-- *Anaphylaxis* (severe, life-threatening allergic reaction): approximately 1 in 10,000 administrations. This is rare, but it happens during labor --- a time when an anaphylactic reaction is especially dangerous for both mother and baby.
+- *Anaphylaxis* (severe, life-threatening allergic reaction): approximately 1 in 10,000 administrations.#citation[7] This is rare, but it happens during labor --- a time when an anaphylactic reaction is especially dangerous for both mother and baby.
 - *Milder allergic reactions* (rash, hives, itching): more common, occurring in 1-10% of patients depending on the study.
 - Some women discover a penicillin allergy for the first time during labor, which can complicate an already intense experience.
 
@@ -174,7 +174,7 @@ Chlorhexidine is a topical antiseptic solution that can be used as a vaginal was
 
 *The evidence is mixed:*
 
-A Cochrane review found that vaginal chlorhexidine during labor did not clearly reduce rates of early-onset GBS disease in the studies reviewed. However, one well-designed study found that "intrapartum vaginal flushings with chlorhexidine in colonized mothers display the same efficacy as ampicillin in preventing vertical transmission of group B streptococcus." Other studies show reduced GBS colonization of babies, even if the clinical significance is debated.
+A Cochrane review found that vaginal chlorhexidine during labor did not clearly reduce rates of early-onset GBS disease in the studies reviewed.#citation[8] However, one well-designed study found that "intrapartum vaginal flushings with chlorhexidine in colonized mothers display the same efficacy as ampicillin in preventing vertical transmission of group B streptococcus." Other studies show reduced GBS colonization of babies, even if the clinical significance is debated.
 
 *Limitations:*
 - Chlorhexidine only works locally in the vagina and birth canal. Unlike IV antibiotics, it doesn't enter your baby's bloodstream, which means it may not help if bacteria have already reached the amniotic fluid
@@ -192,15 +192,15 @@ Some evidence suggests that specific probiotic strains can reduce GBS colonizati
 
 *What the research shows:*
 
-A meta-analysis of six clinical trials found that probiotics decreased the likelihood of a positive GBS test by 44%. Some individual studies showed stronger effects:
+A meta-analysis of six clinical trials found that probiotics decreased the likelihood of a positive GBS test by 44%.#citation[9] Some individual studies showed stronger effects:
 
-- In one study, 43% of women taking specific probiotic strains (L. rhamnosus GR-1 and L. reuteri RC-14) tested negative by delivery, compared to only 18% of controls
+- In one study, 43% of women taking specific probiotic strains (L. rhamnosus GR-1 and L. reuteri RC-14) tested negative by delivery, compared to only 18% of controls#citation[9]
 - The specific strains matter enormously --- generic probiotics show less effect
 - Starting after 30 weeks seems more effective than earlier
 
 *Important limitations:* Most studies had methodological weaknesses. More importantly, while probiotics may reduce colonization, there's no clinical evidence yet that they actually reduce rates of newborn disease. You could take probiotics, retest negative, and still carry GBS at delivery. This approach is promising and under active investigation, but not yet proven as a reliable alternative.
 
-*Practical note:* If you're interested in probiotics, look for products specifically containing L. rhamnosus GR-1 and L. reuteri RC-14, the strains with the most research behind them. Some women use both oral and vaginal probiotic preparations.
+*Practical note:* If you're interested in probiotics, look for products specifically containing L. rhamnosus GR-1 and L. reuteri RC-14, the strains with the most research behind them.#citation[9] Some women use both oral and vaginal probiotic preparations.
 
 === Garlic
 
@@ -222,7 +222,7 @@ Not all countries use universal screening. The UK, Netherlands, and New Zealand 
 
 Some families in the US adopt a modified version: they test positive for GBS, decline routine antibiotics, but agree in advance to accept antibiotics if risk factors develop during labor (such as fever, water broken for 18+ hours, or preterm delivery). This hybrid approach targets antibiotics to higher-risk situations while avoiding routine use.
 
-A large UK trial (GBS3) is comparing universal screening to the risk-based approach, with results expected in 2026.
+A large UK trial (GBS3) is comparing universal screening to the risk-based approach, with results expected in 2026.#citation[10]
 
 === How to Think About These Alternatives
 
@@ -244,9 +244,9 @@ If you decide to receive intrapartum antibiotics (or circumstances during labor 
 
 === Breastfeeding
 
-This is the most important mitigation factor. Breast milk contains special sugars called HMOs (human milk oligosaccharides) that specifically feed beneficial bacteria like B. infantis.
+This is the most important mitigation factor. Breast milk contains special sugars called HMOs (human milk oligosaccharides) that specifically feed beneficial bacteria like B. infantis.#citation[11]
 
-Studies show that antibiotic-exposed infants who were breastfed at 3 months had significantly better microbiota recovery and lower rates of asthma later in childhood. The protective effect was traced directly to recovery of Bifidobacterium in the gut.
+Studies show that antibiotic-exposed infants who were breastfed at 3 months had significantly better microbiota recovery and lower rates of asthma later in childhood.#citation[4] The protective effect was traced directly to recovery of Bifidobacterium in the gut.
 
 If breastfeeding is your plan, know that it becomes even more valuable if your baby has been exposed to antibiotics.
 
@@ -277,7 +277,7 @@ The often-cited 1-2% risk of GBS disease for untreated GBS-positive mothers is a
 *Factors that increase your baseline risk:*
 
 *Demographic and colonization factors:*
-- *African American/Black race:* Early-onset GBS disease occurs 2-3 times more frequently in Black infants compared to white infants. Research shows Black women also have higher rates of GBS colonization and are more likely to convert from GBS-negative to positive in late pregnancy.
+- *African American/Black race:* Early-onset GBS disease occurs 2-3 times more frequently in Black infants compared to white infants.#citation[12] Research shows Black women also have higher rates of GBS colonization and are more likely to convert from GBS-negative to positive in late pregnancy.
 - *Maternal age under 20:* Young maternal age is associated with higher GBS disease rates
 - *GBS found in urine during pregnancy:* This indicates heavy colonization and significantly increases transmission risk
 - *Previous baby with early-onset GBS disease:* This is one of the strongest risk factors
@@ -342,6 +342,34 @@ Here's how we see the landscape:
 
 What we want you to take away: if you accept GBS antibiotics, you've made a sound choice backed by decades of data. If you decline them after doing your research and putting a monitoring plan in place, you've also made a sound choice --- one that aligns with how several developed nations approach GBS as standard policy. Neither path requires apology or justification.
 ]
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] CDC. (2010). Prevention of Perinatal Group B Streptococcal Disease. _MMWR Recommendations and Reports_, 59(RR-10). #link("https://www.cdc.gov/mmwr/preview/mmwrhtml/rr5910a1.htm") Note: Screening window updated to 36-37 weeks per ACOG 2020 guidelines.
+
+#citation[2] Ohlsson, A., & Shah, V. S. (2014). Intrapartum antibiotics for known maternal Group B streptococcal colonization. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd007467.pub4
+
+#citation[3] Group B Streptococcus and Pregnancy. _StatPearls/NCBI_. #link("https://www.ncbi.nlm.nih.gov/books/NBK482443/")
+
+#citation[4] Morreale, C., Giaroni, C., Baj, A., et al. (2023). Effects of Perinatal Antibiotic Exposure and Neonatal Gut Microbiota. _Antibiotics_. DOI: 10.3390/antibiotics12020258. See also: Diamond, L., Wine, R., & Morris, S. K. (2022). Impact of intrapartum antibiotics on the infant gastrointestinal microbiome: A narrative review. _Archives of Disease in Childhood_. DOI: 10.1136/archdischild-2021-322590
+
+#citation[5] Antibiotics in Early Life and Atopic Dermatitis Risk. (2024). _Journal of Allergy and Clinical Immunology_. CHILD Cohort Study. #link("https://www.jacionline.org/article/S0091-6749(24)00409-3/fulltext")
+
+#citation[6] von Mutius, E. (2007). Allergies, infections and the hygiene hypothesis --- The epidemiological evidence. _Immunobiology_. DOI: 10.1016/j.imbio.2007.03.002. See also: Bendiks, M., & Kopp, M. V. (2013). The Relationship Between Advances in Understanding the Microbiome and the Maturing Hygiene Hypothesis. _Current Allergy and Asthma Reports_. DOI: 10.1007/s11882-013-0382-8
+
+#citation[7] Macy, E. M., & Chen, L. H. (2017). The Incidence of Anaphylaxis Associated with Oral and Parenteral Penicillin-Class Antibiotic Exposures. _Journal of Allergy and Clinical Immunology_. DOI: 10.1016/j.jaci.2016.12.165
+
+#citation[8] Chlorhexidine During Labour for GBS Prevention. _Cochrane Database of Systematic Reviews_. #link("https://www.cochrane.org/CD003520/PREG_antibacterial-chlorhexidine-applied-to-the-vagina-during-labour-to-prevent-early-onset-group-b-streptococcal-infection-in-the-newborn")
+
+#citation[9] Hanson, L., VandeVusse, L., Malloy, E., et al. (2021). Probiotic interventions to reduce antepartum Group B streptococcus colonization: A systematic review and meta-analysis. _Journal of Maternal-Fetal & Neonatal Medicine_. #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC9574470/")
+
+#citation[10] Craig, S., Daniels, J., & Sum, P. Routine testing for Group B Streptococcus in pregnancy (GBS3 trial). _ISRCTN_. DOI: 10.1186/isrctn49639731
+
+#citation[11] Wong, C. B., et al. (2024). Probiotics in the New Era of Human Milk Oligosaccharides (HMOs): HMO Utilization and Beneficial Effects of Bifidobacterium longum subsp. infantis M-63 on Infant Health. _Microorganisms_. DOI: 10.3390/microorganisms12051014
+
+#citation[12] Diminishing Racial Disparities in Early-Onset Neonatal Group B Streptococcal Disease --- United States, 2000--2003. (2004). _JAMA_. DOI: 10.1001/jama.292.6.676
 
 #line(length: 100%)
 

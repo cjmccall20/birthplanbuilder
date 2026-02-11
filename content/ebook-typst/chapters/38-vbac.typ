@@ -7,12 +7,12 @@ If you have had a previous cesarean, you have more options than you may realize.
 == One-Page Overview
 
 _Quick Summary:_
-- VBAC success rate is 60-80% for most women with one prior cesarean [1]
-- Uterine rupture risk is 0.5-0.7% (less than 1 in 100) with proper screening [2]
-- VBAC offers faster recovery, lower infection risk, and avoids cumulative surgical risks [1]
-- "Once a cesarean, always a cesarean" is an outdated 1916 statement that no longer applies [3]
+- VBAC success rate is 60-80% for most women with one prior cesarean #citation[1]
+- Uterine rupture risk is 0.5-0.7% (less than 1 in 100) with proper screening #citation[2]
+- VBAC offers faster recovery, lower infection risk, and avoids cumulative surgical risks #citation[1]
+- "Once a cesarean, always a cesarean" is an outdated 1916 statement that no longer applies #citation[3]
 - Finding a VBAC-supportive provider is critical, as support varies enormously between hospitals
-- Spontaneous labor has higher success rates than induction (79% vs 66%) [1]
+- Spontaneous labor has higher success rates than induction (79% vs 66%) #citation[1]
 
 _Bottom Line:_ For most women with one prior low-transverse cesarean, VBAC should be the default recommendation. The success rates are excellent, the risks are low, and the benefits are substantial for both mother and baby.
 
@@ -30,7 +30,7 @@ _The difference matters:_ When you hear success rates for VBAC, they are measuri
 
 == The History: "Once a Cesarean, Always a Cesarean"
 
-In 1916, physician Edwin Cragin spoke these words to the New York Association of Obstetricians and Gynecologists: "Once a cesarean, always a cesarean" [3,4]. Through the following 50-60 years, this statement reflected most U.S. obstetricians' management of patients with prior cesarean delivery.
+In 1916, physician Edwin Cragin spoke these words to the New York Association of Obstetricians and Gynecologists: "Once a cesarean, always a cesarean" #citation[3] #citation[4]. Through the following 50-60 years, this statement reflected most U.S. obstetricians' management of patients with prior cesarean delivery.
 
 _Why was this the rule?_
 
@@ -38,7 +38,7 @@ Cragin was speaking in an era when cesareans were performed with a classical (ve
 
 _What changed:_
 
-In 1926, surgeon Munro Kerr introduced the low transverse incision, a horizontal cut made across the lower, thinner part of the uterus [3]. This became the standard technique and is now used in approximately 90% of cesareans today.
+In 1926, surgeon Munro Kerr introduced the low transverse incision, a horizontal cut made across the lower, thinner part of the uterus #citation[3]. This became the standard technique and is now used in approximately 90% of cesareans today.
 
 The low transverse incision is far more stable. It heals stronger and is much less likely to rupture in future pregnancies. Once this technique became standard, the medical justification for "once a cesarean, always a cesarean" disappeared.
 
@@ -84,9 +84,9 @@ Several tools exist to predict your individual likelihood of VBAC success. The m
 
 _Important limitations of VBAC calculators:_
 
-Research shows that VBAC calculators may overestimate success rates, particularly for induced labor [5]. Studies have found significant gaps between predicted and actual success rates when induction is involved, suggesting the calculator does not adequately account for how induction affects VBAC outcomes [5]. The calculator does not distinguish between spontaneous labor and induction, which significantly affects outcomes.
+Research shows that VBAC calculators may overestimate success rates, particularly for induced labor #citation[5]. Studies have found significant gaps between predicted and actual success rates when induction is involved, suggesting the calculator does not adequately account for how induction affects VBAC outcomes #citation[5]. The calculator does not distinguish between spontaneous labor and induction, which significantly affects outcomes.
 
-Additionally, earlier versions of VBAC calculators included race as a biological variable, which has been criticized as introducing racial bias [7]. Updated versions have replaced this with clinical factors like chronic hypertension.
+Additionally, earlier versions of VBAC calculators included race as a biological variable, which has been criticized as introducing racial bias #citation[7]. Updated versions have replaced this with clinical factors like chronic hypertension.
 
 _The bottom line:_ VBAC calculators provide useful information but should not be used as a barrier to TOLAC. Your score should inform counseling, not determine eligibility. Many women with "low" predicted scores still achieve VBAC.
 
@@ -142,10 +142,10 @@ True uterine rupture requires emergency intervention but is uncommon and usually
 
 _Actual numbers:_
 
-- Risk with TOLAC (low transverse incision): 0.5-0.7% (1 in 143-200) [2]
-- Risk with planned repeat cesarean: 0.02-0.03% (1 in 3,300-5,000) [2]
-- Risk with low vertical incision: 2% [2]
-- Risk with classical (vertical upper uterine) incision: 1.9-10.6% [2]
+- Risk with TOLAC (low transverse incision): 0.5-0.7% (1 in 143-200) #citation[2]
+- Risk with planned repeat cesarean: 0.02-0.03% (1 in 3,300-5,000) #citation[2]
+- Risk with low vertical incision: 2% #citation[2]
+- Risk with classical (vertical upper uterine) incision: 1.9-10.6% #citation[2]
 
 _Factors that increase rupture risk:_
 
@@ -274,7 +274,7 @@ Home Birth After Cesarean (HBAC) is chosen by some women, particularly those who
 
 _Research on HBAC:_
 
-Studies show that planned HBAC with qualified midwives results in VBAC success rates of 87% or higher, substantially better than hospital rates [8]. A 2021 Canadian study found that planned HBAC was associated with a 39% decrease in the odds of cesarean birth compared to planned hospital VBAC, and severe adverse outcomes were relatively rare in both settings [8].
+Studies show that planned HBAC with qualified midwives results in VBAC success rates of 87% or higher, substantially better than hospital rates #citation[8]. A 2021 Canadian study found that planned HBAC was associated with a 39% decrease in the odds of cesarean birth compared to planned hospital VBAC, and severe adverse outcomes were relatively rare in both settings #citation[8].
 
 _Important considerations:_
 
@@ -613,6 +613,24 @@ _VBAC-specific resources:_
 _Finding VBAC-supportive providers:_
 - ICAN chapter meetings and provider lists
 - Evidence Based Birth VBAC resources
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Vaginal Birth After Cesarean Delivery. _StatPearls (NCBI)_. Updated February 2025. https://www.ncbi.nlm.nih.gov/books/NBK507844/
+
+#citation[2] Trial of Labor After Cesarean and Risk of Uterine Rupture: Expert Review. _AJOG_. 2022. DOI: 10.1016/j.ajog.2022.09.024
+
+#citation[3] Vaginal Birth After Cesarean Section. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC3624716/
+
+#citation[4] Cesarean Section One Hundred Years 1920-2020. _Journal of Perinatal Medicine_. DOI: 10.1515/jpm-2020-0305
+
+#citation[5] VBAC Calculator Overestimated Success With Induction. _Medscape_. 2025. https://www.medscape.com/viewarticle/vbac-calculator-overestimated-success-induction-labor-2025a1000ft4
+
+#citation[7] VBAC Calculator Underestimates VBAC Odds and Contains Racial Bias. _VBAC Facts_. https://vbacfacts.com/vbac-calculator-underestimate-inaccurate/
+
+#citation[8] Home Birth After C-Section. _The VBAC Link_ (citing Bayrampour et al. 2021, _Birth_, DOI: 10.1111/birt.12539). https://www.thevbaclink.com/home-birth-vbac/
 
 #line(length: 100%)
 

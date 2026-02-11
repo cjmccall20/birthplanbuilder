@@ -36,7 +36,7 @@ Let's break down exactly what your rights are, what hospitals can and cannot do,
 
 The entire concept of informed consent is built on patient autonomy—the principle that you have the right to make decisions about what happens to your body. This isn't just a nice idea. It's a fundamental principle of medical ethics and law.
 
-_The American College of Obstetricians and Gynecologists (ACOG) states explicitly [1]:_
+_The American College of Obstetricians and Gynecologists (ACOG) states explicitly #citation[1]:_
 
 > "Pregnancy does not lessen or limit the requirement to obtain informed consent or to honor a pregnant woman's refusal of recommended treatment... A pregnant woman's autonomous decisions should be respected."
 
@@ -65,17 +65,17 @@ This includes during pregnancy and labor.
 
 Even if the procedure is recommended for fetal health. Even if your doctor believes it's medically necessary. Even if refusing increases risk.
 
-_ACOG's position is unambiguous [1,10]:_
+_ACOG's position is unambiguous #citation[1] #citation[10]:_
 
 > "The College opposes the use of coerced medical or surgical interventions for pregnant people, including the use of the courts to mandate medical intervention for unwilling patients."
 
-Forced medical interventions violate bodily autonomy, constitutional rights, and medical ethics [1,9]. They are extremely rare, and when they do happen through court orders, they're often later found to have violated patient rights.
+Forced medical interventions violate bodily autonomy, constitutional rights, and medical ethics #citation[1] #citation[9]. They are extremely rare, and when they do happen through court orders, they're often later found to have violated patient rights.
 
 You have the right to refuse a cesarean section. You have the right to refuse an induction. You have the right to refuse any intervention, even if your provider strongly disagrees.
 
 === EMTALA Protections
 
-The Emergency Medical Treatment and Active Labor Act (EMTALA) is a federal law that requires hospitals with emergency rooms to screen and stabilize patients presenting with emergency conditions or in active labor.
+The Emergency Medical Treatment and Active Labor Act (EMTALA) is a federal law (42 U.S.C. Section 1395dd) that requires hospitals with emergency rooms to screen and stabilize patients presenting with emergency conditions or in active labor #citation[12].
 
 _Here's why this matters for refusal rights:_
 
@@ -83,9 +83,9 @@ Hospitals cannot refuse to treat you or transfer you out because you declined ot
 
 If you show up in active labor and you've previously declined certain interventions (like refusing a repeat cesarean, or declining continuous monitoring), the hospital still has an obligation under EMTALA to admit you and provide care. They cannot say "we won't treat you unless you agree to our protocols."
 
-The Georgia Birth Advocacy Coalition explains it well: "Doctors sometimes violate EMTALA in an attempt to coerce women into c-sections or other interventions they don't want. The most common scenario involves doctors recommending a c-section or hospital policy 'requiring' one in certain circumstances... Many women mistakenly believe that hospital policy trumps their right to make decisions about their own care."
+The Georgia Birth Advocacy Coalition explains it well #citation[4]: "Doctors sometimes violate EMTALA in an attempt to coerce women into c-sections or other interventions they don't want. The most common scenario involves doctors recommending a c-section or hospital policy 'requiring' one in certain circumstances... Many women mistakenly believe that hospital policy trumps their right to make decisions about their own care."
 
-If a hospital threatens to refuse care based on your decisions, you can remind them of their EMTALA obligations [4]. Ask to speak to the hospital administrator or patient advocate. Document the conversation.
+If a hospital threatens to refuse care based on your decisions, you can remind them of their EMTALA obligations #citation[4]. Ask to speak to the hospital administrator or patient advocate. Document the conversation.
 
 #line(length: 100%)
 
@@ -150,7 +150,7 @@ _Coercion_ is when your provider:
 
 _This crosses ethical lines._
 
-ACOG's guidelines state: "It is unethical for medical practitioners to use manipulation, coercion, or threats of criminalization to compel patients toward a particular medical decision or treatment."
+ACOG's guidelines state #citation[1]: "It is unethical for medical practitioners to use manipulation, coercion, or threats of criminalization to compel patients toward a particular medical decision or treatment."
 
 If you're experiencing coercion, you have options (discussed more below).
 
@@ -208,7 +208,7 @@ _Perform procedures without consent:_
 This is battery—unlawful touching. Even if they believe the procedure is medically necessary, they must have your permission.
 
 _Call CPS for declining standard care:_
-Declining routine, non-emergency medical procedures (like vitamin K, hepatitis B, or circumcision) is not child abuse or neglect. In New York State, for example, the Office of Children and Family Services has explicitly stated that "refusal of preventative medical procedures, such as eye prophylaxis and Vitamin K, does not meet the definition of maltreatment of a child" [7,8].
+Declining routine, non-emergency medical procedures (like vitamin K, hepatitis B, or circumcision) is not child abuse or neglect. In New York State, for example, the Office of Children and Family Services has explicitly stated that "refusal of preventative medical procedures, such as eye prophylaxis and Vitamin K, does not meet the definition of maltreatment of a child" #citation[7] #citation[8].
 
 However, be aware: If a provider believes a child is in imminent danger, they can report to CPS. Whether such a report is justified is a separate question, and parents have legal recourse if reports are made inappropriately. But the threat itself is sometimes used coercively.
 
@@ -370,14 +370,14 @@ _For comprehensive details, see #link(<ch-eye-ointment>)[Chapter: Eye Ointment].
 === Circumcision
 - _Why parents decline:_ No medical necessity, concerns about pain, prefer bodily autonomy, cultural or personal reasons
 - _Alternatives:_ None; this is a permanent surgical decision
-- _What to know:_ AAP says benefits and risks are roughly balanced, decision left to parents. Increasingly common to decline.
+- _What to know:_ AAP states health benefits outweigh risks, but the decision is left to parents #citation[13]. Increasingly common to decline.
 
 _For comprehensive details, see #link(<ch-circumcision>)[Chapter: Circumcision]._
 
 === Continuous Fetal Monitoring
-- _Why parents decline:_ Restricts movement, increases cascade of interventions, high false-positive rate, intermittent monitoring has similar safety outcomes for low-risk births
+- _Why parents decline:_ Restricts movement, increases cascade of interventions, high false-positive rate, intermittent monitoring has similar safety outcomes for low-risk births #citation[14]
 - _Alternatives:_ Intermittent auscultation (listening to baby's heartbeat every 15-30 minutes)
-- _What to know:_ Continuous monitoring is routine in U.S. hospitals despite evidence that intermittent monitoring is equally safe for low-risk pregnancies
+- _What to know:_ Continuous monitoring is routine in U.S. hospitals despite evidence that intermittent monitoring is equally safe for low-risk pregnancies #citation[14]
 
 _For comprehensive details, see #link(<ch-fetal-monitoring>)[Chapter: Fetal Monitoring]._
 
@@ -623,17 +623,50 @@ Know your rights. Use your voice. And trust yourself.
 
 #line(length: 100%)
 
-== Sources
+== Citations
+
+#citation[1] ACOG Committee Opinion No. 664 (2016). Refusal of Medically Recommended Treatment During Pregnancy. _Obstetrics & Gynecology_, 127(6), e175-e182. PMID: 27214192.
+
+#citation[2] ACOG Committee Opinion (2021). Informed Consent and Shared Decision Making in Obstetrics and Gynecology. _Obstetrics & Gynecology_, 137(2), e34-e41.
+
+#citation[3] Kotaska A. Informed consent and refusal in obstetrics: A practical ethical guide. _Birth_. DOI: 10.1111/birt.12281
+
+#citation[4] Georgia Birth Advocacy Coalition (2019). How the Emergency Medical Treatment and Labor Act (EMTALA) Can Protect Your Rights in Labor.
+
+#citation[5] Birth Monopoly. Being Admitted to the Hospital or Signing Consent Forms is NOT "Implied Consent."
+
+#citation[6] Indigo Healthcare. Against Medical Advice: Physician Duties & Patient Rights.
+
+#citation[7] PMC (2023). The Legal Limits of Parental Autonomy: Do Parents Have the Right to Refuse Intramuscular Vitamin K for Their Newborn? PMC10327957.
+
+#citation[8] Contemporary Pediatrics. When parents say "no" to newborn nursery protocols.
+
+#citation[9] University of Baltimore Law Review (2022). Medical Coercion During Pregnancy and Childbirth.
+
+#citation[10] Pregnancy Justice. BIRTH RIGHTS: A resource for everyday people to defend human rights during labor and birth.
+
+#citation[11] ACOG (2020). Opposition to Criminalization of Individuals During Pregnancy and the Postpartum Period.
+
+#citation[12] 42 U.S.C. Section 1395dd -- Emergency Medical Treatment and Active Labor Act (EMTALA). Available at: https://www.law.cornell.edu/uscode/text/42/1395dd
+
+#citation[13] American Academy of Pediatrics Task Force on Circumcision (2012). Circumcision Policy Statement. _Pediatrics_, 130(3), 585-586. DOI: 10.1542/peds.2012-1989
+
+#citation[14] Martis R, Emilia O, Nurdiati DS, Brown J. Intermittent auscultation (IA) of fetal heart rate in labour for fetal well-being. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd008680.pub2
+
+== Key Sources
 
 - #link("https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2016/06/refusal-of-medically-recommended-treatment-during-pregnancy")[Refusal of Medically Recommended Treatment During Pregnancy | ACOG]
 - #link("https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2021/02/informed-consent-and-shared-decision-making-in-obstetrics-and-gynecology")[Informed Consent and Shared Decision Making in Obstetrics and Gynecology | ACOG]
 - #link("https://onlinelibrary.wiley.com/doi/10.1111/birt.12281")[Informed consent and refusal in obstetrics: A practical ethical guide - Kotaska - Birth]
-- #link("https://georgiabirth.org/blogcontent/2019/1/21/how-the-emergency-medical-treatment-and-labor-act-emtala-can-protect-your-rights-in-labor")[How the Emergency Medical Treatment and Labor Act (EMTALA) Can Protect Your Rights in Labor — Georgia Birth Advocacy Coalition]
+- #link("https://georgiabirth.org/blogcontent/2019/1/21/how-the-emergency-medical-treatment-and-labor-act-emtala-can-protect-your-rights-in-labor")[How the Emergency Medical Treatment and Labor Act (EMTALA) Can Protect Your Rights in Labor -- Georgia Birth Advocacy Coalition]
 - #link("https://birthmonopoly.com/implied-consent/")[Being Admitted to the Hospital or Signing Consent Forms is NOT "Implied Consent" - Birth Monopoly]
 - #link("https://www.getindigo.com/blog/against-medical-advice-ama-discharge")[Against Medical Advice: Physician Duties & Patient Rights]
 - #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC10327957/")[The Legal Limits of Parental Autonomy: Do Parents Have the Right to Refuse Intramuscular Vitamin K for Their Newborn? - PMC]
 - #link("https://www.contemporarypediatrics.com/view/when-parents-say-no-newborn-nursery-protocols")[When parents say "no" to newborn nursery protocols | Contemporary Pediatrics]
-- #link("https://ubaltlawreview.com/2022/11/06/medical-coercion-during-pregnancy-and-childbirth/")[Medical Coercion During Pregnancy and Childbirth – University of Baltimore Law Review]
+- #link("https://ubaltlawreview.com/2022/11/06/medical-coercion-during-pregnancy-and-childbirth/")[Medical Coercion During Pregnancy and Childbirth -- University of Baltimore Law Review]
 - #link("https://www.pregnancyjusticeus.org/wp-content/uploads/2020/05/BIRTH-RIGHTS-A-resource-for-everyday-people-to-defend-human-rights-during-labor-and-birth.pdf")[A resource for everyday people to defend human rights during labor and birth - Pregnancy Justice]
 - #link("https://www.acog.org/clinical-information/policy-and-position-statements/statements-of-policy/2020/opposition-criminalization-of-individuals-pregnancy-and-postpartum-period")[Opposition to Criminalization of Individuals During Pregnancy and the Postpartum Period | ACOG]
+- #link("https://www.law.cornell.edu/uscode/text/42/1395dd")[42 U.S.C. Section 1395dd -- Emergency Medical Treatment and Active Labor Act (EMTALA)]
+- #link("https://publications.aap.org/pediatrics/article/130/3/585/30235/Circumcision-Policy-Statement")[AAP Circumcision Policy Statement (2012)]
+- #link("https://www.cochranelibrary.com/cdsr/doi/10.1002/14651858.cd008680.pub2/full")[Intermittent auscultation (IA) of fetal heart rate in labour -- Cochrane Review]
 

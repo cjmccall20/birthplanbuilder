@@ -6,9 +6,9 @@ Childbirth education prepares you mentally, physically, and emotionally for labo
 
 _Five Key Takeaways:_
 
-1. _Preparation dramatically changes outcomes._ Women who complete comprehensive childbirth education have lower cesarean rates, reduced intervention rates, and higher satisfaction with their birth experience—regardless of which method they choose [1].
+1. _Preparation dramatically changes outcomes._ Women who complete comprehensive childbirth education have lower cesarean rates, reduced intervention rates, and higher satisfaction with their birth experience—regardless of which method they choose #citation[1].
 
-2. _Different methods fit different philosophies._ Bradley emphasizes nutrition and partner coaching [4,5]. Hypnobirthing focuses on fear-release and self-hypnosis [6,8]. Lamaze teaches informed decision-making [9]. Each approach has distinct techniques, but all share the goal of empowering you through knowledge.
+2. _Different methods fit different philosophies._ Bradley emphasizes nutrition and partner coaching #citation[4] #citation[5]. Hypnobirthing focuses on fear-release and self-hypnosis #citation[6] #citation[8]. Lamaze teaches informed decision-making #citation[9]. Each approach has distinct techniques, but all share the goal of empowering you through knowledge.
 
 3. _Natural birth methods require commitment._ Programs like Bradley (12 weeks) and Hypnobabies (6 weeks, 3 hours per class, plus daily homework) demand significant time investment. They're designed for parents committed to unmedicated birth and willing to practice techniques daily.
 
@@ -112,7 +112,7 @@ _Tuning in:_ Internal focus. During contractions, you close your eyes, turn inwa
 
 === Success Rates
 
-The American Academy of Husband-Coached Childbirth (AAHCC) reports that over 86% of Bradley Method students achieve unmedicated vaginal birth [18]. However, this statistic comes from self-reported data collected by instructors, not independent research. For context, only 17% of women in the general U.S. population achieve unmedicated birth according to the Listening to Mothers III survey [2].
+The American Academy of Husband-Coached Childbirth (AAHCC) reports that over 86% of Bradley Method students achieve unmedicated vaginal birth #citation[18]. However, this statistic comes from self-reported data collected by instructors, not independent research. For context, only 17% of women in the general U.S. population achieve unmedicated birth according to the Listening to Mothers III survey #citation[2].
 
 === Key Resources
 
@@ -198,7 +198,7 @@ _Unique to Hypnobabies:_
 
 === Success Rates
 
-Both organizations report high satisfaction and reduced intervention rates among students. Independent research shows benefits but limited data on specific unmedicated birth rates. A 2012 study in _BMC Pregnancy and Childbirth_ found HypnoBirthing students had shorter first stage of labor and fewer augmentations [14].
+Both organizations report high satisfaction and reduced intervention rates among students. Independent research shows benefits but limited data on specific unmedicated birth rates. A 2012 study in _BMC Pregnancy and Childbirth_ found HypnoBirthing students had shorter first stage of labor and fewer augmentations #citation[14].
 
 === Key Resources
 
@@ -572,45 +572,45 @@ You're not just preparing for one day. You're preparing for how you enter parent
 
 #line(length: 100%)
 
-== CITATIONS AND SOURCES
+== Citations
 
-1. Gagnon AJ, Sandall J. Individual or group antenatal education for childbirth or parenthood, or both. Cochrane Database of Systematic Reviews. 2007. DOI: 10.1002/14651858.cd002869.pub2.
+#citation[1] Gagnon AJ, Sandall J. Individual or group antenatal education for childbirth or parenthood, or both. _Cochrane Database of Systematic Reviews_. 2007. DOI: 10.1002/14651858.cd002869.pub2
 
-2. Declercq ER, et al. Listening to Mothers III: Pregnancy and Birth. Childbirth Connection. 2013.
+#citation[2] Declercq ER, et al. Listening to Mothers III: Pregnancy and Birth. _Childbirth Connection_. 2013.
 
-3. #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC4744344/")[Comparison of the Bradley Method and HypnoBirthing Childbirth Education Classes - PMC]
+#citation[3] #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC4744344/")[Comparison of the Bradley Method and HypnoBirthing Childbirth Education Classes - PMC]
 
-4. #link("https://www.bradleybirth.com/")[Bradley Method Official Website]
+#citation[4] #link("https://www.bradleybirth.com/")[Bradley Method Official Website]
 
-5. #link("https://www.healthline.com/health/pregnancy/bradley-method")[Bradley Method: What It Is and How It Works - Healthline]
+#citation[5] #link("https://www.healthline.com/health/pregnancy/bradley-method")[Bradley Method: What It Is and How It Works - Healthline]
 
-6. #link("https://thebirthdeck.com/blogs/the-birth-deck-blog/birth-education-description-hypnobirthing-versus-hypnobabies")[Differences in Birth Education: HypnoBirthing vs Hypnobabies]
+#citation[6] #link("https://thebirthdeck.com/blogs/the-birth-deck-blog/birth-education-description-hypnobirthing-versus-hypnobabies")[Differences in Birth Education: HypnoBirthing vs Hypnobabies]
 
-7. #link("https://www.hypnobabies.com/")[Hypnobabies Hypnobirthing Classes]
+#citation[7] #link("https://www.hypnobabies.com/")[Hypnobabies Hypnobirthing Classes]
 
-8. #link("https://hellobirthclass.com/hypnobabies-vs-hypnobirthing/")[Hypnobabies vs HypnoBirthing Comparison - HelloBirth]
+#citation[8] #link("https://hellobirthclass.com/hypnobabies-vs-hypnobirthing/")[Hypnobabies vs HypnoBirthing Comparison - HelloBirth]
 
-9. #link("https://health.clevelandclinic.org/lamaze")[Lamaze Method: Technique, Breathing and Benefits - Cleveland Clinic]
+#citation[9] #link("https://health.clevelandclinic.org/lamaze")[Lamaze Method: Technique, Breathing and Benefits - Cleveland Clinic]
 
-10. #link("https://www.medicalnewstoday.com/articles/what-is-lamaze-breathing")[Lamaze breathing: Techniques, benefits, and how to practice - Medical News Today]
+#citation[10] #link("https://www.medicalnewstoday.com/articles/what-is-lamaze-breathing")[Lamaze breathing: Techniques, benefits, and how to practice - Medical News Today]
 
-11. #link("https://nurturednest.org/blogs/pregnancy-trimester-guides-labor-prep/best-online-childbirth-classes-2025-comparison")[15 Best Online Childbirth Classes Compared (2025 Guide)]
+#citation[11] #link("https://nurturednest.org/blogs/pregnancy-trimester-guides-labor-prep/best-online-childbirth-classes-2025-comparison")[15 Best Online Childbirth Classes Compared (2025 Guide)]
 
-12. #link("https://www.thebump.com/a/childbirth-classes")[Childbirth Classes: Everything You Need to Know - The Bump]
+#citation[12] #link("https://www.thebump.com/a/childbirth-classes")[Childbirth Classes: Everything You Need to Know - The Bump]
 
-13. Lothian JA. Lamaze breathing: What every pregnant woman needs to know. Journal of Perinatal Education. 2011.
+#citation[13] Lothian JA. Lamaze breathing: What every pregnant woman needs to know. _Journal of Perinatal Education_. 2011.
 
-14. Cyna AM, et al. Hypnosis for pain relief in labour and childbirth. Cochrane Database of Systematic Reviews. 2004.
+#citation[14] Cyna AM, et al. Hypnosis for pain relief in labour and childbirth. _Cochrane Database of Systematic Reviews_. 2004.
 
-15. England P. Birthing From Within: An Extra-Ordinary Guide to Childbirth Preparation. Partera Press. 1998.
+#citation[15] England P. _Birthing From Within: An Extra-Ordinary Guide to Childbirth Preparation_. Partera Press. 1998.
 
-16. #link("https://birthingbetter.org/")[The Pink Kit: Birth skills for all types of births]
+#citation[16] #link("https://birthingbetter.org/")[The Pink Kit: Birth skills for all types of births]
 
-17. Sutton J, Scott P. Optimal Fetal Positioning. Birth Concepts. 2005. (Spinning Babies foundation)
+#citation[17] Sutton J, Scott P. _Optimal Fetal Positioning_. Birth Concepts. 2005. (Spinning Babies foundation)
 
-18. American Academy of Husband-Coached Childbirth. Bradley Method statistics. https://www.bradleybirth.com
+#citation[18] American Academy of Husband-Coached Childbirth. Bradley Method statistics. https://www.bradleybirth.com
 
-19. Simkin P, Bolding A. Update on nonpharmacologic approaches to relieve labor pain and prevent suffering. Journal of Midwifery & Women's Health. 2004.
+#citation[19] Simkin P, Bolding A. Update on nonpharmacologic approaches to relieve labor pain and prevent suffering. _Journal of Midwifery & Women's Health_. 2004.
 
-20. Declercq ER, et al. Major Survey Findings of Listening to Mothers III: New Mothers Speak Out. Journal of Perinatal Education. 2014.
+#citation[20] Declercq ER, et al. Major Survey Findings of Listening to Mothers III: New Mothers Speak Out. _Journal of Perinatal Education_. 2014.
 

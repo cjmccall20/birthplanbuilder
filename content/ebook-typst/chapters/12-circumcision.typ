@@ -29,9 +29,9 @@ Several methods are used:
 The foreskin is not a leftover piece of tissue or "extra skin." It is functional, specialized tissue that serves several purposes:
 
 - *Protection:* The foreskin covers and protects the sensitive head of the penis during childhood and adulthood. The glans penis is anatomically an internal organ—similar to the clitoris in females—meant to remain covered and protected by the foreskin. When circumcision permanently exposes the glans, the tissue undergoes keratinization: a process where the normally moist, mucosal surface thickens and dries to protect itself from constant exposure to air, clothing, and friction. This is the body's protective response to having an internal organ made external.
-- *Sensation:* The foreskin contains fine-touch receptors and specialized nerve endings. Studies show it is among the most sensitive parts of the external penis, with thousands of nerve endings concentrated in a small area of tissue.
+- *Sensation:* The foreskin contains fine-touch receptors and specialized nerve endings #citation[1]. Studies show it is among the most sensitive parts of the external penis, with thousands of nerve endings concentrated in a small area of tissue #citation[2].
 - *Function during sex:* The foreskin moves during sexual activity, reducing friction. It also provides natural lubrication and gliding action. The gliding mechanism benefits both partners during intercourse: it allows the penis to move within its own sheath of skin rather than creating friction against vaginal tissue. This natural motion reduces the need for artificial lubrication and can enhance sensation for both the man and his partner. Research suggests the foreskin's mechanical function contributes to comfortable sexual activity without excessive friction.
-- *Development:* In newborns, the foreskin is naturally fused to the head of the penis. This protects the developing tissue. The foreskin separates naturally over time, typically between ages 3-5.
+- *Development:* In newborns, the foreskin is naturally fused to the head of the penis. This protects the developing tissue. The foreskin separates naturally over time, typically between ages 3-5 #citation[3].
 
 === Biblical vs. Modern Circumcision: An Important Distinction
 
@@ -60,7 +60,7 @@ This distinction matters because parents making decisions based on religious tra
 
 === AAP 2012 Position
 
-The American Academy of Pediatrics issued its most recent policy statement on circumcision in 2012. This statement is often misunderstood.
+The American Academy of Pediatrics issued its most recent policy statement on circumcision in 2012 #citation[4]. This statement is often misunderstood.
 
 *What the AAP says:*
 - The health benefits of newborn male circumcision outweigh the risks
@@ -95,25 +95,25 @@ The key difference: American medicine focuses on potential disease prevention. E
 Urinary tract infection prevention is the most well-supported benefit.
 
 *What the research shows:*
-- Circumcision reduces UTI risk. Uncircumcised boys have about 10 times higher risk of UTI in infancy compared to circumcised boys.
+- Circumcision reduces UTI risk. Uncircumcised boys have about 10 times higher risk of UTI in infancy compared to circumcised boys #citation[5].
 - This protective effect decreases with age.
 
 *But here are the real numbers:*
-- To prevent one UTI in a healthy boy, you need to circumcise approximately 100-111 boys.
+- To prevent one UTI in a healthy boy, you need to circumcise approximately 100-111 boys #citation[5].
 - To prevent one UTI serious enough to require hospitalization, about 195 boys need to be circumcised.
-- Overall UTI risk in healthy uncircumcised boys is about 1-2% by age 5.
+- Overall UTI risk in healthy uncircumcised boys is about 1-2% by age 5 #citation[5].
 - UTIs in boys are almost always easily treated with antibiotics.
 
 *When this matters more:* Boys with certain urological conditions benefit more from circumcision. For boys with recurrent UTIs, the number needed to treat drops to about 11. For boys with vesicoureteric reflux (urine backing up into kidneys), only about 4 circumcisions prevent one UTI.
 
 === HIV/STI Prevention: The African Studies and Their Limitations
 
-Three major studies in South Africa, Kenya, and Uganda found that circumcision reduced HIV infection rates in heterosexual men by about 60%. This led the World Health Organization to recommend voluntary medical male circumcision in high-prevalence African countries.
+Three major studies in South Africa, Kenya, and Uganda found that circumcision reduced HIV infection rates in heterosexual men by about 60%. This led the World Health Organization to recommend voluntary medical male circumcision in high-prevalence African countries #citation[6].
 
 *Critical limitations:*
 1. These studies were done in settings with extremely high HIV rates where heterosexual transmission is the main route of infection.
 2. The procedure was performed on adolescents and adults who consented, not newborns.
-3. There is no evidence that circumcision reduces transmission from men to women.
+3. There is no evidence that circumcision reduces transmission from men to women #citation[7].
 4. There is no evidence of protection for male-to-male transmission.
 5. Population-level data from several African countries showed circumcised men were actually more likely to be HIV-positive than intact men.
 6. Whether these findings apply to newborn circumcision in low-prevalence developed countries has not been established.
@@ -125,13 +125,13 @@ Three major studies in South Africa, Kenya, and Uganda found that circumcision r
 Penile cancer is sometimes cited as a reason for circumcision.
 
 *How rare is it?*
-- Less than 1 case per 100,000 men per year in developed countries
-- Less than 1% of all male cancers
+- Less than 1 case per 100,000 men per year in developed countries #citation[8]
+- Less than 1% of all male cancers #citation[8]
 - Average age at diagnosis: 60 years old
 
 For comparison, prostate cancer affects 288,000 American men per year. Penile cancer affects fewer than 2,000.
 
-Circumcision may provide some protection, but this appears to work mainly by preventing phimosis (inability to retract the foreskin), which is a risk factor for penile cancer. When studies looked only at men without phimosis, circumcision showed no protective effect.
+Circumcision may provide some protection, but this appears to work mainly by preventing phimosis (inability to retract the foreskin), which is a risk factor for penile cancer. When studies looked only at men without phimosis, circumcision showed no protective effect #citation[9].
 
 === Critical Analysis
 
@@ -149,7 +149,7 @@ When examining these benefits together:
 
 Circumcision is surgery, and all surgery carries risks.
 
-*Overall complication rate: 1.5-3% in most studies* (though rates from 0-16% have been reported depending on how complications are counted)
+*Overall complication rate: 1.5-3% in most studies* #citation[10] (though rates from 0-16% have been reported depending on how complications are counted)
 
 *Common complications:*
 - *Bleeding:* The most frequent complication. Usually minor and stops with gentle pressure. Occurs in about 0.5-2% of circumcisions.
@@ -169,10 +169,10 @@ Circumcision is surgery, and all surgery carries risks.
 While death from circumcision is rare, it is not as rare as commonly stated. The actual number may be significantly underreported.
 
 *Current estimates:*
-- A 2010 analysis by Bollinger estimated approximately *117 neonatal circumcision-related deaths occur annually in the United States* (about 9.01 per 100,000 circumcisions)
-- This represents about 1.3% of male neonatal deaths from all causes
+- A 2010 analysis by Bollinger estimated approximately *117 neonatal circumcision-related deaths occur annually in the United States* (about 9.01 per 100,000 circumcisions) #citation[11]
+- This represents about 1.3% of male neonatal deaths from all causes #citation[11]
 - For comparison: 115 neonatal deaths from SIDS, 44 from suffocation, and 8 in automobile accidents during the same neonatal period
-- A separate 2018 analysis (Earp et al.) found 1 death per 49,166 circumcisions over a 10-year period
+- A separate 2018 analysis (Earp et al.) found 1 death per 49,166 circumcisions over a 10-year period #citation[12]
 
 *Why deaths may be underreported:*
 - Many circumcision-related deaths are reported as "surgical mishap," "infection," "hemorrhage," "cardiac arrest," "stroke," or "reaction to anesthesia" rather than being directly attributed to circumcision
@@ -209,7 +209,7 @@ The foreskin is not useless tissue:
 Research on whether circumcision affects sexual sensation is mixed and contested. However, one unique source of insight comes from men who were circumcised as adults—men who have experienced sex both with and without a foreskin.
 
 *Studies finding reduced sensitivity and pleasure:*
-- A large 2013 cohort study found that circumcised men reported decreased sexual pleasure and lower orgasm intensity for the glans penis
+- A large 2013 cohort study found that circumcised men reported decreased sexual pleasure and lower orgasm intensity for the glans penis #citation[2]
 - A higher percentage of circumcised men experience discomfort, pain, and unusual sensations compared to uncircumcised men
 - In one study of men circumcised as adults, masturbatory pleasure decreased in 48% of respondents (only 8% reported increased pleasure)
 - Masturbatory difficulty increased in 63% of respondents after circumcision
@@ -217,7 +217,7 @@ Research on whether circumcision affects sexual sensation is mixed and contested
 - Men circumcised after age 10 reported lower sexual pleasure and greater discomfort
 
 *Studies finding no adverse effects or improvements:*
-- A 2013 systematic review of 40,473 men found no overall adverse effect on penile sensitivity, sexual arousal, erectile function, or orgasm
+- A 2013 systematic review of 40,473 men found no overall adverse effect on penile sensitivity, sexual arousal, erectile function, or orgasm #citation[16]
 - Some studies found that circumcised men reported increased penile sensitivity and enhanced ease of reaching orgasm
 - High-quality studies uniformly found minimal or no adverse effect on sexual function
 
@@ -246,7 +246,7 @@ Circumcision causes significant pain. Studies show the procedure increases heart
 When pain management is used, it typically includes:
 - Dorsal penile nerve block (injection near the base of the penis)
 - Ring block (injection around the penis)
-- Topical anesthetic cream (less effective than injection)
+- Topical anesthetic cream (less effective than injection) #citation[15]
 - Sucrose or other comfort measures
 
 Even with anesthesia, pain is reduced but not eliminated.
@@ -256,12 +256,12 @@ Even with anesthesia, pain is reduced but not eliminated.
 This is a difficult topic, but one that deserves honest discussion.
 
 *What happens physiologically during circumcision:*
-- Cortisol (stress hormone) levels elevate 3-4x and remain elevated for hours to days afterward
+- Cortisol (stress hormone) levels elevate 3-4x and remain elevated for hours to days afterward #citation[13]
 - Heart rate and blood pressure increase significantly
 - Researchers have documented decreased wakefulness, increased vagal tone, and reduced environmental interaction following the procedure
 
 *Research on altered pain processing:*
-A study comparing circumcised and uncircumcised infants found that circumcised boys showed significantly stronger pain responses to routine vaccinations months later. The researchers suggested this represents an "infant analogue" of altered stress response—the early pain experience changed how their nervous systems process subsequent pain.
+A study comparing circumcised and uncircumcised infants found that circumcised boys showed significantly stronger pain responses to routine vaccinations months later #citation[14]. The researchers suggested this represents an "infant analogue" of altered stress response—the early pain experience changed how their nervous systems process subsequent pain.
 
 *The first hours and days matter:*
 Research published in _Frontiers in Pediatrics_ shows that the developing brain is particularly sensitive to procedural pain during a "critical window" in early life. The brain regions most affected are those connected to the limbic system—the areas governing emotion, memory, and stress response.
@@ -323,7 +323,7 @@ In the United States, circumcision became a cultural norm in the 20th century fo
 - This occurred within a highly religious Victorian environment where Christianity heavily influenced medical practice
 
 *Key figures and their motivations:*
-- *John Kellogg* (founder of Kellogg's cereal) viewed circumcision as "an effective cure for masturbation and the social ills said to accompany it." He also created cornflakes as part of an anti-masturbation diet.
+- *John Kellogg* (founder of Kellogg's cereal) viewed circumcision as "an effective cure for masturbation and the social ills said to accompany it" #citation[19]. He also created cornflakes as part of an anti-masturbation diet.
 - *Sylvester Graham* (creator of graham crackers) was a former preacher who brought the subject of masturbation to wide public notice and promoted dietary and surgical interventions
 - *Jonathan Hutchinson* contended that the foreskin "conduces to masturbation, and adds to the difficulties of sexual continence"
 - *Abraham Wolbarst* argued in 1914 that circumcision should be made compulsory as a means of reducing masturbation
@@ -357,7 +357,7 @@ For families without religious or cultural reasons, the trend is toward leaving 
 A common concern American parents have is that an uncircumcised son will feel "different" or unusual. The global data tells a very different story.
 
 *Worldwide circumcision rates:*
-- Approximately 30-38% of males worldwide are circumcised
+- Approximately 30-38% of males worldwide are circumcised #citation[17]
 - This means roughly 62-70% of males globally are intact (uncircumcised)
 - The United States is an outlier among developed nations
 
@@ -404,7 +404,7 @@ The central ethical tension is between parental rights and the child's right to 
 Several medical organizations have taken positions emphasizing the child's right to bodily integrity:
 - The Swedish Medical Association recommended setting 12 as the minimum age and requiring the child's consent
 - The Danish Medical Association emphasized the child's right to self-determination
-- A German court ruled in 2012 that circumcision of a non-consenting boy constitutes assault, even for religious reasons (this sparked international debate)
+- A German court ruled in 2012 that circumcision of a non-consenting boy constitutes assault, even for religious reasons (this sparked international debate) #citation[18]
 
 === Irreversibility
 
@@ -472,7 +472,7 @@ Caring for an uncircumcised penis is actually simpler than caring for a circumci
 
 *The rule is simple:* "If intact, do not retract. Only clean what is seen."
 
-*About phimosis:* Many parents worry about this. True phimosis (inability to retract that causes symptoms) occurs in only 1-2% of boys. If it does develop, first-line treatment is topical corticosteroid cream, which works in 75-90% of cases. Circumcision is not needed as prevention.
+*About phimosis:* Many parents worry about this. True phimosis (inability to retract that causes symptoms) occurs in only 1-2% of boys #citation[3]. If it does develop, first-line treatment is topical corticosteroid cream, which works in 75-90% of cases. Circumcision is not needed as prevention.
 
 #line(length: 100%)
 
@@ -498,6 +498,48 @@ Either choice is reasonable. What matters is that you understand the evidence, c
 - _Marked in Your Flesh_ by Leonard Glick (historical/anthropological perspective)
 - _The Whole Network_ - yourwholebaby.org (educational resources)
 - _Intact America_ - intactamerica.org (advocacy and research)
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] Cold CJ, Taylor JR. (1999). The prepuce. _BJU International_, 83(Suppl 1), 34-44. DOI: 10.1046/j.1464-410x.1999.0830s1034.x
+
+#citation[2] Sorrells ML, Snyder JL, Reiss MD, et al. (2007). Fine-touch pressure thresholds in the adult penis. _BJU International_, 99(4), 864-869. DOI: 10.1111/j.1464-410x.2006.06685.x
+
+#citation[3] Oster J. (1968). Further fate of the foreskin: Incidence of preputial adhesions, phimosis, and smegma among Danish schoolboys. _Archives of Disease in Childhood_, 43(228), 200-203. DOI: 10.1136/adc.43.228.200
+
+#citation[4] American Academy of Pediatrics Task Force on Circumcision. (2012). Circumcision Policy Statement. _Pediatrics_, 130(3), 585-586. DOI: 10.1542/peds.2012-1989
+
+#citation[5] Singh-Grewal D, et al. (2005). Circumcision for the prevention of urinary tract infection in boys: a systematic review of randomised trials and observational studies. _Archives of Disease in Childhood_, 90(8), 853-858. DOI: 10.1136/adc.2004.049353
+
+#citation[6] WHO/UNAIDS. (2007). WHO and UNAIDS announce recommendations from expert consultation on male circumcision for HIV prevention. https://www.who.int/news/item/28-03-2007-who-and-unaids-announce-recommendations-from-expert-consultation-on-male-circumcision-for-hiv-prevention
+
+#citation[7] Wawer MJ, et al. (2009). Circumcision in HIV-infected men and its effect on HIV transmission to female partners in Rakai, Uganda: a randomised controlled trial. _The Lancet_, 374(9685), 229-237. DOI: 10.1016/s0140-6736(09)60998-3
+
+#citation[8] American Cancer Society. Key Statistics for Penile Cancer. https://www.cancer.org/cancer/types/penile-cancer/key-statistics.html
+
+#citation[9] Larke NL, Thomas SL, dos Santos Silva I, Weiss HA. (2011). Male circumcision and penile cancer: a systematic review and meta-analysis. _Cancer Causes & Control_, 22(8), 1097-1110. DOI: 10.1007/s10552-011-9785-9
+
+#citation[10] Weiss HA, Larke N, Halperin D, Schenker I. (2010). Complications of circumcision in male neonates, infants and children: a systematic review. _BMC Urology_, 10, 2. DOI: 10.1186/1471-2490-10-2
+
+#citation[11] Bollinger D. (2010). Lost Boys: An Estimate of U.S. Circumcision-Related Infant Deaths. _Thymos: Journal of Boyhood Studies_, 4(1), 78-90. DOI: 10.3149/thy.0401.78
+
+#citation[12] Earp BD, Allareddy V, Allareddy V, Rotta AT. (2018). Factors Associated With Early Deaths Following Neonatal Male Circumcision in the United States, 2001 to 2010. _Clinical Pediatrics_, 57(11), 1532-1540. DOI: 10.1177/0009922818790060
+
+#citation[13] Gunnar MR, Malone S, Vance G, Fisch RO. (1985). Coping with Aversive Stimulation in the Neonatal Period: Quiet Sleep and Plasma Cortisol Levels during Recovery from Circumcision. _Child Development_, 56(4), 824-834. DOI: 10.2307/1130094
+
+#citation[14] Taddio A, Katz J, Ilersich AL, Koren G. (1997). Effect of neonatal circumcision on pain response during subsequent routine vaccination. _The Lancet_, 349(9052), 599-603. DOI: 10.1016/s0140-6736(96)10316-0
+
+#citation[15] Lander J, Brady-Fryer B, Metcalfe JB, Nazarali S, Muttitt S. (1997). Comparison of Ring Block, Dorsal Penile Nerve Block, and Topical Anesthesia for Neonatal Circumcision. _JAMA_, 278(24), 2157-2162. DOI: 10.1001/jama.1997.03550240047032
+
+#citation[16] Morris BJ, Krieger JN. (2013). Does Male Circumcision Affect Sexual Function, Sensitivity, or Satisfaction? — A Systematic Review. _The Journal of Sexual Medicine_, 10(11), 2644-2657. DOI: 10.1111/jsm.12293
+
+#citation[17] Morris BJ, et al. (2016). Estimation of country-specific and global prevalence of male circumcision. _Population Health Metrics_, 14, 4. DOI: 10.1186/s12963-016-0073-5
+
+#citation[18] Landgericht Koln (Cologne Regional Court). (2012). Case No. 151 Ns 169/11, May 7, 2012. Ruling that circumcision of a non-consenting boy constitutes assault.
+
+#citation[19] Kellogg JH. (1888). _Plain Facts for Old and Young: Embracing the Natural History and Hygiene of Organic Life_ (rev. ed.). Burlington, IA: Segner & Condit. DOI: 10.1037/12999-000
 
 #line(length: 100%)
 

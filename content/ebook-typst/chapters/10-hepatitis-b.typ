@@ -21,13 +21,13 @@ Hepatitis B spreads when blood or body fluids from an infected person enter some
 - *Blood exposure:* Through needlestick injuries, shared needles, or contact with infected blood through cuts or sores
 - *Sexual transmission:* The most common route for adults in developed countries
 - *Mother-to-child (perinatal):* During pregnancy, labor, or delivery—this is the primary concern for newborns
-- *Household contact:* The virus can survive on surfaces for more than 7 days, so transmission can occur through shared personal items like toothbrushes or razors if they contain infected blood
+- *Household contact:* The virus can survive on surfaces for more than 7 days #citation[1], so transmission can occur through shared personal items like toothbrushes or razors if they contain infected blood
 
 === Why Infants Are Especially Vulnerable — If Exposed
 
-Here is an important fact about hepatitis B and babies: *approximately 90% of infants infected at birth develop chronic lifelong infection.*
+Here is an important fact about hepatitis B and babies: *approximately 90% of infants infected at birth develop chronic lifelong infection* #citation[2].
 
-This is dramatically different from adults. When an adult catches hepatitis B, their immune system typically fights it off within six months. Only 2-6% of infected adults develop chronic infection.
+This is dramatically different from adults. When an adult catches hepatitis B, their immune system typically fights it off within six months. Only 2-6% of infected adults develop chronic infection #citation[2].
 
 Babies' immune systems are less effective at clearing the virus. This 90% chronic infection rate is the main reason the birth dose has been recommended for three decades.
 
@@ -40,7 +40,7 @@ Chronic hepatitis B means the virus stays in the body indefinitely. Many childre
 Long-term consequences include:
 - *Cirrhosis:* Scarring of the liver that can lead to liver failure
 - *Liver cancer:* Hepatitis B is the second most common cause of cancer worldwide after tobacco
-- *Early death:* About 15-25% of people infected at birth will die from liver disease if untreated
+- *Early death:* About 15-25% of people infected at birth will die from liver disease if untreated #citation[3]
 
 #line(length: 100%)
 
@@ -48,10 +48,10 @@ Long-term consequences include:
 
 === What ACIP Now Recommends
 
-On December 16, 2025, the CDC formally adopted a new approach to the hepatitis B birth dose. Here is what changed:
+On December 16, 2025, the CDC formally adopted a new approach to the hepatitis B birth dose #citation[4]. Here is what changed:
 
 *For babies born to mothers who test positive for hepatitis B or whose status is unknown:*
-- Nothing changed. These babies should receive the hepatitis B vaccine AND hepatitis B immunoglobulin (HBIG) within 12 hours of birth.
+- Nothing changed. These babies should receive the hepatitis B vaccine AND hepatitis B immunoglobulin (HBIG) within 12 hours of birth #citation[3].
 
 *For babies born to mothers who test negative during pregnancy:*
 - Parents and providers can now decide together whether to give the vaccine at birth or begin the series at the 2-month visit.
@@ -77,7 +77,7 @@ The birth dose prevents infection at the moment of greatest vulnerability.
 === Catch-Up for Missed Screening
 
 The birth dose serves as a safety net for gaps in prenatal screening. While screening is highly accurate, it is not perfect:
-- Research suggests 10-16% of pregnant women are not tested for hepatitis B during pregnancy
+- Research suggests 10-16% of pregnant women are not tested for hepatitis B during pregnancy #citation[5]
 - Some mothers deliver in settings where prenatal records are unavailable
 - Early screening rates are lower, with only 60% of commercially insured and 39% of Medicaid-enrolled women tested in the first trimester
 
@@ -85,7 +85,7 @@ For mothers who were not adequately screened, the birth dose provides immediate 
 
 === Household Transmission Protection
 
-Even if you test negative, the vaccine protects against an unknown risk: household members who may have hepatitis B without knowing it. About 50% of people in the United States with hepatitis B are unaware of their infection. If an undiagnosed household member transmits the virus through blood contact, a vaccinated infant would be protected.
+Even if you test negative, the vaccine protects against an unknown risk: household members who may have hepatitis B without knowing it. About 50% of people in the United States with hepatitis B are unaware of their infection #citation[6]. If an undiagnosed household member transmits the virus through blood contact, a vaccinated infant would be protected.
 
 === Decades of Observational Safety Data
 
@@ -93,7 +93,7 @@ The hepatitis B vaccine has been administered to millions of newborns over 30+ y
 
 === The AAP's Position
 
-The American Academy of Pediatrics, the nation's largest pediatrician organization, strongly opposes the 2025 change. They call the new guidance "irresponsible" and "purposely misleading." The AAP continues to recommend routine hepatitis B vaccination for all newborns without delay.
+The American Academy of Pediatrics, the nation's largest pediatrician organization, strongly opposes the 2025 change. They call the new guidance "irresponsible" and "purposely misleading" #citation[7]. The AAP continues to recommend routine hepatitis B vaccination for all newborns without delay.
 
 It is worth noting that the AAP receives significant funding from vaccine manufacturers and that organizational positions reflect institutional consensus, not unanimous agreement among pediatricians. Many individual pediatricians support parental choice on this issue.
 
@@ -109,7 +109,7 @@ The central argument for allowing delay is straightforward: perinatal transmissi
 
 === Reliability of Prenatal Screening
 
-The test for hepatitis B (called HBsAg) has sensitivity and specificity greater than 98%. This means:
+The test for hepatitis B (called HBsAg) has sensitivity and specificity greater than 98% #citation[8]. This means:
 - If you test positive, you almost certainly have hepatitis B
 - If you test negative, you almost certainly do not
 
@@ -128,7 +128,7 @@ The only realistic risk is if an undiagnosed household member has hepatitis B an
 
 === Why Was Universal Birth Vaccination Adopted?
 
-The birth dose was adopted in 1991 not because all newborns face immediate risk, but for two practical reasons:
+The birth dose was adopted in 1991 #citation[9] not because all newborns face immediate risk, but for two practical reasons:
 
 1. *To catch babies whose mothers were not tested or tested falsely negative* (the "safety net" argument)
 2. *Because newborns in the hospital represent a "captive audience"* where vaccination can be reliably administered before discharge
@@ -145,7 +145,7 @@ Some research suggests antibody levels decline over time, though cellular immuni
 
 === International Perspective: Other Developed Countries Do Not Universally Vaccinate at Birth
 
-The ACIP committee explicitly noted that *"the United States' universal recommendation of the hepatitis B vaccine birth dose was an outlier among developed countries with low hepatitis B prevalence."*
+The ACIP committee explicitly noted that *"the United States' universal recommendation of the hepatitis B vaccine birth dose was an outlier among developed countries with low hepatitis B prevalence"* #citation[4].
 
 Examples:
 - *Japan:* Universal hepatitis B vaccination begins at 2 months (except for babies of HBV-positive mothers, who receive the birth dose)
@@ -214,10 +214,10 @@ Understanding exactly how hepatitis B spreads to newborns helps clarify the deci
 === Mother-to-Child (The Primary Concern)
 
 This is why the birth dose exists. Without intervention:
-- Babies born to mothers with high viral loads have a 70-90% chance of infection
-- Babies born to mothers with lower viral loads have a 10-40% chance of infection
+- Babies born to mothers with high viral loads have a 70-90% chance of infection #citation[10]
+- Babies born to mothers with lower viral loads have a 10-40% chance of infection #citation[10]
 
-With the vaccine and HBIG at birth, effectiveness is 94% even for exposed infants.
+With the vaccine and HBIG at birth, effectiveness is 94% even for exposed infants #citation[3].
 
 *Critical point:* If the mother tests negative for hepatitis B, mother-to-child transmission cannot occur. The virus is not there to transmit.
 
@@ -235,9 +235,9 @@ With the vaccine and HBIG at birth, effectiveness is 94% even for exposed infant
 
 The hepatitis B vaccine has been given to millions of newborns over 30+ years. Population-level surveillance has found:
 
-- No detected link to serious adverse outcomes including neonatal death, seizures, or neurological disorders
-- No detected association with autoimmune conditions like multiple sclerosis (despite concerns raised in 1998)
-- A comprehensive review of at least 12 million doses found no serious health problems linked to the vaccine
+- No detected link to serious adverse outcomes including neonatal death, seizures, or neurological disorders #citation[11]
+- No detected association with autoimmune conditions like multiple sclerosis (despite concerns raised in 1998) #citation[11]
+- A comprehensive review of at least 12 million doses found no serious health problems linked to the vaccine #citation[11]
 - Even in vulnerable preterm infants, the observational safety record is reassuring
 
 === Common Reactions
@@ -250,7 +250,7 @@ Most infants have no side effects or only mild, temporary reactions:
 === Serious Adverse Events
 
 Severe reactions are uncommon but do occur:
-- *Anaphylaxis* (severe allergic reaction): Approximately 1 per 600,000 doses
+- *Anaphylaxis* (severe allergic reaction): Approximately 1 per 600,000 doses #citation[12]
 - When anaphylaxis occurs, it happens quickly, medical staff are present, and it responds well to treatment
 - Death from vaccine-related anaphylaxis is extraordinarily rare
 
@@ -273,10 +273,10 @@ In the clinical trials for the hepatitis B vaccine, the control groups typically
 The hepatitis B vaccine contains aluminum hydroxide as an adjuvant — a substance added to stimulate a stronger immune response. This is one of the most common questions parents raise.
 
 *The facts:*
-- Each dose of the hepatitis B vaccine contains approximately 250 micrograms (0.25 mg) of aluminum
-- The FDA limit for aluminum in injectable products is 850 micrograms per dose
+- Each dose of the hepatitis B vaccine contains approximately 250 micrograms (0.25 mg) of aluminum #citation[13]
+- The FDA limit for aluminum in injectable products is 850 micrograms per dose #citation[13]
 - A single dose is well within this regulatory limit
-- Aluminum adjuvants have been used in vaccines since the 1930s
+- Aluminum adjuvants have been used in vaccines since the 1930s #citation[14]
 
 *The mainstream position:* Medical authorities consider the amount of aluminum in vaccines safe based on decades of use, toxicokinetic studies, and the fact that infants are exposed to more aluminum through breast milk and formula than through vaccines. The body processes and excretes small amounts of aluminum routinely.
 
@@ -285,7 +285,7 @@ The hepatitis B vaccine contains aluminum hydroxide as an adjuvant — a substan
 - Injected aluminum is processed differently by the body than ingested aluminum (injected aluminum bypasses the gut, which normally blocks most dietary aluminum absorption)
 - Critics argue that current safety margins were not established with newborn body weight and developing brains specifically in mind
 - Some researchers have raised questions about whether cumulative aluminum exposure across the infant vaccine schedule (which includes multiple aluminum-containing vaccines) has been adequately studied
-- A 2011 study by Tomljenovic and Shaw published in the _Journal of Inorganic Biochemistry_ raised concerns about aluminum adjuvant accumulation, though its methodology has been criticized
+- A 2011 study by Tomljenovic and Shaw published in the _Journal of Inorganic Biochemistry_ raised concerns about aluminum adjuvant accumulation, though its methodology has been criticized #citation[15]
 
 *The honest summary:* Mainstream medicine considers the aluminum content safe. A smaller but vocal group of researchers and clinicians believes the safety evidence — particularly for cumulative exposure in young infants — has gaps. Reasonable people can disagree on whether the current evidence is sufficient, especially for a vaccine given at birth against a disease the baby is unlikely to encounter.
 
@@ -296,7 +296,7 @@ VAERS is the primary post-market surveillance system for vaccines in the United 
 *What VAERS is:*
 - A passive reporting system where anyone — doctors, nurses, parents, or patients — can submit reports of health events that occur after vaccination
 - It is designed to detect potential safety signals that may not have appeared in pre-licensure trials
-- It has detected real safety signals, including intussusception with the rotavirus vaccine (leading to its withdrawal) and myocarditis associated with COVID-19 mRNA vaccines
+- It has detected real safety signals, including intussusception with the rotavirus vaccine (leading to its withdrawal) and myocarditis associated with COVID-19 mRNA vaccines #citation[16]
 
 *What VAERS is not:*
 - Reports to VAERS do not prove causation. A report means an event occurred after vaccination — not that the vaccine caused it
@@ -416,6 +416,42 @@ None of these choices is negligent. All of them reflect a parent weighing real i
 *If you do choose to vaccinate at any point,* the three-dose series is effective regardless of when it starts. A child vaccinated at 5 years old achieves the same immunity as one vaccinated at birth.
 
 *If you choose not to vaccinate,* know that hepatitis B risk can be revisited at any point in your child's life — before international travel, before adolescence, or whenever circumstances change.
+
+#line(length: 100%)
+
+== Citations
+
+#citation[1] CDC. Prevention of Hepatitis B Virus Infection. _MMWR_, 67(1). "HBV can survive for 7 days or more." https://www.cdc.gov/mmwr/volumes/67/rr/rr6701a1.htm
+
+#citation[2] WHO. Hepatitis B Fact Sheet. World Health Organization. https://www.who.int/news-room/fact-sheets/detail/hepatitis-b
+
+#citation[3] CDC. Clinical Overview of Perinatal Hepatitis B. Centers for Disease Control and Prevention. https://www.cdc.gov/hepatitis-b/hcp/perinatal-provider-overview/index.html
+
+#citation[4] CDC. (2025). Hepatitis B Immunization Individual-Based Decision-Making. https://www.cdc.gov/media/releases/2025/2025-hepatitis-b-immunization.html
+
+#citation[5] PMC. (2023). Gaps in Prenatal Hepatitis B Screening 2015-2020. https://pmc.ncbi.nlm.nih.gov/articles/PMC10994214/
+
+#citation[6] CDC. Hepatitis B Surveillance Guidance. Centers for Disease Control and Prevention. https://www.cdc.gov/hepatitis/php/surveillance-guidance/hepatitis-b.html
+
+#citation[7] AAP. (2025). Changes to hepatitis B recommendations 'irresponsible and purposely misleading.' https://publications.aap.org/aapnews/news/33915/
+
+#citation[8] USPSTF. Hepatitis B Virus Infection in Pregnant Women: Screening. https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hepatitis-b-virus-infection-in-pregnant-women-screening
+
+#citation[9] CDC. (2025). Hepatitis B Birth Dose Briefing Document. https://www.cdc.gov/acip/downloads/slides-2025-09-18-19/hep-b-birth-dose-briefing-508.pdf
+
+#citation[10] WHO. Preventing mother-to-child transmission of the hepatitis B virus. https://www.who.int/news-room/questions-and-answers/item/hepatitis-preventing-mother-to-child-transmission-of-the-hepatitis-b-virus
+
+#citation[11] CDC. Hepatitis B Vaccine Safety. Centers for Disease Control and Prevention. https://www.cdc.gov/vaccine-safety/vaccines/hepatitis-b.html
+
+#citation[12] Journal of Hepatology. (2003). Safety of immunization and adverse events following vaccination against hepatitis B. _Journal of Hepatology_. https://www.journal-of-hepatology.eu/article/S0168-8278(03)00153-3/fulltext
+
+#citation[13] FDA. Recombivax HB Package Insert. https://www.fda.gov/files/vaccines,%20blood%20&%20biologics/published/package-insert-recombivax-hb.pdf
+
+#citation[14] CDC. Adjuvants and Vaccines. Centers for Disease Control and Prevention. https://www.cdc.gov/vaccine-safety/about/adjuvants.html
+
+#citation[15] Tomljenovic L, Shaw CA. (2011). Do aluminum vaccine adjuvants contribute to the rising prevalence of autism? _Journal of Inorganic Biochemistry_, 105(11), 1489-1499. DOI: 10.1016/j.jinorgbio.2011.08.008
+
+#citation[16] VAERS. Vaccine Adverse Event Reporting System. U.S. Department of Health and Human Services. https://vaers.hhs.gov/
 
 #line(length: 100%)
 
