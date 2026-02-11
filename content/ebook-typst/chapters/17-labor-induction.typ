@@ -341,7 +341,7 @@ Your body knows how to give birth. Your baby will signal when they're ready, mos
 
 #line(length: 100%)
 
-== CITATIONS
+== Citations
 
 #citation[1] Evidence Based Birth. The ARRIVE Trial and Elective Induction at 39 Weeks. https://evidencebasedbirth.com/arrive/
 

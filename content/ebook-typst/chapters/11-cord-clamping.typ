@@ -156,7 +156,7 @@ The only clearly documented concern with delayed cord clamping is a small increa
 
 === Private vs. Public Banking
 
-*Private cord blood banks* store samples for individual families. Cost: \$1,000-2,000 upfront plus \$100-300 annually for storage.
+*Private cord blood banks* store samples for individual families. Cost: \$1,400-\$2,500 upfront plus \$175-\$300 annually for storage.
 
 *Public cord blood banks* store samples available for anyone who needs a transplant. Free for donors, though limited to certain geographic areas.
 

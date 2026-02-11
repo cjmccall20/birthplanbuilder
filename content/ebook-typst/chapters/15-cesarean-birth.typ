@@ -49,7 +49,7 @@ The U.S. cesarean rate hit 32.4% in 2024 #citation[9]. The WHO has stated that c
 
 *Hospital variation.* Cesarean rates range from 7% to 70% across U.S. hospitals—even for low-risk births. If your hospital has a 35% rate and another across town has 15%, the difference isn't in the patients. It's in the culture.
 
-*Financial incentives.* Cesareans cost more than vaginal births (\$12,000-\$18,000 vs. \$8,000-\$12,000 in 2026). Hospitals make more money on surgical births.
+*Financial incentives.* Cesareans cost more than vaginal births (\$25,000-\$40,000 vs. \$15,000-\$25,000 total billed in 2026). Hospitals make more money on surgical births.
 
 *The cascade effect.* Once you've had one C-section, providers push hard for repeat cesareans—even though VBAC is safe for most women.
 
@@ -233,7 +233,7 @@ And if your cesarean wasn't what you wanted—if you feel grief, disappointment,
 
 #line(length: 100%)
 
-== CITATIONS
+== Citations
 
 #citation[1] ACOG Practice Bulletin No. 184. (2017). Vaginal Birth After Cesarean Delivery. _Obstetrics & Gynecology_, 130:e217-e233.
 

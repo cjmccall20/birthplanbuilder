@@ -426,7 +426,7 @@ Then trust your body and your team.
 
 #line(length: 100%)
 
-== CITATIONS
+== Citations
 
 #citation[1] Hodnett, E.D., et al. (2013). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd003766.pub5
 

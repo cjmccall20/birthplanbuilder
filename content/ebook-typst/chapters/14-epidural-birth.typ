@@ -272,7 +272,7 @@ The "right" choice is the one that helps you through YOUR labor, with YOUR body,
 
 #line(length: 100%)
 
-== CITATIONS
+== Citations
 
 #citation[1] Anim-Somuah, M., Smyth, R.M., Cyna, A.M., Cuthbert, A. (2018). Epidural versus non-epidural or no analgesia for pain management in labour. _Cochrane Database Syst Rev._, 5(5):CD000331. DOI: 10.1002/14651858.cd000331.pub4
 

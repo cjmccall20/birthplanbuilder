@@ -594,7 +594,7 @@ _Breastfeeding support and education:_
 
 #line(length: 100%)
 
-== CITATIONS
+== Citations
 
 #citation[1] Frontiers in Pediatrics. Breastfeeding Contributes to Physiological Immune Programming in the Newborn.
 
