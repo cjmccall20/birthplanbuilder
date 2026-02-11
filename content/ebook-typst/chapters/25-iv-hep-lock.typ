@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 25: IV vs Hep Lock <ch-iv-hep-lock>
+= Chapter 22: IV vs Hep Lock <ch-iv-hep-lock>
 
 == THE QUICK ANSWER
 

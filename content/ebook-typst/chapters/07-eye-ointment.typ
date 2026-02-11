@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 7: Eye Ointment (Erythromycin): Do You Need It? <ch-eye-ointment>
+= Chapter 30: Eye Ointment (Erythromycin): Do You Need It? <ch-eye-ointment>
 
 Understanding why hospitals apply antibiotic ointment to your newborn's eyes, and whether it makes sense for your situation.
 

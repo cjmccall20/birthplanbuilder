@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 24: Hospital Admission: What to Expect and What You Can Control <ch-hospital-admission>
+= Chapter 17: Hospital Admission: What to Expect and What You Can Control <ch-hospital-admission>
 
 == THE QUICK ANSWER
 

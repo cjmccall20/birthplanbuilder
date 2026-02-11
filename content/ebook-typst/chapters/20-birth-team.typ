@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= Chapter 20: Choosing Your Birth Team: The Most Important Decision <ch-birth-team>
+= Chapter 4: Choosing Your Birth Team: The Most Important Decision <ch-birth-team>
 
 == One-Page Overview
 

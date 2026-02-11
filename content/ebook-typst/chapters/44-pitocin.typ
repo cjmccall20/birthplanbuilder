@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= Chapter 44: Pitocin (Synthetic Oxytocin) <ch-pitocin>
+= Chapter 27: Pitocin (Synthetic Oxytocin) <ch-pitocin>
 
 == ONE-PAGE OVERVIEW
 

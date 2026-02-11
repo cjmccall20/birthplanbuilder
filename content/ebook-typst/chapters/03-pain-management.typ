@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= Chapter 3: Pain Management: Your Options <ch-pain-management>
+= Chapter 18: Pain Management: Your Options <ch-pain-management>
 
 Labor pain is real. It's temporary, purposeful, and something your body is designed to handle. But how you manage that pain is one of the most important decisions you'll make before birth.
 

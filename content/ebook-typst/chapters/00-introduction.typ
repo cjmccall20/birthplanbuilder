@@ -1,4 +1,4 @@
-= Chapter 0: Introduction <ch-intro>
+= Introduction <ch-intro>
 
 == A Message to You: Grace and Empowerment
 

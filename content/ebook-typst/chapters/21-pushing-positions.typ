@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 21: Pushing Positions: What Actually Works <ch-pushing-positions>
+= Chapter 25: Pushing Positions: What Actually Works <ch-pushing-positions>
 
 == THE QUICK ANSWER
 

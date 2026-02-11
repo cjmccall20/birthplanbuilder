@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 22: Perineal Support: Preventing and Healing Tears <ch-perineal-support>
+= Chapter 26: Perineal Support: Preventing and Healing Tears <ch-perineal-support>
 
 == THE QUICK ANSWER
 

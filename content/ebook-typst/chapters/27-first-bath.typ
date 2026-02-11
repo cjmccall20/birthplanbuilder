@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 27: First Bath Timing <ch-first-bath>
+= Chapter 39: First Bath Timing <ch-first-bath>
 
 == THE QUICK ANSWER
 

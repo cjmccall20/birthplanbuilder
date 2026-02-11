@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 41: The Microbiome and Birth: Your Baby's Invisible Inheritance <ch-microbiome>
+= Chapter 3: The Microbiome and Birth: Your Baby's Invisible Inheritance <ch-microbiome>
 
 == ONE-PAGE OVERVIEW
 

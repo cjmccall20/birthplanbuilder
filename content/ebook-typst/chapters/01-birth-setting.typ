@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= Chapter 1: Where to Give Birth: Hospital, Birth Center, or Home <ch-birth-setting>
+= Chapter 8: Where to Give Birth: Hospital, Birth Center, or Home <ch-birth-setting>
 
 #callout[
   == One-Page Overview

@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 23: Cord Blood Banking: What You Need to Know <ch-cord-blood>
+= Chapter 33: Cord Blood Banking: What You Need to Know <ch-cord-blood>
 
 You've probably seen the ads or received the brochures: "Bank your baby's cord blood—it could save their life someday!" It sounds urgent. It sounds important. But what are you actually buying, and is it worth it?
 
@@ -19,7 +19,7 @@ _The key decision comes down to three options:_
 
 3. *Skip it entirely:* You decline both banking and donation, and the cord blood is discarded as medical waste — which is what happens in the vast majority of births.
 
-_The trade-off with delayed cord clamping:_ This is perhaps the most important consideration. Cord blood collection requires clamping the umbilical cord relatively early, which conflicts with delayed cord clamping — a practice recommended by the AAP, ACOG, and WHO that delivers proven, immediate benefits to your baby, including 30-40% more blood volume and significantly higher iron stores. See #link(<ch-cord-clamping>)[Chapter 11: Delayed Cord Clamping] for the full evidence. In short, delayed clamping gives your baby guaranteed benefits right now; cord blood banking offers speculative benefits that may never materialize.
+_The trade-off with delayed cord clamping:_ This is perhaps the most important consideration. Cord blood collection requires clamping the umbilical cord relatively early, which conflicts with delayed cord clamping — a practice recommended by the AAP, ACOG, and WHO that delivers proven, immediate benefits to your baby, including 30-40% more blood volume and significantly higher iron stores. See #link(<ch-cord-clamping>)[Chapter 32: Delayed Cord Clamping] for the full evidence. In short, delayed clamping gives your baby guaranteed benefits right now; cord blood banking offers speculative benefits that may never materialize.
 
 _The bottom line:_ For most families without specific medical risk factors, the evidence favors delayed cord clamping over cord blood banking. If you have a family history of blood cancers or blood disorders, private banking may be worth discussing with your provider. Public donation is a generous, no-cost option if your hospital participates. The rest of this chapter gives you the full picture so you can decide for yourself.
 
@@ -216,7 +216,7 @@ Some options:
 
 === Why This Matters More Than Banking
 
-*For the full evidence on delayed cord clamping — including the research, the benefits, and how to advocate for it in your birth plan — see #link(<ch-cord-clamping>)[Chapter 11: Delayed Cord Clamping].*
+*For the full evidence on delayed cord clamping — including the research, the benefits, and how to advocate for it in your birth plan — see #link(<ch-cord-clamping>)[Chapter 32: Delayed Cord Clamping].*
 
 For the vast majority of families, the guaranteed benefits of delayed clamping outweigh the theoretical benefits of cord blood banking:
 
@@ -240,7 +240,7 @@ For the vast majority of families, the guaranteed benefits of delayed clamping o
 
 === Start with Delayed Cord Clamping
 
-Before you even consider cord blood banking, read #link(<ch-cord-clamping>)[Chapter 11: Delayed Cord Clamping]. The evidence there is compelling: waiting at least 1-3 minutes (or longer) before clamping the umbilical cord delivers 30-40% more blood volume to your baby, significantly higher iron stores lasting through the first 6 months of life, more stem cells delivered directly into your baby's circulation, and better outcomes for preterm infants.
+Before you even consider cord blood banking, read #link(<ch-cord-clamping>)[Chapter 32: Delayed Cord Clamping]. The evidence there is compelling: waiting at least 1-3 minutes (or longer) before clamping the umbilical cord delivers 30-40% more blood volume to your baby, significantly higher iron stores lasting through the first 6 months of life, more stem cells delivered directly into your baby's circulation, and better outcomes for preterm infants.
 
 This is the fundamental trade-off that cord blood banking companies don't want you to focus on: *banking requires earlier clamping, which means your baby misses out on the proven, immediate benefits of their own cord blood.* The stem cells that would go into a storage tank are the same stem cells that could be flowing into your baby right now — where they provide documented benefits today, not speculative benefits that have roughly a 1-in-2,700 chance of ever being used.
 
@@ -275,7 +275,7 @@ Note that public donation still requires earlier clamping than ideal. Some hospi
 
 For most families, skipping cord blood banking altogether and prioritizing delayed cord clamping makes the most sense:
 
-- Delayed clamping delivers guaranteed, proven benefits to your baby right now (see #link(<ch-cord-clamping>)[Chapter 11])
+- Delayed clamping delivers guaranteed, proven benefits to your baby right now (see #link(<ch-cord-clamping>)[Chapter 32])
 - The money saved (\$4,550-\$7,900+ over 18 years) could go toward other needs — a college fund, life insurance, emergency savings
 - The statistics simply don't support the "insurance" framing for average-risk families
 - Your baby's own cord blood may not even be usable for their own genetic conditions
@@ -290,7 +290,7 @@ Cord blood banking is presented as something every responsible parent does. But 
 - Public donation helps others at no cost, but still involves the delayed clamping trade-off
 - Private banking is expensive for minimal realistic return
 
-This isn't about being cheap or uncaring. It's about prioritizing what the evidence shows works — and right now, that evidence strongly favors letting your baby receive their own cord blood through delayed clamping. Read #link(<ch-cord-clamping>)[Chapter 11] for the full picture.
+This isn't about being cheap or uncaring. It's about prioritizing what the evidence shows works — and right now, that evidence strongly favors letting your baby receive their own cord blood through delayed clamping. Read #link(<ch-cord-clamping>)[Chapter 32] for the full picture.
 
 #line(length: 100%)
 

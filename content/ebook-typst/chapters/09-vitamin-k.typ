@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 9: Vitamin K for Newborns <ch-vitamin-k>
+= Chapter 29: Vitamin K for Newborns <ch-vitamin-k>
 
 == One-Page Overview
 

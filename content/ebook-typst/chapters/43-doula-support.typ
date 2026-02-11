@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 43: Doula Support: The Evidence-Based Difference <ch-doula-support>
+= Chapter 5: Doula Support: The Evidence-Based Difference <ch-doula-support>
 
 Having a doula is one of the most evidence-based interventions available for improving birth outcomes. Yet many people have never heard of them, and those who have often think they're a luxury rather than a medically beneficial choice.
 

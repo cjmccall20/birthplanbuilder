@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 31: Infant Pain Management Options <ch-infant-pain-mgmt>
+= Chapter 37: Infant Pain Management Options <ch-infant-pain-mgmt>
 
 == One-Page Overview
 

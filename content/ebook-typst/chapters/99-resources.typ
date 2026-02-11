@@ -1,4 +1,4 @@
-= Chapter 99: Recommended Reading & Resources <ch-resources>
+= Appendix: Recommended Reading & Resources <ch-resources>
 
 We believe informed parents make the best decisions for their families. That's why we've curated resources representing multiple perspectives—from natural birth advocacy to mainstream medical guidance. You don't have to choose one camp. Many parents find value in understanding both physiological birth and medical interventions, then deciding what feels right for their unique situation.
 

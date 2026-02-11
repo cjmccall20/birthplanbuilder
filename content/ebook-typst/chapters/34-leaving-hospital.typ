@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 34: When to Leave the Hospital <ch-leaving-hospital>
+= Chapter 43: When to Leave the Hospital <ch-leaving-hospital>
 
 == THE QUICK ANSWER
 

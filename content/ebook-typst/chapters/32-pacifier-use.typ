@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 32: Pacifier Use <ch-pacifier-use>
+= Chapter 41: Pacifier Use <ch-pacifier-use>
 
 == THE QUICK ANSWER
 

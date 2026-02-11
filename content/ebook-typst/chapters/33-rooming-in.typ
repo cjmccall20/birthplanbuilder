@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 33: Rooming In <ch-rooming-in>
+= Chapter 42: Rooming In <ch-rooming-in>
 
 == THE QUICK ANSWER
 

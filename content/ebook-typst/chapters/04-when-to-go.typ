@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= Chapter 4: The Stages of Labor (When to Go to the Hospital) <ch-when-to-go>
+= Chapter 7: The Stages of Labor (When to Go to the Hospital) <ch-when-to-go>
 
 To know when to go to the hospital, you first need to understand what labor actually is --- the biological stages, the physical markers, and the emotional signposts that tell you where you are in the process. Too many expecting parents arrive at the hospital armed with a single timing rule but without a real understanding of what their body is doing or why. This chapter covers the mechanics of labor from start to finish and gives you practical tools for timing your arrival so you show up when it matters most --- not too early, not too late.
 

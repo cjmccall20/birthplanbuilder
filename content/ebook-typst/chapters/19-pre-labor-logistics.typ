@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 19: Pre-Labor Logistics: Everything to Figure Out Before Labor Starts <ch-pre-labor-logistics>
+= Chapter 16: Pre-Labor Logistics: Everything to Figure Out Before Labor Starts <ch-pre-labor-logistics>
 
 Labor rarely starts on schedule. It doesn't care if it's 3am on a Tuesday or the middle of your partner's big work presentation. The weeks before your due date are the time to get all your logistics sorted—so when contractions start, you can focus on what matters instead of scrambling to figure out who's feeding the dog.
 

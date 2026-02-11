@@ -1,5 +1,5 @@
 #import "../template.typ": *
-= Chapter 12: Circumcision: Making the Decision <ch-circumcision>
+= Chapter 34: Circumcision: Making the Decision <ch-circumcision>
 
 == One-Page Overview
 
