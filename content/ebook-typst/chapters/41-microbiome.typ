@@ -159,7 +159,7 @@ Your breast milk has its own microbiome — a community of beneficial bacteria t
 2. _Depleted Lactobacillus and Bifidobacterium_ in the milk ducts leaves an opening for opportunistic bacteria like _Staphylococcus aureus_ and _Streptococcus_ to colonize.
 3. _Pathogenic overgrowth_ in the milk ducts leads to blocked ducts, inflammation, and infection — mastitis.
 
-A 2024 systematic review found that intrapartum antibiotic exposure was associated with significantly higher rates of mastitis in the first three months postpartum, likely mediated by disruption of the breast milk microbiome.
+Emerging evidence suggests that intrapartum antibiotic exposure may be associated with higher rates of mastitis in the first three months postpartum, likely mediated by disruption of the breast milk microbiome, though specific systematic reviews on this topic remain limited.
 
 ==== What You Can Do
 

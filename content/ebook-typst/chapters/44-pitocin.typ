@@ -86,7 +86,7 @@ Augmentation is considered when:
 
 After your baby is born, Pitocin is routinely given to help the uterus contract, expel the placenta, and clamp down on blood vessels to prevent hemorrhage. Uterine atony (loss of muscle tone) causes 70-80% of all postpartum hemorrhage, one of the leading causes of maternal death worldwide.
 
-When given prophylactically during the third stage, Pitocin reduces the risk of postpartum hemorrhage by approximately 60%. The WHO, ACOG, and AWHONN all recommend routine oxytocin administration during the third stage.
+When given prophylactically during the third stage, Pitocin reduces the risk of postpartum hemorrhage by approximately 40%. The WHO, ACOG, and AWHONN all recommend routine oxytocin administration during the third stage.
 
 === Post-Cesarean
 
@@ -128,7 +128,7 @@ When used appropriately, Pitocin offers genuine benefits.
 
 This is Pitocin's clearest win. Third-stage use:
 
-- Reduces postpartum hemorrhage risk by approximately 60%
+- Reduces postpartum hemorrhage risk by approximately 40%
 - One hospital saw a 28.8% decrease in obstetrical hemorrhage after implementing a standardized Pitocin protocol
 - Reduces the need for blood transfusions
 - Reduces maternal death from hemorrhage
@@ -291,7 +291,7 @@ In most hospitals, Pitocin is given routinely after the placenta is delivered (o
 
 Postpartum hemorrhage is one of the most prevalent causes of maternal death globally. The uterus must contract after delivery to clamp down on blood vessels where the placenta was attached. When it doesn't contract adequately (uterine atony), hemorrhage occurs, and it can become life-threatening quickly.
 
-Prophylactic Pitocin reduces hemorrhage risk by about 60%. That's a substantial benefit with relatively low risk in the third stage.
+Prophylactic Pitocin reduces hemorrhage risk by approximately 40%. That's a substantial benefit with relatively low risk in the third stage.
 
 === The Alternative Perspective
 

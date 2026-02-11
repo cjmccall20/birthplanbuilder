@@ -24,7 +24,7 @@ In the 1880s, gonorrhea was a devastating problem for newborns. About 10% of bab
 
 In 1880, German doctor Carl Crede introduced silver nitrate drops applied right after birth. The results were dramatic: infection rates dropped from 10% to less than 1%. This became one of the great successes of preventive medicine. By the early 1900s, Crede's method was mandated by law in most countries, including all 50 U.S. states.
 
-Silver nitrate worked well but caused painful eye irritation in most babies. By the 1950s, erythromycin ointment replaced it. Erythromycin works better against gonorrhea, offers some protection against chlamydia, and causes fewer side effects.
+Silver nitrate worked well but caused painful eye irritation in most babies. By the 1980s, erythromycin ointment replaced it. Erythromycin works better against gonorrhea, offers some protection against chlamydia, and causes fewer side effects.
 
 === What Does It Actually Prevent?
 

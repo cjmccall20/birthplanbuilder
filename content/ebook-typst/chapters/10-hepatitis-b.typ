@@ -215,7 +215,7 @@ Understanding exactly how hepatitis B spreads to newborns helps clarify the deci
 
 This is why the birth dose exists. Without intervention:
 - Babies born to mothers with high viral loads have a 70-90% chance of infection
-- Babies born to mothers with lower viral loads have a 5-20% chance of infection
+- Babies born to mothers with lower viral loads have a 10-40% chance of infection
 
 With the vaccine and HBIG at birth, effectiveness is 94% even for exposed infants.
 

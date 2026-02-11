@@ -28,7 +28,7 @@ Vitamin K Deficiency Bleeding (VKDB) happens when a baby's blood can't clot prop
 
 *Classical (Days 2-7)*
 - Occurs as the small amount of vitamin K that crossed the placenta depletes
-- Incidence without prophylaxis: 1 in 60 to 1 in 400 babies
+- Incidence without prophylaxis: 1 in 60 to 1 in 250 babies
 - Usually milder: bleeding from the umbilical cord, circumcision site, or digestive tract
 - Some cases resolve on their own; others become serious
 
@@ -132,6 +132,8 @@ The standard medical explanation is straightforward:
 But these are descriptions of _how_ babies end up with low vitamin K—not _why_ this physiological pattern exists.
 
 === The Thin Blood and Stem Cell Theory
+
+_Note: The following hypothesis has not been tested or validated in peer-reviewed clinical research. It is proposed by some birth practitioners as a possible explanation for why newborns have low vitamin K levels, but no published studies have confirmed it. We include it here because parents encounter this theory frequently online, and it deserves honest framing rather than either uncritical acceptance or dismissal._
 
 Some researchers and birth practitioners have proposed an alternative hypothesis: babies may be born with naturally low vitamin K levels (and therefore "thinner" blood with lower clotting factors) because this serves a protective function during the immediate postpartum period.
 
@@ -305,7 +307,7 @@ If you choose oral vitamin K, the success of the regimen depends on your commitm
 
 *Polysorbate 80:* The injection contains about 10 mg of polysorbate 80, an emulsifier that helps vitamin K dissolve. This same ingredient is found in many oral medications, vaccines, foods, and vitamin supplements.
 
-The European Medicines Agency determined that short-term exposure to polysorbate 80 at less than 10 mg/kg per day is safe even in newborns. A typical newborn receives about 3.3 mg/kg, well within the safe range.
+The European Medicines Agency determined that short-term exposure to polysorbate 80 at less than 10 mg/kg per day is safe even in newborns. A typical newborn receives about 0.33 mg/kg, well within the safe range.
 
 *Claims about fertility:* One 1992 rat study is sometimes cited, but no human data supports any link between the vitamin K injection and fertility problems.
 

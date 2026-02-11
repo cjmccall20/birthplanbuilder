@@ -574,7 +574,7 @@ You're not just preparing for one day. You're preparing for how you enter parent
 
 == CITATIONS AND SOURCES
 
-1. Bohren MA, et al. Continuous support for women during childbirth. Cochrane Database of Systematic Reviews. 2017.
+1. Gagnon AJ, Sandall J. Individual or group antenatal education for childbirth or parenthood, or both. Cochrane Database of Systematic Reviews. 2007. DOI: 10.1002/14651858.cd002869.pub2.
 
 2. Declercq ER, et al. Listening to Mothers III: Pregnancy and Birth. Childbirth Connection. 2013.
 

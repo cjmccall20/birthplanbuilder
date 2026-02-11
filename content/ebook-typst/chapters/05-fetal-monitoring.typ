@@ -337,11 +337,11 @@ Akerson BA, et al. "Intermittent Auscultation for Intrapartum Fetal Heart Rate S
 #link("https://onlinelibrary.wiley.com/doi/10.1111/jmwh.12372")[https://onlinelibrary.wiley.com/doi/10.1111/jmwh.12372]
 
 *Defensive Medicine and EFM:*
-Localio AR, et al. "Malpractice, defensive medicine, and obstetric behavior." Medical Care. 1997;35(2).
+Tussing AD, Wojtowycz MA. "Malpractice, defensive medicine, and obstetric behavior." Medical Care. 1997;35(2).
 #link("https://www.ncbi.nlm.nih.gov/books/NBK218680/")[https://www.ncbi.nlm.nih.gov/books/NBK218680/]
 
 *Wireless Monitoring Effectiveness:*
-Zhang J, et al. "Effectiveness of remote fetal monitoring on maternal-fetal outcomes: Systematic review and meta-analysis." JMIR mHealth and uHealth. 2023.
+Li S, et al. "Effectiveness of remote fetal monitoring on maternal-fetal outcomes: Systematic review and meta-analysis." JMIR mHealth and uHealth. 2023.
 #link("https://mhealth.jmir.org/2023/1/e41508")[https://mhealth.jmir.org/2023/1/e41508]
 
 *ACOG Clinical Practice Guidelines:*

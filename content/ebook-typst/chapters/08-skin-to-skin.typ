@@ -234,7 +234,7 @@ The golden hour establishes the foundation: the first feeding, the first oxytoci
 
 - American Academy of Pediatrics. "Immediate and Sustained Skin-to-Skin Contact for the Healthy Term Newborn After Birth." AWHONN Practice Brief, 2016.
 
-- Cho ES, et al. "The Effects of Skin-to-Skin Contact on Temperature and Breastfeeding Successfulness in Full-Term Newborns after Cesarean Delivery." International Journal of Environmental Research and Public Health, 2015.
+- Beiranvand S, et al. "The Effects of Skin-to-Skin Contact on Temperature and Pain Perception in Mothers Who Had Cesarean Delivery." DOI: 10.1155/2014/846486. 2014.
 
 - Stanford Medicine. "Skin-to-skin 'kangaroo care' found to boost neurodevelopment in preemies." Stanford Medicine News, 2024.
 

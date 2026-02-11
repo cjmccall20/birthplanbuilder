@@ -2,7 +2,7 @@
 
 == One-Page Overview
 
-Circumcision is the surgical removal of the foreskin, the tissue covering the head of the penis. In the United States, about 55-60% of newborn boys are circumcised, though this rate has been declining. Outside the U.S., routine infant circumcision is uncommon in most developed countries.
+Circumcision is the surgical removal of the foreskin, the tissue covering the head of the penis. In the United States, approximately 50% of newborn boys are circumcised, though this rate has been declining. Outside the U.S., routine infant circumcision is uncommon in most developed countries.
 
 The medical evidence shows some health benefits exist, but they are modest. Circumcision reduces urinary tract infections (though you would need to circumcise about 100 boys to prevent one UTI). Claims about HIV prevention come from studies in Africa and may not apply to developed countries. Penile cancer is so rare (less than 1 in 100,000 men) that prevention is not a practical benefit.
 
@@ -217,7 +217,7 @@ Research on whether circumcision affects sexual sensation is mixed and contested
 - Men circumcised after age 10 reported lower sexual pleasure and greater discomfort
 
 *Studies finding no adverse effects or improvements:*
-- A 2016 systematic review of 40,473 men found no overall adverse effect on penile sensitivity, sexual arousal, erectile function, or orgasm
+- A 2013 systematic review of 40,473 men found no overall adverse effect on penile sensitivity, sexual arousal, erectile function, or orgasm
 - Some studies found that circumcised men reported increased penile sensitivity and enhanced ease of reaching orgasm
 - High-quality studies uniformly found minimal or no adverse effect on sexual function
 
@@ -345,7 +345,7 @@ The historical context reveals that routine newborn circumcision in America has 
 === Declining Rates
 
 Circumcision rates are falling:
-- Current U.S. rate: approximately 55-60% (down from 80-90% in the 1970s)
+- Current U.S. rate: approximately 50% (down from 80-90% in the 1970s)
 - Western states: 30-40%
 - Midwest and South: 60-70%
 - Rates are lower among Hispanic and Asian American families
@@ -381,7 +381,7 @@ A common concern American parents have is that an uncircumcised son will feel "d
 - Middle East and North Africa: 90-100% (primarily for religious reasons)
 - Parts of Africa: 60-90% (mix of religious tradition and HIV prevention programs)
 - Israel: 92% (religious requirement)
-- United States: 55-60% (cultural practice, declining)
+- United States: approximately 50% (cultural practice, declining)
 
 *What this means for your decision:*
 Most males in the world are uncircumcised. If your family travels, lives internationally, or your son grows up in an increasingly globalized world, being intact is the norm, not the exception. Even within the U.S., rates are declining and vary dramatically by region. The "everyone else is doing it" argument no longer holds up, if it ever did.

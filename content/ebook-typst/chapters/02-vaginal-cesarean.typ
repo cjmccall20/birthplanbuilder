@@ -164,7 +164,7 @@ Chiropractic care during pregnancy, when performed by a trained practitioner, is
 A traditional Chinese medicine technique that involves burning moxa (an herb, specifically mugwort) near a specific acupuncture point on the small toe (BL67 point). The warmth is thought to stimulate the point and encourage the baby to become more active and turn.
 
 *Evidence:*
-Multiple randomized controlled trials have examined moxibustion for breech presentation. A 2024 Cochrane review found that moxibustion may reduce the number of babies remaining in breech position, though results vary between studies. It appears to work best when combined with other techniques like acupuncture or postural methods.
+Multiple randomized controlled trials have examined moxibustion for breech presentation. A 2012 Cochrane review found that moxibustion may reduce the number of babies remaining in breech position, though results vary between studies. It appears to work best when combined with other techniques like acupuncture or postural methods.
 
 *When to try it:*
 Usually recommended at 33-35 weeks of pregnancy. Some practitioners continue daily sessions until 37 weeks or until the baby turns.

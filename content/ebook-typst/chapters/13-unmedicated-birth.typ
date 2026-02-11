@@ -10,7 +10,7 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 
 2. *It requires real preparation.* A 12-week childbirth class, daily practice of techniques, physical fitness, and building your birth team are essential. You should not wing it.
 
-3. *Continuous support changes everything.* Having a doula reduces cesarean rates by 40-52% [1,9,13]. Having trained, committed support people makes the difference between coping and struggling.
+3. *Continuous support changes everything.* Having a doula reduces cesarean rates by between 39% and 68% depending on the study (Bohren 2017 Cochrane review; Dias 2025 meta-analysis) [1,9,13]. Having trained, committed support people makes the difference between coping and struggling.
 
 4. *Environment matters more than you think.* Dim lights, quiet, privacy, and freedom to move promote the hormones that drive labor and reduce pain. Bright hospital rooms with constant interruptions work against you.
 
@@ -144,7 +144,7 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 - *HypnoBirthing* if you respond well to visualization, meditation, and reframing techniques
 - *Lamaze* if you want evidence-based education with flexibility in your approach
 
-*Hire a doula.* This is the single highest-impact intervention for achieving an unmedicated birth. Doula support reduces cesarean rates by 40-52% and epidural use by 57%. [9]
+*Hire a doula.* This is the single highest-impact intervention for achieving an unmedicated birth. Doula support reduces cesarean rates by between 39% and 68% depending on the study (Bohren 2017 Cochrane review; Dias 2025 meta-analysis) and epidural use by up to 60% (Bohren 2017). [9]
 
 *Choose your provider carefully.* If your OB's practice has a 35% cesarean rate, that tells you something. Midwife-led care is associated with lower intervention rates. CNMs (certified nurse-midwives) who practice in hospitals bring this midwifery philosophy into the hospital setting, giving you lower intervention rates with hospital-level backup. Ask about their unmedicated birth rate.
 
