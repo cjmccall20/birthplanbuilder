@@ -245,7 +245,9 @@ These movements aren't random — the baby actively adjusts their position in re
 
 Babies born by scheduled cesarean (without labor) miss this catecholamine surge, which is one reason they have higher rates of breathing difficulties in the first hours of life.
 
-*Working together.* The interplay between mother and baby during labor is a true partnership. The baby's head pressing on the cervix triggers the Ferguson reflex, which releases more oxytocin, which strengthens contractions, which pushes the baby's head further onto the cervix. Meanwhile, the baby is actively rotating, flexing, and descending in response to the forces of the contractions and the contours of the pelvis. Understanding this partnership can be empowering — you and your baby are doing this together.
+*Baby pushes too.* During contractions, your baby is not just passively being squeezed. Babies push with their legs against the fundus (the top of the uterus), adding their own force to the downward movement. This is one reason fetal positioning matters so much — a well-positioned baby can contribute more effectively to their own descent. The Bradley Method has long emphasized this point: your baby is not cargo being delivered, but an active participant doing real work alongside you.#citation[4]
+
+*Working together.* The interplay between mother and baby during labor is a true partnership. The baby's head pressing on the cervix triggers the Ferguson reflex, which releases more oxytocin, which strengthens contractions, which pushes the baby's head further onto the cervix. Meanwhile, the baby is actively rotating, flexing, pushing, and descending in response to the forces of the contractions and the contours of the pelvis. The Bradley Method teaches that understanding this partnership is one of the most empowering things a mother can learn — you and your baby are doing this together, two bodies working in coordination toward the same goal.#citation[4]
 
 #line(length: 100%)
 

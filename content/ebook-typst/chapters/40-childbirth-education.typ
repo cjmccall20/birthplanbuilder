@@ -32,7 +32,7 @@ _Bottom Line:_ Childbirth education is one of the highest-value investments you 
 
 == THE FULL PICTURE
 
-_Hospital classes are designed to prepare you for their protocols, not to question them._ Most hospital-based childbirth education covers facility policies, when to call, what interventions you might encounter, and how epidurals work. They present continuous monitoring, IV placement, and lying in bed as standard—because at that hospital, they are.
+_Hospital childbirth classes tend to focus on what to expect at that specific facility and how to work within their protocols. Independent classes often cover a wider range of options and decision-making frameworks._ Most hospital-based childbirth education covers facility policies, when to call, what interventions you might encounter, and how epidurals work. They present continuous monitoring, IV placement, and lying in bed as standard—because at that hospital, they are.
 
 _Natural birth requires specialized preparation._ If you want an unmedicated birth, a hospital class won't prepare you. These programs briefly mention "breathing techniques" and "relaxation," but spend far more time on epidural procedures and cesarean recovery. You need a method specifically designed for unmedicated labor.
 
@@ -546,7 +546,7 @@ Many insurance plans reimburse childbirth education from qualified providers. Ch
 
 == OUR TAKE
 
-_Any comprehensive childbirth education is better than hospital-based overview classes._ Hospital classes are free or cheap for a reason: they're designed to prepare you for the system, not to question it. If unmedicated birth is your goal, a hospital class won't get you there.
+_Any comprehensive childbirth education is better than hospital-based overview classes._ Hospital classes are a starting point, but many families find that supplementing with independent education deepens their preparation. If unmedicated birth is your goal, you'll want a method specifically designed for that.
 
 _For unmedicated birth: Choose Bradley, Hypnobabies, or HypnoBirthing._ These methods have specific techniques proven to work when labor gets intense. Bradley's 86% unmedicated rate speaks to the power of thorough preparation and partner involvement. Hypnobabies' medical-grade hypnosis gives you tools for active labor while staying mentally clear. HypnoBirthing offers profound relaxation for those drawn to visualization.
 
@@ -554,7 +554,7 @@ _The best method is the one you'll actually complete._ A 12-week Bradley series 
 
 _Lamaze deserves a second look._ Modern Lamaze is evidence-based, flexible, and practical. If you're planning hospital birth and want to stay informed and empowered without committing to unmedicated birth, Lamaze is excellent.
 
-_Don't skip this._ Childbirth education is not optional. Whether you choose a formal class, online course, or multiple books plus videos, you must prepare. The women who say "Birth was empowering" or "I felt in control even when things changed" are almost always the ones who educated themselves.
+_The research consistently shows that childbirth education improves outcomes and satisfaction — it's one of the most impactful investments you can make in your birth experience._ Whether you choose a formal class, online course, or multiple books plus videos, preparation matters. The women who say "Birth was empowering" or "I felt in control even when things changed" are almost always the ones who educated themselves.
 
 _Start between 20-28 weeks._ This timing allows completion before late pregnancy while keeping information fresh. If you're past 28 weeks, start now with whatever you can fit in.
 
@@ -562,7 +562,7 @@ _Combine methods if helpful._ Take Lamaze for comprehensive education, add Spinn
 
 _For partners:_ Your role matters more than you realize. An untrained partner watching you suffer feels helpless. A trained partner with specific techniques becomes your lifeline. Take this seriously.
 
-_Budget matters, but not that much._ If \$100 for Bradley feels steep, remember: you're spending more on the nursery furniture. This is investing in the single most significant physical experience of your life and your baby's entry into the world. Most families find room in the budget when they prioritize it.
+_If budget is a concern, free resources like Evidence Based Birth, YouTube-based courses, and library materials can provide solid education._ Structured paid courses may offer more depth and personal support, but free options have helped many families feel well-prepared. That said, this is investing in the single most significant physical experience of your life and your baby's entry into the world—most families find room in the budget when they prioritize it.
 
 _The preparation is worth it regardless of outcome._ Even if you end up with an epidural or cesarean, the knowledge and skills help you navigate the experience, make informed decisions, and understand why things unfolded as they did. That matters for processing the birth and preventing trauma.
 

@@ -6,7 +6,7 @@ Water birth means laboring and/or delivering your baby in a tub of warm water. I
 
 _Five Key Takeaways:_
 
-1. _Water significantly reduces pain perception._ Studies show water immersion during labor reduces the need for pain medication, shortens labor by an average of 32 minutes, and cuts epidural use from 43% to 39%. Women consistently report lower pain scores and describe it as "nature's epidural."
+1. _Water significantly reduces pain perception._ Studies show water immersion during labor reduces the need for pain medication, shortens labor by an average of 32 minutes, and in one review, cut epidural use from 43% to 39% among participants. Women consistently report lower pain scores and describe it as "nature's epidural."
 
 2. _It's safe when properly managed._ The largest study ever conducted—73,229 births in UK hospitals—found water birth poses no increased risk to mothers or babies. Baby deaths were extremely rare in both groups (2 per 10,000 waterbirths vs. 3 per 10,000 conventional births).
 
@@ -52,7 +52,7 @@ _Significant pain reduction._ The Cochrane review found that water immersion dur
 
 _Shorter labor duration._ Studies show women laboring in water experience an average reduction of 32 minutes in first-stage labor. The warm water promotes relaxation, which helps labor progress more efficiently. [2]
 
-_Reduced epidural use._ The Cochrane review found water immersion during first-stage labor probably results in fewer women requesting epidural anesthesia. Epidural use dropped from 43% to 39% among women choosing water immersion. [3]
+_Reduced epidural use._ The Cochrane review found water immersion during first-stage labor probably results in fewer women requesting epidural anesthesia. In this review, epidural use among water immersion participants dropped from 43% to 39% compared to the control group. [3]
 
 _Lower intervention rates._ Research shows water birth is associated with reduced use of Pitocin to speed labor, fewer injectable opioids for pain management, and no increase in cesarean rates compared to conventional birth. [4]
 
@@ -189,8 +189,6 @@ Most hospital water births involve laboring in water during active labor, then e
 
 Built-in jetted tubs (common in hospitals) are large and comfortable but may be difficult to clean adequately. Portable birth pools are smaller but easier to sanitize.
 
-Hospital policies often require continuous fetal monitoring, which can be challenging in water. Wireless waterproof monitors solve this problem but aren't available everywhere.
-
 #line(length: 100%)
 
 == BIRTH CENTER WATER BIRTH
@@ -219,7 +217,7 @@ _Advantages over hospital:_
 
 5. _Fewer restrictions._ You can eat, drink, move freely, have support people join you, and control your environment.
 
-6. _Lower cost than hospital._ Birth center care typically costs \$1,000-\$1,000 total, significantly less than hospital birth.
+6. _Lower cost than hospital._ Birth center care typically costs \$4,000-\$8,000 total, significantly less than hospital birth.
 
 _Considerations:_
 
@@ -265,7 +263,7 @@ _Birth pool:_ You can rent or purchase. Rental typically costs \$100-\$150 and i
 
 Popular brands: La Bassine, Birth Pool in a Box, Aquadoula
 
-_Purchase option:_ \$100-\$100 for reusable pool. You still need disposable liners (\$10-\$10 each birth).
+_Purchase option:_ \$150-\$400 for reusable pool. You still need disposable liners (\$15-\$30 each birth).
 
 _Additional supplies:_
 - Waterproof drop cloths to protect flooring
@@ -306,7 +304,7 @@ _Home birth midwives are typically very experienced with water birth._ It's stan
 
 _Cost considerations:_
 
-- Homebirth midwife care: \$1,000-\$1,000 (comparable to birth center)
+- Homebirth midwife care: \$4,000-\$8,000 (comparable to birth center)
 - Birth pool rental: \$100-\$150
 - Supplies (liners, towels, etc.): \$10-\$100
 - Total: Usually less than hospital birth even without insurance coverage
@@ -367,9 +365,9 @@ _Safety Profile_
 - Extremely low risk of adverse events
 
 _Cost Savings_
-- Birth center water birth: \$1,000-\$1,000 total
-- Home water birth with midwife: \$1,000-\$1,000 total plus \$100-\$150 pool rental
-- Hospital water birth: Standard labor costs (may add \$100-\$100 tub rental)
+- Birth center water birth: \$4,000-\$8,000 total
+- Home water birth with midwife: \$4,000-\$8,000 total plus \$100-\$150 pool rental
+- Hospital water birth: Standard labor costs (may add \$200-\$500 tub rental)
 - Reduced intervention cascade = lower overall costs
 
 === TRADE-OFFS TO CONSIDER
@@ -423,7 +421,7 @@ _Learning Curve for Providers_
 
 == OUR TAKE
 
-Water birth is one of the most underutilized, evidence-based options in modern maternity care. The research is clear: when properly managed for low-risk pregnancies, water birth offers substantial benefits with no increased risk. Yet most American women don't have access to it.
+Water birth is a well-researched comfort option that some families find highly effective during labor, and one of the most underutilized options in modern maternity care. The research is clear: when properly managed for low-risk pregnancies, water birth offers substantial benefits with no increased risk. Yet most American women don't have access to it.
 
 The evidence shows:
 - Significant pain reduction comparable to opioid medication

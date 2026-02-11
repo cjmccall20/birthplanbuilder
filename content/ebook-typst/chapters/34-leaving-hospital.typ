@@ -15,9 +15,9 @@ Hospital discharge timing has shortened dramatically over decades. What used to 
 - C-section: 2-4 days
 - Complications: Varies based on situation
 
-*What must happen before discharge:*
-- Baby passes hearing screening
-- Newborn screening (heel prick) completed
+*What hospitals typically expect before discharge:*
+- Baby passes hearing screening (offered at the hospital, can also be done outpatient)
+- Newborn screening (heel prick) completed (this is offered as standard practice, though parents can decline or arrange to have it done later — see Chapter 35 for more)
 - Baby feeding adequately (milk coming in or colostrum sufficient)
 - Baby urinating and stooling appropriately
 - Pediatrician/provider examines baby
@@ -28,9 +28,9 @@ Hospital discharge timing has shortened dramatically over decades. What used to 
 
 *Early discharge considerations:*
 - Some healthy mothers and babies leave at 24 hours
-- Requires follow-up appointment within 1-2 days
-- Not recommended for first-time parents without strong support at home
-- Must have pediatrician lined up for quick follow-up
+- Pediatricians will often push for a follow-up appointment within 1-2 days. The pediatrician at the hospital is often available if you don't already have one lined up.
+- Without insurance, the cost of an extended stay can be significant, so leaving earlier could be a cost consideration
+- Some hospitals can "discharge" you from care while allowing you to stay another night if you're interested — worth asking about
 
 *Reasons to stay longer:*
 - Breastfeeding difficulties (lactation support available in hospital)
@@ -39,20 +39,29 @@ Hospital discharge timing has shortened dramatically over decades. What used to 
 - Limited support at home
 - C-section recovery requiring more monitoring
 
+*Reasons to go home sooner:*
+- No interruptions from nurses and staff checking in throughout the night
+- Lower risk of hospital-acquired infection for both mother and baby
+- Better rest in your own bed, on your own schedule
+- More comfortable environment overall — your own food, your own space, your own routine
+- For families with other children, being home sooner helps everyone settle in
+
 *Insurance coverage:* The Newborns' and Mothers' Health Protection Act requires insurers to cover at least 48 hours for vaginal birth, 96 hours for C-section. You're entitled to this time if you want it.
 
 == OUR TAKE
 
-*Don't rush home* just because you can. The hospital has nurses, lactation consultants, and support. Use that time.
+Some families prefer to leave as soon as possible; others find value in using the full stay. Both approaches are valid.
 
-*Don't stay longer than you want* just because it's the default. If you're healthy, baby is healthy, and you have support at home, earlier discharge is fine.
+*If you want to stay:* The hospital has nurses, lactation consultants, and support available around the clock. If breastfeeding help or newborn care guidance matters to you, use that time.
 
-*First-time parents:* Consider the full 48 hours. Breastfeeding help and newborn care guidance are valuable.
+*If you want to go home:* Your own bed, your own space, and no one waking you up every few hours for vitals checks can make a real difference in recovery. If you're healthy, baby is healthy, and you feel ready, earlier discharge is a perfectly reasonable choice.
 
-*Experienced parents:* You may be fine leaving earlier—you've done this before.
+*First-time parents:* Some find the full 48 hours helpful for learning the basics of newborn care with professional support nearby. Others find the hospital environment more stressful than restful and recover better at home.
 
-*After C-section:* Take the recovery time. Major surgery requires rest.
+*Experienced parents:* You may be fine leaving earlier — you've done this before and know what to expect.
 
-*Ask what you need:* "Can we have the lactation consultant visit again?" "Can we stay one more night?" Advocate for what serves your recovery.
+*After C-section:* Recovery from major surgery takes time. That said, recovery happens at home too, and some women prefer to do it there.
+
+*Ask what you need:* "Can we have the lactation consultant visit again?" "Can we stay one more night?" "Can we be discharged early?" Advocate for what serves your recovery.
 
 You'll know when you're ready.

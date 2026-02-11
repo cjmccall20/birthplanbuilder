@@ -2,7 +2,7 @@
 
 == THE QUICK ANSWER
 
-The newborn hearing screening is painless, takes a few minutes, and catches hearing loss early when intervention makes the biggest difference. Most families choose to complete it, making this one of the most straightforward screenings in newborn care.
+The newborn hearing screening is painless, takes a few minutes, and catches hearing loss early when intervention makes the biggest difference. There's no real downside, making this a screening most families choose to complete. The evidence strongly supports this screening, and it's one of the most straightforward decisions in newborn care.
 
 == WHAT IT IS
 
@@ -42,4 +42,4 @@ The case for screening is strong: the test is painless, takes just a few minutes
 
 Some families do decline, whether out of a preference for minimal intervention in the newborn period, concern about false positive anxiety and unnecessary follow-up, cultural or religious reasons, or a preference to have hearing assessed by their pediatrician later. These are personal considerations, and yours to weigh.
 
-The evidence strongly favors completing the screening—but as with every decision in this book, it's yours to make for your family.
+This is one we'd recommend without hesitation—but as with every decision in this book, it's yours to make for your family.

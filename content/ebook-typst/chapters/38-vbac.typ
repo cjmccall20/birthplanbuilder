@@ -80,7 +80,7 @@ _What decreases success rates:_
 
 _VBAC calculators:_
 
-Several tools exist to predict your individual likelihood of VBAC success. The most widely used is the Maternal-Fetal Medicine Units Network calculator, which considers factors like your age, BMI, previous vaginal delivery, and reason for prior cesarean.
+Several tools exist to predict your individual likelihood of VBAC success. The most widely used is the #link("https://mfmunetwork.bsc.gwu.edu/PublicBSC/MFMU/VGBirthCalc/vagbirth.html")[Maternal-Fetal Medicine Units Network calculator], which considers factors like your age, BMI, previous vaginal delivery, and reason for prior cesarean.
 
 _Important limitations of VBAC calculators:_
 
@@ -270,7 +270,7 @@ _Disadvantages:_
 
 _Home birth:_
 
-Home birth after cesarean (HBAC) is chosen by some women, particularly those who cannot find supportive hospital care or who had traumatic previous birth experiences.
+Home Birth After Cesarean (HBAC) is chosen by some women, particularly those who cannot find supportive hospital care or who had traumatic previous birth experiences.
 
 _Research on HBAC:_
 
@@ -303,7 +303,7 @@ _Finding support:_
 
 - _ICAN (International Cesarean Awareness Network):_ ican-online.org provides chapter locations, provider lists, and support groups
 - _Local birth doulas:_ Often know which providers and hospitals are truly VBAC-supportive
-- _VBAC Facts:_ vbacfacts.com offers evidence-based information and resources
+- _VBAC Facts:_ #link("https://vbacfacts.com")[vbacfacts.com] offers evidence-based information and resources
 - _Online groups:_ VBAC support groups on social media can connect you with others in your area
 
 #line(length: 100%)
@@ -319,6 +319,8 @@ _What hospitals require:_ Most hospitals mandate continuous electronic fetal mon
 _What the evidence shows:_ ACOG states there is "limited or inconsistent scientific evidence" for continuous fetal heart rate monitoring during TOLAC. However, they acknowledge that abnormal fetal heart rate patterns are the most common early warning sign of uterine rupture (occurring in up to 70% of cases).
 
 _The tradeoff:_ Continuous monitoring may help detect uterine rupture earlier, but it also restricts movement, limits comfort positions, and increases intervention rates. Intermittent auscultation (checking the baby's heart rate every 15-30 minutes with a handheld doppler) may be a reasonable alternative for low-risk TOLAC in some settings, but this is rarely offered.
+
+Many hospitals now offer cordless or mobile continuous monitoring, allowing women to wear the monitor while moving freely. This can be a good middle ground — maintaining the early-warning benefit of continuous monitoring without being tethered to a bed. Ask your hospital whether wireless monitoring is available for TOLAC patients.
 
 === Time Limits on Labor
 
@@ -505,6 +507,8 @@ _If VBAC attempt results in repeat cesarean (20-40% chance):_
 - May feel disappointed or like you "failed" (though you did not)
 - Experience of trying
 
+Even if a VBAC attempt ultimately results in a cesarean, the labor process itself can benefit both mother and baby. Labor triggers hormonal changes that help prepare the body for breastfeeding — including colostrum production and milk readiness — and can support the baby's transition to breathing outside the womb. These hormonal shifts happen during labor regardless of how the birth ends.
+
 === What You Accept With VBAC Attempt
 
 _Risks:_
@@ -604,7 +608,7 @@ _VBAC-specific resources:_
 - _Silent Knife_ by Nancy Wainer Cohen (cesarean prevention classic)
 - _Natural Hospital Birth_ by Cynthia Gabriel - Navigating hospital VBAC
 - ICAN (International Cesarean Awareness Network): ican-online.org
-- VBAC Facts: vbacfacts.com - Evidence-based VBAC information
+- VBAC Facts: #link("https://vbacfacts.com")[vbacfacts.com] - Evidence-based VBAC information
 
 _Finding VBAC-supportive providers:_
 - ICAN chapter meetings and provider lists
@@ -646,7 +650,7 @@ _Multiple Cesareans and Special Situations:_
 
 _Organizations:_
 - ICAN (International Cesarean Awareness Network): ican-online.org
-- VBAC Facts: vbacfacts.com
+- VBAC Facts: #link("https://vbacfacts.com")[vbacfacts.com]
 - Evidence Based Birth: evidencebasedbirth.com
 
 #line(length: 100%)

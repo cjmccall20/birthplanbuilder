@@ -2,7 +2,7 @@
 
 == THE QUICK ANSWER
 
-Your baby's first bath is a decision shaped by medical evidence, cultural traditions, and personal preference. The white coating (vernix) on your newborn offers real benefits—moisturizing skin, fighting infection, and helping with temperature regulation—which is why the WHO recommends waiting at least 24 hours. At the same time, many families have meaningful reasons for bathing sooner, from cultural welcoming rituals to the simple comfort of that first bath together. Either way, your baby will be fine.
+Many families choose to delay their baby's first bath for at least 24 hours—some wait even longer. The white coating (vernix) on your newborn offers real benefits—moisturizing skin, fighting infection, and helping with temperature regulation—which is why the WHO recommends waiting at least 24 hours. At the same time, many families have meaningful reasons for bathing sooner, from cultural welcoming rituals to the simple comfort of that first bath together. Either way, your baby will be fine.
 
 == WHAT IT IS
 
@@ -28,6 +28,7 @@ Vernix caseosa is the waxy, cheese-like coating on newborns. For decades, hospit
 - WHO: Delay bathing for at least 24 hours
 - Many hospitals now delay 8-24+ hours
 - Some advocate waiting until the cord stump falls off (1-2 weeks)
+- Some families wait even longer than 24 hours—anywhere from 48 hours to a full week—letting the vernix absorb completely on its own
 
 === Why Some Families Choose Early Bathing
 
@@ -45,9 +46,15 @@ This is a genuine decision with real considerations on both sides—not a case w
 
 The strongest case for delaying is biological: vernix protects newborn skin, supports temperature regulation, and may help initiate breastfeeding. Early baths carry a small but documented risk of hypothermia and blood sugar instability, and they interrupt the critical first hours of skin-to-skin contact. The WHO's 24-hour recommendation is grounded in this evidence, and many hospitals have already shifted their default practice accordingly.
 
-The strongest case for early bathing is personal and cultural: for many families, this is a meaningful ritual—a welcoming act, a bonding moment, or a reflection of traditions that run deeper than any clinical guideline. Some parents find the vernix coating distressing, and feeling comfortable and connected with your baby in those early hours matters too. A gentle, warm bath given with care is not harmful to a healthy newborn.
+The strongest case for early bathing is personal and cultural: for many families, this is a meaningful ritual—a welcoming act, a bonding moment, or a reflection of traditions that run deeper than any clinical guideline. Some parents find the vernix coating distressing, and feeling comfortable and connected with your baby in those early hours matters too.
 
-Families who value the protective biology of vernix and want to maximize early skin-to-skin and breastfeeding tend to lean toward delaying. Families who value cultural tradition, shared bonding through bathing, or personal comfort tend to lean toward an earlier bath. Neither choice puts your baby at risk.
+We lean toward delaying the first bath for at least 24-48 hours, and there is nothing wrong with waiting even longer if that feels right to you. Vernix has a biological purpose—it is not just "stuff to wash off." The proven benefits of leaving it (skin protection, antimicrobial defense, temperature regulation) are real, and the cost of waiting is essentially zero. Some families wait a full week and let the vernix absorb entirely on its own.
+
+That said, this is NOT a make-or-break decision. Your baby will be perfectly fine whether you bathe at 2 hours or 2 days. Neither choice is dangerous. If you do wash the vernix off early, just pay closer attention to your newborn's temperature in the hours afterward—have warm blankets ready and get back to skin-to-skin quickly.
+
+If you are planning to breastfeed, we do strongly recommend not interrupting the golden hour for a bath. That first hour of skin-to-skin is when babies are primed to find the breast, and the amniotic fluid scent on their skin helps guide them. A bath can wait; that window cannot be replayed.
+
+If you choose to delay the first bath, let the hospital know your preference. Most hospitals are now used to this request, but putting it in your birth plan makes it easier for the staff to follow through.
 
 *Practical tips either way:*
 - If you delay, you can gently wipe off blood while leaving the vernix to absorb naturally.

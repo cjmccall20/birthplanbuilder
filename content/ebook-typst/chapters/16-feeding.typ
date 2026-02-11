@@ -121,7 +121,7 @@ _Benefits for Mom:_
 - 26% reduced breast cancer risk with 12+ months breastfeeding [5]
 - 37% reduced ovarian cancer risk [5]
 - Faster postpartum uterine recovery — nursing triggers contractions that help your uterus return to pre-pregnancy size
-- Burns 300-500 extra calories per day, supporting postpartum weight loss
+- Burns 300-500 extra calories per day (though note: breastfeeding can also cause the body to retain fat stores, and many women find it harder to lose weight while nursing — this is your body protecting its ability to feed your baby)
 - Reduced risk of type 2 diabetes and cardiovascular disease [6]
 - Delays return of menstruation (natural child spacing)
 - Lower rates of postpartum depression in women who breastfeed successfully
@@ -182,12 +182,42 @@ _On-demand feeding vs. scheduled feeding:_
 
 _Professional Support:_
 
-_Lactation consultant (IBCLC):_
-- See one in the hospital before discharge
-- Schedule a follow-up visit at 3-5 days postpartum (when milk comes in)
-- Early intervention prevents small problems from becoming big ones
+Not all lactation support is created equal. The title "lactation consultant" has no standardized certification — anyone can call themselves a lactation consultant with no formal training. When seeking help, understand the credential hierarchy:
+
+_"Lactation Consultant" (no credential):_
+- No required education, certification, or clinical hours
+- Anyone can use this title — there is no legal protection on the term
+- Quality varies enormously; some are excellent, some have minimal training
+- If someone offers lactation support, ask about their specific credentials
+
+_CLC (Certified Lactation Counselor):_
+- Entry-level certification requiring approximately 45-52 hours of education
+- Must pass an exam administered by the Academy of Lactation Policy and Practice (ALPP)
+- Good for basic breastfeeding support and common early challenges
+- Often found in hospitals, WIC offices, and pediatric practices
+
+_IBCLC (International Board Certified Lactation Consultant):_
+- The gold standard in lactation care
+- Requires extensive clinical hours (minimum 300-1,000 depending on pathway), college-level health science coursework, and passing a rigorous board exam
+- Must recertify every 5 years with continuing education
+- Trained to handle complex cases: tongue ties, low supply, premature infants, breast surgery history, and more
 - Many insurance plans cover IBCLC visits under the ACA
 - Find an IBCLC at #link("https://www.ilca.org/why-ibclc/falc")[ILCA.org]
+
+_What lactation professionals help with:_
+- _Latch assessment:_ Evaluating how baby attaches to the breast and correcting positioning to reduce pain and improve milk transfer
+- _Positioning and holds:_ Teaching cradle, cross-cradle, football, side-lying, and laid-back positions to find what works for your body and your baby
+- _Weighted feeds:_ Weighing baby on a precision scale before and after a nursing session to measure exactly how much milk they transferred — this removes the guesswork about whether baby is getting enough
+- _Mechanics and troubleshooting:_ Identifying tongue ties, lip ties, shallow latch, or other structural issues affecting feeding
+- _Supply assessment:_ Determining whether low supply is real or perceived, and creating a plan to increase production if needed
+- _Pump fitting and guidance:_ Ensuring correct flange size and pump settings for efficient milk removal
+- _Return-to-work planning:_ Creating a pumping schedule and milk storage plan
+
+_When to see a lactation professional:_
+- See one in the hospital before discharge (ideally an IBCLC)
+- Schedule a follow-up visit at 3-5 days postpartum (when milk comes in)
+- Early intervention prevents small problems from becoming big ones
+- A single visit with a skilled IBCLC can resolve issues that would otherwise end a breastfeeding relationship
 
 _Peer support groups:_
 - La Leche League meetings (local and virtual)

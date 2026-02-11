@@ -50,7 +50,7 @@ And then we'll tell you *what they often don't mention.* The nuances. The resear
 
 *We believe in the body's natural design.* Women have been giving birth for hundreds of thousands of years. The female body is remarkably well-designed for this task. Most of the time, when left to its own rhythms and supported well, birth unfolds exactly as it should.
 
-*But we also respect modern medicine's role.* Medical interventions save lives. C-sections save lives. Epidurals help some women cope. Continuous monitoring catches real problems. Inductions prevent real complications. We're not here to demonize any of these tools. They have their place, and sometimes that place is exactly where you are.
+*But we also respect modern medicine's role.* Medical interventions save lives. C-sections save lives. Epidurals help some women cope with pain or relax and stop fighting contractions. Continuous monitoring catches real problems. Inductions prevent real complications. We're not here to demonize any of these tools. They have their place, and sometimes that place is exactly where you are.
 
 *We are not anti-doctor.* We are pro-informed-consent.
 
@@ -72,7 +72,7 @@ Throughout this guide, you'll encounter phrases like "no proven causal link" or 
 
 *Absence of evidence is not evidence of absence.*
 
-Many interventions that became routine in hospital births were adopted before modern standards for safety research existed. True double-blind, placebo-controlled, long-term safety studies have never been conducted for many common newborn procedures—not because they've been proven safe, but because such studies are expensive, time-consuming, and there's often no financial incentive to conduct them.
+Many interventions that became routine in hospital births were adopted before modern standards for safety research existed. True double-blind, placebo-controlled, long-term safety studies have never been conducted for many common newborn procedures—not because they've been proven safe, but because such studies are expensive, time-consuming, there's often no financial incentive to conduct them, and many researchers are hesitant to perform studies on infants and pregnant women.
 
 When health organizations say there's "no proven link" between an intervention and a harm, this often means: _the rigorous study that would prove or disprove this link has not been done._ It does not mean the link doesn't exist.
 
@@ -82,7 +82,7 @@ This doesn't mean rejecting all interventions. It means asking good questions:
 - Has this been rigorously studied for safety in newborns?
 - What studies would be needed to prove this is safe, and have they been done?
 - What's the cost of waiting versus the cost of acting?
-- Is there a less-studied alternative (like breastfeeding for pain) that achieves the same goal?
+- Is there a less-studied alternative that achieves the same goal?
 
 We believe parents deserve to know not just what the current recommendation is, but what the evidence behind it actually looks like—including its gaps and limitations.
 
@@ -109,7 +109,7 @@ This isn't about challenging your provider. It's about having a deeper, more inf
 - One for you and one for your advocate so you can both reference it quickly
 - A few extras, just in case—for a new resident, a lactation consultant, or anyone else who joins your care team unexpectedly
 
-*Pro tip:* This isn't necessary by any means, but attaching a small gift card to each copy you give to your nurses is a really nice gesture. Nurses play a _huge_ role in your hospital experience—they're the ones at your bedside through the long hours, and a little appreciation goes a long way. Chick-fil-A and Starbucks gift cards are nearly universally appreciated.
+*Pro tip:* This isn't necessary by any means, but attaching a small gift card to each copy you give to your nurses is a really nice gesture. Nurses play a _huge_ role in your hospital experience—they're the ones at your bedside through the long hours, and a little appreciation goes a long way. Every nurse I've ever met loves Chick-fil-A and Starbucks.
 
 #line(length: 100%)
 
@@ -119,7 +119,7 @@ Here's something that's rarely explained to expecting parents: *hospitals operat
 
 This isn't a conspiracy. It's not that doctors are bad people or that hospitals don't care about you. It's simply the reality of how modern healthcare operates, especially in the United States.
 
-When something goes wrong during birth—even when no one did anything wrong, even when it was just bad luck—there's often a lawsuit. Juries tend to be sympathetic to injured babies. Malpractice insurance is astronomically expensive. Hospitals have entire departments dedicated to risk management.
+When something goes wrong during birth—even when no one did anything wrong, even when it was just bad luck—there's often a lawsuit. Juries tend to be more sympathetic to injured patients than big corporations. Malpractice insurance is astronomically expensive. Hospitals have entire departments dedicated to risk management.
 
 Over time, this liability culture has shaped hospital protocols in predictable ways. The safest thing _for the hospital_ is often to intervene early, to monitor continuously, to have documentation showing they did everything by the book. If there's a bad outcome and they can point to a chart showing continuous fetal monitoring and timely interventions, they're in a much better legal position than if the notes say "patient declined monitoring; we respected her wishes."
 
@@ -141,7 +141,7 @@ So how do you navigate this?
 
 You're not trying to fight your care team. You're trying to work with them while also advocating for yourself. Ideally, you should not walk into your birth feeling apprehensive about the people who will be caring for you. You should feel confident that your team understands your wishes, respects your autonomy, and shares your goal of a safe, positive birth experience. That kind of trust doesn't happen by accident—it's built through the choices and conversations you have during pregnancy.
 
-*Choose a provider who is supportive of your preferences.* This is one of the most consequential decisions you'll make during pregnancy—and one that many women don't realize they have. Not all providers practice the same way. Some are more intervention-heavy; others are more hands-off. Some welcome birth plans and patient involvement; others view them as obstacles. You want a provider whose philosophy aligns with yours so that when the big day comes, you're working together rather than negotiating. We cover this in depth in our #link(<ch-birth-team>)[Choosing Your Birth Team chapter], including what questions to ask during interviews and what red flags to watch for.
+*Choose a provider who is supportive of your preferences.* This is one of the most consequential decisions you'll make during pregnancy—and one that many women don't realize they have. Not all providers practice the same way. Some are more intervention-heavy; others are more hands-off. Some welcome birth plans and patient involvement; others view them as obstacles. You want a provider whose philosophy aligns with yours so that when the big day comes, you're working together rather than negotiating. We cover this in depth in our #link(<ch-birth-team>)[Choosing Your Birth Team chapter], including what questions to ask during interviews and routine check-up visits/appointments, and what red flags to watch for.
 
 *Make your desires known beforehand.* Your prenatal appointments aren't just about measuring your belly and checking your blood pressure—they're your opportunity to ask questions, understand your options, and build a relationship with your provider. Have conversations about hospital protocols. Ask what interventions are routine. Ask under what circumstances they would recommend certain procedures. Get a sense of your provider's philosophy. Don't wait until you're in active labor to bring up something that matters to you—by then, you'll have enough to focus on. If there are major disconnects between what you want and what they typically do, address it now—not when you're having contractions.
 
@@ -156,7 +156,7 @@ You're not trying to fight your care team. You're trying to work with them while
 
 This gives you a quick structure for evaluating any recommendation in the moment.
 
-*Bring an advocate.* Whether it's your partner, a doula, or a supportive family member—have someone with you who knows your preferences and can speak up when you can't. Someone who can ask "Can we have a minute to discuss this?" when a decision is being rushed. Start early by attending prenatal appointments together so your advocate understands your preferences and can communicate with your provider.
+*Bring an advocate.* Whether it's your partner, a doula, a friend, or a supportive family member—have someone with you who knows your preferences and can speak up when you can't. Someone who can ask "Can we have a minute to discuss this?" when a decision is being rushed. Start early by attending prenatal appointments together so your advocate understands your preferences and can communicate with your provider.
 
 *Know that you can say no.* Or "not yet." Or "let me think about it." You can ask for more information. You can ask for more time (except in true emergencies, of course). Your consent matters, and it must be informed and voluntary.
 
@@ -194,7 +194,7 @@ No. Some procedures—like newborn screening—catch conditions that would other
 
 3. *The cumulative effect matters.* One heel prick is not the same as a NICU stay with multiple daily procedures. But every painful experience adds to your newborn's early life record [3]. Consider the total picture.
 
-4. *Circumcision deserves serious consideration.* This is the most painful and invasive routine procedure performed on healthy newborns. Research shows cortisol levels spike 3-4x during circumcision and remain elevated for hours to days [6]. Some studies suggest altered pain responses months later [7]. Whether this constitutes lasting trauma is debated, but the acute experience is undeniably significant. If you're on the fence, the pain dimension is worth weighing.
+4. *Circumcision deserves serious consideration.* This is the most painful and invasive routine procedure performed on healthy newborns. Research shows cortisol levels spike 3-4x during circumcision and remain elevated for hours to days [6]. Some studies suggest altered pain responses months later [7]. Whether this constitutes lasting trauma is debated, but the acute experience is undeniably significant. If you're on the fence, the pain dimension is worth weighing. We dive deeper into the pros and cons in its own chapter. If you've heard the "look like dad" argument or any other reason for or against, we'd invite you to thoughtfully read that chapter—this is such a huge, permanent procedure that it deserves careful, informed consideration.
 
 5. *Comfort and connection are protective.* Skin-to-skin contact, breastfeeding, and parental presence during procedures all reduce stress responses [8][9]. Your presence and warmth are medicine.
 
