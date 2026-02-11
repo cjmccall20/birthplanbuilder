@@ -1,4 +1,4 @@
-= Medicated (Epidural) Birth: A Complete Guide <ch-epidural-birth>
+= Chapter 14: Medicated (Epidural) Birth: A Complete Guide <ch-epidural-birth>
 
 == ONE-PAGE OVERVIEW
 
@@ -32,7 +32,7 @@ Epidurals are a powerful tool that provides excellent pain relief. They also sta
 
 *"Epidurals don't increase cesarean rates."* This is what randomized trials show, but it doesn't capture the full picture of how epidurals interact with other interventions in typical hospital settings.
 
-*"You'll be comfortable and able to rest."* Usually true - epidurals do provide the rest that exhausted laboring people need.
+*"You'll be comfortable and able to rest."* Usually true - epidurals do provide the rest that exhausted laboring women need.
 
 #line(length: 100%)
 
@@ -88,7 +88,7 @@ At typical doses, most babies do fine on standard assessments. But research show
 
 Epidurals are the most effective pharmacological pain relief option for labor, and the evidence supports that. A Cochrane review found epidural patients were 90% less likely to need additional pain relief compared to those using opioid injections. Satisfaction with pain relief is consistently higher.
 
-For context: research indicates 10-15% of laboring people report minimal or mild pain, 35-40% experience moderate pain, 30-35% describe it as "intense," and 15-20% call it "overwhelmingly unbearable." For those in the higher pain categories, epidurals reliably address this.
+For context: research indicates 10-15% of laboring women report minimal or mild pain, 35-40% experience moderate pain, 30-35% describe it as "intense," and 15-20% call it "overwhelmingly unbearable." For those in the higher pain categories, epidurals reliably address this.
 
 === Rest During Marathon Labors
 

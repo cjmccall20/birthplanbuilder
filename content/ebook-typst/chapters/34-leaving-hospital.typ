@@ -1,4 +1,4 @@
-= When to Leave the Hospital <ch-leaving-hospital>
+= Chapter 34: When to Leave the Hospital <ch-leaving-hospital>
 
 == THE QUICK ANSWER
 

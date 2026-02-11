@@ -1,4 +1,4 @@
-= Directed vs Spontaneous Pushing <ch-directed-pushing>
+= Chapter 36: Directed vs Spontaneous Pushing <ch-directed-pushing>
 
 == THE QUICK ANSWER
 

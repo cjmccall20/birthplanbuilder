@@ -1,4 +1,4 @@
-= Hearing Test <ch-hearing-test>
+= Chapter 30: Hearing Test <ch-hearing-test>
 
 == THE QUICK ANSWER
 

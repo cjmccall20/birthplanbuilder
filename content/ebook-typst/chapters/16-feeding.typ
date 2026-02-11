@@ -1,4 +1,4 @@
-= Infant Feeding: Why Breast Is Best <ch-feeding>
+= Chapter 16: Infant Feeding: Why Breast Is Best <ch-feeding>
 
 == ONE-PAGE OVERVIEW
 

@@ -1,4 +1,4 @@
-= Unmedicated Vaginal Birth: A Complete Guide <ch-unmedicated-birth>
+= Chapter 13: Unmedicated Vaginal Birth: A Complete Guide <ch-unmedicated-birth>
 
 == ONE-PAGE OVERVIEW
 

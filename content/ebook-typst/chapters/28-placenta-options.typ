@@ -1,4 +1,4 @@
-= Placenta Options <ch-placenta-options>
+= Chapter 28: Placenta Options <ch-placenta-options>
 
 == THE QUICK ANSWER
 

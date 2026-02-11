@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= GBS (Group B Strep) and Antibiotics <ch-gbs>
+= Chapter 6: GBS (Group B Strep) and Antibiotics <ch-gbs>
 
 #line(length: 100%)
 

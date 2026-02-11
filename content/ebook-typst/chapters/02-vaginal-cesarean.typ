@@ -1,4 +1,4 @@
-= Vaginal Birth vs. Cesarean Section <ch-vaginal-cesarean>
+= Chapter 2: Vaginal Birth vs. Cesarean Section <ch-vaginal-cesarean>
 
 Understanding your options for delivery is one of the most important parts of planning for birth. This guide breaks down what the research shows about both vaginal and cesarean birth, helping you understand when each is truly necessary and what to expect.
 

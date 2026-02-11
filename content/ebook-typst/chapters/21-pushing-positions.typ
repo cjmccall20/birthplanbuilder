@@ -1,4 +1,4 @@
-= Pushing Positions: What Actually Works <ch-pushing-positions>
+= Chapter 21: Pushing Positions: What Actually Works <ch-pushing-positions>
 
 When it comes time to push your baby out, your position matters more than most people realize. The position you're in can make pushing easier or harder, faster or slower, and more or less comfortable. Yet most women end up flat on their backs—the position that actually makes pushing hardest.
 

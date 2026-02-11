@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= The Stages of Labor (When to Go to the Hospital) <ch-when-to-go>
+= Chapter 4: The Stages of Labor (When to Go to the Hospital) <ch-when-to-go>
 
 To know when to go to the hospital, you first need to understand what labor actually is --- the biological stages, the physical markers, and the emotional signposts that tell you where you are in the process. Too many expecting parents arrive at the hospital armed with a single timing rule but without a real understanding of what their body is doing or why. This chapter covers the mechanics of labor from start to finish and gives you practical tools for timing your arrival so you show up when it matters most --- not too early, not too late.
 
@@ -116,7 +116,7 @@ These needs are not preferences. They are physiological requirements for the hor
 *Partner's role during active labor:* Your role has shifted dramatically. You are no longer the entertainment director. You are now the protector, the calm center, the anchor. Specific responsibilities:
 
 - *Stay close constantly.* Do not leave the room. Do not leave to make phone calls, check messages, or talk to family in the waiting room. Your continuous physical presence is now essential.
-- *Handle ALL communications.* This is one of your most important jobs. The laboring person should NOT be on their phone during labor. You are the communication filter. You update family members. You respond to text messages. You decide what information gets through and what can wait. You shield the laboring person from distractions, questions, and external demands. Their only job is labor. Your job is everything else.
+- *Handle ALL communications.* This is one of your most important jobs. The laboring woman should NOT be on her phone during labor. You are the communication filter. You update family members. You respond to text messages. You decide what information gets through and what can wait. You shield her from distractions, questions, and external demands. Her only job is labor. Your job is everything else.
 - *Provide fluids.* Offer water or electrolyte drinks between every contraction. She may not ask, but she needs them.
 - *Encourage bladder emptying.* Remind her to use the bathroom every hour. A full bladder impedes labor.
 - *Talk through contractions calmly.* Use a low, steady voice: "Breathe with me. Relax your shoulders. Let your body do this. You're doing beautifully."

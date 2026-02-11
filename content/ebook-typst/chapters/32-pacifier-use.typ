@@ -1,4 +1,4 @@
-= Pacifier Use <ch-pacifier-use>
+= Chapter 32: Pacifier Use <ch-pacifier-use>
 
 == THE QUICK ANSWER
 

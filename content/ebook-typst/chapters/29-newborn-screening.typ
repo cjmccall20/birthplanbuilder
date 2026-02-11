@@ -1,4 +1,4 @@
-= Newborn Screening (Heel Prick Test) <ch-newborn-screening>
+= Chapter 29: Newborn Screening (Heel Prick Test) <ch-newborn-screening>
 
 == THE QUICK ANSWER
 

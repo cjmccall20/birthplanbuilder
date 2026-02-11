@@ -1,4 +1,4 @@
-= Hospital Admission: What to Expect and What You Can Control <ch-hospital-admission>
+= Chapter 24: Hospital Admission: What to Expect and What You Can Control <ch-hospital-admission>
 
 Arriving at the hospital in labor can feel overwhelming. You're managing contractions, feeling excited and nervous, and suddenly you're faced with paperwork, questions, and medical procedures. Knowing what to expect—and what choices you have—can help you feel more in control during this transition.
 

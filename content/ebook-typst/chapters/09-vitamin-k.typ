@@ -1,4 +1,4 @@
-= Vitamin K for Newborns <ch-vitamin-k>
+= Chapter 9: Vitamin K for Newborns <ch-vitamin-k>
 
 == One-Page Overview
 

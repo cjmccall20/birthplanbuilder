@@ -1,13 +1,13 @@
 #import "../template.typ": *
 
-= Choosing Your Birth Team: The Most Important Decision <ch-birth-team>
+= Chapter 20: Choosing Your Birth Team: The Most Important Decision <ch-birth-team>
 
 == One-Page Overview
 
 - _Your care provider shapes your entire birth experience._ Their philosophy, intervention rates, and communication style determine how your birth unfolds far more than hospital policies or birth plans.
 - _OBs and midwives have different training and philosophies._ OB/GYNs are surgeons trained to manage high-risk pregnancies and complications. Midwives are trained in physiologic birth and low-intervention approaches.
 - _Certified Nurse-Midwives (CNMs) are a powerful middle ground._ They hold master's degrees, can prescribe medications, practice in all 50 states, and can serve as your primary pregnancy care provider from first appointment to delivery.
-- _Doulas reduce cesarean rates by 40% or more._ Continuous labor support from a doula is one of the few interventions proven to improve birth outcomes without side effects.
+- _Doulas reduce cesarean rates by 39% (Bohren 2017 Cochrane review), and between 39% and 68% depending on the study (Bohren 2017; Dias 2025 meta-analysis)._ Continuous labor support from a doula is one of the few interventions proven to improve birth outcomes without side effects.
 - _You can switch providers at any point—even at 36 weeks._ If your provider doesn't support your birth preferences or you feel dismissed, changing is almost always possible.
 - _Your birth team includes everyone in the room._ Partner, family, doula, nurses, and provider all influence your experience. Choose intentionally.
 

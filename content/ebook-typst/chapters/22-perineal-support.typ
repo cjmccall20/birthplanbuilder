@@ -1,4 +1,4 @@
-= Perineal Support: Preventing and Healing Tears <ch-perineal-support>
+= Chapter 22: Perineal Support: Preventing and Healing Tears <ch-perineal-support>
 
 During vaginal birth, the tissue between your vagina and rectum (called the perineum) stretches to allow your baby to pass through. Sometimes this tissue tears. While that might sound scary, understanding what happens—and what you can do about it—puts you in control.
 

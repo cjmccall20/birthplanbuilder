@@ -1,4 +1,4 @@
-= Doula Support: The Evidence-Based Difference <ch-doula-support>
+= Chapter 43: Doula Support: The Evidence-Based Difference <ch-doula-support>
 
 Having a doula is one of the most evidence-based interventions available for improving birth outcomes. Yet many people have never heard of them, and those who have often think they're a luxury rather than a medically beneficial choice.
 
@@ -477,7 +477,7 @@ _Intangible benefits:_
 - Better partner experience
 - Improved postpartum recovery
 
-When a \$1,500-\$2,500 doula fee could reduce your risk of a \$10,000-\$25,000 cesarean by nearly 40%, the return on investment is substantial.
+When a \$1,500-\$2,500 doula fee could reduce your risk of a \$10,000-\$25,000 cesarean by 39% (Bohren 2017 Cochrane review), the return on investment is substantial.
 
 #line(length: 100%)
 
@@ -543,7 +543,7 @@ And yet doula support remains seen as optional, luxury, or "nice to have" rather
 
 The reason doula support works is because _labor is not just a medical event_. It's a physiologic process profoundly affected by environment, support, and emotional state.
 
-We've medicalized birth to the point where we often forget that continuous support—having one person focused entirely on the laboring person's comfort and emotional well-being—is as important as any medical intervention.
+We've medicalized birth to the point where we often forget that continuous support—having one person focused entirely on the laboring woman's comfort and emotional well-being—is as important as any medical intervention.
 
 The research is clear: when someone feels supported, safe, and informed, their body works better. Labor progresses more efficiently. Stress hormones stay lower. Complications decrease.
 

@@ -1,4 +1,4 @@
-= First Bath Timing <ch-first-bath>
+= Chapter 27: First Bath Timing <ch-first-bath>
 
 == THE QUICK ANSWER
 

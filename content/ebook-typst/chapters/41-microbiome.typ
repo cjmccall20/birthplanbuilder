@@ -1,4 +1,4 @@
-= The Microbiome and Birth: Your Baby's Invisible Inheritance <ch-microbiome>
+= Chapter 41: The Microbiome and Birth: Your Baby's Invisible Inheritance <ch-microbiome>
 
 Your baby is born sterile, but within hours, trillions of bacteria colonize their body. These early microbial encounters fundamentally shape their health—influencing everything from immune function to metabolism, digestion, and even mental health. The decisions you make around birth have profound implications for your baby's microbiome.
 

@@ -1,4 +1,4 @@
-= Informed Refusal Rights: The Right to Say No <ch-informed-refusal>
+= Chapter 42: Informed Refusal Rights: The Right to Say No <ch-informed-refusal>
 == Your Legal Right to Decline Any Medical Intervention
 
 #line(length: 100%)

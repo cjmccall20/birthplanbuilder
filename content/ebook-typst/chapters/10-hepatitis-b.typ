@@ -1,4 +1,4 @@
-= Hepatitis B Vaccine at Birth <ch-hepatitis-b>
+= Chapter 10: Hepatitis B Vaccine at Birth <ch-hepatitis-b>
 
 == One-Page Overview
 
@@ -77,7 +77,7 @@ The birth dose prevents infection at the moment of greatest vulnerability.
 === Catch-Up for Missed Screening
 
 The birth dose serves as a safety net for gaps in prenatal screening. While screening is highly accurate, it is not perfect:
-- Research suggests 10-16% of pregnant people are not tested for hepatitis B during pregnancy
+- Research suggests 10-16% of pregnant women are not tested for hepatitis B during pregnancy
 - Some mothers deliver in settings where prenatal records are unavailable
 - Early screening rates are lower, with only 60% of commercially insured and 39% of Medicaid-enrolled women tested in the first trimester
 

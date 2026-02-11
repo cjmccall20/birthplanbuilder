@@ -1,4 +1,4 @@
-= The Cascade of Interventions <ch-cascade>
+= Chapter 39: The Cascade of Interventions <ch-cascade>
 
 Understanding how one intervention leads to another and how to break the cycle.
 
@@ -199,7 +199,7 @@ _The 6cm rule:_ Remember that you're not in active labor until 6cm dilation. Man
 
 _What to do at home:_ Move, walk, rest, shower, use a birthing ball, practice breathing techniques. Eat light foods. Drink fluids. Change positions frequently. Work with your support person using techniques you've practiced.
 
-_When to go:_ Use contraction timing as a guideline—many providers suggest the 5-1-1 rule (contractions 5 minutes apart, lasting 1 minute, for 1 hour), but the 3-1-1 rule (3 minutes apart, 1 minute long, for 1 hour) may be more appropriate if you want to avoid early admission. Remember to count from the _beginning_ of one contraction to the _beginning_ of the next. Also pay attention to emotional signposts: when you can no longer talk through contractions and have turned inward with serious focus, active labor is likely underway. See the chapter on When to Go to the Hospital for more detail.
+_When to go:_ This book recommends the *3-1-1 rule* (contractions 3 minutes apart, lasting 1 minute, for 1 hour) rather than the older 5-1-1 guideline, which often sends women to the hospital too early. Remember to count from the _beginning_ of one contraction to the _beginning_ of the next. Also pay attention to emotional signposts: when you can no longer talk through contractions and have turned inward with serious focus, active labor is likely underway. See the #link(<ch-when-to-go>)[When to Go to the Hospital chapter] for the full evidence behind 3-1-1.
 
 _Plan for it:_ Discuss this strategy with your provider beforehand. Make sure your support person understands the plan. Have supplies at home for early labor comfort.
 

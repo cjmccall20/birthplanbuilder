@@ -1,6 +1,6 @@
 #import "../template.typ": *
 
-= Exercises Before Labor <ch-exercises-before-labor>
+= Chapter 45: Exercises Before Labor <ch-exercises-before-labor>
 
 Exercise during pregnancy is one of those topics that tends to get reduced to a list of things you're not supposed to do anymore. Don't lift heavy. Don't lie flat on your back after the first trimester. Don't overheat. The cautionary advice is everywhere, but very few resources lay out what you _should_ be doing --- the specific exercises, positions, and practice routines that directly prepare your body for the physical work of labor, delivery, and recovery.
 

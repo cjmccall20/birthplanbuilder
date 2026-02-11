@@ -1,4 +1,4 @@
-= VBAC: Vaginal Birth After Cesarean <ch-vbac>
+= Chapter 38: VBAC: Vaginal Birth After Cesarean <ch-vbac>
 
 If you have had a previous cesarean, you have more options than you may realize. Vaginal birth after cesarean (VBAC) is successful for the majority of women who attempt it, yet only about 14% of eligible women in the U.S. get to try. This guide explains what the research actually shows about VBAC, helps you find supportive care, and empowers you to make an informed decision.
 

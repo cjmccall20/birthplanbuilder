@@ -1,4 +1,4 @@
-= Fetal Monitoring: Continuous vs. Intermittent <ch-fetal-monitoring>
+= Chapter 5: Fetal Monitoring: Continuous vs. Intermittent <ch-fetal-monitoring>
 
 Understanding your options for tracking your baby's heart rate during labor.
 

@@ -1,4 +1,4 @@
-= Water Birth: A Complete Guide <ch-water-birth>
+= Chapter 37: Water Birth: A Complete Guide <ch-water-birth>
 
 == ONE-PAGE OVERVIEW
 
@@ -6,7 +6,7 @@ Water birth means laboring and/or delivering your baby in a tub of warm water. I
 
 _Five Key Takeaways:_
 
-1. _Water significantly reduces pain perception._ Studies show water immersion during labor reduces the need for pain medication, shortens labor by an average of 32 minutes, and in one review, cut epidural use from 43% to 39% among participants. Women consistently report lower pain scores and describe it as "nature's epidural."
+1. _Water significantly reduces pain perception._ Studies show water immersion during labor reduces the need for pain medication, shortens labor by an average of 32 minutes, and in the Cochrane review, cut epidural use from 43% to 39% among study participants. Women consistently report lower pain scores and describe it as "nature's epidural."
 
 2. _It's safe when properly managed._ The largest study ever conducted—73,229 births in UK hospitals—found water birth poses no increased risk to mothers or babies. Baby deaths were extremely rare in both groups (2 per 10,000 waterbirths vs. 3 per 10,000 conventional births).
 
