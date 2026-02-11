@@ -323,17 +323,112 @@ If things shift, your partner can ask: "Is this urgent, or do we have a few minu
 
 Coming home with a newborn is overwhelming. Make it easier by preparing your home before labor.
 
-=== Food
+=== Meal Planning and Food Preparation
 
-You will not want to cook. You might not even want to think about food. Prepare now:
+You will not want to cook. You might not even want to think about food. But your body will need fuel—especially during recovery and breastfeeding. The time you spend on food prep in the third trimester will pay off enormously in the first weeks after birth.
 
-_Freezer meals:_ Spend a weekend batch cooking and freezing. Good options include soups, stews, casseroles, burritos, muffins, lactation cookies. Aim for 2-3 weeks worth of easy meals.
+==== Pre-Cooking and Freezing Meals
 
-_Stock the pantry:_ Easy snacks, granola bars, crackers, dried fruit, nuts. Things you can eat one-handed while holding a baby.
+Start batch cooking and freezing meals during your third trimester. Aim for 2-3 weeks worth of frozen meals so you're covered during the hardest stretch of newborn life.
 
-_Meal train:_ If friends offer to help, set up a meal train (websites like MealTrain or TakeThemAMeal make this easy). Specify dietary needs and best delivery times.
+Focus on things that reheat well:
+- Casseroles (enchilada bake, chicken and rice, lasagna)
+- Soups and stews (chicken noodle, beef stew, chili, lentil soup)
+- Pasta bakes (baked ziti, mac and cheese)
+- Burritos and wraps (wrap individually for grab-and-go meals)
+- Muffins and breakfast bakes (egg muffins, banana bread, lactation cookies)
 
-_Delivery options:_ Know which restaurants deliver to your area. Have apps downloaded and accounts set up. Stockpile gift cards if people ask what you need.
+_Label everything._ Write the contents, date frozen, and reheating instructions on each container or bag. At 2am with a screaming baby, you don't want to play freezer roulette trying to figure out what's in that mystery container.
+
+Use freezer-safe bags or containers. Lay bags flat to freeze so they stack easily and thaw faster.
+
+==== Stocking the Pantry
+
+You'll spend a lot of time sitting with a baby in one arm, and you'll need snacks you can eat one-handed without prep. Stock up on:
+
+- Granola bars and protein bars
+- Trail mix, nuts, and dried fruit
+- Crackers and nut butters (almond, peanut, cashew)
+- Pretzels, popcorn, cheese crisps
+- Easy breakfast items: instant oatmeal, cereal, overnight oats ingredients
+- Canned soups and shelf-stable meals for backup
+- Paper plates, bowls, and utensils (no one wants to do dishes during the first week)
+
+The goal is to minimize store trips in the early days. Those first weeks home should be about resting, healing, and bonding—not running errands.
+
+==== Good Nutrition for Recovery and Breastfeeding
+
+Whether you had a vaginal birth or a cesarean, your body just went through a major physical event. Recovery requires real nutrition, not just survival snacking.
+
+If you're breastfeeding, your body is burning roughly 500 extra calories per day to produce milk. That's not the time to diet or skip meals—it's the time to eat well and eat enough.
+
+Focus on:
+- _Protein:_ Eggs, chicken, fish, beans, Greek yogurt, cheese. Protein supports tissue repair and milk production.
+- _Healthy fats:_ Avocados, nuts, olive oil, salmon. These support brain health for you and baby.
+- _Fruits and vegetables:_ Fresh, frozen, or canned all count. Whatever is easiest.
+- _Whole grains:_ Oatmeal, brown rice, whole wheat bread. Oatmeal in particular is a traditional food believed to support milk supply.
+- _Iron-rich foods:_ Red meat, spinach, lentils, fortified cereals. You lost blood during delivery and need to rebuild iron stores.
+
+_Hydration is critical._ Breastfeeding especially increases your fluid needs. Keep water bottles everywhere—by the bed, by the nursing chair, on the kitchen counter, in the diaper bag. If you're thirsty, you're already behind. Some women set a goal of drinking a glass of water every time they sit down to feed the baby.
+
+==== Meal Trains and Community Support
+
+Many families have help from grandparents, friends, or extended family in the first week or two after birth. Meals show up, dishes get done, laundry gets folded. It feels manageable.
+
+Then the help leaves. And suddenly you're on your own with a newborn, you haven't slept more than two hours at a stretch, and the thought of cooking dinner feels impossible. That's exactly when your frozen meals and stocked pantry become a lifesaver.
+
+_Meal trains_ from friends, church groups, neighbors, or coworkers are one of the most practical forms of postpartum support. Websites like MealTrain or TakeThemAMeal make organizing easy. If someone offers to set one up for you, say yes. If people ask what you need, tell them food.
+
+Tips for a successful meal train:
+- Specify any dietary restrictions or allergies
+- Include best delivery times (you don't want the doorbell ringing during naptime)
+- Suggest disposable containers so you don't have to return dishes
+- Be specific about what helps: "Meals that reheat well are best" or "Breakfast foods are just as welcome as dinners"
+
+Don't be afraid to accept help. Every mom before you has been in this same position. Accepting a casserole isn't a weakness—it's wisdom.
+
+_Delivery options:_ Know which restaurants deliver to your area. Have food delivery apps downloaded and accounts set up before labor. If people ask what gift you want, suggest restaurant gift cards.
+
+==== Preparing Postpartum Recovery Supplies
+
+While you're stocking the kitchen, stock your bathroom and bedroom too. Postpartum recovery involves physical healing, and having the right supplies on hand makes a real difference.
+
+_For vaginal birth recovery:_
+- Witch hazel pads (Tucks pads or DIY—soak cotton rounds in witch hazel and store in the fridge)
+- Peri bottle for gentle cleansing (the hospital will give you one, but having a second at home is helpful)
+- Ice packs for perineal swelling (frozen pads soaked in witch hazel work well—some women call these "padsicles")
+- Stool softeners (your first postpartum bowel movement is notoriously uncomfortable—start these early)
+- Comfortable postpartum underwear (high-waisted, stretchy, dark-colored—or use disposable mesh underwear)
+- Heavy-flow pads or postpartum pads (postpartum bleeding lasts several weeks)
+- Dermoplast or similar numbing spray for perineal pain
+
+_For cesarean recovery:_
+- High-waisted underwear that won't sit on your incision
+- Loose, comfortable clothing (nothing with a waistband that hits the incision line)
+- A pillow to hold against your abdomen when coughing, laughing, or getting up
+- Stool softeners (even more important after surgery, since pain medications can cause constipation)
+
+_For breastfeeding (if applicable):_
+- Nursing pads (disposable or washable) to catch leaking milk
+- Nipple cream (lanolin or organic alternatives)
+- Nursing bras or tanks that you can manage one-handed
+- A good water bottle for your nursing station
+
+Buy these supplies before your due date. You don't want to be sending your partner on a midnight pharmacy run while you're sitting on an ice pack.
+
+==== Considerations for Families with Other Children
+
+If you already have kids, adding a newborn changes the household dynamic for everyone—not just you.
+
+_Prepare older children for the changes:_ Talk to them about what having a new baby will be like. Be honest: "The baby will cry a lot and Mommy will need to rest." Let them ask questions. Age-appropriate books about becoming a big sibling can help.
+
+_Stock up on easy activities and entertainment:_ New coloring books, puzzles, play-dough, sticker sheets—things that keep kids occupied when you're feeding the baby or resting. Some families wrap small items as "big sibling gifts" to open over the first few days.
+
+_Arrange help for school runs and activities:_ If your older kids have school, sports, or other commitments, line up another parent, neighbor, or family member to handle pickup and dropoff for at least the first week or two.
+
+_Frozen meals matter even more with older kids._ You can't cook dinner and watch a toddler and feed a newborn simultaneously. Having meals you can just pull from the freezer and reheat means your older kids still eat real food, even on the hardest days.
+
+_Keep routines as consistent as possible._ Kids thrive on routine, and everything is about to feel different. Keeping mealtimes, bedtimes, and daily rhythms as close to normal as possible helps older siblings adjust faster.
 
 === House Prep
 
@@ -387,8 +482,9 @@ Starting at 37 weeks (term pregnancy), you could go into labor anytime. Run thro
 
 === Home Ready
 
-- [ ] Freezer stocked with meals
+- [ ] Freezer stocked with meals (2-3 weeks worth)
 - [ ] Pantry stocked with snacks
+- [ ] Postpartum recovery supplies purchased (peri bottle, witch hazel pads, stool softeners, etc.)
 - [ ] Baby's sleeping area set up
 - [ ] Diapers and wipes stocked
 - [ ] Laundry done
