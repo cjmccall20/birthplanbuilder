@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 17: Natural Labor Induction: What Works and What Doesn't <ch-labor-induction>
 
 == ONE-PAGE OVERVIEW

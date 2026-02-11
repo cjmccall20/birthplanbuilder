@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 11: Cord Clamping: Timing Matters <ch-cord-clamping>
 
 == One-Page Overview

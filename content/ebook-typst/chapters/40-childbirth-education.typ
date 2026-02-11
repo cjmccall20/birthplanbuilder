@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 40: Childbirth Education Methods: A Complete Comparison Guide <ch-childbirth-education>
 
 == ONE-PAGE OVERVIEW

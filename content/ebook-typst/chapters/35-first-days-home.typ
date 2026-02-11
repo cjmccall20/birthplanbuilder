@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 35: First Days at Home <ch-first-days-home>
 
 == THE QUICK ANSWER

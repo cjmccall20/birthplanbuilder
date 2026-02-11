@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 39: The Cascade of Interventions <ch-cascade>
 
 Understanding how one intervention leads to another and how to break the cycle.

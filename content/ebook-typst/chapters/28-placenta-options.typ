@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 28: Placenta Options <ch-placenta-options>
 
 == THE QUICK ANSWER

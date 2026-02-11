@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 18: Hospital Bag Checklist: What You Actually Need <ch-hospital-bag>
 
 Pack your hospital bag between 35-37 weeks. Not because you'll need it that early, but because labor doesn't check your calendar. A bag sitting by the door means one less thing to think about when contractions start.

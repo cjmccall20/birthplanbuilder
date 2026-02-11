@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 23: Cord Blood Banking: What You Need to Know <ch-cord-blood>
 
 You've probably seen the ads or received the brochures: "Bank your baby's cord blood—it could save their life someday!" It sounds urgent. It sounds important. But what are you actually buying, and is it worth it?

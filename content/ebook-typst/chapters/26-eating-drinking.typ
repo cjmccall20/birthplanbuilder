@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 26: Eating and Drinking During Labor <ch-eating-drinking>
 
 == THE QUICK ANSWER

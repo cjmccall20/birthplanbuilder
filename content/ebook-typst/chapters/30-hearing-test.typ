@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 30: Hearing Test <ch-hearing-test>
 
 == THE QUICK ANSWER

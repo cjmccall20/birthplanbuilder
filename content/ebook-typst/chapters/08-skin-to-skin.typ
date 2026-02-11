@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 8: Skin-to-Skin Contact and the Golden Hour <ch-skin-to-skin>
 
 == One-Page Overview

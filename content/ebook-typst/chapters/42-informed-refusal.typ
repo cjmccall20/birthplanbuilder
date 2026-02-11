@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 42: Informed Refusal Rights: The Right to Say No <ch-informed-refusal>
 
 == THE QUICK ANSWER

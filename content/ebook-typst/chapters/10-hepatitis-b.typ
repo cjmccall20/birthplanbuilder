@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 10: Hepatitis B Vaccine at Birth <ch-hepatitis-b>
 
 == One-Page Overview

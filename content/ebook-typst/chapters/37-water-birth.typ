@@ -1,3 +1,4 @@
+#import "../template.typ": *
 = Chapter 37: Water Birth: A Complete Guide <ch-water-birth>
 
 == ONE-PAGE OVERVIEW
