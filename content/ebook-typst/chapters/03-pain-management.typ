@@ -28,11 +28,11 @@ You're not stuck with a simple choice between "natural" and "get me an epidural.
 
 Think of pain management as a spectrum rather than an all-or-nothing choice.
 
-On one end sits fully unmedicated birth: complete mobility, full sensation, no medication effects on you or baby. It requires the most preparation and support but offers the most control and typically the fastest recovery.
+On one end sits fully unmedicated birth: complete mobility, full sensation, no medication effects on you or baby. It requires the most preparation and support but offers the most control and typically the fastest recovery. For a comprehensive guide to preparing for and achieving unmedicated birth, see #link(<ch-unmedicated-birth>)[our Unmedicated Birth chapter].
 
 In the middle are options that take the edge off without eliminating sensation. Nitrous oxide lets you self-administer gas that reduces anxiety while keeping you mobile. It won't make contractions stop hurting, but it can help you cope. IV medications offer mild relief with more side effects and don't work particularly well for most women.
 
-On the other end is the epidural: highly effective pain relief, but with restricted movement, increased monitoring, and a cascade of additional interventions that change how labor unfolds.
+On the other end is the epidural: highly effective pain relief, but with restricted movement, increased monitoring, and a cascade of additional interventions that change how labor unfolds. For the full picture on epidurals, including the evidence on fever risk, effects on baby, and the intervention cascade, see #link(<ch-epidural-birth>)[our Epidural Birth chapter].
 
 Most women can move along this spectrum as needed. You might start with movement and breathing, try nitrous oxide as things intensify, and choose epidural if labor becomes prolonged. Having a plan doesn't mean you're locked in.
 
@@ -128,7 +128,7 @@ The key insight: tension increases pain. Breathing techniques work because they 
 
 *Touch and massage* release oxytocin while reducing stress and promoting endorphin release. Some women find pressure on their lower back especially helpful.
 
-*Continuous labor support* from one consistent person reduces pain perception, decreases intervention rates, and improves satisfaction. The specific techniques matter less than the consistent presence.
+*Continuous labor support* from one consistent person reduces pain perception, decreases intervention rates, and improves satisfaction. The specific techniques matter less than the consistent presence. For more on how doulas provide this support and the remarkable evidence behind it, see #link(<ch-doula-support>)[our Doula Support chapter].
 
 #line(length: 100%)
 

@@ -153,7 +153,7 @@ Circumcision is a significant painful procedure. If you choose circumcision, ins
 - Ring block
 - EMLA cream (topical anesthetic)
 
-*Acetaminophen alone is NOT adequate pain management for circumcision.* Some providers still perform circumcisions with only sugar water or acetaminophen—this is insufficient for a surgical procedure.
+*Acetaminophen alone is NOT adequate pain management for circumcision.* Some providers still perform circumcisions with only sugar water or acetaminophen—this is insufficient for a surgical procedure. For a comprehensive look at the circumcision decision itself, see #link(<ch-circumcision>)[our Circumcision chapter].
 
 === For Heel Pricks and Injections
 

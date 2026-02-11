@@ -1,5 +1,13 @@
 = Chapter 24: Hospital Admission: What to Expect and What You Can Control <ch-hospital-admission>
 
+== THE QUICK ANSWER
+
+Hospital admission involves triage (where staff determine if you're in active labor), standard procedures (IV placement, monitoring strip, cervical check, vitals), and paperwork. Being sent home from triage is common and not a failure -- it often means your body is still warming up. You have choices at every step: you can request a hep lock instead of continuous IV, ask for intermittent monitoring, limit cervical checks (especially after your water breaks, since each check increases infection risk), and decline or delay procedures that aren't urgent. Pre-registering around 36 weeks and touring your hospital ahead of time dramatically reduce stress on the day. Your partner's job during admission is to handle everything except labor itself -- logistics, communications, advocacy, and environment -- so you can focus entirely on the work your body is doing.
+
+*Bottom line:* The first hour at the hospital sets the tone for your entire birth. Arrive informed, communicate your priorities clearly, build rapport with your nurse, and remember that standard procedures are recommendations, not requirements.
+
+#line(length: 100%)
+
 Arriving at the hospital in labor can feel overwhelming. You're managing contractions, feeling excited and nervous, and suddenly you're faced with paperwork, questions, and medical procedures. Knowing what to expect—and what choices you have—can help you feel more in control during this transition.
 
 This guide walks you through the typical admission process, explains your options, and helps you set a positive tone for your birth experience from the very first moment.
@@ -214,7 +222,7 @@ That means:
 
 Think of it this way: she is running a marathon. Your job is to hand her water, clear the road, and make sure nobody gets in her way. She's doing the extraordinary physical work. You're doing everything else.
 
-*Consider having a doula.* With both a partner and a doula present, there's always someone by her side — even when you need to step out for food, use the restroom, or take a breather. A doula brings experience and calm to the room, can suggest comfort measures you might not think of, and frees you up to be emotionally present rather than scrambling to figure out what to do next. Two support people means more hands, more coverage, and a better experience for everyone.
+*Consider having a doula.* With both a partner and a doula present, there's always someone by her side — even when you need to step out for food, use the restroom, or take a breather. A doula brings experience and calm to the room, can suggest comfort measures you might not think of, and frees you up to be emotionally present rather than scrambling to figure out what to do next. Two support people means more hands, more coverage, and a better experience for everyone. See #link(<ch-doula-support>)[our Doula Support chapter] for the evidence, cost breakdown, and how to find the right doula.
 
 === "Starting As You Mean to Go On"
 

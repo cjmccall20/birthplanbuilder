@@ -36,7 +36,7 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 
 *The epidural rate reflects the system, not your choices.* When the hospital epidural rate is 90%, it means 90% of women who wanted unmedicated birth didn't get it. That's not because 90% of women can't handle labor—it's because the hospital environment, policies, and culture create conditions where medication becomes necessary.
 
-*Continuous monitoring limits your options.* 89% of hospital births involve continuous electronic fetal monitoring, despite evidence showing it doesn't improve outcomes for low-risk births. It does restrict your movement and increase cesarean rates.
+*Continuous monitoring limits your options.* 89% of hospital births involve continuous electronic fetal monitoring, despite evidence showing it doesn't improve outcomes for low-risk births. It does restrict your movement and increase cesarean rates. You have the right to request intermittent monitoring -- see #link(<ch-fetal-monitoring>)[our Fetal Monitoring chapter] for the full evidence and how to advocate for it.
 
 *Early admission starts the intervention clock.* Once you're admitted, there's pressure to "progress." If you arrive at 2 cm dilated, you might be there for 20 hours before delivery. Hospitals often intervene to speed things up—and each intervention can trigger another [2].
 
@@ -64,7 +64,7 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 
 == THE SCIENCE: CHALLENGES
 
-- *It hurts.* There's no getting around this. Labor involves intense sensations that peak during transition and crowning. Techniques help you work with the pain, not eliminate it.
+- *It hurts.* There's no getting around this. Labor involves intense sensations that peak during transition and crowning. Techniques help you work with the pain, not eliminate it. For the full spectrum of pain management options available to you, see #link(<ch-pain-management>)[our Pain Management chapter].
 
 - *Back labor is harder.* When baby is posterior (facing forward instead of back), labor often involves severe, persistent back pain between and during contractions. About 10% of labors start this way.
 
@@ -144,13 +144,13 @@ Unmedicated birth means laboring and delivering without epidural anesthesia or s
 - *HypnoBirthing* if you respond well to visualization, meditation, and reframing techniques
 - *Lamaze* if you want evidence-based education with flexibility in your approach
 
-*Hire a doula.* This is the single highest-impact intervention for achieving an unmedicated birth. Doula support reduces cesarean rates by between 39% and 68% depending on the study (Bohren 2017 Cochrane review; Dias 2025 meta-analysis) and epidural use by up to 60% (Bohren 2017). [9]
+*Hire a doula.* This is the single highest-impact intervention for achieving an unmedicated birth. Doula support reduces cesarean rates by between 39% and 68% depending on the study (Bohren 2017 Cochrane review; Dias 2025 meta-analysis) and epidural use by up to 60% (Bohren 2017). [9] See #link(<ch-doula-support>)[our Doula Support chapter] for how to find, interview, and hire the right doula.
 
 *Choose your provider carefully.* If your OB's practice has a 35% cesarean rate, that tells you something. Midwife-led care is associated with lower intervention rates. CNMs (certified nurse-midwives) who practice in hospitals bring this midwifery philosophy into the hospital setting, giving you lower intervention rates with hospital-level backup. Ask about their unmedicated birth rate.
 
 *Practice every day.* Relaxation techniques, breathing patterns, visualization, and affirmations need to become automatic before labor. Daily 20-minute practice sessions build muscle memory.
 
-*Exercise throughout pregnancy.* Walking 30-60 minutes daily builds stamina. Prenatal yoga increases flexibility and mental focus. Squats prepare your legs for pushing positions.
+*Exercise throughout pregnancy.* Walking 30-60 minutes daily builds stamina. Prenatal yoga increases flexibility and mental focus. Squats prepare your legs for pushing positions. See #link(<ch-exercises-before-labor>)[our Exercises Before Labor chapter] for a complete daily routine including the Bradley Method exercises, pelvic floor training, and partner practice techniques.
 
 *Create your birth environment plan.* Know how you'll transform the hospital room: battery-operated candles, playlist, essential oils, door sign requesting quiet, pillow from home.
 

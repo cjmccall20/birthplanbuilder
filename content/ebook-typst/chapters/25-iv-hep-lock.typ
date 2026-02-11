@@ -2,7 +2,9 @@
 
 == THE QUICK ANSWER
 
-During labor, you'll likely have an IV catheter placed in your hand or arm. The real decision is whether it stays connected to a fluid drip (continuous IV) or gets capped off for use only if needed (hep lock). Each approach has genuine advantages—your ideal choice depends on your birth priorities, risk factors, and comfort level.
+During labor, you'll likely have an IV catheter placed in your hand or arm. You actually have three options: continuous IV fluids (tethered to a pole), a hep lock (catheter capped off for use only if needed, giving you full mobility), or declining IV access entirely. For low-risk labors, a hep lock provides emergency access without restricting movement, which research links to shorter labors and less pain. Continuous IV is appropriate if you're planning an epidural, receiving antibiotics, or prefer the reassurance of steady hydration. One concern worth knowing: roughly 70-75% of hospital IV supplies are made with PVC plasticized with DEHP, a chemical that can leach into your fluids and cross the placental barrier. A hep lock with minimal fluid minimizes this exposure, and DEHP-free supplies are increasingly available if you ask.
+
+*Bottom line:* Each approach has genuine advantages -- your ideal choice depends on your birth priorities, risk factors, and comfort level. A hep lock is the evidence-based sweet spot for most low-risk labors: full access if needed, full freedom if not.
 
 == WHAT IT IS
 

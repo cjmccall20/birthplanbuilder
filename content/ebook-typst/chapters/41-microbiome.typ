@@ -1,6 +1,12 @@
 = Chapter 41: The Microbiome and Birth: Your Baby's Invisible Inheritance <ch-microbiome>
 
-Your baby is born sterile, but within hours, trillions of bacteria colonize their body. These early microbial encounters fundamentally shape their health—influencing everything from immune function to metabolism, digestion, and even mental health. The decisions you make around birth have profound implications for your baby's microbiome.
+== ONE-PAGE OVERVIEW
+
+Your baby is born essentially sterile, and the very first bacteria they encounter have an outsized influence on their immune system, metabolism, and lifelong health. Vaginal birth seeds your baby with beneficial bacteria (Lactobacillus, Bifidobacterium, Bacteroides) that train the immune system and protect against pathogens. Cesarean-born babies miss this transfer and are instead colonized by hospital bacteria, which is linked to higher rates of asthma, allergies, obesity, and autoimmune conditions. Antibiotics during labor (most commonly for GBS) produce a similar "C-section-like" disruption to the infant microbiome. Breastfeeding is the single most powerful tool for restoring and supporting microbiome health, regardless of birth mode. Other protective strategies include immediate skin-to-skin contact, delayed first bath, vaginal seeding after cesarean, and infant probiotics (especially Bifidobacterium infantis).
+
+*Bottom line:* The microbiome is far more important than most birth providers acknowledge. If you have a cesarean or receive antibiotics, you have real, effective options to restore your baby's microbial foundation. Breastfeeding, skin-to-skin, and probiotics can close most of the gap.
+
+#line(length: 100%)
 
 This chapter explains the science behind the microbiome, how birth choices affect it, and what you can do to protect this invisible but vital inheritance.
 

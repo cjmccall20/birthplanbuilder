@@ -1,5 +1,13 @@
 = Chapter 22: Perineal Support: Preventing and Healing Tears <ch-perineal-support>
 
+== THE QUICK ANSWER
+
+About 85-90% of first-time mothers experience some degree of perineal tearing, but most tears are minor (first or second degree) and heal well. You have real tools to reduce your risk: perineal massage starting at 34-36 weeks, warm compresses during pushing, slow and controlled crowning, and choosing birth positions that are gentler on the perineum (side-lying and hands-and-knees are among the best). Routine episiotomy -- a surgical cut to the perineum -- is now recognized as outdated; natural tears actually heal better than surgical cuts. The exception is a targeted episiotomy to prevent a clitoral tear, which is one of the few strong medical indications for the procedure.
+
+*Bottom line:* Tearing is common but not inevitable, and there is a lot you can do to minimize it. Ask your provider about their episiotomy rate and their approach to perineal support during crowning. If tearing does happen, recovery is manageable with ice, sitz baths, stool softeners, and time.
+
+#line(length: 100%)
+
 During vaginal birth, the tissue between your vagina and rectum (called the perineum) stretches to allow your baby to pass through. Sometimes this tissue tears. While that might sound scary, understanding what happens—and what you can do about it—puts you in control.
 
 This section covers everything you need to know: what tearing actually means, how to reduce your chances of it happening, the truth about episiotomy, and how to heal afterward.

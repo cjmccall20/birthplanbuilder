@@ -259,7 +259,7 @@ Don't think of this as "epidural vs. no epidural." Think of it as "what does my 
 
 Some labors genuinely need the relief an epidural provides. Others progress smoothly with movement, hydrotherapy, and support. Many fall somewhere in between.
 
-Having a Plan A (how you'd prefer to cope) and Plan B (conditions that would change your mind) gives you flexibility without making decisions under duress.
+Having a Plan A (how you'd prefer to cope) and Plan B (conditions that would change your mind) gives you flexibility without making decisions under duress. For the full spectrum of options -- from breathing techniques and water immersion to nitrous oxide and IV medications -- see #link(<ch-pain-management>)[our Pain Management chapter].
 
 *What matters most:*
 - Informed consent - understanding what you're choosing

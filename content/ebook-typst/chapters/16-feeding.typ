@@ -157,7 +157,7 @@ _Unmedicated birth:_
 - Again, this doesn't mean epidurals doom breastfeeding—but unmedicated birth may make the first days easier
 
 _Golden hour skin-to-skin:_
-- This is perhaps the single most important factor you can control (see #link("/guide/08-skin-to-skin.md")[guide 08])
+- This is perhaps the single most important factor you can control (see #link(<ch-skin-to-skin>)[our Skin-to-Skin chapter])
 - Immediate, uninterrupted skin-to-skin contact triggers baby's instinct to crawl to breast and latch
 - Delays of even 30-60 minutes can impact first nursing success
 - Babies who nurse in the first hour are significantly more likely to breastfeed long-term

@@ -340,7 +340,7 @@ _The nuance:_
 - Oxytocin (Pitocin) after spontaneous labor begins carries minimal additional risk
 - If induction is being considered, the medical indication matters; elective induction decreases VBAC success significantly
 
-_Recommendation:_ Whenever possible, wait for spontaneous labor. If induction is medically indicated, discuss methods carefully with your provider and understand that your VBAC success rate may be lower.
+_Recommendation:_ Whenever possible, wait for spontaneous labor. If induction is medically indicated, discuss methods carefully with your provider and understand that your VBAC success rate may be lower. For more on induction methods and the evidence behind them, see #link(<ch-labor-induction>)[our Labor Induction chapter].
 
 === "VBAC Bans"
 
@@ -391,7 +391,7 @@ Continuous labor support from a trained doula is associated with:
 - Less need for pain medication
 - More positive birth experience
 
-A doula experienced with VBAC can provide encouragement, comfort measures, and advocacy when you need it most.
+A doula experienced with VBAC can provide encouragement, comfort measures, and advocacy when you need it most. See #link(<ch-doula-support>)[our Doula Support chapter] for how to find, interview, and choose a doula -- including questions specific to VBAC support.
 
 _4. Wait to go to the hospital_
 

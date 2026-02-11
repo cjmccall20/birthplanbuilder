@@ -1,5 +1,13 @@
 = Chapter 21: Pushing Positions: What Actually Works <ch-pushing-positions>
 
+== THE QUICK ANSWER
+
+Your pushing position can change your pelvic opening by up to 30%, yet most women end up flat on their backs -- the position that makes pushing hardest. Upright positions (squatting, kneeling, hands and knees) use gravity, open the pelvis wider, and are associated with shorter pushing stages, fewer assisted deliveries, and fewer episiotomies. Side-lying is an excellent option for everyone, including women with epidurals. Hospitals default to the lithotomy position (on your back, legs in stirrups) for provider convenience and monitoring compatibility, not because it produces better outcomes. You also have a choice between directed "purple pushing" (holding your breath and pushing on command) and spontaneous pushing (following your body's cues), which research shows is gentler on both you and your baby.
+
+*Bottom line:* The position you push in is your choice, and it matters. Ask about options during a prenatal visit, include your preferences in your birth plan, and don't be afraid to try different positions during labor.
+
+#line(length: 100%)
+
 When it comes time to push your baby out, your position matters more than most people realize. The position you're in can make pushing easier or harder, faster or slower, and more or less comfortable. Yet most women end up flat on their backs—the position that actually makes pushing hardest.
 
 Here's what the research says about pushing positions, why hospitals default to one of the least effective options, and how you can advocate for positions that work better with your body.

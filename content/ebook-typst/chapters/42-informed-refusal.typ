@@ -1,4 +1,13 @@
 = Chapter 42: Informed Refusal Rights: The Right to Say No <ch-informed-refusal>
+
+== THE QUICK ANSWER
+
+You have the legal right to decline any medical intervention for yourself or your newborn -- during pregnancy, labor, and postpartum. This is not controversial. It is the foundation of medical ethics, affirmed by ACOG, enshrined in law, and called "informed refusal." Hospitals can document your decision, ask you to sign acknowledgment forms, and express disagreement -- but they cannot force treatment, call CPS simply for declining routine procedures, or refuse to care for you because you said no to something. This applies to everything: cesarean sections, inductions, continuous monitoring, IV fluids, vitamin K, hepatitis B vaccine, eye ointment, circumcision, and more. AMA ("against medical advice") forms are not liability waivers and do not waive your rights. If you experience coercion, you can ask for the medical director, a patient advocate, or have your partner or doula speak on your behalf.
+
+*Bottom line:* "Doctor's orders" are recommendations, not orders. Your consent is required for every procedure, and your refusal must be respected. Know your rights, use clear language ("I do not consent"), and bring an advocate who can speak for you when you're focused on labor.
+
+#line(length: 100%)
+
 == Your Legal Right to Decline Any Medical Intervention
 
 #line(length: 100%)

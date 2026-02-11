@@ -167,13 +167,13 @@ The cascade isn't inevitable. You have decision points where declining an interv
 
 _1. Early hospital admission:_ One of the most critical decisions is when to go to the hospital. Arriving in early labor (before 6cm dilation) significantly increases your chance of interventions. Consider staying home longer with support from your partner or doula.
 
-_2. Continuous monitoring:_ For low-risk pregnancies, you can request intermittent auscultation instead. This single decision maintains your mobility and reduces cascade risk substantially.
+_2. Continuous monitoring:_ For low-risk pregnancies, you can request intermittent auscultation instead. This single decision maintains your mobility and reduces cascade risk substantially. See #link(<ch-fetal-monitoring>)[our Fetal Monitoring chapter] for the evidence and how to advocate for intermittent monitoring.
 
 _3. IV fluids:_ Unless you need IV medication (such as antibiotics if you are Group B Strep positive), you can request a hep-lock instead of continuous IV. Even with GBS antibiotics, you only need to be connected to the IV for about 30 minutes every 4 hours—between doses, the IV can be capped with a saline lock and you can move freely. This preserves movement freedom.
 
-_4. Pitocin augmentation:_ When "failure to progress" is mentioned, ask: "What are the specific medical concerns? How long can we safely wait?" Remember, ACOG guidelines state you're not in active labor until 6cm and can't be diagnosed with failure to progress until you've been at least 6cm with ruptured membranes for six hours without change.
+_4. Pitocin augmentation:_ When "failure to progress" is mentioned, ask: "What are the specific medical concerns? How long can we safely wait?" Remember, ACOG guidelines state you're not in active labor until 6cm and can't be diagnosed with failure to progress until you've been at least 6cm with ruptured membranes for six hours without change. See #link(<ch-pitocin>)[our Pitocin chapter] for the full picture on synthetic oxytocin.
 
-_5. Epidural timing:_ If you want to preserve options, consider waiting as long as you can. Once you have an epidural, you're committed to the interventions that typically follow.
+_5. Epidural timing:_ If you want to preserve options, consider waiting as long as you can. Once you have an epidural, you're committed to the interventions that typically follow. See #link(<ch-epidural-birth>)[our Epidural Birth chapter] for the full evidence on how epidurals affect labor.
 
 _6. Strict time limits:_ Question arbitrary timelines. Ask, "Is baby okay? Am I okay? Then can we have more time?"
 

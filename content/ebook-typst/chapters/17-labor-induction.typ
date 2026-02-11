@@ -249,7 +249,7 @@ _Prostaglandins (Cervidil, Cytotec):_
 _Foley bulb:_
 - Mechanical cervical dilation
 - Lowest risk of uterine hyperstimulation
-- Safe for VBAC candidates
+- Safe for VBAC candidates (see #link(<ch-vbac>)[our VBAC chapter] for more on induction methods during trial of labor after cesarean)
 - Can be done outpatient in some cases
 
 _Pitocin:_
@@ -257,6 +257,7 @@ _Pitocin:_
 - Creates contractions through IV delivery
 - Different from natural oxytocin: continuous rather than pulsed, doesn't cross blood-brain barrier
 - Requires continuous fetal monitoring
+- For the full evidence on Pitocin -- including how it differs from your body's natural oxytocin and the cascade of interventions it can trigger -- see #link(<ch-pitocin>)[our Pitocin chapter]
 
 _Amniotomy (breaking water):_
 - Usually combined with other methods

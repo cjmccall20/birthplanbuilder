@@ -176,26 +176,9 @@ _What to check:_
 
 #line(length: 100%)
 
-== TYPES OF MIDWIVES: A COMPLETE GUIDE
+== OTHER TYPES OF MIDWIVES
 
-=== Certified Nurse-Midwife (CNM)
-- Registered nurse with a master's degree in midwifery
-- Licensed in all 50 states
-- Can prescribe medications and order tests
-- Works in hospitals, birth centers, or home births
-- Carries malpractice insurance
-- Has physician backup for complications
-- The most widely recognized midwife credential
-- Covered by most insurance plans including Medicaid
-
-=== Certified Professional Midwife (CPM)
-- Trained specifically in out-of-hospital birth
-- Certification through the North American Registry of Midwives
-- Legal status varies by state (legal in about 35 states)
-- Typically attends home births and birth center births
-- Deep expertise in physiologic birth
-- May have less access to medical backup depending on location
-- Insurance coverage varies widely
+The sections above cover CNMs and CPMs in detail. Two additional midwife credentials exist:
 
 === Certified Midwife (CM)
 - Master's degree in midwifery without nursing background
@@ -209,22 +192,6 @@ _What to check:_
 - Some have CPM certification, some don't
 - Research the specific requirements and legal status in your state
 - May or may not carry malpractice insurance
-
-=== Hospital Midwives vs Birth Center/Home Midwives
-
-_Hospital-based CNMs_ practice within the hospital system. This means:
-- Access to epidurals and other medical pain relief
-- Physician backup immediately available
-- May be limited by hospital protocols and time constraints
-- Often manage multiple patients simultaneously
-- Intervention rates higher than out-of-hospital midwives, but lower than OBs
-
-_Birth center and home birth midwives_ (CNMs or CPMs) offer:
-- One-on-one continuous care during labor
-- More flexibility with labor timing and positions
-- No epidural option (transfer required)
-- Stronger focus on unmedicated birth techniques
-- Lower intervention rates overall
 
 #line(length: 100%)
 
@@ -263,61 +230,11 @@ Many midwives practice with physician backup, referring patients who develop com
 
 == WHY DOULAS CHANGE EVERYTHING
 
-=== What the Research Shows
+A doula is a trained professional who provides continuous physical, emotional, and informational support during labor and birth. The evidence for doula support is among the strongest in all of obstetrics.
 
-Continuous labor support from a doula is one of the most studied interventions in childbirth—and one of the most effective.
+A Cochrane review analyzing over 15,000 births found that continuous doula support resulted in a 39% reduction in cesarean section, 15% increase in spontaneous vaginal birth, 10% reduction in pain medications, 31% reduction in dissatisfaction, shorter labors (by about 40 minutes on average), and higher Apgar scores for babies. No other single intervention shows this level of improvement without any side effects.
 
-A Cochrane review (the gold standard of medical research) analyzing over 15,000 births found that continuous support during labor resulted in:
-
-- _39% reduction in cesarean section_
-- _15% increase in spontaneous vaginal birth_
-- _10% reduction in use of pain medications_
-- _31% reduction in dissatisfaction with birth experience_
-- _Shorter labors_ (by about 40 minutes on average)
-- _Higher Apgar scores_ for babies
-
-These benefits held across different settings and populations. No other single intervention shows this level of improvement without any side effects.
-
-=== What Doulas Actually Do
-
-A doula is a trained professional who provides continuous physical, emotional, and informational support during labor and birth.
-
-_Physical support:_
-- Suggests position changes to help labor progress
-- Provides massage, counterpressure for back labor
-- Helps you stay hydrated and nourished
-- Uses comfort techniques (hot/cold packs, birth ball, etc.)
-- Supports you in the tub or shower
-
-_Emotional support:_
-- Stays with you continuously (unlike nurses who change shifts)
-- Provides reassurance and encouragement
-- Helps you stay calm during intense contractions
-- Reminds you of your strength when you doubt yourself
-- Creates a calm, supportive atmosphere
-
-_Informational support:_
-- Explains what's happening during labor
-- Helps you understand your options when decisions arise
-- Asks questions you might not think to ask
-- Helps you communicate with medical staff
-- Reminds providers of your birth preferences
-
-_Partner support:_
-- Guides your partner on how to help you
-- Gives your partner breaks without leaving you alone
-- Takes photos if you want them
-- Helps your partner feel useful rather than helpless
-- Never replaces your partner—enhances their role
-
-=== What Doulas Don't Do
-
-Doulas are not medical providers. They do not:
-- Perform clinical tasks (cervical checks, monitoring, etc.)
-- Make medical decisions for you
-- Speak for you or override your choices
-- Catch babies or manage emergencies
-- Replace your midwife or doctor
+_For the full evidence, detailed guidance on finding and hiring a doula, costs, insurance coverage, and how doulas work alongside your partner, see #link(<ch-doula-support>)[our Doula Support chapter]._
 
 === Doula vs Midwife: Not the Same
 
@@ -352,49 +269,6 @@ This confusion is common, so let's be clear:
 )
 
 _You can have both._ Many parents hire a doula even when they have a midwife. The doula provides continuous one-on-one support while the midwife handles medical care.
-
-=== How to Find a Doula
-
-_Where to look:_
-- DONA International (dona.org)—largest certifying organization
-- DoulaMatch.com—searchable database
-- Local doula collectives and cooperatives
-- Birth center referrals
-- Hospital-based doula programs
-- Word of mouth from friends
-
-_Questions to ask:_
-- What's your training and certification?
-- How many births have you attended?
-- What's your philosophy about birth?
-- How do you support partners?
-- When do you come to the hospital/birth center?
-- What if you're not available when I go into labor?
-- Do you offer postpartum support?
-- What's your fee and what does it include?
-
-=== Cost and Access
-
-_Typical costs (2026):_
-- \$800-\$2,500 in most areas
-- \$1,500-\$3,500 in major cities (NYC, SF, LA, Seattle)
-- \$500-\$1,200 for doulas in training
-- Many offer sliding scale or payment plans
-
-_Ways to reduce cost:_
-- Doulas in training need clients and may work free or low-cost
-- Volunteer doula programs (especially in hospitals)
-- Community doula programs
-- Some insurance plans cover doulas (ask your HR)
-- HSA/FSA funds can often be used
-- Some Medicaid programs now cover doula care
-
-_If you can't afford a doula:_
-- Ask about training doulas who need experience
-- Look for volunteer programs in your hospital
-- Ask family or friends to take a doula training
-- Use online labor support resources
-- Focus on choosing supportive providers
 
 #line(length: 100%)
 
@@ -1016,7 +890,7 @@ _Choose your provider carefully._ Interview multiple options. Ask hard questions
 
 _Consider a CNM._ If you want a provider who trusts the birth process but also has full medical training, prescriptive authority, and hospital privileges, a Certified Nurse-Midwife may be the perfect fit.
 
-_Consider a doula._ The evidence is overwhelming. If cost is a barrier, look for training doulas or volunteer programs.
+_Consider a doula._ The evidence is overwhelming. If cost is a barrier, look for training doulas or volunteer programs. For the full evidence, cost breakdown, insurance coverage options, and how to find and interview doulas, see #link(<ch-doula-support>)[our Doula Support chapter].
 
 _Ask the hard questions._ Don't be afraid to ask about cesarean rates, intervention philosophies, and how they handle patients who decline recommendations. The answers matter.
 

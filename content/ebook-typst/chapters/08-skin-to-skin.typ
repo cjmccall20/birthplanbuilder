@@ -64,7 +64,7 @@ Research findings:
 - First breastfeeding lasts about 27 minutes longer on average
 - Babies are 24% more likely to still be breastfeeding at 1 to 4 months
 
-Your baby's first feeding is not milk. It is colostrum, a thick golden fluid packed with antibodies. A baby who feeds in the first hour receives this protection while their intestines are most receptive to these immune compounds.
+Your baby's first feeding is not milk. It is colostrum, a thick golden fluid packed with antibodies. A baby who feeds in the first hour receives this protection while their intestines are most receptive to these immune compounds. For a complete guide to breastfeeding -- including how to overcome common challenges, find lactation support, and set yourself up for success -- see #link(<ch-feeding>)[our Infant Feeding chapter].
 
 === Bonding and Oxytocin
 
