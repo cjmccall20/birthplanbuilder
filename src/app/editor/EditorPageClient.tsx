@@ -1,14 +1,31 @@
 'use client'
 
-import { Suspense } from 'react'
+import { Suspense, useState, useEffect, useRef } from 'react'
 import { EditorProvider } from '@/lib/editor/context'
 import { EditorLayout } from '@/components/editor/EditorLayout'
 import { useEditorLoader } from '@/lib/editor/useQuizLoader'
+import { StartingPointSelector, type StartingPoint } from '@/components/editor/StartingPointSelector'
+import { naturalPresets, hospitalPresets } from '@/lib/editor/presets'
 import { Loader2, AlertCircle } from 'lucide-react'
+import { toast } from 'sonner'
 import Link from 'next/link'
 
 function EditorWithLoader() {
-  const { initialState, isLoading, fromQuiz, fromExisting, error } = useEditorLoader()
+  const { initialState, isLoading, fromQuiz, fromExisting, error, quizImportMeta } = useEditorLoader()
+  const [startingPoint, setStartingPoint] = useState<StartingPoint | null>(null)
+  const toastShown = useRef(false)
+
+  // Show toast when quiz data is imported
+  useEffect(() => {
+    if (quizImportMeta && !toastShown.current) {
+      toastShown.current = true
+      const unsureCount = quizImportMeta.unsurePreferenceIds.length
+      const message = unsureCount > 0
+        ? `We imported ${quizImportMeta.importedCount} decisions from your quiz. ${unsureCount} marked "unsure" need your attention.`
+        : `We imported ${quizImportMeta.importedCount} decisions from your quiz. Review and customize below.`
+      toast.success('Quiz answers imported', { description: message, duration: 6000 })
+    }
+  }, [quizImportMeta])
 
   if (isLoading) {
     return (
@@ -55,8 +72,25 @@ function EditorWithLoader() {
     )
   }
 
+  // New blank plan (not from quiz, not loading existing) — show starting point selector
+  const isNewBlankPlan = !fromQuiz && !fromExisting && !initialState
+  if (isNewBlankPlan && !startingPoint) {
+    return <StartingPointSelector onSelect={setStartingPoint} />
+  }
+
+  // Build preset to apply after editor mounts
+  const presetToApply = startingPoint === 'natural'
+    ? naturalPresets
+    : startingPoint === 'hospital'
+    ? hospitalPresets
+    : undefined
+
   return (
-    <EditorProvider initialState={initialState || undefined}>
+    <EditorProvider
+      initialState={initialState || undefined}
+      presetToApply={presetToApply}
+      unsurePreferenceIds={quizImportMeta?.unsurePreferenceIds}
+    >
       <EditorLayout />
     </EditorProvider>
   )

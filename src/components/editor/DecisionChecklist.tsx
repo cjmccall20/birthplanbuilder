@@ -112,7 +112,8 @@ interface DecisionItemProps {
 }
 
 function DecisionItem({ preference, sectionId, isSelected, isExpanded, onToggleExpand }: DecisionItemProps) {
-  const { state, setPreference } = useEditor()
+  const { state, setPreference, unsurePreferenceIds } = useEditor()
+  const needsAttention = unsurePreferenceIds.includes(preference.id)
   const itemRef = useRef<HTMLDivElement>(null)
   const [showLearnMore, setShowLearnMore] = useState(false)
 
@@ -193,6 +194,11 @@ function DecisionItem({ preference, sectionId, isSelected, isExpanded, onToggleE
             {hasCustomText && (
               <Badge variant="outline" className="text-xs text-orange-600 border-orange-300">
                 Customized
+              </Badge>
+            )}
+            {needsAttention && (
+              <Badge variant="outline" className="text-xs text-amber-600 border-amber-300 bg-amber-50">
+                Needs attention
               </Badge>
             )}
           </div>
@@ -462,6 +468,13 @@ export function DecisionChecklist({ selectedPreferenceId, onClearSelection }: De
     })).filter(section => section.preferences.length > 0)
   }, [searchQuery, showOnlyIncluded, state.sections])
 
+  // Check if a section has any preferences with selected options (from quiz import)
+  const sectionHasContent = (sectionId: EditorSectionId) => {
+    const sectionState = state.sections[sectionId]
+    if (!sectionState) return false
+    return sectionState.preferences.some(p => p.selectedOption !== null)
+  }
+
   const totalPreferences = PREFERENCES.length
   const includedCount = EDITOR_SECTIONS.reduce((acc, section) => {
     const sectionState = state.sections[section.id]
@@ -531,7 +544,7 @@ export function DecisionChecklist({ selectedPreferenceId, onClearSelection }: De
                 title={section.title}
                 icon={section.icon}
                 preferences={section.preferences}
-                defaultExpanded={index === 0}
+                defaultExpanded={index === 0 || (state.createdFromQuiz && sectionHasContent(section.id))}
                 selectedPreferenceId={selectedPreferenceId}
                 expandedItemId={expandedItemId}
                 onToggleItem={handleToggleItem}

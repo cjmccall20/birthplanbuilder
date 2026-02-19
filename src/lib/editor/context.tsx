@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useReducer, useCallback, type ReactNode } from 'react'
+import { createContext, useContext, useReducer, useCallback, useEffect, useRef, type ReactNode } from 'react'
 import type {
   EditorState,
   EditorAction,
@@ -203,6 +203,23 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       }
     }
 
+    case 'APPLY_PRESET': {
+      const presetMap = action.payload
+      const newSections = { ...state.sections }
+      for (const sectionId of SECTION_ORDER) {
+        const section = newSections[sectionId]
+        const updatedPrefs = section.preferences.map(pref => {
+          const presetValue = presetMap[pref.preferenceId]
+          if (presetValue !== undefined) {
+            return { ...pref, selectedOption: presetValue, isOmitted: false }
+          }
+          return pref
+        })
+        newSections[sectionId] = { ...section, preferences: updatedPrefs }
+      }
+      return { ...state, sections: newSections, isDirty: true }
+    }
+
     case 'LOAD_STATE':
       return { ...action.payload, isDirty: false }
 
@@ -237,15 +254,26 @@ interface EditorContextType {
   setSectionNotes: (sectionId: EditorSectionId, notes: string) => void
   reorderPreferences: (sectionId: EditorSectionId, preferenceIds: string[]) => void
   reorderCustomItems: (sectionId: EditorSectionId, itemIds: string[]) => void
+  applyPreset: (presetMap: Record<string, string>) => void
+  unsurePreferenceIds: string[]
 }
 
 const EditorContext = createContext<EditorContextType | undefined>(undefined)
 
-export function EditorProvider({ children, initialState }: { children: ReactNode; initialState?: Partial<EditorState> }) {
+export function EditorProvider({ children, initialState, presetToApply, unsurePreferenceIds = [] }: { children: ReactNode; initialState?: Partial<EditorState>; presetToApply?: Record<string, string>; unsurePreferenceIds?: string[] }) {
   const [state, dispatch] = useReducer(
     editorReducer,
     initialState ? { ...createInitialState(), ...initialState } : createInitialState()
   )
+
+  // Apply preset on initial mount if provided
+  const presetApplied = useRef(false)
+  useEffect(() => {
+    if (presetToApply && !presetApplied.current) {
+      presetApplied.current = true
+      dispatch({ type: 'APPLY_PRESET', payload: presetToApply })
+    }
+  }, [presetToApply])
 
   const setTitle = useCallback((title: string) =>
     dispatch({ type: 'SET_TITLE', payload: title }), [])
@@ -277,6 +305,9 @@ export function EditorProvider({ children, initialState }: { children: ReactNode
   const reorderCustomItems = useCallback((sectionId: EditorSectionId, itemIds: string[]) =>
     dispatch({ type: 'REORDER_CUSTOM_ITEMS', payload: { sectionId, itemIds } }), [])
 
+  const applyPreset = useCallback((presetMap: Record<string, string>) =>
+    dispatch({ type: 'APPLY_PRESET', payload: presetMap }), [])
+
   return (
     <EditorContext.Provider value={{
       state,
@@ -291,6 +322,8 @@ export function EditorProvider({ children, initialState }: { children: ReactNode
       setSectionNotes,
       reorderPreferences,
       reorderCustomItems,
+      applyPreset,
+      unsurePreferenceIds,
     }}>
       {children}
     </EditorContext.Provider>

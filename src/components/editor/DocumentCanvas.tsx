@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { templateStyles } from '@/types'
-import { Download, Mail, Settings, ChevronRight } from 'lucide-react'
+import { ChevronRight } from 'lucide-react'
 import * as Icons from 'lucide-react'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -75,17 +75,11 @@ function IconWithOverlay({
 interface DocumentCanvasProps {
   onItemSelect?: (sectionId: EditorSectionId, preferenceId: string) => void
   selectedPreferenceId?: string | null
-  onDownload?: () => void
-  onEmail?: () => void
-  onToggleSettings?: () => void
 }
 
 export function DocumentCanvas({
   onItemSelect,
   selectedPreferenceId,
-  onDownload,
-  onEmail,
-  onToggleSettings,
 }: DocumentCanvasProps) {
   const { state, setPreference, setTemplate, setBirthTeam, setTitle } = useEditor()
   const [editingItem, setEditingItem] = useState<string | null>(null)
@@ -250,39 +244,18 @@ export function DocumentCanvas({
 
   return (
     <div className="flex flex-col h-full">
-      {/* Canvas Header */}
-      <div className="flex items-center justify-between gap-4 p-4 border-b bg-white">
-        <div className="flex items-center gap-3">
-          <Select value={state.templateStyle} onValueChange={setTemplate}>
-            <SelectTrigger className="w-[140px] min-h-[40px]">
-              <SelectValue placeholder="Template" />
-            </SelectTrigger>
-            <SelectContent>
-              {templateStyles.map((t) => (
-                <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-          {onToggleSettings && (
-            <Button variant="ghost" size="sm" onClick={onToggleSettings}>
-              <Settings className="h-4 w-4" />
-            </Button>
-          )}
-        </div>
-        <div className="flex items-center gap-2">
-          {onEmail && (
-            <Button variant="outline" size="sm" onClick={onEmail}>
-              <Mail className="h-4 w-4 mr-2" />
-              Email
-            </Button>
-          )}
-          {onDownload && (
-            <Button variant="default" size="sm" onClick={onDownload}>
-              <Download className="h-4 w-4 mr-2" />
-              Download PDF
-            </Button>
-          )}
-        </div>
+      {/* Canvas Header — template selector */}
+      <div className="sticky top-0 z-10 flex items-center gap-3 p-3 border-b bg-white/95 backdrop-blur">
+        <Select value={state.templateStyle} onValueChange={setTemplate}>
+          <SelectTrigger className="w-[140px] min-h-[36px] text-sm">
+            <SelectValue placeholder="Template" />
+          </SelectTrigger>
+          <SelectContent>
+            {templateStyles.map((t) => (
+              <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>
+            ))}
+          </SelectContent>
+        </Select>
       </div>
 
       {/* Document Canvas */}
@@ -320,45 +293,62 @@ export function DocumentCanvas({
                 placeholder="Your Name"
               />
 
-              {formattedDueDate && (
-                <p className="text-sm mt-2" style={{ color: theme.textColor, opacity: 0.7 }}>
-                  Due Date: {formattedDueDate}
-                </p>
-              )}
-
-              {/* Birth Team Info */}
-              {(state.birthTeam.partner_name || state.birthTeam.provider_name ||
-                state.birthTeam.hospital_name || state.birthTeam.doula_name) && (
-                <div
-                  className="mt-4 p-4 rounded-md text-sm text-left"
-                  style={{ backgroundColor: theme.sectionHeaderBg }}
-                >
-                  {state.birthTeam.partner_name && (
-                    <div className="flex gap-2">
-                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Partner:</span>
-                      <span style={{ color: theme.textColor }}>{state.birthTeam.partner_name}</span>
-                    </div>
-                  )}
-                  {state.birthTeam.provider_name && (
-                    <div className="flex gap-2">
-                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Provider:</span>
-                      <span style={{ color: theme.textColor }}>{state.birthTeam.provider_name}</span>
-                    </div>
-                  )}
-                  {state.birthTeam.hospital_name && (
-                    <div className="flex gap-2">
-                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Location:</span>
-                      <span style={{ color: theme.textColor }}>{state.birthTeam.hospital_name}</span>
-                    </div>
-                  )}
-                  {state.birthTeam.doula_name && (
-                    <div className="flex gap-2">
-                      <span className="font-semibold w-24" style={{ color: theme.textColor, opacity: 0.7 }}>Doula:</span>
-                      <span style={{ color: theme.textColor }}>{state.birthTeam.doula_name}</span>
-                    </div>
-                  )}
+              {/* Birth Team Info - editable inline */}
+              <div
+                className="mt-4 p-4 rounded-md text-sm text-left space-y-2"
+                style={{ backgroundColor: theme.sectionHeaderBg }}
+              >
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Partner</span>
+                  <Input
+                    value={state.birthTeam.partner_name || ''}
+                    onChange={(e) => setBirthTeam({ partner_name: e.target.value })}
+                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
+                    placeholder="Partner's name"
+                    style={{ color: theme.textColor }}
+                  />
                 </div>
-              )}
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Provider</span>
+                  <Input
+                    value={state.birthTeam.provider_name || ''}
+                    onChange={(e) => setBirthTeam({ provider_name: e.target.value })}
+                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
+                    placeholder="Provider's name"
+                    style={{ color: theme.textColor }}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Hospital</span>
+                  <Input
+                    value={state.birthTeam.hospital_name || ''}
+                    onChange={(e) => setBirthTeam({ hospital_name: e.target.value })}
+                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
+                    placeholder="Hospital name"
+                    style={{ color: theme.textColor }}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Doula</span>
+                  <Input
+                    value={state.birthTeam.doula_name || ''}
+                    onChange={(e) => setBirthTeam({ doula_name: e.target.value })}
+                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
+                    placeholder="Doula's name (optional)"
+                    style={{ color: theme.textColor }}
+                  />
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Due date</span>
+                  <Input
+                    type="date"
+                    value={state.birthTeam.due_date || ''}
+                    onChange={(e) => setBirthTeam({ due_date: e.target.value })}
+                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
+                    style={{ color: theme.textColor }}
+                  />
+                </div>
+              </div>
             </div>
 
             {/* Content Sections */}

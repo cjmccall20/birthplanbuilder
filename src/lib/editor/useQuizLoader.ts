@@ -5,8 +5,14 @@ import { useSearchParams } from 'next/navigation'
 import type { QuizState } from '@/types'
 import type { EditorState } from './editorTypes'
 import { mapQuizToEditorState } from './mapQuizToEditor'
+import { getQuizMappedPreferences } from './preferences'
 
 const QUIZ_STORAGE_KEY = 'birthplan_quiz_state'
+
+export interface QuizImportMetadata {
+  importedCount: number
+  unsurePreferenceIds: string[]
+}
 
 interface UseEditorLoaderResult {
   initialState: Partial<EditorState> | null
@@ -15,6 +21,7 @@ interface UseEditorLoaderResult {
   fromExisting: boolean
   error: string | null
   clearQuizData: () => void
+  quizImportMeta: QuizImportMetadata | null
 }
 
 export function useEditorLoader(): UseEditorLoaderResult {
@@ -22,6 +29,7 @@ export function useEditorLoader(): UseEditorLoaderResult {
   const [initialState, setInitialState] = useState<Partial<EditorState> | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [quizImportMeta, setQuizImportMeta] = useState<QuizImportMetadata | null>(null)
 
   const planId = searchParams.get('id')
   const fromQuiz = searchParams.get('from') === 'quiz'
@@ -68,12 +76,49 @@ export function useEditorLoader(): UseEditorLoaderResult {
             const quizState: QuizState = JSON.parse(savedQuizState)
             const editorState = mapQuizToEditorState(quizState)
             setInitialState(editorState)
+
+            // Build import metadata
+            let importedCount = 0
+            const unsurePreferenceIds: string[] = []
+            const quizMapped = getQuizMappedPreferences()
+
+            quizMapped.forEach(pref => {
+              if (pref.quizQuestionId) {
+                const answer = quizState.answers[pref.quizQuestionId]
+                if (answer && answer !== 'unsure') {
+                  importedCount++
+                } else if (answer === 'unsure') {
+                  unsurePreferenceIds.push(pref.id)
+                }
+              }
+            })
+
+            setQuizImportMeta({ importedCount, unsurePreferenceIds })
           }
           setIsLoading(false)
           return
         }
 
-        // Priority 3: Start with empty editor
+        // Priority 3: Check for anonymous editor state in localStorage
+        try {
+          const savedEditorState = localStorage.getItem('birthplan_editor_state')
+          if (savedEditorState) {
+            const parsed = JSON.parse(savedEditorState)
+            const hasMeaningfulContent = parsed.birthTeam?.mother_name ||
+              parsed.title !== 'My Birth Plan' ||
+              parsed.createdFromQuiz
+            if (hasMeaningfulContent) {
+              setInitialState({
+                ...parsed,
+                id: null,
+                isDirty: false,
+                lastSaved: null,
+              })
+            }
+          }
+        } catch {}
+
+        // Priority 4: Start with empty editor
         setIsLoading(false)
       } catch (err) {
         console.error('Failed to load editor:', err)
@@ -89,7 +134,7 @@ export function useEditorLoader(): UseEditorLoaderResult {
     localStorage.removeItem(QUIZ_STORAGE_KEY)
   }
 
-  return { initialState, isLoading, fromQuiz, fromExisting, error, clearQuizData }
+  return { initialState, isLoading, fromQuiz, fromExisting, error, clearQuizData, quizImportMeta }
 }
 
 // Export alias for backward compatibility

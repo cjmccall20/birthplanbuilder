@@ -83,6 +83,7 @@ export type EditorAction =
   | { type: 'SET_SECTION_NOTES'; payload: { sectionId: EditorSectionId; notes: string } }
   | { type: 'REORDER_PREFERENCES'; payload: { sectionId: EditorSectionId; preferenceIds: string[] } }
   | { type: 'REORDER_CUSTOM_ITEMS'; payload: { sectionId: EditorSectionId; itemIds: string[] } }
+  | { type: 'APPLY_PRESET'; payload: Record<string, string> }
   | { type: 'LOAD_STATE'; payload: EditorState }
   | { type: 'MARK_SAVED'; payload: { id: string; savedAt: string } }
   | { type: 'RESET' }
