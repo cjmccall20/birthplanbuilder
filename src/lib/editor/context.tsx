@@ -10,7 +10,8 @@ import type {
   TemplateStyle,
   EditorSectionState,
 } from './editorTypes'
-import type { BirthTeam } from '@/types'
+import type { BirthTeam, BirthTeamField } from '@/types'
+import { createDefaultBirthTeam, migrateBirthTeam } from '@/types'
 import { SECTION_ORDER } from './sections'
 import { getDefaultPreferencesForSection } from './preferences'
 
@@ -35,17 +36,12 @@ function createInitialState(): EditorState {
     id: null,
     title: 'My Birth Plan',
     templateStyle: 'minimal',
-    birthTeam: {
-      mother_name: '',
-      partner_name: '',
-      provider_name: '',
-      hospital_name: '',
-      due_date: '',
-    },
+    birthTeam: createDefaultBirthTeam(),
     sections,
     isDirty: false,
     lastSaved: null,
     createdFromQuiz: false,
+    disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
   }
 }
 
@@ -220,8 +216,15 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       return { ...state, sections: newSections, isDirty: true }
     }
 
-    case 'LOAD_STATE':
-      return { ...action.payload, isDirty: false }
+    case 'LOAD_STATE': {
+      const loaded = action.payload
+      return {
+        ...loaded,
+        birthTeam: migrateBirthTeam(loaded.birthTeam),
+        disclaimerText: loaded.disclaimerText || 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
+        isDirty: false,
+      }
+    }
 
     case 'MARK_SAVED':
       return {
@@ -233,6 +236,108 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
 
     case 'RESET':
       return createInitialState()
+
+    case 'SET_DISCLAIMER':
+      return { ...state, disclaimerText: action.payload, isDirty: true }
+
+    case 'SET_BIRTH_TEAM_FIELD': {
+      const { fieldId, value } = action.payload
+      // Map default field IDs to flat backward-compat property names
+      const flatKeyMap: Record<string, string> = {
+        mother: 'mother_name',
+        partner: 'partner_name',
+        provider: 'provider_name',
+        hospital: 'hospital_name',
+        doula: 'doula_name',
+      }
+      const flatKey = flatKeyMap[fieldId]
+      return {
+        ...state,
+        birthTeam: {
+          ...state.birthTeam,
+          fields: state.birthTeam.fields.map(f =>
+            f.id === fieldId ? { ...f, value } : f
+          ),
+          ...(flatKey ? { [flatKey]: value } : {}),
+        },
+        isDirty: true
+      }
+    }
+
+    case 'ADD_BIRTH_TEAM_FIELD': {
+      const newField: BirthTeamField = {
+        id: crypto.randomUUID(),
+        label: action.payload.label || 'New Field',
+        value: '',
+        isDefault: false,
+        sortOrder: state.birthTeam.fields.length,
+      }
+      return {
+        ...state,
+        birthTeam: {
+          ...state.birthTeam,
+          fields: [...state.birthTeam.fields, newField]
+        },
+        isDirty: true
+      }
+    }
+
+    case 'REMOVE_BIRTH_TEAM_FIELD': {
+      return {
+        ...state,
+        birthTeam: {
+          ...state.birthTeam,
+          fields: state.birthTeam.fields.filter(f => f.id !== action.payload.fieldId)
+        },
+        isDirty: true
+      }
+    }
+
+    case 'RENAME_BIRTH_TEAM_FIELD': {
+      const { fieldId, label } = action.payload
+      return {
+        ...state,
+        birthTeam: {
+          ...state.birthTeam,
+          fields: state.birthTeam.fields.map(f =>
+            f.id === fieldId ? { ...f, label } : f
+          )
+        },
+        isDirty: true
+      }
+    }
+
+    case 'SET_STANCE': {
+      const { sectionId, preferenceId, stance } = action.payload
+      const section = state.sections[sectionId]
+      const updatedPrefs = section.preferences.map(p =>
+        p.preferenceId === preferenceId ? { ...p, stance } : p
+      )
+      return {
+        ...state,
+        sections: {
+          ...state.sections,
+          [sectionId]: { ...section, preferences: updatedPrefs }
+        },
+        isDirty: true
+      }
+    }
+
+    case 'SET_CUSTOM_ICON': {
+      const { sectionId, preferenceId, icon } = action.payload
+      const section = state.sections[sectionId]
+      const updatedPrefs = section.preferences.map(p =>
+        p.preferenceId === preferenceId ? { ...p, customIcon: icon } : p
+      )
+      return {
+        ...state,
+        sections: {
+          ...state.sections,
+          [sectionId]: { ...section, preferences: updatedPrefs }
+        },
+        isDirty: true
+      }
+    }
 
     default:
       return state
@@ -256,6 +361,13 @@ interface EditorContextType {
   reorderCustomItems: (sectionId: EditorSectionId, itemIds: string[]) => void
   applyPreset: (presetMap: Record<string, string>) => void
   unsurePreferenceIds: string[]
+  setBirthTeamField: (fieldId: string, value: string) => void
+  addBirthTeamField: (label: string) => void
+  removeBirthTeamField: (fieldId: string) => void
+  renameBirthTeamField: (fieldId: string, label: string) => void
+  setStance: (sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | null) => void
+  setCustomIcon: (sectionId: EditorSectionId, preferenceId: string, icon: string) => void
+  setDisclaimer: (text: string) => void
 }
 
 const EditorContext = createContext<EditorContextType | undefined>(undefined)
@@ -263,7 +375,9 @@ const EditorContext = createContext<EditorContextType | undefined>(undefined)
 export function EditorProvider({ children, initialState, presetToApply, unsurePreferenceIds = [] }: { children: ReactNode; initialState?: Partial<EditorState>; presetToApply?: Record<string, string>; unsurePreferenceIds?: string[] }) {
   const [state, dispatch] = useReducer(
     editorReducer,
-    initialState ? { ...createInitialState(), ...initialState } : createInitialState()
+    initialState
+      ? { ...createInitialState(), ...initialState, birthTeam: migrateBirthTeam(initialState.birthTeam || createDefaultBirthTeam()) }
+      : createInitialState()
   )
 
   // Apply preset on initial mount if provided
@@ -308,6 +422,27 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const applyPreset = useCallback((presetMap: Record<string, string>) =>
     dispatch({ type: 'APPLY_PRESET', payload: presetMap }), [])
 
+  const setBirthTeamField = useCallback((fieldId: string, value: string) =>
+    dispatch({ type: 'SET_BIRTH_TEAM_FIELD', payload: { fieldId, value } }), [])
+
+  const addBirthTeamField = useCallback((label: string) =>
+    dispatch({ type: 'ADD_BIRTH_TEAM_FIELD', payload: { label } }), [])
+
+  const removeBirthTeamField = useCallback((fieldId: string) =>
+    dispatch({ type: 'REMOVE_BIRTH_TEAM_FIELD', payload: { fieldId } }), [])
+
+  const renameBirthTeamField = useCallback((fieldId: string, label: string) =>
+    dispatch({ type: 'RENAME_BIRTH_TEAM_FIELD', payload: { fieldId, label } }), [])
+
+  const setStance = useCallback((sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | null) =>
+    dispatch({ type: 'SET_STANCE', payload: { sectionId, preferenceId, stance } }), [])
+
+  const setCustomIcon = useCallback((sectionId: EditorSectionId, preferenceId: string, icon: string) =>
+    dispatch({ type: 'SET_CUSTOM_ICON', payload: { sectionId, preferenceId, icon } }), [])
+
+  const setDisclaimer = useCallback((text: string) =>
+    dispatch({ type: 'SET_DISCLAIMER', payload: text }), [])
+
   return (
     <EditorContext.Provider value={{
       state,
@@ -324,6 +459,13 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       reorderCustomItems,
       applyPreset,
       unsurePreferenceIds,
+      setBirthTeamField,
+      addBirthTeamField,
+      removeBirthTeamField,
+      renameBirthTeamField,
+      setStance,
+      setCustomIcon,
+      setDisclaimer,
     }}>
       {children}
     </EditorContext.Provider>

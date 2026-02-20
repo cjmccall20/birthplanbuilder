@@ -6,7 +6,8 @@ import {
   View,
   StyleSheet,
 } from '@react-pdf/renderer'
-import { BirthTeam } from '@/types'
+import type { BirthTeam } from '@/types'
+import type { PlanItem } from '@/lib/editor/editorToPdf'
 
 const styles = StyleSheet.create({
   page: {
@@ -169,20 +170,15 @@ const styles = StyleSheet.create({
   },
 })
 
-interface PlanItem {
-  category: string
-  title: string
-  answer: string
-  birthPlanText: string
-  customNote?: string
-}
-
 interface FloralTemplateProps {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
+  disclaimerText: string
 }
 
-export function FloralTemplate({ birthTeam, groupedContent }: FloralTemplateProps) {
+export function FloralTemplate({ birthTeam, groupedContent, disclaimerText }: FloralTemplateProps) {
+  const primaryName = birthTeam.fields?.[0]?.value || 'My Birth Preferences'
+
   return (
     <Document>
       <Page size="LETTER" style={styles.page}>
@@ -196,7 +192,7 @@ export function FloralTemplate({ birthTeam, groupedContent }: FloralTemplateProp
           <Text style={styles.title}>Birth Plan</Text>
           <Text style={styles.titleDecoration}>~ ~ ~</Text>
           <Text style={styles.subtitle}>
-            {birthTeam.mother_name || 'My Birth Preferences'}
+            {primaryName}
           </Text>
           {birthTeam.due_date && (
             <Text style={styles.subtitle}>
@@ -208,35 +204,14 @@ export function FloralTemplate({ birthTeam, groupedContent }: FloralTemplateProp
             </Text>
           )}
 
-          {/* Birth Team Info */}
+          {/* Dynamic Birth Team Info */}
           <View style={styles.birthTeam}>
-            {birthTeam.partner_name && (
-              <View style={styles.birthTeamRow}>
-                <Text style={styles.birthTeamLabel}>Partner:</Text>
-                <Text style={styles.birthTeamValue}>{birthTeam.partner_name}</Text>
+            {birthTeam.fields?.slice(1).filter(f => f.value).map(field => (
+              <View key={field.id} style={styles.birthTeamRow}>
+                <Text style={styles.birthTeamLabel}>{field.label}:</Text>
+                <Text style={styles.birthTeamValue}>{field.value}</Text>
               </View>
-            )}
-            {birthTeam.provider_name && (
-              <View style={styles.birthTeamRow}>
-                <Text style={styles.birthTeamLabel}>Provider:</Text>
-                <Text style={styles.birthTeamValue}>
-                  {birthTeam.provider_name}
-                  {birthTeam.provider_type && ` (${birthTeam.provider_type})`}
-                </Text>
-              </View>
-            )}
-            {birthTeam.doula_name && (
-              <View style={styles.birthTeamRow}>
-                <Text style={styles.birthTeamLabel}>Doula:</Text>
-                <Text style={styles.birthTeamValue}>{birthTeam.doula_name}</Text>
-              </View>
-            )}
-            {birthTeam.hospital_name && (
-              <View style={styles.birthTeamRow}>
-                <Text style={styles.birthTeamLabel}>Birth Location:</Text>
-                <Text style={styles.birthTeamValue}>{birthTeam.hospital_name}</Text>
-              </View>
-            )}
+            ))}
           </View>
         </View>
 
@@ -250,7 +225,10 @@ export function FloralTemplate({ birthTeam, groupedContent }: FloralTemplateProp
             </View>
             {items.map((item, index) => (
               <View key={index} style={styles.item}>
-                <Text style={styles.itemTitle}>{item.title}</Text>
+                <Text style={styles.itemTitle}>
+                  {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : ''}
+                  {item.title}
+                </Text>
                 <Text style={styles.itemText}>{item.birthPlanText}</Text>
                 {item.customNote && (
                   <Text style={styles.customNote}>Note: {item.customNote}</Text>
@@ -262,12 +240,7 @@ export function FloralTemplate({ birthTeam, groupedContent }: FloralTemplateProp
 
         {/* Disclaimer */}
         <View style={styles.disclaimer}>
-          <Text>
-            This birth plan represents my preferences for labor and delivery. I understand
-            that circumstances may change and medical decisions may need to be made for
-            the safety of myself and my baby. I trust my care team to keep us informed
-            and involve us in any decisions when possible.
-          </Text>
+          <Text>{disclaimerText}</Text>
         </View>
 
         {/* Footer */}

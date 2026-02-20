@@ -65,6 +65,10 @@ function QuizResultsContent() {
   const answeredCount = Object.keys(state.answers).length
   const totalQuestions = quizQuestions.length
 
+  // Baby name for personalization
+  const babyNameAnswer = state.answers?.baby_name
+  const hasBabyName = babyNameAnswer && babyNameAnswer !== 'not_yet' && babyNameAnswer !== 'prefer_not_to_say'
+
   // Update quiz state when name/dueDate changes (auto-saves via context)
   useEffect(() => {
     if (name !== state.birthTeam.mother_name || dueDate !== state.birthTeam.due_date) {
@@ -127,7 +131,9 @@ function QuizResultsContent() {
           <CheckCircle2 className="h-8 w-8 text-green-600" />
         </div>
         <h1 className="font-serif text-2xl sm:text-3xl font-bold mb-2">
-          Your Birth Plan is Ready!
+          {hasBabyName
+            ? `${babyNameAnswer}'s Birth Plan is Ready!`
+            : 'Your Birth Plan is Ready!'}
         </h1>
         <p className="text-muted-foreground">
           You answered {answeredCount} of {totalQuestions} questions
@@ -178,9 +184,19 @@ function QuizResultsContent() {
           <div className="relative pl-4 border-l-4 border-primary/30">
             <Quote className="absolute -left-3 -top-2 h-6 w-6 text-primary/20" />
             <p className="text-muted-foreground italic">
-              &quot;Your decisions matter. The choices you make during pregnancy and childbirth <em>do</em> lead to different outcomes.
-              Different approaches carry different risks, different benefits, different trade-offs. This isn&apos;t about blame—it&apos;s about information.
-              It&apos;s about going into one of the most significant experiences of your life with your eyes open.&quot;
+              {hasBabyName ? (
+                <>
+                  &quot;Your decisions matter, and they can impact {babyNameAnswer}&apos;s health and your birth experience.
+                  The choices you make during pregnancy and childbirth <em>do</em> lead to different outcomes.
+                  This isn&apos;t about blame - it&apos;s about going into one of the most significant experiences of your life with your eyes open.&quot;
+                </>
+              ) : (
+                <>
+                  &quot;Your decisions matter. The choices you make during pregnancy and childbirth <em>do</em> lead to different outcomes.
+                  Different approaches carry different risks, different benefits, different trade-offs. This isn&apos;t about blame - it&apos;s about information.
+                  It&apos;s about going into one of the most significant experiences of your life with your eyes open.&quot;
+                </>
+              )}
             </p>
           </div>
 

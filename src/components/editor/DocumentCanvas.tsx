@@ -1,10 +1,9 @@
 'use client'
 
-import { useState, useRef, useEffect, useCallback } from 'react'
+import { useCallback } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { getPreferenceById } from '@/lib/editor/preferences'
 import { EDITOR_SECTIONS } from '@/lib/editor/sections'
-import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -14,8 +13,8 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { templateStyles } from '@/types'
-import { ChevronRight } from 'lucide-react'
-import * as Icons from 'lucide-react'
+import { CheckCircle2, XCircle } from 'lucide-react'
+import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
 import { canvasThemes } from '@/lib/editor/canvasThemes'
@@ -27,49 +26,8 @@ interface CanvasItem {
   birthPlanText: string
   isCustomItem?: boolean
   customItemId?: string
-  baseIcon?: string
-  optionIcon?: string
-}
-
-// Helper to get Lucide icon component by name
-function getLucideIcon(iconName?: string) {
-  if (!iconName) return null
-  const IconComponent = (Icons as any)[iconName]
-  return IconComponent || null
-}
-
-// Component to display an icon with an overlay badge
-function IconWithOverlay({
-  baseIcon,
-  overlayIcon,
-  color
-}: {
-  baseIcon?: string
-  overlayIcon?: string
-  color: string
-}) {
-  const BaseIcon = getLucideIcon(baseIcon)
-  const OverlayIcon = getLucideIcon(overlayIcon)
-
-  if (!BaseIcon) return null
-
-  return (
-    <div className="relative flex-shrink-0" style={{ width: '20px', height: '20px' }}>
-      <BaseIcon className="w-5 h-5" style={{ color }} />
-      {OverlayIcon && (
-        <div
-          className="absolute -bottom-1 -right-1 bg-white rounded-full flex items-center justify-center"
-          style={{
-            width: '12px',
-            height: '12px',
-            border: `1px solid ${color}`
-          }}
-        >
-          <OverlayIcon className="w-2.5 h-2.5" style={{ color }} />
-        </div>
-      )}
-    </div>
-  )
+  icon?: string
+  stance?: 'desired' | 'declined' | null
 }
 
 interface DocumentCanvasProps {
@@ -81,17 +39,11 @@ export function DocumentCanvas({
   onItemSelect,
   selectedPreferenceId,
 }: DocumentCanvasProps) {
-  const { state, setPreference, setTemplate, setBirthTeam, setTitle } = useEditor()
-  const [editingItem, setEditingItem] = useState<string | null>(null)
-  const [editText, setEditText] = useState('')
-  const [editingTitle, setEditingTitle] = useState<string | null>(null)
-  const [editTitleText, setEditTitleText] = useState('')
-  const textareaRef = useRef<HTMLTextAreaElement>(null)
-  const titleInputRef = useRef<HTMLInputElement>(null)
+  const { state, setTemplate, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer } = useEditor()
 
-  // Process editor state into canvas items grouped by section
-  const groupedContent = useCallback(() => {
-    const result: Record<string, CanvasItem[]> = {}
+  // Process editor state into canvas sections with items and notes
+  const sections = useCallback(() => {
+    const result: { title: string; items: CanvasItem[]; notes: string }[] = []
 
     EDITOR_SECTIONS.forEach(section => {
       const sectionState = state.sections[section.id]
@@ -124,8 +76,8 @@ export function DocumentCanvas({
           preferenceId: prefValue.preferenceId,
           title: prefValue.customTitle || prefDef.title,
           birthPlanText,
-          baseIcon: prefDef.icon,
-          optionIcon: selectedOption?.icon,
+          icon: prefValue.customIcon || prefDef.icon,
+          stance: prefValue.stance,
         })
       })
 
@@ -144,94 +96,27 @@ export function DocumentCanvas({
           })
         })
 
-      if (items.length > 0) {
-        result[section.title] = items
+      if (items.length > 0 || sectionState.notes) {
+        result.push({
+          title: section.title,
+          items,
+          notes: sectionState.notes || '',
+        })
       }
     })
 
     return result
   }, [state.sections])
 
-  const content = groupedContent()
+  const canvasSections = sections()
   const theme = canvasThemes[state.templateStyle]
 
-  // Handle click on item to edit
+  // Single click to open sidebar detail
   const handleItemClick = (item: CanvasItem) => {
-    setEditingItem(item.preferenceId)
-    setEditText(item.birthPlanText)
-  }
-
-  // Handle double-click to open in decision panel
-  const handleItemDoubleClick = (item: CanvasItem) => {
     if (!item.isCustomItem && onItemSelect) {
       onItemSelect(item.sectionId, item.preferenceId)
     }
   }
-
-  // Save edit and close
-  const handleSaveEdit = (item: CanvasItem) => {
-    if (!item.isCustomItem) {
-      setPreference(item.sectionId, item.preferenceId, {
-        customText: editText || undefined
-      })
-    }
-    setEditingItem(null)
-  }
-
-  // Handle key press in edit mode
-  const handleKeyDown = (e: React.KeyboardEvent, item: CanvasItem) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault()
-      handleSaveEdit(item)
-    }
-    if (e.key === 'Escape') {
-      setEditingItem(null)
-    }
-  }
-
-  // Handle title click to edit
-  const handleTitleClick = (item: CanvasItem, e: React.MouseEvent) => {
-    e.stopPropagation()
-    setEditingTitle(item.preferenceId)
-    setEditTitleText(item.title)
-  }
-
-  // Save title edit
-  const handleSaveTitleEdit = (item: CanvasItem) => {
-    if (!item.isCustomItem) {
-      setPreference(item.sectionId, item.preferenceId, {
-        customTitle: editTitleText || undefined
-      })
-    }
-    setEditingTitle(null)
-  }
-
-  // Handle title key press
-  const handleTitleKeyDown = (e: React.KeyboardEvent, item: CanvasItem) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      handleSaveTitleEdit(item)
-    }
-    if (e.key === 'Escape') {
-      setEditingTitle(null)
-    }
-  }
-
-  // Focus textarea when entering edit mode
-  useEffect(() => {
-    if (editingItem && textareaRef.current) {
-      textareaRef.current.focus()
-      textareaRef.current.select()
-    }
-  }, [editingItem])
-
-  // Focus title input when entering title edit mode
-  useEffect(() => {
-    if (editingTitle && titleInputRef.current) {
-      titleInputRef.current.focus()
-      titleInputRef.current.select()
-    }
-  }, [editingTitle])
 
   // Format due date
   const formattedDueDate = state.birthTeam.due_date
@@ -285,59 +170,53 @@ export function DocumentCanvas({
                 placeholder="Birth Plan"
               />
 
-              {/* Editable Name */}
-              <Input
-                value={state.birthTeam.mother_name || ''}
-                onChange={(e) => setBirthTeam({ mother_name: e.target.value })}
-                className="text-base text-center text-muted-foreground border-0 bg-transparent focus:ring-0 focus:bg-gray-50 rounded mt-1"
-                placeholder="Your Name"
-              />
+              {/* Primary name from first birth team field */}
+              {state.birthTeam.fields.length > 0 && (
+                <Input
+                  value={state.birthTeam.fields[0].value}
+                  onChange={(e) => setBirthTeamField(state.birthTeam.fields[0].id, e.target.value)}
+                  className="text-base text-center text-muted-foreground border-0 bg-transparent focus:ring-0 focus:bg-gray-50 rounded mt-1"
+                  placeholder={state.birthTeam.fields[0].label}
+                />
+              )}
 
-              {/* Birth Team Info - editable inline */}
+              {/* Dynamic Birth Team fields */}
               <div
                 className="mt-4 p-4 rounded-md text-sm text-left space-y-2"
                 style={{ backgroundColor: theme.sectionHeaderBg }}
               >
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Partner</span>
-                  <Input
-                    value={state.birthTeam.partner_name || ''}
-                    onChange={(e) => setBirthTeam({ partner_name: e.target.value })}
-                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
-                    placeholder="Partner's name"
-                    style={{ color: theme.textColor }}
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Provider</span>
-                  <Input
-                    value={state.birthTeam.provider_name || ''}
-                    onChange={(e) => setBirthTeam({ provider_name: e.target.value })}
-                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
-                    placeholder="Provider's name"
-                    style={{ color: theme.textColor }}
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Hospital</span>
-                  <Input
-                    value={state.birthTeam.hospital_name || ''}
-                    onChange={(e) => setBirthTeam({ hospital_name: e.target.value })}
-                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
-                    placeholder="Hospital name"
-                    style={{ color: theme.textColor }}
-                  />
-                </div>
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Doula</span>
-                  <Input
-                    value={state.birthTeam.doula_name || ''}
-                    onChange={(e) => setBirthTeam({ doula_name: e.target.value })}
-                    className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
-                    placeholder="Doula's name (optional)"
-                    style={{ color: theme.textColor }}
-                  />
-                </div>
+                {state.birthTeam.fields.slice(1).map(field => (
+                  <div key={field.id} className="flex items-center gap-2">
+                    {field.isDefault ? (
+                      <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>
+                        {field.label}
+                      </span>
+                    ) : (
+                      <Input
+                        value={field.label}
+                        onChange={(e) => renameBirthTeamField(field.id, e.target.value)}
+                        className="h-6 w-20 flex-shrink-0 text-xs uppercase tracking-wide font-semibold border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-0"
+                        style={{ color: theme.textColor, opacity: 0.5 }}
+                      />
+                    )}
+                    <Input
+                      value={field.value}
+                      onChange={(e) => setBirthTeamField(field.id, e.target.value)}
+                      className="h-8 text-sm border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-2"
+                      placeholder={`${field.label}'s name`}
+                      style={{ color: theme.textColor }}
+                    />
+                    {!field.isDefault && (
+                      <button
+                        onClick={() => removeBirthTeamField(field.id)}
+                        className="text-xs text-muted-foreground hover:text-red-500 transition-colors px-1"
+                        title="Remove field"
+                      >
+                        x
+                      </button>
+                    )}
+                  </div>
+                ))}
                 <div className="flex items-center gap-2">
                   <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>Due date</span>
                   <Input
@@ -348,12 +227,18 @@ export function DocumentCanvas({
                     style={{ color: theme.textColor }}
                   />
                 </div>
+                <button
+                  onClick={() => addBirthTeamField('New Field')}
+                  className="text-xs text-primary hover:text-primary/80 transition-colors mt-1"
+                >
+                  + Add field
+                </button>
               </div>
             </div>
 
             {/* Content Sections */}
-            {Object.entries(content).map(([category, items]) => (
-              <div key={category} className="mb-8">
+            {canvasSections.map((section) => (
+              <div key={section.title} className="mb-8">
                 <h2
                   className="text-lg font-semibold pb-2 mb-4 border-b"
                   style={{
@@ -362,141 +247,92 @@ export function DocumentCanvas({
                     backgroundColor: theme.sectionHeaderBg
                   }}
                 >
-                  {category}
+                  {section.title}
                 </h2>
                 <div className="space-y-4">
-                  {items.map((item) => (
-                    <div
-                      key={item.preferenceId}
-                      className={cn(
-                        'group pl-3 border-l-2 transition-all cursor-pointer',
-                        editingItem === item.preferenceId
-                          ? 'py-2 px-3 -mx-3 rounded-r'
-                          : selectedPreferenceId === item.preferenceId
-                          ? 'py-1'
-                          : 'border-transparent'
-                      )}
-                      style={{
-                        borderColor: editingItem === item.preferenceId
-                          ? theme.primaryColor
-                          : selectedPreferenceId === item.preferenceId
-                          ? `${theme.primaryColor}80`
-                          : 'transparent',
-                        backgroundColor: editingItem === item.preferenceId || selectedPreferenceId === item.preferenceId
-                          ? theme.sectionHeaderBg
-                          : 'transparent'
-                      }}
-                      onClick={() => editingItem !== item.preferenceId && handleItemClick(item)}
-                      onDoubleClick={() => handleItemDoubleClick(item)}
-                    >
-                      <div className="flex items-start gap-2">
-                        {/* Icon with overlay */}
-                        {(item.baseIcon || item.optionIcon) && (
-                          <div className="mt-0.5">
-                            <IconWithOverlay
-                              baseIcon={item.baseIcon}
-                              overlayIcon={item.optionIcon}
-                              color={theme.primaryColor}
-                            />
-                          </div>
+                  {section.items.map((item) => {
+                    const ItemIcon = getIconComponent(item.icon || 'Circle')
+                    return (
+                      <div
+                        key={item.preferenceId}
+                        className={cn(
+                          'group pl-3 border-l-2 transition-all cursor-pointer',
+                          selectedPreferenceId === item.preferenceId
+                            ? 'py-1'
+                            : 'border-transparent'
                         )}
-                        <div className="flex-1">
-                          {editingTitle === item.preferenceId ? (
-                            <input
-                              ref={titleInputRef}
-                              value={editTitleText}
-                              onChange={(e) => setEditTitleText(e.target.value)}
-                              onBlur={() => handleSaveTitleEdit(item)}
-                              onKeyDown={(e) => handleTitleKeyDown(e, item)}
-                              className="w-full font-semibold text-sm mb-0.5 p-1 border rounded focus:ring-2"
-                              style={{
-                                color: theme.textColor,
-                                borderColor: theme.borderColor,
-                                backgroundColor: 'transparent'
-                              }}
-                              placeholder="Enter title..."
-                            />
-                          ) : (
+                        style={{
+                          borderColor: selectedPreferenceId === item.preferenceId
+                            ? `${theme.primaryColor}80`
+                            : 'transparent',
+                          backgroundColor: selectedPreferenceId === item.preferenceId
+                            ? theme.sectionHeaderBg
+                            : 'transparent'
+                        }}
+                        onClick={() => handleItemClick(item)}
+                      >
+                        <div className="flex items-start gap-2">
+                          {/* Stance indicator or icon */}
+                          <div className="mt-0.5 flex-shrink-0">
+                            {item.stance === 'desired' ? (
+                              <CheckCircle2 className="w-5 h-5 text-green-600" />
+                            ) : item.stance === 'declined' ? (
+                              <XCircle className="w-5 h-5 text-red-500" />
+                            ) : (
+                              <ItemIcon className="w-5 h-5" style={{ color: theme.primaryColor }} />
+                            )}
+                          </div>
+                          <div className="flex-1">
                             <p
-                              className="font-semibold text-sm mb-0.5 cursor-text hover:bg-gray-50 rounded px-1 py-0.5 -mx-1"
+                              className="font-semibold text-sm mb-0.5"
                               style={{ color: theme.textColor }}
-                              onClick={(e) => handleTitleClick(item, e)}
                             >
                               {item.title}
                             </p>
-                          )}
-                          {editingItem === item.preferenceId ? (
-                            <textarea
-                              ref={textareaRef}
-                              value={editText}
-                              onChange={(e) => setEditText(e.target.value)}
-                              onBlur={() => handleSaveEdit(item)}
-                              onKeyDown={(e) => handleKeyDown(e, item)}
-                              className="w-full min-h-[60px] p-2 text-sm border rounded-md focus:ring-2 resize-none"
-                              style={{
-                                color: theme.textColor,
-                                borderColor: theme.borderColor
-                              }}
-                              placeholder="Enter your preference..."
-                            />
-                          ) : (
                             <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
                               {item.birthPlanText}
                             </p>
-                          )}
+                          </div>
                         </div>
-                        {!item.isCustomItem && editingItem !== item.preferenceId && (
-                          <Button
-                            variant="ghost"
-                            size="sm"
-                            className="opacity-0 group-hover:opacity-100 h-10 w-10 p-0 flex-shrink-0"
-                            onClick={(e) => {
-                              e.stopPropagation()
-                              handleItemDoubleClick(item)
-                            }}
-                            title="Edit options"
-                          >
-                            <ChevronRight className="h-5 w-5" />
-                          </Button>
-                        )}
                       </div>
-                      {editingItem === item.preferenceId && (
-                        <p className="text-xs mt-1" style={{ color: theme.textColor, opacity: 0.6 }}>
-                          Press Enter to save, Escape to cancel
-                        </p>
-                      )}
-                      {editingTitle === item.preferenceId && (
-                        <p className="text-xs mt-1" style={{ color: theme.textColor, opacity: 0.6 }}>
-                          Press Enter to save, Escape to cancel
-                        </p>
-                      )}
-                    </div>
-                  ))}
+                    )
+                  })}
                 </div>
+
+                {/* Section notes */}
+                {section.notes && (
+                  <div
+                    className="mt-3 p-3 rounded text-sm italic"
+                    style={{ backgroundColor: theme.sectionHeaderBg, color: theme.textColor, opacity: 0.75 }}
+                  >
+                    {section.notes}
+                  </div>
+                )}
               </div>
             ))}
 
             {/* Empty State */}
-            {Object.keys(content).length === 0 && (
+            {canvasSections.length === 0 && (
               <div className="text-center py-12" style={{ color: theme.textColor, opacity: 0.6 }}>
                 <p>Your birth plan is empty.</p>
                 <p className="text-sm mt-1">Use the options panel to add decisions.</p>
               </div>
             )}
 
-            {/* Disclaimer */}
+            {/* Editable Disclaimer */}
             <div
-              className="mt-8 p-4 rounded-md text-xs leading-relaxed"
+              className="mt-8 p-4 rounded-md"
               style={{
                 backgroundColor: theme.sectionHeaderBg,
-                color: theme.textColor,
-                opacity: 0.8
               }}
             >
-              This birth plan represents my preferences for labor and delivery. I understand
-              that circumstances may change and medical decisions may need to be made for
-              the safety of myself and my baby. I trust my care team to keep us informed
-              and involve us in any decisions when possible.
+              <textarea
+                value={state.disclaimerText}
+                onChange={(e) => setDisclaimer(e.target.value)}
+                className="w-full text-xs leading-relaxed bg-transparent border-0 resize-none focus:ring-0 focus:outline-none min-h-[60px]"
+                style={{ color: theme.textColor, opacity: 0.8 }}
+                placeholder="Add a disclaimer or note for your care team..."
+              />
             </div>
 
             {/* Footer */}

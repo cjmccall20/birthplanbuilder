@@ -3,793 +3,800 @@ export interface QuizOption {
   label: string
   birthPlanText: string
   isUnsure?: boolean
+  icon?: string  // Lucide icon name for option
+}
+
+export interface LearnMoreData {
+  tradeoff: string      // 1-2 sentence trade-off summary
+  pros: string[]        // 3-4 bullets
+  cons: string[]        // 3-4 bullets
+  bottomLine: string    // "One Thing to Remember"
+  ebookChapter?: string // For upsell: "Chapter 8: Skin-to-Skin"
 }
 
 export interface QuizQuestion {
   id: string
-  category: string
+  category: string  // "Getting Started" | "Your Birth" | "After Birth" | "Newborn Care" | "Hospital Stay" | "Personal" | "C-Section Planning"
   title: string
-  description: string
-  learnMoreContent?: string
+  subtitle: string  // Approachable, not clinical
+  description?: string         // Backward compat - old questions used this
+  order: number
+  learnMoreContent?: string    // Backward compat - old plain-text learn more
+  learnMoreData?: LearnMoreData
   options: QuizOption[]
-  conditionalOn?: {
+  inputType?: 'text'           // For baby name - renders text field instead of option buttons
+  deferredFor?: 'csection'     // Deferred to end for vaginal planners
+  conditionalOn?: {            // ONLY used for circumcision
     questionId: string
     values: string[]
   }
 }
 
+// ---------------------------------------------------------------------------
+// Questions - ordered for engagement (universal first, clinical later)
+// ---------------------------------------------------------------------------
+
 export const quizQuestions: QuizQuestion[] = [
-  // BIRTH TYPE
+  // =========================================================================
+  // GETTING STARTED
+  // =========================================================================
   {
-    id: 'planned_birth_type',
-    category: 'Birth Type',
-    title: 'Type of Birth',
-    description: 'Are you planning a C-section or vaginal birth?',
-    learnMoreContent: 'Some births are scheduled as C-sections in advance due to medical reasons or personal choice. Others plan for vaginal birth but may need an unplanned C-section. Your answer will help customize which questions are most relevant to you.',
-    options: [
-      { value: 'vaginal', label: 'Planning vaginal birth', birthPlanText: 'We are planning a vaginal birth.' },
-      { value: 'csection', label: 'Scheduled C-section', birthPlanText: 'We have a scheduled C-section.' },
-      { value: 'unsure', label: 'Not sure yet', birthPlanText: 'We are still determining our birth plan.', isUnsure: true },
-    ],
-  },
-
-  // C-SECTION SPECIFIC QUESTIONS
-  {
-    id: 'gentle_csection',
-    category: 'C-Section Preferences',
-    title: 'Gentle C-Section Techniques',
-    description: 'Would you like to request gentle/family-centered C-section techniques?',
-    learnMoreContent: 'Gentle C-section techniques aim to make the experience more family-centered and promote bonding. These may include: slower delivery allowing baby to squeeze fluid from lungs, lowering the drape so you can see baby being born, immediate skin-to-skin in the OR, delayed cord clamping, and playing music of your choice.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['csection'],
+    id: 'birth_setting',
+    category: 'Getting Started',
+    title: 'Where to Give Birth',
+    subtitle: 'Where do you picture yourself giving birth?',
+    order: 1,
+    learnMoreData: {
+      tradeoff: 'Your birth setting shapes the care you receive. Hospitals offer full emergency resources but higher intervention rates; birth centers and home births offer lower intervention with midwifery-model care.',
+      pros: [
+        'Hospitals have the highest level of emergency care immediately available',
+        'Birth centers offer a home-like environment with hospital backup nearby',
+        'Home births provide maximum comfort, control, and lowest intervention rates',
+        'All three settings have similar safety outcomes for low-risk pregnancies with qualified attendants',
+      ],
+      cons: [
+        'Hospital epidural rate is around 73%, which may lead to additional interventions',
+        'Birth centers require transfer (about 12%) if complications arise',
+        'Home births have a transfer rate of about 16% for first-time mothers',
+        'Some settings may limit your pain management options',
+      ],
+      bottomLine: 'The setting you choose affects the care you receive. Hospitals are designed for emergencies, which means routine births often get treated as potential emergencies.',
+      ebookChapter: 'Chapter 1: Birth Setting',
     },
     options: [
-      { value: 'yes', label: 'Yes, request gentle C-section', birthPlanText: 'We would like a gentle/family-centered C-section approach when possible.' },
-      { value: 'discuss', label: 'Discuss options with surgeon', birthPlanText: 'We would like to discuss gentle C-section options with our surgeon.' },
-      { value: 'standard', label: 'Standard C-section is fine', birthPlanText: 'Standard C-section procedures are acceptable.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss gentle C-section options with us.', isUnsure: true },
+      { value: 'hospital', label: 'Hospital', birthPlanText: 'We are planning to give birth at a hospital.', icon: 'Building2' },
+      { value: 'birth_center', label: 'Birth center', birthPlanText: 'We are planning to give birth at a birth center.', icon: 'Home' },
+      { value: 'home', label: 'Home birth', birthPlanText: 'We are planning a home birth with a qualified midwife.', icon: 'House' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We are still deciding on our birth setting.', isUnsure: true },
     ],
   },
   {
-    id: 'clear_drape',
-    category: 'C-Section Preferences',
-    title: 'Clear Drape',
-    description: 'Would you like a clear drape so you can see baby being born?',
-    learnMoreContent: 'Some hospitals offer a clear drape option or will lower the standard drape at the moment of birth, allowing you to see your baby emerge. This can be a powerful bonding moment for families.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['csection'],
+    id: 'support_people',
+    category: 'Getting Started',
+    title: 'Your Birth Team',
+    subtitle: 'Who do you want by your side?',
+    order: 2,
+    learnMoreData: {
+      tradeoff: 'Continuous labor support is one of the most evidence-based interventions in obstetrics. The people in your room affect your hormones, your comfort, and your outcomes.',
+      pros: [
+        'Doula support is associated with 39% fewer C-sections and shorter labor',
+        'A supportive partner provides emotional connection and advocacy',
+        'Familiar people help you feel safe, which keeps oxytocin flowing',
+        'Research shows continuous support reduces the need for pain medication',
+      ],
+      cons: [
+        'Too many people in the room can increase stress and slow labor',
+        'Visitors during labor can disrupt your focus and privacy',
+        'Some birth team members may have conflicting opinions or anxieties',
+        'Hospital policies may limit the number of support people allowed',
+      ],
+      bottomLine: 'Your body works better when you feel supported, safe, and informed. Choose people who make you feel calm, not anxious.',
+      ebookChapter: 'Chapter 20: Birth Team',
     },
     options: [
-      { value: 'yes', label: 'Yes, clear drape or lower at birth', birthPlanText: 'We would like a clear drape or to have the drape lowered so we can see baby being born.' },
-      { value: 'no', label: 'No, standard drape preferred', birthPlanText: 'Standard drape is fine; we prefer not to watch the procedure.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss drape options with us.', isUnsure: true },
+      { value: 'partner_only', label: 'My partner only', birthPlanText: 'We would like only my partner present during labor and delivery.', icon: 'Heart' },
+      { value: 'partner_doula', label: 'Partner and doula', birthPlanText: 'We would like my partner and our doula present during labor and delivery.', icon: 'Users' },
+      { value: 'partner_family', label: 'Partner and family member(s)', birthPlanText: 'We would like my partner and select family members present during labor and delivery.', icon: 'Users' },
+      { value: 'doula_only', label: 'Doula (with or without partner)', birthPlanText: 'We would like our doula present as our primary support person.', icon: 'UserCheck' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our birth team.', isUnsure: true },
     ],
   },
+
+  // =========================================================================
+  // YOUR BIRTH
+  // =========================================================================
   {
-    id: 'csection_skin_to_skin',
-    category: 'C-Section Preferences',
-    title: 'Skin-to-Skin During C-Section',
-    description: 'Would you like immediate skin-to-skin contact in the operating room?',
-    learnMoreContent: 'Many hospitals now support skin-to-skin contact during C-sections, with baby placed on your chest in the OR after initial assessment. This promotes bonding, temperature regulation, and can support early breastfeeding.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['csection'],
+    id: 'pain_approach',
+    category: 'Your Birth',
+    title: 'Pain Management',
+    subtitle: 'How do you feel about pain management during labor?',
+    order: 3,
+    learnMoreData: {
+      tradeoff: 'Pain management is a spectrum from fully unmedicated to epidural. Each option has real trade-offs for mobility, labor progress, and your experience. Deciding before labor helps you prepare.',
+      pros: [
+        'Epidurals provide significant pain relief and allow rest during long labors',
+        'Unmedicated birth preserves full mobility and natural hormone release',
+        'Nitrous oxide offers a middle ground: some relief without numbness or immobility',
+        'Having a plan reduces anxiety and helps your team support you effectively',
+      ],
+      cons: [
+        'Epidurals limit mobility and may increase the chance of additional interventions',
+        'Unmedicated birth requires significant preparation and continuous support',
+        'IV opioids cross the placenta and can make baby sleepy at birth',
+        'Changing plans mid-labor can feel stressful without advance thought',
+      ],
+      bottomLine: 'Most women who achieve unmedicated birth do so through preparation, not pain tolerance. It is a learned skill, not willpower.',
+      ebookChapter: 'Chapter 3: Pain Management',
     },
     options: [
-      { value: 'immediate', label: 'Yes, immediately in the OR', birthPlanText: 'Please place baby skin-to-skin with me in the operating room as soon as possible.' },
-      { value: 'recovery', label: 'In recovery room', birthPlanText: 'We would like skin-to-skin contact to begin in the recovery room.' },
-      { value: 'partner', label: 'Partner can do skin-to-skin', birthPlanText: 'My partner can do skin-to-skin in the OR while I am being closed.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss skin-to-skin options with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'csection_photos',
-    category: 'C-Section Preferences',
-    title: 'Photos/Video During C-Section',
-    description: 'Would you like your partner or a family member to take photos/video during the birth?',
-    learnMoreContent: 'Many hospitals allow partners to take photos during a C-section, though there may be restrictions during certain parts of the procedure. Check your hospital policy and surgical team preferences.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['csection'],
-    },
-    options: [
-      { value: 'yes', label: 'Yes, photos and/or video', birthPlanText: 'We would like to take photos and/or video during the birth.' },
-      { value: 'photos_only', label: 'Photos only, no video', birthPlanText: 'We would like to take photos but not video.' },
-      { value: 'no', label: 'No photos or video', birthPlanText: 'We prefer no photos or video during the procedure.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss photo/video policies with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'csection_music',
-    category: 'C-Section Preferences',
-    title: 'Music During Surgery',
-    description: 'Would you like to play your own music during the C-section?',
-    learnMoreContent: 'Some hospitals allow you to play music during the surgery to create a calmer, more personalized atmosphere. This is typically permitted during the baby\'s delivery but may need to be lowered during other parts of the procedure.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['csection'],
-    },
-    options: [
-      { value: 'yes', label: 'Yes, we will bring music', birthPlanText: 'We would like to play our own music during the delivery.' },
-      { value: 'no', label: 'No music needed', birthPlanText: 'No specific music preferences.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss music options with us.', isUnsure: true },
+      { value: 'natural', label: 'Planning unmedicated birth', birthPlanText: 'We are planning an unmedicated birth. Please do not offer pain medication unless I ask for it.', icon: 'Leaf' },
+      { value: 'open', label: 'Open to options, will decide in the moment', birthPlanText: 'We are open to pain management options and will decide during labor.', icon: 'Scale' },
+      { value: 'epidural', label: 'Planning to get an epidural', birthPlanText: 'We plan to request an epidural during labor.', icon: 'Syringe' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pain management options with our care team.', isUnsure: true },
     ],
   },
 
-  // VAGINAL BIRTH SPECIFIC QUESTIONS
-  {
-    id: 'pushing_position',
-    category: 'Labor Preferences',
-    title: 'Pushing Positions',
-    description: 'What are your preferences for positions during pushing? (Note: Options may be limited with an epidural due to reduced mobility)',
-    learnMoreContent: 'You can push in many positions: on your back, side-lying, squatting, hands-and-knees, or using a birthing stool. Different positions can help baby descend and reduce tearing. Many hospitals default to back-lying, but you can request to try other positions. Important note: If you have an epidural, your mobility will be limited and you will likely need to stay in bed and push on your back (semi-reclined) or side-lying.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    options: [
-      { value: 'freedom', label: 'I want freedom to choose positions', birthPlanText: 'I would like the freedom to push in different positions as feels natural.' },
-      { value: 'upright', label: 'Prefer upright positions', birthPlanText: 'I prefer upright pushing positions (squatting, hands-and-knees, etc.).' },
-      { value: 'standard', label: 'Back-lying (semi-reclined) is fine', birthPlanText: 'Standard pushing position is acceptable.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss pushing position options with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'perineal_support',
-    category: 'Labor Preferences',
-    title: 'Perineal Support & Tearing Prevention',
-    description: 'What are your preferences for preventing or managing perineal tearing?',
-    learnMoreContent: 'Options include: warm compresses, perineal massage, controlled pushing, allowing the perineum to stretch naturally. Episiotomy (surgical cut) is rarely necessary but your provider may recommend it in certain situations. Most providers prefer to let natural tearing occur as it typically heals better.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    options: [
-      { value: 'natural', label: 'Natural stretching, no episiotomy', birthPlanText: 'I prefer to allow natural stretching and avoid episiotomy unless absolutely necessary.' },
-      { value: 'support', label: 'Use warm compresses and massage', birthPlanText: 'Please use warm compresses and perineal massage to help prevent tearing.' },
-      { value: 'episiotomy_if_needed', label: 'Episiotomy if provider recommends', birthPlanText: 'I trust my provider to recommend episiotomy if medically beneficial.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss perineal support options with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'directed_pushing',
-    category: 'Labor Preferences',
-    title: 'Directed vs. Spontaneous Pushing',
-    description: 'Do you want coached/directed pushing or to push spontaneously as you feel the urge?',
-    learnMoreContent: 'Directed pushing ("purple pushing") involves holding your breath and pushing for 10 counts. Spontaneous pushing means following your body\'s natural urges. Research suggests spontaneous pushing may reduce tearing and fetal distress, though directed pushing may shorten the pushing phase.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    options: [
-      { value: 'spontaneous', label: 'Spontaneous/instinctive pushing', birthPlanText: 'I prefer to push spontaneously, following my body\'s natural urges rather than coached counting.' },
-      { value: 'directed', label: 'Directed/coached pushing', birthPlanText: 'I would like coached, directed pushing with counting.' },
-      { value: 'flexible', label: 'Flexible, will decide in the moment', birthPlanText: 'I am open to either directed or spontaneous pushing depending on what feels right.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss pushing techniques with us.', isUnsure: true },
-    ],
-  },
-
-  // NEWBORN PROCEDURES
-  {
-    id: 'vitamin_k',
-    category: 'Newborn Procedures',
-    title: 'Vitamin K Shot',
-    description: 'Vitamin K helps with blood clotting. Hospitals routinely give newborns a Vitamin K injection shortly after birth.',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Hospitals routinely offer a Vitamin K injection within the first few hours after birth. This is because newborns are born with low levels of Vitamin K, which is essential for blood clotting.
-
-**PROS of the Vitamin K shot:**
-• Provides immediate, reliable protection against Vitamin K Deficiency Bleeding (VKDB), a rare but potentially serious condition
-• Single injection provides adequate levels throughout the critical first months
-• Well-studied intervention with decades of safety data
-
-**CONS/risks of the Vitamin K shot:**
-• Involves an injection shortly after birth during initial bonding time
-• Contains small amounts of preservatives (though formulations vary)
-• Bypasses the natural way babies would gradually receive Vitamin K through breast milk
-
-**Alternative options:**
-Oral Vitamin K is available in some areas, though it requires multiple doses over several weeks and may be less reliably absorbed. Some parents choose to monitor closely and supplement vitamin K-rich foods if breastfeeding.
-
-*Get our Research Guide for detailed analysis with medical citations on Vitamin K administration, absorption rates, and VKDB statistics.*`,
-    options: [
-      { value: 'accept', label: 'Yes, give the Vitamin K shot', birthPlanText: 'Please give the Vitamin K injection as recommended.' },
-      { value: 'oral', label: 'I prefer oral Vitamin K', birthPlanText: 'We prefer oral Vitamin K administration over the injection.' },
-      { value: 'decline', label: 'No, we decline', birthPlanText: 'We decline the Vitamin K injection.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss Vitamin K options with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'hep_b_vaccine',
-    category: 'Newborn Procedures',
-    title: 'Hepatitis B Vaccine',
-    description: 'The Hepatitis B vaccine is typically offered within 24 hours of birth as the first dose of the series.',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-The Hepatitis B vaccine is typically offered within 24 hours of birth as the first dose in a three-dose series. This timing is recommended because Hepatitis B can be transmitted from mother to baby during delivery if the mother is infected.
-
-**PROS of the Hepatitis B vaccine at birth:**
-• Provides early protection if there was an undetected maternal infection
-• Establishes immunity early in the vaccine series
-• Convenient timing while still in the hospital with medical staff available
-
-**CONS/risks of giving at birth:**
-• Mother may have tested negative for Hepatitis B, making transmission risk extremely low
-• Adds another intervention during the sensitive first 24 hours
-• Some parents prefer to space out vaccines rather than giving multiple in the newborn period
-
-**Alternative options:**
-Many parents whose prenatal testing shows they're Hepatitis B negative choose to delay this vaccine until the 2-month pediatrician visit, when other vaccines are scheduled. This allows the newborn period to focus on bonding and recovery.
-
-*Get our Research Guide for detailed analysis with medical citations on Hepatitis B transmission rates, vaccine timing, and maternal screening accuracy.*`,
-    options: [
-      { value: 'accept', label: 'Yes, give at birth', birthPlanText: 'Please administer the Hepatitis B vaccine at birth.' },
-      { value: 'delay', label: 'Delay until pediatrician visit', birthPlanText: 'We prefer to delay the Hepatitis B vaccine until our pediatrician visit.' },
-      { value: 'decline', label: 'No, we decline', birthPlanText: 'We decline the Hepatitis B vaccine at birth.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss Hepatitis B vaccine timing with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'eye_ointment',
-    category: 'Newborn Procedures',
-    title: 'Eye Ointment (Erythromycin)',
-    description: 'Antibiotic eye ointment is applied to prevent eye infections that could be transmitted during vaginal delivery.',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Antibiotic eye ointment (erythromycin) is routinely applied to newborns' eyes shortly after birth. This practice was established to prevent serious eye infections from gonorrhea or chlamydia that could be transmitted during vaginal delivery.
-
-**PROS of erythromycin eye ointment:**
-• Prevents potential eye infections that could lead to blindness if present
-• Simple, quick application
-• Required by law in many states as a public health measure
-
-**CONS/risks of the eye ointment:**
-• Can cause temporary blurry vision, potentially interfering with initial eye contact and bonding
-• Most effective against infections parents have already been screened for during pregnancy
-• Contains antibiotic that some prefer to avoid unless specifically needed
-
-**Alternative options:**
-Parents who have tested negative for STIs and are in a monogamous relationship may feel comfortable declining this treatment. Some choose to delay application for an hour or two to allow for initial bonding and breastfeeding with clear vision.
-
-*Get our Research Guide for detailed analysis with medical citations on eye infection rates, screening accuracy, and the timing impact on early bonding.*`,
-    options: [
-      { value: 'accept', label: 'Yes, apply the ointment', birthPlanText: 'Please apply the erythromycin eye ointment.' },
-      { value: 'delay', label: 'Delay for bonding first', birthPlanText: 'Please delay the eye ointment to allow for initial bonding and breastfeeding.' },
-      { value: 'decline', label: 'No, we decline', birthPlanText: 'We decline the erythromycin eye ointment.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss eye ointment with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'newborn_screening',
-    category: 'Newborn Procedures',
-    title: 'Newborn Screening (Heel Prick)',
-    description: 'A blood sample is taken from baby\'s heel to screen for rare but serious genetic conditions.',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-The newborn screening (heel prick blood test) is offered before discharge to screen for rare but serious genetic and metabolic conditions. The specific conditions tested vary by state, but commonly include PKU, sickle cell disease, hypothyroidism, and dozens of others.
-
-**PROS of newborn screening:**
-• Early detection allows for treatment before symptoms appear, potentially preventing disability or death
-• Tests for conditions that are treatable when caught early but may cause irreversible harm if missed
-• Comprehensive screening that covers many rare conditions in one simple test
-
-**CONS/risks of the heel prick:**
-• Involves a quick prick that causes momentary discomfort to baby
-• Very rarely, false positives can cause unnecessary worry and follow-up testing
-• Some parents have philosophical concerns about genetic information being stored in databases
-
-**Alternative options:**
-Private screening is available, though typically more expensive. Some parents delay screening slightly (still within the first week) to reduce the number of procedures in the immediate post-birth period. Most medical providers strongly encourage this screening due to the treatable nature of the conditions tested.
-
-*Get our Research Guide for detailed analysis with medical citations on the conditions screened, detection rates, and the treatment outcomes when caught early.*`,
-    options: [
-      { value: 'accept', label: 'Yes, do the screening', birthPlanText: 'Please perform the standard newborn screening tests.' },
-      { value: 'decline', label: 'No, we decline', birthPlanText: 'We decline the newborn screening tests.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss newborn screening with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'hearing_test',
-    category: 'Newborn Procedures',
-    title: 'Hearing Test',
-    description: 'A quick, painless test to check baby\'s hearing before leaving the hospital.',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-A hearing screening is typically performed before discharge using a quick, painless test. Early detection of hearing loss allows for intervention during the critical window for language development in the first few years of life.
-
-**PROS of hearing screening:**
-• Non-invasive test that baby typically sleeps through
-• Early identification of hearing issues enables early intervention (hearing aids, speech therapy)
-• Language development outcomes are significantly better when hearing loss is addressed before 6 months of age
-
-**CONS/risks of the test:**
-• May disturb baby during sleep for the test
-• False positives can occur (especially if done too soon after birth when fluid may still be in ears)
-• Requires follow-up testing if initial screen shows potential issues
-
-**Alternative options:**
-The test can be delayed slightly if baby is having difficulty settling or if parents prefer to minimize procedures immediately after birth. Most pediatricians will check hearing at later well-child visits, though earlier detection is ideal for language development.
-
-*Get our Research Guide for detailed analysis with medical citations on hearing loss prevalence, the critical period for language development, and intervention outcomes.*`,
-    options: [
-      { value: 'accept', label: 'Yes, do the hearing test', birthPlanText: 'Please perform the newborn hearing screening.' },
-      { value: 'decline', label: 'No, we decline', birthPlanText: 'We decline the hearing screening at this time.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss hearing screening with us.', isUnsure: true },
-    ],
-  },
-
-  // IMMEDIATELY AFTER BIRTH
-  {
-    id: 'cord_clamping',
-    category: 'After Birth',
-    title: 'Cord Clamping Timing',
-    description: 'When should the umbilical cord be clamped and cut after baby is born?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-The American College of Obstetricians and Gynecologists recommends delaying cord clamping for at least 30-60 seconds for both term and preterm infants. This allows additional blood to transfer from the placenta to the baby, which was the design of the birth process before modern interventions.
-
-**PROS of delayed cord clamping:**
-• Increases baby's iron stores, reducing anemia risk in the first year
-• Provides additional blood volume (up to 30% more)
-• Associated with better neurodevelopmental outcomes in some studies
-
-**CONS/risks of delayed clamping:**
-• May slightly increase jaundice risk (though usually mild and manageable)
-• Can delay emergency interventions if baby needs immediate resuscitation
-• Requires patience from medical staff who may prefer immediate cord cutting
-
-**Alternative options:**
-Timing can range from immediate clamping (if medical emergency requires it) to waiting until the cord stops pulsing completely (3-5+ minutes), which allows the full placental transfusion God designed for your baby.
-
-*Get our Research Guide for detailed analysis with medical citations on blood volume transfer, iron stores, and long-term developmental outcomes.*`,
-    options: [
-      { value: 'immediate', label: 'Clamp immediately', birthPlanText: 'Clamp the cord immediately after birth.' },
-      { value: '1min', label: 'Wait at least 1 minute', birthPlanText: 'Please wait at least 1 minute before clamping the cord.' },
-      { value: '3-5min', label: 'Wait 3-5 minutes', birthPlanText: 'Please delay cord clamping for 3-5 minutes.' },
-      { value: 'until_stops', label: 'Wait until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss cord clamping timing with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'cord_blood_banking',
-    category: 'After Birth',
-    title: 'Cord Blood Banking',
-    description: 'Would you like to bank your baby\'s cord blood for potential future medical use?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Hospitals typically offer information about cord blood banking but don't require it. Cord blood contains stem cells that can potentially be used to treat certain diseases. You can choose private banking (for your family's use), public donation (for anyone who matches), or neither.
-
-**PROS of cord blood banking:**
-• Preserves stem cells that could potentially treat future illnesses (leukemia, certain genetic disorders)
-• Private banking ensures cells are available if your child or family member needs them
-• Public donation can help others in need at no cost to you
-
-**CONS/risks of cord blood banking:**
-• Private banking requires expensive upfront and ongoing storage fees ($1000-2000 initial, $100-200/year)
-• Actual likelihood of using stored cord blood is very low (estimated 1 in 1,000 to 1 in 200,000)
-• Collection may require earlier cord clamping, reducing the benefits of delayed clamping
-
-**Alternative options:**
-Most families choose not to bank cord blood and opt for delayed cord clamping instead, allowing baby to receive the full blood volume. Public donation is a generous option if you're willing to collect but don't want to pay for private storage.
-
-*Get our Research Guide for detailed analysis with medical citations on usage statistics, disease treatment success rates, and the tradeoffs with delayed cord clamping.*`,
-    options: [
-      { value: 'private', label: 'Yes, private banking', birthPlanText: 'We will be privately banking cord blood. Our kit is from [COMPANY NAME].' },
-      { value: 'public', label: 'Donate to public bank', birthPlanText: 'We would like to donate cord blood to a public bank if available.' },
-      { value: 'no', label: 'No cord blood banking', birthPlanText: 'We do not plan to bank cord blood.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss cord blood banking options with us.', isUnsure: true },
-    ],
-  },
+  // =========================================================================
+  // AFTER BIRTH (universally compelling)
+  // =========================================================================
   {
     id: 'skin_to_skin',
     category: 'After Birth',
     title: 'Immediate Skin-to-Skin',
-    description: 'Placing baby directly on mother\'s bare chest immediately after birth.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
+    subtitle: 'Would you like baby placed on your chest right away?',
+    order: 4,
+    learnMoreData: {
+      tradeoff: 'Placing baby directly on your bare chest immediately after birth regulates their temperature, heart rate, and breathing better than a warmer. Most routine procedures can be done while baby is on your chest.',
+      pros: [
+        'Regulates baby\'s temperature, heart rate, breathing, and blood sugar naturally',
+        'Promotes successful breastfeeding through baby\'s instinctive crawling reflex',
+        'Reduces stress hormones in both mother and baby, facilitating bonding',
+        'Baby is more alert and calm during this initial period',
+      ],
+      cons: [
+        'May need to be paused if baby requires immediate medical attention',
+        'Some hospitals still default to separating baby for routine assessments first',
+        'After a C-section, positioning may require extra assistance from staff',
+        'If mother is unable, partner can provide skin-to-skin instead',
+      ],
+      bottomLine: 'This is not a nice-to-have - it is biologically optimal. Your body is baby\'s best incubator.',
+      ebookChapter: 'Chapter 8: Skin-to-Skin',
     },
-    learnMoreContent: `**What hospitals typically recommend and why:**
-The World Health Organization and many hospitals now recommend immediate skin-to-skin contact—placing baby directly on mother's bare chest right after birth. This practice supports the natural transition from womb to world and activates instinctive behaviors in both mother and baby.
-
-**PROS of immediate skin-to-skin:**
-• Regulates baby's temperature, heart rate, breathing, and blood sugar naturally
-• Promotes successful breastfeeding initiation through baby's natural reflexes
-• Facilitates bonding and reduces stress hormones in both mother and baby
-
-**CONS/risks of delaying skin-to-skin:**
-• Early separation can interfere with natural breastfeeding instincts
-• Baby may have more difficulty with temperature regulation and stress
-• Missing the alert period immediately after birth when baby is most ready to nurse
-
-**Alternative options:**
-If mother is unable (due to cesarean or complications), partner skin-to-skin provides many of the same benefits. Some hospitals prefer to do assessments first, but most routine assessments can be done while baby is on mother's chest.
-
-*Get our Research Guide for detailed analysis with medical citations on the biological importance of skin-to-skin, breastfeeding success rates, and the "golden hour" after birth.*`,
     options: [
-      { value: 'immediate', label: 'Immediately, uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate skin-to-skin contact. We want this to be uninterrupted for at least the first hour.' },
-      { value: 'after_assessment', label: 'After initial assessment', birthPlanText: 'We would like skin-to-skin after the initial newborn assessment.' },
-      { value: 'partner_backup', label: 'Partner if I\'m unable', birthPlanText: 'Please place baby skin-to-skin with my partner if I am unable.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss skin-to-skin options with us.', isUnsure: true },
+      { value: 'immediate', label: 'Yes, immediately and uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate, uninterrupted skin-to-skin contact.', icon: 'Heart' },
+      { value: 'after_assessment', label: 'After a quick initial check', birthPlanText: 'We would like skin-to-skin after the initial newborn assessment.', icon: 'Stethoscope' },
+      { value: 'partner_backup', label: 'Partner does skin-to-skin if I can\'t', birthPlanText: 'If I am unable, please place baby skin-to-skin with my partner immediately.', icon: 'Users' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss skin-to-skin options with our care team.', isUnsure: true },
     ],
   },
   {
-    id: 'bath_delay',
+    id: 'golden_hour',
     category: 'After Birth',
-    title: 'First Bath Timing',
-    description: 'When would you like baby\'s first bath to occur?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-The World Health Organization now recommends delaying baby's first bath for at least 24 hours, which is a shift from the traditional practice of bathing soon after birth. This change recognizes the benefits of the vernix (the creamy coating on baby's skin).
-
-**PROS of delaying the first bath:**
-• Preserves vernix, which moisturizes skin, has antibacterial properties, and helps regulate temperature
-• Helps maintain baby's body temperature and blood sugar stability
-• Supports early breastfeeding by not interrupting the bonding period
-• Allows baby to maintain mother's scent, which supports bonding and feeding
-
-**CONS/risks of early bathing:**
-• Removes beneficial vernix coating that God designed as baby's first skin protection
-• Can cause temperature instability, especially in smaller babies
-• Interrupts important skin-to-skin and breastfeeding time
-
-**Alternative options:**
-Many parents now choose to delay bathing for 48+ hours or even several days. Some prefer to give the first bath themselves at home. A simple wipe-down of any blood or meconium is usually sufficient in the early hours.
-
-*Get our Research Guide for detailed analysis with medical citations on vernix benefits, temperature regulation, and optimal timing for newborn bathing.*`,
-    options: [
-      { value: 'hospital_recommend', label: 'When hospital recommends', birthPlanText: 'The first bath may be given when recommended by nursing staff.' },
-      { value: '24hrs', label: 'Delay at least 24 hours', birthPlanText: 'Please delay baby\'s first bath for at least 24 hours.' },
-      { value: '48hrs', label: 'Delay at least 48 hours', birthPlanText: 'Please delay baby\'s first bath for at least 48 hours.' },
-      { value: 'parents_only', label: 'Parents will give first bath', birthPlanText: 'We would like to give baby\'s first bath ourselves.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss bath timing with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'placenta',
-    category: 'After Birth',
-    title: 'Placenta Plans',
-    description: 'What would you like done with the placenta after delivery?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Hospitals typically dispose of the placenta as medical waste unless you request to keep it. However, many hospitals are accustomed to parents taking the placenta home and have procedures in place for this.
-
-**PROS of placenta encapsulation/keeping:**
-• Some women report benefits like increased energy, milk supply, and balanced mood (though scientific evidence is limited)
-• Cultural or spiritual significance in some traditions
-• Honors the organ that sustained your baby for 9 months
-
-**CONS/risks of placenta encapsulation:**
-• Encapsulation services cost $150-300 and lack FDA regulation
-• Limited scientific evidence supporting health claims
-• Small risk of contamination if not properly processed
-• Some healthcare providers express concern about heavy metals or toxins
-
-**Alternative options:**
-Beyond encapsulation, some families bury the placenta in a meaningful location, plant a tree over it, or have it incorporated into art. Hospital disposal is perfectly acceptable and what most families choose.
-
-*Get our Research Guide for detailed analysis with medical citations on placenta encapsulation research, cultural practices, and safety considerations.*`,
-    options: [
-      { value: 'dispose', label: 'Hospital disposal', birthPlanText: 'The hospital may dispose of the placenta.' },
-      { value: 'encapsulate', label: 'Keep for encapsulation', birthPlanText: 'We will be keeping the placenta for encapsulation. Please place it in our provided container.' },
-      { value: 'keep', label: 'Keep for other purposes', birthPlanText: 'We would like to keep the placenta.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss placenta options with us.', isUnsure: true },
-    ],
-  },
-
-  // UNPLANNED C-SECTION QUESTION (for vaginal/unsure planners)
-  {
-    id: 'unplanned_csection_preferences',
-    category: 'Labor Preferences',
-    title: 'Unplanned C-Section Preferences',
-    description: 'If an unplanned C-section becomes necessary, what are your preferences?',
-    learnMoreContent: 'Even if you\'re planning a vaginal birth, it\'s helpful to consider your preferences in case a C-section becomes medically necessary. This might include gentle C-section techniques, immediate skin-to-skin, partner presence, etc.',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
+    title: 'The Golden Hour',
+    subtitle: 'The first hour after birth is magical - how would you like to spend it?',
+    order: 5,
+    learnMoreData: {
+      tradeoff: 'The "golden hour" is the first 60 minutes after birth when baby is naturally alert and primed for bonding and feeding. Interruptions during this time can interfere with instinctive behaviors.',
+      pros: [
+        'Baby\'s natural crawling and rooting reflexes are strongest in the first hour',
+        'Breastfeeding initiation is significantly more successful during this window',
+        'Most routine procedures (weighing, measuring, vitamin K) can safely wait',
+        'Uninterrupted contact supports the hormonal cascade for bonding and milk production',
+      ],
+      cons: [
+        'Some time-sensitive medical assessments may need to occur during this period',
+        'Hospital staff routines may not automatically accommodate uninterrupted time',
+        'Requires clear communication with your care team in advance',
+        'Partners and visitors may need to wait to hold baby',
+      ],
+      bottomLine: 'You only get one golden hour. Most procedures can wait - this time cannot be recreated.',
+      ebookChapter: 'Chapter 8: Skin-to-Skin',
     },
     options: [
-      { value: 'gentle', label: 'Request gentle C-section techniques if possible', birthPlanText: 'If a C-section becomes necessary, we would like gentle/family-centered techniques when safely possible (clear drape, skin-to-skin in OR, etc.).' },
-      { value: 'partner_present', label: 'Partner must be present', birthPlanText: 'If a C-section is needed, it is very important that my partner be present.' },
-      { value: 'standard', label: 'Follow standard C-section protocol', birthPlanText: 'If a C-section becomes necessary, please follow standard hospital protocol.' },
-      { value: 'discuss', label: 'Discuss all options with us first', birthPlanText: 'If a C-section becomes necessary, please discuss all available options with us.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'If a C-section becomes necessary, discuss options with us at that time.', isUnsure: true },
-    ],
-  },
-
-  // LABOR PREFERENCES
-  {
-    id: 'gbs_antibiotics',
-    category: 'Labor Preferences',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    title: 'GBS Antibiotics (if GBS+)',
-    description: 'If you test positive for Group B Strep, what are your preferences for IV antibiotics during labor?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-If you test positive for Group B Strep (GBS) during pregnancy, standard hospital protocol is IV antibiotics every 4 hours during labor. About 25% of women carry this bacteria naturally—it's harmless to adults but can rarely cause serious infection in newborns during passage through the birth canal.
-
-**PROS of GBS antibiotics:**
-• Significantly reduces risk of early-onset GBS infection in newborns (from about 1 in 200 to 1 in 4,000)
-• Well-established protocol with proven effectiveness
-• Provides peace of mind for many parents
-
-**CONS/risks of IV antibiotics:**
-• Requires IV access throughout labor, limiting mobility
-• Antibiotics affect baby's gut microbiome development
-• Even without antibiotics, 98-99% of GBS+ babies are born healthy
-• May increase risk of antibiotic-resistant infections or thrush
-
-**Alternative options:**
-Some parents explore natural protocols (probiotics, garlic, vitamin C) hoping to reduce GBS colonization before labor. Others decline antibiotics and opt for close monitoring of baby after birth. The decision involves weighing a small risk of serious infection against the known effects of antibiotics.
-
-*Get our Research Guide for detailed analysis with medical citations on GBS infection rates, antibiotic effectiveness, and alternative protocols.*`,
-    options: [
-      { value: 'accept', label: 'Accept IV antibiotics', birthPlanText: 'If GBS positive, please administer IV antibiotics as recommended.' },
-      { value: 'decline', label: 'Decline antibiotics', birthPlanText: 'We decline GBS antibiotics and accept responsibility for this decision.' },
-      { value: 'natural', label: 'Discuss natural protocols', birthPlanText: 'We would like to discuss alternative/natural protocols for GBS.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss GBS treatment options with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'fetal_monitoring',
-    category: 'Labor Preferences',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    title: 'Fetal Monitoring',
-    description: 'How would you like baby\'s heart rate to be monitored during labor?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Many hospitals use continuous electronic fetal monitoring (EFM) for all laboring women, with two belts strapped around your belly to track baby's heart rate and contractions. This became standard practice for liability reasons and to detect potential problems early.
-
-**PROS of continuous monitoring:**
-• Provides constant reassurance of baby's wellbeing
-• Can detect concerning heart rate patterns that may indicate distress
-• Creates a paper trail that hospitals value for legal protection
-
-**CONS/risks of continuous monitoring:**
-• Requires staying in or very near the bed, limiting position changes and movement that help labor progress
-• Higher false-positive rate leading to unnecessary interventions and increased C-section rates
-• Can create anxiety if staff react to normal variations in heart rate
-
-**Alternative options:**
-Intermittent monitoring (listening to baby's heart rate every 15-30 minutes with a handheld Doppler) is supported by research for low-risk pregnancies and allows freedom of movement. Wireless/waterproof monitors offer a middle ground if continuous monitoring is preferred or required.
-
-*Get our Research Guide for detailed analysis with medical citations on monitoring methods, intervention rates, and outcomes for low-risk pregnancies.*`,
-    options: [
-      { value: 'continuous', label: 'Continuous monitoring', birthPlanText: 'Continuous fetal monitoring is acceptable.' },
-      { value: 'intermittent', label: 'Intermittent monitoring', birthPlanText: 'We prefer intermittent fetal monitoring to allow freedom of movement.' },
-      { value: 'wireless', label: 'Wireless/waterproof if available', birthPlanText: 'If continuous monitoring is needed, we prefer wireless/waterproof monitors.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss monitoring options with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'iv_preference',
-    category: 'Labor Preferences',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    title: 'IV vs Hep Lock',
-    description: 'Would you prefer continuous IV fluids or a hep lock (IV access without continuous fluids)?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Many hospitals routinely start continuous IV fluids for all laboring women "just in case" medications or emergency interventions become necessary. This ensures immediate access if needed but wasn't standard practice historically.
-
-**PROS of continuous IV:**
-• Immediate access for medications, antibiotics, or emergency interventions
-• Provides hydration if eating/drinking is restricted
-• Can help prevent dehydration during long labors
-
-**CONS/risks of continuous IV:**
-• Tethers you to an IV pole, limiting movement and position changes
-• Continuous fluids can cause swelling and may dilute labor hormones
-• Creates dependence on medical equipment for basic hydration
-• May contribute to lower blood sugar in baby due to maternal blood sugar fluctuations
-
-**Alternative options:**
-A hep lock (saline lock) provides IV access without continuous fluids, allowing full mobility while maintaining the option for quick medication administration. Some low-risk mothers prefer no IV access at all, staying hydrated by drinking fluids naturally as the body designed.
-
-*Get our Research Guide for detailed analysis with medical citations on IV fluid effects, mobility during labor, and hydration strategies.*`,
-    options: [
-      { value: 'iv', label: 'Continuous IV is fine', birthPlanText: 'Continuous IV fluids are acceptable.' },
-      { value: 'heplock', label: 'Prefer hep lock only', birthPlanText: 'We prefer a hep lock instead of continuous IV fluids.' },
-      { value: 'neither', label: 'No IV access if possible', birthPlanText: 'We prefer no IV access unless medically necessary.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss IV options with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'eating_drinking',
-    category: 'Labor Preferences',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    title: 'Eating & Drinking During Labor',
-    description: 'What are your preferences for eating and drinking during labor?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Traditional hospital policy restricted food and drink during labor due to concerns about aspiration (breathing in stomach contents) if emergency general anesthesia became necessary. This policy remains in many hospitals, though policies are gradually changing.
-
-**PROS of eating and drinking during labor:**
-• Maintains energy and strength for the hard work of labor (it's called "labor" for a reason!)
-• Prevents dehydration and ketosis that can slow labor progress
-• Aligns with how women have labored throughout history before modern restrictions
-• Research shows it's safe for low-risk labors
-
-**CONS/risks of eating during labor:**
-• Theoretical risk of aspiration if emergency general anesthesia needed (though modern anesthesia techniques have made this extremely rare)
-• Some women feel nauseous during active labor and don't want food anyway
-• May violate hospital policy in some facilities
-
-**Alternative options:**
-Many hospitals now allow clear liquids (broth, juice, popsicles) during labor. Some allow light snacks. For unmedicated births, eating according to your hunger and thirst is natural. If planning an epidural, ask about your hospital's specific policy.
-
-*Get our Research Guide for detailed analysis with medical citations on aspiration risk, energy needs during labor, and the evolution of hospital policies.*`,
-    options: [
-      { value: 'yes', label: 'I want to eat and drink freely', birthPlanText: 'I would like to eat and drink as desired during labor.' },
-      { value: 'clear_liquids', label: 'Clear liquids only is fine', birthPlanText: 'Clear liquids during labor are acceptable.' },
-      { value: 'follow_policy', label: 'Follow hospital policy', birthPlanText: 'We will follow hospital policy regarding eating and drinking.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss eating/drinking policies with us.', isUnsure: true },
-    ],
-  },
-  {
-    id: 'pain_management',
-    category: 'Labor Preferences',
-    conditionalOn: {
-      questionId: 'planned_birth_type',
-      values: ['vaginal', 'unsure'],
-    },
-    title: 'Pain Management',
-    description: 'What is your general approach to pain management during labor?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Hospitals offer various pain management options ranging from natural comfort measures to medical interventions. Many hospitals actively promote epidurals, while others support unmedicated birth. The approach varies greatly by facility and provider.
-
-**PROS of medical pain management:**
-• Epidural can provide significant or complete pain relief, allowing rest during long labors
-• Reduces fear and anxiety for women who are apprehensive about labor pain
-• Allows for a calmer experience if that's your preference
-• Can be helpful in certain medical situations
-
-**CONS/risks of medical interventions:**
-• Epidurals limit mobility and can slow labor progress, sometimes leading to additional interventions
-• Side effects may include drop in blood pressure, itching, fever, difficulty pushing
-• Interventions can interfere with natural hormone release that aids labor and bonding
-• May affect baby's alertness at birth
-
-**Alternative options:**
-Natural pain management includes position changes, hydrotherapy (shower/tub), massage, breathing techniques, counter-pressure, and continuous support. Many women find that movement and water are surprisingly effective. Nitrous oxide (laughing gas) offers a middle ground—pain reduction without total numbness.
-
-*Get our Research Guide for detailed analysis with medical citations on pain management options, intervention cascades, and the role of pain in the physiological birth process.*`,
-    options: [
-      { value: 'natural', label: 'Prefer unmedicated/natural', birthPlanText: 'We are planning an unmedicated birth. Please do not offer pain medication unless I ask.' },
-      { value: 'open', label: 'Open to options as needed', birthPlanText: 'We are open to pain management options and will decide during labor.' },
-      { value: 'epidural', label: 'Planning to get an epidural', birthPlanText: 'We plan to request an epidural during labor.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss pain management options with us.', isUnsure: true },
-    ],
-  },
-
-  // BABY CARE
-  {
-    id: 'circumcision',
-    category: 'Baby Care',
-    title: 'Circumcision',
-    description: 'If having a boy, what are your preferences regarding circumcision?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Hospitals offer circumcision as an optional procedure, typically performed before discharge or within the first few days. The American Academy of Pediatrics states that the health benefits outweigh the risks but are not significant enough to recommend universal circumcision—making it a personal family decision.
-
-**PROS of circumcision:**
-• Slightly reduced risk of urinary tract infections in infancy
-• Eliminates risk of foreskin-related issues (though these are uncommon)
-• May reduce risk of certain STIs later in life
-• Cultural, religious, or personal family preferences
-
-**CONS/risks of circumcision:**
-• Surgical procedure on a newborn with associated pain (though pain relief is used)
-• Removes functional tissue that provides protection and sensation
-• Risks include bleeding, infection, and rarely, more serious complications
-• Removes the choice from the child to make this decision about his own body later
-
-**Alternative options:**
-Many families are now choosing to leave their sons intact, allowing them to make their own decision about their body when older. If choosing circumcision for religious reasons, some families prefer a ritual ceremony rather than hospital procedure. Proper hygiene education makes intact care straightforward.
-
-*Get our Research Guide for detailed analysis with medical citations on circumcision outcomes, complication rates, and both short and long-term effects.*`,
-    options: [
-      { value: 'yes', label: 'Yes, circumcise at hospital', birthPlanText: 'We would like our son circumcised before leaving the hospital.' },
-      { value: 'delayed', label: 'Yes, but by our own provider', birthPlanText: 'We will arrange circumcision with our own provider after discharge.' },
-      { value: 'no', label: 'No circumcision', birthPlanText: 'We do not want circumcision performed.' },
-      { value: 'na', label: 'Not applicable (having a girl)', birthPlanText: '' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We need more time to decide about circumcision.', isUnsure: true },
+      { value: 'protected', label: 'Protect it fully - no interruptions', birthPlanText: 'We want the first hour after birth to be uninterrupted skin-to-skin time. Please delay all non-urgent procedures.', icon: 'Shield' },
+      { value: 'mostly_protected', label: 'Minimize interruptions, but do essentials', birthPlanText: 'We would like to minimize interruptions during the first hour but understand essential assessments may be needed.', icon: 'Clock' },
+      { value: 'flexible', label: 'Flexible - follow the staff\'s lead', birthPlanText: 'We are flexible with the timing of procedures in the first hour.', icon: 'Workflow' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss golden hour options with our care team.', isUnsure: true },
     ],
   },
   {
     id: 'feeding',
-    category: 'Baby Care',
-    title: 'Feeding Preferences',
-    description: 'How do you plan to feed your baby?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Most hospitals encourage breastfeeding and are certified as "Baby-Friendly," providing lactation support and education. They recognize that breastfeeding offers health benefits for both baby and mother while acknowledging that fed is best and every family's situation is unique.
-
-**PROS of exclusive breastfeeding:**
-• Provides ideal nutrition specifically designed for human babies with antibodies and living cells
-• Promotes bonding and supports mother's postpartum recovery
-• Convenient, always available at the right temperature, and free
-• Associated with health benefits for both mother and baby
-
-**CONS/risks of exclusive breastfeeding:**
-• Can be challenging to establish—many women need support and time to make it work
-• Difficulty knowing exactly how much baby is eating can cause anxiety
-• Physical demands are entirely on the mother, making it harder to share feeding duties
-• Not always possible due to medical issues, medications, or supply challenges
-
-**Alternative options:**
-Combination feeding allows flexibility, and exclusive formula feeding is a valid choice that allows parents to share feeding responsibilities. Donor milk is available through milk banks. The most important thing is that baby is fed, growing, and that the family's feeding choice works for their unique situation.
-
-*Get our Research Guide for detailed analysis with medical citations on breastfeeding benefits, common challenges and solutions, and formula feeding options.*`,
+    category: 'After Birth',
+    title: 'Feeding Your Baby',
+    subtitle: 'How are you planning to feed your baby?',
+    order: 6,
+    learnMoreData: {
+      tradeoff: 'Breastfeeding provides unique immune benefits and dynamic nutrition, but success depends heavily on support, not just determination. Formula is food, not failure. Any breast milk counts.',
+      pros: [
+        'Breastfeeding provides antibodies, living cells, and nutrition that adapts to baby\'s needs',
+        'Associated with health benefits for both mother (reduced cancer risk) and baby',
+        'Always available at the right temperature and free of cost',
+        'Formula feeding allows shared feeding duties and measurable intake',
+      ],
+      cons: [
+        '70% of mothers experience significant breastfeeding challenges early on',
+        'Difficulty knowing how much baby is eating can cause anxiety with breastfeeding',
+        'Formula lacks the dynamic immune properties of breast milk',
+        'Breastfeeding places the physical demands entirely on the mother',
+      ],
+      bottomLine: 'Fed babies thrive. Whether breast, formula, or both - adequate nutrition is what matters. Your worth as a mother is not measured in ounces.',
+      ebookChapter: 'Chapter 16: Feeding',
+    },
     options: [
-      { value: 'breastfeed', label: 'Breastfeeding only', birthPlanText: 'We plan to exclusively breastfeed. Please do not offer formula or pacifiers without our consent.' },
-      { value: 'open_supplement', label: 'Breastfeeding, open to supplementing', birthPlanText: 'We plan to breastfeed but are open to supplementation if medically needed.' },
-      { value: 'formula', label: 'Formula feeding', birthPlanText: 'We will be formula feeding.' },
-      { value: 'combo', label: 'Combination feeding', birthPlanText: 'We plan to combination feed (breast milk and formula).' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss feeding options with us.', isUnsure: true },
+      { value: 'breastfeed', label: 'Breastfeeding only', birthPlanText: 'We plan to exclusively breastfeed. Please do not offer formula or pacifiers without our consent.', icon: 'Baby' },
+      { value: 'open_supplement', label: 'Breastfeed, open to supplementing', birthPlanText: 'We plan to breastfeed but are open to supplementation if medically needed.', icon: 'Heart' },
+      { value: 'combo', label: 'Combination feeding', birthPlanText: 'We plan to combination feed with breast milk and formula.', icon: 'Shuffle' },
+      { value: 'formula', label: 'Formula feeding', birthPlanText: 'We will be formula feeding our baby.', icon: 'Package' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss feeding options with a lactation consultant.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'cord_clamping',
+    category: 'After Birth',
+    title: 'Cord Clamping Timing',
+    subtitle: 'When should the umbilical cord be clamped?',
+    order: 7,
+    learnMoreData: {
+      tradeoff: 'Delayed cord clamping allows additional blood to transfer from the placenta to baby, increasing blood volume by up to 30% and significantly boosting iron stores. ACOG, WHO, and AAP all recommend it.',
+      pros: [
+        'Increases baby\'s blood volume by up to 30% and iron stores for the first year',
+        'Associated with improved brain myelination at 4 months',
+        'Recommended by ACOG (30-60 seconds minimum), WHO (1-3 minutes), and AAP',
+        'Still possible during C-sections (typically 60-90 seconds)',
+      ],
+      cons: [
+        'May very slightly increase jaundice risk, though usually mild and manageable',
+        'Emergency situations may require immediate cord clamping',
+        'Cord blood banking collection may conflict with full delayed clamping',
+        'Requires patience from medical staff who may default to immediate clamping',
+      ],
+      bottomLine: 'Immediate clamping became standard for convenience, not evidence. Your baby\'s blood belongs in your baby, not in the placenta.',
+      ebookChapter: 'Chapter 11: Cord Clamping',
+    },
+    options: [
+      { value: '1min', label: 'Wait at least 1 minute', birthPlanText: 'Please wait at least 1 minute before clamping the cord.', icon: 'Clock' },
+      { value: '3-5min', label: 'Wait 3-5 minutes', birthPlanText: 'Please delay cord clamping for 3-5 minutes.', icon: 'Timer' },
+      { value: 'until_stops', label: 'Wait until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.', icon: 'Activity' },
+      { value: 'immediate', label: 'Clamp right away', birthPlanText: 'We are comfortable with immediate cord clamping.', icon: 'Scissors' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing with our care team.', isUnsure: true },
+    ],
+  },
+
+  // =========================================================================
+  // GETTING STARTED (continued)
+  // =========================================================================
+  {
+    id: 'birth_photography',
+    category: 'Getting Started',
+    title: 'Photos and Video',
+    subtitle: 'Would you like photos or video of the birth?',
+    order: 8,
+    learnMoreData: {
+      tradeoff: 'Birth photography captures one of life\'s most transformative moments. Some families treasure these images forever, while others prefer to be fully present without a camera.',
+      pros: [
+        'Captures a once-in-a-lifetime moment you may not fully remember',
+        'Professional birth photographers know how to stay unobtrusive',
+        'Photos can help process the birth experience afterward',
+        'First moments with baby are priceless to look back on',
+      ],
+      cons: [
+        'Camera awareness can make some people feel self-conscious during labor',
+        'Hospital policies may restrict photography during certain procedures',
+        'A designated photographer (partner or professional) may affect their support role',
+        'Some moments feel more sacred without documentation',
+      ],
+      bottomLine: 'There is no wrong answer here. Some families treasure birth photos for decades; others prefer the memory to live only in their hearts.',
+    },
+    options: [
+      { value: 'photos_video', label: 'Yes, photos and video', birthPlanText: 'We would like to take photos and video during labor and delivery.', icon: 'Camera' },
+      { value: 'photos_only', label: 'Photos only, no video', birthPlanText: 'We would like to take photos but not video during the birth.', icon: 'Image' },
+      { value: 'after_only', label: 'Only after baby arrives', birthPlanText: 'We prefer photos only after baby is born, not during labor.', icon: 'ImagePlus' },
+      { value: 'no', label: 'No photos or video', birthPlanText: 'We prefer no photos or video during the birth.', icon: 'EyeOff' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on photography preferences.', isUnsure: true },
+    ],
+  },
+
+  // =========================================================================
+  // YOUR BIRTH (continued)
+  // =========================================================================
+  {
+    id: 'movement_labor',
+    category: 'Your Birth',
+    title: 'Movement During Labor',
+    subtitle: 'How important is being able to move around during labor?',
+    order: 9,
+    learnMoreData: {
+      tradeoff: 'Freedom to move during labor helps baby descend and keeps labor progressing. However, some interventions (epidural, continuous monitoring, IV fluids) restrict mobility.',
+      pros: [
+        'Upright positions and movement help baby descend and align optimally',
+        'Walking, swaying, and position changes can reduce pain naturally',
+        'Water immersion (shower or tub) provides significant pain relief',
+        'Gravity works in your favor when upright or side-lying',
+      ],
+      cons: [
+        'An epidural will significantly limit or eliminate your ability to walk',
+        'Continuous fetal monitoring tethers you to the bed or nearby',
+        'IV fluids require moving with an IV pole',
+        'Some hospital policies restrict movement as a default',
+      ],
+      bottomLine: 'Movement is one of the most powerful pain management tools available. If staying mobile matters to you, factor that into your other decisions too.',
+      ebookChapter: 'Chapter 21: Pushing Positions',
+    },
+    options: [
+      { value: 'very_important', label: 'Very important - I want full freedom', birthPlanText: 'Freedom to move, walk, and change positions during labor is very important to us.', icon: 'Move' },
+      { value: 'somewhat', label: 'I\'d like to, but I\'m flexible', birthPlanText: 'We would prefer freedom to move during labor but are flexible based on circumstances.', icon: 'ArrowLeftRight' },
+      { value: 'not_priority', label: 'Not a priority for me', birthPlanText: 'Mobility during labor is not a priority for us.', icon: 'Bed' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss mobility options during labor.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'fetal_monitoring',
+    category: 'Your Birth',
+    title: 'Fetal Monitoring',
+    subtitle: 'How would you like baby\'s heart rate monitored?',
+    order: 10,
+    learnMoreData: {
+      tradeoff: 'Continuous electronic monitoring increases C-section rates by about 20% without improving outcomes for low-risk pregnancies. Intermittent monitoring is evidence-based for low-risk births and allows freedom of movement.',
+      pros: [
+        'Continuous monitoring provides constant data on baby\'s heart rate patterns',
+        'Intermittent monitoring allows freedom to move, walk, and change positions',
+        'Wireless monitors offer a middle ground: continuous data with mobility',
+        'Intermittent monitoring is supported by research for low-risk pregnancies',
+      ],
+      cons: [
+        'Continuous monitoring has a high false-positive rate, leading to unnecessary interventions',
+        'Intermittent monitoring requires a nurse to check regularly (every 15-30 minutes)',
+        'Wireless monitors are not available at all hospitals',
+        'High-risk situations may genuinely require continuous monitoring',
+      ],
+      bottomLine: 'Continuous monitoring became standard for liability protection, not better outcomes. For low-risk births, intermittent monitoring is equally safe and preserves your mobility.',
+      ebookChapter: 'Chapter 5: Fetal Monitoring',
+    },
+    options: [
+      { value: 'intermittent', label: 'Intermittent (checked periodically)', birthPlanText: 'We prefer intermittent fetal monitoring to allow freedom of movement.', icon: 'Activity' },
+      { value: 'wireless', label: 'Wireless/waterproof if available', birthPlanText: 'If continuous monitoring is needed, we prefer wireless or waterproof monitors.', icon: 'Wifi' },
+      { value: 'continuous', label: 'Continuous monitoring is fine', birthPlanText: 'We are comfortable with continuous fetal monitoring.', icon: 'Monitor' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss monitoring options with our care team.', isUnsure: true },
+    ],
+  },
+
+  // =========================================================================
+  // NEWBORN CARE
+  // =========================================================================
+  {
+    id: 'bath_timing',
+    category: 'Newborn Care',
+    title: 'First Bath Timing',
+    subtitle: 'When should baby get their first bath?',
+    order: 11,
+    learnMoreData: {
+      tradeoff: 'The WHO now recommends delaying baby\'s first bath for at least 24 hours. The vernix (creamy white coating) on baby\'s skin has antibacterial properties, moisturizes, and helps regulate temperature.',
+      pros: [
+        'Preserves vernix, which moisturizes skin and has natural antibacterial properties',
+        'Helps maintain body temperature and blood sugar stability',
+        'Avoids interrupting critical skin-to-skin and early breastfeeding time',
+        'Baby retains mother\'s scent, which supports bonding and feeding instincts',
+      ],
+      cons: [
+        'Some parents prefer baby to be cleaned soon after birth',
+        'Hospital staff may default to bathing earlier out of routine',
+        'Blood or meconium may be present (a simple wipe-down addresses this)',
+        'Extended delay may feel unfamiliar if this is not what you expected',
+      ],
+      bottomLine: 'The vernix is not something to wash off - it is baby\'s first skin protection. A gentle wipe-down is all that is needed in the early hours.',
+      ebookChapter: 'Chapter 27: First Bath',
+    },
+    options: [
+      { value: '24hrs', label: 'Delay at least 24 hours', birthPlanText: 'Please delay baby\'s first bath for at least 24 hours.', icon: 'Clock' },
+      { value: '48hrs', label: 'Delay at least 48 hours', birthPlanText: 'Please delay baby\'s first bath for at least 48 hours.', icon: 'Timer' },
+      { value: 'parents_give', label: 'We want to give the first bath', birthPlanText: 'We would like to give baby\'s first bath ourselves.', icon: 'Droplets' },
+      { value: 'hospital_timing', label: 'Whenever the hospital recommends', birthPlanText: 'Baby\'s first bath may be given when recommended by nursing staff.', icon: 'Building2' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss bath timing options.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'vitamin_k',
+    category: 'Newborn Care',
+    title: 'Vitamin K Shot',
+    subtitle: 'Vitamin K helps with blood clotting - what\'s your preference?',
+    order: 12,
+    learnMoreData: {
+      tradeoff: 'A single injection provides near-complete protection against VKDB (a rare but potentially fatal bleeding disorder). The oral alternative exists but requires multiple doses and is less effective.',
+      pros: [
+        'Near-complete protection against Vitamin K Deficiency Bleeding (VKDB)',
+        'Single dose provides immediate, reliable coverage through the critical first months',
+        'Well-studied intervention with decades of safety data',
+        'No follow-up doses needed (unlike oral alternative)',
+      ],
+      cons: [
+        'Involves an injection during baby\'s first hours of life',
+        'VKDB is rare (4-7 per 100,000 breastfed babies without the shot)',
+        'Oral alternative is available in some areas (3 doses over 6 weeks, about 80% effective)',
+        'Some parents prefer to minimize early medical interventions',
+      ],
+      bottomLine: 'When VKDB occurs, about 50% involve brain bleeding, and half of those result in death or permanent damage. The injection is extremely safe and prevents a rare but catastrophic condition.',
+      ebookChapter: 'Chapter 9: Vitamin K',
+    },
+    options: [
+      { value: 'accept', label: 'Yes, give the Vitamin K shot', birthPlanText: 'Please give the Vitamin K injection as recommended.', icon: 'Shield' },
+      { value: 'oral', label: 'Prefer oral Vitamin K', birthPlanText: 'We prefer oral Vitamin K administration over the injection.', icon: 'Pill' },
+      { value: 'decline', label: 'We decline', birthPlanText: 'We decline the Vitamin K injection at this time.', icon: 'X' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss Vitamin K options with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'eye_ointment',
+    category: 'Newborn Care',
+    title: 'Eye Ointment',
+    subtitle: 'Eye ointment prevents infections - what would you like?',
+    order: 13,
+    learnMoreData: {
+      tradeoff: 'Erythromycin eye ointment prevents gonorrhea and chlamydia transmission to baby\'s eyes during birth. If you have tested negative for both STIs, your baby\'s risk of these infections is essentially zero.',
+      pros: [
+        'Prevents serious eye infections that could lead to blindness if STIs are present',
+        'Simple, quick application that is standard of care',
+        'Required by law in many states as a public health measure',
+        'The AAP is reconsidering mandatory status as of 2024',
+      ],
+      cons: [
+        'Blurs baby\'s vision during the critical bonding hour after birth',
+        'Most effective against infections parents have already been screened for',
+        'If you tested negative for gonorrhea and chlamydia, there is no transmission risk',
+        'Contains antibiotic that some prefer to avoid unless specifically needed',
+      ],
+      bottomLine: 'This is one of the few interventions where your STI testing status completely determines risk. If you tested negative, the ointment provides no benefit to your baby.',
+      ebookChapter: 'Chapter 7: Eye Ointment',
+    },
+    options: [
+      { value: 'accept', label: 'Yes, apply the ointment', birthPlanText: 'Please apply the erythromycin eye ointment as recommended.', icon: 'Eye' },
+      { value: 'delay', label: 'Delay for bonding first', birthPlanText: 'Please delay the eye ointment to allow for initial bonding and breastfeeding.', icon: 'Clock' },
+      { value: 'decline', label: 'We decline', birthPlanText: 'We decline the erythromycin eye ointment.', icon: 'X' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss eye ointment options with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'hep_b_vaccine',
+    category: 'Newborn Care',
+    title: 'Hepatitis B Vaccine',
+    subtitle: 'The Hep B vaccine is typically offered in the first 24 hours',
+    order: 14,
+    learnMoreData: {
+      tradeoff: 'The birth-dose Hep B vaccine is primarily to catch babies of mothers who test falsely negative. If you are confirmed Hep B-negative, recent ACIP guidelines support individual decision-making about timing.',
+      pros: [
+        'Provides early protection in case of undetected maternal infection',
+        'Convenient timing while still in the hospital with medical staff available',
+        'Starts the three-dose vaccine series early',
+        'Babies infected at birth have a 90% chance of chronic infection',
+      ],
+      cons: [
+        'If you tested negative, your newborn has no exposure risk at birth',
+        'Adds another intervention during the sensitive first 24 hours',
+        'The 2025 ACIP guidelines now support individual decision-making for confirmed-negative mothers',
+        'Vaccine can be given at the 2-month pediatrician visit instead',
+      ],
+      bottomLine: 'Transmission requires an infected source. If you are confirmed negative and your household is too, your newborn has no exposure risk. The vaccine still makes sense eventually - the question is timing.',
+      ebookChapter: 'Chapter 10: Hepatitis B',
+    },
+    options: [
+      { value: 'accept', label: 'Yes, give at birth', birthPlanText: 'Please administer the Hepatitis B vaccine at birth.', icon: 'Syringe' },
+      { value: 'delay', label: 'Delay until pediatrician visit', birthPlanText: 'We prefer to delay the Hepatitis B vaccine until our pediatrician visit.', icon: 'Calendar' },
+      { value: 'decline', label: 'We decline', birthPlanText: 'We decline the Hepatitis B vaccine at this time.', icon: 'X' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss Hepatitis B vaccine timing with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'circumcision',
+    category: 'Newborn Care',
+    title: 'Circumcision',
+    subtitle: 'If having a boy, what are your thoughts on circumcision?',
+    order: 15,
+    conditionalOn: {
+      questionId: 'baby_sex',
+      values: ['boy'],
+    },
+    learnMoreData: {
+      tradeoff: 'Circumcision is not medically necessary. No medical organization in the world recommends routine circumcision. It is a cultural, religious, or personal decision, not a medical one.',
+      pros: [
+        'Slightly reduced risk of urinary tract infections in infancy (1 prevented per 100 procedures)',
+        'May reduce risk of certain STIs later in life, though condoms are far more effective',
+        'Cultural, religious, or family alignment',
+        'Some families prefer matching father or siblings',
+      ],
+      cons: [
+        'Surgical procedure with pain, even with anesthesia (cortisol spikes 3-4x)',
+        'Removes functional tissue that provides protection and sensation',
+        'Complication rate of 1.5-3% (bleeding, infection, rarely more serious)',
+        'Removes the choice from the child to make this decision about his own body later',
+      ],
+      bottomLine: 'The US is the only developed country with high routine circumcision rates. Europe\'s rate is under 5%. This is a personal family decision, not a medical recommendation.',
+      ebookChapter: 'Chapter 12: Circumcision',
+    },
+    options: [
+      { value: 'yes_hospital', label: 'Yes, circumcise at the hospital', birthPlanText: 'We would like our son circumcised before leaving the hospital.', icon: 'Scissors' },
+      { value: 'yes_provider', label: 'Yes, but by our own provider later', birthPlanText: 'We will arrange circumcision with our own provider after discharge.', icon: 'Calendar' },
+      { value: 'no', label: 'No circumcision', birthPlanText: 'We do not want circumcision performed.', icon: 'ShieldCheck' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We need more time to decide about circumcision.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'cord_blood',
+    category: 'After Birth',
+    title: 'Cord Blood Banking',
+    subtitle: 'Would you like to bank or donate cord blood?',
+    order: 16,
+    learnMoreData: {
+      tradeoff: 'Cord blood contains stem cells that could potentially treat future illnesses. Private banking is expensive with very low likelihood of use. Public donation helps others at no cost to you.',
+      pros: [
+        'Preserves stem cells that could potentially treat leukemia and certain genetic disorders',
+        'Public donation can help others who need a stem cell match at no cost to you',
+        'Private banking keeps cells available specifically for your family',
+        'Collection is painless and happens after delivery',
+      ],
+      cons: [
+        'Private banking costs $1,000-2,000 initially plus $100-200 per year ongoing',
+        'Actual likelihood of using privately stored cord blood is very low (1 in 1,000 to 1 in 200,000)',
+        'Collection may conflict with delayed cord clamping, reducing those benefits',
+        'Most families who skip banking choose delayed clamping for the blood volume benefit instead',
+      ],
+      bottomLine: 'Most families choose delayed cord clamping over cord blood banking, allowing baby to receive the full blood volume. Public donation is a generous option if you want to collect without paying for storage.',
+      ebookChapter: 'Chapter 23: Cord Blood',
+    },
+    options: [
+      { value: 'private', label: 'Private banking (for our family)', birthPlanText: 'We will be privately banking cord blood.', icon: 'Lock' },
+      { value: 'public', label: 'Donate to a public bank', birthPlanText: 'We would like to donate cord blood to a public bank if available.', icon: 'Heart' },
+      { value: 'no', label: 'No cord blood banking', birthPlanText: 'We do not plan to bank or donate cord blood.', icon: 'X' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord blood banking options.', isUnsure: true },
+    ],
+  },
+
+  // =========================================================================
+  // HOSPITAL STAY
+  // =========================================================================
+  {
+    id: 'rooming_in',
+    category: 'Hospital Stay',
+    title: 'Rooming In',
+    subtitle: 'Would you like baby to stay in your room around the clock?',
+    order: 17,
+    learnMoreData: {
+      tradeoff: 'Baby-Friendly hospitals promote 24/7 rooming-in for bonding and breastfeeding. But exhausted mothers recovering from birth also need rest, and some hospitals have eliminated nurseries entirely.',
+      pros: [
+        'Promotes bonding and helps you learn baby\'s cues more quickly',
+        'Supports on-demand breastfeeding and milk supply establishment',
+        'Research shows benefits for breastfeeding initiation success',
+        'Keeps baby close for immediate response to needs',
+      ],
+      cons: [
+        'Can be exhausting for mothers recovering from birth, especially after C-sections',
+        'May contribute to postpartum overwhelm without adequate rest',
+        'Limited help available at 3am when learning to breastfeed alone',
+        'Some mothers need sleep to recover physically and support milk production',
+      ],
+      bottomLine: 'Bonding and rest are both important. If your hospital has a nursery, using it for a few hours so you can recover does not make you a bad parent.',
+      ebookChapter: 'Chapter 33: Rooming In',
+    },
+    options: [
+      { value: '24_7', label: 'Baby stays with us 24/7', birthPlanText: 'We want baby to room-in with us at all times.', icon: 'Home' },
+      { value: 'nursery_option', label: 'Mostly with us, may use nursery for rest', birthPlanText: 'We prefer rooming-in but may use the nursery for rest periods.', icon: 'Moon' },
+      { value: 'flexible', label: 'Flexible, we\'ll see how we feel', birthPlanText: 'We are flexible about rooming-in and will decide based on how we are feeling.', icon: 'ArrowLeftRight' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss rooming-in options.', isUnsure: true },
     ],
   },
   {
     id: 'pacifier',
-    category: 'Baby Care',
+    category: 'Hospital Stay',
     title: 'Pacifier Use',
-    description: 'What are your preferences for pacifier use in the hospital?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Guidance on pacifiers varies. Baby-Friendly hospitals typically avoid giving pacifiers to breastfed babies to prevent nipple confusion and ensure baby nurses frequently to establish milk supply. However, policies and evidence on this continue to evolve.
-
-**PROS of allowing pacifiers:**
-• Can soothe baby and satisfy natural sucking reflex between feedings
-• Associated with reduced SIDS risk when used during sleep
-• May help parents cope with a fussy baby, especially in hospital environment
-• Recent research suggests less interference with breastfeeding than previously thought
-
-**CONS/risks of pacifier use:**
-• May reduce frequency of nursing in early days when establishing milk supply is critical
-• Potential for nipple confusion while baby is learning to breastfeed
-• Can mask hunger cues, leading to missed feeding opportunities
-• Creates a habit/dependency that must eventually be broken
-
-**Alternative options:**
-Many families choose to avoid pacifiers for the first 3-4 weeks until breastfeeding is well established, then introduce if desired. Others use them from the start without issues. For families formula feeding, pacifier concerns are different since supply establishment isn't a factor.
-
-*Get our Research Guide for detailed analysis with medical citations on nipple confusion evidence, pacifier use and SIDS reduction, and breastfeeding establishment.*`,
+    subtitle: 'How do you feel about pacifier use in the hospital?',
+    order: 18,
+    learnMoreData: {
+      tradeoff: 'Pacifiers satisfy baby\'s natural sucking reflex and may reduce SIDS risk, but early use could interfere with breastfeeding establishment if baby is nursing.',
+      pros: [
+        'Associated with reduced SIDS risk when used during sleep',
+        'Soothes baby and satisfies the natural non-nutritive sucking reflex',
+        'Recent research suggests less interference with breastfeeding than previously thought',
+        'Can help parents cope during the hospital stay, especially at night',
+      ],
+      cons: [
+        'May reduce nursing frequency in early days when supply establishment is critical',
+        'Can mask hunger cues, leading to missed feeding opportunities',
+        'Potential for nipple confusion while baby is learning to breastfeed',
+        'Creates a habit that must eventually be weaned',
+      ],
+      bottomLine: 'If you are breastfeeding, many lactation consultants suggest waiting 3-4 weeks until nursing is well established before introducing a pacifier. For formula-fed babies, there is less concern.',
+      ebookChapter: 'Chapter 32: Pacifier Use',
+    },
     options: [
-      { value: 'no', label: 'No pacifiers please', birthPlanText: 'Please do not give baby a pacifier.' },
-      { value: 'if_needed', label: 'Only if medically needed', birthPlanText: 'Pacifier use is acceptable only if medically necessary.' },
-      { value: 'yes', label: 'Pacifiers are fine', birthPlanText: 'Pacifier use is acceptable.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss pacifier use with us.', isUnsure: true },
+      { value: 'no', label: 'No pacifiers please', birthPlanText: 'Please do not give baby a pacifier.', icon: 'Ban' },
+      { value: 'if_needed', label: 'Only if medically helpful', birthPlanText: 'Pacifier use is acceptable only if medically recommended.', icon: 'Stethoscope' },
+      { value: 'yes', label: 'Pacifiers are fine with us', birthPlanText: 'Pacifier use is acceptable.', icon: 'Check' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pacifier use with our care team.', isUnsure: true },
     ],
   },
   {
-    id: 'rooming_in',
-    category: 'Baby Care',
-    title: 'Rooming In',
-    description: 'Would you like baby to stay in your room or use the nursery?',
-    learnMoreContent: `**What hospitals typically recommend and why:**
-Baby-Friendly hospitals actively promote 24/7 rooming-in, believing it supports breastfeeding and bonding. Many newer hospitals have eliminated traditional nurseries entirely. Other hospitals offer nursery care as an option to help parents rest.
-
-**PROS of 24/7 rooming-in:**
-• Promotes bonding and helps you learn baby's cues more quickly
-• Supports breastfeeding by allowing baby to nurse on demand
-• Keeps baby close for monitoring and responding to needs
-• Research shows benefits for breastfeeding establishment
-
-**CONS/risks of 24/7 rooming-in:**
-• Can be exhausting for mothers recovering from birth, especially after long labors or C-sections
-• May contribute to postpartum anxiety and overwhelm without adequate rest
-• Limited help available at 3am when learning to breastfeed
-• Some mothers need sleep to recover and produce milk
-
-**Alternative options:**
-Many hospitals still offer nursery care for a few hours so parents can rest. Some families request this only after trying to settle baby themselves. Partner support and postpartum doulas can provide help while baby rooms-in. The key is finding what works for your family's recovery and bonding.
-
-*Get our Research Guide for detailed analysis with medical citations on rooming-in outcomes, postpartum recovery needs, and maternal mental health considerations.*`,
+    id: 'visitors',
+    category: 'Hospital Stay',
+    title: 'Visitor Preferences',
+    subtitle: 'Who would you like to visit after baby arrives?',
+    order: 19,
+    learnMoreData: {
+      tradeoff: 'Visitors bring love and excitement, but they can also be exhausting during recovery. Setting boundaries early is easier than trying to enforce them when you are tired and emotional.',
+      pros: [
+        'Family and friends bring emotional support and celebration',
+        'Grandparents meeting baby is a meaningful moment for everyone',
+        'Help with meals, errands, or watching baby while you nap',
+        'Sharing the joy helps build your support network postpartum',
+      ],
+      cons: [
+        'Visitors can be physically and emotionally exhausting during recovery',
+        'Holding and passing baby around can overstimulate a newborn',
+        'Difficult to breastfeed comfortably with an audience',
+        'Saying no later is harder than setting expectations upfront',
+      ],
+      bottomLine: 'You will never get these first days back. Protect them fiercely. Real friends will understand, and family will adjust.',
+    },
     options: [
-      { value: '24_7', label: 'Baby stays with us 24/7', birthPlanText: 'We want baby to room-in with us at all times.' },
-      { value: 'nursery_option', label: 'Room-in but may use nursery', birthPlanText: 'We prefer rooming-in but may use the nursery for rest periods.' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'Discuss rooming-in options with us.', isUnsure: true },
+      { value: 'welcome', label: 'Visitors are welcome anytime', birthPlanText: 'We welcome visitors during our hospital stay.', icon: 'DoorOpen' },
+      { value: 'limited', label: 'Close family only, limited hours', birthPlanText: 'We prefer visits from close family only during limited hours.', icon: 'Users' },
+      { value: 'after_home', label: 'No visitors until we\'re home', birthPlanText: 'We prefer no visitors at the hospital. We will welcome visitors once we are settled at home.', icon: 'Home' },
+      { value: 'case_by_case', label: 'We\'ll decide case by case', birthPlanText: 'We will decide on visitors on a case-by-case basis during our stay.', icon: 'MessageCircle' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our visitor preferences.', isUnsure: true },
+    ],
+  },
+
+  // =========================================================================
+  // AFTER BIRTH (continued)
+  // =========================================================================
+  {
+    id: 'placenta',
+    category: 'After Birth',
+    title: 'Placenta Plans',
+    subtitle: 'What would you like done with the placenta?',
+    order: 20,
+    learnMoreData: {
+      tradeoff: 'The placenta sustained your baby for 9 months. Most families let the hospital dispose of it, but some keep it for encapsulation, burial, or other purposes. Scientific evidence for health benefits of encapsulation is limited.',
+      pros: [
+        'Encapsulation: some women report increased energy and milk supply (evidence is anecdotal)',
+        'Cultural or spiritual significance in many traditions worldwide',
+        'Planting a tree over the placenta is a meaningful ritual for some families',
+        'Hospital disposal is the simplest, most common choice',
+      ],
+      cons: [
+        'Encapsulation costs $150-300 and lacks FDA regulation or strong scientific evidence',
+        'Improper processing carries a small risk of contamination',
+        'Keeping the placenta requires planning (cooler, encapsulation service)',
+        'Healthcare providers express some concern about heavy metals in placenta tissue',
+      ],
+      bottomLine: 'There is no wrong choice here. Most families choose hospital disposal, and that is perfectly fine. If keeping the placenta has meaning for you, plan ahead.',
+      ebookChapter: 'Chapter 28: Placenta Options',
+    },
+    options: [
+      { value: 'dispose', label: 'Hospital disposal is fine', birthPlanText: 'The hospital may dispose of the placenta.', icon: 'Building2' },
+      { value: 'encapsulate', label: 'Keep for encapsulation', birthPlanText: 'We will be keeping the placenta for encapsulation. Please place it in our provided container.', icon: 'Pill' },
+      { value: 'keep', label: 'Keep for other purposes', birthPlanText: 'We would like to keep the placenta.', icon: 'Package' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss placenta options.', isUnsure: true },
+    ],
+  },
+
+  // =========================================================================
+  // PERSONAL
+  // =========================================================================
+  {
+    id: 'baby_sex',
+    category: 'Personal',
+    title: 'Baby\'s Sex',
+    subtitle: 'Do you know if you\'re having a boy or girl?',
+    order: 21,
+    options: [
+      { value: 'boy', label: 'Boy', birthPlanText: '', icon: 'Baby' },
+      { value: 'girl', label: 'Girl', birthPlanText: '', icon: 'Baby' },
+      { value: 'unknown', label: 'We don\'t know yet', birthPlanText: '', icon: 'HelpCircle' },
+      { value: 'prefer_not_to_say', label: 'Prefer not to say', birthPlanText: '', icon: 'Lock' },
+    ],
+  },
+  {
+    id: 'baby_name',
+    category: 'Personal',
+    title: 'Baby\'s Name',
+    subtitle: 'Have you picked a name?',
+    order: 22,
+    inputType: 'text',
+    options: [
+      { value: 'has_name', label: 'Yes!', birthPlanText: '' },
+      { value: 'not_yet', label: "We haven't decided yet", birthPlanText: '' },
+      { value: 'prefer_not_to_say', label: "We'd rather not say", birthPlanText: '' },
+    ],
+  },
+
+  // =========================================================================
+  // C-SECTION PLANNING (deferred)
+  // =========================================================================
+  {
+    id: 'csection_approach',
+    category: 'C-Section Planning',
+    title: 'C-Section Approach',
+    subtitle: 'If a C-section happens, what approach would you prefer?',
+    order: 23,
+    deferredFor: 'csection',
+    learnMoreData: {
+      tradeoff: 'A "gentle" or family-centered C-section prioritizes bonding: slower delivery, clear drape, immediate skin-to-skin in the OR. Not all hospitals offer this, but many are increasingly open to it.',
+      pros: [
+        'Gentle C-section allows you to watch baby being born through a clear drape',
+        'Immediate skin-to-skin in the OR promotes bonding even during surgery',
+        'Slower delivery allows baby to transition more gradually',
+        'Makes the C-section experience feel more personal and empowering',
+      ],
+      cons: [
+        'Not all hospitals or surgeons are familiar with gentle C-section techniques',
+        'Medical circumstances may override preferences if urgency is needed',
+        'Some people prefer not to see the surgical procedure at all',
+        'Requires advance discussion with your surgical team to set expectations',
+      ],
+      bottomLine: 'A C-section does not have to feel clinical and disconnected. Ask your provider about gentle or family-centered options - more hospitals are offering them every year.',
+      ebookChapter: 'Chapter 15: Cesarean Birth',
+    },
+    options: [
+      { value: 'gentle_family_centered', label: 'Gentle/family-centered C-section', birthPlanText: 'If a C-section is needed, we would like a gentle, family-centered approach: clear drape, immediate skin-to-skin in the OR, and delayed cord clamping when safely possible.', icon: 'Heart' },
+      { value: 'standard_with_preferences', label: 'Standard, but with some preferences', birthPlanText: 'If a C-section is needed, we would like to discuss specific preferences with our surgical team, such as partner presence and music.', icon: 'Settings' },
+      { value: 'follow_medical_team', label: 'Follow the medical team\'s lead', birthPlanText: 'If a C-section becomes necessary, we trust the medical team to follow standard protocols.', icon: 'Stethoscope' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss C-section approaches with our care team in advance.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'csection_details',
+    category: 'C-Section Planning',
+    title: 'C-Section Details',
+    subtitle: 'What details matter most during a C-section?',
+    order: 24,
+    deferredFor: 'csection',
+    learnMoreData: {
+      tradeoff: 'Even in a surgical birth, there are many personal touches that can make the experience meaningful. These range from visual (clear drape, photos) to sensory (music, narration) to bonding (skin-to-skin in the OR).',
+      pros: [
+        'A clear drape lets you see baby emerge without viewing the surgery itself',
+        'Partner presence provides emotional support during the procedure',
+        'Photos capture the moment even when you cannot move freely',
+        'Music and narration create a calmer, more personal atmosphere',
+      ],
+      cons: [
+        'Some requests may not be possible during emergency C-sections',
+        'Hospital policies and individual surgeon preferences vary',
+        'Clear drapes or photos may not appeal to everyone',
+        'Multiple requests require advance communication with the team',
+      ],
+      bottomLine: 'Your birth experience matters even when it happens in an operating room. Speak up about the details that will make this moment meaningful for your family.',
+      ebookChapter: 'Chapter 15: Cesarean Birth',
+    },
+    options: [
+      { value: 'clear_drape_skin_to_skin', label: 'Clear drape and immediate skin-to-skin', birthPlanText: 'During a C-section, we would like a clear drape so we can see baby being born, and immediate skin-to-skin contact in the OR.', icon: 'Eye' },
+      { value: 'partner_present_photos', label: 'Partner present with photos', birthPlanText: 'During a C-section, it is very important that my partner be present, and we would like to take photos.', icon: 'Camera' },
+      { value: 'music_narration', label: 'Music and step-by-step narration', birthPlanText: 'During a C-section, we would like to play our own music and have the surgeon narrate what is happening.', icon: 'Music' },
+      { value: 'standard_procedure', label: 'Standard procedure is fine', birthPlanText: 'During a C-section, standard procedures are acceptable.', icon: 'ClipboardCheck' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss C-section detail preferences with our surgical team.', isUnsure: true },
     ],
   },
 ]
+
+// ---------------------------------------------------------------------------
+// Helper functions
+// ---------------------------------------------------------------------------
+
+/**
+ * Returns questions in the intended order, filtering by conditional logic
+ * and separating deferred (C-section) questions to the end.
+ */
+export function getOrderedQuestions(answers: Record<string, string>): QuizQuestion[] {
+  const allQuestions = quizQuestions.filter(q => {
+    // Handle conditionalOn (only circumcision)
+    if (q.conditionalOn) {
+      const answer = answers[q.conditionalOn.questionId]
+      if (!answer || !q.conditionalOn.values.includes(answer)) return false
+    }
+    return true
+  })
+
+  const mainQuestions = allQuestions.filter(q => !q.deferredFor)
+  const deferredQuestions = allQuestions.filter(q => q.deferredFor === 'csection')
+  return [...mainQuestions, ...deferredQuestions]
+}
 
 export function getQuestionsByCategory(): Record<string, QuizQuestion[]> {
   return quizQuestions.reduce((acc, question) => {
@@ -809,17 +816,4 @@ export function getCategories(): string[] {
     }
   })
   return categories
-}
-
-// Helper function to get visible questions based on answers
-export function getVisibleQuestions(answers: Record<string, string>): QuizQuestion[] {
-  return quizQuestions.filter(question => {
-    if (!question.conditionalOn) {
-      return true
-    }
-
-    const { questionId, values } = question.conditionalOn
-    const answer = answers[questionId]
-    return answer && values.includes(answer)
-  })
 }

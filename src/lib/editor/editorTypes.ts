@@ -24,6 +24,7 @@ export interface PreferenceOption {
   birthPlanText: string // Text that appears in the PDF
   isPopular?: boolean // For sorting common options to top
   icon?: string // Lucide icon name for this specific choice
+  defaultStance?: 'desired' | 'declined' // Auto-infer stance from this option
 }
 
 export interface PreferenceDefinition {
@@ -44,6 +45,8 @@ export interface PreferenceValue {
   customTitle?: string
   isOmitted: boolean
   sortOrder: number
+  stance?: 'desired' | 'declined' | null  // Green check / Red X / neutral
+  customIcon?: string                      // User-chosen Lucide icon name
 }
 
 export interface CustomPreferenceItem {
@@ -69,6 +72,7 @@ export interface EditorState {
   isDirty: boolean
   lastSaved: string | null
   createdFromQuiz: boolean
+  disclaimerText: string  // Editable bottom disclaimer
 }
 
 // Action types for reducer
@@ -87,3 +91,10 @@ export type EditorAction =
   | { type: 'LOAD_STATE'; payload: EditorState }
   | { type: 'MARK_SAVED'; payload: { id: string; savedAt: string } }
   | { type: 'RESET' }
+  | { type: 'SET_DISCLAIMER'; payload: string }
+  | { type: 'SET_BIRTH_TEAM_FIELD'; payload: { fieldId: string; value: string } }
+  | { type: 'ADD_BIRTH_TEAM_FIELD'; payload: { label: string } }
+  | { type: 'REMOVE_BIRTH_TEAM_FIELD'; payload: { fieldId: string } }
+  | { type: 'RENAME_BIRTH_TEAM_FIELD'; payload: { fieldId: string; label: string } }
+  | { type: 'SET_STANCE'; payload: { sectionId: EditorSectionId; preferenceId: string; stance: 'desired' | 'declined' | null } }
+  | { type: 'SET_CUSTOM_ICON'; payload: { sectionId: EditorSectionId; preferenceId: string; icon: string } }

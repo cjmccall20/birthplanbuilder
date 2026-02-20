@@ -6,17 +6,19 @@ import { EDITOR_SECTIONS } from './sections'
 /**
  * Data structure expected by PDF templates
  */
-interface PlanItem {
+export interface PlanItem {
   category: string
   title: string
   answer: string
   birthPlanText: string
   customNote?: string
+  stance?: 'desired' | 'declined' | null
 }
 
 export interface PDFData {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
+  disclaimerText: string
 }
 
 /**
@@ -58,9 +60,10 @@ export function editorStateToPDFData(state: EditorState): PDFData {
 
       allItems.push({
         category: section.title,
-        title: prefDef.title,
+        title: prefValue.customTitle || prefDef.title,
         answer: selectedOption?.label || 'Custom',
         birthPlanText,
+        stance: prefValue.stance,
       })
     })
 
@@ -102,5 +105,6 @@ export function editorStateToPDFData(state: EditorState): PDFData {
   return {
     birthTeam: state.birthTeam,
     groupedContent,
+    disclaimerText: state.disclaimerText,
   }
 }

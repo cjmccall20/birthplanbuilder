@@ -11,6 +11,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Who will be present with you during labor and delivery?',
     icon: 'Users',
     allowCustom: true,
+    quizQuestionId: 'support_people',
     options: [
       { value: 'partner', label: 'Partner only', birthPlanText: 'My partner will be my primary support person.', isPopular: true },
       { value: 'partner_doula', label: 'Partner and doula', birthPlanText: 'My partner and our doula will be present.', isPopular: true },
@@ -26,6 +27,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Where do you plan to give birth?',
     icon: 'MapPin',
     allowCustom: true,
+    quizQuestionId: 'birth_setting',
     options: [
       { value: 'hospital', label: 'Hospital', birthPlanText: 'We are planning a hospital birth.', isPopular: true },
       { value: 'birth_center', label: 'Birth center', birthPlanText: 'We are planning a birth center delivery.' },
@@ -50,7 +52,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'pre_hospital',
     title: 'Admission Procedures',
     description: 'Preferences for hospital admission process',
-    icon: 'Clipboard',
+    icon: 'BookOpen',
     allowCustom: true,
     options: [
       { value: 'minimize', label: 'Minimize procedures', birthPlanText: 'Please minimize admission procedures to allow focus on labor.', isPopular: true },
@@ -77,7 +79,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'pre_hospital',
     title: 'Interruptions During Labor',
     description: 'Preferences for staff visits and monitoring',
-    icon: 'Bell',
+    icon: 'AlertCircle',
     allowCustom: true,
     options: [
       { value: 'minimal', label: 'Prefer minimal disruptions', birthPlanText: 'We prefer limited interruptions during labor to allow focus and rest.', isPopular: true },
@@ -107,10 +109,10 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'An epidural is regional anesthesia that blocks pain in the lower body while allowing you to remain awake and alert. It provides effective pain relief but may limit your ability to move and can lengthen labor. Unmedicated birth allows full mobility and often results in shorter recovery time. Nitrous oxide (laughing gas) takes the edge off pain while maintaining mobility. There\'s no "right" choice - some people plan ahead, while others prefer to decide in the moment based on how labor progresses.',
     icon: 'Heart',
     allowCustom: true,
-    quizQuestionId: 'pain_management',
+    quizQuestionId: 'pain_approach',
     options: [
       { value: 'natural', label: 'Unmedicated/natural', birthPlanText: 'We are planning an unmedicated birth. Please do not offer pain medication unless I ask.', isPopular: true, icon: 'Heart' },
-      { value: 'open', label: 'Open to options as needed', birthPlanText: 'We are open to pain management options and will decide during labor.', isPopular: true, icon: 'HelpCircle' },
+      { value: 'open', label: 'Open to options as needed', birthPlanText: 'We are open to pain management options and will decide during labor.', isPopular: true, icon: 'AlertCircle' },
       { value: 'epidural', label: 'Planning epidural', birthPlanText: 'We plan to request an epidural during labor.', icon: 'Syringe' },
       { value: 'nitrous', label: 'Nitrous oxide preferred', birthPlanText: 'We would like to use nitrous oxide (laughing gas) for pain management.', icon: 'Wind' },
     ],
@@ -136,7 +138,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preference for IV access during labor',
     icon: 'Syringe',
     allowCustom: true,
-    quizQuestionId: 'iv_preference',
+
     options: [
       { value: 'iv', label: 'Continuous IV is fine', birthPlanText: 'Continuous IV fluids are acceptable.' },
       { value: 'heplock', label: 'Hep lock only', birthPlanText: 'We prefer a hep lock instead of continuous IV fluids.', isPopular: true },
@@ -150,7 +152,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Food and beverage during labor',
     icon: 'Coffee',
     allowCustom: true,
-    quizQuestionId: 'eating_drinking',
+
     options: [
       { value: 'yes', label: 'Eat and drink freely', birthPlanText: 'I would like to eat and drink as desired during labor.', isPopular: true },
       { value: 'clear_liquids', label: 'Clear liquids only', birthPlanText: 'Clear liquids during labor are acceptable.' },
@@ -164,6 +166,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Freedom to move and change positions',
     icon: 'Move',
     allowCustom: true,
+    quizQuestionId: 'movement_labor',
     options: [
       { value: 'freedom', label: 'Freedom to move', birthPlanText: 'I would like the freedom to move and change positions throughout labor.', isPopular: true },
       { value: 'upright', label: 'Prefer upright positions', birthPlanText: 'I prefer upright and active positions during labor.', isPopular: true },
@@ -204,10 +207,10 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preference if tested positive for Group B Strep',
     icon: 'Pill',
     allowCustom: true,
-    quizQuestionId: 'gbs_antibiotics',
+
     options: [
-      { value: 'accept', label: 'Accept if GBS positive', birthPlanText: 'If GBS positive, please administer IV antibiotics as recommended.', isPopular: true },
-      { value: 'decline', label: 'Decline antibiotics', birthPlanText: 'We decline GBS antibiotics and accept responsibility for this decision.' },
+      { value: 'accept', label: 'Accept if GBS positive', birthPlanText: 'If GBS positive, please administer IV antibiotics as recommended.', isPopular: true, defaultStance: 'desired' },
+      { value: 'decline', label: 'Decline antibiotics', birthPlanText: 'We decline GBS antibiotics and accept responsibility for this decision.', defaultStance: 'declined' },
       { value: 'natural', label: 'Discuss alternatives', birthPlanText: 'We would like to discuss alternative/natural protocols for GBS.' },
     ],
   },
@@ -218,7 +221,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preferred positions for the pushing stage',
     icon: 'Navigation',
     allowCustom: true,
-    quizQuestionId: 'pushing_position',
+
     options: [
       { value: 'freedom', label: 'Freedom to choose', birthPlanText: 'I would like the freedom to push in different positions as feels natural.', isPopular: true },
       { value: 'upright', label: 'Upright positions', birthPlanText: 'I prefer upright pushing positions (squatting, hands-and-knees, etc.).', isPopular: true },
@@ -232,7 +235,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Directed pushing involves coached breath-holding and pushing with counting (often "purple pushing"). Spontaneous pushing means following your body\'s natural urges to push, which often results in shorter pushes with more frequent breaks. Research suggests that spontaneous pushing may reduce the risk of perineal tearing and fetal distress, while directed pushing can be helpful if you have an epidural and can\'t feel the urge to push clearly. Many care providers now encourage a hybrid approach, using your instincts when possible but offering guidance if needed.',
     icon: 'Wind',
     allowCustom: true,
-    quizQuestionId: 'directed_pushing',
+
     options: [
       { value: 'spontaneous', label: 'Spontaneous pushing', birthPlanText: 'I prefer to push spontaneously, following my body\'s natural urges rather than coached counting.', isPopular: true },
       { value: 'directed', label: 'Directed/coached pushing', birthPlanText: 'I would like coached, directed pushing with counting.' },
@@ -246,7 +249,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preferences for preventing tearing',
     icon: 'Shield',
     allowCustom: true,
-    quizQuestionId: 'perineal_support',
+
     options: [
       { value: 'natural', label: 'Natural stretching', birthPlanText: 'I prefer to allow natural stretching and avoid episiotomy unless absolutely necessary.', isPopular: true },
       { value: 'support', label: 'Warm compresses & massage', birthPlanText: 'Please use warm compresses and perineal massage to help prevent tearing.', isPopular: true },
@@ -258,7 +261,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'during_labor',
     title: 'Mirror to See Baby Emerge',
     description: 'Watching baby being born',
-    icon: 'Scan',
+    icon: 'Eye',
     allowCustom: true,
     options: [
       { value: 'yes', label: 'Yes please', birthPlanText: 'I would like a mirror so I can see baby emerge.', isPopular: true },
@@ -270,7 +273,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'during_labor',
     title: 'Uncoached/Physiological Pushing',
     description: 'Pushing instinctively vs. coached',
-    icon: 'Compass',
+    icon: 'Navigation',
     allowCustom: true,
     options: [
       { value: 'instinctive', label: 'Prefer to push instinctively', birthPlanText: 'I prefer uncoached, physiological pushing following my body\'s natural urges.', isPopular: true },
@@ -284,7 +287,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'If cesarean becomes necessary',
     icon: 'AlertCircle',
     allowCustom: true,
-    quizQuestionId: 'unplanned_csection_preferences',
+
     options: [
       { value: 'gentle', label: 'Request gentle C-section', birthPlanText: 'If a C-section becomes necessary, we would like gentle/family-centered techniques when safely possible (clear drape, skin-to-skin in OR, etc.).', isPopular: true },
       { value: 'partner_present', label: 'Partner must be present', birthPlanText: 'If a C-section is needed, it is very important that my partner be present.' },
@@ -305,7 +308,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'skin_to_skin',
     options: [
-      { value: 'immediate', label: 'Immediately, uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate skin-to-skin contact. We want this to be uninterrupted for at least the first hour.', isPopular: true, icon: 'Heart' },
+      { value: 'immediate', label: 'Immediately, uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate skin-to-skin contact. We want this to be uninterrupted for at least the first hour.', isPopular: true, icon: 'Heart', defaultStance: 'desired' },
       { value: 'after_assessment', label: 'After initial assessment', birthPlanText: 'We would like skin-to-skin after the initial newborn assessment.', icon: 'Clock' },
       { value: 'partner_backup', label: 'Partner if I\'m unable', birthPlanText: 'Please place baby skin-to-skin with my partner if I am unable.', isPopular: true, icon: 'Users' },
     ],
@@ -319,10 +322,10 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'cord_clamping',
     options: [
-      { value: 'immediate', label: 'Clamp immediately', birthPlanText: 'Clamp the cord immediately after birth.', icon: 'Zap' },
+      { value: 'immediate', label: 'Clamp immediately', birthPlanText: 'Clamp the cord immediately after birth.', icon: 'Scissors', defaultStance: 'declined' },
       { value: '1min', label: 'Wait at least 1 minute', birthPlanText: 'Please wait at least 1 minute before clamping the cord.', isPopular: true, icon: 'Clock' },
-      { value: '3-5min', label: 'Wait 3-5 minutes', birthPlanText: 'Please delay cord clamping for 3-5 minutes.', isPopular: true, icon: 'Clock3' },
-      { value: 'until_stops', label: 'Until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.', icon: 'Pause' },
+      { value: '3-5min', label: 'Wait 3-5 minutes', birthPlanText: 'Please delay cord clamping for 3-5 minutes.', isPopular: true, icon: 'Clock' },
+      { value: 'until_stops', label: 'Until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.', icon: 'Clock', defaultStance: 'desired' },
     ],
   },
   {
@@ -345,7 +348,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Collecting and storing cord blood',
     icon: 'Database',
     allowCustom: true,
-    quizQuestionId: 'cord_blood_banking',
+    quizQuestionId: 'cord_blood',
     options: [
       { value: 'private', label: 'Private banking', birthPlanText: 'We will be privately banking cord blood. Our kit is ready.' },
       { value: 'public', label: 'Donate to public bank', birthPlanText: 'We would like to donate cord blood to a public bank if available.' },
@@ -371,7 +374,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'at_birth',
     title: 'Physiological Placenta Delivery',
     description: 'Third stage management approach',
-    icon: 'Timer',
+    icon: 'Clock',
     allowCustom: true,
     options: [
       { value: 'natural', label: 'Allow time for natural delivery', birthPlanText: 'I prefer physiological delivery of the placenta, allowing time for it to naturally separate and deliver.', isPopular: true },
@@ -395,7 +398,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'at_birth',
     title: 'Keep Placenta for Encapsulation',
     description: 'Taking placenta home for processing',
-    icon: 'Package',
+    icon: 'Leaf',
     allowCustom: true,
     options: [
       { value: 'yes', label: 'Yes', birthPlanText: 'We will be keeping the placenta for encapsulation. Please place it in our provided container.', isPopular: true },
@@ -409,6 +412,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'The first hour after birth is called the "golden hour" because it\'s a uniquely powerful time for bonding and establishing breastfeeding. When given uninterrupted skin-to-skin contact, babies naturally progress through stages that lead to self-attachment and their first feeding. During this time, baby is in a quiet alert state, taking in your smell, sound, and warmth. Routine procedures like weighing, measuring, and bathing can wait without any medical risk, and protecting this time can set the stage for successful breastfeeding and secure attachment.',
     icon: 'Sun',
     allowCustom: true,
+    quizQuestionId: 'golden_hour',
     options: [
       { value: 'protected', label: 'Protected golden hour', birthPlanText: 'Please protect the first hour after birth for uninterrupted bonding time. Delay all non-urgent procedures.', isPopular: true },
       { value: 'flexible', label: 'Flexible timing', birthPlanText: 'We are flexible about timing of assessments and procedures.' },
@@ -419,7 +423,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'at_birth',
     title: 'First Feeding',
     description: 'Initiating breastfeeding or bottle feeding',
-    icon: 'Milk',
+    icon: 'Baby',
     allowCustom: true,
     options: [
       { value: 'immediate_breast', label: 'Immediate breastfeeding', birthPlanText: 'I would like to initiate breastfeeding within the first hour.', isPopular: true },
@@ -440,10 +444,10 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'vitamin_k',
     options: [
-      { value: 'accept', label: 'Give Vitamin K shot', birthPlanText: 'Please give the Vitamin K injection as recommended.', isPopular: true, icon: 'Check' },
+      { value: 'accept', label: 'Give Vitamin K shot', birthPlanText: 'Please give the Vitamin K injection as recommended.', isPopular: true, icon: 'Shield', defaultStance: 'desired' },
       { value: 'oral', label: 'Oral Vitamin K', birthPlanText: 'We prefer oral Vitamin K administration over the injection.', icon: 'Pill' },
       { value: 'delay', label: 'Delay for bonding', birthPlanText: 'Please delay the Vitamin K shot for at least one hour to allow for bonding.', icon: 'Clock' },
-      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the Vitamin K injection.', icon: 'X' },
+      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the Vitamin K injection.', icon: 'AlertCircle', defaultStance: 'declined' },
     ],
   },
   {
@@ -455,9 +459,9 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'eye_ointment',
     options: [
-      { value: 'accept', label: 'Apply ointment', birthPlanText: 'Please apply the erythromycin eye ointment.', isPopular: true },
+      { value: 'accept', label: 'Apply ointment', birthPlanText: 'Please apply the erythromycin eye ointment.', isPopular: true, defaultStance: 'desired' },
       { value: 'delay', label: 'Delay for bonding', birthPlanText: 'Please delay the eye ointment to allow for initial bonding and breastfeeding.', isPopular: true },
-      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the erythromycin eye ointment.' },
+      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the erythromycin eye ointment.', defaultStance: 'declined' },
     ],
   },
   {
@@ -469,9 +473,9 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'hep_b_vaccine',
     options: [
-      { value: 'accept', label: 'Give at birth', birthPlanText: 'Please administer the Hepatitis B vaccine at birth.' },
+      { value: 'accept', label: 'Give at birth', birthPlanText: 'Please administer the Hepatitis B vaccine at birth.', defaultStance: 'desired' },
       { value: 'delay', label: 'Delay until pediatrician', birthPlanText: 'We prefer to delay the Hepatitis B vaccine until our pediatrician visit.', isPopular: true },
-      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the Hepatitis B vaccine at birth.' },
+      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the Hepatitis B vaccine at birth.', defaultStance: 'declined' },
     ],
   },
   {
@@ -481,10 +485,10 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Blood test for genetic conditions',
     icon: 'TestTube',
     allowCustom: true,
-    quizQuestionId: 'newborn_screening',
+
     options: [
-      { value: 'accept', label: 'Do the screening', birthPlanText: 'Please perform the standard newborn screening tests.', isPopular: true },
-      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the newborn screening tests.' },
+      { value: 'accept', label: 'Do the screening', birthPlanText: 'Please perform the standard newborn screening tests.', isPopular: true, defaultStance: 'desired' },
+      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the newborn screening tests.', defaultStance: 'declined' },
     ],
   },
   {
@@ -492,12 +496,12 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'newborn_procedures',
     title: 'Hearing Test',
     description: 'Quick, painless hearing screening',
-    icon: 'Ear',
+    icon: 'Activity',
     allowCustom: true,
-    quizQuestionId: 'hearing_test',
+
     options: [
-      { value: 'accept', label: 'Do the hearing test', birthPlanText: 'Please perform the newborn hearing screening.', isPopular: true },
-      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the hearing screening at this time.' },
+      { value: 'accept', label: 'Do the hearing test', birthPlanText: 'Please perform the newborn hearing screening.', isPopular: true, defaultStance: 'desired' },
+      { value: 'decline', label: 'Decline', birthPlanText: 'We decline the hearing screening at this time.', defaultStance: 'declined' },
     ],
   },
   {
@@ -507,7 +511,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Delaying your baby\'s first bath has several benefits. The creamy white coating on newborns (vernix) is a natural moisturizer and provides antibacterial protection. Babies are also born with their mother\'s scent, which helps with bonding and breastfeeding. Bathing too soon can cause temperature instability and may disrupt the first feeding. The World Health Organization recommends waiting at least 24 hours before the first bath, and many experts suggest waiting even longer. When you do bathe baby, warm sponge baths are gentler than full immersion until the umbilical cord falls off.',
     icon: 'Bath',
     allowCustom: true,
-    quizQuestionId: 'bath_delay',
+    quizQuestionId: 'bath_timing',
     options: [
       { value: 'hospital_recommend', label: 'Hospital recommendation', birthPlanText: 'The first bath may be given when recommended by nursing staff.' },
       { value: '24hrs', label: 'Delay at least 24 hours', birthPlanText: 'Please delay baby\'s first bath for at least 24 hours.', isPopular: true },
@@ -524,10 +528,10 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'circumcision',
     options: [
-      { value: 'yes', label: 'Circumcise at hospital', birthPlanText: 'We would like our son circumcised before leaving the hospital.', icon: 'Check' },
+      { value: 'yes', label: 'Circumcise at hospital', birthPlanText: 'We would like our son circumcised before leaving the hospital.', icon: 'Shield', defaultStance: 'desired' },
       { value: 'delayed', label: 'By our own provider', birthPlanText: 'We will arrange circumcision with our own provider after discharge.', icon: 'Clock' },
-      { value: 'no', label: 'No circumcision', birthPlanText: 'We do not want circumcision performed.', isPopular: true, icon: 'X' },
-      { value: 'na', label: 'Not applicable', birthPlanText: '', icon: 'Minus' },
+      { value: 'no', label: 'No circumcision', birthPlanText: 'We do not want circumcision performed.', isPopular: true, icon: 'AlertCircle', defaultStance: 'declined' },
+      { value: 'na', label: 'Not applicable', birthPlanText: '', icon: 'Circle' },
     ],
   },
   {
@@ -572,7 +576,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'lactation', label: 'Request lactation consultant', birthPlanText: 'We would like assistance from a lactation consultant.', isPopular: true, icon: 'HeartHandshake' },
       { value: 'breastfeed_only', label: 'Breastfeeding only', birthPlanText: 'We plan to exclusively breastfeed. Please do not offer formula or pacifiers without our consent.', isPopular: true, icon: 'Heart' },
       { value: 'formula', label: 'Formula feeding', birthPlanText: 'We will be formula feeding.', icon: 'Baby' },
-      { value: 'combo', label: 'Combination feeding', birthPlanText: 'We plan to combination feed (breast milk and formula).', icon: 'HelpCircle' },
+      { value: 'combo', label: 'Combination feeding', birthPlanText: 'We plan to combination feed (breast milk and formula).', icon: 'AlertCircle' },
     ],
   },
   {
@@ -584,9 +588,9 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'pacifier',
     options: [
-      { value: 'no', label: 'No pacifiers', birthPlanText: 'Please do not give baby a pacifier.', isPopular: true, icon: 'X' },
+      { value: 'no', label: 'No pacifiers', birthPlanText: 'Please do not give baby a pacifier.', isPopular: true, icon: 'AlertCircle', defaultStance: 'declined' },
       { value: 'if_needed', label: 'Only if medically needed', birthPlanText: 'Pacifier use is acceptable only if medically necessary.', icon: 'AlertCircle' },
-      { value: 'yes', label: 'Pacifiers are fine', birthPlanText: 'Pacifier use is acceptable.', icon: 'Check' },
+      { value: 'yes', label: 'Pacifiers are fine', birthPlanText: 'Pacifier use is acceptable.', icon: 'Shield', defaultStance: 'desired' },
     ],
   },
   {
@@ -596,6 +600,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Who can visit and when',
     icon: 'Users',
     allowCustom: true,
+    quizQuestionId: 'visitors',
     options: [
       { value: 'immediate_family', label: 'Immediate family only', birthPlanText: 'We prefer only immediate family members to visit.', isPopular: true },
       { value: 'no_visitors', label: 'No visitors initially', birthPlanText: 'We would like no visitors for the first 24 hours to focus on bonding.', isPopular: true },
@@ -652,7 +657,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Family-centered approach to cesarean',
     icon: 'Heart',
     allowCustom: true,
-    quizQuestionId: 'gentle_csection',
+    quizQuestionId: 'csection_approach',
     options: [
       { value: 'yes', label: 'Request gentle C-section', birthPlanText: 'We would like a gentle/family-centered C-section approach when possible.', isPopular: true },
       { value: 'discuss', label: 'Discuss with surgeon', birthPlanText: 'We would like to discuss gentle C-section options with our surgeon.' },
@@ -666,7 +671,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Ability to see baby being born',
     icon: 'Eye',
     allowCustom: true,
-    quizQuestionId: 'clear_drape',
+
     options: [
       { value: 'yes', label: 'Clear drape or lower at birth', birthPlanText: 'We would like a clear drape or to have the drape lowered so we can see baby being born.', isPopular: true },
       { value: 'no', label: 'Standard drape', birthPlanText: 'Standard drape is fine; we prefer not to watch the procedure.' },
@@ -679,7 +684,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Immediate contact during C-section',
     icon: 'Heart',
     allowCustom: true,
-    quizQuestionId: 'csection_skin_to_skin',
+
     options: [
       { value: 'immediate', label: 'Immediate in OR', birthPlanText: 'Please place baby skin-to-skin with me in the operating room as soon as possible.', isPopular: true },
       { value: 'recovery', label: 'In recovery room', birthPlanText: 'We would like skin-to-skin contact to begin in the recovery room.' },
@@ -693,7 +698,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Playing your own music',
     icon: 'Music',
     allowCustom: true,
-    quizQuestionId: 'csection_music',
+
     options: [
       { value: 'yes', label: 'We will bring music', birthPlanText: 'We would like to play our own music during the delivery.', isPopular: true },
       { value: 'no', label: 'No music needed', birthPlanText: 'No specific music preferences.' },
@@ -706,7 +711,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Documenting the birth',
     icon: 'Camera',
     allowCustom: true,
-    quizQuestionId: 'csection_photos',
+
     options: [
       { value: 'yes', label: 'Photos and/or video', birthPlanText: 'We would like to take photos and/or video during the birth.', isPopular: true },
       { value: 'photos_only', label: 'Photos only', birthPlanText: 'We would like to take photos but not video.' },
@@ -754,7 +759,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     sectionId: 'csection',
     title: 'Arm Mobility During Surgery',
     description: 'Freedom of arm movement',
-    icon: 'Hand',
+    icon: 'Move',
     allowCustom: true,
     options: [
       { value: 'not_strapped', label: 'Prefer not strapped down', birthPlanText: 'I prefer to have my arms free and not strapped down during the C-section.', isPopular: true },
@@ -807,11 +812,6 @@ export function getPreferencesBySection(sectionId: string): PreferenceDefinition
 // Helper function to get preference by ID
 export function getPreferenceById(preferenceId: string): PreferenceDefinition | undefined {
   return PREFERENCES.find(p => p.id === preferenceId)
-}
-
-// Get all preferences that map to quiz questions
-export function getQuizMappedPreferences(): PreferenceDefinition[] {
-  return PREFERENCES.filter(p => p.quizQuestionId)
 }
 
 // Get default preference values for a section

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { createServerSupabaseClient } from '@/lib/supabase/server'
 import type { EditorState, EditorSectionId, EditorSectionState } from '@/lib/editor/editorTypes'
-import type { BirthTeam } from '@/types'
+import { migrateBirthTeam, type BirthTeam } from '@/types'
 
 interface BirthPlanV2Row {
   id: string
@@ -73,13 +73,12 @@ export async function GET(
       id: birthPlan.id,
       title: birthPlan.title,
       templateStyle: birthPlan.template_style as EditorState['templateStyle'],
-      birthTeam: birthPlan.birth_team || {
-        mother_name: '',
-      },
+      birthTeam: migrateBirthTeam(birthPlan.birth_team || {}),
       sections: birthPlan.sections_data || {} as Record<EditorSectionId, EditorSectionState>,
       isDirty: false,
       lastSaved: birthPlan.updated_at,
       createdFromQuiz: false,
+      disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
     }
 
     return NextResponse.json({

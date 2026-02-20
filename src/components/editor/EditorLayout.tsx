@@ -4,7 +4,7 @@ import { useState, useMemo } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useAutoSave } from '@/lib/editor/useAutoSave'
-import { DecisionChecklist } from './DecisionChecklist'
+import { EditorSidebar } from './EditorSidebar'
 import { DocumentCanvas } from './DocumentCanvas'
 import { ActionBar } from './ActionBar'
 import { MobileItemSheet } from './MobileItemSheet'
@@ -45,6 +45,7 @@ export function EditorLayout() {
   })
   const [isRightPanelCollapsed, setIsRightPanelCollapsed] = useState(false)
   const [selectedPreferenceId, setSelectedPreferenceId] = useState<string | null>(null)
+  const [selectedSectionId, setSelectedSectionId] = useState<EditorSectionId | null>(null)
   const [showEmailModal, setShowEmailModal] = useState(false)
   const [showMobileChecklist, setShowMobileChecklist] = useState(false)
   const [mobileItemEdit, setMobileItemEdit] = useState<{ sectionId: EditorSectionId; preferenceId: string } | null>(null)
@@ -64,14 +65,13 @@ export function EditorLayout() {
     return { decisionsIncluded: included, totalDecisions: total }
   }, [state.sections])
 
-  // Handle selecting a preference from the canvas (double-click)
+  // Handle selecting a preference from the canvas (single click)
   const handleItemSelect = (sectionId: EditorSectionId, preferenceId: string) => {
     setSelectedPreferenceId(preferenceId)
+    setSelectedSectionId(sectionId)
     if (isRightPanelCollapsed) {
       setIsRightPanelCollapsed(false)
     }
-    // On mobile, open the checklist
-    setShowMobileChecklist(true)
   }
 
   // Handle PDF download
@@ -198,9 +198,13 @@ export function EditorLayout() {
                   </Button>
                 </div>
                 <div className="flex-1 overflow-y-auto p-4">
-                  <DecisionChecklist
+                  <EditorSidebar
                     selectedPreferenceId={selectedPreferenceId}
-                    onClearSelection={() => setSelectedPreferenceId(null)}
+                    selectedSectionId={selectedSectionId}
+                    onClearSelection={() => {
+                      setSelectedPreferenceId(null)
+                      setSelectedSectionId(null)
+                    }}
                   />
                 </div>
               </div>

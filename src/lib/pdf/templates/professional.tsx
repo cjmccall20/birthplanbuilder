@@ -6,7 +6,8 @@ import {
   View,
   StyleSheet,
 } from '@react-pdf/renderer'
-import { BirthTeam } from '@/types'
+import type { BirthTeam } from '@/types'
+import type { PlanItem } from '@/lib/editor/editorToPdf'
 
 const styles = StyleSheet.create({
   page: {
@@ -192,20 +193,14 @@ const styles = StyleSheet.create({
   },
 })
 
-interface PlanItem {
-  category: string
-  title: string
-  answer: string
-  birthPlanText: string
-  customNote?: string
-}
-
 interface ProfessionalTemplateProps {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
+  disclaimerText: string
 }
 
-export function ProfessionalTemplate({ birthTeam, groupedContent }: ProfessionalTemplateProps) {
+export function ProfessionalTemplate({ birthTeam, groupedContent, disclaimerText }: ProfessionalTemplateProps) {
+  const primaryName = birthTeam.fields?.[0]?.value || 'Not Specified'
   let sectionNumber = 0
 
   return (
@@ -236,35 +231,14 @@ export function ProfessionalTemplate({ birthTeam, groupedContent }: Professional
             <View style={styles.infoGrid}>
               <View style={styles.infoCell}>
                 <Text style={styles.infoLabel}>Patient Name</Text>
-                <Text style={styles.infoValue}>{birthTeam.mother_name || 'Not Specified'}</Text>
+                <Text style={styles.infoValue}>{primaryName}</Text>
               </View>
-              {birthTeam.partner_name && (
-                <View style={styles.infoCell}>
-                  <Text style={styles.infoLabel}>Support Person</Text>
-                  <Text style={styles.infoValue}>{birthTeam.partner_name}</Text>
+              {birthTeam.fields?.slice(1).filter(f => f.value).map(field => (
+                <View key={field.id} style={styles.infoCell}>
+                  <Text style={styles.infoLabel}>{field.label}</Text>
+                  <Text style={styles.infoValue}>{field.value}</Text>
                 </View>
-              )}
-              {birthTeam.provider_name && (
-                <View style={styles.infoCell}>
-                  <Text style={styles.infoLabel}>Healthcare Provider</Text>
-                  <Text style={styles.infoValue}>
-                    {birthTeam.provider_name}
-                    {birthTeam.provider_type && ` (${birthTeam.provider_type})`}
-                  </Text>
-                </View>
-              )}
-              {birthTeam.doula_name && (
-                <View style={styles.infoCell}>
-                  <Text style={styles.infoLabel}>Doula</Text>
-                  <Text style={styles.infoValue}>{birthTeam.doula_name}</Text>
-                </View>
-              )}
-              {birthTeam.hospital_name && (
-                <View style={styles.infoCell}>
-                  <Text style={styles.infoLabel}>Delivery Location</Text>
-                  <Text style={styles.infoValue}>{birthTeam.hospital_name}</Text>
-                </View>
-              )}
+              ))}
             </View>
           </View>
         </View>
@@ -295,7 +269,10 @@ export function ProfessionalTemplate({ birthTeam, groupedContent }: Professional
                     style={index % 2 === 0 ? styles.tableRow : styles.tableRowAlt}
                   >
                     <View style={styles.tableCellPreference}>
-                      <Text style={styles.itemTitle}>{item.title}</Text>
+                      <Text style={styles.itemTitle}>
+                        {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : ''}
+                        {item.title}
+                      </Text>
                     </View>
                     <View style={styles.tableCellDetail}>
                       <Text style={styles.itemText}>{item.birthPlanText}</Text>
@@ -313,12 +290,7 @@ export function ProfessionalTemplate({ birthTeam, groupedContent }: Professional
         {/* Disclaimer */}
         <View style={styles.disclaimer}>
           <Text style={styles.disclaimerTitle}>Important Notice</Text>
-          <Text>
-            This birth plan represents the patient&apos;s preferences for labor and delivery.
-            These preferences should be accommodated when medically appropriate. Medical
-            necessity may require deviation from this plan. All decisions will be made in
-            consultation with the patient and/or designated support person when possible.
-          </Text>
+          <Text>{disclaimerText}</Text>
         </View>
 
         {/* Signature Section */}

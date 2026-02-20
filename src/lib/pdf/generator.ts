@@ -53,7 +53,7 @@ export async function generateBirthPlanPDF(options: GeneratePDFOptions): Promise
   const Template = templateMap[templateStyle] || MinimalTemplate
 
   const buffer = await renderToBuffer(
-    Template({ birthTeam, groupedContent })
+    Template({ birthTeam, groupedContent, disclaimerText: '' })
   )
 
   return Buffer.from(buffer)

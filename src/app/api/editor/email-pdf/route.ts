@@ -33,6 +33,7 @@ interface PlanItem {
 interface PDFData {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
+  disclaimerText: string
 }
 
 // Convert editor state to PDF data format (server-side version)
@@ -111,6 +112,7 @@ function editorStateToPDFData(state: EditorState): PDFData {
   return {
     birthTeam: state.birthTeam,
     groupedContent,
+    disclaimerText: state.disclaimerText || '',
   }
 }
 

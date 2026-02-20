@@ -4,15 +4,12 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import type { QuizState } from '@/types'
 import type { EditorState } from './editorTypes'
-import { mapQuizToEditorState } from './mapQuizToEditor'
-import { getQuizMappedPreferences } from './preferences'
+import { mapQuizToEditorState, getQuizImportMeta } from './mapQuizToEditor'
+import type { QuizImportMetadata } from './mapQuizToEditor'
 
 const QUIZ_STORAGE_KEY = 'birthplan_quiz_state'
 
-export interface QuizImportMetadata {
-  importedCount: number
-  unsurePreferenceIds: string[]
-}
+export type { QuizImportMetadata }
 
 interface UseEditorLoaderResult {
   initialState: Partial<EditorState> | null
@@ -76,24 +73,7 @@ export function useEditorLoader(): UseEditorLoaderResult {
             const quizState: QuizState = JSON.parse(savedQuizState)
             const editorState = mapQuizToEditorState(quizState)
             setInitialState(editorState)
-
-            // Build import metadata
-            let importedCount = 0
-            const unsurePreferenceIds: string[] = []
-            const quizMapped = getQuizMappedPreferences()
-
-            quizMapped.forEach(pref => {
-              if (pref.quizQuestionId) {
-                const answer = quizState.answers[pref.quizQuestionId]
-                if (answer && answer !== 'unsure') {
-                  importedCount++
-                } else if (answer === 'unsure') {
-                  unsurePreferenceIds.push(pref.id)
-                }
-              }
-            })
-
-            setQuizImportMeta({ importedCount, unsurePreferenceIds })
+            setQuizImportMeta(getQuizImportMeta(quizState))
           }
           setIsLoading(false)
           return

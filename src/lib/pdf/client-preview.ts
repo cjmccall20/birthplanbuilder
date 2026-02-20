@@ -42,7 +42,7 @@ export async function generatePDFPreview(options: GeneratePreviewOptions): Promi
 
   // For now, we use the minimal template regardless of selection
   // In production, you'd switch based on templateStyle
-  const document = MinimalTemplate({ birthTeam, groupedContent })
+  const document = MinimalTemplate({ birthTeam, groupedContent, disclaimerText: '' })
 
   // Generate the PDF blob
   const blob = await pdf(document).toBlob()

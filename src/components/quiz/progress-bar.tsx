@@ -16,7 +16,7 @@ export function QuizProgressBar() {
   return (
     <div className="w-full max-w-2xl mx-auto mb-6 sm:mb-8">
       <div className="flex justify-between text-xs sm:text-sm text-muted-foreground mb-2">
-        <span>Question {state.currentStep + 1} of {visibleQuestions.length}</span>
+        <span>Question {Math.min(state.currentStep + 1, visibleQuestions.length)} of {visibleQuestions.length}</span>
         <span>{Math.round(progress)}% complete</span>
       </div>
       <Progress value={progress} className="h-2" />

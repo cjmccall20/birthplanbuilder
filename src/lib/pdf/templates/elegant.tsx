@@ -6,7 +6,8 @@ import {
   View,
   StyleSheet,
 } from '@react-pdf/renderer'
-import { BirthTeam } from '@/types'
+import type { BirthTeam } from '@/types'
+import type { PlanItem } from '@/lib/editor/editorToPdf'
 
 const styles = StyleSheet.create({
   page: {
@@ -218,20 +219,15 @@ const styles = StyleSheet.create({
   },
 })
 
-interface PlanItem {
-  category: string
-  title: string
-  answer: string
-  birthPlanText: string
-  customNote?: string
-}
-
 interface ElegantTemplateProps {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
+  disclaimerText: string
 }
 
-export function ElegantTemplate({ birthTeam, groupedContent }: ElegantTemplateProps) {
+export function ElegantTemplate({ birthTeam, groupedContent, disclaimerText }: ElegantTemplateProps) {
+  const primaryName = birthTeam.fields?.[0]?.value || 'My Birth Preferences'
+
   return (
     <Document>
       <Page size="LETTER" style={styles.page}>
@@ -249,7 +245,7 @@ export function ElegantTemplate({ birthTeam, groupedContent }: ElegantTemplatePr
           <Text style={styles.title}>Birth Plan</Text>
           <View style={styles.titleUnderline} />
           <Text style={styles.subtitle}>
-            {birthTeam.mother_name || 'My Birth Preferences'}
+            {primaryName}
           </Text>
           {birthTeam.due_date && (
             <Text style={styles.dueDate}>
@@ -261,37 +257,16 @@ export function ElegantTemplate({ birthTeam, groupedContent }: ElegantTemplatePr
             </Text>
           )}
 
-          {/* Birth Team Info */}
+          {/* Dynamic Birth Team Info */}
           <View style={styles.birthTeam}>
             <Text style={styles.birthTeamTitle}>My Birth Team</Text>
             <View style={styles.birthTeamGrid}>
-              {birthTeam.partner_name && (
-                <View style={styles.birthTeamItem}>
-                  <Text style={styles.birthTeamLabel}>Partner</Text>
-                  <Text style={styles.birthTeamValue}>{birthTeam.partner_name}</Text>
+              {birthTeam.fields?.slice(1).filter(f => f.value).map(field => (
+                <View key={field.id} style={styles.birthTeamItem}>
+                  <Text style={styles.birthTeamLabel}>{field.label}</Text>
+                  <Text style={styles.birthTeamValue}>{field.value}</Text>
                 </View>
-              )}
-              {birthTeam.provider_name && (
-                <View style={styles.birthTeamItem}>
-                  <Text style={styles.birthTeamLabel}>Provider</Text>
-                  <Text style={styles.birthTeamValue}>
-                    {birthTeam.provider_name}
-                    {birthTeam.provider_type && ` (${birthTeam.provider_type})`}
-                  </Text>
-                </View>
-              )}
-              {birthTeam.doula_name && (
-                <View style={styles.birthTeamItem}>
-                  <Text style={styles.birthTeamLabel}>Doula</Text>
-                  <Text style={styles.birthTeamValue}>{birthTeam.doula_name}</Text>
-                </View>
-              )}
-              {birthTeam.hospital_name && (
-                <View style={styles.birthTeamItem}>
-                  <Text style={styles.birthTeamLabel}>Birth Location</Text>
-                  <Text style={styles.birthTeamValue}>{birthTeam.hospital_name}</Text>
-                </View>
-              )}
+              ))}
             </View>
           </View>
         </View>
@@ -308,7 +283,10 @@ export function ElegantTemplate({ birthTeam, groupedContent }: ElegantTemplatePr
             </View>
             {items.map((item, index) => (
               <View key={index} style={styles.item}>
-                <Text style={styles.itemTitle}>{item.title}</Text>
+                <Text style={styles.itemTitle}>
+                  {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : ''}
+                  {item.title}
+                </Text>
                 <Text style={styles.itemText}>{item.birthPlanText}</Text>
                 {item.customNote && (
                   <Text style={styles.customNote}>Note: {item.customNote}</Text>
@@ -320,11 +298,7 @@ export function ElegantTemplate({ birthTeam, groupedContent }: ElegantTemplatePr
 
         {/* Disclaimer */}
         <View style={styles.disclaimer}>
-          <Text>
-            This birth plan expresses my heartfelt preferences for labor and delivery.
-            I understand that circumstances may change, and I trust my care team to
-            guide us safely through this journey, keeping me informed along the way.
-          </Text>
+          <Text>{disclaimerText}</Text>
         </View>
 
         {/* Footer */}

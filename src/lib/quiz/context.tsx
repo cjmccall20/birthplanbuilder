@@ -1,8 +1,8 @@
 'use client'
 
 import { createContext, useContext, useReducer, useEffect, ReactNode } from 'react'
-import { QuizState, BirthTeam } from '@/types'
-import { quizQuestions, getVisibleQuestions } from './questions'
+import { QuizState, BirthTeam, createDefaultBirthTeam } from '@/types'
+import { quizQuestions, getOrderedQuestions, QuizQuestion } from './questions'
 
 const STORAGE_KEY = 'birthplan_quiz_state'
 
@@ -14,9 +14,7 @@ const initialState: QuizState = {
   currentStep: 0,
   answers: {},
   customNotes: {},
-  birthTeam: {
-    mother_name: '',
-  },
+  birthTeam: createDefaultBirthTeam(),
   templateStyle: 'minimal',
   sessionId: '',
 }
@@ -63,11 +61,13 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
         ...state,
         templateStyle: action.style,
       }
-    case 'NEXT_STEP':
+    case 'NEXT_STEP': {
+      const orderedQuestions = getOrderedQuestions(state.answers)
       return {
         ...state,
-        currentStep: Math.min(state.currentStep + 1, quizQuestions.length),
+        currentStep: Math.min(state.currentStep + 1, orderedQuestions.length),
       }
+    }
     case 'PREV_STEP':
       return {
         ...state,
@@ -100,8 +100,8 @@ interface QuizContextType {
   prevStep: () => void
   goToStep: (step: number) => void
   reset: () => void
-  currentQuestion: typeof quizQuestions[0] | null
-  visibleQuestions: typeof quizQuestions
+  currentQuestion: QuizQuestion | null
+  visibleQuestions: QuizQuestion[]
   progress: number
   isComplete: boolean
   unsureTopics: string[]
@@ -156,8 +156,8 @@ export function QuizProvider({ children }: { children: ReactNode }) {
   const goToStep = (step: number) => dispatch({ type: 'GO_TO_STEP', step })
   const reset = () => dispatch({ type: 'RESET' })
 
-  // Get visible questions based on conditional logic
-  const visibleQuestions = getVisibleQuestions(state.answers)
+  // Get ordered questions based on current answers
+  const visibleQuestions = getOrderedQuestions(state.answers)
 
   const currentQuestion = state.currentStep < visibleQuestions.length
     ? visibleQuestions[state.currentStep]

@@ -3,9 +3,12 @@
 import { useState } from 'react'
 import { QuizQuestion } from '@/lib/quiz/questions'
 import { useQuiz } from '@/lib/quiz/context'
+import { QuizLearnMore } from '@/components/quiz/QuizLearnMore'
 import { Button } from '@/components/ui/button'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
+import { Badge } from '@/components/ui/badge'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
+import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
@@ -17,11 +20,24 @@ interface QuestionCardProps {
 export function QuestionCard({ question }: QuestionCardProps) {
   const { state, setAnswer, nextStep, prevStep } = useQuiz()
   const [showLearnMore, setShowLearnMore] = useState(false)
+  const [textInput, setTextInput] = useState('')
 
   const currentAnswer = state.answers[question.id]
 
   const handleAnswer = (value: string) => {
     setAnswer(question.id, value)
+    // If picking a preset option on a text input question, clear the text
+    if (question.inputType === 'text') {
+      setTextInput('')
+    }
+  }
+
+  const handleTextChange = (value: string) => {
+    setTextInput(value)
+    if (value.trim()) {
+      // Save the text value directly as the answer
+      setAnswer(question.id, value.trim())
+    }
   }
 
   const handleNext = () => {
@@ -30,14 +46,20 @@ export function QuestionCard({ question }: QuestionCardProps) {
     }
   }
 
+  const hasLearnMore = !!question.learnMoreData
+
   return (
     <Card className="w-full max-w-2xl mx-auto">
       <CardHeader className="px-4 sm:px-6">
-        <div className="text-sm text-primary font-medium mb-1">{question.category}</div>
+        <Badge variant="secondary" className="w-fit text-xs mb-2">
+          {question.category}
+        </Badge>
         <CardTitle className="font-serif text-xl sm:text-2xl">{question.title}</CardTitle>
-        <CardDescription className="text-sm sm:text-base">{question.description}</CardDescription>
+        <p className="text-sm sm:text-base text-muted-foreground">
+          {question.subtitle}
+        </p>
 
-        {question.learnMoreContent && (
+        {hasLearnMore && (
           <button
             onClick={() => setShowLearnMore(!showLearnMore)}
             className="flex items-center gap-1 text-sm text-primary hover:underline mt-2 w-fit min-h-[44px]"
@@ -56,15 +78,36 @@ export function QuestionCard({ question }: QuestionCardProps) {
           </button>
         )}
 
-        {showLearnMore && question.learnMoreContent && (
-          <div className="mt-3 p-4 bg-muted/50 rounded-lg text-sm text-muted-foreground">
-            {question.learnMoreContent}
+        {showLearnMore && question.learnMoreData && (
+          <div className="mt-3">
+            <QuizLearnMore data={question.learnMoreData} />
           </div>
         )}
+
       </CardHeader>
       <CardContent className="space-y-6 px-4 sm:px-6">
+        {/* Text input for questions like baby_name */}
+        {question.inputType === 'text' && (
+          <div className="space-y-2">
+            <Input
+              type="text"
+              placeholder={question.subtitle || 'Type your answer...'}
+              value={textInput}
+              onChange={(e) => handleTextChange(e.target.value)}
+              className="min-h-[44px] text-base"
+            />
+            <p className="text-xs text-muted-foreground">Or choose an option below:</p>
+          </div>
+        )}
+
+        {/* Option buttons */}
         <RadioGroup
-          value={currentAnswer || ''}
+          value={
+            // If there is text input and the answer matches the text, don't highlight any radio
+            question.inputType === 'text' && textInput.trim() && currentAnswer === textInput.trim()
+              ? ''
+              : currentAnswer || ''
+          }
           onValueChange={handleAnswer}
           className="space-y-3"
         >
