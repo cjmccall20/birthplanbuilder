@@ -1,7 +1,7 @@
 import type { EditorState } from './editorTypes'
 import type { BirthTeam } from '@/types'
-import { getPreferenceById } from './preferences'
-import { EDITOR_SECTIONS } from './sections'
+import { getPreferenceById, getPreferencesBySection } from './preferences'
+import { getSectionsForBirthType } from './sections'
 
 /**
  * Data structure expected by PDF templates
@@ -27,14 +27,20 @@ export interface PDFData {
 export function editorStateToPDFData(state: EditorState): PDFData {
   const allItems: PlanItem[] = []
 
+  // Get visible sections for this birth type
+  const visibleSections = getSectionsForBirthType(state.birthType || 'vaginal')
+  const visiblePrefIds = new Set(
+    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType || 'vaginal').map(p => p.id))
+  )
+
   // Process each section in order
-  EDITOR_SECTIONS.forEach(section => {
+  visibleSections.forEach(section => {
     const sectionState = state.sections[section.id]
     if (!sectionState) return
 
-    // Process preferences
+    // Process preferences (filter by birth type visibility)
     const sortedPreferences = [...sectionState.preferences]
-      .filter(pref => !pref.isOmitted) // Exclude omitted preferences
+      .filter(pref => !pref.isOmitted && visiblePrefIds.has(pref.preferenceId))
       .sort((a, b) => a.sortOrder - b.sortOrder)
 
     sortedPreferences.forEach(prefValue => {
@@ -59,7 +65,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
       if (!birthPlanText) return
 
       allItems.push({
-        category: section.title,
+        category: section.displayTitle,
         title: prefValue.customTitle || prefDef.title,
         answer: selectedOption?.label || 'Custom',
         birthPlanText,
@@ -75,7 +81,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
       if (!item.text) return
 
       allItems.push({
-        category: section.title,
+        category: section.displayTitle,
         title: item.title,
         answer: 'Custom',
         birthPlanText: item.text,
@@ -85,7 +91,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
     // Add section notes if present
     if (sectionState.notes && sectionState.notes.trim()) {
       allItems.push({
-        category: section.title,
+        category: section.displayTitle,
         title: 'Additional Notes',
         answer: 'Custom',
         birthPlanText: sectionState.notes,

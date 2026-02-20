@@ -8,6 +8,7 @@ import type {
   PreferenceValue,
   CustomPreferenceItem,
   TemplateStyle,
+  BirthType,
   EditorSectionState,
 } from './editorTypes'
 import type { BirthTeam, BirthTeamField } from '@/types'
@@ -36,12 +37,14 @@ function createInitialState(): EditorState {
     id: null,
     title: 'My Birth Plan',
     templateStyle: 'minimal',
+    birthType: 'vaginal',
     birthTeam: createDefaultBirthTeam(),
     sections,
     isDirty: false,
     lastSaved: null,
     createdFromQuiz: false,
     disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
+    showAllDecisions: false,
   }
 }
 
@@ -221,6 +224,8 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       return {
         ...loaded,
         birthTeam: migrateBirthTeam(loaded.birthTeam),
+        birthType: loaded.birthType || 'vaginal',
+        showAllDecisions: loaded.showAllDecisions ?? false,
         disclaimerText: loaded.disclaimerText || 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
         isDirty: false,
       }
@@ -339,6 +344,12 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       }
     }
 
+    case 'SET_BIRTH_TYPE':
+      return { ...state, birthType: action.payload, isDirty: true }
+
+    case 'TOGGLE_SHOW_ALL_DECISIONS':
+      return { ...state, showAllDecisions: !state.showAllDecisions }
+
     default:
       return state
   }
@@ -346,7 +357,7 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
 
 // Undo/redo history
 const HISTORY_LIMIT = 50
-const NON_UNDOABLE_ACTIONS: EditorAction['type'][] = ['LOAD_STATE', 'MARK_SAVED', 'UNDO', 'REDO']
+const NON_UNDOABLE_ACTIONS: EditorAction['type'][] = ['LOAD_STATE', 'MARK_SAVED', 'UNDO', 'REDO', 'TOGGLE_SHOW_ALL_DECISIONS']
 
 interface HistoryState {
   past: EditorState[]
@@ -414,6 +425,8 @@ interface EditorContextType {
   renameBirthTeamField: (fieldId: string, label: string) => void
   setStance: (sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | null) => void
   setCustomIcon: (sectionId: EditorSectionId, preferenceId: string, icon: string) => void
+  setBirthType: (birthType: BirthType) => void
+  toggleShowAllDecisions: () => void
   setDisclaimer: (text: string) => void
   undo: () => void
   redo: () => void
@@ -496,6 +509,12 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const setCustomIcon = useCallback((sectionId: EditorSectionId, preferenceId: string, icon: string) =>
     dispatch({ type: 'SET_CUSTOM_ICON', payload: { sectionId, preferenceId, icon } }), [])
 
+  const setBirthType = useCallback((birthType: BirthType) =>
+    dispatch({ type: 'SET_BIRTH_TYPE', payload: birthType }), [])
+
+  const toggleShowAllDecisions = useCallback(() =>
+    dispatch({ type: 'TOGGLE_SHOW_ALL_DECISIONS' }), [])
+
   const setDisclaimer = useCallback((text: string) =>
     dispatch({ type: 'SET_DISCLAIMER', payload: text }), [])
 
@@ -526,6 +545,8 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       renameBirthTeamField,
       setStance,
       setCustomIcon,
+      setBirthType,
+      toggleShowAllDecisions,
       setDisclaimer,
       undo,
       redo,

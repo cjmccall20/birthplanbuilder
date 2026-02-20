@@ -2,8 +2,8 @@
 
 import { useCallback } from 'react'
 import { useEditor } from '@/lib/editor/context'
-import { getPreferenceById } from '@/lib/editor/preferences'
-import { EDITOR_SECTIONS } from '@/lib/editor/sections'
+import { getPreferenceById, getPreferencesBySection } from '@/lib/editor/preferences'
+import { getSectionsForBirthType } from '@/lib/editor/sections'
 import { canvasThemes } from '@/lib/editor/canvasThemes'
 import { Button } from '@/components/ui/button'
 import { X, Download, CheckCircle2, XCircle } from 'lucide-react'
@@ -26,7 +26,11 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
   if (!isOpen) return null
 
   // Build preview sections (same logic as DocumentCanvas but read-only)
-  const sections = EDITOR_SECTIONS.map(section => {
+  const visibleSections = getSectionsForBirthType(state.birthType)
+  const visiblePrefIds = new Set(
+    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType).map(p => p.id))
+  )
+  const sections = visibleSections.map(section => {
     const sectionState = state.sections[section.id]
     if (!sectionState) return null
 
@@ -38,7 +42,7 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
     }> = []
 
     const sortedPreferences = [...sectionState.preferences]
-      .filter(pref => !pref.isOmitted)
+      .filter(pref => !pref.isOmitted && visiblePrefIds.has(pref.preferenceId))
       .sort((a, b) => a.sortOrder - b.sortOrder)
 
     sortedPreferences.forEach(prefValue => {
@@ -73,7 +77,7 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
     const notes = sectionState.notes?.trim() || ''
     if (items.length === 0 && !notes) return null
 
-    return { ...section, items, notes }
+    return { ...section, title: section.displayTitle, items, notes }
   }).filter(Boolean) as Array<{
     id: string
     title: string

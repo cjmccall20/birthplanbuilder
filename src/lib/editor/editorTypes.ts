@@ -9,6 +9,8 @@ export type EditorSectionId =
   | 'hospital_stay'
   | 'csection'
 
+export type BirthType = 'vaginal' | 'planned_csection'
+
 export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic' | 'botanical' | 'ocean' | 'boho'
 
 export interface EditorSection {
@@ -36,6 +38,7 @@ export interface PreferenceDefinition {
   allowCustom: boolean
   icon?: string
   quizQuestionId?: string // Maps to quiz question for importing
+  hiddenFor?: BirthType[] // Hide this preference for certain birth types
 }
 
 export interface PreferenceValue {
@@ -69,12 +72,14 @@ export interface EditorState {
   id: string | null // Birth plan ID (null if unsaved)
   title: string
   templateStyle: TemplateStyle
+  birthType: BirthType
   birthTeam: BirthTeam
   sections: Record<EditorSectionId, EditorSectionState>
   isDirty: boolean
   lastSaved: string | null
   createdFromQuiz: boolean
   disclaimerText: string  // Editable bottom disclaimer
+  showAllDecisions: boolean
 }
 
 // Action types for reducer
@@ -100,5 +105,7 @@ export type EditorAction =
   | { type: 'RENAME_BIRTH_TEAM_FIELD'; payload: { fieldId: string; label: string } }
   | { type: 'SET_STANCE'; payload: { sectionId: EditorSectionId; preferenceId: string; stance: 'desired' | 'declined' | null } }
   | { type: 'SET_CUSTOM_ICON'; payload: { sectionId: EditorSectionId; preferenceId: string; icon: string } }
+  | { type: 'SET_BIRTH_TYPE'; payload: BirthType }
+  | { type: 'TOGGLE_SHOW_ALL_DECISIONS' }
   | { type: 'UNDO' }
   | { type: 'REDO' }

@@ -1,4 +1,4 @@
-import type { PreferenceDefinition } from './editorTypes'
+import type { PreferenceDefinition, BirthType } from './editorTypes'
 
 export const PREFERENCES: PreferenceDefinition[] = [
   // ============================================
@@ -49,7 +49,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
   },
   {
     id: 'admission_procedures',
-    sectionId: 'pre_hospital',
+    sectionId: 'during_labor',
     title: 'Admission Procedures',
     description: 'Preferences for hospital admission process',
     icon: 'BookOpen',
@@ -166,6 +166,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Freedom to move and change positions',
     icon: 'Move',
     allowCustom: true,
+    hiddenFor: ['planned_csection'],
     quizQuestionId: 'movement_labor',
     options: [
       { value: 'freedom', label: 'Freedom to move', birthPlanText: 'I would like the freedom to move and change positions throughout labor.', isPopular: true },
@@ -180,6 +181,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Use of water for pain relief',
     icon: 'Droplet',
     allowCustom: true,
+    hiddenFor: ['planned_csection'],
     options: [
       { value: 'tub', label: 'Want to use tub/pool', birthPlanText: 'I would like to use a tub or birthing pool during labor.', isPopular: true },
       { value: 'shower', label: 'Shower available', birthPlanText: 'I may use the shower for pain relief.' },
@@ -221,6 +223,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preferred positions for the pushing stage',
     icon: 'Navigation',
     allowCustom: true,
+    hiddenFor: ['planned_csection'],
 
     options: [
       { value: 'freedom', label: 'Freedom to choose', birthPlanText: 'I would like the freedom to push in different positions as feels natural.', isPopular: true },
@@ -235,6 +238,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Directed pushing involves coached breath-holding and pushing with counting (often "purple pushing"). Spontaneous pushing means following your body\'s natural urges to push, which often results in shorter pushes with more frequent breaks. Research suggests that spontaneous pushing may reduce the risk of perineal tearing and fetal distress, while directed pushing can be helpful if you have an epidural and can\'t feel the urge to push clearly. Many care providers now encourage a hybrid approach, using your instincts when possible but offering guidance if needed.',
     icon: 'Wind',
     allowCustom: true,
+    hiddenFor: ['planned_csection'],
 
     options: [
       { value: 'spontaneous', label: 'Spontaneous pushing', birthPlanText: 'I prefer to push spontaneously, following my body\'s natural urges rather than coached counting.', isPopular: true },
@@ -249,6 +253,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preferences for preventing tearing',
     icon: 'Shield',
     allowCustom: true,
+    hiddenFor: ['planned_csection'],
 
     options: [
       { value: 'natural', label: 'Natural stretching', birthPlanText: 'I prefer to allow natural stretching and avoid episiotomy unless absolutely necessary.', isPopular: true },
@@ -258,31 +263,20 @@ export const PREFERENCES: PreferenceDefinition[] = [
   },
   {
     id: 'birth_mirror',
-    sectionId: 'during_labor',
+    sectionId: 'at_birth',
     title: 'Mirror to See Baby Emerge',
     description: 'Watching baby being born',
     icon: 'Eye',
     allowCustom: true,
+    hiddenFor: ['planned_csection'],
     options: [
       { value: 'yes', label: 'Yes please', birthPlanText: 'I would like a mirror so I can see baby emerge.', isPopular: true },
       { value: 'no', label: 'No thank you', birthPlanText: 'I prefer not to use a mirror during delivery.' },
     ],
   },
   {
-    id: 'uncoached_pushing',
-    sectionId: 'during_labor',
-    title: 'Uncoached/Physiological Pushing',
-    description: 'Pushing instinctively vs. coached',
-    icon: 'Navigation',
-    allowCustom: true,
-    options: [
-      { value: 'instinctive', label: 'Prefer to push instinctively', birthPlanText: 'I prefer uncoached, physiological pushing following my body\'s natural urges.', isPopular: true },
-      { value: 'open_direction', label: 'Open to direction', birthPlanText: 'I am open to coached pushing if needed.' },
-    ],
-  },
-  {
     id: 'unplanned_csection',
-    sectionId: 'during_labor',
+    sectionId: 'csection',
     title: 'Unplanned C-Section Preferences',
     description: 'If cesarean becomes necessary',
     icon: 'AlertCircle',
@@ -391,18 +385,6 @@ export const PREFERENCES: PreferenceDefinition[] = [
     options: [
       { value: 'yes', label: 'Yes', birthPlanText: 'We would like to see and examine the placenta.' },
       { value: 'no', label: 'No', birthPlanText: 'We do not need to see the placenta.' },
-    ],
-  },
-  {
-    id: 'placenta_encapsulation',
-    sectionId: 'at_birth',
-    title: 'Keep Placenta for Encapsulation',
-    description: 'Taking placenta home for processing',
-    icon: 'Leaf',
-    allowCustom: true,
-    options: [
-      { value: 'yes', label: 'Yes', birthPlanText: 'We will be keeping the placenta for encapsulation. Please place it in our provided container.', isPopular: true },
-      { value: 'no', label: 'No', birthPlanText: 'We do not plan to keep the placenta.' },
     ],
   },
   {
@@ -767,18 +749,6 @@ export const PREFERENCES: PreferenceDefinition[] = [
     ],
   },
   {
-    id: 'csection_music_preference',
-    sectionId: 'csection',
-    title: 'Music During C-Section',
-    description: 'Playing music in the operating room',
-    icon: 'Music',
-    allowCustom: true,
-    options: [
-      { value: 'own_playlist', label: 'Own music playlist', birthPlanText: 'We would like to play our own music playlist during the C-section.', isPopular: true },
-      { value: 'no_preference', label: 'No preference', birthPlanText: 'No specific music preferences for the C-section.' },
-    ],
-  },
-  {
     id: 'vaginal_seeding',
     sectionId: 'csection',
     title: 'Vaginal Seeding',
@@ -819,8 +789,12 @@ export const PREFERENCES: PreferenceDefinition[] = [
 ]
 
 // Helper function to get preferences by section
-export function getPreferencesBySection(sectionId: string): PreferenceDefinition[] {
-  return PREFERENCES.filter(p => p.sectionId === sectionId)
+export function getPreferencesBySection(sectionId: string, birthType?: BirthType): PreferenceDefinition[] {
+  return PREFERENCES.filter(p => {
+    if (p.sectionId !== sectionId) return false
+    if (birthType && p.hiddenFor?.includes(birthType)) return false
+    return true
+  })
 }
 
 // Helper function to get preference by ID

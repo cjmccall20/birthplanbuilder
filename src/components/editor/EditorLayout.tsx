@@ -12,7 +12,7 @@ import { MobileDecisionSheet } from './MobileDecisionSheet'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
-import { ListChecks, PanelRightClose, PanelRightOpen, Undo2, Redo2 } from 'lucide-react'
+import { ListChecks, PanelRightClose, PanelRightOpen, Undo2, Redo2, Eye, EyeOff } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { pdf } from '@react-pdf/renderer'
 import { editorStateToPDFData } from '@/lib/editor/editorToPdf'
@@ -23,8 +23,8 @@ import { ElegantTemplate } from '@/lib/pdf/templates/elegant'
 import { RusticTemplate } from '@/lib/pdf/templates/rustic'
 import { EmailPdfModal } from './EmailPdfModal'
 import { PreviewModal } from './PreviewModal'
-import { PREFERENCES, getPreferencesBySection } from '@/lib/editor/preferences'
-import { EDITOR_SECTIONS } from '@/lib/editor/sections'
+import { getPreferencesBySection } from '@/lib/editor/preferences'
+import { getSectionsForBirthType } from '@/lib/editor/sections'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
 
 const templateMap = {
@@ -39,7 +39,7 @@ const templateMap = {
 } as const
 
 export function EditorLayout() {
-  const { state, setTitle, setTemplate, dispatch, setBirthTeam, undo, redo, canUndo, canRedo } = useEditor()
+  const { state, setTitle, setTemplate, dispatch, setBirthTeam, undo, redo, canUndo, canRedo, toggleShowAllDecisions } = useEditor()
   const { user, isLoading: isAuthLoading } = useAuth()
   const { isSaving, lastSaved, error, savedLocally } = useAutoSave({
     state,
@@ -77,19 +77,21 @@ export function EditorLayout() {
   }, [undo, redo])
 
   // Compute progress stats
-  const { decisionsIncluded, totalDecisions } = useMemo(() => {
+  const { decisionsIncluded, totalDecisions, remainingCount } = useMemo(() => {
     let included = 0
-    const total = PREFERENCES.length
-    EDITOR_SECTIONS.forEach(section => {
+    let total = 0
+    const visibleSections = getSectionsForBirthType(state.birthType)
+    visibleSections.forEach(section => {
       const sectionState = state.sections[section.id]
-      const prefs = getPreferencesBySection(section.id)
+      const prefs = getPreferencesBySection(section.id, state.birthType)
+      total += prefs.length
       prefs.forEach(p => {
         const value = sectionState?.preferences.find(pv => pv.preferenceId === p.id)
         if (!value?.isOmitted) included++
       })
     })
-    return { decisionsIncluded: included, totalDecisions: total }
-  }, [state.sections])
+    return { decisionsIncluded: included, totalDecisions: total, remainingCount: total - included }
+  }, [state.sections, state.birthType])
 
   // Handle selecting a preference from the canvas (single click)
   const handleItemSelect = (sectionId: EditorSectionId, preferenceId: string) => {
@@ -148,27 +150,44 @@ export function EditorLayout() {
               onChange={(e) => setTitle(e.target.value)}
             />
           </div>
-          <div className="hidden sm:flex items-center gap-1">
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={undo}
-              disabled={!canUndo}
-              title="Undo (Cmd+Z)"
-              className="h-8 w-8 p-0"
-            >
-              <Undo2 className="h-4 w-4" />
-            </Button>
-            <Button
-              variant="ghost"
-              size="sm"
-              onClick={redo}
-              disabled={!canRedo}
-              title="Redo (Cmd+Shift+Z)"
-              className="h-8 w-8 p-0"
-            >
-              <Redo2 className="h-4 w-4" />
-            </Button>
+          <div className="hidden sm:flex items-center gap-2">
+            {remainingCount > 0 && (
+              <Button
+                variant={state.showAllDecisions ? 'secondary' : 'outline'}
+                size="sm"
+                onClick={toggleShowAllDecisions}
+                className="gap-1.5 text-xs h-8"
+              >
+                {state.showAllDecisions ? (
+                  <EyeOff className="h-3.5 w-3.5" />
+                ) : (
+                  <Eye className="h-3.5 w-3.5" />
+                )}
+                {state.showAllDecisions ? 'Hide undecided' : `Show all (${remainingCount} remaining)`}
+              </Button>
+            )}
+            <div className="flex items-center gap-1">
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={undo}
+                disabled={!canUndo}
+                title="Undo (Cmd+Z)"
+                className="h-8 w-8 p-0"
+              >
+                <Undo2 className="h-4 w-4" />
+              </Button>
+              <Button
+                variant="ghost"
+                size="sm"
+                onClick={redo}
+                disabled={!canRedo}
+                title="Redo (Cmd+Shift+Z)"
+                className="h-8 w-8 p-0"
+              >
+                <Redo2 className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
         </div>
 

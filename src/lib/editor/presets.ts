@@ -24,8 +24,6 @@ export const naturalPresets: Record<string, string> = {
   pushing_position: 'freedom',
   directed_pushing: 'spontaneous',
   perineal_support: 'support',
-  birth_mirror: 'yes',
-  uncoached_pushing: 'instinctive',
   unplanned_csection: 'gentle',
 
   // At & Immediately After Birth
@@ -36,7 +34,7 @@ export const naturalPresets: Record<string, string> = {
   placenta: 'dispose',
   physiological_placenta: 'natural',
   see_placenta: 'yes',
-  placenta_encapsulation: 'no',
+  birth_mirror: 'yes',
   golden_hour: 'protected',
   first_feeding: 'immediate_breast',
 
@@ -69,7 +67,6 @@ export const naturalPresets: Record<string, string> = {
   csection_delayed_cord: 'yes',
   csection_explanation: 'narrate',
   csection_arm_mobility: 'not_strapped',
-  csection_music_preference: 'own_playlist',
   avoid_general_anesthesia: 'strongly_prefer_regional',
   partner_catches_baby_csection: 'no',
 }
@@ -97,8 +94,6 @@ export const hospitalPresets: Record<string, string> = {
   pushing_position: 'standard',
   directed_pushing: 'flexible',
   perineal_support: 'episiotomy_if_needed',
-  birth_mirror: 'no',
-  uncoached_pushing: 'open_direction',
   unplanned_csection: 'standard',
 
   // At & Immediately After Birth
@@ -109,7 +104,7 @@ export const hospitalPresets: Record<string, string> = {
   placenta: 'dispose',
   physiological_placenta: 'standard',
   see_placenta: 'no',
-  placenta_encapsulation: 'no',
+  birth_mirror: 'no',
   golden_hour: 'flexible',
   first_feeding: 'when_ready',
 
@@ -142,7 +137,6 @@ export const hospitalPresets: Record<string, string> = {
   csection_delayed_cord: 'standard',
   csection_explanation: 'narrate',
   csection_arm_mobility: 'standard',
-  csection_music_preference: 'no_preference',
   avoid_general_anesthesia: 'open_to_needed',
   partner_catches_baby_csection: 'no',
 }

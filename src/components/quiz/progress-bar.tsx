@@ -13,10 +13,15 @@ export function QuizProgressBar() {
   const currentCategory = currentQuestion?.category || categories[categories.length - 1]
   const currentCategoryIndex = categories.indexOf(currentCategory)
 
+  // Count questions within current category
+  const categoryQuestions = visibleQuestions.filter(q => q.category === currentCategory)
+  const questionInCategory = currentQuestion ? categoryQuestions.indexOf(currentQuestion) + 1 : 0
+  const categoryTotal = categoryQuestions.length
+
   return (
     <div className="w-full max-w-2xl mx-auto mb-6 sm:mb-8">
       <div className="flex justify-between text-xs sm:text-sm text-muted-foreground mb-2">
-        <span>Question {Math.min(state.currentStep + 1, visibleQuestions.length)} of {visibleQuestions.length}</span>
+        <span>{currentCategory} - Question {questionInCategory} of {categoryTotal}</span>
         <span>{Math.round(progress)}% complete</span>
       </div>
       <Progress value={progress} className="h-2" />

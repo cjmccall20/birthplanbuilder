@@ -73,12 +73,14 @@ export async function GET(
       id: birthPlan.id,
       title: birthPlan.title,
       templateStyle: birthPlan.template_style as EditorState['templateStyle'],
+      birthType: (birthPlan as any).birth_type || 'vaginal',
       birthTeam: migrateBirthTeam(birthPlan.birth_team || {}),
       sections: birthPlan.sections_data || {} as Record<EditorSectionId, EditorSectionState>,
       isDirty: false,
       lastSaved: birthPlan.updated_at,
       createdFromQuiz: false,
       disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
+      showAllDecisions: false,
     }
 
     return NextResponse.json({

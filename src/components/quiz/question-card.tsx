@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react'
+import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft, SkipForward } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { SupportPeopleChecklist } from './SupportPeopleChecklist'
 
@@ -49,9 +49,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
   }
 
   const handleNext = () => {
-    if (currentAnswer) {
-      nextStep()
-    }
+    nextStep()
   }
 
   // Determine which radio button to highlight
@@ -177,11 +175,20 @@ export function QuestionCard({ question }: QuestionCardProps) {
           </Button>
           <Button
             onClick={handleNext}
-            disabled={!currentAnswer}
+            variant={currentAnswer ? 'default' : 'ghost'}
             className="min-h-[44px] w-full sm:w-auto"
           >
-            Next
-            <ArrowRight className="h-4 w-4 ml-2" />
+            {currentAnswer ? (
+              <>
+                Next
+                <ArrowRight className="h-4 w-4 ml-2" />
+              </>
+            ) : (
+              <>
+                Skip question
+                <SkipForward className="h-4 w-4 ml-2" />
+              </>
+            )}
           </Button>
         </div>
       </CardContent>

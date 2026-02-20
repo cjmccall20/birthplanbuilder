@@ -272,6 +272,39 @@ export const quizQuestions: QuizQuestion[] = [
   },
 
   // =========================================================================
+  // GETTING STARTED (continued - new)
+  // =========================================================================
+  {
+    id: 'when_to_hospital',
+    category: 'Getting Started',
+    title: 'When to Go to the Hospital',
+    subtitle: 'When do you want to head to your birth location?',
+    order: 7,
+    learnMoreData: {
+      tradeoff: 'Arriving too early often leads to interventions to "speed things up." Arriving in active labor lets your body establish its rhythm, but requires comfort with laboring at home.',
+      pros: [
+        'Waiting for active labor (4-1-1 rule) reduces your time on the hospital clock',
+        'Laboring at home is associated with fewer interventions and shorter hospital stays',
+        'Early admission often leads to Pitocin augmentation if labor "stalls"',
+        'Your provider can guide timing based on your specific situation',
+      ],
+      cons: [
+        'First-time mothers may feel anxious laboring at home without monitoring',
+        'Some complications (water breaking without contractions, bleeding) require earlier arrival',
+        'Distance from the hospital matters - longer drives warrant earlier departure',
+        'If you want an epidural, you need to arrive with enough time for placement',
+      ],
+      bottomLine: 'For most low-risk pregnancies, waiting until contractions are regular and strong (4 minutes apart, lasting 1 minute, for 1 hour) gives your body time to establish labor before hospital interventions enter the picture.',
+    },
+    options: [
+      { value: 'active_labor', label: 'Wait until active labor', birthPlanText: 'We plan to arrive during active labor (contractions about 4-5 minutes apart).', icon: 'Clock' },
+      { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring and support.', icon: 'Building2' },
+      { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will arrive when our provider recommends.', icon: 'Stethoscope' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on when to head to the hospital.', isUnsure: true },
+    ],
+  },
+
+  // =========================================================================
   // YOUR BIRTH (continued)
   // =========================================================================
   {
@@ -332,6 +365,155 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'wireless', label: 'Wireless/waterproof if available', birthPlanText: 'If continuous monitoring is needed, we prefer wireless or waterproof monitors.', icon: 'Wifi' },
       { value: 'continuous', label: 'Continuous monitoring is fine', birthPlanText: 'We are comfortable with continuous fetal monitoring.', icon: 'Monitor' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss monitoring options with our care team.', isUnsure: true },
+    ],
+  },
+
+  {
+    id: 'iv_preference',
+    category: 'Your Birth',
+    title: 'IV Access',
+    subtitle: 'How do you feel about having an IV during labor?',
+    order: 10.1,
+    learnMoreData: {
+      tradeoff: 'A continuous IV delivers fluids directly but tethers you to a pole. A hep lock (saline lock) keeps a line ready without constant fluids, preserving your mobility.',
+      pros: [
+        'A hep lock keeps IV access ready for emergencies without continuous fluids',
+        'No IV means full freedom of movement and comfort',
+        'Continuous fluids can help if you are dehydrated or receiving Pitocin',
+        'A hep lock is a reasonable compromise between access and mobility',
+      ],
+      cons: [
+        'Continuous IV limits mobility and can cause fluid overload',
+        'Even a hep lock requires a needle insertion and tape on your hand',
+        'Declining all IV access means a delay if emergency medication is needed',
+        'Some hospitals require IV access as policy, especially with epidurals',
+      ],
+      bottomLine: 'A hep lock gives you the best of both worlds: emergency access without being tethered. Most hospitals will accommodate this request.',
+    },
+    options: [
+      { value: 'heplock', label: 'Hep lock only (IV ready, no fluids)', birthPlanText: 'We prefer a hep lock instead of continuous IV fluids.', icon: 'Plug' },
+      { value: 'iv', label: 'Continuous IV is fine', birthPlanText: 'Continuous IV fluids are acceptable.', icon: 'Droplets' },
+      { value: 'neither', label: 'No IV access if possible', birthPlanText: 'We prefer no IV access unless medically necessary.', icon: 'X' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss IV options with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'eating_drinking',
+    category: 'Your Birth',
+    title: 'Eating and Drinking',
+    subtitle: 'Would you like to eat and drink during labor?',
+    order: 10.2,
+    learnMoreData: {
+      tradeoff: 'Labor is a marathon - your body needs fuel. Many hospitals still restrict food "in case of surgery," but current evidence supports eating and drinking for low-risk labors.',
+      pros: [
+        'ACOG now supports clear liquids during labor for low-risk patients',
+        'Eating light foods provides energy for what can be a 12-24+ hour process',
+        'Dehydration and hunger can slow labor and increase exhaustion',
+        'The aspiration risk that drove fasting policies is extremely rare with modern anesthesia',
+      ],
+      cons: [
+        'Nausea is common during labor, especially during transition',
+        'Some hospitals still enforce NPO (nothing by mouth) policies',
+        'If general anesthesia becomes necessary, a full stomach poses a small aspiration risk',
+        'Heavy meals are not recommended - light snacks and clear liquids are ideal',
+      ],
+      bottomLine: 'The fasting policy dates from the 1940s when anesthesia was less safe. Modern evidence supports light eating and drinking during low-risk labor. Your body knows what it needs.',
+    },
+    options: [
+      { value: 'yes', label: 'Eat and drink freely', birthPlanText: 'I would like to eat and drink as desired during labor.', icon: 'Coffee' },
+      { value: 'clear_liquids', label: 'Clear liquids only is fine', birthPlanText: 'Clear liquids during labor are acceptable.', icon: 'Droplets' },
+      { value: 'follow_policy', label: 'Follow hospital policy', birthPlanText: 'We will follow hospital policy regarding eating and drinking.', icon: 'Building2' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss food and drink options during labor.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'labor_environment',
+    category: 'Your Birth',
+    title: 'Labor Environment',
+    subtitle: 'What kind of atmosphere do you want during labor?',
+    order: 10.3,
+    learnMoreData: {
+      tradeoff: 'Your environment directly affects your hormones. Oxytocin (which drives contractions) flows best when you feel safe, private, and undisturbed. Bright lights and loud voices can trigger adrenaline, which slows labor.',
+      pros: [
+        'Dim lighting promotes melatonin and oxytocin, which help labor progress',
+        'Familiar music can reduce anxiety and provide a rhythmic focus during contractions',
+        'Aromatherapy (lavender, peppermint) has evidence for reducing labor anxiety',
+        'Creating your own space makes a hospital room feel less clinical',
+      ],
+      cons: [
+        'Hospital staff may need lights for procedures or assessments',
+        'Strong scents can trigger nausea during labor',
+        'Music preferences may change as labor intensifies',
+        'Some hospitals have restrictions on candles or diffusers (battery-operated alternatives work)',
+      ],
+      bottomLine: 'Think of labor like sleep - it works best in the dark, quiet, and private. The more "mammalian" your environment, the better your hormones work.',
+    },
+    options: [
+      { value: 'dim_quiet', label: 'Dim lighting and quiet', birthPlanText: 'We prefer dim lighting and a quiet environment.', icon: 'Moon' },
+      { value: 'music', label: 'We\'ll bring our own music', birthPlanText: 'We will bring our own music to play during labor.', icon: 'Music' },
+      { value: 'aromatherapy', label: 'Aromatherapy and calming touches', birthPlanText: 'We would like to use aromatherapy during labor.', icon: 'Flower2' },
+      { value: 'standard', label: 'No special preferences', birthPlanText: 'Standard hospital environment is fine.', icon: 'Building2', omitFromPlan: true },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our labor environment preferences.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'gbs_antibiotics',
+    category: 'Your Birth',
+    title: 'GBS Antibiotics',
+    subtitle: 'If you test positive for Group B Strep, what\'s your preference?',
+    order: 10.4,
+    learnMoreData: {
+      tradeoff: 'About 25% of women carry GBS bacteria, which is harmless to adults but can cause serious infection in newborns during birth. IV antibiotics during labor reduce transmission risk by 80%, but also affect baby\'s gut microbiome.',
+      pros: [
+        'IV antibiotics reduce early-onset GBS disease from 1-2% to 0.2-0.3% in colonized mothers',
+        'GBS infection in newborns can cause pneumonia, sepsis, and meningitis',
+        'Treatment is well-studied with decades of safety data',
+        'Penicillin is the standard treatment, with alternatives for allergic mothers',
+      ],
+      cons: [
+        'Antibiotics disrupt baby\'s gut microbiome establishment',
+        'Requires IV access during labor, which may limit mobility',
+        'Risk of allergic reaction to antibiotics (rare but possible)',
+        'Some families explore alternative protocols (garlic, probiotics) though evidence is limited',
+      ],
+      bottomLine: 'If you are GBS positive, the antibiotics significantly reduce a small but serious risk. The microbiome impact is real but temporary - breastfeeding helps restore it.',
+      ebookChapter: 'Chapter 6: Group B Strep',
+    },
+    options: [
+      { value: 'accept', label: 'Accept antibiotics if GBS positive', birthPlanText: 'If GBS positive, please administer IV antibiotics as recommended.', icon: 'Shield' },
+      { value: 'decline', label: 'Decline antibiotics', birthPlanText: 'We decline GBS antibiotics and accept responsibility for this decision.', icon: 'X' },
+      { value: 'natural', label: 'Discuss alternative approaches', birthPlanText: 'We would like to discuss alternative protocols for GBS.', icon: 'MessageCircle' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss GBS treatment options with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'pushing_positions',
+    category: 'Your Birth',
+    title: 'Pushing Positions',
+    subtitle: 'How would you like to push when it\'s time?',
+    order: 10.5,
+    learnMoreData: {
+      tradeoff: 'The standard "on your back, feet in stirrups" position works against gravity and narrows the pelvis. Upright and side-lying positions open the pelvis by up to 30% and let gravity help.',
+      pros: [
+        'Upright positions (squatting, hands-and-knees) open the pelvic outlet by up to 30%',
+        'Gravity assists baby\'s descent in upright positions',
+        'Side-lying reduces the risk of perineal tearing',
+        'Freedom to change positions helps find what works best for you and baby',
+      ],
+      cons: [
+        'An epidural may limit your ability to use certain positions',
+        'Some providers are most experienced with lithotomy (on-back) position',
+        'Continuous monitoring can restrict position changes',
+        'You may not know what feels right until you are in the moment',
+      ],
+      bottomLine: 'Your pelvis is not a fixed structure - it moves and opens differently in different positions. The position that feels right to you is usually the one that works best for baby too.',
+      ebookChapter: 'Chapter 25: Pushing Positions',
+    },
+    options: [
+      { value: 'freedom', label: 'Freedom to choose in the moment', birthPlanText: 'I would like the freedom to push in different positions as feels natural.', icon: 'Move' },
+      { value: 'upright', label: 'Prefer upright positions', birthPlanText: 'I prefer upright pushing positions (squatting, hands-and-knees, etc.).', icon: 'ArrowUp' },
+      { value: 'standard', label: 'Standard position is fine', birthPlanText: 'Standard pushing position is acceptable.', icon: 'Bed', omitFromPlan: true },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pushing position options.', isUnsure: true },
     ],
   },
 
@@ -496,6 +678,92 @@ export const quizQuestions: QuizQuestion[] = [
     textInputOnOption: 'custom',
   },
   {
+    id: 'newborn_screening',
+    category: 'Newborn Care',
+    title: 'Newborn Screening (Heel Prick)',
+    subtitle: 'The heel prick test screens for rare but serious conditions - what\'s your preference?',
+    order: 15.1,
+    learnMoreData: {
+      tradeoff: 'The newborn screening blood test checks for 30-50+ rare but treatable conditions (depending on your state). Early detection allows treatment before symptoms appear, potentially preventing disability or death.',
+      pros: [
+        'Screens for conditions like PKU, sickle cell disease, and hypothyroidism',
+        'Early detection can be lifesaving - many conditions are treatable only if caught early',
+        'Required in all 50 US states (though parents can decline in most)',
+        'A single blood draw screens for dozens of conditions at once',
+      ],
+      cons: [
+        'Involves a heel prick that causes brief discomfort for baby',
+        'A small number of false positives can cause anxiety before follow-up testing',
+        'Testing is typically done 24-48 hours after birth - some parents prefer to be home first',
+        'Skin-to-skin or breastfeeding during the test can reduce baby\'s discomfort',
+      ],
+      bottomLine: 'This is one of the most universally recommended newborn procedures. The brief discomfort of a heel prick is negligible compared to the conditions it can catch. Breastfeeding during the test helps.',
+    },
+    options: [
+      { value: 'accept', label: 'Yes, do the screening', birthPlanText: 'Please perform the standard newborn screening tests.', icon: 'Shield' },
+      { value: 'decline', label: 'We decline', birthPlanText: 'We decline the newborn screening tests.', icon: 'X' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss newborn screening with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'hearing_test',
+    category: 'Newborn Care',
+    title: 'Hearing Screening',
+    subtitle: 'Would you like baby to have the newborn hearing test?',
+    order: 15.2,
+    learnMoreData: {
+      tradeoff: 'The hearing screening is painless and takes 5-10 minutes while baby sleeps. Early detection of hearing loss allows intervention during the critical window for language development.',
+      pros: [
+        'Completely painless - performed while baby sleeps using soft earphones',
+        'Early detection (before 3 months) dramatically improves language outcomes',
+        'About 1-3 per 1,000 babies are born with hearing loss',
+        'Without screening, hearing loss often is not detected until age 2-3, missing the critical window',
+      ],
+      cons: [
+        'False positives (5-10%) can cause worry before follow-up testing confirms normal hearing',
+        'The test must be done in a quiet environment, which can be hard in a busy hospital',
+        'A failed screen does not necessarily mean hearing loss - fluid in the ears is a common cause',
+        'Follow-up testing adds another appointment if the initial screen is inconclusive',
+      ],
+      bottomLine: 'This is a no-downside test. It is painless, quick, and catches a condition where early intervention makes a profound difference in your child\'s development.',
+    },
+    options: [
+      { value: 'accept', label: 'Yes, do the hearing test', birthPlanText: 'Please perform the newborn hearing screening.', icon: 'Shield' },
+      { value: 'decline', label: 'We decline', birthPlanText: 'We decline the hearing screening at this time.', icon: 'X' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss the hearing screening with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'procedure_timing',
+    category: 'Newborn Care',
+    title: 'Timing of Procedures',
+    subtitle: 'When should non-urgent newborn procedures happen?',
+    order: 15.3,
+    learnMoreData: {
+      tradeoff: 'Weighing, measuring, eye ointment, and vitamin K can all wait. The first hour is biologically designed for bonding and feeding - not paperwork and procedures.',
+      pros: [
+        'Delaying procedures protects the golden hour for bonding and first feeding',
+        'Baby\'s instinctive behaviors (crawling to breast, first latch) are strongest in the first hour',
+        'Most procedures can be done during skin-to-skin or after the first feeding',
+        'Asking before each procedure keeps you informed and in control',
+      ],
+      cons: [
+        'Hospital workflows may default to doing procedures immediately',
+        'Staff shift changes may mean different providers doing procedures later',
+        'Some procedures (vitamin K) are ideally done within the first hour for medical reasons',
+        'Delaying requires clear advance communication with your care team',
+      ],
+      bottomLine: 'Your baby will only have one first hour of life. Everything else can wait. Communicate this clearly in advance so the team knows your preferences.',
+    },
+    options: [
+      { value: 'delay_golden_hour', label: 'Delay all during the golden hour', birthPlanText: 'Please delay all non-urgent procedures for at least the first hour to allow for bonding.', icon: 'Clock' },
+      { value: 'ask_first', label: 'Ask us before each procedure', birthPlanText: 'Please ask our permission before each procedure and explain what will be done.', icon: 'MessageCircle' },
+      { value: 'standard', label: 'Standard timing is fine', birthPlanText: 'Standard timing for procedures is acceptable.', icon: 'ClipboardCheck', omitFromPlan: true },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss procedure timing with our care team.', isUnsure: true },
+    ],
+  },
+
+  {
     id: 'cord_clamping',
     category: 'After Birth',
     title: 'Cord Clamping Timing',
@@ -524,6 +792,35 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'until_stops', label: 'Wait until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.', icon: 'Activity' },
       { value: 'immediate', label: 'Clamp right away', birthPlanText: 'We are comfortable with immediate cord clamping.', icon: 'Scissors' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing with our care team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'who_cuts_cord',
+    category: 'After Birth',
+    title: 'Who Cuts the Cord',
+    subtitle: 'Who would you like to cut the umbilical cord?',
+    order: 15.5,
+    learnMoreData: {
+      tradeoff: 'Cutting the cord is a symbolic moment - there is no medical difference in who does it. Many partners treasure this as their first active role in the birth.',
+      pros: [
+        'Partners often describe cord cutting as an emotional, meaningful moment',
+        'Mothers who cut their own cord report feeling empowered',
+        'The provider can cut if no one else wants to - it is a quick, painless step',
+        'Delayed cord clamping means there is no rush to decide',
+      ],
+      cons: [
+        'Some partners feel squeamish and would rather not',
+        'In an emergency, the provider may need to cut quickly',
+        'The cord is tougher than expected - it takes real force with the scissors',
+        'This decision may feel more or less important depending on the birth experience',
+      ],
+      bottomLine: 'This is a personal moment, not a medical one. There is no wrong answer - choose whoever will find it most meaningful.',
+    },
+    options: [
+      { value: 'partner', label: 'Partner cuts the cord', birthPlanText: 'My partner would like to cut the umbilical cord.', icon: 'Heart' },
+      { value: 'mother', label: 'I want to cut the cord myself', birthPlanText: 'I would like to cut the cord myself.', icon: 'Scissors' },
+      { value: 'provider', label: 'Provider can cut it', birthPlanText: 'Our provider may cut the umbilical cord.', icon: 'Stethoscope' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding who will cut the cord.', isUnsure: true },
     ],
   },
   {
@@ -651,6 +948,65 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our visitor preferences.', isUnsure: true },
     ],
     textInputOnOption: 'custom',
+  },
+
+  {
+    id: 'length_of_stay',
+    category: 'Hospital Stay',
+    title: 'Length of Stay',
+    subtitle: 'How long would you like to stay after birth?',
+    order: 19.1,
+    learnMoreData: {
+      tradeoff: 'Standard stays are 24-48 hours for vaginal births and 48-96 hours for C-sections. Some families want to leave early to recover at home; others want the full support period.',
+      pros: [
+        'Leaving early gets you home to your own bed, food, and comfort',
+        'Longer stays provide access to lactation consultants and nursing support',
+        'Home recovery reduces exposure to hospital bacteria',
+        'Extended stays are valuable after difficult births or C-sections',
+      ],
+      cons: [
+        'Early discharge means less monitoring for jaundice and feeding issues',
+        'First-time parents may feel overwhelmed at home without nurse support',
+        'Insurance typically covers the standard stay - leaving early does not save money',
+        'Pediatrician follow-up within 48 hours is especially important with early discharge',
+      ],
+      bottomLine: 'There is no medal for leaving early. Use the hospital\'s resources while you have them, especially lactation support. You can always request discharge when you feel ready.',
+    },
+    options: [
+      { value: 'minimum', label: 'Leave as soon as possible', birthPlanText: 'We prefer to be discharged as soon as safely possible.', icon: 'Home' },
+      { value: 'standard', label: 'Standard stay', birthPlanText: 'We are comfortable with the standard length of stay.', icon: 'Calendar' },
+      { value: 'extended', label: 'Extended if we need support', birthPlanText: 'We would like to stay longer if we feel we need more support.', icon: 'HeartHandshake' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We will decide on our length of stay based on how we are feeling.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'newborn_care_instruction',
+    category: 'Hospital Stay',
+    title: 'Newborn Care Instruction',
+    subtitle: 'Would you like the hospital staff to teach you baby care basics?',
+    order: 19.2,
+    learnMoreData: {
+      tradeoff: 'Hospitals offer instruction on bathing, diapering, feeding, and newborn safety. First-time parents often find this invaluable, while experienced parents may prefer minimal instruction.',
+      pros: [
+        'Nurses can demonstrate bathing, swaddling, diapering, and cord care',
+        'Lactation consultants provide hands-on breastfeeding support',
+        'Learning in the hospital means expert help is immediately available if you struggle',
+        'Even experienced parents can benefit from refreshers or updated recommendations',
+      ],
+      cons: [
+        'Instruction sessions can feel overwhelming when you are exhausted',
+        'Information overload right after birth may not stick',
+        'Unsolicited advice can feel judgmental or condescending',
+        'Online resources and classes before birth may be more effective for some learners',
+      ],
+      bottomLine: 'If you are a first-time parent, take advantage of every teaching opportunity the hospital offers. If you are experienced, set boundaries around instruction you do not need.',
+    },
+    options: [
+      { value: 'comprehensive', label: 'Yes, teach us everything', birthPlanText: 'We would appreciate comprehensive instruction on bathing, diapering, and caring for baby.', icon: 'BookOpen' },
+      { value: 'basic', label: 'Just the basics', birthPlanText: 'Basic newborn care guidance is sufficient.', icon: 'Info' },
+      { value: 'experienced', label: 'We\'re experienced, minimal instruction', birthPlanText: 'We are experienced with newborn care and do not need extensive instruction.', icon: 'Check' },
+      { value: 'unsure', label: 'I\'ll decide after baby arrives', birthPlanText: 'We will decide what instruction we need after baby arrives.', isUnsure: true },
+    ],
   },
 
   // =========================================================================

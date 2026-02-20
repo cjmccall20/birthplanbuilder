@@ -4,6 +4,7 @@ import { useState, useEffect, useMemo, useRef } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { getPreferencesBySection } from '@/lib/editor/preferences'
 import { EDITOR_SECTIONS } from '@/lib/editor/sections'
+import { getSectionsForBirthType } from '@/lib/editor/sections'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
@@ -21,6 +22,7 @@ interface SectionBrowserProps {
 
 export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selectedPreferenceId, expandSection }: SectionBrowserProps) {
   const { state, setPreference, addCustomItem, removeCustomItem } = useEditor()
+  const visibleSections = getSectionsForBirthType(state.birthType)
   const [activeSection, setActiveSection] = useState<EditorSectionId>('pre_hospital')
   const [searchQuery, setSearchQuery] = useState('')
   const listRef = useRef<HTMLDivElement>(null)
@@ -51,16 +53,16 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
     }
   }, [selectedPreferenceId, state.sections])
 
-  // Get preferences for active section
+  // Get preferences for active section (filtered by birth type)
   const activePrefs = useMemo(() => {
-    const prefs = getPreferencesBySection(activeSection)
+    const prefs = getPreferencesBySection(activeSection, state.birthType)
     if (!searchQuery) return prefs
     const q = searchQuery.toLowerCase()
     return prefs.filter((p: PreferenceDefinition) =>
       p.title.toLowerCase().includes(q) ||
       (p.description?.toLowerCase().includes(q) ?? false)
     )
-  }, [activeSection, searchQuery])
+  }, [activeSection, searchQuery, state.birthType])
 
   // Get custom items for active section
   const customItems = state.sections[activeSection]?.customItems || []
@@ -73,9 +75,9 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
     <div className="space-y-3">
       {/* Section tab buttons */}
       <div className="flex flex-wrap gap-1.5">
-        {EDITOR_SECTIONS.map(section => {
+        {visibleSections.map(section => {
           const sectionState = state.sections[section.id]
-          const prefs = getPreferencesBySection(section.id)
+          const prefs = getPreferencesBySection(section.id, state.birthType)
           const includedCount = prefs.filter(p => {
             const val = sectionState?.preferences.find(pv => pv.preferenceId === p.id)
             return !val?.isOmitted
@@ -95,8 +97,8 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
               )}
             >
               <SectionIcon className="h-3 w-3" />
-              <span className="hidden lg:inline">{section.title}</span>
-              <span className="lg:hidden">{section.title.split(' ')[0]}</span>
+              <span className="hidden lg:inline">{section.displayTitle}</span>
+              <span className="lg:hidden">{section.displayTitle.split(' ')[0]}</span>
               <span className={cn(
                 'text-[10px] px-1 rounded-full min-w-[18px] text-center',
                 isActive ? 'bg-white/20' : 'bg-muted'

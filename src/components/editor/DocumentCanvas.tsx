@@ -2,8 +2,8 @@
 
 import { useCallback, useState, useRef, useEffect } from 'react'
 import { useEditor } from '@/lib/editor/context'
-import { getPreferenceById } from '@/lib/editor/preferences'
-import { EDITOR_SECTIONS } from '@/lib/editor/sections'
+import { getPreferenceById, getPreferencesBySection } from '@/lib/editor/preferences'
+import { getSectionsForBirthType } from '@/lib/editor/sections'
 import { Input } from '@/components/ui/input'
 import {
   Select,
@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { templateStyles } from '@/types'
-import { CheckCircle2, XCircle, StickyNote, Plus, EyeOff, Trash2 } from 'lucide-react'
+import { CheckCircle2, XCircle, StickyNote, Plus, EyeOff, Trash2, HelpCircle } from 'lucide-react'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -28,6 +28,7 @@ interface CanvasItem {
   customItemId?: string
   icon?: string
   stance?: 'desired' | 'declined' | null
+  isUndecided?: boolean
 }
 
 interface CanvasSection {
@@ -61,24 +62,51 @@ export function DocumentCanvas({
     }
   }, [editingItemId])
 
+  // Get visible sections for the current birth type
+  const visibleSections = getSectionsForBirthType(state.birthType)
+  // Set of preference IDs visible for this birth type
+  const visiblePrefIds = new Set(
+    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType).map(p => p.id))
+  )
+
   // Process editor state into canvas sections with items and notes
   const sections = useCallback((): CanvasSection[] => {
     const result: CanvasSection[] = []
+    const showAll = state.showAllDecisions
 
-    EDITOR_SECTIONS.forEach(section => {
+    visibleSections.forEach(section => {
       const sectionState = state.sections[section.id]
       if (!sectionState) return
 
       const items: CanvasItem[] = []
 
-      // Process preferences
+      // Process preferences (filter by birth type visibility)
       const sortedPreferences = [...sectionState.preferences]
-        .filter(pref => !pref.isOmitted)
+        .filter(pref => {
+          if (!visiblePrefIds.has(pref.preferenceId)) return false
+          if (showAll) return true
+          return !pref.isOmitted
+        })
         .sort((a, b) => a.sortOrder - b.sortOrder)
 
       sortedPreferences.forEach(prefValue => {
         const prefDef = getPreferenceById(prefValue.preferenceId)
         if (!prefDef) return
+
+        const isUndecided = prefValue.isOmitted || !prefValue.selectedOption
+
+        if (isUndecided) {
+          // Undecided placeholder item
+          items.push({
+            sectionId: section.id,
+            preferenceId: prefValue.preferenceId,
+            title: prefValue.customTitle || prefDef.title,
+            birthPlanText: '',
+            icon: prefDef.icon,
+            isUndecided: true,
+          })
+          return
+        }
 
         const selectedOption = prefDef.options.find(
           opt => opt.value === prefValue.selectedOption
@@ -117,11 +145,11 @@ export function DocumentCanvas({
           })
         })
 
-      // Always include the section if it has items, custom items, or notes
+      // Show section if it has items, custom items, notes, or we're in show-all mode
       if (items.length > 0 || sectionState.customItems.length > 0 || sectionState.notes) {
         result.push({
           sectionId: section.id,
-          title: section.title,
+          title: section.displayTitle,
           items,
           notes: sectionState.notes || '',
         })
@@ -129,7 +157,7 @@ export function DocumentCanvas({
     })
 
     return result
-  }, [state.sections])
+  }, [state.sections, state.birthType, state.showAllDecisions, visibleSections, visiblePrefIds])
 
   const canvasSections = sections()
   const theme = canvasThemes[state.templateStyle]
@@ -312,6 +340,44 @@ export function DocumentCanvas({
                   {section.items.map((item) => {
                     const ItemIcon = getIconComponent(item.icon || 'Circle')
                     const isEditing = editingItemId === item.preferenceId
+
+                    // Undecided items get a distinct placeholder appearance
+                    if (item.isUndecided) {
+                      return (
+                        <div
+                          key={item.preferenceId}
+                          data-canvas-item
+                          className={cn(
+                            'group pl-3 border-l-2 border-dashed transition-all cursor-pointer',
+                            selectedPreferenceId === item.preferenceId
+                              ? 'py-1'
+                              : ''
+                          )}
+                          style={{
+                            borderColor: selectedPreferenceId === item.preferenceId
+                              ? `${theme.primaryColor}80`
+                              : `${theme.primaryColor}25`,
+                            opacity: 0.55,
+                          }}
+                          onClick={() => handleItemClick(item)}
+                        >
+                          <div className="flex items-start gap-2">
+                            <div className="mt-0.5 flex-shrink-0">
+                              <HelpCircle className="w-5 h-5" style={{ color: theme.primaryColor }} />
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <p className="font-medium text-sm" style={{ color: theme.textColor }}>
+                                {item.title}
+                              </p>
+                              <p className="text-xs italic" style={{ color: theme.textColor, opacity: 0.6 }}>
+                                Click to set your preference
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    }
+
                     return (
                       <div
                         key={item.preferenceId}

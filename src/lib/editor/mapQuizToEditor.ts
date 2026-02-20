@@ -1,6 +1,6 @@
 import type { QuizState, TemplateStyle } from '@/types'
 import { createDefaultBirthTeam } from '@/types'
-import type { EditorState, EditorSectionId, PreferenceValue, EditorSectionState } from './editorTypes'
+import type { EditorState, EditorSectionId, PreferenceValue, EditorSectionState, BirthType } from './editorTypes'
 import { PREFERENCES, getPreferencesBySection } from './preferences'
 import { SECTION_ORDER } from './sections'
 import { quizQuestions } from '@/lib/quiz/questions'
@@ -35,6 +35,12 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     },
   },
 
+  // Pre-Hospital (new)
+  when_to_hospital: {
+    preferenceId: 'when_to_hospital',
+    sectionId: 'pre_hospital',
+  },
+
   // During Labor
   pain_approach: {
     preferenceId: 'pain_management',
@@ -53,6 +59,33 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
       somewhat: 'upright',
       not_priority: 'bed',
     },
+  },
+
+  // During Labor (new)
+  iv_preference: {
+    preferenceId: 'iv_preference',
+    sectionId: 'during_labor',
+    // Quiz and pref share: iv, heplock, neither
+  },
+  eating_drinking: {
+    preferenceId: 'eating_drinking',
+    sectionId: 'during_labor',
+    // Quiz and pref share: yes, clear_liquids, follow_policy
+  },
+  labor_environment: {
+    preferenceId: 'labor_environment',
+    sectionId: 'during_labor',
+    // Quiz and pref share: dim_quiet, music, aromatherapy, standard
+  },
+  gbs_antibiotics: {
+    preferenceId: 'gbs_antibiotics',
+    sectionId: 'during_labor',
+    // Quiz and pref share: accept, decline, natural
+  },
+  pushing_positions: {
+    preferenceId: 'pushing_position',
+    sectionId: 'during_labor',
+    // Quiz and pref share: freedom, upright, standard
   },
 
   // At Birth
@@ -76,6 +109,11 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     preferenceId: 'cord_clamping',
     sectionId: 'at_birth',
     // Quiz and pref share: 1min, 3-5min, until_stops, immediate
+  },
+  who_cuts_cord: {
+    preferenceId: 'who_cuts_cord',
+    sectionId: 'at_birth',
+    // Quiz and pref share: partner, mother, provider
   },
   cord_blood: {
     preferenceId: 'cord_blood_banking',
@@ -101,6 +139,23 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     preferenceId: 'hep_b_vaccine',
     sectionId: 'newborn_procedures',
   },
+  // Newborn Procedures (new)
+  newborn_screening: {
+    preferenceId: 'newborn_screening',
+    sectionId: 'newborn_procedures',
+    // Quiz and pref share: accept, decline
+  },
+  hearing_test: {
+    preferenceId: 'hearing_test',
+    sectionId: 'newborn_procedures',
+    // Quiz and pref share: accept, decline
+  },
+  procedure_timing: {
+    preferenceId: 'procedure_timing',
+    sectionId: 'newborn_procedures',
+    // Quiz and pref share: delay_golden_hour, ask_first, standard
+  },
+
   bath_timing: {
     preferenceId: 'bath_timing',
     sectionId: 'newborn_procedures',
@@ -141,6 +196,18 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     preferenceId: 'pacifier',
     sectionId: 'hospital_stay',
   },
+  // Hospital Stay (new)
+  length_of_stay: {
+    preferenceId: 'length_of_stay',
+    sectionId: 'hospital_stay',
+    // Quiz and pref share: minimum, standard, extended
+  },
+  newborn_care_instruction: {
+    preferenceId: 'newborn_care_instruction',
+    sectionId: 'hospital_stay',
+    // Quiz and pref share: comprehensive, basic, experienced
+  },
+
   visitors: {
     preferenceId: 'visitors',
     sectionId: 'hospital_stay',
@@ -367,9 +434,15 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     title = `${motherName}'s Birth Plan`
   }
 
+  // Map quiz birth type to editor birth type
+  const birthType: BirthType = quizState.plannedBirthType === 'csection'
+    ? 'planned_csection'
+    : 'vaginal'
+
   return {
     birthTeam: quizState.birthTeam || createDefaultBirthTeam(),
     templateStyle: (quizState.templateStyle || 'minimal') as TemplateStyle,
+    birthType,
     sections,
     createdFromQuiz: true,
     title,

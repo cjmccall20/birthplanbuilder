@@ -6,6 +6,7 @@ import { EditorLayout } from '@/components/editor/EditorLayout'
 import { useEditorLoader } from '@/lib/editor/useQuizLoader'
 import { StartingPointSelector, type StartingPoint } from '@/components/editor/StartingPointSelector'
 import { naturalPresets, hospitalPresets } from '@/lib/editor/presets'
+import type { BirthType } from '@/lib/editor/editorTypes'
 import { Loader2, AlertCircle } from 'lucide-react'
 import { toast } from 'sonner'
 import Link from 'next/link'
@@ -13,6 +14,7 @@ import Link from 'next/link'
 function EditorWithLoader() {
   const { initialState, isLoading, fromQuiz, fromExisting, error, quizImportMeta } = useEditorLoader()
   const [startingPoint, setStartingPoint] = useState<StartingPoint | null>(null)
+  const [selectedBirthType, setSelectedBirthType] = useState<BirthType>('vaginal')
   const toastShown = useRef(false)
 
   // Show toast when quiz data is imported
@@ -75,7 +77,10 @@ function EditorWithLoader() {
   // New blank plan (not from quiz, not loading existing) — show starting point selector
   const isNewBlankPlan = !fromQuiz && !fromExisting && !initialState
   if (isNewBlankPlan && !startingPoint) {
-    return <StartingPointSelector onSelect={setStartingPoint} />
+    return <StartingPointSelector onSelect={(point, birthType) => {
+      setStartingPoint(point)
+      setSelectedBirthType(birthType)
+    }} />
   }
 
   // Build preset to apply after editor mounts
@@ -85,9 +90,12 @@ function EditorWithLoader() {
     ? hospitalPresets
     : undefined
 
+  // Build initial birth type from the selector or from loaded state
+  const birthType = initialState?.birthType || selectedBirthType
+
   return (
     <EditorProvider
-      initialState={initialState || undefined}
+      initialState={initialState ? initialState : { birthType } as any}
       presetToApply={presetToApply}
       unsurePreferenceIds={quizImportMeta?.unsurePreferenceIds}
     >
