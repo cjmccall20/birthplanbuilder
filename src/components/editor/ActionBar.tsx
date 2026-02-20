@@ -1,6 +1,6 @@
 'use client'
 
-import { Download, Mail, CheckCircle2, Loader2, LogIn, HardDrive } from 'lucide-react'
+import { Download, Mail, CheckCircle2, Loader2, LogIn, HardDrive, Eye } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Progress } from '@/components/ui/progress'
 import { useRouter } from 'next/navigation'
@@ -13,6 +13,7 @@ interface ActionBarProps {
   isLoggedIn: boolean
   onDownload: () => void
   onEmail: () => void
+  onPreview: () => void
   saveError: string | null
   savedLocally?: boolean
 }
@@ -25,6 +26,7 @@ export function ActionBar({
   isLoggedIn,
   onDownload,
   onEmail,
+  onPreview,
   saveError,
   savedLocally,
 }: ActionBarProps) {
@@ -93,6 +95,10 @@ export function ActionBar({
 
         {/* Actions */}
         <div className="flex items-center gap-2 flex-shrink-0">
+          <Button variant="outline" size="sm" onClick={onPreview} className="gap-1.5">
+            <Eye className="h-4 w-4" />
+            <span className="hidden sm:inline">Preview</span>
+          </Button>
           <Button variant="outline" size="sm" onClick={onEmail} className="gap-1.5">
             <Mail className="h-4 w-4" />
             <span className="hidden sm:inline">Email</span>

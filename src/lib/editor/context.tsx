@@ -344,6 +344,53 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
   }
 }
 
+// Undo/redo history
+const HISTORY_LIMIT = 50
+const NON_UNDOABLE_ACTIONS: EditorAction['type'][] = ['LOAD_STATE', 'MARK_SAVED', 'UNDO', 'REDO']
+
+interface HistoryState {
+  past: EditorState[]
+  present: EditorState
+  future: EditorState[]
+}
+
+function historyReducer(history: HistoryState, action: EditorAction): HistoryState {
+  const { past, present, future } = history
+
+  if (action.type === 'UNDO') {
+    if (past.length === 0) return history
+    const previous = past[past.length - 1]
+    return {
+      past: past.slice(0, -1),
+      present: previous,
+      future: [present, ...future],
+    }
+  }
+
+  if (action.type === 'REDO') {
+    if (future.length === 0) return history
+    const next = future[0]
+    return {
+      past: [...past, present],
+      present: next,
+      future: future.slice(1),
+    }
+  }
+
+  const newPresent = editorReducer(present, action)
+
+  // Skip history for non-undoable actions or if state didn't change
+  if (NON_UNDOABLE_ACTIONS.includes(action.type) || newPresent === present) {
+    return { ...history, present: newPresent }
+  }
+
+  return {
+    past: [...past.slice(-(HISTORY_LIMIT - 1)), present],
+    present: newPresent,
+    future: [],
+  }
+}
+
 // Context
 interface EditorContextType {
   state: EditorState
@@ -368,17 +415,26 @@ interface EditorContextType {
   setStance: (sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | null) => void
   setCustomIcon: (sectionId: EditorSectionId, preferenceId: string, icon: string) => void
   setDisclaimer: (text: string) => void
+  undo: () => void
+  redo: () => void
+  canUndo: boolean
+  canRedo: boolean
 }
 
 const EditorContext = createContext<EditorContextType | undefined>(undefined)
 
 export function EditorProvider({ children, initialState, presetToApply, unsurePreferenceIds = [] }: { children: ReactNode; initialState?: Partial<EditorState>; presetToApply?: Record<string, string>; unsurePreferenceIds?: string[] }) {
-  const [state, dispatch] = useReducer(
-    editorReducer,
-    initialState
-      ? { ...createInitialState(), ...initialState, birthTeam: migrateBirthTeam(initialState.birthTeam || createDefaultBirthTeam()) }
-      : createInitialState()
+  const [history, dispatch] = useReducer(
+    historyReducer,
+    {
+      past: [],
+      present: initialState
+        ? { ...createInitialState(), ...initialState, birthTeam: migrateBirthTeam(initialState.birthTeam || createDefaultBirthTeam()) }
+        : createInitialState(),
+      future: [],
+    }
   )
+  const state = history.present
 
   // Apply preset on initial mount if provided
   const presetApplied = useRef(false)
@@ -443,6 +499,11 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const setDisclaimer = useCallback((text: string) =>
     dispatch({ type: 'SET_DISCLAIMER', payload: text }), [])
 
+  const undo = useCallback(() => dispatch({ type: 'UNDO' }), [])
+  const redo = useCallback(() => dispatch({ type: 'REDO' }), [])
+  const canUndo = history.past.length > 0
+  const canRedo = history.future.length > 0
+
   return (
     <EditorContext.Provider value={{
       state,
@@ -466,6 +527,10 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       setStance,
       setCustomIcon,
       setDisclaimer,
+      undo,
+      redo,
+      canUndo,
+      canRedo,
     }}>
       {children}
     </EditorContext.Provider>

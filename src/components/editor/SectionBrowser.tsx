@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect, useMemo } from 'react'
+import { useState, useEffect, useMemo, useRef, useCallback } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { getPreferencesBySection } from '@/lib/editor/preferences'
 import { EDITOR_SECTIONS } from '@/lib/editor/sections'
@@ -8,7 +8,7 @@ import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
-import { ChevronDown, ChevronRight, Search } from 'lucide-react'
+import { ChevronDown, ChevronRight, Search, Plus } from 'lucide-react'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId, PreferenceDefinition } from '@/lib/editor/editorTypes'
@@ -20,17 +20,29 @@ interface SectionBrowserProps {
 }
 
 export function SectionBrowser({ onSelectPreference, selectedPreferenceId, expandSection }: SectionBrowserProps) {
-  const { state, setPreference } = useEditor()
+  const { state, setPreference, addCustomItem } = useEditor()
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['pre_hospital']))
   const [searchQuery, setSearchQuery] = useState('')
+  const sectionRefs = useRef<Record<string, HTMLDivElement | null>>({})
 
-  // Auto-expand section from "Add decision" button on canvas
+  const setSectionRef = useCallback((sectionId: string, el: HTMLDivElement | null) => {
+    sectionRefs.current[sectionId] = el
+  }, [])
+
+  // Auto-expand section from "Add decision" button on canvas + scroll to it
   useEffect(() => {
     if (expandSection) {
       setExpandedSections(prev => {
         const next = new Set(prev)
         next.add(expandSection)
         return next
+      })
+      // Scroll to the section after a brief delay for DOM update
+      requestAnimationFrame(() => {
+        const el = sectionRefs.current[expandSection]
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        }
       })
     }
   }, [expandSection])
@@ -105,7 +117,14 @@ export function SectionBrowser({ onSelectPreference, selectedPreferenceId, expan
           const SectionIcon = getIconComponent(section.icon)
 
           return (
-            <div key={section.id} className="border rounded-lg overflow-hidden">
+            <div
+              key={section.id}
+              ref={(el) => setSectionRef(section.id, el)}
+              className={cn(
+                'border rounded-lg overflow-hidden',
+                expandSection === section.id && 'ring-2 ring-primary/30'
+              )}
+            >
               {/* Section header */}
               <button
                 onClick={() => toggleSection(section.id)}
@@ -141,6 +160,14 @@ export function SectionBrowser({ onSelectPreference, selectedPreferenceId, expan
                       onSelect={() => onSelectPreference(section.id, pref.id)}
                     />
                   ))}
+                  {/* Add custom decision */}
+                  <button
+                    onClick={() => addCustomItem(section.id, '', 'My custom preference')}
+                    className="w-full flex items-center gap-2 px-3 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-muted/30 transition-colors border-t"
+                  >
+                    <Plus className="h-3.5 w-3.5" />
+                    Add custom decision
+                  </button>
                 </div>
               )}
             </div>

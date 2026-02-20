@@ -98,3 +98,5 @@ export type EditorAction =
   | { type: 'RENAME_BIRTH_TEAM_FIELD'; payload: { fieldId: string; label: string } }
   | { type: 'SET_STANCE'; payload: { sectionId: EditorSectionId; preferenceId: string; stance: 'desired' | 'declined' | null } }
   | { type: 'SET_CUSTOM_ICON'; payload: { sectionId: EditorSectionId; preferenceId: string; icon: string } }
+  | { type: 'UNDO' }
+  | { type: 'REDO' }

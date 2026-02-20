@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect, useCallback } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useAutoSave } from '@/lib/editor/useAutoSave'
@@ -12,7 +12,7 @@ import { MobileDecisionSheet } from './MobileDecisionSheet'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
-import { ListChecks, PanelRightClose, PanelRightOpen } from 'lucide-react'
+import { ListChecks, PanelRightClose, PanelRightOpen, Undo2, Redo2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { pdf } from '@react-pdf/renderer'
 import { editorStateToPDFData } from '@/lib/editor/editorToPdf'
@@ -22,6 +22,7 @@ import { ProfessionalTemplate } from '@/lib/pdf/templates/professional'
 import { ElegantTemplate } from '@/lib/pdf/templates/elegant'
 import { RusticTemplate } from '@/lib/pdf/templates/rustic'
 import { EmailPdfModal } from './EmailPdfModal'
+import { PreviewModal } from './PreviewModal'
 import { PREFERENCES, getPreferencesBySection } from '@/lib/editor/preferences'
 import { EDITOR_SECTIONS } from '@/lib/editor/sections'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -35,7 +36,7 @@ const templateMap = {
 } as const
 
 export function EditorLayout() {
-  const { state, setTitle, setTemplate, dispatch, setBirthTeam } = useEditor()
+  const { state, setTitle, setTemplate, dispatch, setBirthTeam, undo, redo, canUndo, canRedo } = useEditor()
   const { user, isLoading: isAuthLoading } = useAuth()
   const { isSaving, lastSaved, error, savedLocally } = useAutoSave({
     state,
@@ -50,6 +51,27 @@ export function EditorLayout() {
   const [showMobileChecklist, setShowMobileChecklist] = useState(false)
   const [mobileItemEdit, setMobileItemEdit] = useState<{ sectionId: EditorSectionId; preferenceId: string } | null>(null)
   const [addDecisionSection, setAddDecisionSection] = useState<EditorSectionId | null>(null)
+  const [showPreview, setShowPreview] = useState(false)
+
+  // Keyboard shortcuts for undo/redo
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === 'z') {
+        // Don't intercept when typing in inputs/textareas
+        const target = e.target as HTMLElement
+        if (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA') return
+
+        e.preventDefault()
+        if (e.shiftKey) {
+          redo()
+        } else {
+          undo()
+        }
+      }
+    }
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [undo, redo])
 
   // Compute progress stats
   const { decisionsIncluded, totalDecisions } = useMemo(() => {
@@ -113,7 +135,7 @@ export function EditorLayout() {
   return (
     <div className="pb-16">
       {/* Header with title */}
-      <div className="container py-4 sm:py-6 max-w-7xl px-4 overflow-x-hidden">
+      <div className="container py-4 sm:py-6 max-w-7xl px-4">
         <div className="mb-4 sm:mb-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
           <div className="flex-1 max-w-md">
             <Input
@@ -122,6 +144,28 @@ export function EditorLayout() {
               value={state.title}
               onChange={(e) => setTitle(e.target.value)}
             />
+          </div>
+          <div className="hidden sm:flex items-center gap-1">
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={undo}
+              disabled={!canUndo}
+              title="Undo (Cmd+Z)"
+              className="h-8 w-8 p-0"
+            >
+              <Undo2 className="h-4 w-4" />
+            </Button>
+            <Button
+              variant="ghost"
+              size="sm"
+              onClick={redo}
+              disabled={!canRedo}
+              title="Redo (Cmd+Shift+Z)"
+              className="h-8 w-8 p-0"
+            >
+              <Redo2 className="h-4 w-4" />
+            </Button>
           </div>
         </div>
 
@@ -242,8 +286,16 @@ export function EditorLayout() {
         isLoggedIn={!!user}
         onDownload={handleDownload}
         onEmail={handleEmail}
+        onPreview={() => setShowPreview(true)}
         saveError={error}
         savedLocally={savedLocally}
+      />
+
+      {/* Preview Modal */}
+      <PreviewModal
+        isOpen={showPreview}
+        onClose={() => setShowPreview(false)}
+        onDownload={handleDownload}
       />
 
       {/* Email PDF Modal */}

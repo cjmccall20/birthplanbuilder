@@ -50,6 +50,7 @@ export function DocumentCanvas({
 }: DocumentCanvasProps) {
   const { state, setTemplate, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer, setPreference, setSectionNotes } = useEditor()
   const [editingItemId, setEditingItemId] = useState<string | null>(null)
+  const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set())
   const titleInputRef = useRef<HTMLInputElement>(null)
   const textareaRef = useRef<HTMLTextAreaElement>(null)
 
@@ -314,10 +315,10 @@ export function DocumentCanvas({
                         {isEditing && !item.isCustomItem && (
                           <button
                             onClick={(e) => { e.stopPropagation(); handleToggleOmit(item) }}
-                            className="absolute -left-1 top-0 p-1 rounded bg-white shadow-sm border text-muted-foreground hover:text-red-500 transition-colors z-10"
+                            className="absolute -right-1 top-0 p-1.5 rounded bg-white shadow-sm border text-muted-foreground hover:text-red-500 transition-colors z-10"
                             title="Remove from plan"
                           >
-                            <EyeOff className="w-3.5 h-3.5" />
+                            <EyeOff className="w-4 h-4" />
                           </button>
                         )}
 
@@ -374,27 +375,51 @@ export function DocumentCanvas({
                   })}
                 </div>
 
-                {/* Section notes - styled card with notepad icon */}
-                <div
-                  className="mt-4 rounded-lg border border-dashed p-3 flex items-start gap-2"
-                  style={{ borderColor: `${theme.primaryColor}30`, backgroundColor: `${theme.sectionHeaderBg}` }}
-                  data-canvas-item
-                >
-                  <StickyNote className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: theme.primaryColor, opacity: 0.5 }} />
-                  <textarea
-                    value={section.notes}
-                    onChange={(e) => setSectionNotes(section.sectionId, e.target.value)}
-                    className="w-full text-sm bg-transparent border-0 resize-none focus:ring-0 focus:outline-none min-h-[24px]"
-                    style={{ color: theme.textColor, opacity: 0.75 }}
-                    placeholder="Add notes for this section..."
-                    rows={1}
-                    onInput={(e) => {
-                      const target = e.target as HTMLTextAreaElement
-                      target.style.height = 'auto'
-                      target.style.height = target.scrollHeight + 'px'
-                    }}
-                  />
-                </div>
+                {/* Section notes - hidden by default, shown when expanded or has content */}
+                {(section.notes || expandedNotes.has(section.sectionId)) ? (
+                  <div
+                    className="mt-4 rounded-lg border border-dashed p-3 flex items-start gap-2"
+                    style={{ borderColor: `${theme.primaryColor}30`, backgroundColor: `${theme.sectionHeaderBg}` }}
+                    data-canvas-item
+                  >
+                    <StickyNote className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: theme.primaryColor, opacity: 0.5 }} />
+                    <textarea
+                      value={section.notes}
+                      onChange={(e) => setSectionNotes(section.sectionId, e.target.value)}
+                      className="w-full text-sm bg-transparent border-0 resize-none focus:ring-0 focus:outline-none min-h-[24px]"
+                      style={{ color: theme.textColor, opacity: 0.75 }}
+                      placeholder="Add notes for this section..."
+                      rows={2}
+                      autoFocus={!section.notes}
+                      onInput={(e) => {
+                        const target = e.target as HTMLTextAreaElement
+                        target.style.height = 'auto'
+                        target.style.height = target.scrollHeight + 'px'
+                      }}
+                      onBlur={() => {
+                        if (!section.notes) {
+                          setExpandedNotes(prev => {
+                            const next = new Set(prev)
+                            next.delete(section.sectionId)
+                            return next
+                          })
+                        }
+                      }}
+                    />
+                  </div>
+                ) : (
+                  <button
+                    onClick={() => setExpandedNotes(prev => {
+                      const next = new Set(prev)
+                      next.add(section.sectionId)
+                      return next
+                    })}
+                    className="mt-2 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+                  >
+                    <StickyNote className="w-3.5 h-3.5" />
+                    Add note
+                  </button>
+                )}
 
                 {/* Add decision button */}
                 {onAddDecision && (
