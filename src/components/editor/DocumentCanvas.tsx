@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { templateStyles } from '@/types'
-import { CheckCircle2, XCircle, StickyNote, Plus, Eye, EyeOff } from 'lucide-react'
+import { CheckCircle2, XCircle, StickyNote, Plus, EyeOff, Trash2 } from 'lucide-react'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -48,7 +48,7 @@ export function DocumentCanvas({
   onAddDecision,
   selectedPreferenceId,
 }: DocumentCanvasProps) {
-  const { state, setTemplate, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer, setPreference, setSectionNotes } = useEditor()
+  const { state, setTemplate, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem } = useEditor()
   const [editingItemId, setEditingItemId] = useState<string | null>(null)
   const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set())
   const titleInputRef = useRef<HTMLInputElement>(null)
@@ -105,19 +105,20 @@ export function DocumentCanvas({
       sectionState.customItems
         .sort((a, b) => a.sortOrder - b.sortOrder)
         .forEach(item => {
-          if (!item.text) return
           items.push({
             sectionId: section.id,
             preferenceId: `custom_${item.id}`,
-            title: item.title,
+            title: item.title || 'Custom decision',
             birthPlanText: item.text,
             isCustomItem: true,
             customItemId: item.id,
+            icon: item.customIcon,
+            stance: item.stance,
           })
         })
 
-      // Always include the section if it has content or notes
-      if (items.length > 0 || sectionState.notes) {
+      // Always include the section if it has items, custom items, or notes
+      if (items.length > 0 || sectionState.customItems.length > 0 || sectionState.notes) {
         result.push({
           sectionId: section.id,
           title: section.title,
@@ -136,7 +137,7 @@ export function DocumentCanvas({
   // Click to start inline editing + open sidebar
   const handleItemClick = (item: CanvasItem) => {
     setEditingItemId(item.preferenceId)
-    if (!item.isCustomItem && onItemSelect) {
+    if (onItemSelect) {
       onItemSelect(item.sectionId, item.preferenceId)
     }
   }
@@ -151,24 +152,30 @@ export function DocumentCanvas({
 
   // Handle inline title edit
   const handleTitleEdit = (item: CanvasItem, newTitle: string) => {
-    if (!item.isCustomItem) {
+    if (item.isCustomItem && item.customItemId) {
+      updateCustomItem(item.sectionId, item.customItemId, { title: newTitle })
+    } else {
       setPreference(item.sectionId, item.preferenceId, { customTitle: newTitle })
     }
   }
 
   // Handle inline text edit
   const handleTextEdit = (item: CanvasItem, newText: string) => {
-    if (!item.isCustomItem) {
+    if (item.isCustomItem && item.customItemId) {
+      updateCustomItem(item.sectionId, item.customItemId, { text: newText })
+    } else {
       setPreference(item.sectionId, item.preferenceId, { customText: newText })
     }
   }
 
-  // Toggle include/omit
+  // Toggle include/omit (hide for standard, delete for custom)
   const handleToggleOmit = (item: CanvasItem) => {
-    if (!item.isCustomItem) {
+    if (item.isCustomItem && item.customItemId) {
+      removeCustomItem(item.sectionId, item.customItemId)
+    } else {
       setPreference(item.sectionId, item.preferenceId, { isOmitted: true })
-      setEditingItemId(null)
     }
+    setEditingItemId(null)
   }
 
   return (
@@ -311,14 +318,14 @@ export function DocumentCanvas({
                         }}
                         onClick={() => handleItemClick(item)}
                       >
-                        {/* Omit toggle button - visible when editing */}
-                        {isEditing && !item.isCustomItem && (
+                        {/* Omit/remove button - visible when editing */}
+                        {isEditing && (
                           <button
                             onClick={(e) => { e.stopPropagation(); handleToggleOmit(item) }}
                             className="absolute -right-1 top-0 p-1.5 rounded bg-white shadow-sm border text-muted-foreground hover:text-red-500 transition-colors z-10"
-                            title="Remove from plan"
+                            title={item.isCustomItem ? 'Delete custom decision' : 'Remove from plan'}
                           >
-                            <EyeOff className="w-4 h-4" />
+                            {item.isCustomItem ? <Trash2 className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
                           </button>
                         )}
 
@@ -334,7 +341,7 @@ export function DocumentCanvas({
                             )}
                           </div>
                           <div className="flex-1 min-w-0">
-                            {isEditing && !item.isCustomItem ? (
+                            {isEditing ? (
                               <>
                                 <input
                                   ref={titleInputRef}
@@ -344,6 +351,7 @@ export function DocumentCanvas({
                                   onClick={(e) => e.stopPropagation()}
                                   className="w-full font-semibold text-sm mb-1 bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none rounded-none px-0 py-0.5"
                                   style={{ color: theme.textColor }}
+                                  placeholder={item.isCustomItem ? 'Decision title' : undefined}
                                 />
                                 <textarea
                                   ref={textareaRef}
@@ -353,6 +361,7 @@ export function DocumentCanvas({
                                   className="w-full text-sm leading-relaxed bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none resize-none rounded-none px-0 py-0.5 min-h-[40px]"
                                   style={{ color: theme.textColor, opacity: 0.85 }}
                                   rows={2}
+                                  placeholder={item.isCustomItem ? 'What would you like your birth plan to say?' : undefined}
                                 />
                               </>
                             ) : (
@@ -363,9 +372,11 @@ export function DocumentCanvas({
                                 >
                                   {item.title}
                                 </p>
-                                <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
-                                  {item.birthPlanText}
-                                </p>
+                                {item.birthPlanText && (
+                                  <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
+                                    {item.birthPlanText}
+                                  </p>
+                                )}
                               </>
                             )}
                           </div>
@@ -375,10 +386,21 @@ export function DocumentCanvas({
                   })}
                 </div>
 
+                {/* Add decision button */}
+                {onAddDecision && (
+                  <button
+                    onClick={() => onAddDecision(section.sectionId)}
+                    className="mt-3 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+                  >
+                    <Plus className="w-3.5 h-3.5" />
+                    Add decision
+                  </button>
+                )}
+
                 {/* Section notes - hidden by default, shown when expanded or has content */}
                 {(section.notes || expandedNotes.has(section.sectionId)) ? (
                   <div
-                    className="mt-4 rounded-lg border border-dashed p-3 flex items-start gap-2"
+                    className="mt-2 rounded-lg border border-dashed p-3 flex items-start gap-2"
                     style={{ borderColor: `${theme.primaryColor}30`, backgroundColor: `${theme.sectionHeaderBg}` }}
                     data-canvas-item
                   >
@@ -414,21 +436,10 @@ export function DocumentCanvas({
                       next.add(section.sectionId)
                       return next
                     })}
-                    className="mt-2 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+                    className="mt-1 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
                   >
                     <StickyNote className="w-3.5 h-3.5" />
                     Add note
-                  </button>
-                )}
-
-                {/* Add decision button */}
-                {onAddDecision && (
-                  <button
-                    onClick={() => onAddDecision(section.sectionId)}
-                    className="mt-2 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
-                  >
-                    <Plus className="w-3.5 h-3.5" />
-                    Add decision
                   </button>
                 )}
               </div>

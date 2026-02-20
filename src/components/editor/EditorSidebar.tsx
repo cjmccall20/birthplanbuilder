@@ -3,11 +3,13 @@
 import { useState, useEffect } from 'react'
 import { SectionBrowser } from './SectionBrowser'
 import { DecisionDetail } from './DecisionDetail'
+import { CustomDecisionDetail } from './CustomDecisionDetail'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
 
 type SidebarView =
   | { mode: 'browse' }
   | { mode: 'detail'; sectionId: EditorSectionId; preferenceId: string }
+  | { mode: 'custom-detail'; sectionId: EditorSectionId; customItemId: string }
 
 interface EditorSidebarProps {
   /** When the canvas selects a preference, navigate to its detail view */
@@ -29,7 +31,13 @@ export function EditorSidebar({
   // When a preference is selected externally (from canvas click), switch to detail
   useEffect(() => {
     if (selectedPreferenceId && selectedSectionId) {
-      setView({ mode: 'detail', sectionId: selectedSectionId, preferenceId: selectedPreferenceId })
+      // Check if it's a custom item (prefixed with custom_)
+      if (selectedPreferenceId.startsWith('custom_')) {
+        const customItemId = selectedPreferenceId.replace('custom_', '')
+        setView({ mode: 'custom-detail', sectionId: selectedSectionId, customItemId })
+      } else {
+        setView({ mode: 'detail', sectionId: selectedSectionId, preferenceId: selectedPreferenceId })
+      }
     }
   }, [selectedPreferenceId, selectedSectionId])
 
@@ -42,6 +50,10 @@ export function EditorSidebar({
 
   const handleSelectPreference = (sectionId: EditorSectionId, preferenceId: string) => {
     setView({ mode: 'detail', sectionId, preferenceId })
+  }
+
+  const handleSelectCustomItem = (sectionId: EditorSectionId, customItemId: string) => {
+    setView({ mode: 'custom-detail', sectionId, customItemId })
   }
 
   const handleBack = () => {
@@ -59,9 +71,20 @@ export function EditorSidebar({
     )
   }
 
+  if (view.mode === 'custom-detail') {
+    return (
+      <CustomDecisionDetail
+        sectionId={view.sectionId}
+        customItemId={view.customItemId}
+        onBack={handleBack}
+      />
+    )
+  }
+
   return (
     <SectionBrowser
       onSelectPreference={handleSelectPreference}
+      onSelectCustomItem={handleSelectCustomItem}
       selectedPreferenceId={selectedPreferenceId}
       expandSection={filterToSection}
     />

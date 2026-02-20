@@ -62,7 +62,12 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
       .sort((a, b) => a.sortOrder - b.sortOrder)
       .forEach(item => {
         if (!item.text) return
-        items.push({ title: item.title, text: item.text })
+        items.push({
+          title: item.title || 'Custom decision',
+          text: item.text,
+          icon: item.customIcon,
+          stance: item.stance,
+        })
       })
 
     const notes = sectionState.notes?.trim() || ''

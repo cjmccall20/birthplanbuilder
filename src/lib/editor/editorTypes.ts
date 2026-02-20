@@ -54,6 +54,8 @@ export interface CustomPreferenceItem {
   title: string
   text: string
   sortOrder: number
+  stance?: 'desired' | 'declined' | null
+  customIcon?: string
 }
 
 export interface EditorSectionState {
