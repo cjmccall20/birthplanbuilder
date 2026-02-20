@@ -292,6 +292,7 @@ const CSECTION_COMFORT_MAP: Record<string, Array<{ preferenceId: string; section
 // Engagement-only quiz questions that don't map to preferences
 // Their answers are used for personalization, not editor preferences
 const ENGAGEMENT_ONLY_QUESTIONS = new Set([
+  'planned_birth_type',
   'baby_sex',
   'baby_name',
 ])

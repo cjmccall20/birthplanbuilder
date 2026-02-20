@@ -35,13 +35,48 @@ export interface QuizQuestion {
 }
 
 // ---------------------------------------------------------------------------
-// Questions - ordered for engagement (universal first, clinical later)
+// Category orderings by birth type
+// ---------------------------------------------------------------------------
+
+const CATEGORY_ORDER_VAGINAL = [
+  'Getting Started',
+  'Your Birth',
+  'After Birth',
+  'Newborn Care',
+  'Hospital Stay',
+  'Personal',
+  'C-Section Planning',
+]
+
+const CATEGORY_ORDER_CSECTION = [
+  'Getting Started',
+  'C-Section Planning',
+  'After Birth',
+  'Newborn Care',
+  'Hospital Stay',
+  'Personal',
+]
+
+// ---------------------------------------------------------------------------
+// Questions
 // ---------------------------------------------------------------------------
 
 export const quizQuestions: QuizQuestion[] = [
   // =========================================================================
   // GETTING STARTED
   // =========================================================================
+  {
+    id: 'planned_birth_type',
+    category: 'Getting Started',
+    title: 'Type of Birth',
+    subtitle: 'Are you planning a vaginal birth or a C-section?',
+    order: 0.5,
+    options: [
+      { value: 'vaginal', label: 'Vaginal birth', birthPlanText: '', icon: 'Baby' },
+      { value: 'csection', label: 'Planned C-section', birthPlanText: '', icon: 'Scissors' },
+      { value: 'unsure', label: "I'm not sure yet", birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
+    ],
+  },
   {
     id: 'birth_setting',
     category: 'Getting Started',
@@ -1304,22 +1339,35 @@ export const quizQuestions: QuizQuestion[] = [
 // ---------------------------------------------------------------------------
 
 /**
- * Returns questions in the intended order, filtering by conditional logic
- * and separating deferred (C-section) questions to the end.
+ * Returns questions sorted by category order then by `order` within category.
+ * Birth type answer determines which categories appear and in what sequence.
  */
 export function getOrderedQuestions(answers: Record<string, string>): QuizQuestion[] {
-  const allQuestions = quizQuestions.filter(q => {
+  const birthType = answers['planned_birth_type']
+  const categoryOrder = birthType === 'csection' ? CATEGORY_ORDER_CSECTION : CATEGORY_ORDER_VAGINAL
+
+  const filtered = quizQuestions.filter(q => {
     // Handle conditionalOn (only circumcision)
     if (q.conditionalOn) {
       const answer = answers[q.conditionalOn.questionId]
       if (!answer || !q.conditionalOn.values.includes(answer)) return false
     }
+    // For planned C-section: exclude "Your Birth" questions entirely
+    if (birthType === 'csection' && q.category === 'Your Birth') return false
+    // Only include categories in the active order
+    if (!categoryOrder.includes(q.category)) return false
     return true
   })
 
-  const mainQuestions = allQuestions.filter(q => !q.deferredFor)
-  const deferredQuestions = allQuestions.filter(q => q.deferredFor === 'csection')
-  return [...mainQuestions, ...deferredQuestions]
+  // Sort by category order first, then by `order` within category
+  filtered.sort((a, b) => {
+    const catA = categoryOrder.indexOf(a.category)
+    const catB = categoryOrder.indexOf(b.category)
+    if (catA !== catB) return catA - catB
+    return a.order - b.order
+  })
+
+  return filtered
 }
 
 export function getQuestionsByCategory(): Record<string, QuizQuestion[]> {
@@ -1332,12 +1380,7 @@ export function getQuestionsByCategory(): Record<string, QuizQuestion[]> {
   }, {} as Record<string, QuizQuestion[]>)
 }
 
-export function getCategories(): string[] {
-  const categories: string[] = []
-  quizQuestions.forEach(q => {
-    if (!categories.includes(q.category)) {
-      categories.push(q.category)
-    }
-  })
-  return categories
+export function getCategories(answers?: Record<string, string>): string[] {
+  const birthType = answers?.['planned_birth_type']
+  return birthType === 'csection' ? CATEGORY_ORDER_CSECTION : CATEGORY_ORDER_VAGINAL
 }

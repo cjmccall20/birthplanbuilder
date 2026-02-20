@@ -44,7 +44,11 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
         const idx = newQuestions.findIndex(q => q.id === currentQuestionId)
         if (idx !== -1) newStep = idx
       }
-      return { ...state, answers: newAnswers, currentStep: newStep }
+      // Sync plannedBirthType when the birth type question is answered
+      const plannedBirthType = action.questionId === 'planned_birth_type'
+        ? action.answer as QuizState['plannedBirthType']
+        : state.plannedBirthType
+      return { ...state, answers: newAnswers, currentStep: newStep, plannedBirthType }
     }
     case 'SET_CUSTOM_NOTE':
       return {

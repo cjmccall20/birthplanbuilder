@@ -8,7 +8,7 @@ import { QuestionCard } from '@/components/quiz/question-card'
 import { QuizProgressBar } from '@/components/quiz/progress-bar'
 import { QuizPreviewPanel } from '@/components/quiz/QuizPreviewPanel'
 import { Card, CardContent } from '@/components/ui/card'
-import { Shield, Baby, Stethoscope, Hospital, Heart } from 'lucide-react'
+import { Shield, Baby, Stethoscope, Hospital, Heart, User } from 'lucide-react'
 
 const CATEGORY_TRANSITIONS: Record<string, { icon: typeof Shield; title: string; description: string }> = {
   'Your Birth': {
@@ -30,6 +30,11 @@ const CATEGORY_TRANSITIONS: Record<string, { icon: typeof Shield; title: string;
     icon: Hospital,
     title: 'Your hospital stay',
     description: 'From rooming-in to visitors to going home - let\'s set up your recovery the way you want it.',
+  },
+  'Personal': {
+    icon: User,
+    title: 'A few personal details',
+    description: 'Almost done! These last questions help us personalize your birth plan.',
   },
   'C-Section Planning': {
     icon: Shield,
