@@ -14,6 +14,7 @@ const initialState: QuizState = {
   currentStep: 0,
   answers: {},
   customNotes: {},
+  stances: {},
   birthTeam: createDefaultBirthTeam(),
   templateStyle: 'minimal',
   sessionId: '',
@@ -22,6 +23,7 @@ const initialState: QuizState = {
 type QuizAction =
   | { type: 'SET_ANSWER'; questionId: string; answer: string }
   | { type: 'SET_CUSTOM_NOTE'; questionId: string; note: string }
+  | { type: 'SET_STANCE'; questionId: string; stance: 'desired' | 'declined' | null }
   | { type: 'SET_BIRTH_TEAM'; birthTeam: Partial<BirthTeam> }
   | { type: 'SET_TEMPLATE_STYLE'; style: string }
   | { type: 'NEXT_STEP' }
@@ -50,6 +52,14 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
         customNotes: {
           ...state.customNotes,
           [action.questionId]: action.note,
+        },
+      }
+    case 'SET_STANCE':
+      return {
+        ...state,
+        stances: {
+          ...state.stances,
+          [action.questionId]: action.stance,
         },
       }
     case 'SET_BIRTH_TEAM':
@@ -83,7 +93,7 @@ function quizReducer(state: QuizState, action: QuizAction): QuizState {
         currentStep: action.step,
       }
     case 'LOAD_STATE':
-      return action.state
+      return { ...action.state, stances: action.state.stances ?? {} }
     case 'RESET':
       return {
         ...initialState,
@@ -98,6 +108,7 @@ interface QuizContextType {
   state: QuizState
   setAnswer: (questionId: string, answer: string) => void
   setCustomNote: (questionId: string, note: string) => void
+  setStance: (questionId: string, stance: 'desired' | 'declined' | null) => void
   setBirthTeam: (birthTeam: Partial<BirthTeam>) => void
   setTemplateStyle: (style: string) => void
   nextStep: () => void
@@ -147,6 +158,10 @@ export function QuizProvider({ children }: { children: ReactNode }) {
     dispatch({ type: 'SET_CUSTOM_NOTE', questionId, note })
   }
 
+  const setStance = (questionId: string, stance: 'desired' | 'declined' | null) => {
+    dispatch({ type: 'SET_STANCE', questionId, stance })
+  }
+
   const setBirthTeam = (birthTeam: Partial<BirthTeam>) => {
     dispatch({ type: 'SET_BIRTH_TEAM', birthTeam })
   }
@@ -181,6 +196,7 @@ export function QuizProvider({ children }: { children: ReactNode }) {
         state,
         setAnswer,
         setCustomNote,
+        setStance,
         setBirthTeam,
         setTemplateStyle,
         nextStep,

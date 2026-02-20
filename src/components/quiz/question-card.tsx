@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft, SkipForward } from 'lucide-react'
+import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft, SkipForward, CheckCircle2, XCircle, Circle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { SupportPeopleChecklist } from './SupportPeopleChecklist'
 
@@ -19,7 +19,7 @@ interface QuestionCardProps {
 }
 
 export function QuestionCard({ question }: QuestionCardProps) {
-  const { state, setAnswer, nextStep, prevStep } = useQuiz()
+  const { state, setAnswer, setStance, nextStep, prevStep } = useQuiz()
   const [showLearnMore, setShowLearnMore] = useState(false)
 
   const currentAnswer = state.answers[question.id]
@@ -143,7 +143,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
 
               {/* Inline text input when this option triggers it */}
               {showTextInput && question.textInputOnOption === option.value && (
-                <div className="ml-8 mt-2 mb-1">
+                <div className="ml-8 mt-2 mb-1 space-y-2">
                   <Input
                     type="text"
                     placeholder={
@@ -156,6 +156,44 @@ export function QuestionCard({ question }: QuestionCardProps) {
                     className="min-h-[44px] text-base"
                     autoFocus
                   />
+                  {question.id !== 'baby_name' && (
+                    <div className="flex items-center gap-1">
+                      <span className="text-xs text-muted-foreground mr-1">Stance:</span>
+                      <button
+                        type="button"
+                        onClick={() => setStance(question.id, null)}
+                        className={cn(
+                          "p-1.5 rounded-md transition-colors",
+                          (!state.stances?.[question.id]) ? "ring-2 ring-primary bg-primary/10" : "hover:bg-muted"
+                        )}
+                        title="Neutral"
+                      >
+                        <Circle className="h-4 w-4 text-muted-foreground" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setStance(question.id, 'desired')}
+                        className={cn(
+                          "p-1.5 rounded-md transition-colors",
+                          state.stances?.[question.id] === 'desired' ? "ring-2 ring-green-500 bg-green-50" : "hover:bg-muted"
+                        )}
+                        title="Desired"
+                      >
+                        <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setStance(question.id, 'declined')}
+                        className={cn(
+                          "p-1.5 rounded-md transition-colors",
+                          state.stances?.[question.id] === 'declined' ? "ring-2 ring-red-500 bg-red-50" : "hover:bg-muted"
+                        )}
+                        title="Declined"
+                      >
+                        <XCircle className="h-4 w-4 text-red-500" />
+                      </button>
+                    </div>
+                  )}
                 </div>
               )}
             </div>

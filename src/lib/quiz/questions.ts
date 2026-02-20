@@ -69,8 +69,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'hospital', label: 'Hospital', birthPlanText: 'We are planning to give birth at a hospital.', icon: 'Building2' },
       { value: 'birth_center', label: 'Birth center', birthPlanText: 'We are planning to give birth at a birth center.', icon: 'Home' },
       { value: 'home', label: 'Home birth', birthPlanText: 'We are planning a home birth with a qualified midwife.', icon: 'House' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We are still deciding on our birth setting.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'support_people',
@@ -134,8 +136,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'natural', label: 'Planning unmedicated birth', birthPlanText: 'We are planning an unmedicated birth. Please do not offer pain medication unless I ask for it.', icon: 'Leaf' },
       { value: 'open', label: 'Open to options, will decide in the moment', birthPlanText: 'We are open to pain management options and will decide during labor.', icon: 'Scale' },
       { value: 'epidural', label: 'Planning to get an epidural', birthPlanText: 'We plan to request an epidural during labor.', icon: 'Syringe' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pain management options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -168,8 +172,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'immediate', label: 'Immediately and uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate, uninterrupted skin-to-skin contact.', icon: 'Heart' },
       { value: 'partner_csection', label: 'Partner does immediate skin-to-skin (C-section)', birthPlanText: 'If I am unable during a C-section, please place baby skin-to-skin with my partner immediately.', icon: 'Users' },
       { value: 'after_assessment', label: 'As soon as safely possible', birthPlanText: 'We would like skin-to-skin as soon as it is safely possible after birth.', icon: 'Clock' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss skin-to-skin options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'golden_hour',
@@ -267,8 +273,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'photos_only', label: 'Photos only, no video', birthPlanText: 'We would like to take photos but not video during the birth.', icon: 'Image' },
       { value: 'after_only', label: 'Only after baby arrives', birthPlanText: 'We prefer photos only after baby is born, not during labor.', icon: 'ImagePlus' },
       { value: 'no', label: 'No photos or video', birthPlanText: 'We prefer no photos or video during the birth.', icon: 'EyeOff' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on photography preferences.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -300,8 +308,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'active_labor', label: 'Wait until active labor', birthPlanText: 'We plan to arrive during active labor (contractions about 4-5 minutes apart).', icon: 'Clock' },
       { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring and support.', icon: 'Building2' },
       { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will arrive when our provider recommends.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on when to head to the hospital.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -334,8 +344,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'very_important', label: 'Very important - I want full freedom', birthPlanText: 'Freedom to move, walk, and change positions during labor is very important to us.', icon: 'Move' },
       { value: 'somewhat', label: 'I\'d like to, but I\'m flexible', birthPlanText: 'We would prefer freedom to move during labor but are flexible based on circumstances.', icon: 'ArrowLeftRight' },
       { value: 'not_priority', label: 'Not a priority for me', birthPlanText: 'Mobility during labor is not a priority for us.', icon: 'Bed' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss mobility options during labor.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'fetal_monitoring',
@@ -364,8 +376,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'intermittent', label: 'Intermittent (checked periodically)', birthPlanText: 'We prefer intermittent fetal monitoring to allow freedom of movement.', icon: 'Activity' },
       { value: 'wireless', label: 'Wireless/waterproof if available', birthPlanText: 'If continuous monitoring is needed, we prefer wireless or waterproof monitors.', icon: 'Wifi' },
       { value: 'continuous', label: 'Continuous monitoring is fine', birthPlanText: 'We are comfortable with continuous fetal monitoring.', icon: 'Monitor' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss monitoring options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   {
@@ -394,8 +408,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'heplock', label: 'Hep lock only (IV ready, no fluids)', birthPlanText: 'We prefer a hep lock instead of continuous IV fluids.', icon: 'Plug' },
       { value: 'iv', label: 'Continuous IV is fine', birthPlanText: 'Continuous IV fluids are acceptable.', icon: 'Droplets' },
       { value: 'neither', label: 'No IV access if possible', birthPlanText: 'We prefer no IV access unless medically necessary.', icon: 'X' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss IV options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'eating_drinking',
@@ -423,8 +439,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'yes', label: 'Eat and drink freely', birthPlanText: 'I would like to eat and drink as desired during labor.', icon: 'Coffee' },
       { value: 'clear_liquids', label: 'Clear liquids only is fine', birthPlanText: 'Clear liquids during labor are acceptable.', icon: 'Droplets' },
       { value: 'follow_policy', label: 'Follow hospital policy', birthPlanText: 'We will follow hospital policy regarding eating and drinking.', icon: 'Building2' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss food and drink options during labor.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'labor_environment',
@@ -453,8 +471,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'music', label: 'We\'ll bring our own music', birthPlanText: 'We will bring our own music to play during labor.', icon: 'Music' },
       { value: 'aromatherapy', label: 'Aromatherapy and calming touches', birthPlanText: 'We would like to use aromatherapy during labor.', icon: 'Flower2' },
       { value: 'standard', label: 'No special preferences', birthPlanText: 'Standard hospital environment is fine.', icon: 'Building2', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our labor environment preferences.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'gbs_antibiotics',
@@ -483,8 +503,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'accept', label: 'Accept antibiotics if GBS positive', birthPlanText: 'If GBS positive, please administer IV antibiotics as recommended.', icon: 'Shield' },
       { value: 'decline', label: 'Decline antibiotics', birthPlanText: 'We decline GBS antibiotics and accept responsibility for this decision.', icon: 'X' },
       { value: 'natural', label: 'Discuss alternative approaches', birthPlanText: 'We would like to discuss alternative protocols for GBS.', icon: 'MessageCircle' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss GBS treatment options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'pushing_positions',
@@ -513,8 +535,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'freedom', label: 'Freedom to choose in the moment', birthPlanText: 'I would like the freedom to push in different positions as feels natural.', icon: 'Move' },
       { value: 'upright', label: 'Prefer upright positions', birthPlanText: 'I prefer upright pushing positions (squatting, hands-and-knees, etc.).', icon: 'ArrowUp' },
       { value: 'standard', label: 'Standard position is fine', birthPlanText: 'Standard pushing position is acceptable.', icon: 'Bed', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pushing position options.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -548,8 +572,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: '48hrs', label: 'Delay at least 48 hours', birthPlanText: 'Please delay baby\'s first bath for at least 48 hours.', icon: 'Timer' },
       { value: 'parents_give', label: 'We want to give the first bath', birthPlanText: 'We would like to give baby\'s first bath ourselves.', icon: 'Droplets' },
       { value: 'hospital_timing', label: 'Whenever the hospital recommends', birthPlanText: 'Baby\'s first bath may be given when recommended by nursing staff.', icon: 'Building2' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss bath timing options.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'vitamin_k',
@@ -578,8 +604,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'accept', label: 'Yes, give the Vitamin K shot', birthPlanText: 'Please give the Vitamin K injection as recommended.', icon: 'Shield' },
       { value: 'oral', label: 'Prefer oral Vitamin K', birthPlanText: 'We prefer oral Vitamin K administration over the injection.', icon: 'Pill' },
       { value: 'decline', label: 'We decline', birthPlanText: 'We decline the Vitamin K injection at this time.', icon: 'X' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss Vitamin K options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'eye_ointment',
@@ -608,8 +636,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'accept', label: 'Yes, apply the ointment', birthPlanText: 'Please apply the erythromycin eye ointment as recommended.', icon: 'Eye' },
       { value: 'delay', label: 'Delay for bonding first', birthPlanText: 'Please delay the eye ointment to allow for initial bonding and breastfeeding.', icon: 'Clock' },
       { value: 'decline', label: 'We decline', birthPlanText: 'We decline the erythromycin eye ointment.', icon: 'X' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss eye ointment options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'hep_b_vaccine',
@@ -638,8 +668,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'accept', label: 'Yes, give at birth', birthPlanText: 'Please administer the Hepatitis B vaccine at birth.', icon: 'Syringe' },
       { value: 'delay', label: 'Delay until pediatrician visit', birthPlanText: 'We prefer to delay the Hepatitis B vaccine until our pediatrician visit.', icon: 'Calendar' },
       { value: 'decline', label: 'We decline', birthPlanText: 'We decline the Hepatitis B vaccine at this time.', icon: 'X' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss Hepatitis B vaccine timing with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'circumcision',
@@ -702,8 +734,10 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'accept', label: 'Yes, do the screening', birthPlanText: 'Please perform the standard newborn screening tests.', icon: 'Shield' },
       { value: 'decline', label: 'We decline', birthPlanText: 'We decline the newborn screening tests.', icon: 'X' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss newborn screening with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'hearing_test',
@@ -730,8 +764,10 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'accept', label: 'Yes, do the hearing test', birthPlanText: 'Please perform the newborn hearing screening.', icon: 'Shield' },
       { value: 'decline', label: 'We decline', birthPlanText: 'We decline the hearing screening at this time.', icon: 'X' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss the hearing screening with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'procedure_timing',
@@ -759,8 +795,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'delay_golden_hour', label: 'Delay all during the golden hour', birthPlanText: 'Please delay all non-urgent procedures for at least the first hour to allow for bonding.', icon: 'Clock' },
       { value: 'ask_first', label: 'Ask us before each procedure', birthPlanText: 'Please ask our permission before each procedure and explain what will be done.', icon: 'MessageCircle' },
       { value: 'standard', label: 'Standard timing is fine', birthPlanText: 'Standard timing for procedures is acceptable.', icon: 'ClipboardCheck', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss procedure timing with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   {
@@ -791,8 +829,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: '3-5min', label: 'Wait 3-5 minutes', birthPlanText: 'Please delay cord clamping for 3-5 minutes.', icon: 'Timer' },
       { value: 'until_stops', label: 'Wait until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.', icon: 'Activity' },
       { value: 'immediate', label: 'Clamp right away', birthPlanText: 'We are comfortable with immediate cord clamping.', icon: 'Scissors' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'who_cuts_cord',
@@ -820,8 +860,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'partner', label: 'Partner cuts the cord', birthPlanText: 'My partner would like to cut the umbilical cord.', icon: 'Heart' },
       { value: 'mother', label: 'I want to cut the cord myself', birthPlanText: 'I would like to cut the cord myself.', icon: 'Scissors' },
       { value: 'provider', label: 'Provider can cut it', birthPlanText: 'Our provider may cut the umbilical cord.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding who will cut the cord.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'cord_blood',
@@ -850,8 +892,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'private', label: 'Private banking (for our family)', birthPlanText: 'We will be privately banking cord blood.', icon: 'Lock' },
       { value: 'public', label: 'Donate to a public bank', birthPlanText: 'We would like to donate cord blood to a public bank if available.', icon: 'Heart' },
       { value: 'no', label: 'No cord blood banking', birthPlanText: 'We do not plan to bank or donate cord blood.', icon: 'X', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord blood banking options.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -884,8 +928,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: '24_7', label: 'Baby stays with us 24/7', birthPlanText: 'We want baby to room-in with us at all times.', icon: 'Home' },
       { value: 'nursery_option', label: 'Mostly with us, may use nursery for rest', birthPlanText: 'We prefer rooming-in but may use the nursery for rest periods.', icon: 'Moon' },
       { value: 'flexible', label: 'Flexible, we\'ll see how we feel', birthPlanText: 'We are flexible about rooming-in and will decide based on how we are feeling.', icon: 'ArrowLeftRight', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss rooming-in options.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'pacifier',
@@ -914,8 +960,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'no', label: 'No pacifiers please', birthPlanText: 'Please do not give baby a pacifier.', icon: 'Ban' },
       { value: 'if_needed', label: 'Flexible, we\'ll see', birthPlanText: 'Pacifier use is acceptable if needed.', icon: 'ArrowLeftRight', omitFromPlan: true },
       { value: 'yes', label: 'Pacifiers are fine with us', birthPlanText: 'Pacifier use is acceptable.', icon: 'Check' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pacifier use with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'visitors',
@@ -976,8 +1024,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'minimum', label: 'Leave as soon as possible', birthPlanText: 'We prefer to be discharged as soon as safely possible.', icon: 'Home' },
       { value: 'standard', label: 'Standard stay', birthPlanText: 'We are comfortable with the standard length of stay.', icon: 'Calendar' },
       { value: 'extended', label: 'Extended if we need support', birthPlanText: 'We would like to stay longer if we feel we need more support.', icon: 'HeartHandshake' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We will decide on our length of stay based on how we are feeling.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'newborn_care_instruction',
@@ -1005,8 +1055,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'comprehensive', label: 'Yes, teach us everything', birthPlanText: 'We would appreciate comprehensive instruction on bathing, diapering, and caring for baby.', icon: 'BookOpen' },
       { value: 'basic', label: 'Just the basics', birthPlanText: 'Basic newborn care guidance is sufficient.', icon: 'Info' },
       { value: 'experienced', label: 'We\'re experienced, minimal instruction', birthPlanText: 'We are experienced with newborn care and do not need extensive instruction.', icon: 'Check' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I\'ll decide after baby arrives', birthPlanText: 'We will decide what instruction we need after baby arrives.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -1106,8 +1158,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'gentle_family_centered', label: 'Gentle/family-centered C-section', birthPlanText: 'If a C-section is needed, we would like a gentle, family-centered approach: clear drape, immediate skin-to-skin in the OR, and delayed cord clamping when safely possible.', icon: 'Heart' },
       { value: 'standard_with_preferences', label: 'Standard, but with some preferences', birthPlanText: 'If a C-section is needed, we would like to discuss specific preferences with our surgical team, such as partner presence and music.', icon: 'Settings' },
       { value: 'follow_medical_team', label: 'Follow the medical team\'s lead', birthPlanText: 'If a C-section becomes necessary, we trust the medical team to follow standard protocols.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss C-section approaches with our care team in advance.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'csection_details',
@@ -1171,8 +1225,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'delay_max', label: 'Yes, delay as long as safely possible', birthPlanText: 'During a C-section, please delay cord clamping as long as safely possible.', icon: 'Timer' },
       { value: 'brief_delay', label: 'Brief delay (60-90 seconds)', birthPlanText: 'During a C-section, please delay cord clamping for at least 60-90 seconds.', icon: 'Clock' },
       { value: 'surgeon_protocol', label: 'Follow surgeon\'s protocol', birthPlanText: 'We are comfortable with the surgeon\'s standard cord clamping protocol during a C-section.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing during a C-section with our surgical team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'csection_vaginal_seeding',
@@ -1202,8 +1258,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'yes_plan', label: 'Yes, we plan to do vaginal seeding', birthPlanText: 'We plan to perform vaginal seeding after the C-section to support baby\'s microbiome.', icon: 'Droplets' },
       { value: 'interested_discuss', label: 'Interested but want to discuss with provider', birthPlanText: 'We are interested in vaginal seeding and would like to discuss it with our provider before making a decision.', icon: 'MessageCircle' },
       { value: 'no', label: 'No, not for us', birthPlanText: 'We do not plan to do vaginal seeding.', icon: 'X', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to learn more about vaginal seeding before deciding.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'csection_comfort',
@@ -1234,8 +1292,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'music_in_or', label: 'Music in the OR', birthPlanText: 'During a C-section, we would like to play our own music in the operating room.', icon: 'Music' },
       { value: 'surgeon_narrates', label: 'Surgeon narrates what\'s happening', birthPlanText: 'During a C-section, we would like the surgeon to narrate what is happening during the procedure.', icon: 'MessageSquare' },
       { value: 'standard_fine', label: 'Standard procedure is fine', birthPlanText: 'We are comfortable with standard C-section procedures.', icon: 'ClipboardCheck', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss comfort options for a C-section with our surgical team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 ]
 

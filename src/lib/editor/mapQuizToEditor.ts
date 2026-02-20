@@ -40,6 +40,16 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     preferenceId: 'when_to_hospital',
     sectionId: 'pre_hospital',
   },
+  birth_photography: {
+    preferenceId: 'photography_video',
+    sectionId: 'pre_hospital',
+    valueMap: {
+      photos_video: 'partner',
+      photos_only: 'partner',
+      after_only: 'partner',
+      no: 'none',
+    },
+  },
 
   // During Labor
   pain_approach: {
@@ -282,7 +292,6 @@ const CSECTION_COMFORT_MAP: Record<string, Array<{ preferenceId: string; section
 // Engagement-only quiz questions that don't map to preferences
 // Their answers are used for personalization, not editor preferences
 const ENGAGEMENT_ONLY_QUESTIONS = new Set([
-  'birth_photography',
   'baby_sex',
   'baby_name',
 ])
@@ -363,7 +372,8 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     if (questionId === 'csection_details') {
       if (isCustomText) {
         // Custom text for C-section details - apply as custom text on gentle_csection preference
-        applyQuizAnswer(sections, 'csection', 'gentle_csection', 'yes', answer)
+        const quizStance = quizState.stances?.[questionId]
+        applyQuizAnswer(sections, 'csection', 'gentle_csection', 'yes', answer, quizStance)
         activatedOrder['gentle_csection'] = activationCounter++
       } else {
         const mappings = CSECTION_DETAILS_MAP[answer]
@@ -400,7 +410,8 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
       const defaultOption = questionDef?.options.find(o => !o.isUnsure && o.value !== 'custom')
       const fallbackValue = defaultOption?.value || 'custom'
       const translatedFallback = valueMap ? (valueMap[fallbackValue] || fallbackValue) : fallbackValue
-      applyQuizAnswer(sections, sectionId, preferenceId, translatedFallback, answer)
+      const quizStance = quizState.stances?.[questionId]
+      applyQuizAnswer(sections, sectionId, preferenceId, translatedFallback, answer, quizStance)
     } else {
       const translatedValue = valueMap ? (valueMap[answer] || answer) : answer
       applyQuizAnswer(sections, sectionId, preferenceId, translatedValue, quizState.customNotes?.[questionId])
@@ -460,6 +471,7 @@ function applyQuizAnswer(
   preferenceId: string,
   value: string,
   customNote?: string,
+  explicitStance?: 'desired' | 'declined' | null,
 ) {
   const section = sections[sectionId]
   if (!section) return
@@ -474,9 +486,11 @@ function applyQuizAnswer(
   const matchedOption = prefDef.options.find(opt => opt.value === value)
   if (!matchedOption) return
 
-  // Infer stance from the option's defaultStance or from value keywords
+  // Use explicit stance from quiz if provided, otherwise infer from option
   let stance: 'desired' | 'declined' | undefined
-  if (matchedOption.defaultStance) {
+  if (explicitStance !== undefined) {
+    stance = explicitStance ?? undefined
+  } else if (matchedOption.defaultStance) {
     stance = matchedOption.defaultStance as 'desired' | 'declined'
   } else if (/^(accept|yes)/.test(value)) {
     stance = 'desired'

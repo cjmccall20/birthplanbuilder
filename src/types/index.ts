@@ -93,6 +93,7 @@ export interface QuizState {
   currentStep: number
   answers: Record<string, string>
   customNotes: Record<string, string>
+  stances?: Record<string, 'desired' | 'declined' | null>
   birthTeam: BirthTeam
   templateStyle: string
   sessionId: string
