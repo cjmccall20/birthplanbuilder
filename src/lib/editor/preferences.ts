@@ -76,7 +76,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
   },
   {
     id: 'limited_interruptions',
-    sectionId: 'pre_hospital',
+    sectionId: 'during_labor',
     title: 'Interruptions During Labor',
     description: 'Preferences for staff visits and monitoring',
     icon: 'AlertCircle',
@@ -88,7 +88,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
   },
   {
     id: 'quiet_labor_environment',
-    sectionId: 'pre_hospital',
+    sectionId: 'during_labor',
     title: 'Quiet Environment',
     description: 'Atmosphere preferences during labor',
     icon: 'Moon',

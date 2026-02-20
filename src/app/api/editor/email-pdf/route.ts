@@ -20,6 +20,9 @@ const templateMap = {
   professional: ProfessionalTemplate,
   elegant: ElegantTemplate,
   rustic: RusticTemplate,
+  botanical: FloralTemplate,
+  ocean: ProfessionalTemplate,
+  boho: RusticTemplate,
 } as const
 
 interface PlanItem {

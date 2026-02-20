@@ -107,9 +107,25 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
       {/* Preview content */}
       <div className="max-w-[700px] mx-auto px-6 py-8">
         <div
-          className="shadow-lg rounded-sm"
-          style={{ backgroundColor: theme.backgroundColor }}
+          className="shadow-lg rounded-sm relative overflow-hidden"
+          style={{
+            backgroundColor: theme.backgroundColor,
+            backgroundImage: theme.backgroundPattern || undefined,
+          }}
         >
+          {/* Decorative corner SVGs */}
+          {theme.cornerSvg?.topLeft && (
+            <div className="absolute top-0 left-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.topLeft }} />
+          )}
+          {theme.cornerSvg?.topRight && (
+            <div className="absolute top-0 right-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.topRight }} />
+          )}
+          {theme.cornerSvg?.bottomLeft && (
+            <div className="absolute bottom-0 left-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.bottomLeft }} />
+          )}
+          {theme.cornerSvg?.bottomRight && (
+            <div className="absolute bottom-0 right-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.bottomRight }} />
+          )}
           <div
             className="p-8 md:p-12"
             style={{ fontFamily: theme.fontFamily, color: theme.textColor }}

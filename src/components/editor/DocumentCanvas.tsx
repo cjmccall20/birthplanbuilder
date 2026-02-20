@@ -197,9 +197,25 @@ export function DocumentCanvas({
       {/* Document Canvas */}
       <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8" onClick={handleCanvasClick}>
         <div
-          className="max-w-[650px] mx-auto shadow-lg rounded-sm"
-          style={{ backgroundColor: theme.backgroundColor }}
+          className="max-w-[650px] mx-auto shadow-lg rounded-sm relative overflow-hidden"
+          style={{
+            backgroundColor: theme.backgroundColor,
+            backgroundImage: theme.backgroundPattern || undefined,
+          }}
         >
+          {/* Decorative corner SVGs */}
+          {theme.cornerSvg?.topLeft && (
+            <div className="absolute top-0 left-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.topLeft }} />
+          )}
+          {theme.cornerSvg?.topRight && (
+            <div className="absolute top-0 right-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.topRight }} />
+          )}
+          {theme.cornerSvg?.bottomLeft && (
+            <div className="absolute bottom-0 left-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.bottomLeft }} />
+          )}
+          {theme.cornerSvg?.bottomRight && (
+            <div className="absolute bottom-0 right-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.bottomRight }} />
+          )}
           {/* Document Content */}
           <div
             className="p-8 md:p-12"

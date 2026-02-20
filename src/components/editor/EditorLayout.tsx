@@ -33,6 +33,9 @@ const templateMap = {
   professional: ProfessionalTemplate,
   elegant: ElegantTemplate,
   rustic: RusticTemplate,
+  botanical: FloralTemplate,
+  ocean: ProfessionalTemplate,
+  boho: RusticTemplate,
 } as const
 
 export function EditorLayout() {
@@ -230,7 +233,7 @@ export function EditorLayout() {
             'transition-all duration-300 flex-shrink-0',
             isRightPanelCollapsed ? 'w-12' : 'w-[400px]'
           )}>
-            <div className="sticky top-[72px] h-[calc(100vh-72px)]">
+            <div className="sticky top-[72px] h-[calc(100vh-72px-64px)]">
               {isRightPanelCollapsed ? (
                 <div className="h-full bg-white border rounded-lg flex flex-col items-center py-4">
                   <Button

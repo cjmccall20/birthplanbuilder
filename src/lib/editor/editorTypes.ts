@@ -9,7 +9,7 @@ export type EditorSectionId =
   | 'hospital_stay'
   | 'csection'
 
-export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic'
+export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic' | 'botanical' | 'ocean' | 'boho'
 
 export interface EditorSection {
   id: EditorSectionId

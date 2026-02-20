@@ -28,6 +28,9 @@ const templateMap = {
   professional: ProfessionalTemplate,
   elegant: ElegantTemplate,
   rustic: RusticTemplate,
+  botanical: FloralTemplate,
+  ocean: ProfessionalTemplate,
+  boho: RusticTemplate,
 } as const
 
 type ZoomLevel = 'fit-width' | '100%' | 'fit-page'
