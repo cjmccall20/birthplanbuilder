@@ -100,19 +100,7 @@ Whatever approach you choose, make sure your care team knows your preference ahe
 
 == Citations
 
-#citation[1] Declercq ER, Sakala C, Corry MP, Applebaum S, Herrlich A. Major Survey Findings of Listening to Mothers III: New Mothers Speak Out. _J Perinat Educ_. 2014;23(1):17-24.
-
-#citation[2] Stapleton SR, Osborne C, Illuzzi J. Outcomes of care in birth centers: demonstration of a durable model. _J Midwifery Womens Health_. 2013;58(1):3-14.
-
-#citation[3] Prins M, Boxem J, Lucas C, Hutton E. Effect of spontaneous pushing versus Valsalva pushing in the second stage of labour on mother and fetus: a systematic review of randomised trials. _BJOG_. 2011;118(6):662-670. DOI: 10.1111/j.1471-0528.2011.02910.x
-
-#citation[4] Roberts CL, Torvaldsen S, Cameron CA, Olive E. Delayed versus early pushing in women with epidural analgesia: a systematic review and meta-analysis. _BJOG_. 2004;111(12):1333-1340. DOI: 10.1111/j.1471-0528.2004.00282.x
-
-#citation[5] American College of Obstetricians and Gynecologists. First and Second Stage Labor Management. Clinical Practice Guideline No. 8. _Obstet Gynecol_. 2024 Jan;143(1):e1-e18.
-
-#citation[6] American College of Nurse-Midwives. Physiologic Second Stage Labor Care: Supporting Women's Innate Capacity. Clinical Bulletin No. 18. _J Midwifery Womens Health_. 2020.
-
-#citation[7] Bradley RA. _Husband-Coached Childbirth_. 5th ed. New York: Bantam Books; 2008.
+See #link(<cite-ch-directed-pushing>)[all citations for this chapter] in the Citations Appendix.
 
 == Key Sources
 

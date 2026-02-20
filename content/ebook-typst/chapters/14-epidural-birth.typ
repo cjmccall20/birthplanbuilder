@@ -274,38 +274,4 @@ The "right" choice is the one that helps you through YOUR labor, with YOUR body,
 
 == Citations
 
-#citation[1] Anim-Somuah, M., Smyth, R.M., Cyna, A.M., Cuthbert, A. (2018). Epidural versus non-epidural or no analgesia for pain management in labour. _Cochrane Database Syst Rev._, 5(5):CD000331. DOI: 10.1002/14651858.cd000331.pub4
-
-#citation[2] Kearns, R.J., et al. (2024). Epidural analgesia during labour and severe maternal morbidity: population based study. _BMJ_, 384:e077190. DOI: 10.1136/bmj-2023-077190
-
-#citation[3] ACOG Practice Bulletin No. 209. (2019). Obstetric Analgesia and Anesthesia. _Obstet Gynecol._, 133(3):e208-e225.
-
-#citation[4] ACOG Clinical Practice Guideline No. 8. (2024). First and Second Stage Labor Management. _Obstet Gynecol._, 143(1):144-162.
-
-#citation[5] Cheng, Y.W., et al. (2014). Second stage of labor and epidural use: a larger effect than previously suggested. _Obstet Gynecol._, 123(3):527-535. DOI: 10.1097/aog.0000000000000134
-
-#citation[6] Patel, S., Ciechanowicz, S., Blumenfeld, Y.J., Sultan, P. (2023). Epidural-related maternal fever: incidence, pathophysiology, outcomes, and management. _Am J Obstet Gynecol._, 228(2):S1147-S1158. DOI: 10.1016/j.ajog.2022.06.026
-
-#citation[7] Beilin, Y., et al. (2005). Effect of labor epidural analgesia with and without fentanyl on infant breastfeeding. _Anesthesiology_, 103(6):1211-1217. DOI: 10.1097/00000542-200512000-00016
-
-#citation[8] Tussey, C.M., et al. (2015). Reducing length of labor and cesarean surgery rate using a peanut ball for women laboring with an epidural. _J Perinat Educ._, 24(1):16-24. DOI: 10.1891/1058-1243.24.1.16
-
-#citation[9] Cahill, A.G., et al. (2018). Effect of Immediate vs Delayed Pushing on Rates of Spontaneous Vaginal Delivery Among Nulliparous Women Receiving Neuraxial Analgesia. _JAMA_, 320(14):1444-1454. DOI: 10.1001/jama.2018.13986
-
-#citation[10] Lieberman, E., et al. (2005). Changes in fetal position during labor and their association with epidural analgesia. _Obstet Gynecol._, 105(5 Pt 1):974-982. DOI: 10.1097/01.aog.0000177768.02037.10
-
-#citation[11] Howell, C.J., et al. (2002). Randomised study of long term outcome after epidural versus non-epidural analgesia during labour. _BMJ_, 325(7360):357. DOI: 10.1136/bmj.325.7360.357
-
-#citation[12] Wong, C.A., Scavone, B.M., Peaceman, A.M., et al. (2005). The risk of cesarean delivery with neuraxial analgesia given early versus late in labor. _N Engl J Med._, 352(7):655-665.
-
-#citation[13] Takahata, K., Horiuchi, S., Miyauchi, A., Tadokoro, Y., Shuo, T. (2023). A longitudinal study of the association of epidural anesthesia and low-dose synthetic oxytocin regimens with breast milk supply and breastfeeding rates. _Sci Rep._, 13:21084. DOI: 10.1038/s41598-023-48584-6
-
-#citation[14] Dekker, R. (2024). Epidural during Labor for Pain Management. _Evidence Based Birth._
-
-#citation[15] Loftus, J.R., Hill, H., Cohen, S.E. (1995). Placental transfer and neonatal effects of epidural sufentanil and fentanyl administered with bupivacaine during labor. _Anesthesiology_, 83(2):300-308. DOI: 10.1097/00000542-199508000-00010
-
-#citation[16] Melzack, R., Taenzer, P., Kinch, R.A. (1981). Labor pain: nature of the experience and the role of prepared childbirth training. _Pain_, 11(3):291-305. DOI: 10.1016/0304-3959(81)90537-6
-
-#citation[17] Hodnett, E.D. (2002). Pain and women's satisfaction with the experience of childbirth: a systematic review. _Am J Obstet Gynecol._, 186(5):S160-S172. DOI: 10.1016/s0002-9378(02)70189-0
-
-#citation[18] Ruppen, W., Derry, S., McQuay, H., Moore, R.A. (2006). Incidence of epidural hematoma, infection, and neurologic injury in obstetric patients with epidural analgesia/anesthesia. _Anesthesiology_, 103(4):1038-1049. DOI: 10.1097/00000542-200608000-00023
+See #link(<cite-ch-epidural-birth>)[all citations for this chapter] in the Citations Appendix.

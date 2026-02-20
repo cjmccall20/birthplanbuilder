@@ -904,34 +904,4 @@ Your birth team shapes your birth experience. Choose people who believe in you.
 
 == Citations
 
-#citation[1] American College of Obstetricians and Gynecologists. ACGME Program Requirements for Graduate Medical Education in Obstetrics and Gynecology. ACOG/ACGME. 2024. #link("https://www.acgme.org/specialties/obstetrics-and-gynecology/program-requirements-and-faqs-and-applications/")
-
-#citation[2] American College of Nurse-Midwives. Philosophy of Midwifery Care. ACNM. 2024. #link("https://midwife.org/issue-areas/")
-
-#citation[3] Bohren, M. A., Hofmeyr, G. J., Sakala, C., Fukuzawa, R. K., & Cuthbert, A. (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6
-
-#citation[4] MacDorman, M. F., & Declercq, E. (2016). Trends and characteristics of United States out-of-hospital births 2004-2014: New information on risk status and access to care. _Birth_, 43(2), 116-124. DOI: 10.1111/birt.12228
-
-#citation[5] Johantgen, M., Fountain, L., Zangaro, G., Newhouse, R., Stanik-Hutt, J., & White, K. (2012). Comparison of labor and delivery care provided by certified nurse-midwives and physicians: A systematic review, 1990 to 2008. _Women's Health Issues_, 22(1), e73-e81. DOI: 10.1016/j.whi.2011.06.005
-
-#citation[6] American College of Nurse-Midwives. Become a Midwife: CNM/CM Education. ACNM. 2024. #link("https://midwife.org/become-a-midwife/")
-
-#citation[7] American Midwifery Certification Board. CNM/CM Certification. AMCB. 2024. #link("https://www.amcbmidwife.org/amcb-certification")
-
-#citation[8] American College of Nurse-Midwives. Prescriptive Authority and Licensure by State. ACNM. 2024. See also: National Conference of State Legislatures. Certified Nurse-Midwife Practice and Prescriptive Authority. #link("https://www.ncsl.org/scope-of-practice-policy/practitioners/advanced-practice-registered-nurses/certified-nurse-midwife-practice-and-prescriptive-authority")
-
-#citation[9] National Academy for State Health Policy. Medicaid Financing of Midwifery Services: A 50-State Analysis. NASHP. 2024. #link("https://nashp.org/medicaid-financing-of-midwifery-services-a-50-state-analysis/")
-
-#citation[10] North American Registry of Midwives. State-by-State Legal Status for CPMs. NARM. 2025. #link("https://narm.org/about/advocacy/state-information/")
-
-#citation[11] HealthCare.gov. Essential Health Benefits. U.S. Department of Health & Human Services. 2024. See also: Center for American Progress. States' Essential Health Benefits Coverage and Maternal Health Equity. #link("https://www.americanprogress.org/article/states-essential-health-benefits-coverage-advance-maternal-health-equity/")
-
-#citation[12] American Midwifery Certification Board. CM State Licensure Map. AMCB. 2024. #link("https://www.amcbmidwife.org/docs/default-source/default-document-library/state-comparison-chart-feb-2021-may-2025.pdf")
-
-#citation[13] Healthy People 2030. Reduce cesarean births among low-risk women with no prior births (MICH-06). U.S. Department of Health & Human Services. Target: 23.6%. #link("https://odphp.health.gov/healthypeople/objectives-and-data/browse-objectives/pregnancy-and-childbirth/reduce-cesarean-births-among-low-risk-women-no-prior-births-mich-06")
-
-#citation[14] American College of Obstetricians and Gynecologists. Practice Bulletin No. 198: Prevention and Management of Obstetric Lacerations at Vaginal Delivery. _Obstetrics & Gynecology_. 2018;132(3):e87-e102. DOI: 10.1097/AOG.0000000000002841
-
-#citation[15] American College of Obstetricians and Gynecologists. Committee Opinion No. 814: Delayed Umbilical Cord Clamping After Birth. _Obstetrics & Gynecology_. 2020;136(6):e100-e106. DOI: 10.1097/AOG.0000000000004167
-
-#citation[16] Health Insurance Portability and Accountability Act (HIPAA). 45 CFR 164.524 — Access of individuals to protected health information. U.S. Department of Health & Human Services. #link("https://www.hhs.gov/hipaa/for-professionals/privacy/guidance/access/index.html")
+See #link(<cite-ch-birth-team>)[all citations for this chapter] in the Citations Appendix.

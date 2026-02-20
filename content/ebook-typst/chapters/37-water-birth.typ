@@ -469,34 +469,6 @@ Until then, know that water birth is a legitimate, evidence-based choice—and w
 
 == Citations
 
-#citation[1] Cluett ER, Burns E, Cuthbert A. Immersion in water during labour and birth. _Cochrane Database of Systematic Reviews_. 2018. https://www.cochrane.org/CD000111/PREG_immersion-water-labour-and-birth
-
-#citation[2] Systematic Reviews and Synthesis without Meta-Analysis on Hydrotherapy for Pain Control in Labor. _PMC_. 2024. https://pmc.ncbi.nlm.nih.gov/articles/PMC10855539/
-
-#citation[3] Featured Review: Immersion in water during labour and birth. _Cochrane_. https://www.cochrane.org/about-us/news/featured-review-immersion-water-during-labour-and-birth
-
-#citation[4] Sanders J, Bewley S. Effect of labour and birth in water on maternal and neonatal outcomes. _BMJ_. 2011;342:d2471.
-
-#citation[5] Sanders J, et al. (POOL Study). Characteristics of Women, Intrapartum Interventions, and Maternal and Neonatal Outcomes Among Users of Intrapartum Water Immersion. _Birth_. DOI: 10.1111/birt.12921
-
-#citation[6] Experiences of water immersion during childbirth: a qualitative thematic synthesis. _BMC Pregnancy and Childbirth_. 2023. https://bmcpregnancychildbirth.biomedcentral.com/articles/10.1186/s12884-023-05690-7
-
-#citation[7] Buckley SJ. Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Childbirth Connection_. 2015.
-
-#citation[8] Underwater birth and neonatal respiratory distress. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC557235/
-
-#citation[9] Water birth. _Pregnancy Birth and Baby_. https://www.pregnancybirthbaby.org.au/water-birth
-
-#citation[10] Guidelines for Water Immersion and Water Birth. _Arizona Department of Health Services_. November 2016. https://www.azdhs.gov/documents/licensing/special/midwives/training/guidelines-for-water-immersion-water-birth.pdf
-
-#citation[11] Waterbirth: water temperature and bathing time--mother knows best! _PubMed_. https://pubmed.ncbi.nlm.nih.gov/12442600/
-
-#citation[12] Can I have a water birth in the hospital? _Nebraska Medicine_. https://www.nebraskamed.com/health/conditions-and-services/pregnancy-and-birth/can-i-have-a-water-birth-in-the-hospital
-
-#citation[13] Evidence Based Birth. The Evidence on: Waterbirth. https://evidencebasedbirth.com/waterbirth/
-
-#citation[14] American Association of Birth Centers. https://www.birthcenters.org/
-
-#citation[15] American College of Obstetricians and Gynecologists. Committee Opinion No. 679: Immersion in Water During Labor and Delivery. _Obstet Gynecol_. 2016 Nov;128(5):e231-e236. DOI: 10.1097/AOG.0000000000001771. PMID: 27776071. (Reaffirmed 2021)
+See #link(<cite-ch-water-birth>)[all citations for this chapter] in the Citations Appendix.
 
 

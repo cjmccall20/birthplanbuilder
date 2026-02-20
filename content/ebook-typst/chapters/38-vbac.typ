@@ -619,19 +619,7 @@ _Finding VBAC-supportive providers:_
 
 == Citations
 
-#citation[1] Vaginal Birth After Cesarean Delivery. _StatPearls (NCBI)_. Updated February 2025. https://www.ncbi.nlm.nih.gov/books/NBK507844/
-
-#citation[2] Trial of Labor After Cesarean and Risk of Uterine Rupture: Expert Review. _AJOG_. 2022. DOI: 10.1016/j.ajog.2022.09.024
-
-#citation[3] Vaginal Birth After Cesarean Section. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC3624716/
-
-#citation[4] Cesarean Section One Hundred Years 1920-2020. _Journal of Perinatal Medicine_. DOI: 10.1515/jpm-2020-0305
-
-#citation[5] VBAC Calculator Overestimated Success With Induction. _Medscape_. 2025. https://www.medscape.com/viewarticle/vbac-calculator-overestimated-success-induction-labor-2025a1000ft4
-
-#citation[7] VBAC Calculator Underestimates VBAC Odds and Contains Racial Bias. _VBAC Facts_. https://vbacfacts.com/vbac-calculator-underestimate-inaccurate/
-
-#citation[8] Home Birth After C-Section. _The VBAC Link_ (citing Bayrampour et al. 2021, _Birth_, DOI: 10.1111/birt.12539). https://www.thevbaclink.com/home-birth-vbac/
+See #link(<cite-ch-vbac>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

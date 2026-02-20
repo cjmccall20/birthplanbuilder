@@ -72,6 +72,8 @@ When continuing the pregnancy poses greater risks than delivery, Pitocin can ini
 
 In these situations, the risk of waiting for spontaneous labor clearly outweighs the risks of induction. Pitocin can be genuinely life-saving.
 
+That said, even when induction is medically indicated, Pitocin isn't the only tool available. Nipple stimulation has the strongest evidence among natural methods, and membrane sweeping, eating dates in the final weeks, and sexual intercourse all have some research support. These can sometimes be tried alongside or before medical induction, depending on the urgency of the situation. For the complete rundown on every induction method and the evidence behind it, see #link(<ch-labor-induction>)[our Natural Labor Induction chapter].
+
 === Labor Augmentation
 
 When labor has started on its own but contractions are too weak, too infrequent, or have stalled, Pitocin can strengthen and regulate contractions.
@@ -81,6 +83,12 @@ Augmentation is considered when:
 - Cervical dilation has stopped progressing
 - The baby is not descending through the birth canal
 - Labor extends beyond expected timeframes for the stage
+
+Here's what that list doesn't tell you: *slow labor is not the same as stalled labor.* Contractions naturally ebb and flow throughout the process. Many women experience a "rest and be thankful" phase between active labor and pushing where contractions space out and the body takes a breather before the final push. Cervical checks spaced too closely together can make perfectly normal progress look like no progress at all. A cervix that hasn't changed in two hours may change dramatically in the next one.
+
+Augmentation is often the first domino in the cascade of interventions. Once Pitocin is started for a labor that's moving slowly, the intensity of contractions ramps up without the matching endorphin response. That frequently leads to requesting an epidural, which can slow labor further, which leads to more Pitocin, and so on. The pattern is well-documented and worth understanding before you agree to start it (see #link(<ch-cascade>)[the Cascade of Interventions chapter]).
+
+The other thing worth knowing: the "failure to progress" diagnosis is subjective. The same labor pattern might be called "arrested" at one hospital and "progressing normally" at another. It depends heavily on provider patience and institutional norms. ACOG's own Safe Prevention of the Primary Cesarean guidelines acknowledged that older labor timelines were too aggressive and that many women labeled as "failing to progress" were actually within the range of normal. Before accepting augmentation, the alternatives listed in the "Alternatives to Try First" section later in this chapter should genuinely be attempted — not just mentioned in passing by a nurse while the Pitocin bag is already being hung.
 
 === Third Stage of Labor (After Delivery)
 
@@ -397,33 +405,7 @@ For a broader discussion of how interventions tend to lead to more interventions
 
 == Citations
 
-#citation[1] Buckley SJ (2015). Beyond Labor: The Role of Natural and Synthetic Oxytocin in the Transition to Motherhood. _PMC3947469_. https://pmc.ncbi.nlm.nih.gov/articles/PMC3947469/
-
-#citation[2] High-Dose versus Low-Dose Oxytocin for Labor Augmentation: A Meta-Analysis. _PMC11278403_. https://pmc.ncbi.nlm.nih.gov/articles/PMC11278403/
-
-#citation[3] Maternal and newborn plasma oxytocin levels in response to maternal synthetic oxytocin administration during labour, birth and postpartum. _PMC9979579_. https://pmc.ncbi.nlm.nih.gov/articles/PMC9979579/
-
-#citation[4] Oxytocin -- StatPearls. _NCBI Bookshelf_. https://www.ncbi.nlm.nih.gov/books/NBK507848/
-
-#citation[5] Evidence Based Birth. Evidence on: Pitocin During the Third Stage of Labor. https://evidencebasedbirth.com/evidence-on-pitocin-during-the-third-stage-of-labor/
-
-#citation[6] Evidence Based Birth. Evidence on Pitocin Augmentation, Epidurals, Cesarean. https://evidencebasedbirth.com/ebb-245-evidence-on-pitocin-augmentation-epidurals-cesarean/
-
-#citation[7] The Role of Oxytocin and the Effect of Stress During Childbirth: Neurobiological Basics and Implications for Mother and Child. _PMC8578887_. https://pmc.ncbi.nlm.nih.gov/articles/PMC8578887/
-
-#citation[8] Buckley S. Synthetic Oxytocin (Pitocin, Syntocinon): Unpacking the myths and side-effects. https://sarahbuckley.com/pitocin-side-effects-part1/
-
-#citation[9] AHRQ. Safe Medication Administration: Oxytocin. https://www.ahrq.gov/patient-safety/settings/labor-delivery/perinatal-care/modules/strategies/medication/tool-safe-oxytocin.html
-
-#citation[10] Prophylactic oxytocin for the third stage of labour to prevent postpartum haemorrhage. _Cochrane Database of Systematic Reviews_. _PMC6487388_. https://pmc.ncbi.nlm.nih.gov/articles/PMC6487388/
-
-#citation[11] AWHONN. Guidelines for Active Management of the Third Stage of Labor using Oxytocin. _JOGNN_. https://www.jognn.org/article/S0884-2175(21)00061-7/fulltext
-
-#citation[12] Healthy Birth Practice \#4: Avoid Interventions Unless They Are Medically Necessary. _PMC4235054_. https://pmc.ncbi.nlm.nih.gov/articles/PMC4235054/
-
-#citation[13] Whitley J, et al. (2025). Reduced risk of cesarean delivery with oxytocin discontinuation in active labor: a systematic review and meta-analysis. _American Journal of Obstetrics & Gynecology_. DOI: 10.1016/j.ajog.2025.03.015
-
-#citation[14] ACOG (2021). Informed Consent and Shared Decision Making in Obstetrics and Gynecology. _Obstetrics & Gynecology_, 137(2), e34-e41. https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2021/02/informed-consent-and-shared-decision-making-in-obstetrics-and-gynecology
+See #link(<cite-ch-pitocin>)[all citations for this chapter] in the Citations Appendix.
 
 == Key Sources
 

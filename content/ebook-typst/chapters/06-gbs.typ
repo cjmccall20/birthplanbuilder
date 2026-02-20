@@ -347,29 +347,7 @@ What we want you to take away: if you accept GBS antibiotics, you've made a soun
 
 == Citations
 
-#citation[1] CDC. (2010). Prevention of Perinatal Group B Streptococcal Disease. _MMWR Recommendations and Reports_, 59(RR-10). #link("https://www.cdc.gov/mmwr/preview/mmwrhtml/rr5910a1.htm") Note: Screening window updated to 36-37 weeks per ACOG 2020 guidelines.
-
-#citation[2] Ohlsson, A., & Shah, V. S. (2014). Intrapartum antibiotics for known maternal Group B streptococcal colonization. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd007467.pub4
-
-#citation[3] Group B Streptococcus and Pregnancy. _StatPearls/NCBI_. #link("https://www.ncbi.nlm.nih.gov/books/NBK482443/")
-
-#citation[4] Morreale, C., Giaroni, C., Baj, A., et al. (2023). Effects of Perinatal Antibiotic Exposure and Neonatal Gut Microbiota. _Antibiotics_. DOI: 10.3390/antibiotics12020258. See also: Diamond, L., Wine, R., & Morris, S. K. (2022). Impact of intrapartum antibiotics on the infant gastrointestinal microbiome: A narrative review. _Archives of Disease in Childhood_. DOI: 10.1136/archdischild-2021-322590
-
-#citation[5] Antibiotics in Early Life and Atopic Dermatitis Risk. (2024). _Journal of Allergy and Clinical Immunology_. CHILD Cohort Study. #link("https://www.jacionline.org/article/S0091-6749(24)00409-3/fulltext")
-
-#citation[6] von Mutius, E. (2007). Allergies, infections and the hygiene hypothesis --- The epidemiological evidence. _Immunobiology_. DOI: 10.1016/j.imbio.2007.03.002. See also: Bendiks, M., & Kopp, M. V. (2013). The Relationship Between Advances in Understanding the Microbiome and the Maturing Hygiene Hypothesis. _Current Allergy and Asthma Reports_. DOI: 10.1007/s11882-013-0382-8
-
-#citation[7] Macy, E. M., & Chen, L. H. (2017). The Incidence of Anaphylaxis Associated with Oral and Parenteral Penicillin-Class Antibiotic Exposures. _Journal of Allergy and Clinical Immunology_. DOI: 10.1016/j.jaci.2016.12.165
-
-#citation[8] Chlorhexidine During Labour for GBS Prevention. _Cochrane Database of Systematic Reviews_. #link("https://www.cochrane.org/CD003520/PREG_antibacterial-chlorhexidine-applied-to-the-vagina-during-labour-to-prevent-early-onset-group-b-streptococcal-infection-in-the-newborn")
-
-#citation[9] Hanson, L., VandeVusse, L., Malloy, E., et al. (2021). Probiotic interventions to reduce antepartum Group B streptococcus colonization: A systematic review and meta-analysis. _Journal of Maternal-Fetal & Neonatal Medicine_. #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC9574470/")
-
-#citation[10] Craig, S., Daniels, J., & Sum, P. Routine testing for Group B Streptococcus in pregnancy (GBS3 trial). _ISRCTN_. DOI: 10.1186/isrctn49639731
-
-#citation[11] Wong, C. B., et al. (2024). Probiotics in the New Era of Human Milk Oligosaccharides (HMOs): HMO Utilization and Beneficial Effects of Bifidobacterium longum subsp. infantis M-63 on Infant Health. _Microorganisms_. DOI: 10.3390/microorganisms12051014
-
-#citation[12] Diminishing Racial Disparities in Early-Onset Neonatal Group B Streptococcal Disease --- United States, 2000--2003. (2004). _JAMA_. DOI: 10.1001/jama.292.6.676
+See #link(<cite-ch-gbs>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

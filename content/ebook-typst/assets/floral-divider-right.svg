@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 30" width="120" height="30">
+  <g fill="none" stroke="#FF6B6B" stroke-width="1.2" stroke-linecap="round">
+    <!-- Main stem curving right (mirrored) -->
+    <path d="M0,15 C20,15 25,15 35,15 C45,15 50,8 60,8 C70,8 75,15 85,15 C95,15 105,10 115,15" fill="none"/>
+    <!-- Upper scroll -->
+    <path d="M60,8 C65,3 72,2 75,5 C78,8 75,12 70,10" fill="none"/>
+    <!-- Lower scroll -->
+    <path d="M60,8 C65,13 72,18 75,15 C78,12 75,7 70,10" fill="none"/>
+    <!-- Right tendril top -->
+    <path d="M85,15 C90,10 95,6 98,8 C101,10 98,14 94,12" fill="none"/>
+    <!-- Right tendril bottom -->
+    <path d="M85,15 C90,20 95,24 98,22 C101,20 98,16 94,18" fill="none"/>
+    <!-- Outer right curl -->
+    <path d="M105,12 C110,7 115,5 117,8 C119,11 116,14 112,12" fill="none"/>
+    <path d="M105,18 C110,23 115,25 117,22 C119,19 116,16 112,18" fill="none"/>
+    <!-- Small leaf accents -->
+    <path d="M45,15 C47,11 50,9 52,11 C54,13 51,15 48,14" fill="#FF6B6B" opacity="0.3"/>
+    <path d="M45,15 C47,19 50,21 52,19 C54,17 51,15 48,16" fill="#FF6B6B" opacity="0.3"/>
+    <!-- Small dots/berries -->
+    <circle cx="75" cy="5" r="1.5" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="75" cy="15" r="1.5" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="98" cy="8" r="1.2" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="98" cy="22" r="1.2" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="117" cy="8" r="1" fill="#FF6B6B" opacity="0.5"/>
+    <circle cx="117" cy="22" r="1" fill="#FF6B6B" opacity="0.5"/>
+    <!-- Terminal endpoint -->
+    <line x1="0" y1="15" x2="2" y2="15" stroke="#FF6B6B" stroke-width="0"/>
+  </g>
+</svg>

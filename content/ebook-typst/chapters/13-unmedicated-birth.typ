@@ -428,42 +428,4 @@ Then trust your body and your team.
 
 == Citations
 
-#citation[1] Hodnett, E.D., et al. (2013). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd003766.pub5
-
-#citation[2] ACOG Committee Opinion No. 766. (2019). Approaches to Limit Intervention During Labor and Birth. _Obstetrics & Gynecology_. DOI: 10.1097/aog.0000000000003074
-
-#citation[3] Buckley, S.J. (2015). Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Journal of Perinatal Education_, 24(3), 145-153. DOI: 10.1891/1058-1243.24.3.145
-
-#citation[4] Lothian, J.A. (2005). The birth of a breastfeeding baby and mother. _Journal of Perinatal Education_. DOI: 10.1624/105812405x23667
-
-#citation[5] Uvnas-Moberg, K. (2003). _The Oxytocin Factor: Tapping the Hormone of Calm, Love and Healing_. Da Capo Press.
-
-#citation[6] Buckley, S.J. (2015). Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. National Partnership for Women & Families / Childbirth Connection.
-
-#citation[7] Dozier, A.M., et al. (2013). Labor epidural anesthesia, obstetric factors and breastfeeding cessation. _Maternal and Child Health Journal_. DOI: 10.1007/s10995-012-1045-4
-
-#citation[8] Simkin, P. (1991). Just another day in a woman's life? Women's long-term perceptions of their first birth experience. _Birth_. DOI: 10.1111/j.1523-536x.1991.tb00103.x
-
-#citation[9] Bohren, M.A., et al. (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd003766.pub6
-
-#citation[10] Cluett, E.R., Burns, E., Cuthbert, A. (2018). Immersion in water during labour and birth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd000111.pub4
-
-#citation[11] Lawrence, A., et al. (2013). Maternal positions and mobility during first stage labour. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd003934.pub3
-
-#citation[12] American Academy of Husband-Coached Childbirth. Bradley Method outcomes. https://www.bradleybirth.com
-
-#citation[13] Evidence Based Birth. The Evidence on Doulas. https://evidencebasedbirth.com/the-evidence-for-doulas/
-
-#citation[14] Gaskin, I.M. (2003). _Ina May's Guide to Childbirth_. Bantam Books.
-
-#citation[15] Mongan, M. (2015). _HypnoBirthing: The Mongan Method_. 4th Edition. Health Communications, Inc.
-
-#citation[16] Declercq, E.R., Sakala, C., Corry, M.P., Applebaum, S., Herrlich, A. (2014). Major Survey Findings of Listening to Mothers III: Pregnancy and Birth. _Journal of Perinatal Education_, 23(1), 9-16. DOI: 10.1891/1058-1243.23.1.9
-
-#citation[17] Mikolajczyk, R.T., Zhang, J., Grewal, J., Chan, L.C., Petersen, A., Gross, M.M. (2016). Early versus Late Admission to Labor Affects Labor Progression and Risk of Cesarean Section in Nulliparous Women. _Frontiers in Medicine_. DOI: 10.3389/fmed.2016.00026
-
-#citation[18] Bell, A.F., Erickson, E.N., Carter, C.S. (2014). Beyond labor: the role of natural and synthetic oxytocin in the transition to motherhood. _Journal of Midwifery & Women's Health_, 59(1), 35-42. DOI: 10.1111/jmwh.12101
-
-#citation[19] Olsen, O., Clausen, J.A. (2012). Planned hospital birth versus planned home birth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd000352.pub2
-
-#citation[20] Tussey, C.M., Botsios, E., Gerkin, R.D., Kelly, L.A., Gamez, J., Mensik, J. (2015). Reducing Length of Labor and Cesarean Surgery Rate Using a Peanut Ball for Women Laboring With an Epidural. _Journal of Perinatal Education_, 24(1), 16-24. DOI: 10.1891/1058-1243.24.1.16
+See #link(<cite-ch-unmedicated-birth>)[all citations for this chapter] in the Citations Appendix.

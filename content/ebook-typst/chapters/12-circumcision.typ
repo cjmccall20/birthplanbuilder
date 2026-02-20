@@ -504,43 +504,7 @@ Either choice is reasonable. What matters is that you understand the evidence, c
 
 == Citations
 
-#citation[1] Cold CJ, Taylor JR. (1999). The prepuce. _BJU International_, 83(Suppl 1), 34-44. DOI: 10.1046/j.1464-410x.1999.0830s1034.x
-
-#citation[2] Sorrells ML, Snyder JL, Reiss MD, et al. (2007). Fine-touch pressure thresholds in the adult penis. _BJU International_, 99(4), 864-869. DOI: 10.1111/j.1464-410x.2006.06685.x
-
-#citation[3] Oster J. (1968). Further fate of the foreskin: Incidence of preputial adhesions, phimosis, and smegma among Danish schoolboys. _Archives of Disease in Childhood_, 43(228), 200-203. DOI: 10.1136/adc.43.228.200
-
-#citation[4] American Academy of Pediatrics Task Force on Circumcision. (2012). Circumcision Policy Statement. _Pediatrics_, 130(3), 585-586. DOI: 10.1542/peds.2012-1989
-
-#citation[5] Singh-Grewal D, et al. (2005). Circumcision for the prevention of urinary tract infection in boys: a systematic review of randomised trials and observational studies. _Archives of Disease in Childhood_, 90(8), 853-858. DOI: 10.1136/adc.2004.049353
-
-#citation[6] WHO/UNAIDS. (2007). WHO and UNAIDS announce recommendations from expert consultation on male circumcision for HIV prevention. https://www.who.int/news/item/28-03-2007-who-and-unaids-announce-recommendations-from-expert-consultation-on-male-circumcision-for-hiv-prevention
-
-#citation[7] Wawer MJ, et al. (2009). Circumcision in HIV-infected men and its effect on HIV transmission to female partners in Rakai, Uganda: a randomised controlled trial. _The Lancet_, 374(9685), 229-237. DOI: 10.1016/s0140-6736(09)60998-3
-
-#citation[8] American Cancer Society. Key Statistics for Penile Cancer. https://www.cancer.org/cancer/types/penile-cancer/key-statistics.html
-
-#citation[9] Larke NL, Thomas SL, dos Santos Silva I, Weiss HA. (2011). Male circumcision and penile cancer: a systematic review and meta-analysis. _Cancer Causes & Control_, 22(8), 1097-1110. DOI: 10.1007/s10552-011-9785-9
-
-#citation[10] Weiss HA, Larke N, Halperin D, Schenker I. (2010). Complications of circumcision in male neonates, infants and children: a systematic review. _BMC Urology_, 10, 2. DOI: 10.1186/1471-2490-10-2
-
-#citation[11] Bollinger D. (2010). Lost Boys: An Estimate of U.S. Circumcision-Related Infant Deaths. _Thymos: Journal of Boyhood Studies_, 4(1), 78-90. DOI: 10.3149/thy.0401.78
-
-#citation[12] Earp BD, Allareddy V, Allareddy V, Rotta AT. (2018). Factors Associated With Early Deaths Following Neonatal Male Circumcision in the United States, 2001 to 2010. _Clinical Pediatrics_, 57(11), 1532-1540. DOI: 10.1177/0009922818790060
-
-#citation[13] Gunnar MR, Malone S, Vance G, Fisch RO. (1985). Coping with Aversive Stimulation in the Neonatal Period: Quiet Sleep and Plasma Cortisol Levels during Recovery from Circumcision. _Child Development_, 56(4), 824-834. DOI: 10.2307/1130094
-
-#citation[14] Taddio A, Katz J, Ilersich AL, Koren G. (1997). Effect of neonatal circumcision on pain response during subsequent routine vaccination. _The Lancet_, 349(9052), 599-603. DOI: 10.1016/s0140-6736(96)10316-0
-
-#citation[15] Lander J, Brady-Fryer B, Metcalfe JB, Nazarali S, Muttitt S. (1997). Comparison of Ring Block, Dorsal Penile Nerve Block, and Topical Anesthesia for Neonatal Circumcision. _JAMA_, 278(24), 2157-2162. DOI: 10.1001/jama.1997.03550240047032
-
-#citation[16] Morris BJ, Krieger JN. (2013). Does Male Circumcision Affect Sexual Function, Sensitivity, or Satisfaction? — A Systematic Review. _The Journal of Sexual Medicine_, 10(11), 2644-2657. DOI: 10.1111/jsm.12293
-
-#citation[17] Morris BJ, et al. (2016). Estimation of country-specific and global prevalence of male circumcision. _Population Health Metrics_, 14, 4. DOI: 10.1186/s12963-016-0073-5
-
-#citation[18] Landgericht Koln (Cologne Regional Court). (2012). Case No. 151 Ns 169/11, May 7, 2012. Ruling that circumcision of a non-consenting boy constitutes assault.
-
-#citation[19] Kellogg JH. (1888). _Plain Facts for Old and Young: Embracing the Natural History and Hygiene of Organic Life_ (rev. ed.). Burlington, IA: Segner & Condit. DOI: 10.1037/12999-000
+See #link(<cite-ch-circumcision>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

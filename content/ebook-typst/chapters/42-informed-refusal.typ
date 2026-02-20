@@ -626,33 +626,7 @@ Know your rights. Use your voice. And trust yourself.
 
 == Citations
 
-#citation[1] ACOG Committee Opinion No. 664 (2016). Refusal of Medically Recommended Treatment During Pregnancy. _Obstetrics & Gynecology_, 127(6), e175-e182. PMID: 27214192.
-
-#citation[2] ACOG Committee Opinion (2021). Informed Consent and Shared Decision Making in Obstetrics and Gynecology. _Obstetrics & Gynecology_, 137(2), e34-e41.
-
-#citation[3] Kotaska A. Informed consent and refusal in obstetrics: A practical ethical guide. _Birth_. DOI: 10.1111/birt.12281
-
-#citation[4] Georgia Birth Advocacy Coalition (2019). How the Emergency Medical Treatment and Labor Act (EMTALA) Can Protect Your Rights in Labor.
-
-#citation[5] Birth Monopoly. Being Admitted to the Hospital or Signing Consent Forms is NOT "Implied Consent."
-
-#citation[6] Indigo Healthcare. Against Medical Advice: Physician Duties & Patient Rights.
-
-#citation[7] PMC (2023). The Legal Limits of Parental Autonomy: Do Parents Have the Right to Refuse Intramuscular Vitamin K for Their Newborn? PMC10327957.
-
-#citation[8] Contemporary Pediatrics. When parents say "no" to newborn nursery protocols.
-
-#citation[9] University of Baltimore Law Review (2022). Medical Coercion During Pregnancy and Childbirth.
-
-#citation[10] Pregnancy Justice. BIRTH RIGHTS: A resource for everyday people to defend human rights during labor and birth.
-
-#citation[11] ACOG (2020). Opposition to Criminalization of Individuals During Pregnancy and the Postpartum Period.
-
-#citation[12] 42 U.S.C. Section 1395dd -- Emergency Medical Treatment and Active Labor Act (EMTALA). Available at: https://www.law.cornell.edu/uscode/text/42/1395dd
-
-#citation[13] American Academy of Pediatrics Task Force on Circumcision (2012). Circumcision Policy Statement. _Pediatrics_, 130(3), 585-586. DOI: 10.1542/peds.2012-1989
-
-#citation[14] Martis R, Emilia O, Nurdiati DS, Brown J. Intermittent auscultation (IA) of fetal heart rate in labour for fetal well-being. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd008680.pub2
+See #link(<cite-ch-informed-refusal>)[all citations for this chapter] in the Citations Appendix.
 
 == Key Sources
 

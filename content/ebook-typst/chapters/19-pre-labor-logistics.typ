@@ -533,4 +533,4 @@ You've got this.
 
 == Citations
 
-#citation[1] Bohren, M. A., Hofmeyr, G. J., Sakala, C., Fukuzawa, R. K., & Cuthbert, A. (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6
+See #link(<cite-ch-pre-labor-logistics>)[all citations for this chapter] in the Citations Appendix.

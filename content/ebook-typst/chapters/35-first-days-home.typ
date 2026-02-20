@@ -360,18 +360,4 @@ This phase is hard. It's also temporary. You'll find your rhythm.
 
 == Citations
 
-#citation[1] Karp, Harvey. _The Happiest Baby on the Block_. New York: Bantam Books; 2002.
-
-#citation[2] American Academy of Pediatrics. How Often and How Much Should Your Baby Eat? _HealthyChildren.org_. #link("https://www.healthychildren.org/English/ages-stages/baby/feeding-nutrition/Pages/how-often-and-how-much-should-your-baby-eat.aspx")
-
-#citation[3] American Pregnancy Association. The Baby Blues. #link("https://americanpregnancy.org/healthy-pregnancy/first-year-of-life/baby-blues/")
-
-#citation[4] Physiology, Lactation. _StatPearls_ - NCBI Bookshelf. #link("https://www.ncbi.nlm.nih.gov/books/NBK499981/")
-
-#citation[5] Postpartum Infection. _StatPearls_ - NCBI Bookshelf. #link("https://www.ncbi.nlm.nih.gov/books/NBK560804/")
-
-#citation[6] American College of Obstetricians and Gynecologists. ACOG Committee Opinion No. 736: Optimizing Postpartum Care. _Obstet Gynecol_. 2018;131(5):e140-e150. #link("https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care")
-
-#citation[7] American Academy of Pediatrics. Fever and Your Baby. _HealthyChildren.org_. #link("https://www.healthychildren.org/English/health-issues/conditions/fever/Pages/Fever-and-Your-Baby.aspx")
-
-#citation[8] American Academy of Pediatrics. How to Tell if Your Breastfed Baby is Getting Enough Milk. _HealthyChildren.org_. #link("https://www.healthychildren.org/English/ages-stages/baby/breastfeeding/Pages/How-to-Tell-if-Baby-is-Getting-Enough-Milk.aspx")
+See #link(<cite-ch-first-days-home>)[all citations for this chapter] in the Citations Appendix.

@@ -111,24 +111,4 @@ Whatever you choose, this is your decision to make. Talk with your provider abou
 
 == Citations
 
-#citation[1] Chantry CJ, Nommsen-Rivers LA, Peerson JM, Cohen RJ, Dewey KG. Excess weight loss in first-born breastfed newborns relates to maternal intrapartum fluid balance. _Pediatrics_. 2011;127(1):e171-e179. DOI: 10.1542/peds.2009-2663
-
-#citation[2] Lawrence A, Lewis L, Hofmeyr GJ, Styles C. Maternal positions and mobility during first stage labour. _Cochrane Database Syst Rev_. 2013;(8):CD003934. DOI: 10.1002/14651858.CD003934.pub3
-
-#citation[3] ACOG Committee Opinion No. 797: Prevention of Group B Streptococcal Early-Onset Disease in Newborns. _Obstet Gynecol_. 2020;135(2):e51-e72. DOI: 10.1097/aog.0000000000003668
-
-#citation[4] ACOG Practice Bulletin No. 177: Obstetric Analgesia and Anesthesia. _Obstet Gynecol_. 2017;129(4):e73-e89. DOI: 10.1097/aog.0000000000002018
-
-#citation[5] Bernard L, Decaudin B, Lecoeur M, et al. Analytical methods for the determination of DEHP plasticizer alternatives present in medical devices: A review. _Talanta_. 2014;129:39-54. DOI: 10.1016/j.talanta.2014.04.069
-
-#citation[6] Green R, Hauser R, Calafat AM, et al. Use of di(2-ethylhexyl) phthalate-containing medical products and urinary levels of mono(2-ethylhexyl) phthalate in neonatal intensive care unit infants. _Environ Health Perspect_. 2005;113(9):1222-1225. DOI: 10.1289/ehp.7932
-
-#citation[7] Latini G, De Felice C, Presta G, et al. In utero exposure to di-(2-ethylhexyl)phthalate and duration of human pregnancy. _Environ Health Perspect_. 2003;111(14):1783-1785. DOI: 10.1289/ehp.6202
-
-#citation[8] California Office of Environmental Health Hazard Assessment. Proposition 65 List: Di(2-ethylhexyl)phthalate (DEHP). Listed as known to cause cancer and reproductive toxicity. https://www.p65warnings.ca.gov
-
-#citation[9] Gray LE Jr, Ostby J, Furr J, et al. Perinatal exposure to the phthalates DEHP, BBP, and DINP, but not DEP, DMP, or DOTP, alters sexual differentiation of the male rat. _Toxicol Sci_. 2000;58(2):350-365. DOI: 10.1093/toxsci/58.2.350
-
-#citation[10] Loff S, Kabs F, Witt K, et al. Polyvinylchloride infusion lines expose infants to large amounts of toxic plasticizers. _J Pediatr Surg_. 2000;35(12):1775-1781. DOI: 10.1053/jpsu.2000.19249
-
-#citation[11] B. Braun Medical Inc. CARESAFE IV Sets (DEHP-free portfolio, launched 2021); ICU Medical Fleboflex non-PVC containers. Verified via manufacturer product documentation 2024-2026.
+See #link(<cite-ch-iv-hep-lock>)[all citations for this chapter] in the Citations Appendix.

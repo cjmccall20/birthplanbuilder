@@ -471,29 +471,7 @@ The research is clear: minimizing early interventions, choosing low-intervention
 
 == Citations
 
-#citation[1] In Due Season. Cascade of Interventions: How do Pitocin and Epidurals Affect the C-Section Rate? https://birthindueseason.org/cascade-interventions/
-
-#citation[2] The effect of continuous electronic fetal monitoring on mode of delivery. _Frontiers in Global Women's Health_. 2024. DOI: 10.3389/fgwh.2024.1385343
-
-#citation[3] Evidence Based Birth. Evidence on Pitocin Augmentation, Epidurals, Cesarean. https://evidencebasedbirth.com/ebb-245-evidence-on-pitocin-augmentation-epidurals-cesarean/
-
-#citation[4] First Do No Harm: Interventions During Childbirth. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC3647734/
-
-#citation[5] Do provider birth attitudes influence cesarean delivery rate? _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC5975533/
-
-#citation[6] Cesarean Delivery Rates Vary 10-Fold Among US Hospitals. _PLOS Medicine_. https://pmc.ncbi.nlm.nih.gov/articles/PMC3615450/
-
-#citation[7] Maternal and Newborn Outcomes by Birth Setting. _NCBI Bookshelf_. https://www.ncbi.nlm.nih.gov/sites/books/NBK555483/
-
-#citation[8] Physician-led, hospital-linked birth care centers can decrease Cesarean section rates. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC4321785/
-
-#citation[9] Midwifery models of care in the context of increasing caesarean delivery rates. _PMC_. 2024. https://pmc.ncbi.nlm.nih.gov/articles/PMC12152675/
-
-#citation[10] Cochrane review on continuous electronic fetal monitoring false positive rates. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC4010242/
-
-#citation[11] Evidence Based Birth. Friedman's Curve and Failure to Progress: A Leading Cause of Unplanned C-Sections. https://evidencebasedbirth.com/friedmans-curve-and-failure-to-progress-a-leading-cause-of-unplanned-c-sections/
-
-#citation[12] American College of Obstetricians and Gynecologists. First and Second Stage Labor Management. Clinical Practice Guideline No. 8. _Obstet Gynecol_. 2024 Jan;143(1):e1-e18.
+See #link(<cite-ch-cascade>)[all citations for this chapter] in the Citations Appendix.
 
 == Key Sources
 

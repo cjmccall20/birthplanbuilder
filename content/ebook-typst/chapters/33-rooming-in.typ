@@ -149,8 +149,4 @@ There is no shame in needing rest. A rested parent is a safer, more present pare
 
 == Citations
 
-#citation[1] Jaafar SH, Ho JJ, Lee KS. Rooming-in for new mother and infant versus separate care for increasing the duration of breastfeeding. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd006641.pub3
-
-#citation[2] Okun ML. Disturbed Sleep and Postpartum Depression. _Curr Psychiatry Rep_. 2016;18(7):66. DOI: 10.1007/s11920-016-0705-2
-
-#citation[3] Kawashima A, Detsuka N, Yano R. Sleep deprivation and fatigue in early postpartum and their association with postpartum depression in primiparas intending to establish breastfeeding. _J Reprod Med_. 2022;67(1-2):e1-e9. DOI: 10.2185/jrm.2021-027
+See #link(<cite-ch-rooming-in>)[all citations for this chapter] in the Citations Appendix.

@@ -604,27 +604,7 @@ While early labor is best managed at home for low-risk pregnancies, certain situ
 
 == Citations
 
-#citation[1] Lauzon, L., & Hodnett, E. D. (2001). Labour assessment programs to delay admission to labour wards. _Cochrane Database of Systematic Reviews_. Updated analyses through 2023 continue to support delayed admission.
-
-#citation[2] Simkin, P., & Ancheta, R. (2017). _The Labor Progress Handbook_ (4th ed.). Wiley-Blackwell. See also: Simkin, P. (2010). The emotional signposts of labor. _Journal of Perinatal Education_.
-
-#citation[3] Tilden, E. L., Emeis, C. L., Engstrom, J., Cheyney, M., & Lapidus, J. (2023). Timing of hospital admission at first childbirth and associations with labor interventions and birth outcomes. _PLOS One_, 18(2), e0281707. #link("https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0281707")
-
-#citation[4] McCutcheon, S. (2019). _Natural Childbirth the Bradley Way_ (Revised ed.). Plume. See also: Bradley, R. A. (2008). _Husband-Coached Childbirth_ (5th ed.). Bantam.
-
-#citation[5] Hutchison, J., Mahdy, H., & Engstrom, J. (2024). Stages of Labor. In _StatPearls_. StatPearls Publishing. #link("https://www.ncbi.nlm.nih.gov/books/NBK544290/")
-
-#citation[6] Zhang, J., Landy, H. J., Branch, D. W., et al. (2010). Contemporary patterns of spontaneous labor with normal neonatal outcomes. _Obstetrics & Gynecology_, 116(6), 1281--1287.
-
-#citation[7] Abalos, E., Oladapo, O. T., Chamillard, M., et al. (2018). Duration of spontaneous labour in 'low-risk' women with 'normal' perinatal outcomes: A systematic review. _European Journal of Obstetrics & Gynecology and Reproductive Biology_, 223, 123--132.
-
-#citation[8] American College of Obstetricians and Gynecologists. (2019). Approaches to Limit Intervention During Labor and Birth. ACOG Committee Opinion No. 766. _Obstetrics & Gynecology_, 133(2), e164--e173. #link("https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2019/02/approaches-to-limit-intervention-during-labor-and-birth")
-
-#citation[9] Dekker, R. (2023). Failure to Progress: A Leading Cause of Unplanned C-Sections. _Evidence Based Birth_. #link("https://evidencebasedbirth.com/friedmans-curve-and-failure-to-progress-a-leading-cause-of-unplanned-c-sections/")
-
-#citation[10] Moore, E. R., Bergman, N., Anderson, G. C., & Medley, N. (2016). Early skin-to-skin contact for mothers and their healthy newborn infants. _Cochrane Database of Systematic Reviews_, 11, CD003519.
-
-#citation[11] Lauzon, L., & Hodnett, E. D. (2009). Labour assessment programs to delay admission to labour wards. _Cochrane Database of Systematic Reviews_, 3, CD000936.
+See #link(<cite-ch-when-to-go>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

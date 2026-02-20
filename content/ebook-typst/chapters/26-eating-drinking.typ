@@ -65,20 +65,4 @@ Women who value fueling the body for a long physical effort and want the freedom
 
 == Citations
 
-#citation[1] Mendelson CL. The Aspiration of Stomach Contents into the Lungs During Obstetric Anesthesia. _Am J Obstet Gynecol_. 1946. DOI: 10.1016/s0002-9378(16)39829-5
-
-#citation[2] Singata M, Tranmer J, Gyte GM. Restricting oral fluid and food intake during labour. _Cochrane Database Syst Rev_. 2013. DOI: 10.1002/14651858.cd003930.pub2
-
-#citation[3] ACOG Committee on Obstetric Practice. ACOG Committee Opinion No. 441: Oral Intake During Labor. _Obstet Gynecol_. 2009;114(3):714. Reaffirmed 2017.
-
-#citation[4] O'Sullivan G, Liu B, Hart D, Seed P, Shennan A. Effect of food intake during labour on obstetric outcome: randomised controlled trial. _BMJ_. 2009;338:b784. DOI: 10.1136/bmj.b784
-
-#citation[5] National Institute for Health and Care Excellence (NICE). Intrapartum care for healthy women and babies. Clinical Guideline CG190. December 2014 (Updated February 2017). https://www.nice.org.uk/guidance/cg190
-
-#citation[6] Hawkins JL, Chang J, Palmer SK, Gibbs CP, Callaghan WM. Anesthesia-Related Maternal Mortality in the United States: 1979-2002. _Obstet Gynecol_. 2011;117(1):69-74. DOI: 10.1097/aog.0b013e31820093a9
-
-#citation[7] Scrutton MJL, Metcalfe GA, Lowy C, Seed PT, O'Sullivan G. Eating in labour: A randomised controlled trial assessing the risks and benefits. _Anaesthesia_. 1999;54(4):329-334. DOI: 10.1046/j.1365-2044.1999.00750.x
-
-#citation[8] Ludka L, Roberts C. Eating and drinking in labor: A literature review. _J Nurse-Midwifery_. 1993. DOI: 10.1016/0091-2182(93)90003-y
-
-#citation[9] Tranmer JE, Hodnett ED, Hannah ME, Stevens BJ. The Effect of Unrestricted Oral Carbohydrate Intake on Labor Progress. _J Obstet Gynecol Neonatal Nurs_. 2005;34(3):319-328. DOI: 10.1177/0884217505276155
+See #link(<cite-ch-eating-drinking>)[all citations for this chapter] in the Citations Appendix.

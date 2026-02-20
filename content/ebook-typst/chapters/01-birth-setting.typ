@@ -324,32 +324,4 @@ Whether you're interviewing hospitals, birth centers, or midwives, these questio
 
 == Citations
 
-*Major Research Studies*
-
-- #link("https://health.oregonstate.edu/news-and-stories/2024-11/low-risk-pregnancies-planned-home-births-just-safe-birth-center-births")[Oregon State University 2024 Study]: Bovbjerg ML, et al. "Planned Home Births in the United States Have Outcomes Comparable to Planned Birth Center Births." _Medical Care_. November/December 2024.
-
-- #link("https://www.npeu.ox.ac.uk/birthplace/results")[UK Birthplace Study]: "Perinatal and maternal outcomes by planned place of birth for healthy women with low risk pregnancies." _BMJ_. 2011.
-
-- #link("https://www.thelancet.com/journals/eclinm/article/PIIS2589-5370(19)30119-1/fulltext")[Lancet Meta-Analysis]: "Perinatal or neonatal mortality among women who intend to give birth at home compared to women who intend hospital birth." _EClinicalMedicine_ (The Lancet). 2019.
-
-- #link("https://www.birthcenters.org/news/nbcs2")[National Birth Center Study II]: American Association of Birth Centers
-
-*Professional Guidelines*
-
-- #link("https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2017/04/planned-home-birth")[ACOG Committee Opinion on Planned Home Birth (2017)]
-
-*Cost Data Sources*
-
-- #link("https://www.healthsystemtracker.org/brief/health-costs-associated-with-pregnancy-childbirth-and-postpartum-care/")[Peterson-KFF Health System Tracker]: Health costs associated with pregnancy, childbirth, and infant care (2025)
-- #link("https://www.moneygeek.com/living/healthcare/costs-of-having-a-baby-in-america/")[MoneyGeek: Average Cost of Having a Baby in the US]: Comprehensive breakdown of birth costs
-- #link("https://www.valuepenguin.com/cost-childbirth-health-insurance")[ValuePenguin: Cost of Childbirth]: Insurance and out-of-pocket cost analysis
-- #link("https://www.goodrx.com/conditions/pregnancy/how-much-does-a-midwife-cost")[GoodRx: How Much Does a Midwife Cost]: Midwife cost comparison with and without insurance
-
-*Data & Resources*
-
-- #link("https://www.leapfroggroup.org")[The Leapfrog Group Hospital Ratings]: Compare hospital maternity care quality
-- #link("https://www.cdc.gov/nchs/")[CDC Birth Statistics]: National data on cesarean rates and birth outcomes
-- #link("https://www.birthcenters.org")[American Association of Birth Centers]: Find accredited birth centers
-- #link("https://birthcenteraccreditation.org")[Commission for the Accreditation of Birth Centers]: Standards and accredited center directory
-- #link("https://midwife.org")[American College of Nurse-Midwives]: Information about CNMs
-- #link("https://evidencebasedbirth.com")[Evidence Based Birth]: Research summaries on birth-related topics
+See #link(<cite-ch-birth-setting>)[all citations for this chapter] in the Citations Appendix.

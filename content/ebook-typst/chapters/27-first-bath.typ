@@ -68,22 +68,4 @@ This is your baby's first bath. Make it yours.
 
 == Citations
 
-#citation[1] World Health Organization. WHO recommendations on newborn health: Guidelines approved by the WHO Guidelines Review Committee. 2017. Document WHO-MCA-17.07. https://www.who.int/publications/i/item/WHO-MCA-17.07
-
-#citation[2] Timing of first bath in term healthy newborns: A systematic review. _J Glob Health_. 2022. PMC9380966.
-
-#citation[3] DiCioccio HC, Ady C, Bena JF, Albert NM. Initiative to Improve Exclusive Breastfeeding by Delaying the Newborn Bath. _J Obstet Gynecol Neonatal Nurs_. 2019. DOI: 10.1016/j.jogn.2018.12.008
-
-#citation[4] Warren S, Midodzi WK, Allwood Newhook LA, Murphy P, Twells L. Effects of Delayed Newborn Bathing on Breastfeeding, Hypothermia, and Hypoglycemia. _J Obstet Gynecol Neonatal Nurs_. 2020. DOI: 10.1016/j.jogn.2019.12.004
-
-#citation[5] Chamberlain J, McCarty S, Sorce J, et al. Impact on delayed newborn bathing on exclusive breastfeeding rates, glucose and temperature stability, and weight loss. _J Neonatal Nurs_. 2019. DOI: 10.1016/j.jnn.2018.11.001
-
-#citation[6] Tollin M, Bergsson G, Kai-Larsen Y, et al. Vernix caseosa as a multi-component defence system based on polypeptides, lipids and their interactions. _Cell Mol Life Sci_. 2005;62(19-20):2390-2399. DOI: 10.1007/s00018-005-5260-7
-
-#citation[7] Hoath SB, Pickens WL, Visscher MO. The biology of vernix caseosa. _Int J Cosmet Sci_. 2006. DOI: 10.1111/j.1467-2494.2006.00338.x
-
-#citation[8] Association of Women's Health, Obstetric and Neonatal Nurses (AWHONN). Neonatal Skin Care: Evidence-Based Clinical Practice Guideline. Third Edition, 2013.
-
-#citation[9] Dominguez-Bello MG, Costello EK, Contreras M, et al. Delivery mode shapes the acquisition and structure of the initial microbiota across multiple body habitats in newborns. _PNAS_. 2010;107(26):11971-11975. DOI: 10.1073/pnas.1002601107
-
-#citation[10] Varendi H, Porter RH. Breast odour as the only maternal stimulus elicits crawling towards the odour source. _Acta Paediatr_. 2001. DOI: 10.1080/08035250119715
+See #link(<cite-ch-first-bath>)[all citations for this chapter] in the Citations Appendix.

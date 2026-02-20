@@ -317,6 +317,4 @@ _Your bag is packed. Your car seat is installed. Now you wait. Take a breath. Yo
 
 == Citations
 
-#citation[1] Sayorwan, W., Siripornpanich, V., Piriyapunyaporn, T., et al. (2012). The effects of lavender oil inhalation on emotional states, autonomic nervous system, and brain electrical activity. _Journal of the Medical Association of Thailand_. DOI: 10.15562/bmj.v12i3.4376
-
-#citation[2] Pasha, H., Behmanesh, F., Mohsenzadeh, F., Hajahmadi, M., & Moghadamnia, A. A. (2012). Study of the effect of mint oil on nausea and vomiting during pregnancy. _Iranian Red Crescent Medical Journal_. See also: Joulaeerad, N., et al. (2021). Peppermint aromatherapy for nausea. _Journal of Obstetric, Gynecologic & Neonatal Nursing_. DOI: 10.1016/j.jogn.2020.09.095
+See #link(<cite-ch-hospital-bag>)[all citations for this chapter] in the Citations Appendix.

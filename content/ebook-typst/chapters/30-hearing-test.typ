@@ -47,18 +47,4 @@ This is one we'd recommend without hesitation—but as with every decision in th
 
 == Citations
 
-#citation[1] Kuhl PK. Early language acquisition: cracking the speech code. _Nature Reviews Neuroscience_. 2004;5(11):831-843. DOI: 10.1038/nrn1533
-
-#citation[2] Joint Committee on Infant Hearing. Year 2019 Position Statement: Principles and Guidelines for Early Hearing Detection and Intervention Programs. _Journal of Early Hearing Detection and Intervention_. 2019;4(2):1-44.
-
-#citation[3] Yoshinaga-Itano C, Sedey AL, Coulter DK, Mehl AL. Language of early- and later-identified children with hearing loss. _Pediatrics_. 1998;102(5):1161-1171.
-
-#citation[4] Centers for Disease Control and Prevention. 2021 Summary of National CDC EHDI Data. #link("https://www.cdc.gov/ncbddd/hearingloss/2021-data/01-data-summary.html")
-
-#citation[5] Year 2007 JCIH Position Statement: Principles and Guidelines for Early Hearing Detection and Intervention Programs. _Pediatrics_. 2007;120(4):898-921.
-
-#citation[6] U.S. Department of Education. IDEA Part C: Early Intervention Program for Infants and Toddlers with Disabilities. #link("https://sites.ed.gov/idea/")
-
-#citation[7] American Speech-Language-Hearing Association. Newborn Hearing Screening. #link("https://www.asha.org/practice-portal/professional-issues/newborn-hearing-screening/")
-
-#citation[8] Vos B, Noll D, Pigeon M, et al. Referral rate and false-positive rates in a hearing screening program among high-risk newborns. _Eur Arch Otorhinolaryngol_. 2024;281(1):123-131. DOI: 10.1007/s00405-023-07978-y
+See #link(<cite-ch-hearing-test>)[all citations for this chapter] in the Citations Appendix.

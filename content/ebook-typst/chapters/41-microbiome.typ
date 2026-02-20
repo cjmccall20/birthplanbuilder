@@ -483,33 +483,7 @@ _The bottom line:_ The microbiome is far more important than most birth provider
 
 == Citations
 
-#citation[2] The Effects of Delivery Mode on the Gut Microbiota and Health. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC8733716/
-
-#citation[3] Impact of Delivery Mode on Infant Gut Microbiota. _Karger Publishers_. https://karger.com/anm/article/77/Suppl.%203/11/821438/
-
-#citation[4] Comparison of Gut Microbiome in Neonates Born by Caesarean Section and Vaginal Seeding. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC10545928/
-
-#citation[5] Impact of vaginal seeding on the gut microbiome. _ScienceDirect_. https://www.sciencedirect.com/science/article/pii/S0163445324002834
-
-#citation[7] Microbiome seeding - what's the evidence? Dr Sara Wickham. https://www.sarawickham.com/research-updates/microbiome-seeding/
-
-#citation[8] Can Vaginal Seeding at Birth Improve Health Outcomes. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC12195427/
-
-#citation[9] Vaginal Seeding: The Microbiome and the Baby. _Healthline_. https://www.healthline.com/health/pregnancy/vaginal-seeding
-
-#citation[12] Persistent reduction of Bifidobacterium longum after intrapartum antibiotic exposure. _Frontiers in Immunology_. 2025. https://www.frontiersin.org/journals/immunology/articles/10.3389/fimmu.2025.1540979/full
-
-#citation[13] Effects of Perinatal Antibiotic Exposure on infant microbiome. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC9951864/
-
-#citation[15] Intrapartum Antibiotic Prophylaxis and health outcomes. _BJOG_. 2025. https://obgyn.onlinelibrary.wiley.com/doi/10.1111/1471-0528.70015
-
-#citation[16] Human milk oligosaccharides. _PMC_. https://pmc.ncbi.nlm.nih.gov/articles/PMC7332462/
-
-#citation[17] Bifidobacteria in the infant gut use human milk oligosaccharides. _ISAPP_. https://isappscience.org/bifidobacteria-in-the-infant-gut-use-human-milk-oligosaccharides-how-does-this-lead-to-health-benefits/
-
-#citation[18] Probiotics in the New Era of HMOs. _MDPI_. https://www.mdpi.com/2076-2607/12/5/1014
-
-#citation[19] Human milk oligosaccharides combine with Bifidobacterium. _Taylor & Francis_. https://www.tandfonline.com/doi/full/10.1080/19490976.2024.2430418
+See #link(<cite-ch-microbiome>)[all citations for this chapter] in the Citations Appendix.
 
 == Sources
 

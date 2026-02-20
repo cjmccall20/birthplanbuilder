@@ -383,23 +383,7 @@ The benefits of prenatal exercise do not end when the baby is born. The strength
 
 == Citations
 
-#citation[1] Perales, M., Calabria, I., Lopez, C., Franco, E., Coteron, J., & Barakat, R. (2016). Regular exercise throughout pregnancy is associated with a shorter first stage of labor. _American Journal of Health Promotion_, 30(3), 149--157.
-
-#citation[2] McCutcheon, S. (2019). _Natural Childbirth the Bradley Way_ (Revised ed.). Plume. See also: Bradley, R. A. (2008). _Husband-Coached Childbirth_ (5th ed.). Bantam.
-
-#citation[3] Bo, K., Berghmans, B., Morkved, S., & Van Kampen, M. (2024). _Evidence-Based Physical Therapy for the Pelvic Floor_ (3rd ed.). Elsevier. See also: Woodley, S. J., et al. (2020). Pelvic floor muscle training for prevention and treatment of urinary and fecal incontinence in antenatal and postnatal women. _Cochrane Database of Systematic Reviews_, 5, CD007471.
-
-#citation[4] Gupta, J. K., Sood, A., Hofmeyr, G. J., & Vogel, J. P. (2017). Position in the second stage of labour for women without epidural anaesthesia. _Cochrane Database of Systematic Reviews_, 5, CD002006.
-
-#citation[5] Spinning Babies (2024). Daily activities for optimal fetal positioning. #link("https://www.spinningbabies.com")
-
-#citation[6] Beckmann, M. M., & Stock, O. M. (2013). Antenatal perineal massage for reducing perineal trauma. _Cochrane Database of Systematic Reviews_, 4, CD005123.
-
-#citation[7] Lemos, A., Amorim, M. M., Dornelas de Andrade, A., de Souza, A. I., Cabral Filho, J. E., & Correia, J. B. (2017). Pushing/bearing down methods for the second stage of labour. _Cochrane Database of Systematic Reviews_, 3, CD009124.
-
-#citation[8] Bohren, M. A., Hofmeyr, G. J., Sakala, C., Fukuzawa, R. K., & Cuthbert, A. (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_, 7, CD003766.
-
-#citation[9] Evenson, K. R., Mottola, M. F., Owe, K. M., Rousham, E. K., & Brown, W. J. (2014). Summary of international guidelines for physical activity after pregnancy. _Obstetrics and Gynecology Clinics of North America_, 41(4), 619--636.
+See #link(<cite-ch-exercises-before-labor>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

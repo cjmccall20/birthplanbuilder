@@ -432,37 +432,7 @@ Request at least 5 minutes of delayed cord clamping, or until the cord stops pul
 
 == Citations
 
-#citation[1] Usher R, Shephard M, Lind J. (1963). The Blood Volume of the Newborn Infant and Placental Transfusion. _Acta Paediatrica_. DOI: 10.1111/j.1651-2227.1963.tb03809.x
-
-#citation[2] Mercer JS, Erickson-Owens DA. (2012). Rethinking Placental Transfusion and Cord Clamping Issues. _Journal of Perinatal and Neonatal Nursing_, 26(3), 202-217. DOI: 10.1097/jpn.0b013e31825d2d9a
-
-#citation[3] WHO. (2012). Guideline: Delayed Umbilical Cord Clamping for Improved Maternal and Infant Health and Nutrition Outcomes. World Health Organization.
-
-#citation[4] ACOG. (2020). Committee Opinion 814: Delayed Umbilical Cord Clamping After Birth. American College of Obstetricians and Gynecologists. https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2020/12/delayed-umbilical-cord-clamping-after-birth
-
-#citation[5] Chaparro CM. (2011). Timing of umbilical cord clamping: effect on iron endowment of the newborn and later iron status. _Nutrition Reviews_, 69(Suppl 1), S30-S36. DOI: 10.1111/j.1753-4887.2011.00430.x
-
-#citation[6] Lozoff B, Georgieff MK. (2006). Iron Deficiency and Brain Development. _Seminars in Pediatric Neurology_, 13(3), 158-165. DOI: 10.1016/j.spen.2006.08.004
-
-#citation[7] Andersson O, Hellstrom-Westas L, Andersson D, Domellof M. (2011). Effect of delayed versus early umbilical cord clamping on neonatal outcomes and iron status at 4 months: a randomised controlled trial. _BMJ_, 343, d7157. DOI: 10.1136/bmj.d7157
-
-#citation[8] NICHD Brain Development Research. (2019). National Institute of Child Health and Human Development. Delayed cord clamping and brain myelination at 4 months. https://www.nichd.nih.gov/newsroom/news/022719-delayed-cord-clamping
-
-#citation[9] Seidler AL, et al. (2023). Deferred cord clamping, cord milking, and immediate cord clamping at preterm birth: a systematic review and individual participant data meta-analysis. _The Lancet_. DOI: 10.1016/s0140-6736(23)02468-6
-
-#citation[10] McDonald SJ, Middleton P. (2008, updated 2013). Effect of timing of umbilical cord clamping of term infants on maternal and neonatal outcomes. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd004074.pub2
-
-#citation[11] Andersson O, et al. (2013). Effects of delayed compared with early umbilical cord clamping on maternal postpartum hemorrhage and cord blood gas sampling. _Acta Obstetricia et Gynecologica Scandinavica_, 92(5), 567-574. DOI: 10.1111/j.1600-0412.2012.01530.x
-
-#citation[12] Canadian Blood Services / Parents Guide to Cord Blood. Cord blood usage statistics. https://parentsguidecordblood.org/en/can-i-have-delayed-cord-clamping-and-still-collect-cord-blood
-
-#citation[13] Allan DS, et al. (2016). Delayed clamping of the umbilical cord after delivery and implications for public cord blood banking. _Transfusion_, 56(3), 662-665. DOI: 10.1111/trf.13424
-
-#citation[14] Cavallin F, et al. (2019). Delayed Cord Clamping versus Early Cord Clamping in Elective Cesarean Section. _Neonatology_, 116(3), 252-259. DOI: 10.1159/000500325
-
-#citation[15] Pratesi S, Dani C. (2020). Commentary on cord milking. _Frontiers in Pediatrics_, 8, 178. DOI: 10.3389/fped.2020.00178
-
-#citation[16] Pratesi S, et al. (2018). Placental Circulation Intact Trial (PCI Trial). _Frontiers in Pediatrics_, 6, 364. DOI: 10.3389/fped.2018.00364
+See #link(<cite-ch-cord-clamping>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

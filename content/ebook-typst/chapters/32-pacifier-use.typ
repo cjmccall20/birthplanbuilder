@@ -59,16 +59,4 @@ Pacifiers are a tool, not a failure.
 
 == Citations
 
-#citation[1] American Academy of Pediatrics Task Force on Sudden Infant Death Syndrome. SIDS and Other Sleep-Related Infant Deaths: Updated 2016 Recommendations for a Safe Infant Sleeping Environment. _Pediatrics_. 2016;138(5):e20162938. DOI: 10.1542/peds.2016-2938
-
-#citation[2] Jaafar SH, Ho JJ, Jahanfar S, Angolkar M. Effect of restricted pacifier use in breastfeeding term infants for increasing duration of breastfeeding. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd007202.pub4
-
-#citation[3] Hauck FR, Omojokun OO, Siadaty MS. Do Pacifiers Reduce the Risk of Sudden Infant Death Syndrome? A Meta-analysis. _Pediatrics_. 2005;116(5):e716-e723.
-
-#citation[4] Moon RY, Tanabe KO, Yang DC, Young HA, Hauck FR. Pacifier Use and SIDS: Evidence for a Consistently Reduced Risk. _Matern Child Health J_. 2012;16(3):609-614. DOI: 10.1007/s10995-011-0793-x
-
-#citation[5] American Academy of Pediatric Dentistry. Policy on Pacifiers (Revised 2024). #link("https://www.aapd.org/globalassets/media/policies_guidelines/p_on-pacifiers.pdf")
-
-#citation[6] Niemela M, Pihakari O, Pokka T, Uhari M. Pacifier as a Risk Factor for Acute Otitis Media. _Pediatric Research_. 1999. DOI: 10.1203/00006450-199904020-01006
-
-#citation[7] WHO/UNICEF. Baby-Friendly Hospital Initiative: Implementation Guidance (2018). #link("https://www.unicef.org/media/95191/file/Baby-friendly-hospital-initiative-implementation-guidance-2018.pdf")
+See #link(<cite-ch-pacifier-use>)[all citations for this chapter] in the Citations Appendix.

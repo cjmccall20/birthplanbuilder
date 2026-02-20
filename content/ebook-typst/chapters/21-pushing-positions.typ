@@ -470,26 +470,4 @@ _The information in this guide is for educational purposes and should not replac
 
 == Citations
 
-#citation[1] Russell, J. G. B. (1969). Moulding of the pelvic outlet. _Journal of Obstetrics and Gynaecology of the British Commonwealth_, 76(9), 817-820. DOI: 10.1111/j.1471-0528.1969.tb06185.x
-
-#citation[2] Gupta, J. K., Sood, A., Hofmeyr, G. J., & Vogel, J. P. (2017). Position in the second stage of labour for women without epidural anaesthesia. _Cochrane Database of Systematic Reviews_, Issue 5. Art. No.: CD002006. DOI: 10.1002/14651858.CD002006.pub4
-
-#citation[3] Simkin, P., Hanson, L., & Ancheta, R. (2017). _The Labor Progress Handbook: Early Interventions to Prevent and Treat Dystocia_ (4th ed.). Wiley-Blackwell. ISBN: 9781119170464
-
-#citation[4] Humphrey, M. D., Hounslow, D., Morgan, S., & Wood, C. (1973). The influence of maternal posture at birth on the fetus. _Journal of Obstetrics and Gynaecology of the British Commonwealth_, 80(12), 1075-1080. DOI: 10.1111/j.1471-0528.1973.tb02982.x
-
-#citation[5] Soong, B., & Barnes, M. (2005). Maternal position at midwife-attended birth and perineal trauma: Is there an association? _Birth_, 32(3), 164-169. DOI: 10.1111/j.0730-7659.2005.00365.x
-
-#citation[6] Tussey, C. M., Botsios, E., Gerkin, R. D., Kelly, L. A., Gamez, J., & Mensik, J. (2015). Reducing length of labor and cesarean surgery rate using a peanut ball for women laboring with an epidural. _Journal of Perinatal Education_, 24(1), 16-24. DOI: 10.1891/1058-1243.24.1.16
-
-#citation[7] Comparative Obstetric Mobile Epidural Trial (COMET) Study Group UK. (2001). Effect of low-dose mobile versus traditional epidural techniques on mode of delivery: A randomised controlled trial. _The Lancet_, 358(9275), 19-23. DOI: 10.1016/S0140-6736(00)05251-X
-
-#citation[8] Prins, M., Boxem, J., Lucas, C., & Hutton, E. (2011). Effect of spontaneous pushing versus Valsalva pushing in the second stage of labour on mother and fetus: A systematic review of randomised trials. _BJOG_, 118(6), 662-670. DOI: 10.1111/j.1471-0528.2011.02910.x
-
-#citation[9] Schaffer, J. I., Bloom, S. L., Casey, B. M., McIntire, D. D., Nihira, M. A., & Leveno, K. J. (2005). A randomized trial of the effects of coached vs uncoached maternal pushing during the second stage of labor on postpartum pelvic floor structure and function. _American Journal of Obstetrics and Gynecology_, 192(5), 1692-1696. DOI: 10.1016/j.ajog.2004.11.043
-
-#citation[10] Bloom, S. L., Casey, B. M., Schaffer, J. I., McIntire, D. D., & Leveno, K. J. (2006). A randomized trial of coached versus uncoached maternal pushing during the second stage of labor. _American Journal of Obstetrics and Gynecology_, 194(1), 10-13. DOI: 10.1016/j.ajog.2005.06.022
-
-#citation[11] Roberts, J. E. (2002). The "push" for evidence: Management of the second stage. _Journal of Midwifery & Women's Health_, 47(1), 2-15. DOI: 10.1016/S1526-9523(01)00233-1
-
-#citation[12] Fraser, W. D., Marcoux, S., Krauss, I., Douglas, J., Goulet, C., & Boulvain, M. (2000). Multicenter, randomized, controlled trial of delayed pushing for nulliparous women in the second stage of labor with continuous epidural analgesia. _American Journal of Obstetrics and Gynecology_, 182(5), 1165-1172. DOI: 10.1067/mob.2000.105197
+See #link(<cite-ch-pushing-positions>)[all citations for this chapter] in the Citations Appendix.

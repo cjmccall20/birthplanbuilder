@@ -193,29 +193,7 @@ Sometimes the answer is yes, medication is appropriate. But the default should b
 
 == Citations
 
-#citation[1] Bauer AZ, et al. Paracetamol use during pregnancy --- a call for precautionary action. _Nature Reviews Endocrinology_. 2021;17(12):757-766.
-
-#citation[2] Masarwa R, et al. Prenatal Exposure to Acetaminophen and Risk for Attention Deficit Hyperactivity Disorder and Autistic Spectrum Disorder: A Systematic Review, Meta-Analysis, and Meta-Regression Analysis of Cohort Studies. _American Journal of Epidemiology_. 2018;187(8):1817-1827.
-
-#citation[3] Ji Y, et al. Association of Cord Plasma Biomarkers of In Utero Acetaminophen Exposure With Risk of Attention-Deficit/Hyperactivity Disorder and Autism Spectrum Disorder in Childhood. _JAMA Psychiatry_. 2020;77(2):180-189.
-
-#citation[4] Alemany S, et al. Prenatal and postnatal exposure to acetaminophen in relation to autism spectrum and attention-deficit and hyperactivity symptoms. _British Journal of Clinical Pharmacology_. 2021;87(7):2934-2944.
-
-#citation[6] Wood ME, et al. Associations of Acetaminophen Use With Neurodevelopmental Outcomes in Sibling-Controlled Analyses. _JAMA_. 2024;331(17):1495-1505.
-
-#citation[7] Slater R, et al. Oral sucrose as an analgesic drug for procedural pain in newborn infants: a randomised controlled trial. _The Lancet_. 2010;376(9748):1225-1232.
-
-#citation[8] Johnston C, et al. Sucrose for analgesia in newborn infants undergoing painful procedures. _Cochrane Database of Systematic Reviews_. 2016;(7):CD001069.
-
-#citation[9] Shah PS, et al. Breastfeeding or breast milk for procedural pain in neonates. _Cochrane Database of Systematic Reviews_. 2012;(12):CD004950.
-
-#citation[10] Anderson BJ. Paediatric pharmacology, pharmacokinetics and pharmacodynamics. _Anaesthesia & Intensive Care Medicine_. 2012;13(7):321-327.
-
-#citation[11] Sullivan JE, Farrar HC. Fever and antipyretic use in children. _Pediatrics_. 2011;127(3):580-587.
-
-#citation[12] American Academy of Pediatrics Task Force on Circumcision. Circumcision Policy Statement. _Pediatrics_. 2012;130(3):585-586.
-
-#citation[13] Johnston C, Campbell-Yeo M, Disher T, et al. Skin-to-skin care for procedural pain in neonates. _Cochrane Database of Systematic Reviews_. 2017;2:CD008435.
+See #link(<cite-ch-infant-pain-mgmt>)[all citations for this chapter] in the Citations Appendix.
 
 == Key Sources
 

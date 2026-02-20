@@ -512,37 +512,7 @@ For additional context on related newborn interventions and decisions:
 
 == Citations
 
-#citation[1] CDC. About Vitamin K Deficiency Bleeding. Centers for Disease Control and Prevention. https://www.cdc.gov/vitamin-k-deficiency/about/index.html
-
-#citation[2] Evidence Based Birth. (2023). The Evidence for the Vitamin K Shot in Newborns. https://evidencebasedbirth.com/evidence-for-the-vitamin-k-shot-in-newborns/
-
-#citation[3] Sankar MJ, et al. (2016). Optimal breastfeeding practices and infant and child mortality: A systematic review and meta-analysis. _Journal of Perinatology_. https://www.nature.com/articles/jp201630
-
-#citation[4] Puckett RM, Offringa M. (2000). Prophylactic vitamin K for vitamin K deficiency bleeding in neonates. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.cd002776
-
-#citation[5] Shearer MJ. (2009). Vitamin K deficiency bleeding (VKDB) in early infancy. _Blood Reviews_, 23(2), 49-59. DOI: 10.1016/j.blre.2008.06.001
-
-#citation[6] Hand I, Noble L, Abrams SA. (2022). Vitamin K and the Newborn Infant. _Pediatrics_, 149(3), e2021056036. DOI: 10.1542/peds.2021-056036
-
-#citation[7] NCBI LactMed Database. Vitamin K. National Library of Medicine. https://www.ncbi.nlm.nih.gov/books/NBK500922/
-
-#citation[8] Loyal J, Shapiro ED. (2020). Refusal of Intramuscular Vitamin K by Parents of Newborns: A Review. _Hospital Pediatrics_. DOI: 10.1542/hpeds.2019-0228
-
-#citation[9] Golding J, Greenwood R, Birmingham K, Mott M. (1992). Childhood cancer, intramuscular vitamin K, and pethidine given during labour. _BMJ_, 305(6849), 341-346. DOI: 10.1136/bmj.305.6849.341
-
-#citation[10] Fear NT, Roman E, Ansell P, et al. (2003). Vitamin K and childhood cancer: a report from the United Kingdom Childhood Cancer Study. _British Journal of Cancer_, 89(7), 1228-1231. DOI: 10.1038/sj.bjc.6601278
-
-#citation[11] Roman E, Fear NT, Ansell P, et al. (2002). Vitamin K and childhood cancer: analysis of individual patient data from six case-control studies. _British Journal of Cancer_, 86(1), 63-69. DOI: 10.1038/sj.bjc.6600007
-
-#citation[12] Klebanoff MA, Read JS, Mills JL, Shiono PH. (1993). The Risk of Childhood Cancer after Neonatal Exposure to Vitamin K. _New England Journal of Medicine_, 329(13), 905-908. DOI: 10.1056/nejm199309233291301
-
-#citation[13] American Academy of Pediatrics Vitamin K Ad Hoc Task Force. (1993). Controversies concerning vitamin K and the newborn. _Pediatrics_, 91(5), 1001-1003.
-
-#citation[14] European Medicines Agency. Information for package leaflet regarding polysorbates used as excipients in medicinal products for human use. https://www.ema.europa.eu/en/documents/scientific-guideline/
-
-#citation[15] Historical medical literature on menadione (vitamin K3) toxicity. Cordon RR. (1949). Water-Soluble Vitamin K in the Newborn. _The Lancet_. DOI: 10.1016/s0140-6736(49)91960-1
-
-#citation[16] Hansen KN, Minousis M, Ebbesen F. (2003). Weekly oral vitamin K prophylaxis in Denmark. _Acta Paediatrica_, 92(7), 802-805. DOI: 10.1080/08035250310002858
+See #link(<cite-ch-vitamin-k>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

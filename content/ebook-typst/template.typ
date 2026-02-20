@@ -105,6 +105,22 @@
 ]
 
 // ===================
+// PART INTRO
+// ===================
+// Summary text that appears below a part header on the same page
+#let part-intro(body) = {
+  align(center)[
+    #block(width: 80%)[
+      #set text(size: 11pt, fill: secondary-text)
+      #set par(leading: 0.8em, justify: true)
+      #body
+    ]
+  ]
+  v(3fr)
+  pagebreak()
+}
+
+// ===================
 // "OUR TAKE" SECTION
 // ===================
 #let our-take(body) = {
@@ -123,7 +139,7 @@
           size: 12pt,
           weight: "bold",
           fill: coral-dark,
-          [✦ Our Take]
+          [◆ Our Take]
         )
       )
       #set text(size: 10.5pt)
@@ -204,6 +220,10 @@
 // CITATION / REFERENCE
 // ===================
 #let citation(number) = {
+  super(text(size: 8pt, fill: coral-primary, weight: "bold", [#number]))
+}
+
+#let citation-entry(number) = {
   super(text(size: 8pt, fill: coral-primary, weight: "bold", [#number]))
 }
 
@@ -313,7 +333,9 @@
 #let chapter-divider() = {
   v(1em)
   align(center)[
-    #text(fill: coral-light, size: 14pt)[✦ #h(4pt) ✦ #h(4pt) ✦]
+    #box(height: 14pt, image("assets/floral-divider-left.svg", height: 14pt))
+    #h(6pt)
+    #box(height: 14pt, image("assets/floral-divider-right.svg", height: 14pt))
   ]
   v(1em)
 }
@@ -353,26 +375,31 @@
       let page-num = counter(page).get().first()
       if page-num > 1 {
         set text(size: 9pt, fill: secondary-text, font: heading-font)
-        if calc.even(page-num) {
-          // Even pages: chapter title on left
-          align(left)[#current-chapter.get()]
-        } else {
-          // Odd pages: book title on right
-          align(right)[#book-title.get()]
-        }
+        grid(
+          columns: (1fr, auto),
+          if calc.even(page-num) {
+            align(left)[#current-chapter.get()]
+          } else {
+            align(left)[#book-title.get()]
+          },
+          align(right)[#text(fill: secondary-text)[#link(<toc>)[Table of Contents]]],
+        )
         v(-4pt)
         line(length: 100%, stroke: 0.5pt + medium-gray)
       }
     },
 
-    // Page numbers centered in footer
+    // Page numbers centered in footer with floral ornaments
     footer: context {
       let page-num = counter(page).get().first()
       if page-num > 1 {
-        line(length: 100%, stroke: 0.5pt + medium-gray)
         v(4pt)
         align(center)[
+          #box(height: 10pt, image("assets/floral-divider-left.svg", height: 10pt))
+          #h(8pt)
           #text(size: 9pt, fill: secondary-text, font: heading-font)[#page-num]
+          #h(8pt)
+          #box(height: 10pt, image("assets/floral-divider-right.svg", height: 10pt))
         ]
       }
     },
@@ -415,8 +442,7 @@
       #v(0.5em)
       #block(width: 60pt, height: 3pt, fill: coral-primary, radius: 1.5pt)
     ]
-    v(3fr)
-    pagebreak()
+    v(1.5em)
   }
 
   // Level 1: Chapters (force new page, large coral, decorative line)
@@ -599,13 +625,14 @@
     #align(center)[
       // Main title
       #block(
-        below: 0.5em,
+        below: 1.5em,
         text(
           font: heading-font,
           size: 36pt,
           weight: "bold",
           fill: coral-primary,
           tracking: 1pt,
+          hyphenate: false,
           title
         )
       )
@@ -626,7 +653,9 @@
 
       // Decorative element
       #v(1em)
-      #text(fill: coral-light, size: 18pt)[✦ #h(6pt) ✦ #h(6pt) ✦]
+      #box(height: 18pt, image("assets/floral-divider-left.svg", height: 18pt))
+      #h(12pt)
+      #box(height: 18pt, image("assets/floral-divider-right.svg", height: 18pt))
       #v(2em)
 
       // Authors
@@ -664,7 +693,7 @@
   // ===================
   page(header: none)[
     #v(1em)
-    #text(font: heading-font, size: 24pt, weight: "bold", fill: coral-primary)[Contents]
+    #text(font: heading-font, size: 24pt, weight: "bold", fill: coral-primary)[Contents] <toc>
     #v(0.5em)
     #block(width: 40pt, height: 3pt, fill: coral-primary, radius: 1.5pt)
     #v(1em)

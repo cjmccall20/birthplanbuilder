@@ -69,8 +69,4 @@ You'll know when you're ready.
 
 == Citations
 
-#citation[1] Public Law 104-204. Newborns' and Mothers' Health Protection Act of 1996. 45 CFR 146.130. #link("https://www.congress.gov/104/plaws/publ204/PLAW-104publ204.pdf")
-
-#citation[2] American Academy of Pediatrics Committee on Fetus and Newborn. Hospital Stay for Healthy Term Newborns. _Pediatrics_. 2015;135(5):948-953. DOI: 10.1542/peds.2015-0699
-
-#citation[3] American College of Obstetricians and Gynecologists. ACOG Committee Opinion No. 736: Optimizing Postpartum Care. _Obstet Gynecol_. 2018;131(5):e140-e150. #link("https://www.acog.org/clinical/clinical-guidance/committee-opinion/articles/2018/05/optimizing-postpartum-care")
+See #link(<cite-ch-leaving-hospital>)[all citations for this chapter] in the Citations Appendix.

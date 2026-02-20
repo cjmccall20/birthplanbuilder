@@ -343,46 +343,4 @@ Your body knows how to give birth. Your baby will signal when they're ready, mos
 
 == Citations
 
-#citation[1] Evidence Based Birth. The ARRIVE Trial and Elective Induction at 39 Weeks. https://evidencebasedbirth.com/arrive/
-
-#citation[2] Grobman, W.A., et al. (2018). Labor Induction versus Expectant Management in Low-Risk Nulliparous Women. _New England Journal of Medicine_, 379(6):513-523. DOI: 10.1056/NEJMoa1800566
-
-#citation[3] Finucane, E.M., Murphy, D.J., Biesty, L.M., et al. (2020). Membrane sweeping for induction of labour. _Cochrane Database of Systematic Reviews_, 2:CD000451. DOI: 10.1002/14651858.CD000451.pub3
-
-#citation[4] Kavanagh, J., Kelly, A.J., Thomas, J. (2005). Breast stimulation for cervical ripening and induction of labour. _Cochrane Database of Systematic Reviews_, (3):CD003392. DOI: 10.1002/14651858.CD003392.pub2
-
-#citation[5] Al-Kuran, O., et al. (2011). The effect of late pregnancy consumption of date fruit on labour and delivery. _Journal of Obstetrics and Gynaecology_, 31(1):29-31. DOI: 10.3109/01443615.2010.522267
-
-#citation[6] Muglu, J., et al. (2019). Risks of stillbirth and neonatal death with advancing gestation at term: a systematic review and meta-analysis of cohort studies of 15 million pregnancies. _PLOS Medicine_, 16(7):e1002838. DOI: 10.1371/journal.pmed.1002838
-
-#citation[7] Romano, A.M., Lothian, J.A. (2008). Promoting, protecting, and supporting normal birth: a look at the evidence. _Journal of Obstetric, Gynecologic, & Neonatal Nursing_, 37(1):94-105.
-
-#citation[8] Cleveland Clinic. Bishop Score: Purpose, What It Means & How It Impacts Labor. https://my.clevelandclinic.org/health/diagnostics/24252-bishop-score
-
-#citation[9] American Journal of Obstetrics & Gynecology. (2023). Methods for the induction of labor: efficacy and safety.
-
-#citation[10] Ranjbar, F., Behzadipour, S., Beigi, M. (2022). Effect and Safety of Castor Oil on Labor Induction and Prevalence of Vaginal Delivery: A Systematic Review and Meta-Analysis. _Iranian Journal of Nursing and Midwifery Research_, 27(4):257-263. DOI: 10.4103/ijnmr.ijnmr_417_20
-
-#citation[11] Evidence Based Birth. Evidence on: Evening Primrose Oil (EPO). https://evidencebasedbirth.com/evidence-on-evening-primrose-oil-epo/
-
-#citation[12] Zamora-Brito, M., et al. (2024). Acupuncture before planned admission for induction of labor (ACUPUNT study): a randomized controlled trial. _American Journal of Obstetrics & Gynecology MFM_, 6(11):101477. DOI: 10.1016/j.ajogmf.2024.101477
-
-#citation[13] Shirazi, M., Zarghami, M. (2021). The effect of walking during late pregnancy on the outcomes of labor and delivery: A randomized clinical trial. _Journal of Education and Health Promotion_, 10:272. DOI: 10.4103/jehp.jehp_1381_20
-
-#citation[14] Evidence Based Birth. What is the Evidence for Induction or C-section for a Big Baby? https://evidencebasedbirth.com/evidence-for-induction-or-c-section-for-big-baby/
-
-#citation[15] Kavanagh, J., Kelly, A.J., Thomas, J. (2001). Sexual intercourse for cervical ripening and induction of labour. _Cochrane Database of Systematic Reviews_, (2):CD003093. DOI: 10.1002/14651858.CD003093
-
-#citation[16] Zamora-Brito, M., et al. (2024). The role of acupuncture in the present approach to labor induction: a systematic review and meta-analysis. _American Journal of Obstetrics & Gynecology MFM_, 6(2):101272. DOI: 10.1016/j.ajogmf.2023.101272
-
-#citation[17] Chen, A., et al. (2025). Acupuncture for induction of labor in uncomplicated term pregnancies and the role of the acupoint selection: A systematic review and meta-analysis. _Acta Obstetricia et Gynecologica Scandinavica_, 104(1). DOI: 10.1111/aogs.70036
-
-#citation[18] Simpson, M., Parsons, M., Greenwood, J., Wade, K. (2001). Raspberry leaf in pregnancy: its safety and efficacy in labor. _Journal of Midwifery & Women's Health_, 46(2):51-59. DOI: 10.1016/s1526-9523(01)00095-2
-
-#citation[19] Jones, T.K., Lawson, B.M. (1998). Profound neonatal congestive heart failure caused by maternal consumption of blue cohosh herbal medication. _Journal of Pediatrics_, 132(3 Pt 1):550-552. DOI: 10.1016/s0022-3476(98)70041-1
-
-#citation[20] Gunn, T.R., Wright, I.M. (1996). The use of black and blue cohosh in labour. _New Zealand Medical Journal_, 109(1032):410-411.
-
-#citation[21] Lagercrantz, H., Slotkin, T.A. (1986). The "stress" of being born. _Scientific American_, 254(4):100-107. DOI: 10.1038/scientificamerican0486-100
-
-#citation[22] Kenkel, W.M., et al. (2019). Behavioral and epigenetic consequences of oxytocin treatment at birth. _Science Advances_, 5(5):eaav2244. DOI: 10.1126/sciadv.aav2244
+See #link(<cite-ch-labor-induction>)[all citations for this chapter] in the Citations Appendix.

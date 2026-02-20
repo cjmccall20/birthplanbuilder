@@ -325,25 +325,7 @@ We believe parents deserve to know that continuous monitoring became standard th
 
 == Citations
 
-#citation[1] Alfirevic, Z., Devane, D., Gyte, G. M. L., & Cuthbert, A. (2017). Continuous cardiotocography (CTG) as a form of electronic fetal monitoring (EFM) for fetal assessment during labour. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD006066.pub3
-
-#citation[2] Arnold, J., & Gawrys, B. L. (2020). Intrapartum Fetal Monitoring. _American Family Physician_, 102(3), 158--167. PubMed: 32735438. #link("https://www.aafp.org/pubs/afp/issues/2020/0801/p158.html")
-
-#citation[3] Kebede, T. N., Abebe, K. A., Chekol, M. S., et al. (2024). The effect of continuous electronic fetal monitoring on mode of delivery and neonatal outcome among low-risk laboring mothers at Debre Markos comprehensive specialized hospital, Northwest Ethiopia. _Frontiers in Global Women's Health_, 5, 1385343. DOI: 10.3389/fgwh.2024.1385343
-
-#citation[4] Paterno, M. T., McElroy, K., & Regan, M. (2016). Electronic Fetal Monitoring and Cesarean Birth: A Scoping Review. _Birth_, 43(4), 277--284. DOI: 10.1111/birt.12247
-
-#citation[5] American College of Obstetricians and Gynecologists. (2025). Intrapartum Fetal Heart Rate Monitoring: Interpretation and Management. ACOG Clinical Practice Guideline No. 10. _Obstetrics & Gynecology_, 146(4), 583--599. #link("https://www.acog.org/clinical/clinical-guidance/clinical-practice-guideline/articles/2025/10/intrapartum-fetal-heart-rate-monitoring-interpretation-and-management")
-
-#citation[6] CDC National Center on Birth Defects and Developmental Disabilities. Data and Statistics for Cerebral Palsy. #link("https://archive.cdc.gov/www_cdc_gov/ncbddd/cp/data.html")
-
-#citation[7] American College of Obstetricians and Gynecologists & American Academy of Pediatrics. (2003). _Neonatal Encephalopathy and Cerebral Palsy: Defining the Pathogenesis and Pathophysiology_. See also: Nelson, K. B., Sartwelle, T. P., & Rouse, D. J. (2016). Electronic fetal monitoring, cerebral palsy, and caesarean section: Assumptions versus evidence. _BMJ_. DOI: 10.1136/bmj.i6405
-
-#citation[8] Tussing, A. D., & Wojtowycz, M. A. (1997). Malpractice, defensive medicine, and obstetric behavior. _Medical Care_, 35(2). DOI: 10.1097/00005650-199702000-00007
-
-#citation[9] American College of Nurse-Midwives. (2015). Intermittent Auscultation for Intrapartum Fetal Heart Rate Surveillance. _Journal of Midwifery & Women's Health_, 60(5). DOI: 10.1111/jmwh.12372
-
-#citation[10] Wisner, K., et al. (2024). Fetal Heart Rate Auscultation, 4th Edition. AWHONN Practice Monograph. _Journal of Obstetric, Gynecologic & Neonatal Nursing_, 53(3). DOI: 10.1016/j.jogn.2023.11.001
+See #link(<cite-ch-fetal-monitoring>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

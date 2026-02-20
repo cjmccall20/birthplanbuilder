@@ -422,37 +422,7 @@ None of these choices is negligent. All of them reflect a parent weighing real i
 
 == Citations
 
-#citation[1] CDC. Prevention of Hepatitis B Virus Infection. _MMWR_, 67(1). "HBV can survive for 7 days or more." https://www.cdc.gov/mmwr/volumes/67/rr/rr6701a1.htm
-
-#citation[2] WHO. Hepatitis B Fact Sheet. World Health Organization. https://www.who.int/news-room/fact-sheets/detail/hepatitis-b
-
-#citation[3] CDC. Clinical Overview of Perinatal Hepatitis B. Centers for Disease Control and Prevention. https://www.cdc.gov/hepatitis-b/hcp/perinatal-provider-overview/index.html
-
-#citation[4] CDC. (2025). Hepatitis B Immunization Individual-Based Decision-Making. https://www.cdc.gov/media/releases/2025/2025-hepatitis-b-immunization.html
-
-#citation[5] PMC. (2023). Gaps in Prenatal Hepatitis B Screening 2015-2020. https://pmc.ncbi.nlm.nih.gov/articles/PMC10994214/
-
-#citation[6] CDC. Hepatitis B Surveillance Guidance. Centers for Disease Control and Prevention. https://www.cdc.gov/hepatitis/php/surveillance-guidance/hepatitis-b.html
-
-#citation[7] AAP. (2025). Changes to hepatitis B recommendations 'irresponsible and purposely misleading.' https://publications.aap.org/aapnews/news/33915/
-
-#citation[8] USPSTF. Hepatitis B Virus Infection in Pregnant Women: Screening. https://www.uspreventiveservicestaskforce.org/uspstf/recommendation/hepatitis-b-virus-infection-in-pregnant-women-screening
-
-#citation[9] CDC. (2025). Hepatitis B Birth Dose Briefing Document. https://www.cdc.gov/acip/downloads/slides-2025-09-18-19/hep-b-birth-dose-briefing-508.pdf
-
-#citation[10] WHO. Preventing mother-to-child transmission of the hepatitis B virus. https://www.who.int/news-room/questions-and-answers/item/hepatitis-preventing-mother-to-child-transmission-of-the-hepatitis-b-virus
-
-#citation[11] CDC. Hepatitis B Vaccine Safety. Centers for Disease Control and Prevention. https://www.cdc.gov/vaccine-safety/vaccines/hepatitis-b.html
-
-#citation[12] Journal of Hepatology. (2003). Safety of immunization and adverse events following vaccination against hepatitis B. _Journal of Hepatology_. https://www.journal-of-hepatology.eu/article/S0168-8278(03)00153-3/fulltext
-
-#citation[13] FDA. Recombivax HB Package Insert. https://www.fda.gov/files/vaccines,%20blood%20&%20biologics/published/package-insert-recombivax-hb.pdf
-
-#citation[14] CDC. Adjuvants and Vaccines. Centers for Disease Control and Prevention. https://www.cdc.gov/vaccine-safety/about/adjuvants.html
-
-#citation[15] Tomljenovic L, Shaw CA. (2011). Do aluminum vaccine adjuvants contribute to the rising prevalence of autism? _Journal of Inorganic Biochemistry_, 105(11), 1489-1499. DOI: 10.1016/j.jinorgbio.2011.08.008
-
-#citation[16] VAERS. Vaccine Adverse Event Reporting System. U.S. Department of Health and Human Services. https://vaers.hhs.gov/
+See #link(<cite-ch-hepatitis-b>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

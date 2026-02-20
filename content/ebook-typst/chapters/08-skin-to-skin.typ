@@ -227,35 +227,7 @@ The golden hour establishes the foundation: the first feeding, the first oxytoci
 
 == Citations
 
-#citation[1] World Health Organization. (2023). Simple, but lifesaving: skin-to-skin contact immediately after birth. WHO Western Pacific. https://www.who.int/westernpacific/newsroom/feature-stories/item/simple--but-lifesaving--skin-to-skin-contact-immediately-after-birth
-
-#citation[2] American Academy of Pediatrics. (2016). Safe Sleep and Skin-to-Skin Care in the Neonatal Period for Healthy Term Newborns. _Pediatrics_. DOI: 10.1542/peds.2016-1889
-
-#citation[3] Moore ER, Bergman N, Anderson GC, Medley N. (2016, updated 2025). Early skin-to-skin contact for mothers and their healthy newborn infants. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD003519.pub5
-
-#citation[4] WHO. (1997). Thermal Protection of the Newborn: A Practical Guide. WHO/RHT/MSM/97.2. https://iris.who.int/bitstream/handle/10665/63986/WHO_RHT_MSM_97.2.pdf
-
-#citation[5] Beiranvand S, Valizadeh F, Hosseinabadi R, Pournia Y. (2014). The Effects of Skin-to-Skin Contact on Temperature and Breastfeeding Successfulness in Full-Term Newborns after Cesarean Delivery. _International Journal of Pediatrics_, 2014, 846486. DOI: 10.1155/2014/846486
-
-#citation[6] Karimi FZ, Sadeghi R, Maleki-Saghooni N, Khadivzadeh T. (2019). The effect of mother-infant skin to skin contact on success and duration of first breastfeeding: A systematic review and meta-analysis. _Taiwanese Journal of Obstetrics and Gynecology_, 58(1), 1-9. DOI: 10.1016/j.tjog.2018.11.002
-
-#citation[7] Vittner D, McGrath J, Robinson J, et al. (2018). Increase in Oxytocin From Skin-to-Skin Contact Enhances Development of Parent-Infant Relationship. _Biological Research for Nursing_, 20(1), 54-62. DOI: 10.1177/1099800417735633
-
-#citation[8] Baskett TF. (2000). Virginia Apgar and the newborn Apgar Score. _Resuscitation_, 47(3), 215-217. DOI: 10.1016/s0300-9572(00)00340-3
-
-#citation[9] AAP. (2022). Vitamin K and the Newborn Infant. _Pediatrics_, 149(3), e2021056036. DOI: 10.1542/peds.2021056036
-
-#citation[10] Warren S, et al. (2020). Effects of Delayed Newborn Bathing on Breastfeeding, Hypothermia, and Hypoglycemia. _JOGNN_, 49(2), 181-189. DOI: 10.1016/j.jogn.2019.12.004
-
-#citation[11] Visscher M, Narendran V. (2014). Vernix Caseosa: Formation and Functions. _Newborn and Infant Nursing Reviews_, 14(4), 142-146. DOI: 10.1053/j.nainr.2014.10.005
-
-#citation[12] Martinez-Hortelano JA, et al. (2025). Skin-to-skin contact and breastfeeding after caesarean section: A systematic review and meta-analysis of intervention studies. _International Journal of Nursing Studies_, 105038. DOI: 10.1016/j.ijnurstu.2025.105038
-
-#citation[13] Evidence Based Birth. (2024). The Evidence for Skin to Skin Care after a Cesarean. https://evidencebasedbirth.com/the-evidence-for-skin-to-skin-care-after-a-cesarean/
-
-#citation[14] Stanford Medicine. (2024). Skin-to-skin 'kangaroo care' found to boost neurodevelopment in preemies. _The Journal of Pediatrics_, July 2024. https://med.stanford.edu/news/all-news/2024/08/kangaroo-preemies.html
-
-#citation[15] Korukcu O, Yilmaz ME, Kabukcuoglu K. (2022). The Effect of Skin-to-Skin Contact Between Father and Baby on Paternal Attachment. _The Open Nursing Journal_, 18(1), e1574434622. DOI: 10.2174/2666082218666220705160808
+See #link(<cite-ch-skin-to-skin>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

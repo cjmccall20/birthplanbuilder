@@ -406,32 +406,4 @@ _This guide is for informational purposes only and should not replace advice fro
 
 == Citations
 
-#citation[1] Pergialiotis, V., Vlachos, D., Protopapas, A., Pappa, K., & Vlachos, G. (2014). Risk factors for severe perineal lacerations during childbirth. _International Journal of Gynaecology and Obstetrics_, 125(1), 6-14. DOI: 10.1016/j.ijgo.2013.09.034
-
-#citation[2] Salmon, D. (1999). A feminist analysis of women's experiences of perineal trauma in the immediate post-delivery period. _Midwifery_, 15(4), 247-256. DOI: 10.1054/midw.1999.0182
-
-#citation[3] Royal College of Obstetricians and Gynaecologists. (2015). The Management of Third- and Fourth-Degree Perineal Tears. _RCOG Green-top Guideline No. 29_. #link("https://www.rcog.org.uk/media/5jeb5hzu/gtg-29.pdf")
-
-#citation[4] Meister, M. R., Cahill, A. G., Conner, S. N., Woolfolk, C. L., & Lowder, J. L. (2016). Predicting obstetric anal sphincter injuries in a modern obstetric population. _American Journal of Obstetrics and Gynecology_, 215(3), 310.e1-7. DOI: 10.1016/j.ajog.2016.02.041
-
-#citation[5] Smith, L. A., Price, N., Simonite, V., & Burns, E. E. (2013). Incidence of and risk factors for perineal trauma: A prospective observational study. _BMC Pregnancy and Childbirth_, 13, 59. DOI: 10.1186/1471-2393-13-59
-
-#citation[6] Beckmann, M. M., & Stock, O. M. (2013). Antenatal perineal massage for reducing perineal trauma. _Cochrane Database of Systematic Reviews_, Issue 4. Art. No.: CD005123. DOI: 10.1002/14651858.CD005123.pub3
-
-#citation[7] Aasheim, V., Nilsen, A. B. V., Reinar, L. M., & Lukasse, M. (2017). Perineal techniques during the second stage of labour for reducing perineal trauma. _Cochrane Database of Systematic Reviews_, Issue 6. Art. No.: CD006672. DOI: 10.1002/14651858.CD006672.pub3
-
-#citation[8] Gupta, J. K., Sood, A., Hofmeyr, G. J., & Vogel, J. P. (2017). Position in the second stage of labour for women without epidural anaesthesia. _Cochrane Database of Systematic Reviews_, Issue 5. Art. No.: CD002006. DOI: 10.1002/14651858.CD002006.pub4
-
-#citation[9] Cluett, E. R., & Burns, E. (2009). Immersion in water in labour and birth. _Cochrane Database of Systematic Reviews_, Issue 2. Art. No.: CD000111. DOI: 10.1002/14651858.CD000111.pub3
-
-#citation[10] Lemos, A., Amorim, M. M., Dornelas de Andrade, A., de Souza, A. I., Cabral Filho, J. E., & Correia, J. B. (2017). Pushing/bearing down methods for the second stage of labour. _Cochrane Database of Systematic Reviews_, Issue 3. Art. No.: CD009124. DOI: 10.1002/14651858.CD009124.pub3
-
-#citation[11] Carroli, G., & Mignini, L. (2009). Episiotomy for vaginal birth. _Cochrane Database of Systematic Reviews_, Issue 1. Art. No.: CD000081. DOI: 10.1002/14651858.CD000081.pub2
-
-#citation[12] American College of Obstetricians and Gynecologists. (2018). Practice Bulletin No. 198: Prevention and Management of Obstetric Lacerations at Vaginal Delivery. _Obstetrics & Gynecology_, 132(3), e87-e102. DOI: 10.1097/AOG.0000000000002841
-
-#citation[13] Wuytack, F., Smith, V., & Cleary, B. J. (2016). Oral non-steroidal anti-inflammatory drugs (single dose) for perineal pain in the early postpartum period. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD011352. DOI: 10.1002/14651858.CD011352.pub3
-
-#citation[14] National Library of Medicine. (2025). Acetaminophen. _Drugs and Lactation Database (LactMed)_. #link("https://www.ncbi.nlm.nih.gov/books/NBK501194/")
-
-#citation[15] Woodley, S. J., Lawrenson, P., Boyle, R., Cody, J. D., Morkved, S., Kerkhoffs, G. M. M. J., & Hay-Smith, E. J. C. (2020). Pelvic floor muscle training for preventing and treating urinary and faecal incontinence in antenatal and postnatal women. _Cochrane Database of Systematic Reviews_, Issue 5. Art. No.: CD007471. DOI: 10.1002/14651858.CD007471.pub4
+See #link(<cite-ch-perineal-support>)[all citations for this chapter] in the Citations Appendix.

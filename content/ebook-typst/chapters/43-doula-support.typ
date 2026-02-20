@@ -589,17 +589,7 @@ Until then, if you have the option to hire a doula—take it. The evidence is to
 
 == Citations
 
-#citation[1] Bohren MA, Hofmeyr GJ, Sakala C, Fukuzawa RK, Cuthbert A (2017). Continuous support for women during childbirth. _Cochrane Database of Systematic Reviews_, Issue 7, Art. No.: CD003766. DOI: 10.1002/14651858.CD003766.pub6
-
-#citation[2] Bohren MA, et al. (2017). Cochrane Review Update Key Takeaways. _PMC_ 6491161.
-
-#citation[3] Falconi AM, Bromfield SG, Tang T, et al. (2022). Doula care across the maternity care continuum and impact on maternal health: Evaluation of doula programs across three states using propensity score matching. _eClinicalMedicine_, 51:101531. DOI: 10.1016/j.eclinm.2022.101531
-
-#citation[4] American Journal of Obstetrics & Gynecology (2023). A meta-analysis on the impact of doula care on Cesarean section rates. _AJOG_, S0002-9378(23)00926-2.
-
-#citation[5] American Journal of Public Health (2024). Role of Doulas in Improving Maternal Health and Health Equity Among Medicaid Enrollees, 2014-2023. _AJPH_, 114(11). DOI: 10.2105/AJPH.2024.307805
-
-#citation[6] Dias Y, Achebe NE, Doering MM, et al. (2025). Intrapartum Doula Support and Cesarean Delivery Rates: A Systematic Review and Meta-analysis. _Obstetrics & Gynecology_. DOI: 10.1097/AOG.0000000000005937
+See #link(<cite-ch-doula-support>)[all citations for this chapter] in the Citations Appendix.
 
 == Key Sources
 

@@ -71,18 +71,4 @@ Your placenta did amazing work. How you honor that is personal.
 
 == Citations
 
-#citation[1] Buser GL, et al. Notes from the Field: Late-Onset Infant Group B Streptococcus Infection Associated with Maternal Consumption of Capsules Containing Dehydrated Placenta -- Oregon, 2016. _MMWR Morb Mortal Wkly Rep_. 2017;66(25):677-678. DOI: 10.15585/mmwr.mm6625a4
-
-#citation[2] Young SM, Gryder LK, Cross C, Zava D, Kimball DW, Benyshek DC. Effects of placentophagy on maternal salivary hormones: A pilot trial, part 1. _Women Birth_. 2018. DOI: 10.1016/j.wombi.2017.09.023
-
-#citation[3] Gryder LK, Young SM, Zava D, Norris W, Cross CL, Benyshek DC. Effects of Human Maternal Placentophagy on Maternal Postpartum Iron Status: A Randomized, Double-Blind, Placebo-Controlled Pilot Study. _J Midwifery Womens Health_. 2017. DOI: 10.1111/jmwh.12549
-
-#citation[4] Benyshek DC, Cheyney M, Brown J, Bovbjerg ML. Placentophagy among women planning community births in the United States: Frequency, rationale, and associated neonatal outcomes. _Birth_. 2018. DOI: 10.1111/birt.12354
-
-#citation[5] Young SM, Benyshek DC. In Search of Human Placentophagy: A Cross-Cultural Survey of Human Placenta Consumption, Disposal Practices, and Cultural Beliefs. _Ecol Food Nutr_. 2010;49(6):467-484. DOI: 10.1080/03670244.2010.524106
-
-#citation[6] Selander J, Cantor A, Young SM, Benyshek DC. Human Maternal Placentophagy: A Survey of Self-Reported Motivations and Experiences Associated with Placenta Consumption. _Ecol Food Nutr_. 2013;52(2):93-115. DOI: 10.1080/03670244.2012.719356
-
-#citation[7] Kristal MB. The Biopsychology of Maternal Behavior in Nonhuman Mammals. _ILAR J_. 2009;50(1):51-63. DOI: 10.1093/ilar.50.1.51
-
-#citation[8] Annoni M. The Ethics of Placebo Effects in Clinical Practice and Research. _Int Rev Neurobiol_. 2018. DOI: 10.1016/bs.irn.2018.07.031
+See #link(<cite-ch-placenta-options>)[all citations for this chapter] in the Citations Appendix.

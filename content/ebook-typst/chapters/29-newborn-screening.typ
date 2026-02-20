@@ -96,32 +96,4 @@ Whatever you decide, make it an informed choice — not a default.
 
 == Citations
 
-#citation[1] Shah PS, et al. Breastfeeding or breast milk for procedural pain in neonates. _Cochrane Database Syst Rev_. 2012. DOI: 10.1002/14651858.CD004950.pub3
-
-#citation[2] Grunau RE. Neonatal Pain in Very Preterm Infants: Long-Term Effects on Brain, Neurodevelopment and Pain Reactivity. _Rambam Maimonides Med J_. 2013;4(4):e0132. DOI: 10.5041/rmmj.10132
-
-#citation[3] Federation of American Scientists. Protecting Newborn DNA Privacy. 2024. https://fas.org/publication/protecting-newborn-dna-privacy/
-
-#citation[4] CBS News. California can share your baby's DNA sample without permission. 2024. https://www.cbsnews.com/news/baby-dna-parental-consent-genetic-records-california-law-newborns/
-
-#citation[5] ACLU. Widespread Newborn DNA Sequencing Will Worsen Risks to Genetic Privacy. 2024. https://www.aclu.org/news/privacy-technology/widespread-newborn-dna-sequencing-will-worsen-risks-to-genetic-privacy
-
-#citation[6] Valeri BO, Holsti L, Linhares MBM. Neonatal pain and developmental outcomes in children born preterm. _Clin J Pain_. 2015;31(10 Suppl):S109-S116. DOI: 10.1097/ajp.0000000000000114
-
-#citation[7] Centers for Disease Control and Prevention. About Newborn Screening: General Information. https://www.cdc.gov/newborn-screening/about/general-information.html
-
-#citation[8] Health Resources and Services Administration. Recommended Uniform Screening Panel. https://newbornscreening.hrsa.gov/about-newborn-screening/recommended-uniform-screening-panel
-
-#citation[9] Blau N, van Spronsen FJ, Levy HL. Phenylketonuria. _Lancet_. 2010;376(9750):1417-27.
-
-#citation[10] American Academy of Pediatrics. Congenital Hypothyroidism: Screening and Management. _Pediatrics_. 2023;151(1):e2022060420.
-
-#citation[11] Gaston MH, Verter JI, Woods G, et al. Prophylaxis with oral penicillin in children with sickle cell anemia: a randomized trial. _N Engl J Med_. 1986;314(25):1593-9.
-
-#citation[12] Pai SY, Logan BR, Griffith LM, et al. Transplantation outcomes for severe combined immunodeficiency, 2000-2009. _N Engl J Med_. 2014;371(5):434-46.
-
-#citation[13] Centers for Disease Control and Prevention. CDC Grand Rounds: Newborn Screening and Improved Outcomes. _MMWR_. 2012;61(21):390-393.
-
-#citation[14] Johnston C, Campbell-Yeo M, Disher T, et al. Skin-to-skin care for procedural pain in neonates. _Cochrane Database Syst Rev_. 2017;2:CD008435.
-
-#citation[15] American Academy of Pediatrics Committee on Fetus and Newborn. Prevention and Management of Procedural Pain in the Neonate: An Update. _Pediatrics_. 2016;137(2):e20154271.
+See #link(<cite-ch-newborn-screening>)[all citations for this chapter] in the Citations Appendix.

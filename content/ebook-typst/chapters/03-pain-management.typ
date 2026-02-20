@@ -348,51 +348,7 @@ Your partner plays a crucial role in supporting your choices.
 
 == Citations
 
-#citation[1] Haines, H. M., et al. (2012). What characterizes women who want to give birth as naturally as possible without painkillers or intervention? _Midwifery_, 28(4), 458--464. DOI: 10.1016/j.midw.2011.07.011
-
-#citation[2] CDC National Center for Health Statistics (2008). Epidural and spinal anesthesia use during labor. _National Vital Statistics Reports_. Note: Latest official CDC data shows 61%; current estimates of 70-75% reflect more recent state-level data and industry consensus.
-
-#citation[3] Browning, C. A., Trudinger, B. J., & Martin, T. (1983). Maternal and fetal beta-endorphin release in response to the stress of labor and delivery. _American Journal of Obstetrics & Gynecology_, 148(4), 440--445. PubMed: 3158206.
-
-#citation[4] Uvnas-Moberg, K., et al. (2023). The physiology and pharmacology of oxytocin in labor and in the peripartum period. _American Journal of Obstetrics & Gynecology_. DOI: 10.1016/j.ajog.2023.03.023
-
-#citation[5] Richardson, M. X., et al. (2020). Induction of labor in Sweden: A register-based cohort study. _BMJ Open_.
-
-#citation[6] Lothian, J. A., et al. (2016). Comparison of the Bradley Method and HypnoBirthing childbirth education classes. _Journal of Perinatal Education_. PMC4744344. Note: The 86% statistic is self-reported by method advocates.
-
-#citation[7] Madden, K., Middleton, P., Cyna, A. M., et al. (2016). Hypnosis for pain management during labour and childbirth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD009356.pub3
-
-#citation[8] KG Hypnobirthing Independent Research Study (~700 women). #link("https://www.kghypnobirthing.com/hypnobirthing-information/hypnobirthing-statistics")[kghypnobirthing.com]. Note: Industry-sponsored survey.
-
-#citation[9] Cluett, E. R., Burns, E., & Cuthbert, A. (2018). Immersion in water during labour and birth. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD000111.pub4
-
-#citation[10] Evidence Based Birth. (2023). Positions during Labor and their Effects on Pain Relief. #link("https://evidencebasedbirth.com/positions-during-labor-and-their-effects-on-pain-relief/")[evidencebasedbirth.com]. See also: Cochrane Review CD002006.pub4 on position in the second stage of labour.
-
-#citation[11] Russell, J. G. (2002). MR obstetric pelvimetry: Effect of birthing position on pelvic bony dimensions. _AJR American Journal of Roentgenology_, 179(4), 1063--1067. PubMed: 12239066.
-
-#citation[12] Buhre, W., et al. (2020). Nitrous Oxide for Labor Analgesia: What We Know to Date. PMC7755562. See also: Pro-Con Debate: Nitrous Oxide for Labor Analgesia. PMC6720045.
-
-#citation[13] American Society of Anesthesiologists. (2019). Laughing gas helpful for labor pain, safe for baby, but ultimately most women switched to an epidural. ASA News Release. #link("https://www.asahq.org/about-asa/newsroom/news-releases/2019/10/2-nitrous-oxide-during-labor")[asahq.org]
-
-#citation[14] American College of Obstetricians and Gynecologists. (2017). Obstetric Analgesia and Anesthesia. ACOG Practice Bulletin No. 177. _Obstetrics & Gynecology_, 129(4), e73--e89. DOI: 10.1097/AOG.0000000000002018
-
-#citation[15] Smith, L. A., Burns, E., & Cuthbert, A. (2018). Parenteral opioids for maternal pain management in labour. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD007396.pub3
-
-#citation[16] Howell, C. J. (2000). Epidural versus non-epidural analgesia for pain relief in labour. _Cochrane Database of Systematic Reviews_. DOI: 10.1002/14651858.CD000331
-
-#citation[17] Epidurals: Do They or Don't They Increase Cesareans? PMC4718011. See also: British Journal of Midwifery observational studies.
-
-#citation[18] Turner, J., Flatley, C., & Kumar, S. (2020). Epidural use in labour is not associated with an increased risk of maternal or neonatal morbidity when the second stage is prolonged. _Australian and New Zealand Journal of Obstetrics and Gynaecology_. DOI: 10.1111/ajo.13045
-
-#citation[19] Lieberman, E., Lang, J. M., Frigoletto, F., et al. (1997). Epidural Analgesia, Intrapartum Fever, and Neonatal Sepsis Evaluation. _Pediatrics_, 99(3), 415--419. DOI: 10.1542/peds.99.3.415
-
-#citation[20] Epidural-Related Fever and Maternal and Neonatal Morbidity: Systematic Review and Meta-Analysis. (2020). _Neonatology_, 117(3), 259. DOI: 10.1159/000505792
-
-#citation[21] Morton, S., Kua, J., & Mullington, C. J. (2022). Epidural Analgesia, Intrapartum Hyperthermia, and Neonatal Brain Injury: A Systematic Review and Meta-Analysis. _Anesthesia & Analgesia_. DOI: 10.1097/01.aoa.0000816908.23548.dd
-
-#citation[22] Dozier, A. M., Howard, C. R., Brownell, E. A., et al. (2013). Labor Epidural Anesthesia, Obstetric Factors and Breastfeeding Cessation. _Maternal and Child Health Journal_, 17(4), 689--698. DOI: 10.1007/s10995-012-1045-4
-
-#citation[23] Buckley, S. J. (2016). Executive Summary of Hormonal Physiology of Childbearing: Evidence and Implications for Women, Babies, and Maternity Care. _Journal of Perinatal Education_. PMC4720867.
+See #link(<cite-ch-pain-management>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

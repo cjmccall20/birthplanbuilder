@@ -208,26 +208,16 @@ Your baby deserves that. And you have more power to provide it than you might th
 
 #line(length: 100%)
 
+I'm not a doctor or a midwife. I'm an engineer and a dad. When my wife was pregnant, I spent months reading studies late at night, comparing sources, and piecing together the pros and cons of every decision we'd face. She challenged every conclusion I brought to her. The decisions were always ours together.
+
+This book is the resource we wished we'd had — everything in one place, cited, balanced, and written for parents, not medical professionals. We believe it can make a real difference for your family, the same way the research behind it did for ours.
+
+#line(length: 100%)
+
 Let's dive into the research.
 
 #line(length: 100%)
 
 == Citations
 
-[1] Vinall J, Grunau RE. Impact of repeated procedural pain-related stress in infants born very preterm. _Pediatric Research_. 2014;75(5):584-587.
-
-[2] Brummelte S, et al. Procedural pain and brain development in premature newborns. _Annals of Neurology_. 2012;71(3):385-396.
-
-[3] Grunau RE, et al. Neonatal pain, parenting stress and interaction, in relation to cognitive and motor development at 8 and 18 months in preterm infants. _Pain_. 2009;143(1-2):138-146.
-
-[4] Walker SM. Neonatal pain. _Paediatric Anaesthesia_. 2014;24(1):39-48.
-
-[5] Shah PS, et al. Breastfeeding or breast milk for procedural pain in neonates. _Cochrane Database of Systematic Reviews_. 2012;12:CD004950.
-
-[6] Brady-Fryer B, Wiebe N, Lander JA. Pain relief for neonatal circumcision. _Cochrane Database of Systematic Reviews_. 2004;(4):CD004217.
-
-[7] Taddio A, et al. Effect of neonatal circumcision on pain response during subsequent routine vaccination. _The Lancet_. 1997;349(9052):599-603.
-
-[8] Cong X, et al. The impact of cumulative pain/stress on neurobehavioral development of preterm infants in the NICU. _Early Human Development_. 2017;108:9-16.
-
-[9] Johnston CC, et al. Kangaroo mother care diminishes pain from heel lance in very preterm neonates: A crossover trial. _BMC Pediatrics_. 2008;8:13.
+See #link(<cite-ch-intro>)[all citations for this chapter] in the Citations Appendix.

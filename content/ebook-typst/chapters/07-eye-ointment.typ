@@ -211,31 +211,7 @@ The procedure itself is quick and likely not harmful.
 
 == Citations
 
-#citation[1] StatPearls. Ophthalmia Neonatorum. National Library of Medicine. https://www.ncbi.nlm.nih.gov/books/NBK551572/
-
-#citation[2] U.S. Preventive Services Task Force. (2019). Ocular Prophylaxis for Gonococcal Ophthalmia Neonatorum: Preventive Medication. _JAMA_, 321(4), 394-398. DOI: 10.1001/jama.2018.21443
-
-#citation[3] Smith-Norowitz TA, et al. (2021). Neonatal prophylaxis with antibiotic containing ointments does not reduce incidence of chlamydial conjunctivitis in newborns. _BMC Infectious Diseases_, 21, 244. DOI: 10.1186/s12879-021-05974-3
-
-#citation[4] CDC. (2024). STI Surveillance Data and Statistics. Centers for Disease Control and Prevention. https://www.cdc.gov/sti-statistics/annual/index.html
-
-#citation[5] American Academy of Pediatrics. (2024). Gonococcal Ophthalmia Neonatorum Prevention. In: Red Book: 2024-2027 Report of the Committee on Infectious Diseases. https://publications.aap.org/redbook/book/755/chapter-abstract/14084142/
-
-#citation[6] USPSTF Evidence Review. Countries including the UK, Denmark, Norway, and Sweden no longer require universal prophylaxis. https://www.ncbi.nlm.nih.gov/books/NBK537599/
-
-#citation[7] Moore DL, MacDonald NE; Canadian Paediatric Society. (2015). Preventing ophthalmia neonatorum. _Paediatrics & Child Health_, 20(2), 93-96. DOI: 10.1093/pch/20.2.93
-
-#citation[8] PMC. (2022). Global status of Azithromycin and Erythromycin Resistance Rates in Neisseria gonorrhoeae: A systematic review and meta-analysis. https://pmc.ncbi.nlm.nih.gov/articles/PMC9765340/
-
-#citation[9] Bell TA, et al. (1993). Randomized Trial of Silver Nitrate, Erythromycin, and No Eye Prophylaxis for the Prevention of Conjunctivitis Among Newborns Not at Risk for Gonococcal Ophthalmitis. _Pediatrics_, 92(6), 755-760. DOI: 10.1542/peds.92.6.755
-
-#citation[10] Farroni T, Menon E, Johnson MH. (2006). Factors influencing newborns' preference for faces with eye contact. _Journal of Experimental Child Psychology_, 95(4), 298-308. DOI: 10.1016/j.jecp.2006.08.001
-
-#citation[11] FIGO. Harnessing the golden hour: breastfeeding recommended within first hour of life. https://www.figo.org/resources/figo-statements/harnessing-golden-hour-breastfeeding-recommended-within-first-hour-life
-
-#citation[12] California Code of Regulations, Title 17, Section 2560: Refusal to Allow Treatment of Eyes of Infant with Prophylactic-Efficient Agent. https://www.law.cornell.edu/regulations/california/17-CCR-2560
-
-#citation[13] West Virginia House Bill 3444 (2025). Repeal of mandatory erythromycin prophylaxis. https://westvirginiawatch.com/2025/08/06/new-wv-law-repeals-mandate-that-newborns-receive-eye-ointment-to-prevent-blindness/
+See #link(<cite-ch-eye-ointment>)[all citations for this chapter] in the Citations Appendix.
 
 #line(length: 100%)
 

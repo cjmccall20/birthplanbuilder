@@ -331,34 +331,4 @@ _Remember: There's no wrong choice here—only the choice that's right for your 
 
 == Citations
 
-#citation[1] U.S. Food and Drug Administration. Cord Blood Banking: Information for Consumers. FDA.gov. Updated 2024. #link("https://www.fda.gov/vaccines-blood-biologics/consumers-biologics/cord-blood-banking-information-consumers")
-
-#citation[2] Sun, J. M., & Kurtzberg, J. (2015). Cord blood for brain injury. _Cytotherapy_, 17(7), 775-785. DOI: 10.1016/j.jcyt.2015.03.004
-
-#citation[3] Nietfeld, J. J., Pasquini, M. C., Logan, B. R., Verter, F., & Horowitz, M. M. (2008). Lifetime probabilities of hematopoietic stem cell transplantation in the U.S. _Biology of Blood and Marrow Transplantation_, 14(3), 316-322. DOI: 10.1016/j.bbmt.2007.12.493
-
-#citation[4] Shearer, W. T., Lubin, B. H., Cairo, M. S., & Notarangelo, L. D. (2017). Cord blood banking for potential future transplantation. _Pediatrics_, 140(5), e20172695. DOI: 10.1542/peds.2017-2695
-
-#citation[5] National Weather Service. Lightning Fatalities, Injuries and Damages in the United States. NOAA. #link("https://www.weather.gov/safety/lightning-odds")
-
-#citation[6] Thornley, I., Eapen, M., Sung, L., Lee, S. J., Davies, S. M., & Joffe, S. (2009). Private cord blood banking: Experiences and views of pediatric hematopoietic cell transplantation physicians. _Pediatrics_, 123(3), 1011-1017. DOI: 10.1542/peds.2008-0436
-
-#citation[7] Broxmeyer, H. E., Lee, M. R., Hangoc, G., et al. (2011). Hematopoietic stem/progenitor cells, generation of induced pluripotent stem cells, and isolation of endothelial progenitors from 21- to 23.5-year cryopreserved cord blood. _Blood_, 117(18), 4773-4777. DOI: 10.1182/blood-2011-01-330514
-
-#citation[8] Be The Match / National Marrow Donor Program. Cord Blood Transplant Statistics. NMDP. Updated 2025. #link("https://www.nmdp.org/")
-
-#citation[9] Ballen, K. K., Hicks, J., Dharan, B., et al. (2002). Racial and ethnic composition of volunteer cord blood donors: Comparison with volunteer unrelated marrow donors. _Transfusion_, 42(10), 1279-1284. DOI: 10.1046/j.1537-2995.2002.00191.x
-
-#citation[10] World Health Organization. (2014). Guideline: Delayed Umbilical Cord Clamping for Improved Maternal and Infant Health and Nutrition Outcomes. Geneva: WHO. #link("https://www.ncbi.nlm.nih.gov/books/NBK310511/")
-
-#citation[11] McDonald, S. J., Middleton, P., Dowswell, T., & Morris, P. S. (2013). Effect of timing of umbilical cord clamping of term infants on maternal and neonatal outcomes. _Cochrane Database of Systematic Reviews_, Issue 7. Art. No.: CD004074. DOI: 10.1002/14651858.CD004074.pub3
-
-#citation[12] Yao, A. C., & Lind, J. (1974). Placental transfusion. _American Journal of Diseases of Children_, 127(1), 128-141. DOI: 10.1001/archpedi.1974.02110200130021
-
-#citation[13] Chaparro, C. M., Neufeld, L. M., Tena Alavez, G., Eguia-Liz Cedillo, R., & Dewey, K. G. (2006). Effect of timing of umbilical cord clamping on iron status in Mexican infants: A randomised controlled trial. _The Lancet_, 367(9527), 1997-2004. DOI: 10.1016/S0140-6736(06)68889-2
-
-#citation[14] Mercer, J. S., & Erickson-Owens, D. A. (2012). Rethinking placental transfusion and cord clamping issues. _Journal of Perinatal and Neonatal Nursing_, 26(3), 202-217. DOI: 10.1097/JPN.0b013e31825d2d9a
-
-#citation[15] Rabe, H., Gyte, G. M. L., Diaz-Rossello, J. L., & Duley, L. (2019). Effect of timing of umbilical cord clamping and other strategies to influence placental transfusion at preterm birth on maternal and infant outcomes. _Cochrane Database of Systematic Reviews_, Issue 9. Art. No.: CD003248. DOI: 10.1002/14651858.CD003248.pub4
-
-#citation[16] American College of Obstetricians and Gynecologists. (2017). Committee Opinion No. 684: Delayed Umbilical Cord Clamping After Birth. _Obstetrics & Gynecology_, 129(1), e5-e10. DOI: 10.1097/AOG.0000000000001860. See also: AAP Committee on Fetus and Newborn (2017). _Pediatrics_, 139(6), e20170957. DOI: 10.1542/peds.2017-0957. WHO (2014). Guideline: Delayed Umbilical Cord Clamping. Geneva: WHO.
+See #link(<cite-ch-cord-blood>)[all citations for this chapter] in the Citations Appendix.

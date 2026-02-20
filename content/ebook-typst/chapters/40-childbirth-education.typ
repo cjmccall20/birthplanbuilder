@@ -575,43 +575,5 @@ You're not just preparing for one day. You're preparing for how you enter parent
 
 == Citations
 
-#citation[1] Gagnon AJ, Sandall J. Individual or group antenatal education for childbirth or parenthood, or both. _Cochrane Database of Systematic Reviews_. 2007. DOI: 10.1002/14651858.cd002869.pub2
-
-#citation[2] Declercq ER, et al. Listening to Mothers III: Pregnancy and Birth. _Childbirth Connection_. 2013.
-
-#citation[3] #link("https://pmc.ncbi.nlm.nih.gov/articles/PMC4744344/")[Comparison of the Bradley Method and HypnoBirthing Childbirth Education Classes - PMC]
-
-#citation[4] #link("https://www.bradleybirth.com/")[Bradley Method Official Website]
-
-#citation[5] #link("https://www.healthline.com/health/pregnancy/bradley-method")[Bradley Method: What It Is and How It Works - Healthline]
-
-#citation[6] #link("https://thebirthdeck.com/blogs/the-birth-deck-blog/birth-education-description-hypnobirthing-versus-hypnobabies")[Differences in Birth Education: HypnoBirthing vs Hypnobabies]
-
-#citation[7] #link("https://www.hypnobabies.com/")[Hypnobabies Hypnobirthing Classes]
-
-#citation[8] #link("https://hellobirthclass.com/hypnobabies-vs-hypnobirthing/")[Hypnobabies vs HypnoBirthing Comparison - HelloBirth]
-
-#citation[9] #link("https://health.clevelandclinic.org/lamaze")[Lamaze Method: Technique, Breathing and Benefits - Cleveland Clinic]
-
-#citation[10] #link("https://www.medicalnewstoday.com/articles/what-is-lamaze-breathing")[Lamaze breathing: Techniques, benefits, and how to practice - Medical News Today]
-
-#citation[11] #link("https://nurturednest.org/blogs/pregnancy-trimester-guides-labor-prep/best-online-childbirth-classes-2025-comparison")[15 Best Online Childbirth Classes Compared (2025 Guide)]
-
-#citation[12] #link("https://www.thebump.com/a/childbirth-classes")[Childbirth Classes: Everything You Need to Know - The Bump]
-
-#citation[13] Lothian JA. Lamaze breathing: What every pregnant woman needs to know. _Journal of Perinatal Education_. 2011.
-
-#citation[14] Cyna AM, et al. Hypnosis for pain relief in labour and childbirth. _Cochrane Database of Systematic Reviews_. 2004.
-
-#citation[15] England P. _Birthing From Within: An Extra-Ordinary Guide to Childbirth Preparation_. Partera Press. 1998.
-
-#citation[16] #link("https://birthingbetter.org/")[The Pink Kit: Birth skills for all types of births]
-
-#citation[17] Sutton J, Scott P. _Optimal Fetal Positioning_. Birth Concepts. 2005. (Spinning Babies foundation)
-
-#citation[18] American Academy of Husband-Coached Childbirth. Bradley Method statistics. https://www.bradleybirth.com
-
-#citation[19] Simkin P, Bolding A. Update on nonpharmacologic approaches to relieve labor pain and prevent suffering. _Journal of Midwifery & Women's Health_. 2004.
-
-#citation[20] Declercq ER, et al. Major Survey Findings of Listening to Mothers III: New Mothers Speak Out. _Journal of Perinatal Education_. 2014.
+See #link(<cite-ch-childbirth-education>)[all citations for this chapter] in the Citations Appendix.
 
