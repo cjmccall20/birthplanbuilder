@@ -16,12 +16,24 @@ import type { EditorSectionId, PreferenceDefinition } from '@/lib/editor/editorT
 interface SectionBrowserProps {
   onSelectPreference: (sectionId: EditorSectionId, preferenceId: string) => void
   selectedPreferenceId?: string | null
+  expandSection?: EditorSectionId | null
 }
 
-export function SectionBrowser({ onSelectPreference, selectedPreferenceId }: SectionBrowserProps) {
+export function SectionBrowser({ onSelectPreference, selectedPreferenceId, expandSection }: SectionBrowserProps) {
   const { state, setPreference } = useEditor()
   const [expandedSections, setExpandedSections] = useState<Set<string>>(new Set(['pre_hospital']))
   const [searchQuery, setSearchQuery] = useState('')
+
+  // Auto-expand section from "Add decision" button on canvas
+  useEffect(() => {
+    if (expandSection) {
+      setExpandedSections(prev => {
+        const next = new Set(prev)
+        next.add(expandSection)
+        return next
+      })
+    }
+  }, [expandSection])
 
   // Auto-expand section containing selected preference
   useEffect(() => {

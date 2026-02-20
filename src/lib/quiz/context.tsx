@@ -32,14 +32,18 @@ type QuizAction =
 
 function quizReducer(state: QuizState, action: QuizAction): QuizState {
   switch (action.type) {
-    case 'SET_ANSWER':
-      return {
-        ...state,
-        answers: {
-          ...state.answers,
-          [action.questionId]: action.answer,
-        },
+    case 'SET_ANSWER': {
+      const newAnswers = { ...state.answers, [action.questionId]: action.answer }
+      const oldQuestions = getOrderedQuestions(state.answers)
+      const currentQuestionId = oldQuestions[state.currentStep]?.id
+      const newQuestions = getOrderedQuestions(newAnswers)
+      let newStep = state.currentStep
+      if (currentQuestionId) {
+        const idx = newQuestions.findIndex(q => q.id === currentQuestionId)
+        if (idx !== -1) newStep = idx
       }
+      return { ...state, answers: newAnswers, currentStep: newStep }
+    }
     case 'SET_CUSTOM_NOTE':
       return {
         ...state,

@@ -4,6 +4,7 @@ export interface QuizOption {
   birthPlanText: string
   isUnsure?: boolean
   icon?: string  // Lucide icon name for option
+  omitFromPlan?: boolean  // When true, selecting this answer omits the preference from the birth plan
 }
 
 export interface LearnMoreData {
@@ -24,7 +25,8 @@ export interface QuizQuestion {
   learnMoreContent?: string    // Backward compat - old plain-text learn more
   learnMoreData?: LearnMoreData
   options: QuizOption[]
-  inputType?: 'text'           // For baby name - renders text field instead of option buttons
+  inputType?: 'text' | 'checklist_with_names'  // 'text' = legacy, 'checklist_with_names' = support people
+  textInputOnOption?: string   // Show text input when this option value is selected
   deferredFor?: 'csection'     // Deferred to end for vaginal planners
   conditionalOn?: {            // ONLY used for circumcision
     questionId: string
@@ -61,7 +63,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Some settings may limit your pain management options',
       ],
       bottomLine: 'The setting you choose affects the care you receive. Hospitals are designed for emergencies, which means routine births often get treated as potential emergencies.',
-      ebookChapter: 'Chapter 1: Birth Setting',
+      ebookChapter: 'Chapter 8: Birth Setting',
     },
     options: [
       { value: 'hospital', label: 'Hospital', birthPlanText: 'We are planning to give birth at a hospital.', icon: 'Building2' },
@@ -76,6 +78,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Your Birth Team',
     subtitle: 'Who do you want by your side?',
     order: 2,
+    inputType: 'checklist_with_names',
     learnMoreData: {
       tradeoff: 'Continuous labor support is one of the most evidence-based interventions in obstetrics. The people in your room affect your hormones, your comfort, and your outcomes.',
       pros: [
@@ -91,14 +94,13 @@ export const quizQuestions: QuizQuestion[] = [
         'Hospital policies may limit the number of support people allowed',
       ],
       bottomLine: 'Your body works better when you feel supported, safe, and informed. Choose people who make you feel calm, not anxious.',
-      ebookChapter: 'Chapter 20: Birth Team',
+      ebookChapter: 'Chapter 4: Birth Team',
     },
     options: [
-      { value: 'partner_only', label: 'My partner only', birthPlanText: 'We would like only my partner present during labor and delivery.', icon: 'Heart' },
-      { value: 'partner_doula', label: 'Partner and doula', birthPlanText: 'We would like my partner and our doula present during labor and delivery.', icon: 'Users' },
-      { value: 'partner_family', label: 'Partner and family member(s)', birthPlanText: 'We would like my partner and select family members present during labor and delivery.', icon: 'Users' },
-      { value: 'doula_only', label: 'Doula (with or without partner)', birthPlanText: 'We would like our doula present as our primary support person.', icon: 'UserCheck' },
-      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our birth team.', isUnsure: true },
+      { value: 'partner', label: 'Partner', birthPlanText: 'We would like my partner present during labor and delivery.', icon: 'Heart' },
+      { value: 'doula', label: 'Doula', birthPlanText: 'We would like our doula present during labor and delivery.', icon: 'UserCheck' },
+      { value: 'family', label: 'Family member(s)', birthPlanText: 'We would like select family members present during labor and delivery.', icon: 'Users' },
+      { value: 'unsure', label: 'I still need to think about this', birthPlanText: 'We are still deciding on our birth team.', isUnsure: true },
     ],
   },
 
@@ -126,7 +128,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Changing plans mid-labor can feel stressful without advance thought',
       ],
       bottomLine: 'Most women who achieve unmedicated birth do so through preparation, not pain tolerance. It is a learned skill, not willpower.',
-      ebookChapter: 'Chapter 3: Pain Management',
+      ebookChapter: 'Chapter 18: Pain Management',
     },
     options: [
       { value: 'natural', label: 'Planning unmedicated birth', birthPlanText: 'We are planning an unmedicated birth. Please do not offer pain medication unless I ask for it.', icon: 'Leaf' },
@@ -160,13 +162,13 @@ export const quizQuestions: QuizQuestion[] = [
         'If mother is unable, partner can provide skin-to-skin instead',
       ],
       bottomLine: 'This is not a nice-to-have - it is biologically optimal. Your body is baby\'s best incubator.',
-      ebookChapter: 'Chapter 8: Skin-to-Skin',
+      ebookChapter: 'Chapter 28: Skin-to-Skin',
     },
     options: [
-      { value: 'immediate', label: 'Yes, immediately and uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate, uninterrupted skin-to-skin contact.', icon: 'Heart' },
-      { value: 'after_assessment', label: 'After a quick initial check', birthPlanText: 'We would like skin-to-skin after the initial newborn assessment.', icon: 'Stethoscope' },
-      { value: 'partner_backup', label: 'Partner does skin-to-skin if I can\'t', birthPlanText: 'If I am unable, please place baby skin-to-skin with my partner immediately.', icon: 'Users' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss skin-to-skin options with our care team.', isUnsure: true },
+      { value: 'immediate', label: 'Immediately and uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate, uninterrupted skin-to-skin contact.', icon: 'Heart' },
+      { value: 'partner_csection', label: 'Partner does immediate skin-to-skin (C-section)', birthPlanText: 'If I am unable during a C-section, please place baby skin-to-skin with my partner immediately.', icon: 'Users' },
+      { value: 'after_assessment', label: 'As soon as safely possible', birthPlanText: 'We would like skin-to-skin as soon as it is safely possible after birth.', icon: 'Clock' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss skin-to-skin options with our care team.', isUnsure: true },
     ],
   },
   {
@@ -190,14 +192,16 @@ export const quizQuestions: QuizQuestion[] = [
         'Partners and visitors may need to wait to hold baby',
       ],
       bottomLine: 'You only get one golden hour. Most procedures can wait - this time cannot be recreated.',
-      ebookChapter: 'Chapter 8: Skin-to-Skin',
+      ebookChapter: 'Chapter 28: Skin-to-Skin',
     },
     options: [
       { value: 'protected', label: 'Protect it fully - no interruptions', birthPlanText: 'We want the first hour after birth to be uninterrupted skin-to-skin time. Please delay all non-urgent procedures.', icon: 'Shield' },
       { value: 'mostly_protected', label: 'Minimize interruptions, but do essentials', birthPlanText: 'We would like to minimize interruptions during the first hour but understand essential assessments may be needed.', icon: 'Clock' },
-      { value: 'flexible', label: 'Flexible - follow the staff\'s lead', birthPlanText: 'We are flexible with the timing of procedures in the first hour.', icon: 'Workflow' },
+      { value: 'flexible', label: 'Flexible - follow the staff\'s lead', birthPlanText: 'We are flexible with the timing of procedures in the first hour.', icon: 'Workflow', omitFromPlan: true },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss golden hour options with our care team.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'feeding',
@@ -220,46 +224,17 @@ export const quizQuestions: QuizQuestion[] = [
         'Breastfeeding places the physical demands entirely on the mother',
       ],
       bottomLine: 'Fed babies thrive. Whether breast, formula, or both - adequate nutrition is what matters. Your worth as a mother is not measured in ounces.',
-      ebookChapter: 'Chapter 16: Feeding',
+      ebookChapter: 'Chapter 40: Feeding',
     },
     options: [
       { value: 'breastfeed', label: 'Breastfeeding only', birthPlanText: 'We plan to exclusively breastfeed. Please do not offer formula or pacifiers without our consent.', icon: 'Baby' },
       { value: 'open_supplement', label: 'Breastfeed, open to supplementing', birthPlanText: 'We plan to breastfeed but are open to supplementation if medically needed.', icon: 'Heart' },
       { value: 'combo', label: 'Combination feeding', birthPlanText: 'We plan to combination feed with breast milk and formula.', icon: 'Shuffle' },
       { value: 'formula', label: 'Formula feeding', birthPlanText: 'We will be formula feeding our baby.', icon: 'Package' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss feeding options with a lactation consultant.', isUnsure: true },
     ],
-  },
-  {
-    id: 'cord_clamping',
-    category: 'After Birth',
-    title: 'Cord Clamping Timing',
-    subtitle: 'When should the umbilical cord be clamped?',
-    order: 7,
-    learnMoreData: {
-      tradeoff: 'Delayed cord clamping allows additional blood to transfer from the placenta to baby, increasing blood volume by up to 30% and significantly boosting iron stores. ACOG, WHO, and AAP all recommend it.',
-      pros: [
-        'Increases baby\'s blood volume by up to 30% and iron stores for the first year',
-        'Associated with improved brain myelination at 4 months',
-        'Recommended by ACOG (30-60 seconds minimum), WHO (1-3 minutes), and AAP',
-        'Still possible during C-sections (typically 60-90 seconds)',
-      ],
-      cons: [
-        'May very slightly increase jaundice risk, though usually mild and manageable',
-        'Emergency situations may require immediate cord clamping',
-        'Cord blood banking collection may conflict with full delayed clamping',
-        'Requires patience from medical staff who may default to immediate clamping',
-      ],
-      bottomLine: 'Immediate clamping became standard for convenience, not evidence. Your baby\'s blood belongs in your baby, not in the placenta.',
-      ebookChapter: 'Chapter 11: Cord Clamping',
-    },
-    options: [
-      { value: '1min', label: 'Wait at least 1 minute', birthPlanText: 'Please wait at least 1 minute before clamping the cord.', icon: 'Clock' },
-      { value: '3-5min', label: 'Wait 3-5 minutes', birthPlanText: 'Please delay cord clamping for 3-5 minutes.', icon: 'Timer' },
-      { value: 'until_stops', label: 'Wait until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.', icon: 'Activity' },
-      { value: 'immediate', label: 'Clamp right away', birthPlanText: 'We are comfortable with immediate cord clamping.', icon: 'Scissors' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing with our care team.', isUnsure: true },
-    ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -320,7 +295,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Some hospital policies restrict movement as a default',
       ],
       bottomLine: 'Movement is one of the most powerful pain management tools available. If staying mobile matters to you, factor that into your other decisions too.',
-      ebookChapter: 'Chapter 21: Pushing Positions',
+      ebookChapter: 'Chapter 25: Pushing Positions',
     },
     options: [
       { value: 'very_important', label: 'Very important - I want full freedom', birthPlanText: 'Freedom to move, walk, and change positions during labor is very important to us.', icon: 'Move' },
@@ -350,7 +325,7 @@ export const quizQuestions: QuizQuestion[] = [
         'High-risk situations may genuinely require continuous monitoring',
       ],
       bottomLine: 'Continuous monitoring became standard for liability protection, not better outcomes. For low-risk births, intermittent monitoring is equally safe and preserves your mobility.',
-      ebookChapter: 'Chapter 5: Fetal Monitoring',
+      ebookChapter: 'Chapter 19: Fetal Monitoring',
     },
     options: [
       { value: 'intermittent', label: 'Intermittent (checked periodically)', birthPlanText: 'We prefer intermittent fetal monitoring to allow freedom of movement.', icon: 'Activity' },
@@ -384,7 +359,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Extended delay may feel unfamiliar if this is not what you expected',
       ],
       bottomLine: 'The vernix is not something to wash off - it is baby\'s first skin protection. A gentle wipe-down is all that is needed in the early hours.',
-      ebookChapter: 'Chapter 27: First Bath',
+      ebookChapter: 'Chapter 39: First Bath',
     },
     options: [
       { value: '24hrs', label: 'Delay at least 24 hours', birthPlanText: 'Please delay baby\'s first bath for at least 24 hours.', icon: 'Clock' },
@@ -415,7 +390,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Some parents prefer to minimize early medical interventions',
       ],
       bottomLine: 'When VKDB occurs, about 50% involve brain bleeding, and half of those result in death or permanent damage. The injection is extremely safe and prevents a rare but catastrophic condition.',
-      ebookChapter: 'Chapter 9: Vitamin K',
+      ebookChapter: 'Chapter 29: Vitamin K',
     },
     options: [
       { value: 'accept', label: 'Yes, give the Vitamin K shot', birthPlanText: 'Please give the Vitamin K injection as recommended.', icon: 'Shield' },
@@ -445,7 +420,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Contains antibiotic that some prefer to avoid unless specifically needed',
       ],
       bottomLine: 'This is one of the few interventions where your STI testing status completely determines risk. If you tested negative, the ointment provides no benefit to your baby.',
-      ebookChapter: 'Chapter 7: Eye Ointment',
+      ebookChapter: 'Chapter 30: Eye Ointment',
     },
     options: [
       { value: 'accept', label: 'Yes, apply the ointment', birthPlanText: 'Please apply the erythromycin eye ointment as recommended.', icon: 'Eye' },
@@ -475,7 +450,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Vaccine can be given at the 2-month pediatrician visit instead',
       ],
       bottomLine: 'Transmission requires an infected source. If you are confirmed negative and your household is too, your newborn has no exposure risk. The vaccine still makes sense eventually - the question is timing.',
-      ebookChapter: 'Chapter 10: Hepatitis B',
+      ebookChapter: 'Chapter 31: Hepatitis B',
     },
     options: [
       { value: 'accept', label: 'Yes, give at birth', birthPlanText: 'Please administer the Hepatitis B vaccine at birth.', icon: 'Syringe' },
@@ -509,13 +484,46 @@ export const quizQuestions: QuizQuestion[] = [
         'Removes the choice from the child to make this decision about his own body later',
       ],
       bottomLine: 'The US is the only developed country with high routine circumcision rates. Europe\'s rate is under 5%. This is a personal family decision, not a medical recommendation.',
-      ebookChapter: 'Chapter 12: Circumcision',
+      ebookChapter: 'Chapter 34: Circumcision',
     },
     options: [
       { value: 'yes_hospital', label: 'Yes, circumcise at the hospital', birthPlanText: 'We would like our son circumcised before leaving the hospital.', icon: 'Scissors' },
       { value: 'yes_provider', label: 'Yes, but by our own provider later', birthPlanText: 'We will arrange circumcision with our own provider after discharge.', icon: 'Calendar' },
       { value: 'no', label: 'No circumcision', birthPlanText: 'We do not want circumcision performed.', icon: 'ShieldCheck' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We need more time to decide about circumcision.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
+    id: 'cord_clamping',
+    category: 'After Birth',
+    title: 'Cord Clamping Timing',
+    subtitle: 'When should the umbilical cord be clamped?',
+    order: 15,
+    learnMoreData: {
+      tradeoff: 'Delayed cord clamping allows additional blood to transfer from the placenta to baby, increasing blood volume by up to 30% and significantly boosting iron stores. ACOG, WHO, and AAP all recommend it.',
+      pros: [
+        'Increases baby\'s blood volume by up to 30% and iron stores for the first year',
+        'Associated with improved brain myelination at 4 months',
+        'Recommended by ACOG (30-60 seconds minimum), WHO (1-3 minutes), and AAP',
+        'Still possible during C-sections (typically 60-90 seconds)',
+      ],
+      cons: [
+        'May very slightly increase jaundice risk, though usually mild and manageable',
+        'Emergency situations may require immediate cord clamping',
+        'Cord blood banking collection may conflict with full delayed clamping',
+        'Requires patience from medical staff who may default to immediate clamping',
+      ],
+      bottomLine: 'Immediate clamping became standard for convenience, not evidence. Your baby\'s blood belongs in your baby, not in the placenta.',
+      ebookChapter: 'Chapter 32: Cord Clamping',
+    },
+    options: [
+      { value: '1min', label: 'Wait at least 1 minute', birthPlanText: 'Please wait at least 1 minute before clamping the cord.', icon: 'Clock' },
+      { value: '3-5min', label: 'Wait 3-5 minutes', birthPlanText: 'Please delay cord clamping for 3-5 minutes.', icon: 'Timer' },
+      { value: 'until_stops', label: 'Wait until cord stops pulsing', birthPlanText: 'Please wait until the cord stops pulsing before clamping.', icon: 'Activity' },
+      { value: 'immediate', label: 'Clamp right away', birthPlanText: 'We are comfortable with immediate cord clamping.', icon: 'Scissors' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing with our care team.', isUnsure: true },
     ],
   },
   {
@@ -539,12 +547,12 @@ export const quizQuestions: QuizQuestion[] = [
         'Most families who skip banking choose delayed clamping for the blood volume benefit instead',
       ],
       bottomLine: 'Most families choose delayed cord clamping over cord blood banking, allowing baby to receive the full blood volume. Public donation is a generous option if you want to collect without paying for storage.',
-      ebookChapter: 'Chapter 23: Cord Blood',
+      ebookChapter: 'Chapter 33: Cord Blood',
     },
     options: [
       { value: 'private', label: 'Private banking (for our family)', birthPlanText: 'We will be privately banking cord blood.', icon: 'Lock' },
       { value: 'public', label: 'Donate to a public bank', birthPlanText: 'We would like to donate cord blood to a public bank if available.', icon: 'Heart' },
-      { value: 'no', label: 'No cord blood banking', birthPlanText: 'We do not plan to bank or donate cord blood.', icon: 'X' },
+      { value: 'no', label: 'No cord blood banking', birthPlanText: 'We do not plan to bank or donate cord blood.', icon: 'X', omitFromPlan: true },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord blood banking options.', isUnsure: true },
     ],
   },
@@ -573,12 +581,12 @@ export const quizQuestions: QuizQuestion[] = [
         'Some mothers need sleep to recover physically and support milk production',
       ],
       bottomLine: 'Bonding and rest are both important. If your hospital has a nursery, using it for a few hours so you can recover does not make you a bad parent.',
-      ebookChapter: 'Chapter 33: Rooming In',
+      ebookChapter: 'Chapter 42: Rooming In',
     },
     options: [
       { value: '24_7', label: 'Baby stays with us 24/7', birthPlanText: 'We want baby to room-in with us at all times.', icon: 'Home' },
       { value: 'nursery_option', label: 'Mostly with us, may use nursery for rest', birthPlanText: 'We prefer rooming-in but may use the nursery for rest periods.', icon: 'Moon' },
-      { value: 'flexible', label: 'Flexible, we\'ll see how we feel', birthPlanText: 'We are flexible about rooming-in and will decide based on how we are feeling.', icon: 'ArrowLeftRight' },
+      { value: 'flexible', label: 'Flexible, we\'ll see how we feel', birthPlanText: 'We are flexible about rooming-in and will decide based on how we are feeling.', icon: 'ArrowLeftRight', omitFromPlan: true },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss rooming-in options.', isUnsure: true },
     ],
   },
@@ -603,11 +611,11 @@ export const quizQuestions: QuizQuestion[] = [
         'Creates a habit that must eventually be weaned',
       ],
       bottomLine: 'If you are breastfeeding, many lactation consultants suggest waiting 3-4 weeks until nursing is well established before introducing a pacifier. For formula-fed babies, there is less concern.',
-      ebookChapter: 'Chapter 32: Pacifier Use',
+      ebookChapter: 'Chapter 41: Pacifier Use',
     },
     options: [
       { value: 'no', label: 'No pacifiers please', birthPlanText: 'Please do not give baby a pacifier.', icon: 'Ban' },
-      { value: 'if_needed', label: 'Only if medically helpful', birthPlanText: 'Pacifier use is acceptable only if medically recommended.', icon: 'Stethoscope' },
+      { value: 'if_needed', label: 'Flexible, we\'ll see', birthPlanText: 'Pacifier use is acceptable if needed.', icon: 'ArrowLeftRight', omitFromPlan: true },
       { value: 'yes', label: 'Pacifiers are fine with us', birthPlanText: 'Pacifier use is acceptable.', icon: 'Check' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pacifier use with our care team.', isUnsure: true },
     ],
@@ -639,8 +647,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'limited', label: 'Close family only, limited hours', birthPlanText: 'We prefer visits from close family only during limited hours.', icon: 'Users' },
       { value: 'after_home', label: 'No visitors until we\'re home', birthPlanText: 'We prefer no visitors at the hospital. We will welcome visitors once we are settled at home.', icon: 'Home' },
       { value: 'case_by_case', label: 'We\'ll decide case by case', birthPlanText: 'We will decide on visitors on a case-by-case basis during our stay.', icon: 'MessageCircle' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our visitor preferences.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -667,14 +677,16 @@ export const quizQuestions: QuizQuestion[] = [
         'Healthcare providers express some concern about heavy metals in placenta tissue',
       ],
       bottomLine: 'There is no wrong choice here. Most families choose hospital disposal, and that is perfectly fine. If keeping the placenta has meaning for you, plan ahead.',
-      ebookChapter: 'Chapter 28: Placenta Options',
+      ebookChapter: 'Chapter 38: Placenta Options',
     },
     options: [
       { value: 'dispose', label: 'Hospital disposal is fine', birthPlanText: 'The hospital may dispose of the placenta.', icon: 'Building2' },
       { value: 'encapsulate', label: 'Keep for encapsulation', birthPlanText: 'We will be keeping the placenta for encapsulation. Please place it in our provided container.', icon: 'Pill' },
       { value: 'keep', label: 'Keep for other purposes', birthPlanText: 'We would like to keep the placenta.', icon: 'Package' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss placenta options.', isUnsure: true },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -699,11 +711,11 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Baby\'s Name',
     subtitle: 'Have you picked a name?',
     order: 22,
-    inputType: 'text',
+    textInputOnOption: 'has_name',
     options: [
-      { value: 'has_name', label: 'Yes!', birthPlanText: '' },
-      { value: 'not_yet', label: "We haven't decided yet", birthPlanText: '' },
-      { value: 'prefer_not_to_say', label: "We'd rather not say", birthPlanText: '' },
+      { value: 'has_name', label: 'Yes, type baby\'s name', birthPlanText: '', icon: 'Baby' },
+      { value: 'not_yet', label: "We haven't decided yet", birthPlanText: '', icon: 'HelpCircle' },
+      { value: 'prefer_not_to_say', label: "We'd rather not say", birthPlanText: '', icon: 'Lock' },
     ],
   },
 
@@ -732,7 +744,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Requires advance discussion with your surgical team to set expectations',
       ],
       bottomLine: 'A C-section does not have to feel clinical and disconnected. Ask your provider about gentle or family-centered options - more hospitals are offering them every year.',
-      ebookChapter: 'Chapter 15: Cesarean Birth',
+      ebookChapter: 'Chapter 12: Cesarean Birth',
     },
     options: [
       { value: 'gentle_family_centered', label: 'Gentle/family-centered C-section', birthPlanText: 'If a C-section is needed, we would like a gentle, family-centered approach: clear drape, immediate skin-to-skin in the OR, and delayed cord clamping when safely possible.', icon: 'Heart' },
@@ -763,14 +775,110 @@ export const quizQuestions: QuizQuestion[] = [
         'Multiple requests require advance communication with the team',
       ],
       bottomLine: 'Your birth experience matters even when it happens in an operating room. Speak up about the details that will make this moment meaningful for your family.',
-      ebookChapter: 'Chapter 15: Cesarean Birth',
+      ebookChapter: 'Chapter 12: Cesarean Birth',
     },
     options: [
       { value: 'clear_drape_skin_to_skin', label: 'Clear drape and immediate skin-to-skin', birthPlanText: 'During a C-section, we would like a clear drape so we can see baby being born, and immediate skin-to-skin contact in the OR.', icon: 'Eye' },
       { value: 'partner_present_photos', label: 'Partner present with photos', birthPlanText: 'During a C-section, it is very important that my partner be present, and we would like to take photos.', icon: 'Camera' },
       { value: 'music_narration', label: 'Music and step-by-step narration', birthPlanText: 'During a C-section, we would like to play our own music and have the surgeon narrate what is happening.', icon: 'Music' },
       { value: 'standard_procedure', label: 'Standard procedure is fine', birthPlanText: 'During a C-section, standard procedures are acceptable.', icon: 'ClipboardCheck' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'PenLine' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss C-section detail preferences with our surgical team.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
+    id: 'csection_cord_clamping',
+    category: 'C-Section Planning',
+    title: 'Delayed Cord Clamping During C-Section',
+    subtitle: 'Would you like delayed cord clamping if you have a C-section?',
+    order: 25,
+    deferredFor: 'csection',
+    learnMoreData: {
+      tradeoff: 'Delayed cord clamping during a C-section is safe and increasingly supported by research. It gives baby up to 30% more blood volume, though the window is typically shorter (60-90 seconds) than in vaginal birth due to surgical timing.',
+      pros: [
+        'Increases baby\'s blood volume and iron stores, just like in vaginal birth',
+        '2024 research confirms delayed clamping during cesareans does not increase maternal blood loss',
+        'ACOG, WHO, and AAP all recommend delayed clamping regardless of birth mode',
+        'Even 30-60 seconds provides meaningful benefit',
+      ],
+      cons: [
+        'Surgeon may need to manage timing around the surgical field',
+        'In true emergencies, immediate clamping may be necessary for baby\'s safety',
+        'Delay is typically shorter than in vaginal birth (60-90 seconds vs. 1-5 minutes)',
+        'Not all surgical teams are practiced in accommodating it',
+      ],
+      bottomLine: 'Delayed cord clamping during a C-section is safe and evidence-based. Your baby deserves that extra blood volume regardless of how they arrive.',
+      ebookChapter: 'Chapter 12: Cesarean Birth',
+    },
+    options: [
+      { value: 'delay_max', label: 'Yes, delay as long as safely possible', birthPlanText: 'During a C-section, please delay cord clamping as long as safely possible.', icon: 'Timer' },
+      { value: 'brief_delay', label: 'Brief delay (60-90 seconds)', birthPlanText: 'During a C-section, please delay cord clamping for at least 60-90 seconds.', icon: 'Clock' },
+      { value: 'surgeon_protocol', label: 'Follow surgeon\'s protocol', birthPlanText: 'We are comfortable with the surgeon\'s standard cord clamping protocol during a C-section.', icon: 'Stethoscope' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing during a C-section with our surgical team.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'csection_vaginal_seeding',
+    category: 'C-Section Planning',
+    title: 'Vaginal Seeding',
+    subtitle: 'Would you like baby swabbed with vaginal bacteria after a C-section?',
+    order: 26,
+    deferredFor: 'csection',
+    learnMoreData: {
+      tradeoff: 'C-section babies miss the bacterial exposure of passing through the birth canal. Vaginal seeding partially restores this by swabbing baby with maternal vaginal fluid. Research shows partial restoration of beneficial bacteria, though evidence is still emerging.',
+      pros: [
+        'Studies show partial restoration of key gut bacteria (Bacteroides, Lactobacillus) that C-section babies lack',
+        'A 2025 review of 512 infants found no serious adverse events from the procedure',
+        'May support immune development and reduce allergy and asthma risk',
+        'Simple procedure: gauze incubated in the vagina, then swabbed on baby\'s mouth, face, and body after birth',
+      ],
+      cons: [
+        'Evidence is promising but still emerging - no large randomized trials yet prove disease prevention',
+        'Requires screening first: active herpes, untreated STIs, and certain infections are contraindications',
+        'ACOG does not currently endorse the practice outside clinical trials',
+        'Some hospitals may resist or be unfamiliar with the procedure',
+      ],
+      bottomLine: 'Vaginal seeding is a low-risk way to partially restore what C-section babies miss. Screen for infections first, and know that breastfeeding remains the most powerful microbiome intervention.',
+      ebookChapter: 'Chapter 3: The Microbiome',
+    },
+    options: [
+      { value: 'yes_plan', label: 'Yes, we plan to do vaginal seeding', birthPlanText: 'We plan to perform vaginal seeding after the C-section to support baby\'s microbiome.', icon: 'Droplets' },
+      { value: 'interested_discuss', label: 'Interested but want to discuss with provider', birthPlanText: 'We are interested in vaginal seeding and would like to discuss it with our provider before making a decision.', icon: 'MessageCircle' },
+      { value: 'no', label: 'No, not for us', birthPlanText: 'We do not plan to do vaginal seeding.', icon: 'X', omitFromPlan: true },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to learn more about vaginal seeding before deciding.', isUnsure: true },
+    ],
+  },
+  {
+    id: 'csection_comfort',
+    category: 'C-Section Planning',
+    title: 'C-Section Comfort Measures',
+    subtitle: 'What would help you feel more comfortable during surgery?',
+    order: 27,
+    deferredFor: 'csection',
+    learnMoreData: {
+      tradeoff: 'Small touches during a C-section - arms free, music, narration - can transform the experience from clinical to personal. Most of these requests are easy to accommodate, but require advance communication with your surgical team.',
+      pros: [
+        'Having arms free lets you touch and hold baby as soon as possible',
+        'Music reduces anxiety and creates a calmer, more personal atmosphere',
+        'Surgeon narration helps you feel informed and involved in your own birth',
+        'These small changes can significantly improve the emotional experience of a C-section',
+      ],
+      cons: [
+        'Arms may need to be secured if you are trembling from anesthesia or medication',
+        'Music volume must be low enough for the surgical team to communicate',
+        'Not all surgeons are comfortable narrating, and some find it distracting',
+        'Emergency situations may override comfort preferences',
+      ],
+      bottomLine: 'A C-section is still your birth. These small requests can make the difference between feeling like a patient and feeling like a mother meeting her baby.',
+      ebookChapter: 'Chapter 12: Cesarean Birth',
+    },
+    options: [
+      { value: 'arms_free', label: 'Arms free (not strapped down)', birthPlanText: 'During a C-section, I would prefer to have my arms free and not strapped down.', icon: 'Move' },
+      { value: 'music_in_or', label: 'Music in the OR', birthPlanText: 'During a C-section, we would like to play our own music in the operating room.', icon: 'Music' },
+      { value: 'surgeon_narrates', label: 'Surgeon narrates what\'s happening', birthPlanText: 'During a C-section, we would like the surgeon to narrate what is happening during the procedure.', icon: 'MessageSquare' },
+      { value: 'standard_fine', label: 'Standard procedure is fine', birthPlanText: 'We are comfortable with standard C-section procedures.', icon: 'ClipboardCheck', omitFromPlan: true },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss comfort options for a C-section with our surgical team.', isUnsure: true },
     ],
   },
 ]

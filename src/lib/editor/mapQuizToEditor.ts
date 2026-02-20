@@ -3,6 +3,7 @@ import { createDefaultBirthTeam } from '@/types'
 import type { EditorState, EditorSectionId, PreferenceValue, EditorSectionState } from './editorTypes'
 import { PREFERENCES, getPreferencesBySection } from './preferences'
 import { SECTION_ORDER } from './sections'
+import { quizQuestions } from '@/lib/quiz/questions'
 
 // ---------------------------------------------------------------------------
 // Quiz-to-preference mapping table
@@ -67,6 +68,9 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
   skin_to_skin: {
     preferenceId: 'skin_to_skin',
     sectionId: 'at_birth',
+    valueMap: {
+      partner_csection: 'partner_backup',
+    },
   },
   cord_clamping: {
     preferenceId: 'cord_clamping',
@@ -158,6 +162,24 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
       follow_medical_team: 'standard',
     },
   },
+  csection_cord_clamping: {
+    preferenceId: 'csection_delayed_cord',
+    sectionId: 'csection',
+    valueMap: {
+      delay_max: 'yes',
+      brief_delay: 'yes',
+      surgeon_protocol: 'standard',
+    },
+  },
+  csection_vaginal_seeding: {
+    preferenceId: 'vaginal_seeding',
+    sectionId: 'csection',
+    valueMap: {
+      yes_plan: 'yes',
+      interested_discuss: 'discuss',
+      no: 'no',
+    },
+  },
 }
 
 // C-section details is a compound question that maps to multiple preferences
@@ -174,6 +196,20 @@ const CSECTION_DETAILS_MAP: Record<string, Array<{ preferenceId: string; section
     { preferenceId: 'csection_music', sectionId: 'csection', value: 'yes' },
   ],
   standard_procedure: [],
+}
+
+// C-section comfort is a compound question that maps to individual comfort preferences
+const CSECTION_COMFORT_MAP: Record<string, Array<{ preferenceId: string; sectionId: EditorSectionId; value: string }>> = {
+  arms_free: [
+    { preferenceId: 'csection_arm_mobility', sectionId: 'csection', value: 'not_strapped' },
+  ],
+  music_in_or: [
+    { preferenceId: 'csection_music', sectionId: 'csection', value: 'yes' },
+  ],
+  surgeon_narrates: [
+    { preferenceId: 'csection_explanation', sectionId: 'csection', value: 'narrate' },
+  ],
+  standard_fine: [],
 }
 
 // Engagement-only quiz questions that don't map to preferences
@@ -218,9 +254,65 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     if (!answer || answer === 'unsure') return
     if (ENGAGEMENT_ONLY_QUESTIONS.has(questionId)) return
 
+    // Check if the selected option has omitFromPlan flag
+    const questionDef = quizQuestions.find(q => q.id === questionId)
+    const selectedOption = questionDef?.options.find(o => o.value === answer)
+    if (selectedOption?.omitFromPlan) return
+
+    // Handle support_people checklist JSON answer
+    if (questionId === 'support_people' && answer.startsWith('[')) {
+      try {
+        const people = JSON.parse(answer) as Array<{ role: string; name: string }>
+        if (Array.isArray(people) && people.length > 0) {
+          const roles = people.map(p => p.role)
+          const names = people.filter(p => p.name).map(p => {
+            const label = p.role === 'partner' ? 'Partner' : p.role === 'doula' ? 'Doula' : p.role === 'family' ? 'Family' : 'Support Person'
+            return `${label}: ${p.name}`
+          })
+          let prefValue = 'partner'
+          if (roles.includes('partner') && roles.includes('doula')) prefValue = 'partner_doula'
+          else if (roles.includes('partner') && roles.includes('family')) prefValue = 'partner_family'
+          else if (roles.includes('doula') && !roles.includes('partner')) prefValue = 'doula_only'
+
+          const mapping = QUIZ_TO_PREFERENCE[questionId]
+          if (mapping) {
+            const customText = names.length > 0
+              ? `We would like the following people present: ${names.join(', ')}.`
+              : undefined
+            applyQuizAnswer(sections, mapping.sectionId, mapping.preferenceId, prefValue, customText)
+            activatedOrder[mapping.preferenceId] = activationCounter++
+          }
+          return
+        }
+      } catch {
+        // Fall through to standard handling for legacy string answers
+      }
+    }
+
+    // Determine if this is a custom/free-text answer (doesn't match any option value)
+    const isCustomText = questionDef && !questionDef.options.some(o => o.value === answer)
+
     // Handle csection_details compound question
     if (questionId === 'csection_details') {
-      const mappings = CSECTION_DETAILS_MAP[answer]
+      if (isCustomText) {
+        // Custom text for C-section details - apply as custom text on gentle_csection preference
+        applyQuizAnswer(sections, 'csection', 'gentle_csection', 'yes', answer)
+        activatedOrder['gentle_csection'] = activationCounter++
+      } else {
+        const mappings = CSECTION_DETAILS_MAP[answer]
+        if (mappings) {
+          mappings.forEach(({ preferenceId, sectionId, value }) => {
+            applyQuizAnswer(sections, sectionId, preferenceId, value)
+            activatedOrder[preferenceId] = activationCounter++
+          })
+        }
+      }
+      return
+    }
+
+    // Handle csection_comfort compound question
+    if (questionId === 'csection_comfort') {
+      const mappings = CSECTION_COMFORT_MAP[answer]
       if (mappings) {
         mappings.forEach(({ preferenceId, sectionId, value }) => {
           applyQuizAnswer(sections, sectionId, preferenceId, value)
@@ -235,8 +327,17 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     if (!mapping) return
 
     const { preferenceId, sectionId, valueMap } = mapping
-    const translatedValue = valueMap ? (valueMap[answer] || answer) : answer
-    applyQuizAnswer(sections, sectionId, preferenceId, translatedValue, quizState.customNotes?.[questionId])
+
+    if (isCustomText) {
+      // Free-text answer: use the first non-unsure option as the selected value, set customText
+      const defaultOption = questionDef?.options.find(o => !o.isUnsure && o.value !== 'custom')
+      const fallbackValue = defaultOption?.value || 'custom'
+      const translatedFallback = valueMap ? (valueMap[fallbackValue] || fallbackValue) : fallbackValue
+      applyQuizAnswer(sections, sectionId, preferenceId, translatedFallback, answer)
+    } else {
+      const translatedValue = valueMap ? (valueMap[answer] || answer) : answer
+      applyQuizAnswer(sections, sectionId, preferenceId, translatedValue, quizState.customNotes?.[questionId])
+    }
     activatedOrder[preferenceId] = activationCounter++
   })
 
@@ -338,6 +439,14 @@ export function getQuizImportMeta(quizState: QuizState): QuizImportMetadata {
     if (questionId === 'csection_details') {
       if (answer && answer !== 'unsure') {
         const mappings = CSECTION_DETAILS_MAP[answer]
+        if (mappings) importedCount += mappings.length
+      }
+      return
+    }
+
+    if (questionId === 'csection_comfort') {
+      if (answer && answer !== 'unsure') {
+        const mappings = CSECTION_COMFORT_MAP[answer]
         if (mappings) importedCount += mappings.length
       }
       return

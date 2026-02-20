@@ -53,7 +53,7 @@ export function migrateBirthTeam(old: any): BirthTeam {
     { id: 'mother', label: 'Mother', value: old?.mother_name || '', isDefault: true, sortOrder: 0 },
     { id: 'partner', label: 'Partner', value: old?.partner_name || '', isDefault: true, sortOrder: 1 },
     { id: 'provider', label: 'Provider', value: old?.provider_name || '', isDefault: true, sortOrder: 2 },
-    { id: 'hospital', label: 'Hospital', value: old?.hospital_name || '', isDefault: true, sortOrder: 3 },
+    { id: 'hospital', label: 'Facility', value: old?.hospital_name || '', isDefault: true, sortOrder: 3 },
     { id: 'doula', label: 'Doula', value: old?.doula_name || '', isDefault: true, sortOrder: 4 },
   ]
 

@@ -1,6 +1,6 @@
 'use client'
 
-import { useCallback } from 'react'
+import { useCallback, useState, useRef, useEffect } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { getPreferenceById } from '@/lib/editor/preferences'
 import { EDITOR_SECTIONS } from '@/lib/editor/sections'
@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { templateStyles } from '@/types'
-import { CheckCircle2, XCircle } from 'lucide-react'
+import { CheckCircle2, XCircle, StickyNote, Plus, Eye, EyeOff } from 'lucide-react'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -30,20 +30,39 @@ interface CanvasItem {
   stance?: 'desired' | 'declined' | null
 }
 
+interface CanvasSection {
+  sectionId: EditorSectionId
+  title: string
+  items: CanvasItem[]
+  notes: string
+}
+
 interface DocumentCanvasProps {
   onItemSelect?: (sectionId: EditorSectionId, preferenceId: string) => void
+  onAddDecision?: (sectionId: EditorSectionId) => void
   selectedPreferenceId?: string | null
 }
 
 export function DocumentCanvas({
   onItemSelect,
+  onAddDecision,
   selectedPreferenceId,
 }: DocumentCanvasProps) {
-  const { state, setTemplate, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer } = useEditor()
+  const { state, setTemplate, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer, setPreference, setSectionNotes } = useEditor()
+  const [editingItemId, setEditingItemId] = useState<string | null>(null)
+  const titleInputRef = useRef<HTMLInputElement>(null)
+  const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  // Auto-focus title when editing starts
+  useEffect(() => {
+    if (editingItemId && titleInputRef.current) {
+      titleInputRef.current.focus()
+    }
+  }, [editingItemId])
 
   // Process editor state into canvas sections with items and notes
-  const sections = useCallback(() => {
-    const result: { title: string; items: CanvasItem[]; notes: string }[] = []
+  const sections = useCallback((): CanvasSection[] => {
+    const result: CanvasSection[] = []
 
     EDITOR_SECTIONS.forEach(section => {
       const sectionState = state.sections[section.id]
@@ -96,8 +115,10 @@ export function DocumentCanvas({
           })
         })
 
+      // Always include the section if it has content or notes
       if (items.length > 0 || sectionState.notes) {
         result.push({
+          sectionId: section.id,
           title: section.title,
           items,
           notes: sectionState.notes || '',
@@ -111,25 +132,47 @@ export function DocumentCanvas({
   const canvasSections = sections()
   const theme = canvasThemes[state.templateStyle]
 
-  // Single click to open sidebar detail
+  // Click to start inline editing + open sidebar
   const handleItemClick = (item: CanvasItem) => {
+    setEditingItemId(item.preferenceId)
     if (!item.isCustomItem && onItemSelect) {
       onItemSelect(item.sectionId, item.preferenceId)
     }
   }
 
-  // Format due date
-  const formattedDueDate = state.birthTeam.due_date
-    ? new Date(state.birthTeam.due_date).toLocaleDateString('en-US', {
-        month: 'long',
-        day: 'numeric',
-        year: 'numeric',
-      })
-    : null
+  // Click away to stop editing
+  const handleCanvasClick = (e: React.MouseEvent) => {
+    const target = e.target as HTMLElement
+    // Don't deselect if clicking inside an editable item
+    if (target.closest('[data-canvas-item]')) return
+    setEditingItemId(null)
+  }
+
+  // Handle inline title edit
+  const handleTitleEdit = (item: CanvasItem, newTitle: string) => {
+    if (!item.isCustomItem) {
+      setPreference(item.sectionId, item.preferenceId, { customTitle: newTitle })
+    }
+  }
+
+  // Handle inline text edit
+  const handleTextEdit = (item: CanvasItem, newText: string) => {
+    if (!item.isCustomItem) {
+      setPreference(item.sectionId, item.preferenceId, { customText: newText })
+    }
+  }
+
+  // Toggle include/omit
+  const handleToggleOmit = (item: CanvasItem) => {
+    if (!item.isCustomItem) {
+      setPreference(item.sectionId, item.preferenceId, { isOmitted: true })
+      setEditingItemId(null)
+    }
+  }
 
   return (
     <div className="flex flex-col h-full">
-      {/* Canvas Header — template selector */}
+      {/* Canvas Header - template selector */}
       <div className="sticky top-0 z-10 flex items-center gap-3 p-3 border-b bg-white/95 backdrop-blur">
         <Select value={state.templateStyle} onValueChange={setTemplate}>
           <SelectTrigger className="w-[140px] min-h-[36px] text-sm">
@@ -144,7 +187,7 @@ export function DocumentCanvas({
       </div>
 
       {/* Document Canvas */}
-      <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
+      <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8" onClick={handleCanvasClick}>
         <div
           className="max-w-[650px] mx-auto shadow-lg rounded-sm"
           style={{ backgroundColor: theme.backgroundColor }}
@@ -187,18 +230,12 @@ export function DocumentCanvas({
               >
                 {state.birthTeam.fields.slice(1).map(field => (
                   <div key={field.id} className="flex items-center gap-2">
-                    {field.isDefault ? (
-                      <span className="font-semibold w-20 flex-shrink-0 text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>
-                        {field.label}
-                      </span>
-                    ) : (
-                      <Input
-                        value={field.label}
-                        onChange={(e) => renameBirthTeamField(field.id, e.target.value)}
-                        className="h-6 w-20 flex-shrink-0 text-xs uppercase tracking-wide font-semibold border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-0"
-                        style={{ color: theme.textColor, opacity: 0.5 }}
-                      />
-                    )}
+                    <Input
+                      value={field.label}
+                      onChange={(e) => renameBirthTeamField(field.id, e.target.value)}
+                      className="h-6 w-20 flex-shrink-0 text-xs uppercase tracking-wide font-semibold border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-0"
+                      style={{ color: theme.textColor, opacity: 0.5 }}
+                    />
                     <Input
                       value={field.value}
                       onChange={(e) => setBirthTeamField(field.id, e.target.value)}
@@ -206,15 +243,13 @@ export function DocumentCanvas({
                       placeholder={`${field.label}'s name`}
                       style={{ color: theme.textColor }}
                     />
-                    {!field.isDefault && (
-                      <button
-                        onClick={() => removeBirthTeamField(field.id)}
-                        className="text-xs text-muted-foreground hover:text-red-500 transition-colors px-1"
-                        title="Remove field"
-                      >
-                        x
-                      </button>
-                    )}
+                    <button
+                      onClick={() => removeBirthTeamField(field.id)}
+                      className="text-xs text-muted-foreground hover:text-red-500 transition-colors px-1"
+                      title="Remove field"
+                    >
+                      x
+                    </button>
                   </div>
                 ))}
                 <div className="flex items-center gap-2">
@@ -238,7 +273,7 @@ export function DocumentCanvas({
 
             {/* Content Sections */}
             {canvasSections.map((section) => (
-              <div key={section.title} className="mb-8">
+              <div key={section.sectionId} className="mb-8">
                 <h2
                   className="text-lg font-semibold pb-2 mb-4 border-b"
                   style={{
@@ -252,25 +287,40 @@ export function DocumentCanvas({
                 <div className="space-y-4">
                   {section.items.map((item) => {
                     const ItemIcon = getIconComponent(item.icon || 'Circle')
+                    const isEditing = editingItemId === item.preferenceId
                     return (
                       <div
                         key={item.preferenceId}
+                        data-canvas-item
                         className={cn(
-                          'group pl-3 border-l-2 transition-all cursor-pointer',
-                          selectedPreferenceId === item.preferenceId
+                          'group pl-3 border-l-2 transition-all cursor-pointer relative',
+                          isEditing
                             ? 'py-1'
-                            : 'border-transparent'
+                            : selectedPreferenceId === item.preferenceId
+                              ? 'py-1'
+                              : 'border-transparent'
                         )}
                         style={{
-                          borderColor: selectedPreferenceId === item.preferenceId
+                          borderColor: isEditing || selectedPreferenceId === item.preferenceId
                             ? `${theme.primaryColor}80`
                             : 'transparent',
-                          backgroundColor: selectedPreferenceId === item.preferenceId
+                          backgroundColor: isEditing || selectedPreferenceId === item.preferenceId
                             ? theme.sectionHeaderBg
                             : 'transparent'
                         }}
                         onClick={() => handleItemClick(item)}
                       >
+                        {/* Omit toggle button - visible when editing */}
+                        {isEditing && !item.isCustomItem && (
+                          <button
+                            onClick={(e) => { e.stopPropagation(); handleToggleOmit(item) }}
+                            className="absolute -left-1 top-0 p-1 rounded bg-white shadow-sm border text-muted-foreground hover:text-red-500 transition-colors z-10"
+                            title="Remove from plan"
+                          >
+                            <EyeOff className="w-3.5 h-3.5" />
+                          </button>
+                        )}
+
                         <div className="flex items-start gap-2">
                           {/* Stance indicator or icon */}
                           <div className="mt-0.5 flex-shrink-0">
@@ -282,16 +332,41 @@ export function DocumentCanvas({
                               <ItemIcon className="w-5 h-5" style={{ color: theme.primaryColor }} />
                             )}
                           </div>
-                          <div className="flex-1">
-                            <p
-                              className="font-semibold text-sm mb-0.5"
-                              style={{ color: theme.textColor }}
-                            >
-                              {item.title}
-                            </p>
-                            <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
-                              {item.birthPlanText}
-                            </p>
+                          <div className="flex-1 min-w-0">
+                            {isEditing && !item.isCustomItem ? (
+                              <>
+                                <input
+                                  ref={titleInputRef}
+                                  type="text"
+                                  value={item.title}
+                                  onChange={(e) => handleTitleEdit(item, e.target.value)}
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="w-full font-semibold text-sm mb-1 bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none rounded-none px-0 py-0.5"
+                                  style={{ color: theme.textColor }}
+                                />
+                                <textarea
+                                  ref={textareaRef}
+                                  value={item.birthPlanText}
+                                  onChange={(e) => handleTextEdit(item, e.target.value)}
+                                  onClick={(e) => e.stopPropagation()}
+                                  className="w-full text-sm leading-relaxed bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none resize-none rounded-none px-0 py-0.5 min-h-[40px]"
+                                  style={{ color: theme.textColor, opacity: 0.85 }}
+                                  rows={2}
+                                />
+                              </>
+                            ) : (
+                              <>
+                                <p
+                                  className="font-semibold text-sm mb-0.5"
+                                  style={{ color: theme.textColor }}
+                                >
+                                  {item.title}
+                                </p>
+                                <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
+                                  {item.birthPlanText}
+                                </p>
+                              </>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -299,14 +374,37 @@ export function DocumentCanvas({
                   })}
                 </div>
 
-                {/* Section notes */}
-                {section.notes && (
-                  <div
-                    className="mt-3 p-3 rounded text-sm italic"
-                    style={{ backgroundColor: theme.sectionHeaderBg, color: theme.textColor, opacity: 0.75 }}
+                {/* Section notes - styled card with notepad icon */}
+                <div
+                  className="mt-4 rounded-lg border border-dashed p-3 flex items-start gap-2"
+                  style={{ borderColor: `${theme.primaryColor}30`, backgroundColor: `${theme.sectionHeaderBg}` }}
+                  data-canvas-item
+                >
+                  <StickyNote className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: theme.primaryColor, opacity: 0.5 }} />
+                  <textarea
+                    value={section.notes}
+                    onChange={(e) => setSectionNotes(section.sectionId, e.target.value)}
+                    className="w-full text-sm bg-transparent border-0 resize-none focus:ring-0 focus:outline-none min-h-[24px]"
+                    style={{ color: theme.textColor, opacity: 0.75 }}
+                    placeholder="Add notes for this section..."
+                    rows={1}
+                    onInput={(e) => {
+                      const target = e.target as HTMLTextAreaElement
+                      target.style.height = 'auto'
+                      target.style.height = target.scrollHeight + 'px'
+                    }}
+                  />
+                </div>
+
+                {/* Add decision button */}
+                {onAddDecision && (
+                  <button
+                    onClick={() => onAddDecision(section.sectionId)}
+                    className="mt-2 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
                   >
-                    {section.notes}
-                  </div>
+                    <Plus className="w-3.5 h-3.5" />
+                    Add decision
+                  </button>
                 )}
               </div>
             ))}

@@ -49,6 +49,7 @@ export function EditorLayout() {
   const [showEmailModal, setShowEmailModal] = useState(false)
   const [showMobileChecklist, setShowMobileChecklist] = useState(false)
   const [mobileItemEdit, setMobileItemEdit] = useState<{ sectionId: EditorSectionId; preferenceId: string } | null>(null)
+  const [addDecisionSection, setAddDecisionSection] = useState<EditorSectionId | null>(null)
 
   // Compute progress stats
   const { decisionsIncluded, totalDecisions } = useMemo(() => {
@@ -69,6 +70,17 @@ export function EditorLayout() {
   const handleItemSelect = (sectionId: EditorSectionId, preferenceId: string) => {
     setSelectedPreferenceId(preferenceId)
     setSelectedSectionId(sectionId)
+    setAddDecisionSection(null)
+    if (isRightPanelCollapsed) {
+      setIsRightPanelCollapsed(false)
+    }
+  }
+
+  // Handle "Add decision" button from canvas
+  const handleAddDecision = (sectionId: EditorSectionId) => {
+    setAddDecisionSection(sectionId)
+    setSelectedPreferenceId(null)
+    setSelectedSectionId(null)
     if (isRightPanelCollapsed) {
       setIsRightPanelCollapsed(false)
     }
@@ -120,6 +132,9 @@ export function EditorLayout() {
               onItemSelect={(sectionId, preferenceId) => {
                 setMobileItemEdit({ sectionId, preferenceId })
               }}
+              onAddDecision={(sectionId) => {
+                setShowMobileChecklist(true)
+              }}
               selectedPreferenceId={selectedPreferenceId}
             />
           </Card>
@@ -160,55 +175,60 @@ export function EditorLayout() {
             <Card className="overflow-hidden">
               <DocumentCanvas
                 onItemSelect={handleItemSelect}
+                onAddDecision={handleAddDecision}
                 selectedPreferenceId={selectedPreferenceId}
               />
             </Card>
           </div>
 
-          {/* Right Panel: Decision Checklist (Collapsible) */}
+          {/* Right Panel: Decision Checklist (Collapsible, Sticky) */}
           <div className={cn(
             'transition-all duration-300 flex-shrink-0',
             isRightPanelCollapsed ? 'w-12' : 'w-[400px]'
           )}>
-            {isRightPanelCollapsed ? (
-              <div className="h-full bg-white border rounded-lg flex flex-col items-center py-4">
-                <Button
-                  variant="ghost"
-                  size="sm"
-                  onClick={() => setIsRightPanelCollapsed(false)}
-                  className="mb-4"
-                >
-                  <PanelRightOpen className="h-5 w-5" />
-                </Button>
-                <div className="writing-mode-vertical text-xs text-muted-foreground font-medium tracking-wider">
-                  OPTIONS
-                </div>
-              </div>
-            ) : (
-              <div className="bg-white border rounded-lg overflow-hidden h-full max-h-[calc(100vh-140px)] flex flex-col">
-                <div className="flex items-center justify-between p-3 border-b bg-muted/30">
-                  <h3 className="font-medium text-sm">Birth Plan Decisions</h3>
+            <div className="sticky top-[72px] h-[calc(100vh-72px)]">
+              {isRightPanelCollapsed ? (
+                <div className="h-full bg-white border rounded-lg flex flex-col items-center py-4">
                   <Button
                     variant="ghost"
                     size="sm"
-                    onClick={() => setIsRightPanelCollapsed(true)}
-                    title="Collapse panel"
+                    onClick={() => setIsRightPanelCollapsed(false)}
+                    className="mb-4"
                   >
-                    <PanelRightClose className="h-4 w-4" />
+                    <PanelRightOpen className="h-5 w-5" />
                   </Button>
+                  <div className="writing-mode-vertical text-xs text-muted-foreground font-medium tracking-wider">
+                    OPTIONS
+                  </div>
                 </div>
-                <div className="flex-1 overflow-y-auto p-4">
-                  <EditorSidebar
-                    selectedPreferenceId={selectedPreferenceId}
-                    selectedSectionId={selectedSectionId}
-                    onClearSelection={() => {
-                      setSelectedPreferenceId(null)
-                      setSelectedSectionId(null)
-                    }}
-                  />
+              ) : (
+                <div className="bg-white border rounded-lg overflow-hidden h-full flex flex-col">
+                  <div className="flex items-center justify-between p-3 border-b bg-muted/30">
+                    <h3 className="font-medium text-sm">Birth Plan Decisions</h3>
+                    <Button
+                      variant="ghost"
+                      size="sm"
+                      onClick={() => setIsRightPanelCollapsed(true)}
+                      title="Collapse panel"
+                    >
+                      <PanelRightClose className="h-4 w-4" />
+                    </Button>
+                  </div>
+                  <div className="flex-1 overflow-y-auto p-4">
+                    <EditorSidebar
+                      selectedPreferenceId={selectedPreferenceId}
+                      selectedSectionId={selectedSectionId}
+                      filterToSection={addDecisionSection}
+                      onClearSelection={() => {
+                        setSelectedPreferenceId(null)
+                        setSelectedSectionId(null)
+                        setAddDecisionSection(null)
+                      }}
+                    />
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
           </div>
         </div>
       </div>

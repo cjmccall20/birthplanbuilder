@@ -53,7 +53,7 @@ function QuizResultsContent() {
   const [email, setEmail] = useState('')
   const [name, setName] = useState(state.birthTeam.mother_name || '')
   const [dueDate, setDueDate] = useState(state.birthTeam.due_date || '')
-  const [marketingConsent, setMarketingConsent] = useState(false)
+  const [marketingConsent, setMarketingConsent] = useState(true)
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [error, setError] = useState('')
 
@@ -87,12 +87,18 @@ function QuizResultsContent() {
     setError('')
 
     try {
+      const nameParts = name.trim().split(/\s+/)
+      const firstName = nameParts[0] || ''
+      const lastName = nameParts.slice(1).join(' ') || ''
+
       const response = await fetch('/api/birth-plan/create', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email,
           name,
+          firstName,
+          lastName,
           dueDate: dueDate || null,
           marketingConsent,
           sessionId: state.sessionId,
@@ -230,6 +236,34 @@ function QuizResultsContent() {
                 <div>
                   <span className="font-medium">The BRAIN framework</span>
                   <span className="text-muted-foreground"> — how to evaluate any intervention in the moment (Benefits, Risks, Alternatives, Intuition, Nothing/wait)</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">How to prepare for birth</span>
+                  <span className="text-muted-foreground"> — what classes, exercises, and conversations actually matter</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">Questions to ask your provider</span>
+                  <span className="text-muted-foreground"> — the questions that reveal whether your provider truly supports your preferences</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">Red flags in a provider</span>
+                  <span className="text-muted-foreground"> — warning signs that your provider may not respect your birth plan</span>
+                </div>
+              </div>
+              <div className="flex items-start gap-3">
+                <CheckCircle2 className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-medium">Everything about the birth process</span>
+                  <span className="text-muted-foreground"> — stages of labor, what to expect, and when things are normal vs. concerning</span>
                 </div>
               </div>
             </div>

@@ -14,12 +14,15 @@ interface EditorSidebarProps {
   selectedPreferenceId?: string | null
   selectedSectionId?: EditorSectionId | null
   onClearSelection?: () => void
+  /** Auto-expand a specific section in browse mode (from "Add decision" button) */
+  filterToSection?: EditorSectionId | null
 }
 
 export function EditorSidebar({
   selectedPreferenceId,
   selectedSectionId,
   onClearSelection,
+  filterToSection,
 }: EditorSidebarProps) {
   const [view, setView] = useState<SidebarView>({ mode: 'browse' })
 
@@ -29,6 +32,13 @@ export function EditorSidebar({
       setView({ mode: 'detail', sectionId: selectedSectionId, preferenceId: selectedPreferenceId })
     }
   }, [selectedPreferenceId, selectedSectionId])
+
+  // When filterToSection changes, switch to browse mode
+  useEffect(() => {
+    if (filterToSection) {
+      setView({ mode: 'browse' })
+    }
+  }, [filterToSection])
 
   const handleSelectPreference = (sectionId: EditorSectionId, preferenceId: string) => {
     setView({ mode: 'detail', sectionId, preferenceId })
@@ -53,6 +63,7 @@ export function EditorSidebar({
     <SectionBrowser
       onSelectPreference={handleSelectPreference}
       selectedPreferenceId={selectedPreferenceId}
+      expandSection={filterToSection}
     />
   )
 }

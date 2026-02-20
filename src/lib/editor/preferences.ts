@@ -779,6 +779,20 @@ export const PREFERENCES: PreferenceDefinition[] = [
     ],
   },
   {
+    id: 'vaginal_seeding',
+    sectionId: 'csection',
+    title: 'Vaginal Seeding',
+    description: 'Swabbing baby with maternal vaginal bacteria after C-section to support microbiome colonization. Requires screening for active infections beforehand.',
+    icon: 'Droplets',
+    allowCustom: true,
+    quizQuestionId: 'csection_vaginal_seeding',
+    options: [
+      { value: 'yes', label: 'Yes, we plan to do vaginal seeding', birthPlanText: 'We plan to perform vaginal seeding after the C-section to support baby\'s microbiome.', isPopular: true },
+      { value: 'discuss', label: 'Want to discuss with provider', birthPlanText: 'We are interested in vaginal seeding and would like to discuss it with our provider.' },
+      { value: 'no', label: 'No vaginal seeding', birthPlanText: 'We do not plan to do vaginal seeding.' },
+    ],
+  },
+  {
     id: 'avoid_general_anesthesia',
     sectionId: 'csection',
     title: 'Avoid General Anesthesia',

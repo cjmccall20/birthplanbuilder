@@ -64,7 +64,7 @@ function QuizContent() {
     <div className="container py-6 sm:py-8 px-4">
       <QuizProgressBar />
       {isFirstCsectionQuestion && <CsectionTransitionHeader />}
-      <QuestionCard question={currentQuestion} />
+      <QuestionCard key={currentQuestion.id} question={currentQuestion} />
     </div>
   )
 }

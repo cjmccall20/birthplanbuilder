@@ -12,6 +12,7 @@ import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft } from 'lucide-react'
 import { cn } from '@/lib/utils'
+import { SupportPeopleChecklist } from './SupportPeopleChecklist'
 
 interface QuestionCardProps {
   question: QuizQuestion
@@ -20,23 +21,30 @@ interface QuestionCardProps {
 export function QuestionCard({ question }: QuestionCardProps) {
   const { state, setAnswer, nextStep, prevStep } = useQuiz()
   const [showLearnMore, setShowLearnMore] = useState(false)
-  const [textInput, setTextInput] = useState('')
 
   const currentAnswer = state.answers[question.id]
 
+  // Initialize text input from saved custom text (answer that doesn't match any option value)
+  const [textInput, setTextInput] = useState(() => {
+    if (question.textInputOnOption && currentAnswer && !question.options.some(o => o.value === currentAnswer)) {
+      return currentAnswer
+    }
+    return ''
+  })
+
   const handleAnswer = (value: string) => {
-    setAnswer(question.id, value)
-    // If picking a preset option on a text input question, clear the text
-    if (question.inputType === 'text') {
+    if (question.textInputOnOption && value !== question.textInputOnOption) {
       setTextInput('')
     }
+    setAnswer(question.id, value)
   }
 
   const handleTextChange = (value: string) => {
     setTextInput(value)
     if (value.trim()) {
-      // Save the text value directly as the answer
       setAnswer(question.id, value.trim())
+    } else if (question.textInputOnOption) {
+      setAnswer(question.id, question.textInputOnOption)
     }
   }
 
@@ -45,6 +53,21 @@ export function QuestionCard({ question }: QuestionCardProps) {
       nextStep()
     }
   }
+
+  // Determine which radio button to highlight
+  const radioValue = (() => {
+    if (!currentAnswer) return ''
+    if (question.options.some(o => o.value === currentAnswer)) return currentAnswer
+    // Custom text answer - highlight the text input option
+    if (question.textInputOnOption) return question.textInputOnOption
+    return currentAnswer
+  })()
+
+  // Show text input when the textInputOnOption is active
+  const showTextInput = question.textInputOnOption && (
+    currentAnswer === question.textInputOnOption ||
+    (currentAnswer && !question.options.some(o => o.value === currentAnswer))
+  )
 
   const hasLearnMore = !!question.learnMoreData
 
@@ -86,56 +109,61 @@ export function QuestionCard({ question }: QuestionCardProps) {
 
       </CardHeader>
       <CardContent className="space-y-6 px-4 sm:px-6">
-        {/* Text input for questions like baby_name */}
-        {question.inputType === 'text' && (
-          <div className="space-y-2">
-            <Input
-              type="text"
-              placeholder={question.subtitle || 'Type your answer...'}
-              value={textInput}
-              onChange={(e) => handleTextChange(e.target.value)}
-              className="min-h-[44px] text-base"
-            />
-            <p className="text-xs text-muted-foreground">Or choose an option below:</p>
-          </div>
-        )}
-
-        {/* Option buttons */}
+        {/* Support people checklist */}
+        {question.inputType === 'checklist_with_names' ? (
+          <SupportPeopleChecklist question={question} />
+        ) : (
+        /* Option buttons */
         <RadioGroup
-          value={
-            // If there is text input and the answer matches the text, don't highlight any radio
-            question.inputType === 'text' && textInput.trim() && currentAnswer === textInput.trim()
-              ? ''
-              : currentAnswer || ''
-          }
+          value={radioValue}
           onValueChange={handleAnswer}
           className="space-y-3"
         >
           {question.options.map((option) => (
-            <div
-              key={option.value}
-              className={cn(
-                "flex items-center space-x-3 rounded-lg border p-3 sm:p-4 cursor-pointer transition-colors min-h-[44px]",
-                currentAnswer === option.value
-                  ? "border-primary bg-primary/5"
-                  : "hover:bg-muted/50",
-                option.isUnsure && "border-dashed"
-              )}
-              onClick={() => handleAnswer(option.value)}
-            >
-              <RadioGroupItem value={option.value} id={`${question.id}-${option.value}`} />
-              <Label
-                htmlFor={`${question.id}-${option.value}`}
+            <div key={option.value}>
+              <div
                 className={cn(
-                  "flex-1 cursor-pointer text-sm sm:text-base",
-                  option.isUnsure && "italic text-muted-foreground"
+                  "flex items-center space-x-3 rounded-lg border p-3 sm:p-4 cursor-pointer transition-colors min-h-[44px]",
+                  radioValue === option.value
+                    ? "border-primary bg-primary/5"
+                    : "hover:bg-muted/50",
+                  option.isUnsure && "border-dashed"
                 )}
+                onClick={() => handleAnswer(option.value)}
               >
-                {option.label}
-              </Label>
+                <RadioGroupItem value={option.value} id={`${question.id}-${option.value}`} />
+                <Label
+                  htmlFor={`${question.id}-${option.value}`}
+                  className={cn(
+                    "flex-1 cursor-pointer text-sm sm:text-base",
+                    option.isUnsure && "italic text-muted-foreground"
+                  )}
+                >
+                  {option.label}
+                </Label>
+              </div>
+
+              {/* Inline text input when this option triggers it */}
+              {showTextInput && question.textInputOnOption === option.value && (
+                <div className="ml-8 mt-2 mb-1">
+                  <Input
+                    type="text"
+                    placeholder={
+                      question.id === 'baby_name'
+                        ? "Type baby's name..."
+                        : 'Type your preference...'
+                    }
+                    value={textInput}
+                    onChange={(e) => handleTextChange(e.target.value)}
+                    className="min-h-[44px] text-base"
+                    autoFocus
+                  />
+                </div>
+              )}
             </div>
           ))}
         </RadioGroup>
+        )}
 
         <div className="flex flex-col sm:flex-row justify-between gap-3 pt-4">
           <Button
