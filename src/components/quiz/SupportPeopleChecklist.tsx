@@ -5,7 +5,6 @@ import { QuizQuestion } from '@/lib/quiz/questions'
 import { useQuiz } from '@/lib/quiz/context'
 import { Checkbox } from '@/components/ui/checkbox'
 import { Input } from '@/components/ui/input'
-import { Label } from '@/components/ui/label'
 import { Plus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -97,15 +96,13 @@ export function SupportPeopleChecklist({ question }: SupportPeopleChecklistProps
           >
             <Checkbox
               checked={isRoleSelected(option.value)}
-              onCheckedChange={() => toggleRole(option.value)}
-              id={`support-${option.value}`}
+              className="pointer-events-none"
             />
-            <Label
-              htmlFor={`support-${option.value}`}
+            <span
               className="flex-1 cursor-pointer text-sm sm:text-base"
             >
               {option.label}
-            </Label>
+            </span>
           </div>
           {isRoleSelected(option.value) && (
             <div className="ml-10 mt-1.5 mb-1">
@@ -172,7 +169,7 @@ export function SupportPeopleChecklist({ question }: SupportPeopleChecklistProps
       >
         <Checkbox
           checked={isUnsure}
-          onCheckedChange={handleUnsure}
+          className="pointer-events-none"
         />
         <span className="text-sm sm:text-base italic text-muted-foreground">
           I still need to think about this
