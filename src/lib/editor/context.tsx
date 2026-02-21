@@ -9,6 +9,7 @@ import type {
   CustomPreferenceItem,
   TemplateStyle,
   BirthType,
+  BirthVenue,
   EditorSectionState,
 } from './editorTypes'
 import type { BirthTeam, BirthTeamField } from '@/types'
@@ -33,11 +34,14 @@ function createInitialState(): EditorState {
     sections[id] = createSectionState(id)
   })
 
+  sections.csection.notes = 'We understand that in an emergency situation, it may not be possible to accommodate all preferences. If a C-section becomes necessary, the preferences we feel most strongly about include:'
+
   return {
     id: null,
     title: 'My Birth Plan',
     templateStyle: 'minimal',
     birthType: 'vaginal',
+    birthVenue: null,
     birthTeam: createDefaultBirthTeam(),
     sections,
     isDirty: false,
@@ -225,6 +229,7 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
         ...loaded,
         birthTeam: migrateBirthTeam(loaded.birthTeam),
         birthType: loaded.birthType || 'vaginal',
+        birthVenue: loaded.birthVenue ?? null,
         showAllDecisions: loaded.showAllDecisions ?? false,
         disclaimerText: loaded.disclaimerText || 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
         isDirty: false,
@@ -347,6 +352,9 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
     case 'SET_BIRTH_TYPE':
       return { ...state, birthType: action.payload, isDirty: true }
 
+    case 'SET_BIRTH_VENUE':
+      return { ...state, birthVenue: action.payload, isDirty: true }
+
     case 'TOGGLE_SHOW_ALL_DECISIONS':
       return { ...state, showAllDecisions: !state.showAllDecisions }
 
@@ -426,6 +434,7 @@ interface EditorContextType {
   setStance: (sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | null) => void
   setCustomIcon: (sectionId: EditorSectionId, preferenceId: string, icon: string) => void
   setBirthType: (birthType: BirthType) => void
+  setBirthVenue: (venue: BirthVenue | null) => void
   toggleShowAllDecisions: () => void
   setDisclaimer: (text: string) => void
   undo: () => void
@@ -512,6 +521,9 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const setBirthType = useCallback((birthType: BirthType) =>
     dispatch({ type: 'SET_BIRTH_TYPE', payload: birthType }), [])
 
+  const setBirthVenue = useCallback((venue: BirthVenue | null) =>
+    dispatch({ type: 'SET_BIRTH_VENUE', payload: venue }), [])
+
   const toggleShowAllDecisions = useCallback(() =>
     dispatch({ type: 'TOGGLE_SHOW_ALL_DECISIONS' }), [])
 
@@ -546,6 +558,7 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       setStance,
       setCustomIcon,
       setBirthType,
+      setBirthVenue,
       toggleShowAllDecisions,
       setDisclaimer,
       undo,

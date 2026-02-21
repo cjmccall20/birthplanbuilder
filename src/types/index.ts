@@ -103,7 +103,7 @@ export interface QuizState {
   isMultiples?: boolean
 }
 
-export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic' | 'botanical' | 'ocean' | 'boho'
+export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic' | 'botanical' | 'ocean' | 'boho' | 'printer'
 
 export const templateStyles: { id: TemplateStyle; name: string; description: string }[] = [
   { id: 'minimal', name: 'Minimal', description: 'Clean, modern design with lots of whitespace' },
@@ -114,4 +114,5 @@ export const templateStyles: { id: TemplateStyle; name: string; description: str
   { id: 'botanical', name: 'Botanical', description: 'Fresh greens with leafy watercolor touches' },
   { id: 'ocean', name: 'Ocean', description: 'Calming coastal blues and soft waves' },
   { id: 'boho', name: 'Boho', description: 'Warm terracotta tones with modern flair' },
+  { id: 'printer', name: 'Print-Friendly', description: 'Black & white with clean lines for printing' },
 ]

@@ -23,6 +23,7 @@ const templateMap = {
   botanical: FloralTemplate,
   ocean: ProfessionalTemplate,
   boho: RusticTemplate,
+  printer: MinimalTemplate,
 } as const
 
 interface PlanItem {

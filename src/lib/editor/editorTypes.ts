@@ -11,7 +11,7 @@ export type EditorSectionId =
 
 export type BirthType = 'vaginal' | 'planned_csection'
 
-export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic' | 'botanical' | 'ocean' | 'boho'
+export type TemplateStyle = 'minimal' | 'floral' | 'professional' | 'elegant' | 'rustic' | 'botanical' | 'ocean' | 'boho' | 'printer'
 
 export interface EditorSection {
   id: EditorSectionId
@@ -68,11 +68,14 @@ export interface EditorSectionState {
   notes: string
 }
 
+export type BirthVenue = 'hospital' | 'birth_center' | 'home'
+
 export interface EditorState {
   id: string | null // Birth plan ID (null if unsaved)
   title: string
   templateStyle: TemplateStyle
   birthType: BirthType
+  birthVenue: BirthVenue | null
   birthTeam: BirthTeam
   sections: Record<EditorSectionId, EditorSectionState>
   isDirty: boolean
@@ -106,6 +109,7 @@ export type EditorAction =
   | { type: 'SET_STANCE'; payload: { sectionId: EditorSectionId; preferenceId: string; stance: 'desired' | 'declined' | null } }
   | { type: 'SET_CUSTOM_ICON'; payload: { sectionId: EditorSectionId; preferenceId: string; icon: string } }
   | { type: 'SET_BIRTH_TYPE'; payload: BirthType }
+  | { type: 'SET_BIRTH_VENUE'; payload: BirthVenue | null }
   | { type: 'TOGGLE_SHOW_ALL_DECISIONS' }
   | { type: 'UNDO' }
   | { type: 'REDO' }

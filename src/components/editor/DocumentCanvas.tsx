@@ -13,6 +13,7 @@ import {
   SelectValue,
 } from '@/components/ui/select'
 import { templateStyles } from '@/types'
+import { Button } from '@/components/ui/button'
 import { CheckCircle2, XCircle, StickyNote, Plus, EyeOff, Trash2, HelpCircle } from 'lucide-react'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
@@ -49,7 +50,7 @@ export function DocumentCanvas({
   onAddDecision,
   selectedPreferenceId,
 }: DocumentCanvasProps) {
-  const { state, setTemplate, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem } = useEditor()
+  const { state, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem } = useEditor()
   const [editingItemId, setEditingItemId] = useState<string | null>(null)
   const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set())
   const titleInputRef = useRef<HTMLInputElement>(null)
@@ -208,18 +209,102 @@ export function DocumentCanvas({
 
   return (
     <div className="flex flex-col h-full">
-      {/* Canvas Header - template selector */}
-      <div className="sticky top-0 z-10 flex items-center gap-3 p-3 border-b bg-white/95 backdrop-blur">
-        <Select value={state.templateStyle} onValueChange={setTemplate}>
-          <SelectTrigger className="w-[140px] min-h-[36px] text-sm">
-            <SelectValue placeholder="Template" />
-          </SelectTrigger>
-          <SelectContent>
-            {templateStyles.map((t) => (
-              <SelectItem key={t.id} value={t.id}>{t.name}</SelectItem>
+      {/* Canvas Header - theme selector + birth type toggle */}
+      <div className="sticky top-0 z-10 flex flex-wrap items-center gap-3 p-3 border-b bg-white/95 backdrop-blur">
+        {/* Theme selector - desktop: button row */}
+        <div className="hidden md:flex items-center gap-1.5 flex-wrap">
+          {templateStyles.map((t) => {
+            const themeColor = canvasThemes[t.id]?.primaryColor
+            return (
+              <button
+                key={t.id}
+                onClick={() => setTemplate(t.id)}
+                className={cn(
+                  'flex flex-col items-center gap-0.5 px-2 py-1.5 rounded-md transition-all text-[10px] leading-tight',
+                  state.templateStyle === t.id
+                    ? 'ring-2 ring-primary bg-primary/5'
+                    : 'hover:bg-gray-100'
+                )}
+              >
+                <span
+                  className="w-4 h-4 rounded-full border border-black/10"
+                  style={{ backgroundColor: themeColor }}
+                />
+                <span className="text-muted-foreground">{t.name}</span>
+              </button>
+            )
+          })}
+        </div>
+
+        {/* Theme selector - mobile: dropdown */}
+        <div className="md:hidden">
+          <Select value={state.templateStyle} onValueChange={setTemplate}>
+            <SelectTrigger className="w-[140px] min-h-[36px] text-sm">
+              <SelectValue placeholder="Template" />
+            </SelectTrigger>
+            <SelectContent>
+              {templateStyles.map((t) => {
+                const themeColor = canvasThemes[t.id]?.primaryColor
+                return (
+                  <SelectItem key={t.id} value={t.id}>
+                    <span className="flex items-center gap-2">
+                      <span
+                        className="w-2.5 h-2.5 rounded-full inline-block border border-black/10"
+                        style={{ backgroundColor: themeColor }}
+                      />
+                      {t.name}
+                    </span>
+                  </SelectItem>
+                )
+              })}
+            </SelectContent>
+          </Select>
+        </div>
+
+        {/* Separator */}
+        <div className="hidden md:block w-px h-6 bg-gray-200" />
+
+        {/* Birth type toggle */}
+        <div className="flex items-center gap-1.5">
+          <Button
+            variant={state.birthType === 'vaginal' ? 'default' : 'outline'}
+            className="h-8 text-xs px-3"
+            onClick={() => setBirthType('vaginal')}
+          >
+            Vaginal Birth
+          </Button>
+          <Button
+            variant={state.birthType === 'planned_csection' ? 'default' : 'outline'}
+            className="h-8 text-xs px-3"
+            onClick={() => setBirthType('planned_csection')}
+          >
+            C-Section
+          </Button>
+        </div>
+
+        {/* Venue sub-selector - only when vaginal */}
+        {state.birthType === 'vaginal' && (
+          <div className="flex items-center gap-1">
+            {([
+              { value: 'hospital', label: 'Hospital' },
+              { value: 'birth_center', label: 'Birth Center' },
+              { value: 'home', label: 'Home' },
+            ] as const).map((venue) => (
+              <button
+                key={venue.value}
+                onClick={() => setBirthVenue(venue.value)}
+                className={cn(
+                  'h-7 px-2.5 text-xs rounded-full border transition-colors',
+                  state.birthVenue === venue.value
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-white text-muted-foreground border-gray-200 hover:border-gray-300 hover:text-foreground'
+                )}
+              >
+                {venue.label}
+              </button>
             ))}
-          </SelectContent>
-        </Select>
+          </div>
+        )}
       </div>
 
       {/* Document Canvas */}
