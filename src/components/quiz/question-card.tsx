@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { QuizQuestion } from '@/lib/quiz/questions'
 import { useQuiz } from '@/lib/quiz/context'
 import { QuizLearnMore } from '@/components/quiz/QuizLearnMore'
@@ -20,20 +20,50 @@ interface QuestionCardProps {
 
 export function QuestionCard({ question }: QuestionCardProps) {
   const { state, setAnswer, setStance, nextStep, prevStep } = useQuiz()
+
+  // Resolve birth type variant for dynamic C-section framing
+  const effectiveQuestion = useMemo(() => {
+    if (!question.birthTypeVariant) return question
+
+    const birthType = state.answers['planned_birth_type']
+    const variantKey = birthType === 'csection' ? 'csection' : 'vaginal'
+    const variant = question.birthTypeVariant[variantKey]
+    if (!variant) return question
+
+    // Merge variant overrides into the question
+    const merged = { ...question }
+    if (variant.subtitle) {
+      merged.subtitle = variant.subtitle
+    }
+    if (variant.learnMoreOverrides && merged.learnMoreData) {
+      merged.learnMoreData = { ...merged.learnMoreData, ...variant.learnMoreOverrides }
+    }
+    if (variant.optionOverrides) {
+      merged.options = question.options.map(opt => {
+        const override = variant.optionOverrides?.[opt.value]
+        if (override) {
+          return { ...opt, ...override }
+        }
+        return opt
+      })
+    }
+    return merged
+  }, [question, state.answers])
+
   const [showLearnMore, setShowLearnMore] = useState(false)
 
   const currentAnswer = state.answers[question.id]
 
   // Initialize text input from saved custom text (answer that doesn't match any option value)
   const [textInput, setTextInput] = useState(() => {
-    if (question.textInputOnOption && currentAnswer && !question.options.some(o => o.value === currentAnswer)) {
+    if (effectiveQuestion.textInputOnOption && currentAnswer && !effectiveQuestion.options.some(o => o.value === currentAnswer)) {
       return currentAnswer
     }
     return ''
   })
 
   const handleAnswer = (value: string) => {
-    if (question.textInputOnOption && value !== question.textInputOnOption) {
+    if (effectiveQuestion.textInputOnOption && value !== effectiveQuestion.textInputOnOption) {
       setTextInput('')
     }
     setAnswer(question.id, value)
@@ -43,8 +73,8 @@ export function QuestionCard({ question }: QuestionCardProps) {
     setTextInput(value)
     if (value.trim()) {
       setAnswer(question.id, value.trim())
-    } else if (question.textInputOnOption) {
-      setAnswer(question.id, question.textInputOnOption)
+    } else if (effectiveQuestion.textInputOnOption) {
+      setAnswer(question.id, effectiveQuestion.textInputOnOption)
     }
   }
 
@@ -55,19 +85,19 @@ export function QuestionCard({ question }: QuestionCardProps) {
   // Determine which radio button to highlight
   const radioValue = (() => {
     if (!currentAnswer) return ''
-    if (question.options.some(o => o.value === currentAnswer)) return currentAnswer
+    if (effectiveQuestion.options.some(o => o.value === currentAnswer)) return currentAnswer
     // Custom text answer - highlight the text input option
-    if (question.textInputOnOption) return question.textInputOnOption
+    if (effectiveQuestion.textInputOnOption) return effectiveQuestion.textInputOnOption
     return currentAnswer
   })()
 
   // Show text input when the textInputOnOption is active
-  const showTextInput = question.textInputOnOption && (
-    currentAnswer === question.textInputOnOption ||
-    (currentAnswer && !question.options.some(o => o.value === currentAnswer))
+  const showTextInput = effectiveQuestion.textInputOnOption && (
+    currentAnswer === effectiveQuestion.textInputOnOption ||
+    (currentAnswer && !effectiveQuestion.options.some(o => o.value === currentAnswer))
   )
 
-  const hasLearnMore = !!question.learnMoreData
+  const hasLearnMore = !!effectiveQuestion.learnMoreData
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
@@ -77,7 +107,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
         </Badge>
         <CardTitle className="font-serif text-xl sm:text-2xl">{question.title}</CardTitle>
         <p className="text-sm sm:text-base text-muted-foreground">
-          {question.subtitle}
+          {effectiveQuestion.subtitle}
         </p>
 
         {hasLearnMore && (
@@ -99,17 +129,17 @@ export function QuestionCard({ question }: QuestionCardProps) {
           </button>
         )}
 
-        {showLearnMore && question.learnMoreData && (
+        {showLearnMore && effectiveQuestion.learnMoreData && (
           <div className="mt-3">
-            <QuizLearnMore data={question.learnMoreData} />
+            <QuizLearnMore data={effectiveQuestion.learnMoreData} />
           </div>
         )}
 
       </CardHeader>
       <CardContent className="space-y-6 px-4 sm:px-6">
         {/* Support people checklist */}
-        {question.inputType === 'checklist_with_names' ? (
-          <SupportPeopleChecklist question={question} />
+        {effectiveQuestion.inputType === 'checklist_with_names' ? (
+          <SupportPeopleChecklist question={effectiveQuestion} />
         ) : (
         /* Option buttons */
         <RadioGroup
@@ -117,7 +147,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
           onValueChange={handleAnswer}
           className="space-y-3"
         >
-          {question.options.map((option) => (
+          {effectiveQuestion.options.map((option) => (
             <div key={option.value}>
               <div
                 className={cn(
@@ -142,7 +172,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
               </div>
 
               {/* Inline text input when this option triggers it */}
-              {showTextInput && question.textInputOnOption === option.value && (
+              {showTextInput && effectiveQuestion.textInputOnOption === option.value && (
                 <div className="ml-8 mt-2 mb-1 space-y-2">
                   <Input
                     type="text"

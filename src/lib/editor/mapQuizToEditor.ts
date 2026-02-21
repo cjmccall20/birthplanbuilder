@@ -24,6 +24,11 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'pre_hospital',
     // Quiz and pref share: hospital, birth_center, home
   },
+  medical_provider: {
+    preferenceId: 'medical_provider',
+    sectionId: 'pre_hospital',
+    // Quiz and pref share: ob, cnm, midwife
+  },
   support_people: {
     preferenceId: 'support_people',
     sectionId: 'pre_hospital',
@@ -87,6 +92,11 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'during_labor',
     // Quiz and pref share: dim_quiet, music, aromatherapy, standard
   },
+  medical_students: {
+    preferenceId: 'medical_students',
+    sectionId: 'during_labor',
+    // Quiz and pref share: welcome, prefer_not, ask_first
+  },
   gbs_antibiotics: {
     preferenceId: 'gbs_antibiotics',
     sectionId: 'during_labor',
@@ -104,15 +114,8 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'at_birth',
     valueMap: {
       protected: 'protected',
-      mostly_protected: 'protected', // Map to closest match
+      partner_backup: 'protected', // Maps to golden hour protected; skin_to_skin handled separately below
       flexible: 'flexible',
-    },
-  },
-  skin_to_skin: {
-    preferenceId: 'skin_to_skin',
-    sectionId: 'at_birth',
-    valueMap: {
-      partner_csection: 'partner_backup',
     },
   },
   cord_clamping: {
@@ -212,12 +215,6 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'hospital_stay',
     // Quiz and pref share: minimum, standard, extended
   },
-  newborn_care_instruction: {
-    preferenceId: 'newborn_care_instruction',
-    sectionId: 'hospital_stay',
-    // Quiz and pref share: comprehensive, basic, experienced
-  },
-
   visitors: {
     preferenceId: 'visitors',
     sectionId: 'hospital_stay',
@@ -363,6 +360,46 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
         }
       } catch {
         // Fall through to standard handling for legacy string answers
+      }
+    }
+
+    // Handle golden_hour -> also set skin_to_skin preference
+    if (questionId === 'golden_hour') {
+      if (answer === 'protected') {
+        applyQuizAnswer(sections, 'at_birth', 'skin_to_skin', 'immediate')
+        activatedOrder['skin_to_skin'] = activationCounter++
+      } else if (answer === 'partner_backup') {
+        applyQuizAnswer(sections, 'at_birth', 'skin_to_skin', 'partner_backup')
+        activatedOrder['skin_to_skin'] = activationCounter++
+      }
+      // Don't return - let the standard mapping handle the golden_hour preference itself
+    }
+
+    // Handle medical_provider checklist JSON answer
+    if (questionId === 'medical_provider' && answer.startsWith('[')) {
+      try {
+        const providers = JSON.parse(answer) as Array<{ role: string; name: string }>
+        if (Array.isArray(providers) && providers.length > 0) {
+          const roles = providers.map(p => p.role)
+          const names = providers.filter(p => p.name).map(p => {
+            const label = p.role === 'ob' ? 'OB/GYN' : p.role === 'cnm' ? 'CNM' : 'Midwife'
+            return `${label}: ${p.name}`
+          })
+          // Use first selected role as the preference value
+          let prefValue = roles[0] || 'ob'
+
+          const mapping = QUIZ_TO_PREFERENCE[questionId]
+          if (mapping) {
+            const customText = names.length > 0
+              ? `Our medical provider(s): ${names.join(', ')}.`
+              : undefined
+            applyQuizAnswer(sections, mapping.sectionId, mapping.preferenceId, prefValue, customText)
+            activatedOrder[mapping.preferenceId] = activationCounter++
+          }
+          return
+        }
+      } catch {
+        // Fall through to standard handling
       }
     }
 

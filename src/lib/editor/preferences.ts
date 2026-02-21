@@ -35,6 +35,20 @@ export const PREFERENCES: PreferenceDefinition[] = [
     ],
   },
   {
+    id: 'medical_provider',
+    sectionId: 'pre_hospital',
+    title: 'Medical Provider',
+    description: 'Who is providing your prenatal and birth care?',
+    icon: 'Stethoscope',
+    allowCustom: true,
+    quizQuestionId: 'medical_provider',
+    options: [
+      { value: 'ob', label: 'OB/GYN', birthPlanText: 'Our provider is an OB/GYN.', isPopular: true },
+      { value: 'cnm', label: 'Certified Nurse-Midwife', birthPlanText: 'Our provider is a Certified Nurse-Midwife.', isPopular: true },
+      { value: 'midwife', label: 'Midwife (non-CNM)', birthPlanText: 'Our provider is a midwife.' },
+    ],
+  },
+  {
     id: 'when_to_hospital',
     sectionId: 'pre_hospital',
     title: 'When to Go to Hospital',
@@ -200,6 +214,20 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'music', label: 'Our own music', birthPlanText: 'We will bring our own music to play during labor.', isPopular: true },
       { value: 'aromatherapy', label: 'Aromatherapy', birthPlanText: 'We would like to use aromatherapy during labor.' },
       { value: 'standard', label: 'Standard hospital environment', birthPlanText: 'Standard hospital environment is fine.' },
+    ],
+  },
+  {
+    id: 'medical_students',
+    sectionId: 'during_labor',
+    title: 'Medical Students & Observers',
+    description: 'Preference for students or residents observing your birth',
+    icon: 'GraduationCap',
+    allowCustom: true,
+    quizQuestionId: 'medical_students',
+    options: [
+      { value: 'welcome', label: 'Students welcome', birthPlanText: 'We are comfortable with medical students or residents observing.', isPopular: true },
+      { value: 'prefer_not', label: 'No students or observers', birthPlanText: 'We prefer that no medical students or residents observe or participate in our care.' },
+      { value: 'ask_first', label: 'Ask us first each time', birthPlanText: 'Please ask our permission before any students or observers enter the room.', isPopular: true },
     ],
   },
   {
@@ -601,19 +629,6 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'minimum', label: 'Minimum required stay', birthPlanText: 'We prefer to be discharged as soon as safely possible.', isPopular: true },
       { value: 'standard', label: 'Standard stay', birthPlanText: 'We are comfortable with the standard length of stay.' },
       { value: 'extended', label: 'Extended if needed', birthPlanText: 'We would like to stay longer if we feel we need more support.' },
-    ],
-  },
-  {
-    id: 'newborn_care_instruction',
-    sectionId: 'hospital_stay',
-    title: 'Newborn Care Instruction',
-    description: 'Learning baby care skills',
-    icon: 'BookOpen',
-    allowCustom: true,
-    options: [
-      { value: 'comprehensive', label: 'Comprehensive instruction', birthPlanText: 'We would appreciate comprehensive instruction on bathing, diapering, and caring for baby.', isPopular: true },
-      { value: 'basic', label: 'Basic guidance', birthPlanText: 'Basic newborn care guidance is sufficient.' },
-      { value: 'experienced', label: 'We are experienced', birthPlanText: 'We are experienced with newborn care and do not need extensive instruction.' },
     ],
   },
   {

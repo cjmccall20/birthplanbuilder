@@ -43,10 +43,18 @@ const CATEGORY_TRANSITIONS: Record<string, { icon: typeof Shield; title: string;
   },
 }
 
-function CategoryTransitionCard({ category }: { category: string }) {
+function CategoryTransitionCard({ category, birthType }: { category: string; birthType?: string }) {
   const config = CATEGORY_TRANSITIONS[category]
   if (!config) return null
   const Icon = config.icon
+
+  // Override C-section transition text based on birth type
+  let title = config.title
+  let description = config.description
+  if (category === 'C-Section Planning' && birthType === 'csection') {
+    title = 'Your C-section preferences'
+    description = 'Since you are planning a C-section, these preferences will help your surgical team understand what matters to you. You have more control than you might think.'
+  }
 
   return (
     <Card className="w-full max-w-2xl mx-auto mb-6 bg-muted/40 border-dashed">
@@ -55,10 +63,10 @@ function CategoryTransitionCard({ category }: { category: string }) {
           <Icon className="h-6 w-6 text-muted-foreground flex-shrink-0 mt-0.5" />
           <div>
             <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
-              {config.title}
+              {title}
             </h3>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              {config.description}
+              {description}
             </p>
           </div>
         </div>
@@ -102,7 +110,7 @@ function QuizContent() {
   return (
     <div className="container py-6 sm:py-8 px-4 pb-16">
       <QuizProgressBar />
-      {transitionCategory && <CategoryTransitionCard category={transitionCategory} />}
+      {transitionCategory && <CategoryTransitionCard category={transitionCategory} birthType={state.answers['planned_birth_type']} />}
       <QuestionCard key={currentQuestion.id} question={currentQuestion} />
       <QuizPreviewPanel />
     </div>
