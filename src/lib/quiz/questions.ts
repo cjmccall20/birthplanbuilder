@@ -1433,6 +1433,8 @@ export function getOrderedQuestions(answers: Record<string, string>): QuizQuesti
     }
     // For planned C-section: exclude "Your Birth" questions entirely
     if (birthType === 'csection' && q.category === 'Your Birth') return false
+    // For planned C-section: skip birth_setting (always hospital) and when_to_hospital (scheduled)
+    if (birthType === 'csection' && (q.id === 'birth_setting' || q.id === 'when_to_hospital')) return false
     // Only include categories in the active order
     if (!categoryOrder.includes(q.category)) return false
     return true

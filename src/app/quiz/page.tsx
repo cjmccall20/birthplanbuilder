@@ -75,6 +75,23 @@ function CategoryTransitionCard({ category, birthType }: { category: string; bir
   )
 }
 
+function DevResetButton() {
+  const { reset } = useQuiz()
+  const handleReset = () => {
+    localStorage.removeItem('birthplan_quiz_state')
+    reset()
+    window.location.reload()
+  }
+  return (
+    <button
+      onClick={handleReset}
+      className="fixed bottom-4 right-4 z-50 px-3 py-1.5 text-xs bg-destructive/10 text-destructive border border-destructive/20 rounded-md hover:bg-destructive/20 transition-colors"
+    >
+      Reset Quiz (Dev)
+    </button>
+  )
+}
+
 function QuizContent() {
   const { state, currentQuestion, isComplete, visibleQuestions } = useQuiz()
   const router = useRouter()
@@ -113,6 +130,7 @@ function QuizContent() {
       {transitionCategory && <CategoryTransitionCard category={transitionCategory} birthType={state.answers['planned_birth_type']} />}
       <QuestionCard key={currentQuestion.id} question={currentQuestion} />
       <QuizPreviewPanel />
+      <DevResetButton />
     </div>
   )
 }
