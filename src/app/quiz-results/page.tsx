@@ -49,7 +49,7 @@ const guideTopics = [
 ]
 
 function QuizResultsContent() {
-  const { state, unsureTopics, setBirthTeam } = useQuiz()
+  const { state, unsureTopics, setBirthTeam, goToStep, visibleQuestions } = useQuiz()
   const router = useRouter()
   const [email, setEmail] = useState('')
   const [name, setName] = useState(state.birthTeam.mother_name || '')
@@ -135,7 +135,11 @@ function QuizResultsContent() {
       {/* Back to Quiz */}
       <Button
         variant="ghost"
-        onClick={() => router.push('/quiz')}
+        onClick={() => {
+          // Go to last question so quiz page doesn't immediately redirect back
+          goToStep(visibleQuestions.length - 1)
+          router.push('/quiz')
+        }}
         className="mb-4 -ml-2 text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4 mr-2" />
