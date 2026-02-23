@@ -8,6 +8,7 @@ import { QuestionCard } from '@/components/quiz/question-card'
 import { QuizProgressBar } from '@/components/quiz/progress-bar'
 import { QuizPreviewPanel } from '@/components/quiz/QuizPreviewPanel'
 import { Card, CardContent } from '@/components/ui/card'
+import { cn } from '@/lib/utils'
 import { Shield, Baby, Stethoscope, Hospital, Heart, User } from 'lucide-react'
 
 const CATEGORY_TRANSITIONS: Record<string, { icon: typeof Shield; title: string; description: string }> = {
@@ -56,29 +57,28 @@ function CategoryTransitionCard({ category, birthType, isFirst }: { category: st
     description = 'Since you are planning a C-section, these preferences will help your surgical team understand what matters to you. You have more control than you might think.'
   }
 
-  // Compact pill for non-first questions in a category
-  if (!isFirst) {
-    return (
-      <div className="w-full max-w-2xl mx-auto mb-4 flex items-center gap-2">
-        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/60 border border-dashed text-xs text-muted-foreground">
-          <Icon className="h-3.5 w-3.5" />
-          <span className="font-medium">{category}</span>
-        </div>
-        <div className="flex-1 border-t border-dashed border-muted-foreground/20" />
-      </div>
-    )
-  }
-
   return (
-    <Card className="w-full max-w-2xl mx-auto mb-6 bg-muted/40 border-dashed">
-      <CardContent className="pt-6 pb-5">
+    <Card className={cn(
+      "w-full max-w-2xl mx-auto bg-muted/40 border-dashed",
+      isFirst ? "mb-6" : "mb-4"
+    )}>
+      <CardContent className={isFirst ? "pt-6 pb-5" : "pt-3 pb-2"}>
         <div className="flex items-start gap-3">
-          <Icon className="h-6 w-6 text-muted-foreground flex-shrink-0 mt-0.5" />
+          <Icon className={cn(
+            "text-muted-foreground flex-shrink-0 mt-0.5",
+            isFirst ? "h-6 w-6" : "h-5 w-5"
+          )} />
           <div>
-            <h3 className="font-serif text-lg font-semibold text-foreground mb-1">
+            <h3 className={cn(
+              "font-serif font-semibold text-foreground mb-1",
+              isFirst ? "text-lg" : "text-base"
+            )}>
               {title}
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <p className={cn(
+              "text-muted-foreground leading-relaxed",
+              isFirst ? "text-sm" : "text-xs"
+            )}>
               {description}
             </p>
           </div>

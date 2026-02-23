@@ -15,6 +15,15 @@ import { cn } from '@/lib/utils'
 import { SupportPeopleChecklist } from './SupportPeopleChecklist'
 import { MultiSelectChecklist } from './MultiSelectChecklist'
 
+// Engagement-only questions collect data but have no medical stance/opinion
+const ENGAGEMENT_ONLY_QUESTIONS = new Set([
+  'planned_birth_type',
+  'baby_sex',
+  'baby_name',
+  'facility_name',
+  'due_date',
+])
+
 interface QuestionCardProps {
   question: QuizQuestion
 }
@@ -193,6 +202,8 @@ export function QuestionCard({ question }: QuestionCardProps) {
                     placeholder={
                       question.id === 'baby_name'
                         ? "Type baby's name..."
+                        : question.id === 'facility_name'
+                        ? 'Type facility name...'
                         : 'Type your preference...'
                     }
                     value={textInput}
@@ -200,7 +211,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
                     className="min-h-[44px] text-base"
                     autoFocus
                   />
-                  {question.id !== 'baby_name' && (
+                  {!ENGAGEMENT_ONLY_QUESTIONS.has(question.id) && (
                     <div className="flex items-center gap-1">
                       <span className="text-xs text-muted-foreground mr-1">Stance:</span>
                       <button

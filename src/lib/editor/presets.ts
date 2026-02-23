@@ -121,8 +121,8 @@ export const hospitalPresets: Record<string, string> = {
   // Hospital Stay
   rooming_in: 'nursery_option',
   feeding_support: 'lactation',
-  pacifier: 'if_needed',
-  visitors: 'immediate_family',
+  pacifier: 'yes',
+  visitors: 'limited',
   length_of_stay: 'standard',
   newborn_care_instruction: 'comprehensive',
   quiet_environment: 'standard',

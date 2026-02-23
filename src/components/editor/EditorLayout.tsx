@@ -23,6 +23,7 @@ import { ElegantTemplate } from '@/lib/pdf/templates/elegant'
 import { RusticTemplate } from '@/lib/pdf/templates/rustic'
 import { EmailPdfModal } from './EmailPdfModal'
 import { PreviewModal } from './PreviewModal'
+import { OmittedOptionsPopup } from './OmittedOptionsPopup'
 import { getPreferencesBySection } from '@/lib/editor/preferences'
 import { getSectionsForBirthType } from '@/lib/editor/sections'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -56,6 +57,7 @@ export function EditorLayout() {
   const [mobileItemEdit, setMobileItemEdit] = useState<{ sectionId: EditorSectionId; preferenceId: string } | null>(null)
   const [addDecisionSection, setAddDecisionSection] = useState<EditorSectionId | null>(null)
   const [showPreview, setShowPreview] = useState(false)
+  const [showOmitted, setShowOmitted] = useState(false)
 
   // Keyboard shortcuts for undo/redo
   useEffect(() => {
@@ -310,6 +312,7 @@ export function EditorLayout() {
         onDownload={handleDownload}
         onEmail={handleEmail}
         onPreview={() => setShowPreview(true)}
+        onShowOmitted={() => setShowOmitted(true)}
         saveError={error}
         savedLocally={savedLocally}
       />
@@ -319,6 +322,12 @@ export function EditorLayout() {
         isOpen={showPreview}
         onClose={() => setShowPreview(false)}
         onDownload={handleDownload}
+      />
+
+      {/* Omitted Options Popup */}
+      <OmittedOptionsPopup
+        isOpen={showOmitted}
+        onClose={() => setShowOmitted(false)}
       />
 
       {/* Email PDF Modal */}

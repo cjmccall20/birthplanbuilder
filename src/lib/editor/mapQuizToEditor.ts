@@ -19,28 +19,6 @@ interface QuizMapping {
 
 const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
   // Pre-Hospital
-  birth_setting: {
-    preferenceId: 'birth_location',
-    sectionId: 'pre_hospital',
-    // Quiz and pref share: hospital, birth_center, home
-  },
-  medical_provider: {
-    preferenceId: 'medical_provider',
-    sectionId: 'pre_hospital',
-    // Quiz and pref share: ob, cnm, midwife
-  },
-  support_people: {
-    preferenceId: 'support_people',
-    sectionId: 'pre_hospital',
-    valueMap: {
-      partner_only: 'partner',
-      partner_doula: 'partner_doula',
-      partner_family: 'partner_family',
-      doula_only: 'doula_only',
-    },
-  },
-
-  // Pre-Hospital (new)
   when_to_hospital: {
     preferenceId: 'when_to_hospital',
     sectionId: 'pre_hospital',
@@ -305,6 +283,7 @@ const ENGAGEMENT_ONLY_QUESTIONS = new Set([
   'baby_sex',
   'baby_name',
   'facility_name',
+  'due_date',
 ])
 
 // Try to parse a JSON array checklist answer; returns null if not a checklist
@@ -356,36 +335,6 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     const selectedOption = questionDef?.options.find(o => o.value === answer)
     if (selectedOption?.omitFromPlan) return
 
-    // Handle support_people checklist JSON answer
-    if (questionId === 'support_people' && answer.startsWith('[')) {
-      try {
-        const people = JSON.parse(answer) as Array<{ role: string; name: string }>
-        if (Array.isArray(people) && people.length > 0) {
-          const roles = people.map(p => p.role)
-          const names = people.filter(p => p.name).map(p => {
-            const label = p.role === 'partner' ? 'Partner' : p.role === 'doula' ? 'Doula' : p.role === 'family' ? 'Family' : 'Support Person'
-            return `${label}: ${p.name}`
-          })
-          let prefValue = 'partner'
-          if (roles.includes('partner') && roles.includes('doula')) prefValue = 'partner_doula'
-          else if (roles.includes('partner') && roles.includes('family')) prefValue = 'partner_family'
-          else if (roles.includes('doula') && !roles.includes('partner')) prefValue = 'doula_only'
-
-          const mapping = QUIZ_TO_PREFERENCE[questionId]
-          if (mapping) {
-            const customText = names.length > 0
-              ? `We would like the following people present: ${names.join(', ')}.`
-              : undefined
-            applyQuizAnswer(sections, mapping.sectionId, mapping.preferenceId, prefValue, customText)
-            activatedOrder[mapping.preferenceId] = activationCounter++
-          }
-          return
-        }
-      } catch {
-        // Fall through to standard handling for legacy string answers
-      }
-    }
-
     // Handle golden_hour -> also set skin_to_skin preference
     if (questionId === 'golden_hour') {
       const ghValues = parseChecklistAnswer(answer)
@@ -398,34 +347,6 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
         activatedOrder['skin_to_skin'] = activationCounter++
       }
       // Don't return - let the standard mapping handle the golden_hour preference itself
-    }
-
-    // Handle medical_provider checklist JSON answer
-    if (questionId === 'medical_provider' && answer.startsWith('[')) {
-      try {
-        const providers = JSON.parse(answer) as Array<{ role: string; name: string }>
-        if (Array.isArray(providers) && providers.length > 0) {
-          const roles = providers.map(p => p.role)
-          const names = providers.filter(p => p.name).map(p => {
-            const label = p.role === 'ob' ? 'OB/GYN' : p.role === 'cnm' ? 'CNM' : 'Midwife'
-            return `${label}: ${p.name}`
-          })
-          // Use first selected role as the preference value
-          let prefValue = roles[0] || 'ob'
-
-          const mapping = QUIZ_TO_PREFERENCE[questionId]
-          if (mapping) {
-            const customText = names.length > 0
-              ? `Our medical provider(s): ${names.join(', ')}.`
-              : undefined
-            applyQuizAnswer(sections, mapping.sectionId, mapping.preferenceId, prefValue, customText)
-            activatedOrder[mapping.preferenceId] = activationCounter++
-          }
-          return
-        }
-      } catch {
-        // Fall through to standard handling
-      }
     }
 
     // Determine if this is a custom/free-text answer (doesn't match any option value)
@@ -501,7 +422,7 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
       const allTexts = checklistValues
         .map(v => questionDef?.options.find(o => o.value === v)?.birthPlanText)
         .filter(Boolean)
-      const customText = allTexts.length > 1 ? allTexts.join(' ') : undefined
+      const customText = allTexts.length > 1 ? allTexts.join('\n') : undefined
       applyQuizAnswer(sections, sectionId, preferenceId, translatedPrimary, customText)
       activatedOrder[preferenceId] = activationCounter++
       return
@@ -573,6 +494,12 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
   if (facilityAnswer && facilityAnswer !== 'has_facility' && facilityAnswer !== 'still_deciding' && facilityAnswer !== 'prefer_not_to_say') {
     const field = birthTeam.fields.find(f => f.id === 'hospital')
     if (field && !field.value) field.value = facilityAnswer
+  }
+
+  // Populate due date from quiz
+  const dueDateAnswer = quizState.answers?.due_date
+  if (dueDateAnswer && dueDateAnswer !== 'has_date' && dueDateAnswer !== 'prefer_not_to_say') {
+    if (!birthTeam.due_date) birthTeam.due_date = dueDateAnswer
   }
 
   const providerAnswer = quizState.answers?.medical_provider

@@ -14,6 +14,7 @@ interface ActionBarProps {
   onDownload: () => void
   onEmail: () => void
   onPreview: () => void
+  onShowOmitted?: () => void
   saveError: string | null
   savedLocally?: boolean
 }
@@ -27,6 +28,7 @@ export function ActionBar({
   onDownload,
   onEmail,
   onPreview,
+  onShowOmitted,
   saveError,
   savedLocally,
 }: ActionBarProps) {
@@ -44,13 +46,31 @@ export function ActionBar({
             <Progress value={progressPercent} className="h-2" />
           </div>
           <span className="text-sm text-muted-foreground whitespace-nowrap">
-            {decisionsIncluded} of {totalDecisions} included
+            {decisionsIncluded} of {totalDecisions} in plan
           </span>
+          {totalDecisions - decisionsIncluded > 0 && onShowOmitted && (
+            <button
+              onClick={onShowOmitted}
+              className="text-xs text-primary hover:text-primary/80 hover:underline transition-colors whitespace-nowrap"
+            >
+              {totalDecisions - decisionsIncluded} omitted
+            </button>
+          )}
         </div>
 
         {/* Mobile: compact progress */}
-        <div className="sm:hidden text-sm text-muted-foreground whitespace-nowrap">
-          {decisionsIncluded}/{totalDecisions}
+        <div className="sm:hidden flex items-center gap-2">
+          <span className="text-sm text-muted-foreground whitespace-nowrap">
+            {decisionsIncluded}/{totalDecisions}
+          </span>
+          {totalDecisions - decisionsIncluded > 0 && onShowOmitted && (
+            <button
+              onClick={onShowOmitted}
+              className="text-xs text-primary hover:text-primary/80 transition-colors"
+            >
+              +{totalDecisions - decisionsIncluded}
+            </button>
+          )}
         </div>
 
         {/* Save Status */}

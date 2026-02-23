@@ -56,8 +56,8 @@ const CATEGORY_ORDER_VAGINAL = [
   'After Birth',
   'Newborn Care',
   'Hospital Stay',
-  'Personal',
   'C-Section Planning',
+  'Personal',
 ]
 
 const CATEGORY_ORDER_CSECTION = [
@@ -191,7 +191,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'pain_approach',
     category: 'Your Birth',
     title: 'Pain Management',
-    subtitle: 'How do you feel about pain management during labor?',
+    subtitle: 'How do you feel about pain management during labor? (Check all that apply)',
     order: 3,
     inputType: 'checklist',
     learnMoreData: {
@@ -215,7 +215,13 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'natural', label: 'Planning unmedicated birth', birthPlanText: 'We are planning an unmedicated birth. Please do not offer pain medication unless I ask for it.', icon: 'Leaf' },
       { value: 'open', label: 'Open to options, will decide in the moment', birthPlanText: 'We are open to pain management options and will decide during labor.', icon: 'Scale' },
       { value: 'epidural', label: 'Planning to get an epidural', birthPlanText: 'We plan to request an epidural during labor.', icon: 'Syringe' },
-      { value: 'nitrous', label: 'Planning to use nitrous oxide', birthPlanText: 'We plan to utilize nitrous oxide to help with pain management before considering an epidural.', icon: 'Wind' },
+      { value: 'nitrous', label: 'Planning to use nitrous oxide', birthPlanText: 'We plan to utilize nitrous oxide to help with pain management.', icon: 'Wind' },
+      { value: 'iv_meds', label: 'IV pain medication (fentanyl, etc.)', birthPlanText: 'We are open to IV pain medication if needed during labor.', icon: 'Droplets' },
+      { value: 'water', label: 'Warm water (shower/tub)', birthPlanText: 'We plan to use warm water immersion (shower or tub) for pain relief.', icon: 'Bath' },
+      { value: 'breathing', label: 'Breathing and relaxation techniques', birthPlanText: 'We plan to use breathing and relaxation techniques for pain management.', icon: 'Wind' },
+      { value: 'massage', label: 'Massage and counterpressure', birthPlanText: 'We plan to use massage and counterpressure techniques during labor.', icon: 'HandMetal' },
+      { value: 'hypnobirthing', label: 'HypnoBirthing / self-hypnosis', birthPlanText: 'We have trained in HypnoBirthing techniques and plan to use them during labor.', icon: 'Brain' },
+      { value: 'bradley', label: 'Bradley Method', birthPlanText: 'We have trained in the Bradley Method and plan to use it during labor.', icon: 'HeartHandshake' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Sparkles' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pain management options with our care team.', isUnsure: true },
     ],
@@ -229,7 +235,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'golden_hour',
     category: 'After Birth',
     title: 'The Golden Hour',
-    subtitle: 'The first hour after birth is magical - how would you like to spend it?',
+    subtitle: 'The first hour after birth is magical - how would you like to spend it? (Check all that apply)',
     order: 5,
     inputType: 'checklist',
     learnMoreData: {
@@ -357,9 +363,10 @@ export const quizQuestions: QuizQuestion[] = [
       bottomLine: 'For most low-risk pregnancies, waiting until contractions are regular and strong (3 minutes apart, lasting 1 minute, for 1 hour) gives your body time to establish labor before hospital interventions enter the picture. Earlier arrival to the hospital is tied to higher rates of unplanned C-Sections. However, if you feel like something is wrong (baby not moving as much as usual, something else just "not right") - trust your gut and go to the hospital. Your intuition is real, and it\'s best to go early and find everything to be okay than wait while something bad is happening.',
     },
     options: [
-      { value: 'active_labor', label: 'Wait until active labor', birthPlanText: 'We plan to arrive during active labor (contractions about 3 minutes apart, exhibiting "emotional sign posts").', icon: 'Clock' },
+      { value: 'active_labor_4_5', label: 'Active labor (contractions 4-5 min apart)', birthPlanText: 'We plan to arrive when contractions are 4-5 minutes apart, lasting about 1 minute each.', icon: 'Clock' },
+      { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and we are exhibiting the emotional signposts of active labor.', icon: 'Timer' },
       { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason (such as GBS antibiotics).', icon: 'Building2' },
-      { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will call our provider and explain what\'s going on and arrive when they provider recommend.', icon: 'Stethoscope' },
+      { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will call our provider and arrive when they recommend.', icon: 'Stethoscope' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on when to head to the hospital.', isUnsure: true },
     ],
@@ -378,6 +385,7 @@ export const quizQuestions: QuizQuestion[] = [
     learnMoreData: {
       tradeoff: 'Freedom to move during labor helps baby descend and keeps labor progressing. However, some interventions (epidural, continuous monitoring, IV fluids) restrict mobility.',
       pros: [
+        'Your body can naturally guide you to shift positions that best help labor progress - trust your instincts',
         'Upright positions and movement help baby descend and align optimally',
         'Walking, swaying, and position changes can reduce pain naturally',
         'Water immersion (shower or tub) provides significant pain relief',
@@ -459,7 +467,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'heplock', label: 'Hep lock only (IV ready, no fluids)', birthPlanText: 'We prefer a hep lock instead of continuous IV fluids.', icon: 'Plug' },
       { value: 'iv', label: 'Continuous IV is fine', birthPlanText: 'Continuous IV fluids are acceptable.', icon: 'Droplets' },
-      { value: 'neither', label: 'No IV access if possible', birthPlanText: 'We prefer no IV access unless medically necessary.', icon: 'X' },
+      { value: 'neither', label: 'No IV access initially or until an IV is needed', birthPlanText: 'We prefer no IV access initially, or until an IV is needed.', icon: 'X' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Plug' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss IV options with our care team.', isUnsure: true },
     ],
@@ -501,7 +509,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'labor_environment',
     category: 'Your Birth',
     title: 'Labor Environment',
-    subtitle: 'What kind of atmosphere do you want during labor?',
+    subtitle: 'What kind of atmosphere do you want during labor? (Check all that apply)',
     order: 10.3,
     inputType: 'checklist',
     learnMoreData: {
@@ -588,10 +596,10 @@ export const quizQuestions: QuizQuestion[] = [
       ebookChapter: 'Chapter 6: Group B Strep',
     },
     options: [
+      { value: 'not_applicable', label: 'Not applicable (tested negative or not screened)', birthPlanText: '', omitFromPlan: true, icon: 'CheckCircle' },
       { value: 'accept', label: 'Accept antibiotics if GBS positive', birthPlanText: 'Please administer IV antibiotics as recommended.', icon: 'Shield' },
       { value: 'decline', label: 'Decline antibiotics', birthPlanText: 'We decline GBS antibiotics and accept responsibility for this decision.', icon: 'X' },
       { value: 'natural', label: 'Discuss alternative approaches', birthPlanText: 'We would like to discuss alternative protocols for GBS.', icon: 'MessageCircle' },
-      { value: 'not_applicable', label: 'Not applicable - tested negative or not screened', birthPlanText: '', omitFromPlan: true, icon: 'CheckCircle' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Pill' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss GBS treatment options with our care team.', isUnsure: true },
     ],
@@ -622,7 +630,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     options: [
       { value: 'freedom', label: 'Freedom to choose in the moment', birthPlanText: 'I would like the freedom to push in different positions as feels natural.', icon: 'Move' },
-      { value: 'standard', label: 'Standard position is fine', birthPlanText: 'Standard pushing position is acceptable.', icon: 'Bed', omitFromPlan: true },
+      { value: 'standard', label: 'Standard position (lying on back) is fine', birthPlanText: 'Standard pushing position (lying on back) is acceptable.', icon: 'Bed', omitFromPlan: true },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Move' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss pushing position options.', isUnsure: true },
     ],
@@ -658,7 +666,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: '24hrs', label: 'Delay at least 24 hours', birthPlanText: 'Please delay baby\'s first bath for at least 24 hours.', icon: 'Clock' },
       { value: '48hrs', label: 'Delay at least 48 hours', birthPlanText: 'Please delay baby\'s first bath for at least 48 hours.', icon: 'Timer' },
-      { value: 'parents_give', label: 'We want to give the first bath', birthPlanText: 'We would like to give baby\'s first bath ourselves at home.', icon: 'Droplets' },
+      { value: 'parents_give', label: 'We want to give the first bath at home', birthPlanText: 'We would like to give baby\'s first bath ourselves at home.', icon: 'Droplets' },
       { value: 'hospital_timing', label: 'Whenever the hospital recommends', birthPlanText: 'Baby\'s first bath may be given when recommended by nursing staff.', icon: 'Building2' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Droplets' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss bath timing options.', isUnsure: true },
@@ -750,7 +758,7 @@ export const quizQuestions: QuizQuestion[] = [
         'The 2025 ACIP guidelines now support individual decision-making for confirmed-negative mothers',
         'Vaccine can be given at the 2-month pediatrician visit instead',
       ],
-      bottomLine: 'Transmission requires an infected source. If you are confirmed negative and your household is too, your newborn has no exposure risk. The vaccine still makes sense eventually - the question is timing.',
+      bottomLine: 'Transmission requires an infected source. If you are confirmed negative and your household is too, your newborn has no exposure risk. The vaccine may still make sense eventually - the question is timing.',
       ebookChapter: 'Chapter 31: Hepatitis B',
     },
     options: [
@@ -863,7 +871,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'procedure_timing',
     category: 'Newborn Care',
     title: 'Timing of Procedures',
-    subtitle: 'When should non-urgent newborn procedures happen?',
+    subtitle: 'When should non-urgent newborn procedures happen? (Check all that apply)',
     order: 15.3,
     inputType: 'checklist',
     learnMoreData: {
@@ -1182,6 +1190,18 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
+    id: 'due_date',
+    category: 'Personal',
+    title: 'Due Date',
+    subtitle: 'When is your baby due?',
+    order: 21.5,
+    textInputOnOption: 'has_date',
+    options: [
+      { value: 'has_date', label: 'Enter due date', birthPlanText: '', icon: 'Calendar' },
+      { value: 'prefer_not_to_say', label: 'Prefer not to say', birthPlanText: '', icon: 'Lock' },
+    ],
+  },
+  {
     id: 'baby_name',
     category: 'Personal',
     title: 'Baby\'s Name',
@@ -1262,7 +1282,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'csection_details',
     category: 'C-Section Planning',
     title: 'C-Section Details',
-    subtitle: 'What details matter most during a C-section?',
+    subtitle: 'What details matter most during a C-section? (Check all that apply)',
     order: 24,
     deferredFor: 'csection',
     inputType: 'checklist',
@@ -1428,7 +1448,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'csection_comfort',
     category: 'C-Section Planning',
     title: 'C-Section Comfort Measures',
-    subtitle: 'What would help you feel more comfortable during surgery?',
+    subtitle: 'What would help you feel more comfortable during surgery? (Check all that apply)',
     order: 27,
     deferredFor: 'csection',
     inputType: 'checklist',

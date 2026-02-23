@@ -550,9 +550,17 @@ export function DocumentCanvas({
                                   {item.title}
                                 </p>
                                 {item.birthPlanText && (
-                                  <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
-                                    {item.birthPlanText}
-                                  </p>
+                                  item.birthPlanText.includes('\n') ? (
+                                    item.birthPlanText.split('\n').map((line, i) => (
+                                      <p key={i} className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
+                                        {line}
+                                      </p>
+                                    ))
+                                  ) : (
+                                    <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
+                                      {item.birthPlanText}
+                                    </p>
+                                  )
                                 )}
                               </>
                             )}
