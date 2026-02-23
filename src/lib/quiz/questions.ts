@@ -25,7 +25,7 @@ export interface QuizQuestion {
   learnMoreContent?: string    // Backward compat - old plain-text learn more
   learnMoreData?: LearnMoreData
   options: QuizOption[]
-  inputType?: 'text' | 'checklist_with_names'  // 'text' = legacy, 'checklist_with_names' = support people
+  inputType?: 'text' | 'checklist_with_names' | 'checklist'  // 'text' = legacy, 'checklist_with_names' = support people, 'checklist' = multi-select
   textInputOnOption?: string   // Show text input when this option value is selected
   deferredFor?: 'csection'     // Deferred to end for vaginal planners
   conditionalOn?: {            // ONLY used for circumcision
@@ -193,6 +193,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Pain Management',
     subtitle: 'How do you feel about pain management during labor?',
     order: 3,
+    inputType: 'checklist',
     learnMoreData: {
       tradeoff: 'Pain management is a spectrum from fully unmedicated to epidural. Each option has real trade-offs for mobility, labor progress, and your experience. Deciding before labor helps you prepare.',
       pros: [
@@ -230,6 +231,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'The Golden Hour',
     subtitle: 'The first hour after birth is magical - how would you like to spend it?',
     order: 5,
+    inputType: 'checklist',
     learnMoreData: {
       tradeoff: 'The "golden hour" is the first 60 minutes after birth when baby is naturally alert and primed for bonding and feeding. Interruptions during this time can interfere with instinctive behaviors.',
       pros: [
@@ -295,10 +297,10 @@ export const quizQuestions: QuizQuestion[] = [
   // =========================================================================
   {
     id: 'birth_photography',
-    category: 'Getting Started',
+    category: 'Your Birth',
     title: 'Photos and Video',
     subtitle: 'Would you like photos or video of the birth?',
-    order: 8,
+    order: 10.6,
     learnMoreData: {
       tradeoff: 'Birth photography captures one of life\'s most transformative moments. Some families treasure these images forever, while others prefer to be fully present without a camera.',
       pros: [
@@ -501,6 +503,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Labor Environment',
     subtitle: 'What kind of atmosphere do you want during labor?',
     order: 10.3,
+    inputType: 'checklist',
     learnMoreData: {
       tradeoff: 'Your environment directly affects your hormones. Oxytocin (which drives contractions) flows best when you feel safe, private, and undisturbed. Bright lights and loud voices can trigger adrenaline, which slows labor.',
       pros: [
@@ -862,6 +865,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Timing of Procedures',
     subtitle: 'When should non-urgent newborn procedures happen?',
     order: 15.3,
+    inputType: 'checklist',
     learnMoreData: {
       tradeoff: 'Weighing, measuring, eye ointment, and vitamin K can all wait. The first hour is biologically designed for bonding and feeding - not paperwork and procedures.',
       pros: [
@@ -1191,6 +1195,20 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
 
+  {
+    id: 'facility_name',
+    category: 'Personal',
+    title: 'Your Birth Facility',
+    subtitle: 'Where are you planning to deliver?',
+    order: 22.5,
+    textInputOnOption: 'has_facility',
+    options: [
+      { value: 'has_facility', label: 'I know where - type facility name', birthPlanText: '', icon: 'Building2' },
+      { value: 'still_deciding', label: 'Still deciding', birthPlanText: '', icon: 'HelpCircle' },
+      { value: 'prefer_not_to_say', label: 'Prefer not to say', birthPlanText: '', icon: 'Lock' },
+    ],
+  },
+
   // =========================================================================
   // C-SECTION PLANNING (deferred)
   // =========================================================================
@@ -1247,6 +1265,7 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'What details matter most during a C-section?',
     order: 24,
     deferredFor: 'csection',
+    inputType: 'checklist',
     learnMoreData: {
       tradeoff: 'Even in a surgical birth, there are many personal touches that can make the experience meaningful. These range from visual (clear drape, photos) to sensory (music, narration) to bonding (skin-to-skin in the OR).',
       pros: [
@@ -1312,8 +1331,10 @@ export const quizQuestions: QuizQuestion[] = [
       ebookChapter: 'Chapter 12: Cesarean Birth',
     },
     options: [
-      { value: 'delay_max', label: 'Yes, delay as long as safely possible', birthPlanText: 'During a C-section, please delay cord clamping for at least 5 minutes or until the cord stops pulsing.', icon: 'Timer' },
-      { value: 'brief_delay', label: 'Brief delay (60-90 seconds)', birthPlanText: 'During a C-section, please delay cord clamping for at least 90 seconds.', icon: 'Clock' },
+      { value: '60_seconds', label: 'At least 60 seconds', birthPlanText: 'During a C-section, please delay cord clamping for at least 60 seconds.', icon: 'Clock' },
+      { value: '90_seconds', label: 'At least 90 seconds', birthPlanText: 'During a C-section, please delay cord clamping for at least 90 seconds.', icon: 'Clock' },
+      { value: '5_minutes', label: 'At least 5 minutes', birthPlanText: 'During a C-section, please delay cord clamping for at least 5 minutes.', icon: 'Timer' },
+      { value: 'until_stops', label: 'Until cord stops pulsing', birthPlanText: 'During a C-section, please wait until the cord stops pulsing before clamping.', icon: 'Activity' },
       { value: 'surgeon_protocol', label: 'Follow surgeon\'s protocol', birthPlanText: 'We are comfortable with the surgeon\'s standard cord clamping protocol during a C-section.', icon: 'Stethoscope' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Timer' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss cord clamping timing during a C-section with our surgical team.', isUnsure: true },
@@ -1370,12 +1391,47 @@ export const quizQuestions: QuizQuestion[] = [
     },
   },
   {
+    id: 'csection_photography',
+    category: 'C-Section Planning',
+    title: 'Photos and Video',
+    subtitle: 'Would you like photos or video of your C-section birth?',
+    order: 26.5,
+    deferredFor: 'csection',
+    learnMoreData: {
+      tradeoff: 'Birth photography captures one of life\'s most transformative moments. Some families treasure these images forever, while others prefer to be fully present without a camera.',
+      pros: [
+        'Captures a once-in-a-lifetime moment you may not fully remember',
+        'Professional birth photographers know how to stay unobtrusive',
+        'Photos can help process the birth experience afterward',
+        'First moments with baby are priceless to look back on',
+        'Many doulas offer birth photography as part of their services or as an add-on',
+      ],
+      cons: [
+        'Hospital policies may restrict photography during certain procedures',
+        'A designated photographer (partner or professional) may affect their support role',
+        'Some moments feel more sacred without documentation',
+        'OR policies on cameras vary by hospital',
+      ],
+      bottomLine: 'There is no wrong answer here. Many hospitals now allow photography during C-sections, but check with your surgical team in advance.',
+    },
+    options: [
+      { value: 'photos_video', label: 'Yes, photos and video', birthPlanText: 'We would like to take photos and video during the C-section.', icon: 'Camera' },
+      { value: 'photos_only', label: 'Photos only, no video', birthPlanText: 'We would like to take photos but not video during the C-section.', icon: 'Image' },
+      { value: 'after_only', label: 'Only after baby arrives', birthPlanText: 'We prefer photos only after baby is born, not during the C-section.', icon: 'ImagePlus' },
+      { value: 'no', label: 'No photos or video', birthPlanText: 'We prefer no photos or video during the C-section.', icon: 'EyeOff' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Camera' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on photography preferences.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
     id: 'csection_comfort',
     category: 'C-Section Planning',
     title: 'C-Section Comfort Measures',
     subtitle: 'What would help you feel more comfortable during surgery?',
     order: 27,
     deferredFor: 'csection',
+    inputType: 'checklist',
     learnMoreData: {
       tradeoff: 'Small touches during a C-section - arms free, music, narration - can transform the experience from clinical to personal. Most of these requests are easy to accommodate, but require advance communication with your surgical team.',
       pros: [
@@ -1435,6 +1491,8 @@ export function getOrderedQuestions(answers: Record<string, string>): QuizQuesti
     if (birthType === 'csection' && q.category === 'Your Birth') return false
     // For planned C-section: skip birth_setting (always hospital) and when_to_hospital (scheduled)
     if (birthType === 'csection' && (q.id === 'birth_setting' || q.id === 'when_to_hospital')) return false
+    // For planned C-section: skip cord_clamping in After Birth (they get csection_cord_clamping in C-Section Planning)
+    if (birthType === 'csection' && q.id === 'cord_clamping') return false
     // Only include categories in the active order
     if (!categoryOrder.includes(q.category)) return false
     return true

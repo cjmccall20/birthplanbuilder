@@ -83,6 +83,7 @@ export interface EditorState {
   createdFromQuiz: boolean
   disclaimerText: string  // Editable bottom disclaimer
   showAllDecisions: boolean
+  hiddenSections: string[]  // Section IDs hidden from canvas/PDF but data preserved
 }
 
 // Action types for reducer
@@ -111,5 +112,6 @@ export type EditorAction =
   | { type: 'SET_BIRTH_TYPE'; payload: BirthType }
   | { type: 'SET_BIRTH_VENUE'; payload: BirthVenue | null }
   | { type: 'TOGGLE_SHOW_ALL_DECISIONS' }
+  | { type: 'TOGGLE_SECTION_VISIBILITY'; payload: { sectionId: string } }
   | { type: 'UNDO' }
   | { type: 'REDO' }

@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { QuizProvider, useQuiz } from '@/lib/quiz/context'
-import { quizQuestions } from '@/lib/quiz/questions'
+import { quizQuestions, getOrderedQuestions } from '@/lib/quiz/questions'
 import { Header } from '@/components/layout/header'
 import { Button } from '@/components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
@@ -15,6 +15,7 @@ import {
   CheckCircle2,
   HelpCircle,
   ArrowRight,
+  ArrowLeft,
   FileText,
   UserPlus,
   Mail,
@@ -61,13 +62,13 @@ function QuizResultsContent() {
   const unsureQuestions = quizQuestions.filter(q => unsureTopics.includes(q.id))
   const hasUnsureTopics = unsureQuestions.length > 0
 
-  // Count answered questions
+  // Count answered questions (use visible questions, not total)
   const answeredCount = Object.keys(state.answers).length
-  const totalQuestions = quizQuestions.length
+  const totalQuestions = getOrderedQuestions(state.answers).length
 
   // Baby name for personalization
   const babyNameAnswer = state.answers?.baby_name
-  const hasBabyName = babyNameAnswer && babyNameAnswer !== 'not_yet' && babyNameAnswer !== 'prefer_not_to_say'
+  const hasBabyName = babyNameAnswer && babyNameAnswer !== 'not_yet' && babyNameAnswer !== 'prefer_not_to_say' && babyNameAnswer !== 'has_name'
 
   // Update quiz state when name/dueDate changes (auto-saves via context)
   useEffect(() => {
@@ -131,6 +132,16 @@ function QuizResultsContent() {
 
   return (
     <div className="container py-6 sm:py-8 max-w-4xl px-4">
+      {/* Back to Quiz */}
+      <Button
+        variant="ghost"
+        onClick={() => router.push('/quiz')}
+        className="mb-4 -ml-2 text-muted-foreground hover:text-foreground"
+      >
+        <ArrowLeft className="h-4 w-4 mr-2" />
+        Back to Quiz
+      </Button>
+
       {/* Success Header */}
       <div className="text-center mb-8">
         <div className="w-16 h-16 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-4">

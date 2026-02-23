@@ -49,6 +49,7 @@ function createInitialState(): EditorState {
     createdFromQuiz: false,
     disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
     showAllDecisions: false,
+    hiddenSections: [],
   }
 }
 
@@ -358,6 +359,19 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
     case 'TOGGLE_SHOW_ALL_DECISIONS':
       return { ...state, showAllDecisions: !state.showAllDecisions }
 
+    case 'TOGGLE_SECTION_VISIBILITY': {
+      const { sectionId } = action.payload
+      const hidden = state.hiddenSections || []
+      const isHidden = hidden.includes(sectionId)
+      return {
+        ...state,
+        hiddenSections: isHidden
+          ? hidden.filter(id => id !== sectionId)
+          : [...hidden, sectionId],
+        isDirty: true,
+      }
+    }
+
     default:
       return state
   }
@@ -436,6 +450,7 @@ interface EditorContextType {
   setBirthType: (birthType: BirthType) => void
   setBirthVenue: (venue: BirthVenue | null) => void
   toggleShowAllDecisions: () => void
+  toggleSectionVisibility: (sectionId: string) => void
   setDisclaimer: (text: string) => void
   undo: () => void
   redo: () => void
@@ -527,6 +542,9 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const toggleShowAllDecisions = useCallback(() =>
     dispatch({ type: 'TOGGLE_SHOW_ALL_DECISIONS' }), [])
 
+  const toggleSectionVisibility = useCallback((sectionId: string) =>
+    dispatch({ type: 'TOGGLE_SECTION_VISIBILITY', payload: { sectionId } }), [])
+
   const setDisclaimer = useCallback((text: string) =>
     dispatch({ type: 'SET_DISCLAIMER', payload: text }), [])
 
@@ -560,6 +578,7 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       setBirthType,
       setBirthVenue,
       toggleShowAllDecisions,
+      toggleSectionVisibility,
       setDisclaimer,
       undo,
       redo,

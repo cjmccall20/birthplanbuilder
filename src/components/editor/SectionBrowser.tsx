@@ -8,7 +8,7 @@ import { getSectionsForBirthType } from '@/lib/editor/sections'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { Search, Plus, Trash2 } from 'lucide-react'
+import { Search, Plus, Trash2, Eye, EyeOff } from 'lucide-react'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId, PreferenceDefinition } from '@/lib/editor/editorTypes'
@@ -21,7 +21,7 @@ interface SectionBrowserProps {
 }
 
 export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selectedPreferenceId, expandSection }: SectionBrowserProps) {
-  const { state, setPreference, addCustomItem, removeCustomItem } = useEditor()
+  const { state, setPreference, addCustomItem, removeCustomItem, toggleSectionVisibility } = useEditor()
   const visibleSections = getSectionsForBirthType(state.birthType)
   const [activeSection, setActiveSection] = useState<EditorSectionId>('pre_hospital')
   const [searchQuery, setSearchQuery] = useState('')
@@ -83,29 +83,54 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
             return !val?.isOmitted
           }).length + (sectionState?.customItems.length || 0)
           const isActive = activeSection === section.id
+          const isHidden = (state.hiddenSections || []).includes(section.id)
           const SectionIcon = getIconComponent(section.icon)
 
           return (
-            <button
-              key={section.id}
-              onClick={() => setActiveSection(section.id)}
-              className={cn(
-                'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border',
-                isActive
-                  ? 'bg-primary text-primary-foreground border-primary'
-                  : 'bg-white hover:bg-muted/50 border-border text-muted-foreground'
-              )}
-            >
-              <SectionIcon className="h-3 w-3" />
-              <span className="hidden lg:inline">{section.displayTitle}</span>
-              <span className="lg:hidden">{section.displayTitle.split(' ')[0]}</span>
-              <span className={cn(
-                'text-[10px] px-1 rounded-full min-w-[18px] text-center',
-                isActive ? 'bg-white/20' : 'bg-muted'
-              )}>
-                {includedCount}
-              </span>
-            </button>
+            <div key={section.id} className="flex items-center gap-0.5">
+              <button
+                onClick={() => setActiveSection(section.id)}
+                className={cn(
+                  'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border',
+                  isHidden && 'opacity-40',
+                  isActive
+                    ? 'bg-primary text-primary-foreground border-primary'
+                    : 'bg-white hover:bg-muted/50 border-border text-muted-foreground'
+                )}
+              >
+                <SectionIcon className="h-3 w-3" />
+                <span className="hidden lg:inline">{section.displayTitle}</span>
+                <span className="lg:hidden">{section.displayTitle.split(' ')[0]}</span>
+                <span className={cn(
+                  'text-[10px] px-1 rounded-full min-w-[18px] text-center',
+                  isActive ? 'bg-white/20' : 'bg-muted'
+                )}>
+                  {includedCount}
+                </span>
+              </button>
+              <button
+                onClick={(e) => {
+                  e.stopPropagation()
+                  // Confirm if section has active preferences
+                  if (!isHidden && includedCount > 0) {
+                    const confirmed = window.confirm(
+                      `This section has ${includedCount} active preference${includedCount > 1 ? 's' : ''}. Hiding it will remove them from your birth plan PDF. You can re-show it anytime. Continue?`
+                    )
+                    if (!confirmed) return
+                  }
+                  toggleSectionVisibility(section.id)
+                }}
+                className={cn(
+                  'p-1 rounded transition-colors',
+                  isHidden
+                    ? 'text-muted-foreground/40 hover:text-primary'
+                    : 'text-muted-foreground/60 hover:text-muted-foreground'
+                )}
+                title={isHidden ? 'Show section' : 'Hide section'}
+              >
+                {isHidden ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+              </button>
+            </div>
           )
         })}
       </div>

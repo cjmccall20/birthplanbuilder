@@ -146,19 +146,20 @@ export function DocumentCanvas({
           })
         })
 
-      // Show section if it has items, custom items, notes, or we're in show-all mode
-      if (items.length > 0 || sectionState.customItems.length > 0 || sectionState.notes) {
-        result.push({
-          sectionId: section.id,
-          title: section.displayTitle,
-          items,
-          notes: sectionState.notes || '',
-        })
-      }
+      // Skip hidden sections
+      if ((state.hiddenSections || []).includes(section.id)) return
+
+      // Always show all active sections (empty ones get a placeholder)
+      result.push({
+        sectionId: section.id,
+        title: section.displayTitle,
+        items,
+        notes: sectionState.notes || '',
+      })
     })
 
     return result
-  }, [state.sections, state.birthType, state.showAllDecisions, visibleSections, visiblePrefIds])
+  }, [state.sections, state.birthType, state.showAllDecisions, state.hiddenSections, visibleSections, visiblePrefIds])
 
   const canvasSections = sections()
   const theme = canvasThemes[state.templateStyle]
@@ -422,6 +423,15 @@ export function DocumentCanvas({
                   {section.title}
                 </h2>
                 <div className="space-y-4">
+                  {section.items.length === 0 && !section.notes && (
+                    <div
+                      className="text-center py-6 border border-dashed rounded-lg"
+                      style={{ borderColor: `${theme.primaryColor}25`, color: theme.textColor, opacity: 0.5 }}
+                    >
+                      <p className="text-sm">No decisions made yet</p>
+                      <p className="text-xs mt-1">Take the quiz or add preferences from the sidebar</p>
+                    </div>
+                  )}
                   {section.items.map((item) => {
                     const ItemIcon = getIconComponent(item.icon || 'Circle')
                     const isEditing = editingItemId === item.preferenceId

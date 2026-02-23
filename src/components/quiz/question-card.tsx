@@ -13,6 +13,7 @@ import { Label } from '@/components/ui/label'
 import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft, SkipForward, CheckCircle2, XCircle, Circle } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { SupportPeopleChecklist } from './SupportPeopleChecklist'
+import { MultiSelectChecklist } from './MultiSelectChecklist'
 
 interface QuestionCardProps {
   question: QuizQuestion
@@ -79,6 +80,17 @@ export function QuestionCard({ question }: QuestionCardProps) {
   }
 
   const handleNext = () => {
+    // If this question has a text input trigger and user selected it but hasn't typed anything, don't advance
+    if (
+      effectiveQuestion.textInputOnOption &&
+      currentAnswer === effectiveQuestion.textInputOnOption &&
+      !textInput.trim()
+    ) {
+      // Focus the text input instead of advancing
+      const input = document.querySelector<HTMLInputElement>(`input[placeholder*="Type"]`)
+      input?.focus()
+      return
+    }
     nextStep()
   }
 
@@ -137,9 +149,11 @@ export function QuestionCard({ question }: QuestionCardProps) {
 
       </CardHeader>
       <CardContent className="space-y-6 px-4 sm:px-6">
-        {/* Support people checklist */}
+        {/* Checklist variants */}
         {effectiveQuestion.inputType === 'checklist_with_names' ? (
           <SupportPeopleChecklist question={effectiveQuestion} />
+        ) : effectiveQuestion.inputType === 'checklist' ? (
+          <MultiSelectChecklist question={effectiveQuestion} />
         ) : (
         /* Option buttons */
         <RadioGroup

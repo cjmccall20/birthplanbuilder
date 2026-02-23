@@ -43,7 +43,7 @@ const CATEGORY_TRANSITIONS: Record<string, { icon: typeof Shield; title: string;
   },
 }
 
-function CategoryTransitionCard({ category, birthType }: { category: string; birthType?: string }) {
+function CategoryTransitionCard({ category, birthType, isFirst }: { category: string; birthType?: string; isFirst: boolean }) {
   const config = CATEGORY_TRANSITIONS[category]
   if (!config) return null
   const Icon = config.icon
@@ -54,6 +54,19 @@ function CategoryTransitionCard({ category, birthType }: { category: string; bir
   if (category === 'C-Section Planning' && birthType === 'csection') {
     title = 'Your C-section preferences'
     description = 'Since you are planning a C-section, these preferences will help your surgical team understand what matters to you. You have more control than you might think.'
+  }
+
+  // Compact pill for non-first questions in a category
+  if (!isFirst) {
+    return (
+      <div className="w-full max-w-2xl mx-auto mb-4 flex items-center gap-2">
+        <div className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-muted/60 border border-dashed text-xs text-muted-foreground">
+          <Icon className="h-3.5 w-3.5" />
+          <span className="font-medium">{category}</span>
+        </div>
+        <div className="flex-1 border-t border-dashed border-muted-foreground/20" />
+      </div>
+    )
   }
 
   return (
@@ -102,16 +115,16 @@ function QuizContent() {
     }
   }, [isComplete, state.currentStep, visibleQuestions.length, router])
 
-  // Determine if current question is the first in a new category
-  const transitionCategory = useMemo(() => {
+  // Determine category header: always show (except for very first "Getting Started" question)
+  const categoryInfo = useMemo(() => {
     if (!currentQuestion) return null
     const currentIndex = visibleQuestions.indexOf(currentQuestion)
-    if (currentIndex === 0) return null // Don't show transition for the very first question
+    // Don't show for the very first question overall
+    if (currentIndex === 0) return null
+    // Check if this is the first question in this category
     const prevQuestion = visibleQuestions[currentIndex - 1]
-    if (prevQuestion?.category !== currentQuestion.category) {
-      return currentQuestion.category
-    }
-    return null
+    const isFirst = prevQuestion?.category !== currentQuestion.category
+    return { category: currentQuestion.category, isFirst }
   }, [currentQuestion, visibleQuestions])
 
   if (!currentQuestion) {
@@ -127,7 +140,7 @@ function QuizContent() {
   return (
     <div className="container py-6 sm:py-8 px-4 pb-16">
       <QuizProgressBar />
-      {transitionCategory && <CategoryTransitionCard category={transitionCategory} birthType={state.answers['planned_birth_type']} />}
+      {categoryInfo && <CategoryTransitionCard category={categoryInfo.category} birthType={state.answers['planned_birth_type']} isFirst={categoryInfo.isFirst} />}
       <QuestionCard key={currentQuestion.id} question={currentQuestion} />
       <QuizPreviewPanel />
       <DevResetButton />

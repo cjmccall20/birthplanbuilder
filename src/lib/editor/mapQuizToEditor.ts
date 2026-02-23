@@ -55,6 +55,16 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
       no: 'none',
     },
   },
+  csection_photography: {
+    preferenceId: 'csection_photos',
+    sectionId: 'csection',
+    valueMap: {
+      photos_video: 'yes',
+      photos_only: 'yes',
+      after_only: 'yes',
+      no: 'no',
+    },
+  },
 
   // During Labor
   pain_approach: {
@@ -240,8 +250,10 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     preferenceId: 'csection_delayed_cord',
     sectionId: 'csection',
     valueMap: {
-      delay_max: 'yes',
-      brief_delay: 'yes',
+      '60_seconds': 'yes',
+      '90_seconds': 'yes',
+      '5_minutes': 'yes',
+      until_stops: 'yes',
       surgeon_protocol: 'standard',
     },
   },
@@ -292,7 +304,18 @@ const ENGAGEMENT_ONLY_QUESTIONS = new Set([
   'planned_birth_type',
   'baby_sex',
   'baby_name',
+  'facility_name',
 ])
+
+// Try to parse a JSON array checklist answer; returns null if not a checklist
+function parseChecklistAnswer(answer: string): string[] | null {
+  if (!answer.startsWith('[')) return null
+  try {
+    const parsed = JSON.parse(answer)
+    if (Array.isArray(parsed) && parsed.every(v => typeof v === 'string')) return parsed
+  } catch { /* not a checklist */ }
+  return null
+}
 
 // ---------------------------------------------------------------------------
 // Main mapping function
@@ -365,10 +388,12 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
 
     // Handle golden_hour -> also set skin_to_skin preference
     if (questionId === 'golden_hour') {
-      if (answer === 'protected') {
+      const ghValues = parseChecklistAnswer(answer)
+      const ghAnswers = ghValues || [answer]
+      if (ghAnswers.includes('protected')) {
         applyQuizAnswer(sections, 'at_birth', 'skin_to_skin', 'immediate')
         activatedOrder['skin_to_skin'] = activationCounter++
-      } else if (answer === 'partner_backup') {
+      } else if (ghAnswers.includes('partner_backup')) {
         applyQuizAnswer(sections, 'at_birth', 'skin_to_skin', 'partner_backup')
         activatedOrder['skin_to_skin'] = activationCounter++
       }
@@ -406,10 +431,20 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     // Determine if this is a custom/free-text answer (doesn't match any option value)
     const isCustomText = questionDef && !questionDef.options.some(o => o.value === answer)
 
-    // Handle csection_details compound question
+    // Handle csection_details compound question (now multi-select)
     if (questionId === 'csection_details') {
-      if (isCustomText) {
-        // Custom text for C-section details - apply as custom text on gentle_csection preference
+      const values = parseChecklistAnswer(answer)
+      if (values) {
+        values.forEach(val => {
+          const mappings = CSECTION_DETAILS_MAP[val]
+          if (mappings) {
+            mappings.forEach(({ preferenceId, sectionId, value }) => {
+              applyQuizAnswer(sections, sectionId, preferenceId, value)
+              activatedOrder[preferenceId] = activationCounter++
+            })
+          }
+        })
+      } else if (isCustomText) {
         const quizStance = quizState.stances?.[questionId]
         applyQuizAnswer(sections, 'csection', 'gentle_csection', 'yes', answer, quizStance)
         activatedOrder['gentle_csection'] = activationCounter++
@@ -425,14 +460,27 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
       return
     }
 
-    // Handle csection_comfort compound question
+    // Handle csection_comfort compound question (now multi-select)
     if (questionId === 'csection_comfort') {
-      const mappings = CSECTION_COMFORT_MAP[answer]
-      if (mappings) {
-        mappings.forEach(({ preferenceId, sectionId, value }) => {
-          applyQuizAnswer(sections, sectionId, preferenceId, value)
-          activatedOrder[preferenceId] = activationCounter++
+      const values = parseChecklistAnswer(answer)
+      if (values) {
+        values.forEach(val => {
+          const mappings = CSECTION_COMFORT_MAP[val]
+          if (mappings) {
+            mappings.forEach(({ preferenceId, sectionId, value }) => {
+              applyQuizAnswer(sections, sectionId, preferenceId, value)
+              activatedOrder[preferenceId] = activationCounter++
+            })
+          }
         })
+      } else {
+        const mappings = CSECTION_COMFORT_MAP[answer]
+        if (mappings) {
+          mappings.forEach(({ preferenceId, sectionId, value }) => {
+            applyQuizAnswer(sections, sectionId, preferenceId, value)
+            activatedOrder[preferenceId] = activationCounter++
+          })
+        }
       }
       return
     }
@@ -442,6 +490,22 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     if (!mapping) return
 
     const { preferenceId, sectionId, valueMap } = mapping
+
+    // Handle multi-select checklist answers (JSON arrays)
+    const checklistValues = parseChecklistAnswer(answer)
+    if (checklistValues && checklistValues.length > 0) {
+      // Use first value as the primary selection
+      const primaryValue = checklistValues[0]
+      const translatedPrimary = valueMap ? (valueMap[primaryValue] || primaryValue) : primaryValue
+      // Build custom text from all selected options' birthPlanText
+      const allTexts = checklistValues
+        .map(v => questionDef?.options.find(o => o.value === v)?.birthPlanText)
+        .filter(Boolean)
+      const customText = allTexts.length > 1 ? allTexts.join(' ') : undefined
+      applyQuizAnswer(sections, sectionId, preferenceId, translatedPrimary, customText)
+      activatedOrder[preferenceId] = activationCounter++
+      return
+    }
 
     if (isCustomText) {
       // Free-text answer: use the first non-unsure option as the selected value, set customText
@@ -477,7 +541,7 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
   const babyName = quizState.answers?.baby_name
   const motherName = quizState.birthTeam?.fields?.[0]?.value
   let title = 'My Birth Plan'
-  if (babyName && babyName !== 'not_yet' && babyName !== 'prefer_not_to_say') {
+  if (babyName && babyName !== 'not_yet' && babyName !== 'prefer_not_to_say' && babyName !== 'has_name') {
     title = `Welcoming ${babyName} into the World`
   } else if (motherName) {
     title = `${motherName}'s Birth Plan`
@@ -488,8 +552,43 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     ? 'planned_csection'
     : 'vaginal'
 
+  // Populate birth team fields from quiz answers (support_people and medical_provider names)
+  const birthTeam = quizState.birthTeam ? { ...quizState.birthTeam, fields: [...(quizState.birthTeam.fields || [])] } : createDefaultBirthTeam()
+  const supportAnswer = quizState.answers?.support_people
+  if (supportAnswer && supportAnswer.startsWith('[')) {
+    try {
+      const people = JSON.parse(supportAnswer) as Array<{ role: string; name: string }>
+      people.forEach(p => {
+        if (!p.name) return
+        const fieldId = p.role === 'partner' ? 'partner' : p.role === 'doula' ? 'doula' : null
+        if (fieldId) {
+          const field = birthTeam.fields.find(f => f.id === fieldId)
+          if (field && !field.value) field.value = p.name
+        }
+      })
+    } catch { /* ignore parse errors */ }
+  }
+  // Populate facility name from quiz
+  const facilityAnswer = quizState.answers?.facility_name
+  if (facilityAnswer && facilityAnswer !== 'has_facility' && facilityAnswer !== 'still_deciding' && facilityAnswer !== 'prefer_not_to_say') {
+    const field = birthTeam.fields.find(f => f.id === 'hospital')
+    if (field && !field.value) field.value = facilityAnswer
+  }
+
+  const providerAnswer = quizState.answers?.medical_provider
+  if (providerAnswer && providerAnswer.startsWith('[')) {
+    try {
+      const providers = JSON.parse(providerAnswer) as Array<{ role: string; name: string }>
+      const firstNamed = providers.find(p => p.name)
+      if (firstNamed) {
+        const field = birthTeam.fields.find(f => f.id === 'provider')
+        if (field && !field.value) field.value = firstNamed.name
+      }
+    } catch { /* ignore parse errors */ }
+  }
+
   return {
-    birthTeam: quizState.birthTeam || createDefaultBirthTeam(),
+    birthTeam,
     templateStyle: (quizState.templateStyle || 'minimal') as TemplateStyle,
     birthType,
     sections,

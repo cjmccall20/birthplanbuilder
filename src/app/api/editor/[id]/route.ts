@@ -82,6 +82,7 @@ export async function GET(
       birthVenue: (birthPlan as any).birth_venue || null,
       disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
       showAllDecisions: false,
+      hiddenSections: (birthPlan as any).hidden_sections || [],
     }
 
     return NextResponse.json({
