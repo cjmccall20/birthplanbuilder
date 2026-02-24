@@ -44,8 +44,8 @@ export function SectionPanel({ sectionId }: SectionPanelProps) {
 
   const section = state.sections[sectionId]
   const preferenceDefinitions = useMemo(
-    () => getPreferencesBySection(sectionId),
-    [sectionId]
+    () => getPreferencesBySection(sectionId, state.birthType, state.birthVenue),
+    [sectionId, state.birthType, state.birthVenue]
   )
 
   // Create sorted arrays of preference IDs and custom item IDs

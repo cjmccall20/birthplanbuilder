@@ -24,6 +24,9 @@ const PHILOSOPHY_SAMPLES = [
   { label: 'Informed & Flexible', icon: 'BookOpen', text: 'Thank you for being part of our birth team. We have educated ourselves and have preferences, but we understand birth is unpredictable. We ask that you explain any changes to our plan and include us in decision-making.' },
   { label: 'Natural Birth Focused', icon: 'Leaf', text: 'Thank you for supporting our birth experience. We are planning for a natural birth with minimal interventions. Please support us in this goal, and discuss any interventions with us before proceeding.' },
   { label: 'Trust the Team', icon: 'HeartHandshake', text: 'Thank you for taking care of us. We trust our medical team and are open to your guidance. These preferences reflect our hopes, but we defer to your expertise when needed.' },
+  { label: 'Bradley Method', icon: 'HeartHandshake', text: 'We have prepared using the Bradley Method, emphasizing partner-coached natural childbirth. We prefer to avoid medication and unnecessary interventions, relying on deep relaxation, breathing, and my partner\'s trained support. Please direct questions and updates to my partner when I am focused inward.' },
+  { label: 'Hypnobirthing', icon: 'Wind', text: 'We have trained in hypnobirthing techniques and ask that the birth environment support this approach: calm voices, dim lighting, and minimal disruption. We use the language of "surges" rather than "contractions." Please avoid offering pain medication unless we specifically ask.' },
+  { label: 'Lamaze', icon: 'Leaf', text: 'We have prepared using Lamaze principles and value freedom of movement, continuous support, and informed decision-making throughout labor. We ask to be included in all decisions and given time to consider options. A healthy birth is our priority, and we trust our preparation to guide us.' },
 ]
 
 export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selectedPreferenceId, expandSection }: SectionBrowserProps) {
@@ -46,7 +49,7 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
   useEffect(() => {
     if (selectedPreferenceId) {
       for (const section of EDITOR_SECTIONS) {
-        const prefs = getPreferencesBySection(section.id)
+        const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
         if (prefs.some(p => p.id === selectedPreferenceId)) {
           setActiveSection(section.id)
           break
@@ -61,16 +64,16 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
     }
   }, [selectedPreferenceId, state.sections])
 
-  // Get preferences for active section (filtered by birth type)
+  // Get preferences for active section (filtered by birth type and venue)
   const activePrefs = useMemo(() => {
-    const prefs = getPreferencesBySection(activeSection, state.birthType)
+    const prefs = getPreferencesBySection(activeSection, state.birthType, state.birthVenue)
     if (!searchQuery) return prefs
     const q = searchQuery.toLowerCase()
     return prefs.filter((p: PreferenceDefinition) =>
       p.title.toLowerCase().includes(q) ||
       (p.description?.toLowerCase().includes(q) ?? false)
     )
-  }, [activeSection, searchQuery, state.birthType])
+  }, [activeSection, searchQuery, state.birthType, state.birthVenue])
 
   // Get custom items for active section
   const customItems = state.sections[activeSection]?.customItems || []
@@ -173,7 +176,7 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
       <div className="flex flex-wrap gap-1.5">
         {visibleSections.map(section => {
           const sectionState = state.sections[section.id]
-          const prefs = getPreferencesBySection(section.id, state.birthType)
+          const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
           const includedCount = prefs.filter(p => {
             const val = sectionState?.preferences.find(pv => pv.preferenceId === p.id)
             return !val?.isOmitted

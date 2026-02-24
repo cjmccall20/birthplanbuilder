@@ -1,8 +1,8 @@
 import type { QuizState, TemplateStyle } from '@/types'
 import { createDefaultBirthTeam } from '@/types'
-import type { EditorState, EditorSectionId, PreferenceValue, EditorSectionState, BirthType } from './editorTypes'
+import type { EditorState, EditorSectionId, PreferenceValue, EditorSectionState, BirthType, BirthVenue } from './editorTypes'
 import { PREFERENCES, getPreferencesBySection } from './preferences'
-import { SECTION_ORDER } from './sections'
+import { SECTION_ORDER, VENUE_TITLE_OVERRIDES, EDITOR_SECTIONS } from './sections'
 import { quizQuestions } from '@/lib/quiz/questions'
 
 // ---------------------------------------------------------------------------
@@ -279,6 +279,32 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
       no: 'no',
     },
   },
+
+  // Water Birth & Birth Space (home/birth center)
+  water_birth: {
+    preferenceId: 'water_birth',
+    sectionId: 'during_labor',
+    // Quiz and pref share: water_birth, water_labor, no_water
+  },
+  birth_space_setup: {
+    preferenceId: 'birth_space',
+    sectionId: 'pre_hospital',
+    // Checklist - quiz and pref share: dim_lighting, music, aromatherapy, minimal_people
+  },
+
+  // VBAC
+  vbac_monitoring: {
+    preferenceId: 'vbac_monitoring',
+    sectionId: 'during_labor',
+    // Quiz and pref share: continuous_wireless, continuous_standard, intermittent_request
+  },
+
+  // Transfer (home/birth center)
+  transfer_logistics: {
+    preferenceId: 'transfer_logistics',
+    sectionId: 'hospital_stay',
+    // Quiz and pref share: partner_drives, ambulance, midwife_decides
+  },
 }
 
 // C-section details is a compound question that maps to multiple preferences
@@ -322,6 +348,24 @@ const CSECTION_COMFORT_MAP: Record<string, Array<{ preferenceId: string; section
   standard_fine: [],
 }
 
+// Hospital labor contingency is a checklist that maps to the transfer_labor_prefs preference
+// Each checked value produces a birthPlanText bullet
+const HOSPITAL_LABOR_CONTINGENCY_MAP: Record<string, { birthPlanText: string }> = {
+  epidural_open: { birthPlanText: 'If transferred, we are open to an epidural for pain management.' },
+  epidural_decline: { birthPlanText: 'If transferred, we prefer to continue without an epidural unless medically necessary.' },
+  heplock: { birthPlanText: 'If transferred, we prefer a hep-lock for IV access rather than continuous fluids.' },
+  intermittent_monitor: { birthPlanText: 'If transferred, we prefer intermittent fetal monitoring if the clinical situation allows.' },
+  no_students: { birthPlanText: 'If transferred, we do not want medical students or observers present.' },
+}
+
+// Hospital stay contingency is a checklist that maps to the transfer_stay_prefs preference
+const HOSPITAL_STAY_CONTINGENCY_MAP: Record<string, { birthPlanText: string }> = {
+  rooming_in: { birthPlanText: 'If at the hospital, we want baby to room in with us at all times.' },
+  no_pacifier: { birthPlanText: 'If at the hospital, please do not offer baby a pacifier.' },
+  early_discharge: { birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.' },
+  limit_visitors: { birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.' },
+}
+
 // Engagement-only quiz questions that don't map to preferences
 // Their answers are used for personalization, not editor preferences
 const ENGAGEMENT_ONLY_QUESTIONS = new Set([
@@ -331,12 +375,17 @@ const ENGAGEMENT_ONLY_QUESTIONS = new Set([
   'facility_name',
   'due_date',
   'mother_name',
+  'birth_setting', // Handled specially for birthVenue
 ])
 
 // Questions with special handling (not in QUIZ_TO_PREFERENCE but not engagement-only either)
 const SPECIAL_HANDLING_QUESTIONS = new Set([
   'birth_philosophy',
   'medical_conditions',
+  'transfer_plan',
+  'vbac_history',
+  'hospital_labor_contingency',
+  'hospital_stay_contingency',
 ])
 
 // Try to parse a JSON array checklist answer; returns null if not a checklist
@@ -388,20 +437,6 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     const questionDef = quizQuestions.find(q => q.id === questionId)
     const selectedOption = questionDef?.options.find(o => o.value === answer)
     if (selectedOption?.omitFromPlan) return
-
-    // Handle golden_hour -> also set skin_to_skin preference
-    if (questionId === 'golden_hour') {
-      const ghValues = parseChecklistAnswer(answer)
-      const ghAnswers = ghValues || [answer]
-      if (ghAnswers.includes('protected')) {
-        applyQuizAnswer(sections, 'at_birth', 'skin_to_skin', 'immediate')
-        activatedOrder['skin_to_skin'] = activationCounter++
-      } else if (ghAnswers.includes('partner_backup')) {
-        applyQuizAnswer(sections, 'at_birth', 'skin_to_skin', 'partner_backup')
-        activatedOrder['skin_to_skin'] = activationCounter++
-      }
-      // Don't return - let the standard mapping handle the golden_hour preference itself
-    }
 
     // Determine if this is a custom/free-text answer (doesn't match any option value)
     const isCustomText = questionDef && !questionDef.options.some(o => o.value === answer)
@@ -644,16 +679,179 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     }
   }
 
+  // --- Special handling: transfer_plan (backup hospital name) ---
+  const transferPlanAnswer = quizState.answers?.transfer_plan
+  if (transferPlanAnswer && transferPlanAnswer !== 'unsure' && transferPlanAnswer !== 'discussing' && transferPlanAnswer !== 'has_plan') {
+    // Free-text input: the user typed a hospital name
+    const existingBackup = birthTeam.fields.find(f => f.id === 'backup_hospital')
+    if (existingBackup) {
+      if (!existingBackup.value) existingBackup.value = transferPlanAnswer
+    } else {
+      birthTeam.fields.push({
+        id: 'backup_hospital',
+        label: 'Backup Hospital',
+        value: transferPlanAnswer,
+        isDefault: false,
+        sortOrder: birthTeam.fields.length,
+      })
+    }
+  }
+
+  // --- Special handling: vbac_history ---
+  const vbacHistoryAnswer = quizState.answers?.vbac_history
+  if (vbacHistoryAnswer && vbacHistoryAnswer !== 'unsure' && vbacHistoryAnswer !== 'need_records') {
+    let vbacText = ''
+    if (vbacHistoryAnswer === 'one_low_transverse') {
+      vbacText = 'One prior cesarean with low-transverse incision'
+    } else if (vbacHistoryAnswer !== 'has_details') {
+      // Free-text input from the user
+      vbacText = vbacHistoryAnswer
+    }
+    if (vbacText) {
+      const existingVbacField = birthTeam.fields.find(f => f.id === 'vbac_history')
+      if (existingVbacField) {
+        if (!existingVbacField.value) existingVbacField.value = vbacText
+      } else {
+        birthTeam.fields.push({
+          id: 'vbac_history',
+          label: 'VBAC History',
+          value: vbacText,
+          isDefault: false,
+          sortOrder: birthTeam.fields.length,
+        })
+      }
+    }
+  }
+
+  // --- Special handling: hospital_labor_contingency (checklist -> transfer_labor_prefs) ---
+  const laborContingencyAnswer = quizState.answers?.hospital_labor_contingency
+  if (laborContingencyAnswer) {
+    const values = parseChecklistAnswer(laborContingencyAnswer)
+    if (values && values.length > 0) {
+      const texts = values
+        .map(v => HOSPITAL_LABOR_CONTINGENCY_MAP[v]?.birthPlanText)
+        .filter(Boolean)
+      if (texts.length > 0) {
+        const primaryValue = values[0]
+        const customText = texts.join('\n')
+        applyQuizAnswer(sections, 'hospital_stay', 'transfer_labor_prefs', primaryValue, customText)
+        activatedOrder['transfer_labor_prefs'] = activationCounter++
+      }
+    }
+  }
+
+  // --- Special handling: hospital_stay_contingency (checklist -> transfer_stay_prefs) ---
+  const stayContingencyAnswer = quizState.answers?.hospital_stay_contingency
+  if (stayContingencyAnswer) {
+    const values = parseChecklistAnswer(stayContingencyAnswer)
+    if (values && values.length > 0) {
+      const texts = values
+        .map(v => HOSPITAL_STAY_CONTINGENCY_MAP[v]?.birthPlanText)
+        .filter(Boolean)
+      if (texts.length > 0) {
+        const primaryValue = values[0]
+        const customText = texts.join('\n')
+        applyQuizAnswer(sections, 'hospital_stay', 'transfer_stay_prefs', primaryValue, customText)
+        activatedOrder['transfer_stay_prefs'] = activationCounter++
+      }
+    }
+  }
+
+  // --- Set birthVenue from quiz birth_setting answer ---
+  const birthSettingAnswer = quizState.answers?.birth_setting
+  let birthVenue: BirthVenue | null = null
+  if (birthSettingAnswer === 'hospital' || birthSettingAnswer === 'birth_center' || birthSettingAnswer === 'home') {
+    birthVenue = birthSettingAnswer
+  }
+
+  // --- Set isVbac from quiz planned_birth_type answer ---
+  // Note: plannedBirthType type doesn't include 'vbac' but the raw answer can be 'vbac'
+  const isVbac = quizState.answers?.planned_birth_type === 'vbac'
+
+  // --- Apply venue title overrides ---
+  let customSectionTitles: Record<string, string> | undefined
+  if (birthVenue && birthVenue !== 'hospital') {
+    const overrides = VENUE_TITLE_OVERRIDES[birthVenue as 'birth_center' | 'home']
+    if (overrides) {
+      customSectionTitles = {}
+      Object.entries(overrides).forEach(([sectionId, venueTitle]) => {
+        customSectionTitles![sectionId] = venueTitle
+      })
+    }
+  }
+
+  // --- Add backup_hospital field for home/birth_center venues ---
+  if ((birthVenue === 'home' || birthVenue === 'birth_center') && !birthTeam.fields.find(f => f.id === 'backup_hospital')) {
+    birthTeam.fields.push({
+      id: 'backup_hospital',
+      label: 'Backup Hospital',
+      value: '',
+      isDefault: false,
+      sortOrder: birthTeam.fields.length,
+    })
+  }
+
+  // --- Re-initialize sections with venue filtering ---
+  // Now that we know the venue, re-build sections so venue-filtered preferences are included/excluded
+  if (birthVenue) {
+    SECTION_ORDER.forEach(sectionId => {
+      const prefs = getPreferencesBySection(sectionId, undefined, birthVenue)
+      // Preserve any activated preferences from above, add any new venue-specific ones
+      const existingPrefs = sections[sectionId].preferences
+      const existingIds = new Set(existingPrefs.map(p => p.preferenceId))
+      const filteredPrefIds = new Set(prefs.map(p => p.id))
+
+      // Remove preferences that are now filtered out by venue
+      const keptPrefs = existingPrefs.filter(p => filteredPrefIds.has(p.preferenceId))
+
+      // Add any new venue-specific preferences that weren't in the original set
+      prefs.forEach((pref, index) => {
+        if (!existingIds.has(pref.id)) {
+          const defaultOption = pref.options.find(o => o.isPopular) || pref.options[0]
+          keptPrefs.push({
+            preferenceId: pref.id,
+            selectedOption: defaultOption?.value || null,
+            isOmitted: true,
+            sortOrder: keptPrefs.length,
+          })
+        }
+      })
+
+      sections[sectionId] = {
+        ...sections[sectionId],
+        preferences: keptPrefs,
+      }
+    })
+
+    // Re-sort after venue filtering: activated first (in quiz order), then omitted
+    SECTION_ORDER.forEach(sectionId => {
+      sections[sectionId].preferences.sort((a, b) => {
+        const aActive = !a.isOmitted
+        const bActive = !b.isOmitted
+        if (aActive && !bActive) return -1
+        if (!aActive && bActive) return 1
+        if (aActive && bActive) {
+          return (activatedOrder[a.preferenceId] ?? 999) - (activatedOrder[b.preferenceId] ?? 999)
+        }
+        return a.sortOrder - b.sortOrder
+      })
+      sections[sectionId].preferences.forEach((p, i) => { p.sortOrder = i })
+    })
+  }
+
   return {
     birthTeam,
     templateStyle: (quizState.templateStyle || 'minimal') as TemplateStyle,
     birthType,
+    birthVenue,
+    isVbac: isVbac || undefined,
     sections,
     createdFromQuiz: true,
     title,
     subtitle,
     disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
     ...(philosophyStatement ? { philosophyStatement, showPhilosophy } : {}),
+    ...(customSectionTitles ? { customSectionTitles } : {}),
   }
 }
 

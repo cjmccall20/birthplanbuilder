@@ -35,12 +35,12 @@ interface QuestionCardProps {
 export function QuestionCard({ question }: QuestionCardProps) {
   const { state, setAnswer, setStance, nextStep, prevStep } = useQuiz()
 
-  // Resolve birth type variant for dynamic C-section framing
-  const effectiveQuestion = useMemo(() => {
+  // Resolve birth type variant for dynamic C-section/VBAC framing
+  const birthTypeResolved = useMemo(() => {
     if (!question.birthTypeVariant) return question
 
     const birthType = state.answers['planned_birth_type']
-    const variantKey = birthType === 'csection' ? 'csection' : 'vaginal'
+    const variantKey = birthType === 'csection' ? 'csection' : birthType === 'vbac' ? 'vbac' : 'vaginal'
     const variant = question.birthTypeVariant[variantKey]
     if (!variant) return question
 
@@ -63,6 +63,34 @@ export function QuestionCard({ question }: QuestionCardProps) {
     }
     return merged
   }, [question, state.answers])
+
+  // Resolve venue variant for birth setting-specific framing
+  const effectiveQuestion = useMemo(() => {
+    if (!birthTypeResolved.venueVariant) return birthTypeResolved
+
+    const venue = state.answers['birth_setting']
+    if (!venue) return birthTypeResolved
+
+    const venueKey = venue as 'hospital' | 'birth_center' | 'home'
+    const variant = birthTypeResolved.venueVariant[venueKey]
+    if (!variant) return birthTypeResolved
+
+    const merged = { ...birthTypeResolved }
+    if (variant.subtitle) {
+      merged.subtitle = variant.subtitle
+    }
+    if (variant.optionOverrides && merged.options) {
+      merged.options = birthTypeResolved.options.map(opt => {
+        const override = variant.optionOverrides?.[opt.value]
+        if (override) return { ...opt, ...override }
+        return opt
+      })
+    }
+    if (variant.hiddenOptions) {
+      merged.options = merged.options.filter(opt => !variant.hiddenOptions!.includes(opt.value))
+    }
+    return merged
+  }, [birthTypeResolved, state.answers])
 
   const [showLearnMore, setShowLearnMore] = useState(false)
 
@@ -153,7 +181,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
           >
             <Info className="h-5 w-5 flex-shrink-0" />
             <span className="text-[0.935rem] font-semibold italic">
-              {showLearnMore ? 'Hide pros & cons' : 'What are the pros & cons?'}
+              {showLearnMore ? 'Hide details' : 'Learn more about this decision'}
             </span>
             {showLearnMore ? (
               <ChevronUp className="h-4 w-4 ml-auto flex-shrink-0" />

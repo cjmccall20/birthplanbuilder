@@ -14,7 +14,7 @@ import type {
 } from './editorTypes'
 import type { BirthTeam, BirthTeamField } from '@/types'
 import { createDefaultBirthTeam, migrateBirthTeam } from '@/types'
-import { SECTION_ORDER } from './sections'
+import { SECTION_ORDER, VENUE_TITLE_OVERRIDES, EDITOR_SECTIONS } from './sections'
 import { getDefaultPreferencesForSection } from './preferences'
 
 // Initial section state with default preferences populated
@@ -51,6 +51,19 @@ function createInitialState(): EditorState {
     showAllDecisions: false,
     hiddenSections: [],
   }
+}
+
+// All known venue-generated title strings for detection
+const ALL_VENUE_TITLES = new Set(
+  Object.values(VENUE_TITLE_OVERRIDES).flatMap(overrides => Object.values(overrides))
+)
+
+// Check if a custom title was auto-set by venue (vs manually typed by user)
+function isAutoVenueTitle(title: string): boolean {
+  if (ALL_VENUE_TITLES.has(title)) return true
+  // Also check default section titles
+  if (EDITOR_SECTIONS.some(s => s.title === title)) return true
+  return false
 }
 
 // Reducer
@@ -356,8 +369,52 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
     case 'SET_BIRTH_TYPE':
       return { ...state, birthType: action.payload, isDirty: true }
 
-    case 'SET_BIRTH_VENUE':
-      return { ...state, birthVenue: action.payload, isDirty: true }
+    case 'SET_BIRTH_VENUE': {
+      const venue = action.payload
+      const existingCustomTitles = state.customSectionTitles || {}
+      let newCustomTitles = { ...existingCustomTitles }
+
+      if (venue && venue !== 'hospital') {
+        // Apply venue title overrides
+        const overrides = VENUE_TITLE_OVERRIDES[venue as 'birth_center' | 'home']
+        if (overrides) {
+          Object.entries(overrides).forEach(([sectionId, venueTitle]) => {
+            const currentCustom = existingCustomTitles[sectionId]
+            // Only auto-set if user hasn't manually customized this title
+            if (!currentCustom || isAutoVenueTitle(currentCustom)) {
+              newCustomTitles[sectionId] = venueTitle
+            }
+          })
+        }
+      } else {
+        // Switching to hospital or null - clear venue-specific titles
+        Object.keys(newCustomTitles).forEach(sectionId => {
+          if (isAutoVenueTitle(newCustomTitles[sectionId])) {
+            delete newCustomTitles[sectionId]
+          }
+        })
+      }
+
+      // Add backup_hospital field for home/birth_center
+      let fields = state.birthTeam.fields
+      if ((venue === 'home' || venue === 'birth_center') && !fields.find(f => f.id === 'backup_hospital')) {
+        fields = [...fields, {
+          id: 'backup_hospital',
+          label: 'Backup Hospital',
+          value: '',
+          isDefault: false,
+          sortOrder: fields.length,
+        }]
+      }
+
+      return {
+        ...state,
+        birthVenue: venue,
+        customSectionTitles: Object.keys(newCustomTitles).length > 0 ? newCustomTitles : undefined,
+        birthTeam: fields !== state.birthTeam.fields ? { ...state.birthTeam, fields } : state.birthTeam,
+        isDirty: true,
+      }
+    }
 
     case 'TOGGLE_SHOW_ALL_DECISIONS':
       return { ...state, showAllDecisions: !state.showAllDecisions }

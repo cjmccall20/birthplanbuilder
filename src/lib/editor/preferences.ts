@@ -1,4 +1,4 @@
-import type { PreferenceDefinition, BirthType } from './editorTypes'
+import type { PreferenceDefinition, BirthType, BirthVenue } from './editorTypes'
 
 export const PREFERENCES: PreferenceDefinition[] = [
   // ============================================
@@ -49,6 +49,50 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'ask_consent', label: 'Ask consent before any intervention', birthPlanText: 'Please ask our consent before any intervention or procedure.' },
       { value: 'preferred_name', label: 'Use our preferred names', birthPlanText: 'Please use our preferred names when addressing us.' },
       { value: 'standard_fine', label: 'Standard communication is fine', birthPlanText: '' },
+    ],
+  },
+  {
+    id: 'pet_care_plan',
+    sectionId: 'pre_hospital',
+    title: 'Pet Care Plan',
+    description: 'Arrangements for your pets while you are away for birth',
+    icon: 'Heart',
+    allowCustom: true,
+    isOmittedByDefault: true,
+    options: [
+      { value: 'neighbor', label: 'Neighbor will care for pets', birthPlanText: 'Our neighbor will care for our pets while we are away.' },
+      { value: 'auto_feeder', label: 'Pets staying home alone (auto-feeder set up)', birthPlanText: 'Our pets will stay home alone with automatic feeders set up.' },
+      { value: 'family', label: 'Family member taking pets', birthPlanText: 'A family member will take care of our pets.' },
+    ],
+  },
+  {
+    id: 'child_care_plan',
+    sectionId: 'pre_hospital',
+    title: 'Child Care Plan',
+    description: 'Arrangements for older children during labor and birth',
+    icon: 'Users',
+    allowCustom: true,
+    isOmittedByDefault: true,
+    options: [
+      { value: 'grandparent', label: 'Grandparent picking up older child(ren)', birthPlanText: 'A grandparent will pick up and care for our older child(ren).' },
+      { value: 'neighbor', label: 'Neighbor or friend taking kids', birthPlanText: 'A neighbor or friend will care for our older child(ren).' },
+      { value: 'coming_along', label: 'Kids coming to birth location', birthPlanText: 'Our older child(ren) will be present at the birth.' },
+    ],
+  },
+  {
+    id: 'birth_space',
+    sectionId: 'pre_hospital',
+    title: 'Birth Space Setup',
+    description: 'How you want your home birth environment set up',
+    icon: 'Home',
+    allowCustom: true,
+    venueOnly: ['home'],
+    quizQuestionId: 'birth_space_setup',
+    options: [
+      { value: 'dim_lighting', label: 'Dim, calm lighting', birthPlanText: 'We want dim, calm lighting in our birth space.' },
+      { value: 'music', label: 'Music or playlist', birthPlanText: 'We plan to have calming music or a playlist during labor.' },
+      { value: 'aromatherapy', label: 'Aromatherapy', birthPlanText: 'We plan to use aromatherapy during labor.' },
+      { value: 'minimal_people', label: 'Minimal people present', birthPlanText: 'We prefer only essential people in the birth room during labor and delivery.' },
     ],
   },
   {
@@ -148,7 +192,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preference for IV access during labor',
     icon: 'Syringe',
     allowCustom: true,
-
+    hiddenForVenue: ['home'],
     options: [
       { value: 'heplock', label: 'Hep lock only (IV ready, no fluids)', birthPlanText: 'We prefer a hep lock instead of continuous IV fluids.', isPopular: true },
       { value: 'iv', label: 'Continuous IV is fine', birthPlanText: 'Continuous IV fluids are acceptable.' },
@@ -221,6 +265,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     icon: 'GraduationCap',
     allowCustom: true,
     clinical: true,
+    hiddenForVenue: ['home', 'birth_center'],
     quizQuestionId: 'medical_students',
     options: [
       { value: 'welcome', label: 'Students are welcome to observe', birthPlanText: 'We are comfortable with medical students or residents observing.', isPopular: true },
@@ -366,6 +411,34 @@ export const PREFERENCES: PreferenceDefinition[] = [
     ],
   },
   {
+    id: 'water_birth',
+    sectionId: 'during_labor',
+    title: 'Water Birth',
+    description: 'Whether to use water immersion during labor or for delivery',
+    icon: 'Waves',
+    allowCustom: true,
+    quizQuestionId: 'water_birth',
+    options: [
+      { value: 'water_birth', label: 'Planning a water birth', birthPlanText: 'We are planning a water birth and would like to deliver in the tub/pool.', isPopular: true },
+      { value: 'water_labor', label: 'Water for labor only', birthPlanText: 'We would like to use the tub/pool for labor comfort but plan to deliver out of the water.' },
+      { value: 'no_water', label: 'Not using water', birthPlanText: '' },
+    ],
+  },
+  {
+    id: 'vbac_monitoring',
+    sectionId: 'during_labor',
+    title: 'VBAC Monitoring',
+    description: 'Fetal monitoring preferences specific to VBAC labor',
+    icon: 'Activity',
+    allowCustom: true,
+    quizQuestionId: 'vbac_monitoring',
+    options: [
+      { value: 'continuous_wireless', label: 'Continuous wireless monitor', birthPlanText: 'We accept continuous fetal monitoring for VBAC and request a wireless/waterproof monitor to allow mobility.', isPopular: true },
+      { value: 'continuous_standard', label: 'Continuous standard monitor', birthPlanText: 'We accept continuous fetal monitoring during our VBAC labor.' },
+      { value: 'intermittent_request', label: 'Request intermittent (discuss with provider)', birthPlanText: 'We would like to discuss intermittent monitoring options for our VBAC with our provider.' },
+    ],
+  },
+  {
     id: 'birth_mirror',
     sectionId: 'at_birth',
     title: 'Mirror to See Baby Emerge',
@@ -404,7 +477,6 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Skin-to-skin contact immediately after birth helps regulate baby\'s temperature, heart rate, and breathing. It promotes bonding, supports successful breastfeeding initiation, and helps stabilize blood sugar levels. Research shows that babies who experience immediate skin-to-skin are calmer, cry less, and are more likely to breastfeed successfully. The first hour after birth, often called the "golden hour," is an especially powerful time for this contact.',
     icon: 'Heart',
     allowCustom: true,
-    quizQuestionId: 'golden_hour',
     options: [
       { value: 'immediate', label: 'Immediately, uninterrupted', birthPlanText: 'Please place baby directly on my chest for immediate skin-to-skin contact. We want this to be uninterrupted for at least the first hour.', isPopular: true, icon: 'Heart' },
       { value: 'after_assessment', label: 'After initial assessment', birthPlanText: 'We would like skin-to-skin after the initial newborn assessment.', icon: 'Clock' },
@@ -687,6 +759,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Rooming-in means keeping your baby in your hospital room instead of in the nursery. Research shows that rooming-in supports bonding, makes breastfeeding easier by allowing you to respond quickly to feeding cues, and helps you learn your baby\'s unique patterns. It also reduces the risk of hospital errors or mix-ups. However, it can be tiring for new parents who are recovering from birth. Many hospitals now encourage rooming-in but still offer nursery care when parents need rest.',
     icon: 'Home',
     allowCustom: true,
+    hiddenForVenue: ['home', 'birth_center'],
     quizQuestionId: 'rooming_in',
     options: [
       { value: '24_7', label: 'Baby stays with us 24/7', birthPlanText: 'We want baby to room-in with us at all times.', isPopular: true, icon: 'Heart' },
@@ -746,6 +819,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     description: 'Preference for hospital stay duration',
     icon: 'Calendar',
     allowCustom: true,
+    hiddenForVenue: ['home', 'birth_center'],
     options: [
       { value: 'minimum', label: 'Leave as soon as possible', birthPlanText: 'We prefer to be discharged as soon as safely possible.', isPopular: true },
       { value: 'standard', label: 'Standard stay', birthPlanText: 'We are comfortable with the standard length of stay.' },
@@ -803,6 +877,54 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'partner_always', label: 'Partner stays with baby', birthPlanText: 'If baby must leave our room, my partner should accompany baby at all times.', isPopular: true },
       { value: 'someone_present', label: 'Support person with baby', birthPlanText: 'We request that a support person be present with baby during any procedures or transfers.' },
       { value: 'flexible', label: 'Flexible', birthPlanText: 'We are flexible about who accompanies baby.' },
+    ],
+  },
+  {
+    id: 'transfer_logistics',
+    sectionId: 'hospital_stay',
+    title: 'Transfer Transportation',
+    description: 'How you plan to get to the hospital if transfer is needed',
+    icon: 'Navigation',
+    allowCustom: true,
+    venueOnly: ['home', 'birth_center'],
+    quizQuestionId: 'transfer_logistics',
+    options: [
+      { value: 'partner_drives', label: 'Partner will drive', birthPlanText: 'If transfer is needed, my partner will drive us to the hospital.' },
+      { value: 'ambulance', label: 'Call an ambulance', birthPlanText: 'If transfer is needed, please call an ambulance for transport.' },
+      { value: 'midwife_decides', label: 'Midwife helps decide', birthPlanText: 'Our midwife will help determine the best transport method if transfer is needed.' },
+    ],
+  },
+  {
+    id: 'transfer_labor_prefs',
+    sectionId: 'hospital_stay',
+    title: 'Hospital Labor Preferences',
+    description: 'Your preferences if you end up laboring at the hospital',
+    icon: 'Shield',
+    allowCustom: true,
+    venueOnly: ['home', 'birth_center'],
+    quizQuestionId: 'hospital_labor_contingency',
+    options: [
+      { value: 'epidural_open', label: 'Open to epidural', birthPlanText: 'If transferred, we are open to an epidural for pain management.' },
+      { value: 'epidural_decline', label: 'Prefer no epidural', birthPlanText: 'If transferred, we prefer to continue without an epidural unless medically necessary.' },
+      { value: 'heplock', label: 'Hep-lock IV only', birthPlanText: 'If transferred, we prefer a hep-lock for IV access rather than continuous fluids.' },
+      { value: 'intermittent_monitor', label: 'Request intermittent monitoring', birthPlanText: 'If transferred, we prefer intermittent fetal monitoring if the clinical situation allows.' },
+      { value: 'no_students', label: 'No medical students', birthPlanText: 'If transferred, we do not want medical students or observers present.' },
+    ],
+  },
+  {
+    id: 'transfer_stay_prefs',
+    sectionId: 'hospital_stay',
+    title: 'Hospital Stay Preferences',
+    description: 'Your preferences if you stay at the hospital after birth',
+    icon: 'Building',
+    allowCustom: true,
+    venueOnly: ['home', 'birth_center'],
+    quizQuestionId: 'hospital_stay_contingency',
+    options: [
+      { value: 'rooming_in', label: 'Baby rooms in with us', birthPlanText: 'If at the hospital, we want baby to room in with us at all times.' },
+      { value: 'no_pacifier', label: 'No pacifiers', birthPlanText: 'If at the hospital, please do not offer baby a pacifier.' },
+      { value: 'early_discharge', label: 'Early discharge', birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.' },
+      { value: 'limit_visitors', label: 'Limit visitors', birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.' },
     ],
   },
 
@@ -992,10 +1114,12 @@ export const PREFERENCES: PreferenceDefinition[] = [
 ]
 
 // Helper function to get preferences by section
-export function getPreferencesBySection(sectionId: string, birthType?: BirthType): PreferenceDefinition[] {
+export function getPreferencesBySection(sectionId: string, birthType?: BirthType, venue?: BirthVenue | null): PreferenceDefinition[] {
   return PREFERENCES.filter(p => {
     if (p.sectionId !== sectionId) return false
     if (birthType && p.hiddenFor?.includes(birthType)) return false
+    if (venue && p.hiddenForVenue?.includes(venue)) return false
+    if (venue && p.venueOnly && !p.venueOnly.includes(venue)) return false
     return true
   })
 }
@@ -1020,7 +1144,7 @@ export function getDefaultPreferencesForSection(sectionId: string): Array<{
     return {
       preferenceId: pref.id,
       selectedOption: defaultOption?.value || null,
-      isOmitted: false,
+      isOmitted: pref.isOmittedByDefault || false,
       sortOrder: index,
     }
   })

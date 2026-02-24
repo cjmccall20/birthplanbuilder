@@ -86,7 +86,7 @@ export function EditorLayout() {
     const visibleSections = getSectionsForBirthType(state.birthType)
     visibleSections.forEach(section => {
       const sectionState = state.sections[section.id]
-      const prefs = getPreferencesBySection(section.id, state.birthType)
+      const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
       total += prefs.length
       prefs.forEach(p => {
         const value = sectionState?.preferences.find(pv => pv.preferenceId === p.id)

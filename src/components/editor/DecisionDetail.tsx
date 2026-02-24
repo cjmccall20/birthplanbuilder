@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { getPreferenceById } from '@/lib/editor/preferences'
 import { Button } from '@/components/ui/button'
@@ -42,6 +42,21 @@ export function DecisionDetail({ sectionId, preferenceId, onBack }: DecisionDeta
   const hasCustomText = value?.customText && value.customText !== defaultBirthPlanText
   const currentStance = value?.stance ?? null
   const currentIcon = value?.customIcon || prefDef.icon || 'Circle'
+
+  const multiSelectLines = useMemo(() => {
+    if (!value?.customText) return null
+    const lines = value.customText.split('\n').filter(Boolean)
+    if (lines.length <= 1) return null
+
+    // Count how many lines match known option birthPlanTexts
+    const matchCount = lines.filter(line =>
+      prefDef.options.some(opt => opt.birthPlanText === line)
+    ).length
+
+    // Consider it multi-select if at least 2 lines match options
+    if (matchCount >= 2) return lines
+    return null
+  }, [value?.customText, prefDef.options])
 
   const PrefIcon = getIconComponent(currentIcon)
 
@@ -158,34 +173,113 @@ export function DecisionDetail({ sectionId, preferenceId, onBack }: DecisionDeta
 
       {/* Option Selection */}
       <div>
-        <p className="text-xs font-medium text-muted-foreground mb-2">Select an option:</p>
-        <div className="grid gap-2">
-          {prefDef.options.map(option => (
-            <button
-              key={option.value}
-              onClick={() => handleSelectOption(option.value)}
-              className={cn(
-                'w-full text-left p-3 rounded-md border transition-all',
-                'hover:bg-muted/50',
-                value?.selectedOption === option.value
-                  ? 'border-primary bg-primary/5'
-                  : 'border-transparent bg-white'
-              )}
-            >
-              <div className="flex items-center gap-2">
-                {value?.selectedOption === option.value && (
-                  <Check className="h-4 w-4 text-primary flex-shrink-0" />
-                )}
-                <div className={value?.selectedOption === option.value ? '' : 'ml-6'}>
-                  <span className="font-medium text-sm">{option.label}</span>
-                  {option.birthPlanText && (
-                    <p className="text-xs text-muted-foreground mt-0.5">{option.birthPlanText}</p>
+        {multiSelectLines ? (
+          <div className="space-y-2">
+            <p className="text-xs font-medium text-muted-foreground mb-2">
+              Multiple options selected - toggle each to add or remove:
+            </p>
+            {prefDef.options.filter(opt => opt.birthPlanText).map(option => {
+              const isChecked = multiSelectLines.includes(option.birthPlanText)
+              return (
+                <button
+                  key={option.value}
+                  onClick={() => {
+                    let newLines: string[]
+                    if (isChecked) {
+                      newLines = multiSelectLines.filter(l => l !== option.birthPlanText)
+                    } else {
+                      newLines = [...multiSelectLines, option.birthPlanText]
+                    }
+                    if (newLines.length === 0) {
+                      // All unchecked - revert to single select with first option
+                      setPreference(sectionId, prefDef.id, {
+                        selectedOption: option.value,
+                        customText: undefined,
+                        isOmitted: false,
+                      })
+                    } else {
+                      const firstCheckedOpt = prefDef.options.find(o =>
+                        newLines.includes(o.birthPlanText)
+                      )
+                      setPreference(sectionId, prefDef.id, {
+                        selectedOption: firstCheckedOpt?.value || value?.selectedOption,
+                        customText: newLines.join('\n'),
+                      })
+                    }
+                  }}
+                  className={cn(
+                    'w-full text-left p-3 rounded-md border transition-all',
+                    'hover:bg-muted/50',
+                    isChecked
+                      ? 'border-primary bg-primary/5'
+                      : 'border-transparent bg-muted/20'
                   )}
-                </div>
-              </div>
-            </button>
-          ))}
-        </div>
+                >
+                  <div className="flex items-center gap-2">
+                    <div className={cn(
+                      'w-4 h-4 rounded border flex-shrink-0 flex items-center justify-center',
+                      isChecked ? 'bg-primary border-primary' : 'border-gray-300'
+                    )}>
+                      {isChecked && <Check className="h-3 w-3 text-white" />}
+                    </div>
+                    <div>
+                      <span className="font-medium text-sm">{option.label}</span>
+                      {option.birthPlanText && (
+                        <p className="text-xs text-muted-foreground mt-0.5 line-clamp-2">{option.birthPlanText}</p>
+                      )}
+                    </div>
+                  </div>
+                </button>
+              )
+            })}
+          </div>
+        ) : (
+          <>
+            <p className="text-xs font-medium text-muted-foreground mb-2">Select an option:</p>
+            <div className="grid gap-2">
+              {prefDef.options.map(option => (
+                <button
+                  key={option.value}
+                  onClick={() => handleSelectOption(option.value)}
+                  className={cn(
+                    'w-full text-left p-3 rounded-md border transition-all',
+                    'hover:bg-muted/50',
+                    value?.selectedOption === option.value
+                      ? 'border-primary bg-primary/5'
+                      : 'border-transparent bg-white'
+                  )}
+                >
+                  <div className="flex items-center gap-2">
+                    {value?.selectedOption === option.value && (
+                      <Check className="h-4 w-4 text-primary flex-shrink-0" />
+                    )}
+                    <div className={value?.selectedOption === option.value ? '' : 'ml-6'}>
+                      <span className="font-medium text-sm">{option.label}</span>
+                      {option.birthPlanText && (
+                        <p className="text-xs text-muted-foreground mt-0.5">{option.birthPlanText}</p>
+                      )}
+                    </div>
+                  </div>
+                </button>
+              ))}
+            </div>
+            {prefDef.options.filter(o => o.birthPlanText).length > 2 && (
+              <button
+                onClick={() => {
+                  const currentOpt = prefDef.options.find(o => o.value === value?.selectedOption)
+                  if (currentOpt?.birthPlanText) {
+                    setPreference(sectionId, prefDef.id, {
+                      customText: currentOpt.birthPlanText,
+                    })
+                  }
+                }}
+                className="text-xs text-muted-foreground hover:text-primary transition-colors mt-2"
+              >
+                Select multiple options
+              </button>
+            )}
+          </>
+        )}
       </div>
 
       {/* Custom Icon */}

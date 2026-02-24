@@ -33,7 +33,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
   // Get visible sections for this birth type
   const visibleSections = getSectionsForBirthType(state.birthType || 'vaginal')
   const visiblePrefIds = new Set(
-    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType || 'vaginal').map(p => p.id))
+    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType || 'vaginal', state.birthVenue).map(p => p.id))
   )
 
   // Hidden sections (user toggled off)

@@ -40,6 +40,9 @@ export interface PreferenceDefinition {
   quizQuestionId?: string // Maps to quiz question for importing
   hiddenFor?: BirthType[] // Hide this preference for certain birth types
   clinical?: boolean // When true, accept/decline options get check/X icons
+  hiddenForVenue?: BirthVenue[]  // Hide preference for specific venues
+  venueOnly?: BirthVenue[]       // Only show for these venues
+  isOmittedByDefault?: boolean // When true, preference starts omitted even in direct editor
 }
 
 export interface PreferenceValue {
@@ -80,6 +83,7 @@ export interface EditorState {
   templateStyle: TemplateStyle
   birthType: BirthType
   birthVenue: BirthVenue | null
+  isVbac?: boolean  // True when VBAC is planned (affects preference visibility and section framing)
   birthTeam: BirthTeam
   sections: Record<EditorSectionId, EditorSectionState>
   isDirty: boolean

@@ -37,7 +37,7 @@ export function OmittedOptionsPopup({ isOpen, onClose }: OmittedOptionsPopupProp
       const sectionState = state.sections[section.id]
       if (!sectionState) return
 
-      const visiblePrefs = getPreferencesBySection(section.id, state.birthType)
+      const visiblePrefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
       const visiblePrefIds = new Set(visiblePrefs.map(p => p.id))
 
       sectionState.preferences.forEach(prefValue => {

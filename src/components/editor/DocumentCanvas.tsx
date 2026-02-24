@@ -108,6 +108,15 @@ function SortablePreferenceCard({ id, children }: { id: string; children: React.
   )
 }
 
+function bulletId(line: string, index: number): string {
+  let hash = 0
+  for (let i = 0; i < line.length; i++) {
+    hash = ((hash << 5) - hash) + line.charCodeAt(i)
+    hash |= 0
+  }
+  return `bullet-${hash}-${index}`
+}
+
 export function DocumentCanvas({
   onItemSelect,
   onAddDecision,
@@ -134,9 +143,9 @@ export function DocumentCanvas({
 
   // Get visible sections for the current birth type
   const visibleSections = getSectionsForBirthType(state.birthType)
-  // Set of preference IDs visible for this birth type
+  // Set of preference IDs visible for this birth type and venue
   const visiblePrefIds = new Set(
-    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType).map(p => p.id))
+    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType, state.birthVenue).map(p => p.id))
   )
 
   // Process editor state into canvas sections with items and notes
@@ -548,7 +557,7 @@ export function DocumentCanvas({
                 className="mt-4 p-4 rounded-md text-sm text-left space-y-2"
                 style={{ backgroundColor: theme.sectionHeaderBg }}
               >
-                {state.birthTeam.fields.slice(1).map(field => (
+                {state.birthTeam.fields.slice(1).filter(f => f.id !== 'medical_notes').map(field => (
                   <div key={field.id} className="flex items-center gap-2">
                     <Input
                       value={field.label}
@@ -582,6 +591,26 @@ export function DocumentCanvas({
                     style={{ color: theme.textColor }}
                   />
                 </div>
+                {/* Medical Notes - paragraph style, expandable */}
+                {(() => {
+                  const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
+                  if (!medField || !medField.value) return null
+                  return (
+                    <div className="space-y-1 mt-2">
+                      <span className="font-semibold text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>
+                        Medical Notes
+                      </span>
+                      <textarea
+                        value={medField.value}
+                        onChange={(e) => setBirthTeamField('medical_notes', e.target.value)}
+                        className="w-full text-sm bg-transparent border border-dashed rounded-lg p-2 focus:outline-none focus:border-primary resize-none"
+                        style={{ color: theme.textColor, borderColor: `${theme.primaryColor}30` }}
+                        placeholder="Medical conditions, allergies, or important notes for your care team..."
+                        rows={Math.min(Math.max(Math.ceil((medField.value || '').length / 60), 2), 6)}
+                      />
+                    </div>
+                  )
+                })()}
                 <button
                   onClick={() => addBirthTeamField('New Field')}
                   className="text-xs text-primary hover:text-primary/80 transition-colors mt-1"
@@ -858,24 +887,25 @@ export function DocumentCanvas({
                                       {isMultiLine ? (
                                         <div className="space-y-1">
                                           <DndContext
+                                            key={item.birthPlanText}
                                             sensors={sensors}
                                             collisionDetection={closestCenter}
                                             onDragEnd={(event) => {
                                               const { active, over } = event
                                               if (!over || active.id === over.id) return
-                                              const oldIdx = lines.findIndex((_, i) => `bullet-${i}` === active.id)
-                                              const newIdx = lines.findIndex((_, i) => `bullet-${i}` === over.id)
+                                              const oldIdx = lines.findIndex((line, i) => bulletId(line, i) === active.id)
+                                              const newIdx = lines.findIndex((line, i) => bulletId(line, i) === over.id)
                                               if (oldIdx !== -1 && newIdx !== -1) {
                                                 handleBulletReorder(item, lines, oldIdx, newIdx)
                                               }
                                             }}
                                           >
                                             <SortableContext
-                                              items={lines.map((_, i) => `bullet-${i}`)}
+                                              items={lines.map((line, i) => bulletId(line, i))}
                                               strategy={verticalListSortingStrategy}
                                             >
                                               {lines.map((line, i) => (
-                                                <SortableBulletItem key={`bullet-${i}`} id={`bullet-${i}`}>
+                                                <SortableBulletItem key={bulletId(line, i)} id={bulletId(line, i)}>
                                                   <div className="flex items-center gap-1.5">
                                                     <span className="flex-shrink-0" style={{ color: theme.primaryColor }}>
                                                       {bulletSymbol}

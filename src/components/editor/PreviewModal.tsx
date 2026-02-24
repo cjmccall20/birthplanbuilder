@@ -28,7 +28,7 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
   // Build preview sections (same logic as DocumentCanvas but read-only)
   const visibleSections = getSectionsForBirthType(state.birthType)
   const visiblePrefIds = new Set(
-    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType).map(p => p.id))
+    visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType, state.birthVenue).map(p => p.id))
   )
   const sections = visibleSections.map(section => {
     const sectionState = state.sections[section.id]

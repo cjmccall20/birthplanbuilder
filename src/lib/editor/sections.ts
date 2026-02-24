@@ -1,4 +1,4 @@
-import type { EditorSection, EditorSectionId, BirthType } from './editorTypes'
+import type { EditorSection, EditorSectionId, BirthType, BirthVenue } from './editorTypes'
 
 export const EDITOR_SECTIONS: EditorSection[] = [
   {
@@ -71,6 +71,19 @@ export const BIRTH_TYPE_SECTIONS: Record<BirthType, Record<EditorSectionId, Sect
     at_birth: { visible: true, title: 'After Delivery', order: 2 },
     newborn_procedures: { visible: true, order: 3 },
     hospital_stay: { visible: true, order: 4 },
+  },
+}
+
+// Venue-based section title overrides (applied on top of birth-type titles)
+export const VENUE_TITLE_OVERRIDES: Record<'birth_center' | 'home', Partial<Record<EditorSectionId, string>>> = {
+  birth_center: {
+    pre_hospital: 'Pre-Birth Center Arrival',
+    hospital_stay: 'If You Transfer to Hospital',
+  },
+  home: {
+    pre_hospital: 'Pre-Birth Preparations',
+    hospital_stay: 'If You Transfer to Hospital',
+    csection: 'In Case of Hospital Transfer / C-Section',
   },
 }
 

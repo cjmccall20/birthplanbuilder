@@ -3,6 +3,7 @@ export interface QuizOption {
   label: string
   birthPlanText: string
   isUnsure?: boolean
+  isPopular?: boolean  // Highlights this option as a recommended/popular choice
   icon?: string  // Lucide icon name for option
   omitFromPlan?: boolean  // When true, selecting this answer omits the preference from the birth plan
 }
@@ -43,6 +44,16 @@ export interface QuizQuestion {
       learnMoreOverrides?: Partial<LearnMoreData>
       optionOverrides?: Record<string, { birthPlanText?: string; label?: string }>
     }
+    vbac?: {
+      subtitle?: string
+      learnMoreOverrides?: Partial<LearnMoreData>
+      optionOverrides?: Record<string, { birthPlanText?: string; label?: string }>
+    }
+  }
+  venueVariant?: {
+    hospital?: { subtitle?: string; hiddenOptions?: string[]; optionOverrides?: Record<string, Partial<QuizOption>> }
+    birth_center?: { subtitle?: string; hiddenOptions?: string[]; optionOverrides?: Record<string, Partial<QuizOption>> }
+    home?: { subtitle?: string; hiddenOptions?: string[]; optionOverrides?: Record<string, Partial<QuizOption>> }
   }
 }
 
@@ -66,6 +77,26 @@ const CATEGORY_ORDER_CSECTION = [
   'After Birth',
   'Newborn Care',
   'Hospital Stay',
+  'Personal',
+]
+
+const CATEGORY_ORDER_HOME = [
+  'Getting Started',
+  'Your Birth',
+  'After Birth',
+  'Newborn Care',
+  'If You Transfer',
+  'C-Section Planning',
+  'Personal',
+]
+
+const CATEGORY_ORDER_BIRTH_CENTER = [
+  'Getting Started',
+  'Your Birth',
+  'After Birth',
+  'Newborn Care',
+  'If You Transfer',
+  'C-Section Planning',
   'Personal',
 ]
 
@@ -144,6 +175,20 @@ export const quizQuestions: QuizQuestion[] = [
       ],
       bottomLine: 'The setting you choose affects the care you receive. Hospitals are designed for protocols, efficiency, emergencies, and minimizing liability - which means that the hospital may push for unnecessary interventions that can cascade into further interventions.',
       ebookChapter: 'Chapter 8: Birth Setting',
+    },
+    birthTypeVariant: {
+      vbac: {
+        learnMoreOverrides: {
+          cons: [
+            'Hospital epidural rate is around 73%, which often leads to additional interventions',
+            'Unplanned C-Section rates in hospitals are significantly higher for low risk-mothers when compared to alternatives due to the "Cascade of Interventions"',
+            'Birth centers require transfer to a hospital if complications arise',
+            'Home births have a transfer rate of about 16% for first-time mothers',
+            'Some settings may limit your pain management options',
+            'ACOG recommends VBAC take place in facilities capable of emergency cesarean delivery. Home and birth center VBAC is possible but carries additional risk if uterine complications arise and surgical intervention is not immediately available.',
+          ],
+        },
+      },
     },
     options: [
       { value: 'hospital', label: 'Hospital', birthPlanText: 'We are planning to give birth at a hospital.', icon: 'Building2' },
@@ -226,6 +271,16 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'How do you feel about pain management during labor? (Check all that apply)',
     order: 3,
     inputType: 'checklist',
+    venueVariant: {
+      home: {
+        subtitle: 'What comfort measures do you plan to use during labor at home? Medical pain relief (epidural, IV medications) requires hospital transfer.',
+        hiddenOptions: ['epidural', 'iv_meds'],
+      },
+      birth_center: {
+        subtitle: 'What comfort measures do you plan to use at birth centers? Epidurals are not available - nitrous oxide and non-medical options are your choices.',
+        hiddenOptions: ['epidural', 'iv_meds'],
+      },
+    },
     learnMoreData: {
       tradeoff: 'Pain management is a spectrum from fully unmedicated to epidural. Each option has real trade-offs for mobility, labor progress, and your experience. Deciding before labor helps you prepare.',
       pros: [
@@ -406,6 +461,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'When to Go to the Hospital',
     subtitle: 'When do you want to head to your birth location?',
     order: 7,
+    venueVariant: {
+      home: { subtitle: 'When will you call your midwife to come to your home? And what would prompt a transfer to the hospital?' },
+      birth_center: { subtitle: 'When do you plan to head to the birth center? What signs would prompt going in?' },
+    },
     learnMoreData: {
       tradeoff: 'Arriving too early often leads to interventions to "speed things up." Arriving in active labor lets your body establish its rhythm, but requires comfort with laboring at home.',
       pros: [
@@ -441,6 +500,16 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'What are your preferences for how labor begins? (Check all that apply)',
     order: 7.5,
     inputType: 'checklist',
+    venueVariant: {
+      home: {
+        subtitle: 'How would you like labor to begin? Medical induction methods are not available at home.',
+        hiddenOptions: ['pitocin_induction'],
+      },
+      birth_center: {
+        subtitle: 'How would you like labor to begin? Medical induction is not available at birth centers.',
+        hiddenOptions: ['pitocin_induction'],
+      },
+    },
     learnMoreData: {
       tradeoff: 'When your body starts labor naturally, it produces oxytocin that crosses the blood-brain barrier, triggering endorphins (natural painkillers). Pitocin (synthetic oxytocin) cannot cross the blood-brain barrier, creating an "endorphin gap" where you get contractions without the natural pain relief.',
       pros: [
@@ -511,6 +580,16 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Fetal Monitoring',
     subtitle: 'How would you like baby\'s heart rate monitored?',
     order: 10,
+    venueVariant: {
+      home: {
+        subtitle: 'Your midwife will monitor your baby during labor using a handheld Doppler or fetoscope (intermittent auscultation). How often would you like checks?',
+        hiddenOptions: ['continuous', 'wireless'],
+      },
+      birth_center: {
+        subtitle: 'Birth centers use intermittent monitoring with a handheld Doppler. How often would you like your baby monitored?',
+        hiddenOptions: ['continuous'],
+      },
+    },
     learnMoreData: {
       tradeoff: 'Continuous electronic monitoring increases C-section rates by about 20% without improving outcomes for low-risk pregnancies. Intermittent monitoring is evidence-based for low-risk births and allows freedom of movement.',
       pros: [
@@ -544,6 +623,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'IV Access',
     subtitle: 'How do you feel about having an IV during labor?',
     order: 10.1,
+    conditionalOn: { questionId: 'birth_setting', values: ['hospital', 'birth_center'] },
     learnMoreData: {
       tradeoff: 'A continuous IV delivers fluids directly but tethers you to a pole. A hep lock (saline lock - basically a needle in your wrist for easy IV access in case it\'s needed) keeps a line ready without constant fluids, preserving your mobility.',
       pros: [
@@ -575,6 +655,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'If Labor Slows Down',
     subtitle: 'If labor seems to slow and baby is doing okay, what would you prefer?',
     order: 10.15,
+    venueVariant: {
+      home: { subtitle: 'If labor slows at home, what natural methods would you like to try? Medical augmentation (Pitocin) would require hospital transfer.' },
+      birth_center: { subtitle: 'If labor slows at birth centers, what would you like to try first? Pitocin is not available and would require hospital transfer.' },
+    },
     learnMoreData: {
       tradeoff: 'The most important thing to understand about Pitocin is the "endorphin gap." Your body\'s natural oxytocin crosses the blood-brain barrier, triggering endorphins that help you cope with contractions. Pitocin cannot cross the blood-brain barrier, so you get the contractions without your body\'s natural painkillers.',
       pros: [
@@ -704,6 +788,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Medical Students & Observers',
     subtitle: 'How do you feel about students or residents observing your birth?',
     order: 10.35,
+    conditionalOn: { questionId: 'birth_setting', values: ['hospital'] },
     learnMoreData: {
       tradeoff: 'Teaching hospitals may have medical students or residents who observe or participate in your care. You always have the right to decline.',
       pros: [
@@ -1006,6 +1091,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'If Baby Needs to Leave',
     subtitle: 'If baby needs to leave your room for any reason, what are your preferences?',
     order: 15.05,
+    venueVariant: {
+      home: { subtitle: 'If your baby needs to be transferred to a hospital for additional care, who should accompany them?' },
+      birth_center: { subtitle: 'If your baby needs to be transferred to a hospital, who should go with them?' },
+    },
     learnMoreData: {
       tradeoff: 'Being separated from your newborn can be stressful. Having a trusted person accompany baby provides comfort and advocacy, but hospital policies on who can be present in the NICU or procedure rooms vary.',
       pros: [
@@ -1266,6 +1355,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Rooming In',
     subtitle: 'Would you like baby to stay in your room around the clock?',
     order: 17,
+    conditionalOn: { questionId: 'birth_setting', values: ['hospital'] },
     learnMoreData: {
       tradeoff: 'Baby-Friendly hospitals promote 24/7 rooming-in for bonding and breastfeeding. But exhausted mothers recovering from birth also need rest, and some hospitals have eliminated nurseries entirely.',
       pros: [
@@ -1365,6 +1455,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Length of Stay',
     subtitle: 'How long would you like to stay after birth?',
     order: 19.1,
+    conditionalOn: { questionId: 'birth_setting', values: ['hospital'] },
     learnMoreData: {
       tradeoff: 'Standard hospital stays are 24-48 hours for vaginal births (birth centers are often significantly shorter) and 48-96 hours for C-sections. This is often dependent on hospital policy. Some families want to leave early to recover at home; others want the full support period.',
       pros: [
@@ -1779,6 +1870,168 @@ export const quizQuestions: QuizQuestion[] = [
     ],
     textInputOnOption: 'custom',
   },
+
+  // =========================================================================
+  // IF YOU TRANSFER (home/birth center only)
+  // =========================================================================
+  {
+    id: 'transfer_plan',
+    category: 'If You Transfer',
+    title: 'Your Backup Hospital',
+    subtitle: 'If you need to transfer to a hospital during or after birth, which hospital would you go to? Having this decided in advance reduces stress.',
+    order: 0,
+    conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
+    textInputOnOption: 'has_plan',
+    options: [
+      { value: 'has_plan', label: 'We have a backup hospital chosen', birthPlanText: '', icon: 'Building2' },
+      { value: 'discussing', label: 'We are discussing this with our provider', birthPlanText: '', icon: 'MessageSquare' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
+    ],
+  },
+  {
+    id: 'transfer_logistics',
+    category: 'If You Transfer',
+    title: 'Getting to the Hospital',
+    subtitle: 'If a transfer becomes necessary, how will you get there?',
+    order: 0.5,
+    conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
+    options: [
+      { value: 'partner_drives', label: 'My partner will drive us', birthPlanText: 'If transfer is needed, my partner will drive us to the hospital.', icon: 'Navigation' },
+      { value: 'ambulance', label: 'Call an ambulance', birthPlanText: 'If transfer is needed, please call an ambulance for transport.', icon: 'Syringe' },
+      { value: 'midwife_decides', label: 'Our midwife will help us decide in the moment', birthPlanText: 'Our midwife will help determine the best transport method if transfer is needed.', icon: 'HeartHandshake' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
+    ],
+  },
+  {
+    id: 'hospital_labor_contingency',
+    category: 'If You Transfer',
+    title: 'If You Labor at the Hospital',
+    subtitle: 'If you transfer during labor, what are your preferences for the hospital experience?',
+    order: 1,
+    inputType: 'checklist' as const,
+    conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
+    options: [
+      { value: 'epidural_open', label: 'Open to epidural for pain relief', birthPlanText: 'If transferred, we are open to an epidural for pain management.', icon: 'Syringe' },
+      { value: 'epidural_decline', label: 'Prefer to continue without epidural', birthPlanText: 'If transferred, we prefer to continue without an epidural unless medically necessary.', icon: 'Shield' },
+      { value: 'heplock', label: 'Hep-lock IV access only (no continuous fluids)', birthPlanText: 'If transferred, we prefer a hep-lock for IV access rather than continuous fluids.', icon: 'Droplet' },
+      { value: 'intermittent_monitor', label: 'Request intermittent monitoring if possible', birthPlanText: 'If transferred, we prefer intermittent fetal monitoring if the clinical situation allows.', icon: 'Activity' },
+      { value: 'no_students', label: 'No medical students or observers', birthPlanText: 'If transferred, we do not want medical students or observers present.', icon: 'Eye' },
+    ],
+  },
+  {
+    id: 'hospital_stay_contingency',
+    category: 'If You Transfer',
+    title: 'If You Stay at the Hospital After Birth',
+    subtitle: 'If you end up staying at the hospital after delivery, what matters most to you?',
+    order: 2,
+    inputType: 'checklist' as const,
+    conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
+    options: [
+      { value: 'rooming_in', label: 'Baby stays with us at all times (rooming in)', birthPlanText: 'If at the hospital, we want baby to room in with us at all times.', icon: 'Baby' },
+      { value: 'no_pacifier', label: 'No pacifiers offered to baby', birthPlanText: 'If at the hospital, please do not offer baby a pacifier.', icon: 'XCircle' },
+      { value: 'early_discharge', label: 'Discharge as soon as medically safe', birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.', icon: 'Home' },
+      { value: 'limit_visitors', label: 'Limit visitors during recovery', birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.', icon: 'Users' },
+    ],
+  },
+
+  // =========================================================================
+  // WATER BIRTH & BIRTH SPACE (home/birth center only)
+  // =========================================================================
+  {
+    id: 'water_birth',
+    category: 'Your Birth',
+    title: 'Water Birth',
+    subtitle: 'Would you like to use water during labor or for the actual delivery?',
+    order: 3.5,
+    conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
+    options: [
+      { value: 'water_birth', label: 'Planning a water birth (deliver in the tub/pool)', birthPlanText: 'We are planning a water birth and would like to deliver in the tub/pool.', icon: 'Waves' },
+      { value: 'water_labor', label: 'Water for labor only (deliver on land)', birthPlanText: 'We would like to use the tub/pool for labor comfort but plan to deliver out of the water.', icon: 'Bath' },
+      { value: 'no_water', label: 'Not planning to use water', birthPlanText: '', icon: 'Circle' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
+    ],
+    learnMoreData: {
+      tradeoff: 'Warm water immersion during labor reduces pain perception and the need for other pain relief. Water birth (delivering in water) is widely practiced at birth centers and home births with good safety outcomes for low-risk pregnancies.',
+      pros: [
+        'Warm water reduces pain perception and may shorten labor',
+        'Buoyancy supports easier position changes and freedom of movement',
+        'Creates a calm, private environment that can promote relaxation',
+        'Studies show no increased risk of infection for mother or baby in clean water',
+      ],
+      cons: [
+        'Water temperature must be carefully maintained (97-100F) to prevent overheating',
+        'If complications arise, you will need to exit the water quickly',
+        'Not all midwives or birth centers offer water birth (confirm availability)',
+        'Epidural is not compatible with water immersion',
+      ],
+      bottomLine: 'Water immersion during labor is well-supported by evidence for pain relief. Water birth itself has a strong safety record at birth centers and home births when attended by experienced providers.',
+      ebookChapter: 'Chapter 18: Water Birth',
+    },
+  },
+  {
+    id: 'birth_space_setup',
+    category: 'Your Birth',
+    title: 'Your Birth Space',
+    subtitle: 'Since you are birthing at home, you have full control over your environment. What matters to you?',
+    order: 3.7,
+    inputType: 'checklist' as const,
+    conditionalOn: { questionId: 'birth_setting', values: ['home'] },
+    options: [
+      { value: 'dim_lighting', label: 'Dim, calm lighting (flameless candles, string lights)', birthPlanText: 'We want dim, calm lighting in our birth space.', icon: 'Moon' },
+      { value: 'music', label: 'Music or a curated playlist', birthPlanText: 'We plan to have calming music or a playlist during labor.', icon: 'Music' },
+      { value: 'aromatherapy', label: 'Aromatherapy (essential oils)', birthPlanText: 'We plan to use aromatherapy during labor.', icon: 'Flower' },
+      { value: 'minimal_people', label: 'Minimal people in the birth room', birthPlanText: 'We prefer only essential people in the birth room during labor and delivery.', icon: 'Users' },
+    ],
+  },
+
+  // =========================================================================
+  // VBAC-SPECIFIC QUESTIONS
+  // =========================================================================
+  {
+    id: 'vbac_history',
+    category: 'Getting Started',
+    title: 'Your Cesarean History',
+    subtitle: 'Understanding your previous cesarean helps your care team support your VBAC. This information will appear in your birth plan header.',
+    order: 0.75,
+    conditionalOn: { questionId: 'planned_birth_type', values: ['vbac'] },
+    textInputOnOption: 'has_details',
+    options: [
+      { value: 'has_details', label: 'I know my details - let me share them', birthPlanText: '', icon: 'FileText' },
+      { value: 'one_low_transverse', label: 'One prior cesarean, low-transverse incision', birthPlanText: '', icon: 'CheckCircle2' },
+      { value: 'need_records', label: 'I need to get my surgical records', birthPlanText: '', icon: 'AlertCircle' },
+    ],
+  },
+  {
+    id: 'vbac_monitoring',
+    category: 'Your Birth',
+    title: 'Fetal Monitoring During VBAC',
+    subtitle: 'Continuous fetal monitoring is strongly recommended during VBAC because fetal heart rate changes are often the first sign of uterine complications. How would you like monitoring handled?',
+    order: 5.5,
+    conditionalOn: { questionId: 'planned_birth_type', values: ['vbac'] },
+    options: [
+      { value: 'continuous_wireless', label: 'Continuous monitoring with wireless/waterproof monitor', birthPlanText: 'We accept continuous fetal monitoring for VBAC and request a wireless/waterproof monitor to allow mobility.', icon: 'Activity', isPopular: true },
+      { value: 'continuous_standard', label: 'Continuous monitoring (standard)', birthPlanText: 'We accept continuous fetal monitoring during our VBAC labor.', icon: 'Activity' },
+      { value: 'intermittent_request', label: 'Request intermittent (discuss with provider)', birthPlanText: 'We would like to discuss intermittent monitoring options for our VBAC with our provider.', icon: 'Clock' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
+    ],
+    learnMoreData: {
+      tradeoff: 'Continuous monitoring is the standard of care for VBAC because fetal heart rate abnormalities are present in ~70% of uterine rupture cases, making early detection critical. However, continuous monitoring can limit mobility.',
+      pros: [
+        'Fetal heart rate changes are the most reliable early sign of uterine rupture',
+        'Wireless/waterproof monitors allow mobility while maintaining continuous monitoring',
+        'Provides reassurance to both you and your care team throughout labor',
+        'Enables rapid response if intervention is needed',
+      ],
+      cons: [
+        'Continuous monitoring can restrict movement and positioning',
+        'Higher false-positive rates may lead to unnecessary interventions',
+        'Standard monitors require staying near the bed',
+        'Some find the constant monitoring anxiety-inducing rather than reassuring',
+      ],
+      bottomLine: 'For VBAC, continuous monitoring is strongly recommended because early detection of fetal distress can be lifesaving. Wireless monitors offer the best compromise between safety and freedom of movement.',
+      ebookChapter: 'Chapter 3: Types of Birth',
+    },
+  },
 ]
 
 // ---------------------------------------------------------------------------
@@ -1791,7 +2044,18 @@ export const quizQuestions: QuizQuestion[] = [
  */
 export function getOrderedQuestions(answers: Record<string, string>): QuizQuestion[] {
   const birthType = answers['planned_birth_type']
-  const categoryOrder = birthType === 'csection' ? CATEGORY_ORDER_CSECTION : CATEGORY_ORDER_VAGINAL
+  const venue = answers['birth_setting']
+
+  let categoryOrder: string[]
+  if (birthType === 'csection') {
+    categoryOrder = CATEGORY_ORDER_CSECTION
+  } else if (venue === 'home') {
+    categoryOrder = CATEGORY_ORDER_HOME
+  } else if (venue === 'birth_center') {
+    categoryOrder = CATEGORY_ORDER_BIRTH_CENTER
+  } else {
+    categoryOrder = CATEGORY_ORDER_VAGINAL
+  }
 
   const filtered = quizQuestions.filter(q => {
     // Handle conditionalOn (circumcision, sex announcement, etc.)
@@ -1833,5 +2097,9 @@ export function getQuestionsByCategory(): Record<string, QuizQuestion[]> {
 
 export function getCategories(answers?: Record<string, string>): string[] {
   const birthType = answers?.['planned_birth_type']
-  return birthType === 'csection' ? CATEGORY_ORDER_CSECTION : CATEGORY_ORDER_VAGINAL
+  const venue = answers?.['birth_setting']
+  if (birthType === 'csection') return CATEGORY_ORDER_CSECTION
+  if (venue === 'home') return CATEGORY_ORDER_HOME
+  if (venue === 'birth_center') return CATEGORY_ORDER_BIRTH_CENTER
+  return CATEGORY_ORDER_VAGINAL
 }
