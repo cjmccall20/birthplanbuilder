@@ -10,7 +10,7 @@ import { Badge } from '@/components/ui/badge'
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
-import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft, SkipForward, CheckCircle2, XCircle, Circle } from 'lucide-react'
+import { ChevronDown, ChevronUp, ArrowRight, ArrowLeft, SkipForward, CheckCircle2, XCircle, Circle, AlertTriangle, Info } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { SupportPeopleChecklist } from './SupportPeopleChecklist'
 import { MultiSelectChecklist } from './MultiSelectChecklist'
@@ -144,18 +144,21 @@ export function QuestionCard({ question }: QuestionCardProps) {
         {hasLearnMore && (
           <button
             onClick={() => setShowLearnMore(!showLearnMore)}
-            className="flex items-center gap-1 text-sm text-primary hover:underline mt-2 w-fit min-h-[44px]"
+            className={cn(
+              "flex items-center gap-2.5 w-full text-sm rounded-lg border px-4 py-3 transition-colors mt-3 min-h-[44px]",
+              showLearnMore
+                ? "border-primary/30 bg-primary/10 text-primary"
+                : "border-primary/20 bg-primary/5 text-primary hover:bg-primary/10"
+            )}
           >
+            <Info className="h-4 w-4 flex-shrink-0" />
+            <span className="font-medium">
+              {showLearnMore ? 'Hide pros & cons' : 'What are the pros & cons?'}
+            </span>
             {showLearnMore ? (
-              <>
-                <ChevronUp className="h-4 w-4" />
-                Hide details
-              </>
+              <ChevronUp className="h-4 w-4 ml-auto flex-shrink-0" />
             ) : (
-              <>
-                <ChevronDown className="h-4 w-4" />
-                Learn more about this decision
-              </>
+              <ChevronDown className="h-4 w-4 ml-auto flex-shrink-0" />
             )}
           </button>
         )}
@@ -255,6 +258,17 @@ export function QuestionCard({ question }: QuestionCardProps) {
                         title="Desired"
                       >
                         <CheckCircle2 className="h-4 w-4 text-green-600" />
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => setStance(question.id, 'cautious')}
+                        className={cn(
+                          "p-1.5 rounded-md transition-colors",
+                          state.stances?.[question.id] === 'cautious' ? "ring-2 ring-amber-500 bg-amber-50" : "hover:bg-muted"
+                        )}
+                        title="Cautious - discuss with provider"
+                      >
+                        <AlertTriangle className="h-4 w-4 text-amber-500" />
                       </button>
                       <button
                         type="button"
