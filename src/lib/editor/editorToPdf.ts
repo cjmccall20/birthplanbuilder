@@ -12,13 +12,15 @@ export interface PlanItem {
   answer: string
   birthPlanText: string
   customNote?: string
-  stance?: 'desired' | 'declined' | null
+  stance?: 'desired' | 'declined' | 'cautious' | null
 }
 
 export interface PDFData {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
   disclaimerText: string
+  philosophyStatement?: string
+  showPhilosophy?: boolean
 }
 
 /**
@@ -33,10 +35,19 @@ export function editorStateToPDFData(state: EditorState): PDFData {
     visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType || 'vaginal').map(p => p.id))
   )
 
+  // Hidden sections (user toggled off)
+  const hiddenSectionIds = new Set(state.hiddenSections || [])
+
   // Process each section in order
   visibleSections.forEach(section => {
+    // Skip hidden sections
+    if (hiddenSectionIds.has(section.id)) return
+
     const sectionState = state.sections[section.id]
     if (!sectionState) return
+
+    // Use custom section title if set
+    const categoryTitle = state.customSectionTitles?.[section.id] || section.displayTitle
 
     // Process preferences (filter by birth type visibility)
     const sortedPreferences = [...sectionState.preferences]
@@ -65,7 +76,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
       if (!birthPlanText) return
 
       allItems.push({
-        category: section.displayTitle,
+        category: categoryTitle,
         title: prefValue.customTitle || prefDef.title,
         answer: selectedOption?.label || 'Custom',
         birthPlanText,
@@ -81,17 +92,18 @@ export function editorStateToPDFData(state: EditorState): PDFData {
       if (!item.text) return
 
       allItems.push({
-        category: section.displayTitle,
+        category: categoryTitle,
         title: item.title,
         answer: 'Custom',
         birthPlanText: item.text,
+        stance: item.stance,
       })
     })
 
     // Add section notes if present
     if (sectionState.notes && sectionState.notes.trim()) {
       allItems.push({
-        category: section.displayTitle,
+        category: categoryTitle,
         title: 'Additional Notes',
         answer: 'Custom',
         birthPlanText: sectionState.notes,
@@ -112,5 +124,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
     birthTeam: state.birthTeam,
     groupedContent,
     disclaimerText: state.disclaimerText,
+    philosophyStatement: state.philosophyStatement,
+    showPhilosophy: state.showPhilosophy !== false, // Default to true
   }
 }

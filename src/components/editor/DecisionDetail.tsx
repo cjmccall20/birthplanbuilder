@@ -9,6 +9,7 @@ import { Switch } from '@/components/ui/switch'
 import { IconPicker, getIconComponent } from './IconPicker'
 import {
   ArrowLeft,
+  AlertTriangle,
   Check,
   CheckCircle2,
   XCircle,
@@ -64,7 +65,7 @@ export function DecisionDetail({ sectionId, preferenceId, onBack }: DecisionDeta
     setPreference(sectionId, preferenceId, { customText: undefined })
   }
 
-  const handleStanceChange = (stance: 'desired' | 'declined' | null) => {
+  const handleStanceChange = (stance: 'desired' | 'declined' | 'cautious' | null) => {
     setStance(sectionId, preferenceId, stance)
   }
 
@@ -115,6 +116,18 @@ export function DecisionDetail({ sectionId, preferenceId, onBack }: DecisionDeta
           >
             <CheckCircle2 className="h-4 w-4" />
             Desired
+          </button>
+          <button
+            onClick={() => handleStanceChange(currentStance === 'cautious' ? null : 'cautious')}
+            className={cn(
+              'flex items-center gap-1.5 px-3 py-1.5 rounded-full border text-sm transition-colors',
+              currentStance === 'cautious'
+                ? 'bg-amber-50 border-amber-300 text-amber-700'
+                : 'border-border hover:bg-muted/50'
+            )}
+          >
+            <AlertTriangle className="h-4 w-4" />
+            Cautious
           </button>
           <button
             onClick={() => handleStanceChange(currentStance === 'declined' ? null : 'declined')}

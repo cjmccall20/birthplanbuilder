@@ -28,7 +28,7 @@ export interface QuizQuestion {
   inputType?: 'text' | 'checklist_with_names' | 'checklist' | 'date'  // 'text' = legacy, 'checklist_with_names' = support people, 'checklist' = multi-select, 'date' = native date picker
   textInputOnOption?: string   // Show text input when this option value is selected
   deferredFor?: 'csection'     // Deferred to end for vaginal planners
-  conditionalOn?: {            // ONLY used for circumcision
+  conditionalOn?: {            // Show question only when referenced question has one of the listed values
     questionId: string
     values: string[]
   }
@@ -78,6 +78,20 @@ export const quizQuestions: QuizQuestion[] = [
   // GETTING STARTED
   // =========================================================================
   {
+    id: 'birth_philosophy',
+    category: 'Getting Started',
+    title: 'Your Birth Philosophy',
+    subtitle: 'Choose a statement that best represents your approach to this birth',
+    order: 0.1,
+    options: [
+      { value: 'informed_flexible', label: 'Informed but flexible', birthPlanText: 'Thank you for being part of our birth team. We have educated ourselves and have preferences, but we understand birth is unpredictable. We ask that you explain any changes to our plan and include us in decision-making.', icon: 'BookOpen' },
+      { value: 'natural_focused', label: 'Natural birth focused', birthPlanText: 'Thank you for supporting our birth experience. We are planning for a natural birth with minimal interventions. Please support us in this goal, and discuss any interventions with us before proceeding.', icon: 'Leaf' },
+      { value: 'trust_team', label: 'Trust the team', birthPlanText: 'Thank you for taking care of us. We trust our medical team and are open to your guidance. These preferences reflect our hopes, but we defer to your expertise when needed.', icon: 'HeartHandshake' },
+      { value: 'custom', label: 'Write my own philosophy', birthPlanText: '', icon: 'MessageSquare' },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
     id: 'planned_birth_type',
     category: 'Getting Started',
     title: 'Type of Birth',
@@ -86,6 +100,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'vaginal', label: 'Vaginal birth', birthPlanText: '', icon: 'Baby' },
       { value: 'csection', label: 'Planned C-section', birthPlanText: '', icon: 'Scissors' },
+      { value: 'vbac', label: 'VBAC (vaginal birth after cesarean)', birthPlanText: '', icon: 'Baby' },
       { value: 'unsure', label: "I'm not sure yet", birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
     ],
   },
@@ -135,13 +150,13 @@ export const quizQuestions: QuizQuestion[] = [
         'OBs are trained to handle surgical births and high-risk complications',
         'Certified Nurse-Midwives (CNMs) have hospital privileges and lower C-section rates',
         'Midwifery model of care emphasizes education, informed consent, and shared decision-making',
-        'Many families choose a CNM for prenatal care and have an OB available for backup',
+        'Many families choose a CNM for prenatal care, and many CNMs work in a practice under an OB in case of higher risk pregnancies',
       ],
       cons: [
         'OBs may default to intervention-heavy protocols for normal births',
         'Not all midwives have the same level of training or hospital privileges',
         'Insurance coverage varies significantly by provider type',
-        'Switching providers mid-pregnancy is possible but stressful',
+        'Switching providers mid-pregnancy is possible and something to strongly consider if you feel like you are not on the same page or they are dismissive of your desires',
       ],
       bottomLine: 'The provider you choose will influence your birth more than your birth plan. Choose someone whose philosophy aligns with your goals, and interview them before committing.',
     },
@@ -268,8 +283,9 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'feeding',
     category: 'After Birth',
     title: 'Feeding Your Baby',
-    subtitle: 'How are you planning to feed your baby in the hospital?',
+    subtitle: 'What are your feeding preferences? (Check all that apply)',
     order: 6,
+    inputType: 'checklist',
     learnMoreData: {
       tradeoff: 'Breastfeeding provides unique immune benefits and dynamic nutrition, but success depends heavily on support, not just determination. Formula is food, not failure; however, introducing formula may make it more difficult to establish breastfeeding. Any breast milk counts.',
       pros: [
@@ -288,14 +304,13 @@ export const quizQuestions: QuizQuestion[] = [
       ebookChapter: 'Chapter 40: Feeding',
     },
     options: [
-      { value: 'breastfeed', label: 'Breastfeeding only', birthPlanText: 'We plan to exclusively breastfeed. Please do not offer formula or pacifiers without our consent.', icon: 'Baby' },
-      { value: 'open_supplement', label: 'Breastfeed, open to supplementing', birthPlanText: 'We plan to breastfeed but are open to supplementation if medically needed.', icon: 'Heart' },
-      { value: 'combo', label: 'Combination feeding', birthPlanText: 'We plan to combination feed with breast milk and formula.', icon: 'Shuffle' },
-      { value: 'formula', label: 'Formula feeding', birthPlanText: 'We will be formula feeding our baby.', icon: 'Package' },
-      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'UtensilsCrossed' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss feeding options with a lactation consultant.', isUnsure: true },
+      { value: 'breastfeed', label: 'Breastfeed', birthPlanText: 'We plan to breastfeed our baby.', icon: 'Baby' },
+      { value: 'formula', label: 'Formula feed', birthPlanText: 'We plan to use formula.', icon: 'Package' },
+      { value: 'donor_milk', label: 'Prefer donor milk if supplementation needed', birthPlanText: 'If supplementation is needed, we prefer donor milk over formula.', icon: 'Heart' },
+      { value: 'no_formula_without_consent', label: 'No formula without our consent', birthPlanText: 'Please do not give formula without our explicit consent.', icon: 'Shield' },
+      { value: 'lactation_consultant', label: 'Request lactation consultant visit', birthPlanText: 'We would like a lactation consultant visit during our hospital stay.', icon: 'Users' },
+      { value: 'flexible', label: 'We\'re flexible', birthPlanText: 'We are flexible about feeding and open to whatever works best.', icon: 'ArrowLeftRight' },
     ],
-    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -331,6 +346,35 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'no', label: 'No photos or video', birthPlanText: 'We prefer no photos or video during the birth.', icon: 'EyeOff' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Camera' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on photography preferences.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
+    id: 'episiotomy',
+    category: 'Your Birth',
+    title: 'Episiotomy Preferences',
+    subtitle: 'What are your preferences regarding episiotomy?',
+    order: 10.65,
+    learnMoreData: {
+      tradeoff: 'ACOG no longer recommends routine episiotomy. Research shows that natural tears generally heal better and cause less long-term damage than surgical cuts. However, in rare emergencies, an episiotomy can expedite delivery.',
+      pros: [
+        'Can speed delivery in genuine emergencies (shoulder dystocia, fetal distress)',
+        'A controlled cut may be easier to repair than a severe natural tear in some cases',
+      ],
+      cons: [
+        'Natural tears heal better and cause less damage than surgical cuts on average',
+        'Routine episiotomy increases risk of severe third and fourth degree tears',
+        'Perineal massage and warm compresses during pushing reduce tear severity',
+        'Slow, controlled crowning with provider guidance reduces the need for any cut',
+      ],
+      bottomLine: 'Evidence strongly favors avoiding routine episiotomy. Ask your provider about their episiotomy rate - some providers almost never perform them, while others do routinely.',
+    },
+    options: [
+      { value: 'avoid', label: 'Prefer to avoid unless emergency', birthPlanText: 'We prefer to avoid episiotomy. Please use perineal massage and warm compresses instead.', icon: 'Shield' },
+      { value: 'only_consent', label: 'Only with our explicit consent', birthPlanText: 'Please do not perform an episiotomy without discussing it with us first.', icon: 'MessageSquare' },
+      { value: 'provider_judgment', label: 'Trust our provider\'s judgment', birthPlanText: 'We are open to episiotomy if our provider determines it is necessary.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss episiotomy with our care team.', isUnsure: true },
     ],
     textInputOnOption: 'custom',
   },
@@ -371,6 +415,40 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on when to head to the hospital.', isUnsure: true },
     ],
     textInputOnOption: 'custom',
+  },
+  {
+    id: 'labor_start',
+    category: 'Getting Started',
+    title: 'How Would You Like Labor to Start?',
+    subtitle: 'What are your preferences for how labor begins? (Check all that apply)',
+    order: 7.5,
+    inputType: 'checklist',
+    learnMoreData: {
+      tradeoff: 'When your body starts labor naturally, it produces oxytocin that crosses the blood-brain barrier, triggering endorphins (natural painkillers). Pitocin (synthetic oxytocin) cannot cross the blood-brain barrier, creating an "endorphin gap" where you get contractions without the natural pain relief.',
+      pros: [
+        'Waiting for spontaneous labor allows your body to produce both oxytocin and endorphins together',
+        'Natural methods like nipple stimulation have a 37% success rate within 72 hours for favorable cervix',
+        'Medical induction provides control over timing when medically indicated',
+        'Membrane sweeps are less invasive than Pitocin and can be done in the office',
+      ],
+      cons: [
+        'Pitocin contractions are often stronger and closer together without the endorphin support',
+        'Induction with Pitocin requires continuous IV and fetal monitoring, restricting mobility',
+        'Amniotomy (breaking water) is irreversible and starts a clock on delivery',
+        'Natural methods are not guaranteed to work and may delay necessary medical intervention',
+      ],
+      bottomLine: 'Your body knows how to start labor. If there is no medical urgency, allowing labor to begin naturally gives you the best chance of having your own endorphins on board to manage the experience.',
+      ebookChapter: 'Chapter 17: Labor Induction',
+    },
+    options: [
+      { value: 'wait_natural', label: 'Wait for labor to start on its own', birthPlanText: 'We prefer to wait for labor to begin naturally.', icon: 'Clock' },
+      { value: 'nipple_stimulation', label: 'Try nipple stimulation', birthPlanText: 'We are open to nipple stimulation as a natural method to encourage labor.', icon: 'Heart' },
+      { value: 'membrane_sweep', label: 'Membrane sweep', birthPlanText: 'We are open to a membrane sweep if recommended by our provider.', icon: 'Activity' },
+      { value: 'natural_methods', label: 'Natural methods (dates, evening primrose, walking)', birthPlanText: 'We plan to try natural methods to encourage labor.', icon: 'Leaf' },
+      { value: 'amniotomy', label: 'Have water broken (amniotomy)', birthPlanText: 'We are open to amniotomy to help start or progress labor.', icon: 'Droplet' },
+      { value: 'pitocin_induction', label: 'Pitocin induction if medically needed', birthPlanText: 'We are open to Pitocin induction if medically indicated.', icon: 'Syringe' },
+      { value: 'provider_guidance', label: 'Follow our provider\'s recommendation', birthPlanText: '', omitFromPlan: true, icon: 'Stethoscope' },
+    ],
   },
 
   // =========================================================================
@@ -474,6 +552,40 @@ export const quizQuestions: QuizQuestion[] = [
     textInputOnOption: 'custom',
   },
   {
+    id: 'labor_augmentation',
+    category: 'Your Birth',
+    title: 'If Labor Slows Down',
+    subtitle: 'If labor seems to slow and baby is doing okay, what would you prefer?',
+    order: 10.15,
+    learnMoreData: {
+      tradeoff: 'The most important thing to understand about Pitocin is the "endorphin gap." Your body\'s natural oxytocin crosses the blood-brain barrier, triggering endorphins that help you cope with contractions. Pitocin cannot cross the blood-brain barrier, so you get the contractions without your body\'s natural painkillers.',
+      pros: [
+        'Pitocin can restart stalled labor and prevent a C-section',
+        'Well-studied with decades of data on safety and effectiveness',
+        '75% of induced first-time mothers achieve vaginal delivery',
+        'Research shows stopping Pitocin once active labor is established reduces C-section risk by 20%',
+      ],
+      cons: [
+        'Pitocin contractions come without endorphins, significantly increasing demand for epidurals',
+        'Requires continuous IV and fetal monitoring, restricting your mobility',
+        'Pitocin rates above 6 mIU/min exceed natural oxytocin levels, doubling at 10-16 mIU/min',
+        'Can cause hyperstimulation (tachysystole), which doubles fetal distress risk',
+        'Slow labor is not the same as stalled labor - there may be time to try alternatives',
+      ],
+      bottomLine: 'Slow labor is not the same as stalled labor. If baby is doing well, there is often time to try natural alternatives like walking, position changes, and rest before reaching for Pitocin.',
+      ebookChapter: 'Chapter 27: Pitocin',
+    },
+    options: [
+      { value: 'wait_it_out', label: 'Wait it out - try walking, positions, rest', birthPlanText: 'If labor slows, we prefer to try natural methods first (walking, position changes, rest, hydration) before considering Pitocin.', icon: 'Move' },
+      { value: 'low_dose_pitocin', label: 'Open to Pitocin at the lowest effective dose', birthPlanText: 'If augmentation is needed, we prefer Pitocin at the lowest effective dose with slow increases.', icon: 'Syringe' },
+      { value: 'pitocin_stop_active', label: 'Pitocin if needed, but turn off at active labor', birthPlanText: 'If Pitocin is used for augmentation, we would like it reduced or stopped once active labor is established.', icon: 'Timer' },
+      { value: 'provider_recommends', label: 'Whatever our provider recommends', birthPlanText: 'We trust our provider\'s judgment on augmentation if labor stalls.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'MessageSquare' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss augmentation options with our care team.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
     id: 'eating_drinking',
     category: 'Your Birth',
     title: 'Eating and Drinking',
@@ -504,6 +616,36 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss food and drink options during labor.', isUnsure: true },
     ],
     textInputOnOption: 'custom',
+  },
+  {
+    id: 'cervical_checks',
+    category: 'Your Birth',
+    title: 'Cervical Checks During Labor',
+    subtitle: 'What are your preferences for cervical checks during labor? (Check all that apply)',
+    order: 10.25,
+    inputType: 'checklist',
+    learnMoreData: {
+      tradeoff: 'Cervical checks assess dilation progress but carry infection risk, especially after water breaks. They also have limited predictive value - you can be 3cm for days or go from 4cm to complete in an hour.',
+      pros: [
+        'Provides data on labor progress that can inform care decisions',
+        'Can reassure or motivate you during a long labor',
+        'Helps providers assess whether interventions may be needed',
+      ],
+      cons: [
+        'Each exam increases infection risk, especially after membranes rupture',
+        'Dilation numbers are poor predictors of how much longer labor will take',
+        'Can be emotionally discouraging if progress seems slow',
+        'Some women find cervical exams painful or distressing',
+      ],
+      bottomLine: 'Cervical checks are a tool, not a requirement. You can decline or limit them, especially after your water breaks when infection risk increases.',
+    },
+    options: [
+      { value: 'minimize', label: 'Minimize cervical checks', birthPlanText: 'Please minimize cervical exams - only when clinically necessary.', icon: 'Shield' },
+      { value: 'only_requested', label: 'Only when I request', birthPlanText: 'Please only perform cervical checks when I ask for one.', icon: 'Hand' },
+      { value: 'no_after_water', label: 'Decline after water breaks', birthPlanText: 'Please do not perform vaginal exams after my water has broken to reduce infection risk.', icon: 'AlertCircle' },
+      { value: 'routine_fine', label: 'Routine checks are fine', birthPlanText: 'Routine cervical checks during labor are fine with us.', icon: 'Check' },
+      { value: 'consent_each', label: 'Ask permission before each check', birthPlanText: 'Please ask my permission before each cervical exam.', icon: 'MessageSquare' },
+    ],
   },
   {
     id: 'labor_environment',
@@ -771,6 +913,39 @@ export const quizQuestions: QuizQuestion[] = [
     textInputOnOption: 'custom',
   },
   {
+    id: 'placenta_delivery',
+    category: 'After Birth',
+    title: 'Placenta Delivery',
+    subtitle: 'How would you like the placenta delivered?',
+    order: 14.5,
+    learnMoreData: {
+      tradeoff: 'Routine third-stage Pitocin reduces postpartum hemorrhage risk by approximately 40% and is recommended by WHO, ACOG, and AWHONN. Unlike Pitocin during labor, the endorphin gap and cascade of interventions are no longer relevant after baby is born.',
+      pros: [
+        'Pitocin after delivery significantly reduces postpartum hemorrhage risk',
+        'Active management speeds placenta delivery, reducing blood loss',
+        'WHO, ACOG, and AWHONN all recommend routine third-stage Pitocin',
+        'The endorphin gap and cascade concerns no longer apply after birth',
+      ],
+      cons: [
+        'Aggressive cord traction before the placenta has separated can cause complications',
+        'Some women prefer to complete the birth process without additional medication',
+        'Physiological delivery allows the body to complete the process naturally',
+        'Waiting for natural separation may feel more aligned with a natural birth plan',
+      ],
+      bottomLine: 'Third-stage Pitocin has a fundamentally different risk-benefit profile than labor Pitocin. The downsides that matter during labor (endorphin gap, cascade, mobility) are no longer relevant. The hemorrhage prevention benefit is significant.',
+      ebookChapter: 'Chapter 27: Pitocin',
+    },
+    options: [
+      { value: 'physiological', label: 'Allow natural separation, no traction', birthPlanText: 'We prefer physiological delivery of the placenta - allowing time for natural separation without cord traction.', icon: 'Clock' },
+      { value: 'natural_with_pitocin', label: 'Natural separation, but Pitocin for hemorrhage prevention', birthPlanText: 'We prefer natural placenta delivery but are open to Pitocin after delivery to reduce hemorrhage risk.', icon: 'Shield' },
+      { value: 'active_management', label: 'Active management (Pitocin + gentle cord traction)', birthPlanText: 'Active management of the third stage is fine, including routine Pitocin and gentle cord traction.', icon: 'Activity' },
+      { value: 'provider_standard', label: 'Follow provider\'s standard protocol', birthPlanText: '', omitFromPlan: true, icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss placenta delivery management with our care team.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
     id: 'circumcision',
     category: 'Newborn Care',
     title: 'Circumcision',
@@ -778,7 +953,7 @@ export const quizQuestions: QuizQuestion[] = [
     order: 15,
     conditionalOn: {
       questionId: 'baby_sex',
-      values: ['boy', 'unknown', 'prefer_not_to_say'],
+      values: ['boy', 'unknown', 'surprise', 'prefer_not_to_say'],
     },
     learnMoreData: {
       tradeoff: 'Circumcision is not medically necessary. No medical organization in the world recommends routine circumcision. It is a cultural, religious, or personal decision, not a medical one.',
@@ -804,6 +979,36 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'not_applicable', label: 'Not applicable', birthPlanText: '', omitFromPlan: true, icon: 'Minus' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Scissors' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We need more time to decide about circumcision.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
+    id: 'baby_companion',
+    category: 'After Birth',
+    title: 'If Baby Needs to Leave',
+    subtitle: 'If baby needs to leave your room for any reason, what are your preferences?',
+    order: 15.05,
+    learnMoreData: {
+      tradeoff: 'Being separated from your newborn can be stressful. Having a trusted person accompany baby provides comfort and advocacy, but hospital policies on who can be present in the NICU or procedure rooms vary.',
+      pros: [
+        'Having a support person with baby ensures someone is advocating for your family',
+        'Reduces parental anxiety during separation',
+        'Partner or support person can provide skin-to-skin if you cannot',
+        'Ensures you receive real-time updates about baby\'s care',
+      ],
+      cons: [
+        'Some NICU areas have restricted access policies',
+        'Partner leaving your side means you may be without support during recovery',
+        'Not all procedures allow a companion to be present',
+      ],
+      bottomLine: 'If baby needs to leave your room, having someone you trust accompany them is almost always possible and always worthwhile. Ask your hospital about their policies beforehand.',
+    },
+    options: [
+      { value: 'partner_always', label: 'Partner stays with baby at all times', birthPlanText: 'If baby must leave our room, my partner should accompany baby at all times.', icon: 'Users' },
+      { value: 'someone_present', label: 'A support person should be with baby', birthPlanText: 'We request that a support person be present with baby during any procedures or transfers.', icon: 'Shield' },
+      { value: 'flexible', label: 'We\'re flexible about this', birthPlanText: 'We are flexible about who accompanies baby if they need to leave the room.', icon: 'ArrowLeftRight' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'MessageSquare' },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We are still deciding on our preference for baby accompaniment.', isUnsure: true },
     ],
     textInputOnOption: 'custom',
   },
@@ -896,6 +1101,39 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'standard', label: 'Standard timing is fine', birthPlanText: 'Standard timing for procedures is acceptable.', icon: 'ClipboardCheck', omitFromPlan: true },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
       { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss procedure timing with our care team.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
+    id: 'infant_pain_management',
+    category: 'Newborn Care',
+    title: 'Baby\'s Comfort During Procedures',
+    subtitle: 'During newborn procedures (heel prick, shots), how would you like baby\'s pain managed?',
+    order: 15.35,
+    learnMoreData: {
+      tradeoff: 'Breastfeeding and skin-to-skin contact during procedures are evidence-based pain relief methods for newborns. Sucrose (sugar water) is also effective but some parents prefer natural comfort methods.',
+      pros: [
+        'Breastfeeding during the heel prick provides significant, measurable pain reduction',
+        'Skin-to-skin contact activates calming pathways and reduces cortisol',
+        'Sucrose solution is well-studied and widely used as infant pain management',
+        'Combining methods (breastfeeding + skin-to-skin) is most effective',
+      ],
+      cons: [
+        'Not all hospitals routinely offer breastfeeding during procedures',
+        'Sugar water introduces an unnecessary substance if breastfeeding is available',
+        'Some procedures require baby to be in a specific position',
+      ],
+      bottomLine: 'Your baby feels pain during procedures. Breastfeeding during the heel prick is the most effective comfort measure and is always worth requesting.',
+      ebookChapter: 'Chapter 31: Infant Pain Management',
+    },
+    options: [
+      { value: 'breastfeed_during', label: 'Breastfeed during procedures', birthPlanText: 'Please allow me to breastfeed baby during procedures like the heel prick for comfort and pain relief.', icon: 'Heart' },
+      { value: 'skin_to_skin_during', label: 'Skin-to-skin during procedures', birthPlanText: 'Please perform newborn procedures during skin-to-skin contact when possible.', icon: 'Baby' },
+      { value: 'sugar_water', label: 'Sugar water (sucrose) is fine', birthPlanText: 'Sugar water for pain management during procedures is fine with us.', icon: 'Droplet' },
+      { value: 'no_sugar_water', label: 'No sugar water - breastfeeding or skin-to-skin only', birthPlanText: 'Please do not give baby sugar water. We prefer breastfeeding or skin-to-skin for comfort.', icon: 'AlertCircle' },
+      { value: 'provider_choice', label: 'Provider\'s standard approach', birthPlanText: 'We are fine with the standard approach to infant comfort during procedures.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss infant pain management during procedures.', isUnsure: true },
     ],
     textInputOnOption: 'custom',
   },
@@ -1186,8 +1424,27 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'boy', label: 'Boy', birthPlanText: '', icon: 'Baby' },
       { value: 'girl', label: 'Girl', birthPlanText: '', icon: 'Baby' },
       { value: 'unknown', label: 'We don\'t know yet', birthPlanText: '', icon: 'HelpCircle' },
+      { value: 'surprise', label: "It's a surprise!", birthPlanText: '', icon: 'Sparkles' },
       { value: 'prefer_not_to_say', label: 'Prefer not to say', birthPlanText: '', icon: 'Lock' },
     ],
+  },
+  {
+    id: 'sex_announcement',
+    category: 'After Birth',
+    title: 'Baby\'s Sex Announcement',
+    subtitle: 'Who would you like to announce baby\'s sex at delivery?',
+    order: 14.95,
+    conditionalOn: {
+      questionId: 'baby_sex',
+      values: ['unknown', 'surprise'],
+    },
+    options: [
+      { value: 'discover_ourselves', label: 'We want to discover ourselves', birthPlanText: 'Please allow us to discover baby\'s sex ourselves - do not announce it.', icon: 'Sparkles' },
+      { value: 'partner_announces', label: 'Partner announces', birthPlanText: 'We would like my partner to announce baby\'s sex.', icon: 'Users' },
+      { value: 'provider_announces', label: 'Provider announces', birthPlanText: 'Our provider may announce baby\'s sex at delivery.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'MessageSquare' },
+    ],
+    textInputOnOption: 'custom',
   },
   {
     id: 'mother_name',
@@ -1225,6 +1482,25 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'has_name', label: 'Yes, type baby\'s name', birthPlanText: '', icon: 'Baby' },
       { value: 'not_yet', label: "We haven't decided yet", birthPlanText: '', icon: 'HelpCircle' },
       { value: 'prefer_not_to_say', label: "We'd rather not say", birthPlanText: '', icon: 'Lock' },
+    ],
+  },
+  {
+    id: 'medical_conditions',
+    category: 'Personal',
+    title: 'Medical Conditions & Allergies',
+    subtitle: 'Are there any medical conditions relevant to your birth? (Check all that apply)',
+    order: 22.25,
+    inputType: 'checklist',
+    options: [
+      { value: 'gestational_diabetes', label: 'Gestational diabetes', birthPlanText: 'I have been diagnosed with gestational diabetes.', icon: 'Activity' },
+      { value: 'preeclampsia', label: 'Preeclampsia / high blood pressure', birthPlanText: 'I have been diagnosed with preeclampsia or pregnancy-related high blood pressure.', icon: 'Heart' },
+      { value: 'gbs_positive', label: 'GBS positive', birthPlanText: 'I have tested positive for Group B Strep.', icon: 'TestTube' },
+      { value: 'latex_allergy', label: 'Latex allergy', birthPlanText: 'I have a latex allergy - please use non-latex gloves and equipment.', icon: 'AlertCircle' },
+      { value: 'medication_allergy', label: 'Medication allergies (specify in notes)', birthPlanText: 'I have medication allergies (see notes).', icon: 'Pill' },
+      { value: 'prior_trauma', label: 'Prior birth trauma or PTSD', birthPlanText: 'I have a history of birth trauma. Please be sensitive to this and communicate clearly before any procedures.', icon: 'Shield' },
+      { value: 'blood_clotting', label: 'Blood clotting disorder', birthPlanText: 'I have a blood clotting disorder.', icon: 'Droplet' },
+      { value: 'prefer_not', label: 'Prefer not to include in birth plan', birthPlanText: '', omitFromPlan: true, icon: 'Lock' },
+      { value: 'none', label: 'No relevant conditions', birthPlanText: '', omitFromPlan: true, icon: 'Check' },
     ],
   },
 
@@ -1320,7 +1596,7 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'gentle_csection', label: 'Gentle/family-centered approach if possible', birthPlanText: 'We would like a gentle/family-centered C-section approach, prioritizing bonding and a calm experience.', icon: 'Heart' },
       { value: 'clear_drape', label: 'Clear drape so we can see baby being born', birthPlanText: 'Please use a clear drape so we can see baby being born.', icon: 'Eye' },
       { value: 'step_by_step_narration', label: 'Surgeon narrates step-by-step', birthPlanText: 'We would appreciate step-by-step narration of what is happening during the procedure.', icon: 'MessageSquare' },
-      { value: 'immediate_skin_to_skin', label: 'Immediate skin-to-skin on chest', birthPlanText: 'Please place baby on my chest for immediate skin-to-skin contact.', icon: 'Heart' },
+
       { value: 'no_students', label: 'No medical students or observers', birthPlanText: 'We prefer no medical students or observers during the surgery.', icon: 'ShieldOff' },
       { value: 'standard_procedure', label: 'Standard procedure is fine', birthPlanText: '', omitFromPlan: true, icon: 'ClipboardCheck' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
@@ -1499,7 +1775,7 @@ export function getOrderedQuestions(answers: Record<string, string>): QuizQuesti
   const categoryOrder = birthType === 'csection' ? CATEGORY_ORDER_CSECTION : CATEGORY_ORDER_VAGINAL
 
   const filtered = quizQuestions.filter(q => {
-    // Handle conditionalOn (only circumcision)
+    // Handle conditionalOn (circumcision, sex announcement, etc.)
     if (q.conditionalOn) {
       const answer = answers[q.conditionalOn.questionId]
       if (!answer || !q.conditionalOn.values.includes(answer)) return false

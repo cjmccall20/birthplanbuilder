@@ -95,6 +95,26 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'during_labor',
     // Quiz and pref share: freedom, upright, standard
   },
+  labor_augmentation: {
+    preferenceId: 'labor_augmentation',
+    sectionId: 'during_labor',
+    // Quiz and pref share: wait_it_out, low_dose_pitocin, pitocin_stop_active, provider_recommends
+  },
+  labor_start: {
+    preferenceId: 'labor_start_preference',
+    sectionId: 'pre_hospital',
+    // Checklist - quiz and pref share: wait_natural, nipple_stimulation, membrane_sweep, natural_methods, amniotomy, pitocin_induction
+  },
+  episiotomy: {
+    preferenceId: 'episiotomy',
+    sectionId: 'during_labor',
+    // Quiz and pref share: avoid, only_consent, provider_judgment
+  },
+  cervical_checks: {
+    preferenceId: 'cervical_checks',
+    sectionId: 'during_labor',
+    // Checklist - quiz and pref share: minimize, only_requested, no_after_water, routine_fine, consent_each
+  },
 
   // At Birth
   golden_hour: {
@@ -126,6 +146,16 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'at_birth',
     // Quiz and pref share: dispose, encapsulate, keep
   },
+  placenta_delivery: {
+    preferenceId: 'physiological_placenta',
+    sectionId: 'at_birth',
+    // Quiz and pref share: physiological, natural_with_pitocin, active_management, provider_standard
+  },
+  sex_announcement: {
+    preferenceId: 'sex_announcement',
+    sectionId: 'at_birth',
+    // Quiz and pref share: discover_ourselves, partner_announces, provider_announces
+  },
 
   // Newborn Procedures
   vitamin_k: {
@@ -156,6 +186,11 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'newborn_procedures',
     // Quiz and pref share: delay_golden_hour, ask_first, standard
   },
+  infant_pain_management: {
+    preferenceId: 'infant_pain_management',
+    sectionId: 'newborn_procedures',
+    // Quiz and pref share: breastfeed_during, skin_to_skin_during, sugar_water, no_sugar_water, provider_choice
+  },
 
   bath_timing: {
     preferenceId: 'bath_timing',
@@ -181,12 +216,7 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
   feeding: {
     preferenceId: 'feeding_support',
     sectionId: 'hospital_stay',
-    valueMap: {
-      breastfeed: 'breastfeed_only',
-      open_supplement: 'lactation',
-      combo: 'combo',
-      formula: 'formula',
-    },
+    // Now a checklist - quiz and pref share: breastfeed, formula, donor_milk, no_formula_without_consent, lactation_consultant, flexible
   },
   rooming_in: {
     preferenceId: 'rooming_in',
@@ -212,6 +242,11 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
       after_home: 'no_visitors',
       case_by_case: 'limited',
     },
+  },
+  baby_companion: {
+    preferenceId: 'baby_companion',
+    sectionId: 'hospital_stay',
+    // Quiz and pref share: partner_always, someone_present, flexible
   },
 
   // C-Section
@@ -257,9 +292,7 @@ const CSECTION_DETAILS_MAP: Record<string, Array<{ preferenceId: string; section
   step_by_step_narration: [
     { preferenceId: 'csection_explanation', sectionId: 'csection', value: 'narrate' },
   ],
-  immediate_skin_to_skin: [
-    { preferenceId: 'csection_skin_to_skin', sectionId: 'csection', value: 'immediate' },
-  ],
+
   no_students: [
     { preferenceId: 'medical_students', sectionId: 'during_labor', value: 'prefer_not' },
   ],
@@ -298,6 +331,12 @@ const ENGAGEMENT_ONLY_QUESTIONS = new Set([
   'facility_name',
   'due_date',
   'mother_name',
+])
+
+// Questions with special handling (not in QUIZ_TO_PREFERENCE but not engagement-only either)
+const SPECIAL_HANDLING_QUESTIONS = new Set([
+  'birth_philosophy',
+  'medical_conditions',
 ])
 
 // Try to parse a JSON array checklist answer; returns null if not a checklist
@@ -343,6 +382,7 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
   Object.entries(quizState.answers).forEach(([questionId, answer]) => {
     if (!answer || answer === 'unsure') return
     if (ENGAGEMENT_ONLY_QUESTIONS.has(questionId)) return
+    if (SPECIAL_HANDLING_QUESTIONS.has(questionId)) return
 
     // Check if the selected option has omitFromPlan flag
     const questionDef = quizQuestions.find(q => q.id === questionId)
@@ -429,12 +469,27 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     // Handle multi-select checklist answers (JSON arrays)
     const checklistValues = parseChecklistAnswer(answer)
     if (checklistValues && checklistValues.length > 0) {
+      // Filter out omitFromPlan values
+      const activePlanValues = checklistValues.filter(v => {
+        const opt = questionDef?.options.find(o => o.value === v)
+        return !opt?.omitFromPlan
+      })
+      if (activePlanValues.length === 0) return
+
       // Use first value as the primary selection
-      const primaryValue = checklistValues[0]
+      const primaryValue = activePlanValues[0]
       const translatedPrimary = valueMap ? (valueMap[primaryValue] || primaryValue) : primaryValue
       // Build custom text from all selected options' birthPlanText
-      const allTexts = checklistValues
-        .map(v => questionDef?.options.find(o => o.value === v)?.birthPlanText)
+      const allTexts = activePlanValues
+        .map(v => {
+          const translatedV = valueMap ? (valueMap[v] || v) : v
+          // Try to get birthPlanText from preference option (more accurate for editor)
+          const prefDef = PREFERENCES.find(p => p.id === preferenceId)
+          const prefOpt = prefDef?.options.find(o => o.value === translatedV)
+          if (prefOpt?.birthPlanText) return prefOpt.birthPlanText
+          // Fall back to quiz option birthPlanText
+          return questionDef?.options.find(o => o.value === v)?.birthPlanText
+        })
         .filter(Boolean)
       const customText = allTexts.length > 1 ? allTexts.join('\n') : undefined
       applyQuizAnswer(sections, sectionId, preferenceId, translatedPrimary, customText)
@@ -490,10 +545,10 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     subtitle = 'Welcoming My Baby Into the World'
   }
 
-  // Map quiz birth type to editor birth type
+  // Map quiz birth type to editor birth type (VBAC treated as vaginal)
   const birthType: BirthType = quizState.plannedBirthType === 'csection'
     ? 'planned_csection'
-    : 'vaginal'
+    : 'vaginal' // 'vbac' is treated as vaginal for section visibility
 
   // Populate birth team fields from quiz answers (support_people and medical_provider names)
   const birthTeam = quizState.birthTeam ? { ...quizState.birthTeam, fields: [...(quizState.birthTeam.fields || [])] } : createDefaultBirthTeam()
@@ -543,6 +598,52 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     if (motherField && !motherField.value) motherField.value = motherNameAnswer
   }
 
+  // --- Special handling: birth philosophy ---
+  let philosophyStatement: string | undefined
+  let showPhilosophy: boolean | undefined
+  const philosophyAnswer = quizState.answers?.birth_philosophy
+  if (philosophyAnswer && philosophyAnswer !== 'unsure') {
+    const philosophyQ = quizQuestions.find(q => q.id === 'birth_philosophy')
+    const philosophyOpt = philosophyQ?.options.find(o => o.value === philosophyAnswer)
+    if (philosophyOpt?.birthPlanText) {
+      philosophyStatement = philosophyOpt.birthPlanText
+      showPhilosophy = true
+    } else if (philosophyAnswer !== 'custom' && philosophyAnswer) {
+      // Custom text entered by user
+      philosophyStatement = philosophyAnswer
+      showPhilosophy = true
+    }
+  }
+
+  // --- Special handling: medical conditions ---
+  const medicalAnswer = quizState.answers?.medical_conditions
+  if (medicalAnswer) {
+    const medValues = parseChecklistAnswer(medicalAnswer)
+    if (medValues && medValues.length > 0) {
+      const medQ = quizQuestions.find(q => q.id === 'medical_conditions')
+      const medTexts = medValues
+        .map(v => medQ?.options.find(o => o.value === v))
+        .filter(opt => opt && !opt.omitFromPlan && opt.birthPlanText)
+        .map(opt => opt!.birthPlanText)
+
+      if (medTexts.length > 0) {
+        // Add as a "Medical Notes" field to birth team
+        const existingMedField = birthTeam.fields.find(f => f.id === 'medical_notes')
+        if (existingMedField) {
+          existingMedField.value = medTexts.join(' ')
+        } else {
+          birthTeam.fields.push({
+            id: 'medical_notes',
+            label: 'Medical Notes',
+            value: medTexts.join(' '),
+            isDefault: false,
+            sortOrder: birthTeam.fields.length,
+          })
+        }
+      }
+    }
+  }
+
   return {
     birthTeam,
     templateStyle: (quizState.templateStyle || 'minimal') as TemplateStyle,
@@ -552,6 +653,7 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     title,
     subtitle,
     disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
+    ...(philosophyStatement ? { philosophyStatement, showPhilosophy } : {}),
   }
 }
 
@@ -565,7 +667,7 @@ function applyQuizAnswer(
   preferenceId: string,
   value: string,
   customNote?: string,
-  explicitStance?: 'desired' | 'declined' | null,
+  explicitStance?: 'desired' | 'declined' | 'cautious' | null,
 ) {
   const section = sections[sectionId]
   if (!section) return
@@ -581,14 +683,15 @@ function applyQuizAnswer(
   if (!matchedOption) return
 
   // Use explicit stance from quiz if provided, otherwise infer from option
-  let stance: 'desired' | 'declined' | undefined
+  let stance: 'desired' | 'declined' | 'cautious' | undefined
   if (explicitStance !== undefined) {
     stance = explicitStance ?? undefined
   } else if (matchedOption.defaultStance) {
-    stance = matchedOption.defaultStance as 'desired' | 'declined'
-  } else if (/^(accept|yes)/.test(value)) {
+    stance = matchedOption.defaultStance
+  } else if (prefDef.clinical && /^(accept|yes)/.test(value)) {
+    // Only auto-infer accept/decline stance for clinical preferences
     stance = 'desired'
-  } else if (/^(decline|no$)/.test(value)) {
+  } else if (prefDef.clinical && /^(decline|no$)/.test(value)) {
     stance = 'declined'
   }
 
@@ -616,19 +719,39 @@ export function getQuizImportMeta(quizState: QuizState): QuizImportMetadata {
 
   Object.entries(quizState.answers).forEach(([questionId, answer]) => {
     if (ENGAGEMENT_ONLY_QUESTIONS.has(questionId)) return
+    if (SPECIAL_HANDLING_QUESTIONS.has(questionId)) {
+      if (answer && answer !== 'unsure') importedCount++
+      return
+    }
 
     if (questionId === 'csection_details') {
       if (answer && answer !== 'unsure') {
-        const mappings = CSECTION_DETAILS_MAP[answer]
-        if (mappings) importedCount += mappings.length
+        const values = parseChecklistAnswer(answer)
+        if (values) {
+          values.forEach(val => {
+            const mappings = CSECTION_DETAILS_MAP[val]
+            if (mappings) importedCount += mappings.length
+          })
+        } else {
+          const mappings = CSECTION_DETAILS_MAP[answer]
+          if (mappings) importedCount += mappings.length
+        }
       }
       return
     }
 
     if (questionId === 'csection_comfort') {
       if (answer && answer !== 'unsure') {
-        const mappings = CSECTION_COMFORT_MAP[answer]
-        if (mappings) importedCount += mappings.length
+        const values = parseChecklistAnswer(answer)
+        if (values) {
+          values.forEach(val => {
+            const mappings = CSECTION_COMFORT_MAP[val]
+            if (mappings) importedCount += mappings.length
+          })
+        } else {
+          const mappings = CSECTION_COMFORT_MAP[answer]
+          if (mappings) importedCount += mappings.length
+        }
       }
       return
     }

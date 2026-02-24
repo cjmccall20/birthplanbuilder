@@ -19,8 +19,8 @@ import {
 } from '@/components/ui/popover'
 import { templateStyles } from '@/types'
 import { Button } from '@/components/ui/button'
-import { CheckCircle2, XCircle, StickyNote, Plus, EyeOff, Trash2, HelpCircle, GripVertical } from 'lucide-react'
-import { getIconComponent, IconPicker } from './IconPicker'
+import { CheckCircle2, XCircle, AlertTriangle, StickyNote, Plus, EyeOff, Trash2, HelpCircle, GripVertical } from 'lucide-react'
+import { getIconComponent, IconPicker, IconGrid } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
 import { canvasThemes } from '@/lib/editor/canvasThemes'
@@ -64,7 +64,7 @@ interface CanvasItem {
   isCustomItem?: boolean
   customItemId?: string
   icon?: string
-  stance?: 'desired' | 'declined' | null
+  stance?: 'desired' | 'declined' | 'cautious' | null
   isUndecided?: boolean
 }
 
@@ -112,7 +112,7 @@ export function DocumentCanvas({
   onAddDecision,
   selectedPreferenceId,
 }: DocumentCanvasProps) {
-  const { state, dispatch, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setSubtitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem, setStance, setCustomIcon, setBulletSymbol } = useEditor()
+  const { state, dispatch, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setSubtitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem, setStance, setCustomIcon, setBulletSymbol, toggleSectionVisibility } = useEditor()
   const [editingItemId, setEditingItemId] = useState<string | null>(null)
   const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set())
   const titleInputRef = useRef<HTMLInputElement>(null)
@@ -295,6 +295,14 @@ export function DocumentCanvas({
         setStance(item.sectionId, item.preferenceId, 'declined')
         setCustomIcon(item.sectionId, item.preferenceId, '')
       }
+    } else if (iconName === 'AlertTriangle') {
+      // Set stance to cautious, clear customIcon
+      if (item.isCustomItem && item.customItemId) {
+        updateCustomItem(item.sectionId, item.customItemId, { stance: 'cautious', customIcon: undefined })
+      } else {
+        setStance(item.sectionId, item.preferenceId, 'cautious')
+        setCustomIcon(item.sectionId, item.preferenceId, '')
+      }
     } else {
       // Set customIcon, clear stance
       if (item.isCustomItem && item.customItemId) {
@@ -329,11 +337,11 @@ export function DocumentCanvas({
   }
 
   // Handle bullet-level reorder within a preference's multi-line text
-  const handleBulletReorder = (item: CanvasItem, oldIndex: number, newIndex: number) => {
-    const lines = item.birthPlanText.split('\n').filter(Boolean)
-    const [moved] = lines.splice(oldIndex, 1)
-    lines.splice(newIndex, 0, moved)
-    handleTextEdit(item, lines.join('\n'))
+  const handleBulletReorder = (item: CanvasItem, lines: string[], oldIndex: number, newIndex: number) => {
+    const newLines = [...lines]
+    const [moved] = newLines.splice(oldIndex, 1)
+    newLines.splice(newIndex, 0, moved)
+    handleTextEdit(item, newLines.join('\n'))
   }
 
   return (
@@ -580,6 +588,26 @@ export function DocumentCanvas({
               </div>
             </div>
 
+            {/* Philosophy Statement */}
+            {(state.showPhilosophy !== false) && state.philosophyStatement && (
+              <div className="mb-6 relative group" style={{ fontFamily: theme.fontFamily }}>
+                <textarea
+                  value={state.philosophyStatement}
+                  onChange={(e) => dispatch({ type: 'SET_PHILOSOPHY', payload: e.target.value })}
+                  className="w-full text-sm italic leading-relaxed bg-transparent border border-dashed rounded-lg p-3 focus:outline-none focus:border-primary resize-none"
+                  style={{ color: theme.textColor, borderColor: `${theme.primaryColor}30`, opacity: 0.85 }}
+                  rows={3}
+                />
+                <button
+                  onClick={() => dispatch({ type: 'TOGGLE_PHILOSOPHY_VISIBILITY' })}
+                  className="absolute top-1 right-1 p-1 rounded hover:bg-gray-100 opacity-0 group-hover:opacity-100 transition-opacity"
+                  title="Hide philosophy statement"
+                >
+                  <EyeOff className="w-3 h-3" />
+                </button>
+              </div>
+            )}
+
             {/* Content Sections */}
             {canvasSections.map((section) => {
               // Build the list of sortable IDs for this section (preference IDs only, not custom)
@@ -589,16 +617,16 @@ export function DocumentCanvas({
 
               return (
                 <div key={section.sectionId} className="mb-8">
-                  <h2
-                    className="text-lg font-semibold pb-2 mb-4 border-b"
-                    style={{
-                      color: theme.primaryColor,
-                      borderColor: theme.borderColor,
-                      backgroundColor: theme.sectionHeaderBg
+                  <input
+                    type="text"
+                    value={state.customSectionTitles?.[section.sectionId] || section.title}
+                    onChange={(e) => dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId: section.sectionId, title: e.target.value } })}
+                    onBlur={(e) => {
+                      if (!e.target.value.trim()) dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId: section.sectionId, title: e.target.value || section.title } })
                     }}
-                  >
-                    {section.title}
-                  </h2>
+                    className="text-lg font-semibold pb-2 mb-4 border-b w-full bg-transparent focus:outline-none focus:bg-white/50 rounded px-1"
+                    style={{ color: theme.primaryColor, borderColor: theme.borderColor, backgroundColor: theme.sectionHeaderBg }}
+                  />
 
                   <DndContext
                     sensors={sensors}
@@ -612,9 +640,16 @@ export function DocumentCanvas({
                       <div className="space-y-4">
                         {section.items.length === 0 && !section.notes && (
                           <div
-                            className="text-center py-6 border border-dashed rounded-lg"
+                            className="relative text-center py-6 border border-dashed rounded-lg"
                             style={{ borderColor: `${theme.primaryColor}25`, color: theme.textColor, opacity: 0.5 }}
                           >
+                            <button
+                              onClick={() => toggleSectionVisibility(section.sectionId)}
+                              className="absolute top-2 right-2 p-1 rounded hover:bg-gray-100 transition-colors"
+                              title="Hide this section"
+                            >
+                              <EyeOff className="w-3.5 h-3.5" />
+                            </button>
                             <p className="text-sm">No decisions made yet</p>
                             <p className="text-xs mt-1">Take the quiz or add preferences from the sidebar</p>
                           </div>
@@ -670,6 +705,8 @@ export function DocumentCanvas({
                                 <CheckCircle2 className="w-5 h-5 text-green-600" />
                               ) : item.stance === 'declined' ? (
                                 <XCircle className="w-5 h-5 text-red-500" />
+                              ) : item.stance === 'cautious' ? (
+                                <AlertTriangle className="w-5 h-5 text-amber-500" />
                               ) : (
                                 <ItemIcon className="w-5 h-5" style={{ color: theme.primaryColor }} />
                               )}
@@ -715,16 +752,12 @@ export function DocumentCanvas({
                                     <PopoverTrigger asChild>
                                       <button
                                         className="cursor-pointer hover:scale-110 transition-transform"
-                                        onClick={(e) => e.stopPropagation()}
                                       >
                                         {iconElement}
                                       </button>
                                     </PopoverTrigger>
-                                    <PopoverContent className="w-auto p-2" onClick={(e) => e.stopPropagation()}>
-                                      <IconPicker
-                                        value={item.icon}
-                                        onChange={(iconName) => handleIconChange(item, iconName)}
-                                      />
+                                    <PopoverContent className="w-[280px] p-3" onClick={(e) => e.stopPropagation()}>
+                                      <IconGrid value={item.icon} onChange={(iconName) => handleIconChange(item, iconName)} />
                                     </PopoverContent>
                                   </Popover>
                                 ) : (
@@ -755,7 +788,7 @@ export function DocumentCanvas({
                                               const oldIdx = lines.findIndex((_, i) => `bullet-${i}` === active.id)
                                               const newIdx = lines.findIndex((_, i) => `bullet-${i}` === over.id)
                                               if (oldIdx !== -1 && newIdx !== -1) {
-                                                handleBulletReorder(item, oldIdx, newIdx)
+                                                handleBulletReorder(item, lines, oldIdx, newIdx)
                                               }
                                             }}
                                           >
@@ -790,7 +823,7 @@ export function DocumentCanvas({
                                           <button
                                             onClick={(e) => {
                                               e.stopPropagation()
-                                              handleTextEdit(item, [...lines, ''].join('\n'))
+                                              handleTextEdit(item, [...lines, 'New item'].join('\n'))
                                             }}
                                             className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1 ml-5"
                                           >

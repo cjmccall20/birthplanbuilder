@@ -197,9 +197,11 @@ interface ProfessionalTemplateProps {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
   disclaimerText: string
+  philosophyStatement?: string
+  showPhilosophy?: boolean
 }
 
-export function ProfessionalTemplate({ birthTeam, groupedContent, disclaimerText }: ProfessionalTemplateProps) {
+export function ProfessionalTemplate({ birthTeam, groupedContent, disclaimerText, philosophyStatement, showPhilosophy }: ProfessionalTemplateProps) {
   const primaryName = birthTeam.fields?.[0]?.value || 'Not Specified'
   let sectionNumber = 0
 
@@ -243,6 +245,15 @@ export function ProfessionalTemplate({ birthTeam, groupedContent, disclaimerText
           </View>
         </View>
 
+        {/* Philosophy Statement */}
+        {showPhilosophy !== false && philosophyStatement && (
+          <View style={{ marginBottom: 12, paddingHorizontal: 4 }}>
+            <Text style={{ fontSize: 10, fontStyle: 'italic', color: '#555', lineHeight: 1.5 }}>
+              {philosophyStatement}
+            </Text>
+          </View>
+        )}
+
         {/* Content Sections */}
         {Object.entries(groupedContent).map(([category, items], index) => {
           sectionNumber++
@@ -270,7 +281,7 @@ export function ProfessionalTemplate({ birthTeam, groupedContent, disclaimerText
                   >
                     <View style={styles.tableCellPreference}>
                       <Text style={styles.itemTitle}>
-                        {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : ''}
+                        {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : item.stance === 'cautious' ? '\u26A0 ' : ''}
                         {item.title}
                       </Text>
                     </View>

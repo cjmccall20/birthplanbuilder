@@ -108,11 +108,13 @@ interface MinimalTemplateProps {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
   disclaimerText?: string
+  philosophyStatement?: string
+  showPhilosophy?: boolean
 }
 
 const DEFAULT_DISCLAIMER = 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.'
 
-export function MinimalTemplate({ birthTeam, groupedContent, disclaimerText }: MinimalTemplateProps) {
+export function MinimalTemplate({ birthTeam, groupedContent, disclaimerText, philosophyStatement, showPhilosophy }: MinimalTemplateProps) {
   // Get primary name from first field
   const primaryName = birthTeam.fields?.[0]?.value || 'My Birth Preferences'
 
@@ -144,6 +146,15 @@ export function MinimalTemplate({ birthTeam, groupedContent, disclaimerText }: M
           </View>
         </View>
 
+        {/* Philosophy Statement */}
+        {showPhilosophy !== false && philosophyStatement && (
+          <View style={{ marginBottom: 12, paddingHorizontal: 4 }}>
+            <Text style={{ fontSize: 10, fontStyle: 'italic', color: '#555', lineHeight: 1.5 }}>
+              {philosophyStatement}
+            </Text>
+          </View>
+        )}
+
         {/* Content Sections */}
         {Object.entries(groupedContent).map(([category, items], index) => (
           <View key={category} style={styles.section} break={index > 0}>
@@ -151,7 +162,7 @@ export function MinimalTemplate({ birthTeam, groupedContent, disclaimerText }: M
             {items.map((item, idx) => (
               <View key={idx} style={styles.item}>
                 <Text style={styles.itemTitle}>
-                  {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : ''}
+                  {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : item.stance === 'cautious' ? '\u26A0 ' : ''}
                   {item.title}
                 </Text>
                 <Text style={styles.itemText}>{item.birthPlanText}</Text>

@@ -22,6 +22,10 @@ const ENGAGEMENT_ONLY_QUESTIONS = new Set([
   'baby_name',
   'facility_name',
   'due_date',
+  'mother_name',
+  'sex_announcement',
+  'birth_philosophy',
+  'medical_conditions',
 ])
 
 interface QuestionCardProps {

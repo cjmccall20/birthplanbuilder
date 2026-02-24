@@ -26,7 +26,7 @@ export interface PreferenceOption {
   birthPlanText: string // Text that appears in the PDF
   isPopular?: boolean // For sorting common options to top
   icon?: string // Lucide icon name for this specific choice
-  defaultStance?: 'desired' | 'declined' // Auto-infer stance from this option
+  defaultStance?: 'desired' | 'declined' | 'cautious' // Auto-infer stance from this option
 }
 
 export interface PreferenceDefinition {
@@ -39,6 +39,7 @@ export interface PreferenceDefinition {
   icon?: string
   quizQuestionId?: string // Maps to quiz question for importing
   hiddenFor?: BirthType[] // Hide this preference for certain birth types
+  clinical?: boolean // When true, accept/decline options get check/X icons
 }
 
 export interface PreferenceValue {
@@ -48,7 +49,7 @@ export interface PreferenceValue {
   customTitle?: string
   isOmitted: boolean
   sortOrder: number
-  stance?: 'desired' | 'declined' | null  // Green check / Red X / neutral
+  stance?: 'desired' | 'declined' | 'cautious' | null  // Green check / Red X / Yellow caution / neutral
   customIcon?: string                      // User-chosen Lucide icon name
 }
 
@@ -57,7 +58,7 @@ export interface CustomPreferenceItem {
   title: string
   text: string
   sortOrder: number
-  stance?: 'desired' | 'declined' | null
+  stance?: 'desired' | 'declined' | 'cautious' | null
   customIcon?: string
 }
 
@@ -86,6 +87,9 @@ export interface EditorState {
   showAllDecisions: boolean
   hiddenSections: string[]  // Section IDs hidden from canvas/PDF but data preserved
   customBulletSymbol?: string  // User-chosen Unicode bullet symbol override
+  philosophyStatement?: string  // Editable intro paragraph at top of birth plan
+  showPhilosophy?: boolean  // Toggle visibility of philosophy statement (default true)
+  customSectionTitles?: Record<string, string>  // Custom section names, keyed by sectionId
 }
 
 // Action types for reducer
@@ -109,7 +113,7 @@ export type EditorAction =
   | { type: 'ADD_BIRTH_TEAM_FIELD'; payload: { label: string } }
   | { type: 'REMOVE_BIRTH_TEAM_FIELD'; payload: { fieldId: string } }
   | { type: 'RENAME_BIRTH_TEAM_FIELD'; payload: { fieldId: string; label: string } }
-  | { type: 'SET_STANCE'; payload: { sectionId: EditorSectionId; preferenceId: string; stance: 'desired' | 'declined' | null } }
+  | { type: 'SET_STANCE'; payload: { sectionId: EditorSectionId; preferenceId: string; stance: 'desired' | 'declined' | 'cautious' | null } }
   | { type: 'SET_CUSTOM_ICON'; payload: { sectionId: EditorSectionId; preferenceId: string; icon: string } }
   | { type: 'SET_BIRTH_TYPE'; payload: BirthType }
   | { type: 'SET_BIRTH_VENUE'; payload: BirthVenue | null }
@@ -117,5 +121,8 @@ export type EditorAction =
   | { type: 'TOGGLE_SECTION_VISIBILITY'; payload: { sectionId: string } }
   | { type: 'SET_SUBTITLE'; payload: string }
   | { type: 'SET_BULLET_SYMBOL'; payload: string | undefined }
+  | { type: 'SET_PHILOSOPHY'; payload: string }
+  | { type: 'TOGGLE_PHILOSOPHY_VISIBILITY' }
+  | { type: 'SET_SECTION_TITLE'; payload: { sectionId: EditorSectionId; title: string } }
   | { type: 'UNDO' }
   | { type: 'REDO' }

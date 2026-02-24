@@ -378,6 +378,24 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       }
     }
 
+    case 'SET_PHILOSOPHY':
+      return { ...state, philosophyStatement: action.payload, isDirty: true }
+
+    case 'TOGGLE_PHILOSOPHY_VISIBILITY':
+      return { ...state, showPhilosophy: !(state.showPhilosophy !== false), isDirty: true }
+
+    case 'SET_SECTION_TITLE': {
+      const { sectionId, title } = action.payload
+      return {
+        ...state,
+        customSectionTitles: {
+          ...state.customSectionTitles,
+          [sectionId]: title,
+        },
+        isDirty: true,
+      }
+    }
+
     default:
       return state
   }
@@ -452,7 +470,7 @@ interface EditorContextType {
   addBirthTeamField: (label: string) => void
   removeBirthTeamField: (fieldId: string) => void
   renameBirthTeamField: (fieldId: string, label: string) => void
-  setStance: (sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | null) => void
+  setStance: (sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | 'cautious' | null) => void
   setCustomIcon: (sectionId: EditorSectionId, preferenceId: string, icon: string) => void
   setBirthType: (birthType: BirthType) => void
   setBirthVenue: (venue: BirthVenue | null) => void
@@ -460,6 +478,9 @@ interface EditorContextType {
   toggleSectionVisibility: (sectionId: string) => void
   setDisclaimer: (text: string) => void
   setBulletSymbol: (symbol: string | undefined) => void
+  setPhilosophy: (text: string) => void
+  togglePhilosophyVisibility: () => void
+  setSectionTitle: (sectionId: EditorSectionId, title: string) => void
   undo: () => void
   redo: () => void
   canUndo: boolean
@@ -538,7 +559,7 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const renameBirthTeamField = useCallback((fieldId: string, label: string) =>
     dispatch({ type: 'RENAME_BIRTH_TEAM_FIELD', payload: { fieldId, label } }), [])
 
-  const setStance = useCallback((sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | null) =>
+  const setStance = useCallback((sectionId: EditorSectionId, preferenceId: string, stance: 'desired' | 'declined' | 'cautious' | null) =>
     dispatch({ type: 'SET_STANCE', payload: { sectionId, preferenceId, stance } }), [])
 
   const setCustomIcon = useCallback((sectionId: EditorSectionId, preferenceId: string, icon: string) =>
@@ -561,6 +582,15 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
 
   const setBulletSymbol = useCallback((symbol: string | undefined) =>
     dispatch({ type: 'SET_BULLET_SYMBOL', payload: symbol }), [])
+
+  const setPhilosophy = useCallback((text: string) =>
+    dispatch({ type: 'SET_PHILOSOPHY', payload: text }), [])
+
+  const togglePhilosophyVisibility = useCallback(() =>
+    dispatch({ type: 'TOGGLE_PHILOSOPHY_VISIBILITY' }), [])
+
+  const setSectionTitle = useCallback((sectionId: EditorSectionId, title: string) =>
+    dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId, title } }), [])
 
   const undo = useCallback(() => dispatch({ type: 'UNDO' }), [])
   const redo = useCallback(() => dispatch({ type: 'REDO' }), [])
@@ -596,6 +626,9 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       toggleSectionVisibility,
       setDisclaimer,
       setBulletSymbol,
+      setPhilosophy,
+      togglePhilosophyVisibility,
+      setSectionTitle,
       undo,
       redo,
       canUndo,

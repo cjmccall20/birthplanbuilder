@@ -38,7 +38,7 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
       title: string
       text: string
       icon?: string
-      stance?: 'desired' | 'declined' | null
+      stance?: 'desired' | 'declined' | 'cautious' | null
     }> = []
 
     const sortedPreferences = [...sectionState.preferences]
@@ -81,7 +81,7 @@ export function PreviewModal({ isOpen, onClose, onDownload }: PreviewModalProps)
   }).filter(Boolean) as Array<{
     id: string
     title: string
-    items: Array<{ title: string; text: string; icon?: string; stance?: 'desired' | 'declined' | null }>
+    items: Array<{ title: string; text: string; icon?: string; stance?: 'desired' | 'declined' | 'cautious' | null }>
     notes: string
   }>
 

@@ -249,9 +249,11 @@ interface RusticTemplateProps {
   birthTeam: BirthTeam
   groupedContent: Record<string, PlanItem[]>
   disclaimerText: string
+  philosophyStatement?: string
+  showPhilosophy?: boolean
 }
 
-export function RusticTemplate({ birthTeam, groupedContent, disclaimerText }: RusticTemplateProps) {
+export function RusticTemplate({ birthTeam, groupedContent, disclaimerText, philosophyStatement, showPhilosophy }: RusticTemplateProps) {
   const primaryName = birthTeam.fields?.[0]?.value || 'My Birth Preferences'
 
   return (
@@ -302,6 +304,15 @@ export function RusticTemplate({ birthTeam, groupedContent, disclaimerText }: Ru
           </View>
         </View>
 
+        {/* Philosophy Statement */}
+        {showPhilosophy !== false && philosophyStatement && (
+          <View style={{ marginBottom: 12, paddingHorizontal: 4 }}>
+            <Text style={{ fontSize: 10, fontStyle: 'italic', color: '#555', lineHeight: 1.5 }}>
+              {philosophyStatement}
+            </Text>
+          </View>
+        )}
+
         {/* Content Sections */}
         {Object.entries(groupedContent).map(([category, items], index) => (
           <View key={category} style={styles.section} break={index > 0}>
@@ -312,7 +323,7 @@ export function RusticTemplate({ birthTeam, groupedContent, disclaimerText }: Ru
             {items.map((item, index) => (
               <View key={index} style={styles.item}>
                 <Text style={styles.itemTitle}>
-                  {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : ''}
+                  {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : item.stance === 'cautious' ? '\u26A0 ' : ''}
                   {item.title}
                 </Text>
                 <Text style={styles.itemText}>{item.birthPlanText}</Text>
