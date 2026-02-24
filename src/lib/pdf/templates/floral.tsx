@@ -240,7 +240,12 @@ export function FloralTemplate({ birthTeam, groupedContent, disclaimerText, phil
                   {item.stance === 'desired' ? '\u2713 ' : item.stance === 'declined' ? '\u2717 ' : item.stance === 'cautious' ? '\u26A0 ' : ''}
                   {item.title}
                 </Text>
-                <Text style={styles.itemText}>{item.birthPlanText}</Text>
+                <Text style={styles.itemText}>
+                  {item.birthPlanText}
+                  {item.assignedTo && (
+                    <Text style={{ fontSize: '0.7em', opacity: 0.6 }}> (@{item.assignedTo})</Text>
+                  )}
+                </Text>
                 {item.customNote && (
                   <Text style={styles.customNote}>Note: {item.customNote}</Text>
                 )}

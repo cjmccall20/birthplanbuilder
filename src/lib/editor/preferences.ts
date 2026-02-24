@@ -653,7 +653,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     icon: 'Clock',
     allowCustom: true,
     options: [
-      { value: 'delay_golden_hour', label: 'Delay all during the golden hour', birthPlanText: 'Please delay all non-urgent procedures for at least the first hour to allow for bonding.', isPopular: true },
+      { value: 'delay_golden_hour', label: 'Delay all until after the golden hour', birthPlanText: 'Please delay all non-urgent procedures until after the first hour to allow for bonding and first feeding.', isPopular: true },
       { value: 'ask_first', label: 'Ask us before each procedure', birthPlanText: 'Please ask our permission before each procedure and explain what will be done.' },
       { value: 'standard', label: 'Standard timing', birthPlanText: 'Standard timing for procedures is acceptable.' },
     ],
@@ -672,6 +672,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'skin_to_skin_during', label: 'Skin-to-skin during procedures', birthPlanText: 'Please perform newborn procedures during skin-to-skin contact when possible.', defaultStance: 'desired' },
       { value: 'sugar_water', label: 'Sugar water is fine', birthPlanText: 'Sugar water for pain management during procedures is fine with us.', defaultStance: 'desired' },
       { value: 'no_sugar_water', label: 'No sugar water', birthPlanText: 'Please do not give baby sugar water. We prefer breastfeeding or skin-to-skin for comfort.', defaultStance: 'declined' },
+      { value: 'infant_tylenol', label: 'Infant Tylenol', birthPlanText: 'We are open to infant Tylenol (acetaminophen) for pain management after procedures if needed.' },
       { value: 'provider_choice', label: 'Provider\'s standard approach', birthPlanText: 'We are fine with the standard approach to infant comfort during procedures.' },
     ],
   },

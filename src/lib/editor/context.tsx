@@ -396,6 +396,42 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       }
     }
 
+    case 'SET_ASSIGNMENT': {
+      const { sectionId, preferenceId, assignedTo, isCustom } = action.payload
+      const section = state.sections[sectionId]
+      if (!section) return state
+
+      if (isCustom) {
+        return {
+          ...state,
+          sections: {
+            ...state.sections,
+            [sectionId]: {
+              ...section,
+              customItems: section.customItems.map(ci =>
+                ci.id === preferenceId ? { ...ci, assignedTo: assignedTo || undefined } : ci
+              ),
+            },
+          },
+          isDirty: true,
+        }
+      }
+
+      return {
+        ...state,
+        sections: {
+          ...state.sections,
+          [sectionId]: {
+            ...section,
+            preferences: section.preferences.map(p =>
+              p.preferenceId === preferenceId ? { ...p, assignedTo: assignedTo || undefined } : p
+            ),
+          },
+        },
+        isDirty: true,
+      }
+    }
+
     default:
       return state
   }
@@ -481,6 +517,7 @@ interface EditorContextType {
   setPhilosophy: (text: string) => void
   togglePhilosophyVisibility: () => void
   setSectionTitle: (sectionId: EditorSectionId, title: string) => void
+  setAssignment: (sectionId: EditorSectionId, preferenceId: string, assignedTo: string | null, isCustom?: boolean) => void
   undo: () => void
   redo: () => void
   canUndo: boolean
@@ -592,6 +629,9 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const setSectionTitle = useCallback((sectionId: EditorSectionId, title: string) =>
     dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId, title } }), [])
 
+  const setAssignment = useCallback((sectionId: EditorSectionId, preferenceId: string, assignedTo: string | null, isCustom?: boolean) =>
+    dispatch({ type: 'SET_ASSIGNMENT', payload: { sectionId, preferenceId, assignedTo, isCustom } }), [])
+
   const undo = useCallback(() => dispatch({ type: 'UNDO' }), [])
   const redo = useCallback(() => dispatch({ type: 'REDO' }), [])
   const canUndo = history.past.length > 0
@@ -629,6 +669,7 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       setPhilosophy,
       togglePhilosophyVisibility,
       setSectionTitle,
+      setAssignment,
       undo,
       redo,
       canUndo,

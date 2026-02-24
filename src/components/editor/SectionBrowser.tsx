@@ -8,7 +8,7 @@ import { getSectionsForBirthType } from '@/lib/editor/sections'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { Search, Plus, Trash2, Eye, EyeOff } from 'lucide-react'
+import { Search, Plus, Trash2, Eye, EyeOff, FileText, ChevronDown, ChevronUp, MessageSquare, Sparkles } from 'lucide-react'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId, PreferenceDefinition } from '@/lib/editor/editorTypes'
@@ -20,11 +20,19 @@ interface SectionBrowserProps {
   expandSection?: EditorSectionId | null
 }
 
+const PHILOSOPHY_SAMPLES = [
+  { label: 'Informed & Flexible', icon: 'BookOpen', text: 'Thank you for being part of our birth team. We have educated ourselves and have preferences, but we understand birth is unpredictable. We ask that you explain any changes to our plan and include us in decision-making.' },
+  { label: 'Natural Birth Focused', icon: 'Leaf', text: 'Thank you for supporting our birth experience. We are planning for a natural birth with minimal interventions. Please support us in this goal, and discuss any interventions with us before proceeding.' },
+  { label: 'Trust the Team', icon: 'HeartHandshake', text: 'Thank you for taking care of us. We trust our medical team and are open to your guidance. These preferences reflect our hopes, but we defer to your expertise when needed.' },
+]
+
 export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selectedPreferenceId, expandSection }: SectionBrowserProps) {
-  const { state, setPreference, addCustomItem, removeCustomItem, toggleSectionVisibility } = useEditor()
+  const { state, setPreference, addCustomItem, removeCustomItem, toggleSectionVisibility, setPhilosophy, togglePhilosophyVisibility, setDisclaimer } = useEditor()
   const visibleSections = getSectionsForBirthType(state.birthType)
   const [activeSection, setActiveSection] = useState<EditorSectionId>('pre_hospital')
   const [searchQuery, setSearchQuery] = useState('')
+  const [statementsOpen, setStatementsOpen] = useState(false)
+  const [showSamples, setShowSamples] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
 
   // When expandSection changes (from "Add decision" on canvas), switch to that section
@@ -73,6 +81,94 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
 
   return (
     <div className="space-y-3">
+      {/* Statements panel */}
+      <div className="border rounded-lg overflow-hidden">
+        <button
+          onClick={() => setStatementsOpen(!statementsOpen)}
+          className="w-full flex items-center gap-2 px-3 py-2.5 text-sm font-medium hover:bg-muted/30 transition-colors"
+        >
+          <FileText className="h-4 w-4 text-primary" />
+          <span>Statements</span>
+          {statementsOpen ? (
+            <ChevronUp className="h-3.5 w-3.5 ml-auto text-muted-foreground" />
+          ) : (
+            <ChevronDown className="h-3.5 w-3.5 ml-auto text-muted-foreground" />
+          )}
+        </button>
+
+        {statementsOpen && (
+          <div className="border-t px-3 py-3 space-y-4">
+            {/* Philosophy Statement */}
+            <div className="space-y-2">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Philosophy Statement</span>
+                <button
+                  onClick={() => togglePhilosophyVisibility()}
+                  className={cn(
+                    'p-1 rounded transition-colors',
+                    state.showPhilosophy !== false
+                      ? 'text-primary hover:text-primary/80'
+                      : 'text-muted-foreground/40 hover:text-primary'
+                  )}
+                  title={state.showPhilosophy !== false ? 'Hide from birth plan' : 'Show in birth plan'}
+                >
+                  {state.showPhilosophy !== false ? <Eye className="h-3.5 w-3.5" /> : <EyeOff className="h-3.5 w-3.5" />}
+                </button>
+              </div>
+              <textarea
+                value={state.philosophyStatement || ''}
+                onChange={(e) => setPhilosophy(e.target.value)}
+                placeholder="Add a philosophy statement to introduce your birth plan..."
+                className="w-full text-sm bg-muted/30 border rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-primary resize-none leading-relaxed"
+                rows={3}
+              />
+              {/* Sample statements */}
+              <button
+                onClick={() => setShowSamples(!showSamples)}
+                className="flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors"
+              >
+                <Sparkles className="h-3 w-3" />
+                {showSamples ? 'Hide samples' : 'Browse sample statements'}
+              </button>
+              {showSamples && (
+                <div className="space-y-2">
+                  {PHILOSOPHY_SAMPLES.map((sample) => (
+                    <div key={sample.label} className="border rounded-md p-2 bg-white">
+                      <div className="flex items-center justify-between mb-1">
+                        <span className="text-xs font-medium text-foreground">{sample.label}</span>
+                        <button
+                          onClick={() => {
+                            setPhilosophy(sample.text)
+                            if (state.showPhilosophy === false) togglePhilosophyVisibility()
+                            setShowSamples(false)
+                          }}
+                          className="text-[10px] px-2 py-0.5 rounded-full bg-primary/10 text-primary hover:bg-primary/20 transition-colors font-medium"
+                        >
+                          Use this
+                        </button>
+                      </div>
+                      <p className="text-xs text-muted-foreground leading-relaxed italic">{sample.text}</p>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Closing Statement */}
+            <div className="space-y-2">
+              <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">Closing Statement</span>
+              <textarea
+                value={state.disclaimerText || ''}
+                onChange={(e) => setDisclaimer(e.target.value)}
+                placeholder="Add a closing statement for your birth plan..."
+                className="w-full text-sm bg-muted/30 border rounded-md p-2 focus:outline-none focus:ring-1 focus:ring-primary resize-none leading-relaxed"
+                rows={3}
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
       {/* Section tab buttons */}
       <div className="flex flex-wrap gap-1.5">
         {visibleSections.map(section => {
@@ -261,6 +357,11 @@ function PreferenceRow({
         <div className="min-w-0">
           <div className="flex items-center gap-1.5 flex-wrap">
             <span className="text-sm font-medium truncate">{preference.title}</span>
+            {value?.assignedTo && (
+              <span className="text-[10px] px-1.5 py-0 rounded-full bg-primary/10 text-primary font-medium">
+                @{value.assignedTo}
+              </span>
+            )}
             {needsAttention && (
               <Badge variant="outline" className="text-[10px] px-1 py-0 text-amber-600 border-amber-300 bg-amber-50">
                 Unsure

@@ -286,7 +286,12 @@ export function ProfessionalTemplate({ birthTeam, groupedContent, disclaimerText
                       </Text>
                     </View>
                     <View style={styles.tableCellDetail}>
-                      <Text style={styles.itemText}>{item.birthPlanText}</Text>
+                      <Text style={styles.itemText}>
+                        {item.birthPlanText}
+                        {item.assignedTo && (
+                          <Text style={{ fontSize: '0.7em', opacity: 0.6 }}> (@{item.assignedTo})</Text>
+                        )}
+                      </Text>
                       {item.customNote && (
                         <Text style={styles.customNote}>Additional Note: {item.customNote}</Text>
                       )}

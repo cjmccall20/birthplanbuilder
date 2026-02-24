@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/popover'
 import { templateStyles } from '@/types'
 import { Button } from '@/components/ui/button'
-import { CheckCircle2, XCircle, AlertTriangle, StickyNote, Plus, EyeOff, Trash2, HelpCircle, GripVertical } from 'lucide-react'
+import { CheckCircle2, XCircle, AlertTriangle, StickyNote, Plus, EyeOff, Trash2, HelpCircle, GripVertical, FileText, AtSign } from 'lucide-react'
 import { getIconComponent, IconPicker, IconGrid } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -66,6 +66,7 @@ interface CanvasItem {
   icon?: string
   stance?: 'desired' | 'declined' | 'cautious' | null
   isUndecided?: boolean
+  assignedTo?: string
 }
 
 interface CanvasSection {
@@ -112,7 +113,7 @@ export function DocumentCanvas({
   onAddDecision,
   selectedPreferenceId,
 }: DocumentCanvasProps) {
-  const { state, dispatch, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setSubtitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem, setStance, setCustomIcon, setBulletSymbol, toggleSectionVisibility } = useEditor()
+  const { state, dispatch, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setSubtitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem, setStance, setCustomIcon, setBulletSymbol, toggleSectionVisibility, setAssignment } = useEditor()
   const [editingItemId, setEditingItemId] = useState<string | null>(null)
   const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set())
   const titleInputRef = useRef<HTMLInputElement>(null)
@@ -195,6 +196,7 @@ export function DocumentCanvas({
           birthPlanText,
           icon: prefValue.customIcon || prefDef.icon,
           stance: prefValue.stance,
+          assignedTo: prefValue.assignedTo,
         })
       })
 
@@ -211,6 +213,7 @@ export function DocumentCanvas({
             customItemId: item.id,
             icon: item.customIcon,
             stance: item.stance,
+            assignedTo: item.assignedTo,
           })
         })
 
@@ -588,6 +591,24 @@ export function DocumentCanvas({
               </div>
             </div>
 
+            {/* Philosophy Statement - Restore button */}
+            {(!state.philosophyStatement || state.showPhilosophy === false) && (
+              <button
+                onClick={() => {
+                  if (!state.philosophyStatement) {
+                    dispatch({ type: 'SET_PHILOSOPHY', payload: 'Add your philosophy statement here...' })
+                  }
+                  if (state.showPhilosophy === false) {
+                    dispatch({ type: 'TOGGLE_PHILOSOPHY_VISIBILITY' })
+                  }
+                }}
+                className="mb-4 flex items-center gap-1.5 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+              >
+                <FileText className="w-3.5 h-3.5" />
+                Add philosophy statement
+              </button>
+            )}
+
             {/* Philosophy Statement */}
             {(state.showPhilosophy !== false) && state.philosophyStatement && (
               <div className="mb-6 relative group" style={{ fontFamily: theme.fontFamily }}>
@@ -767,16 +788,73 @@ export function DocumentCanvas({
                                 <div className="flex-1 min-w-0">
                                   {isEditing ? (
                                     <>
-                                      <input
-                                        ref={titleInputRef}
-                                        type="text"
-                                        value={item.title}
-                                        onChange={(e) => handleTitleEdit(item, e.target.value)}
-                                        onClick={(e) => e.stopPropagation()}
-                                        className="w-full font-semibold text-sm mb-1 bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none rounded-none px-0 py-0.5"
-                                        style={{ color: theme.textColor }}
-                                        placeholder={item.isCustomItem ? 'Decision title' : undefined}
-                                      />
+                                      <div className="flex items-center gap-1.5 mb-1">
+                                        <input
+                                          ref={titleInputRef}
+                                          type="text"
+                                          value={item.title}
+                                          onChange={(e) => handleTitleEdit(item, e.target.value)}
+                                          onClick={(e) => e.stopPropagation()}
+                                          className="flex-1 min-w-0 font-semibold text-sm bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none rounded-none px-0 py-0.5"
+                                          style={{ color: theme.textColor }}
+                                          placeholder={item.isCustomItem ? 'Decision title' : undefined}
+                                        />
+                                        {item.assignedTo && (
+                                          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium flex-shrink-0">
+                                            @{item.assignedTo}
+                                          </span>
+                                        )}
+                                        <Popover>
+                                          <PopoverTrigger asChild>
+                                            <button
+                                              onClick={(e) => e.stopPropagation()}
+                                              className="flex-shrink-0 p-0.5 rounded hover:bg-gray-100 transition-opacity opacity-60 hover:opacity-100"
+                                              title="Assign to team member"
+                                            >
+                                              <AtSign className="w-3 h-3 text-muted-foreground" />
+                                            </button>
+                                          </PopoverTrigger>
+                                          <PopoverContent className="w-48 p-1" align="end" onClick={(e) => e.stopPropagation()}>
+                                            <p className="text-xs font-medium text-muted-foreground px-2 py-1.5">Assign to</p>
+                                            {state.birthTeam.fields
+                                              .filter(f => f.value.trim())
+                                              .map(f => (
+                                                <button
+                                                  key={f.id}
+                                                  onClick={() => setAssignment(
+                                                    item.sectionId,
+                                                    item.isCustomItem && item.customItemId ? item.customItemId : item.preferenceId,
+                                                    f.label,
+                                                    item.isCustomItem
+                                                  )}
+                                                  className={cn(
+                                                    'w-full text-left text-sm px-2 py-1.5 rounded hover:bg-muted transition-colors',
+                                                    item.assignedTo === f.label && 'bg-primary/5 text-primary'
+                                                  )}
+                                                >
+                                                  {f.value} <span className="text-muted-foreground text-xs">({f.label})</span>
+                                                </button>
+                                              ))
+                                            }
+                                            {item.assignedTo && (
+                                              <>
+                                                <div className="border-t my-1" />
+                                                <button
+                                                  onClick={() => setAssignment(
+                                                    item.sectionId,
+                                                    item.isCustomItem && item.customItemId ? item.customItemId : item.preferenceId,
+                                                    null,
+                                                    item.isCustomItem
+                                                  )}
+                                                  className="w-full text-left text-sm px-2 py-1.5 rounded hover:bg-muted transition-colors text-red-500"
+                                                >
+                                                  Remove assignment
+                                                </button>
+                                              </>
+                                            )}
+                                          </PopoverContent>
+                                        </Popover>
+                                      </div>
                                       {isMultiLine ? (
                                         <div className="space-y-1">
                                           <DndContext
@@ -845,12 +923,72 @@ export function DocumentCanvas({
                                     </>
                                   ) : (
                                     <>
-                                      <p
-                                        className="font-semibold text-sm mb-0.5"
-                                        style={{ color: theme.textColor }}
-                                      >
-                                        {item.title}
-                                      </p>
+                                      <div className="flex items-center gap-1.5 mb-0.5">
+                                        <p
+                                          className="font-semibold text-sm"
+                                          style={{ color: theme.textColor }}
+                                        >
+                                          {item.title}
+                                        </p>
+                                        {item.assignedTo && (
+                                          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                                            @{item.assignedTo}
+                                          </span>
+                                        )}
+                                        <Popover>
+                                          <PopoverTrigger asChild>
+                                            <button
+                                              onClick={(e) => e.stopPropagation()}
+                                              className={cn(
+                                                'ml-auto flex-shrink-0 p-0.5 rounded hover:bg-gray-100 transition-opacity',
+                                                item.assignedTo ? 'opacity-60 hover:opacity-100' : 'opacity-0 group-hover:opacity-100'
+                                              )}
+                                              title="Assign to team member"
+                                            >
+                                              <AtSign className="w-3 h-3 text-muted-foreground" />
+                                            </button>
+                                          </PopoverTrigger>
+                                          <PopoverContent className="w-48 p-1" align="end" onClick={(e) => e.stopPropagation()}>
+                                            <p className="text-xs font-medium text-muted-foreground px-2 py-1.5">Assign to</p>
+                                            {state.birthTeam.fields
+                                              .filter(f => f.value.trim())
+                                              .map(f => (
+                                                <button
+                                                  key={f.id}
+                                                  onClick={() => setAssignment(
+                                                    item.sectionId,
+                                                    item.isCustomItem && item.customItemId ? item.customItemId : item.preferenceId,
+                                                    f.label,
+                                                    item.isCustomItem
+                                                  )}
+                                                  className={cn(
+                                                    'w-full text-left text-sm px-2 py-1.5 rounded hover:bg-muted transition-colors',
+                                                    item.assignedTo === f.label && 'bg-primary/5 text-primary'
+                                                  )}
+                                                >
+                                                  {f.value} <span className="text-muted-foreground text-xs">({f.label})</span>
+                                                </button>
+                                              ))
+                                            }
+                                            {item.assignedTo && (
+                                              <>
+                                                <div className="border-t my-1" />
+                                                <button
+                                                  onClick={() => setAssignment(
+                                                    item.sectionId,
+                                                    item.isCustomItem && item.customItemId ? item.customItemId : item.preferenceId,
+                                                    null,
+                                                    item.isCustomItem
+                                                  )}
+                                                  className="w-full text-left text-sm px-2 py-1.5 rounded hover:bg-muted transition-colors text-red-500"
+                                                >
+                                                  Remove assignment
+                                                </button>
+                                              </>
+                                            )}
+                                          </PopoverContent>
+                                        </Popover>
+                                      </div>
                                       {item.birthPlanText && (
                                         isMultiLine ? (
                                           <ul className="list-none space-y-0.5 pl-0">

@@ -51,6 +51,7 @@ export interface PreferenceValue {
   sortOrder: number
   stance?: 'desired' | 'declined' | 'cautious' | null  // Green check / Red X / Yellow caution / neutral
   customIcon?: string                      // User-chosen Lucide icon name
+  assignedTo?: string                      // Birth team member name for task assignment
 }
 
 export interface CustomPreferenceItem {
@@ -60,6 +61,7 @@ export interface CustomPreferenceItem {
   sortOrder: number
   stance?: 'desired' | 'declined' | 'cautious' | null
   customIcon?: string
+  assignedTo?: string                      // Birth team member name for task assignment
 }
 
 export interface EditorSectionState {
@@ -124,5 +126,6 @@ export type EditorAction =
   | { type: 'SET_PHILOSOPHY'; payload: string }
   | { type: 'TOGGLE_PHILOSOPHY_VISIBILITY' }
   | { type: 'SET_SECTION_TITLE'; payload: { sectionId: EditorSectionId; title: string } }
+  | { type: 'SET_ASSIGNMENT'; payload: { sectionId: EditorSectionId; preferenceId: string; assignedTo: string | null; isCustom?: boolean } }
   | { type: 'UNDO' }
   | { type: 'REDO' }

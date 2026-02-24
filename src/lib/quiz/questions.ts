@@ -1114,7 +1114,7 @@ export const quizQuestions: QuizQuestion[] = [
       bottomLine: 'Your baby will only have one first hour of life. Everything else can wait. Communicate this clearly in advance so the team knows your preferences.',
     },
     options: [
-      { value: 'delay_golden_hour', label: 'Delay all during the golden hour', birthPlanText: 'Please delay all non-urgent procedures for at least the first hour to allow for bonding.', icon: 'Clock' },
+      { value: 'delay_golden_hour', label: 'Delay all until after the golden hour', birthPlanText: 'Please delay all non-urgent procedures until after the first hour to allow for bonding and first feeding.', icon: 'Clock' },
       { value: 'ask_first', label: 'Ask us before each procedure', birthPlanText: 'Please ask our permission before each procedure and explain what will be done.', icon: 'MessageCircle' },
       { value: 'standard', label: 'Standard timing is fine', birthPlanText: 'Standard timing for procedures is acceptable.', icon: 'ClipboardCheck', omitFromPlan: true },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
@@ -1126,10 +1126,11 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'infant_pain_management',
     category: 'Newborn Care',
     title: 'Baby\'s Comfort During Procedures',
-    subtitle: 'During newborn procedures (heel prick, shots), how would you like baby\'s pain managed?',
+    subtitle: 'How would you like baby\'s comfort managed during procedures? (Check all that apply)',
     order: 15.35,
+    inputType: 'checklist',
     learnMoreData: {
-      tradeoff: 'Breastfeeding and skin-to-skin contact during procedures are evidence-based pain relief methods for newborns. Sucrose (sugar water) is also effective but some parents prefer natural comfort methods.',
+      tradeoff: 'Breastfeeding and skin-to-skin contact during procedures are evidence-based pain relief methods for newborns. Sucrose (sugar water) and acetaminophen (Tylenol) are also used, but emerging research raises questions about their long-term effects.',
       pros: [
         'Breastfeeding during the heel prick provides significant, measurable pain reduction',
         'Skin-to-skin contact activates calming pathways and reduces cortisol',
@@ -1138,10 +1139,11 @@ export const quizQuestions: QuizQuestion[] = [
       ],
       cons: [
         'Not all hospitals routinely offer breastfeeding during procedures',
-        'Sugar water introduces an unnecessary substance if breastfeeding is available',
-        'Some procedures require baby to be in a specific position',
+        'Some studies suggest oral sucrose (sugar water) given repeatedly may affect developing taste preferences and feeding behavior',
+        'Emerging research has found an association between acetaminophen (Tylenol) use in infancy and increased risk of conditions such as autism and ADHD, though causation has not been established',
+        'Some procedures require baby to be in a specific position that may limit comfort measures',
       ],
-      bottomLine: 'Your baby feels pain during procedures. Breastfeeding during the heel prick is the most effective comfort measure and is always worth requesting.',
+      bottomLine: 'Your baby feels pain during procedures. Breastfeeding is the most effective and risk-free comfort measure. If other options like sugar water or Tylenol are offered, ask your provider about the latest research so you can make an informed choice.',
       ebookChapter: 'Chapter 31: Infant Pain Management',
     },
     options: [
@@ -1149,11 +1151,10 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'skin_to_skin_during', label: 'Skin-to-skin during procedures', birthPlanText: 'Please perform newborn procedures during skin-to-skin contact when possible.', icon: 'Baby' },
       { value: 'sugar_water', label: 'Sugar water (sucrose) is fine', birthPlanText: 'Sugar water for pain management during procedures is fine with us.', icon: 'Droplet' },
       { value: 'no_sugar_water', label: 'No sugar water - breastfeeding or skin-to-skin only', birthPlanText: 'Please do not give baby sugar water. We prefer breastfeeding or skin-to-skin for comfort.', icon: 'AlertCircle' },
+      { value: 'infant_tylenol', label: 'Infant Tylenol (acetaminophen) for post-procedure pain', birthPlanText: 'We are open to infant Tylenol (acetaminophen) for pain management after procedures if needed.', icon: 'Pill' },
       { value: 'provider_choice', label: 'Provider\'s standard approach', birthPlanText: 'We are fine with the standard approach to infant comfort during procedures.', icon: 'Stethoscope' },
-      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss infant pain management during procedures.', isUnsure: true },
     ],
-    textInputOnOption: 'custom',
   },
 
   {

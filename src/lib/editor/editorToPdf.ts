@@ -13,6 +13,7 @@ export interface PlanItem {
   birthPlanText: string
   customNote?: string
   stance?: 'desired' | 'declined' | 'cautious' | null
+  assignedTo?: string
 }
 
 export interface PDFData {
@@ -81,6 +82,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
         answer: selectedOption?.label || 'Custom',
         birthPlanText,
         stance: prefValue.stance,
+        assignedTo: prefValue.assignedTo,
       })
     })
 
@@ -97,6 +99,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
         answer: 'Custom',
         birthPlanText: item.text,
         stance: item.stance,
+        assignedTo: item.assignedTo,
       })
     })
 
