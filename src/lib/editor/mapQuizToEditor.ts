@@ -25,7 +25,7 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
   },
   birth_photography: {
     preferenceId: 'photography_video',
-    sectionId: 'pre_hospital',
+    sectionId: 'during_labor',
     valueMap: {
       photos_video: 'partner',
       photos_only: 'partner',
@@ -248,30 +248,43 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
 
 // C-section details is a compound question that maps to multiple preferences
 const CSECTION_DETAILS_MAP: Record<string, Array<{ preferenceId: string; sectionId: EditorSectionId; value: string }>> = {
-  clear_drape_skin_to_skin: [
+  gentle_csection: [
+    { preferenceId: 'gentle_csection', sectionId: 'csection', value: 'yes' },
+  ],
+  clear_drape: [
     { preferenceId: 'clear_drape', sectionId: 'csection', value: 'yes' },
+  ],
+  step_by_step_narration: [
+    { preferenceId: 'csection_explanation', sectionId: 'csection', value: 'narrate' },
+  ],
+  immediate_skin_to_skin: [
     { preferenceId: 'csection_skin_to_skin', sectionId: 'csection', value: 'immediate' },
   ],
-  partner_present_photos: [
-    { preferenceId: 'partner_presence_csection', sectionId: 'csection', value: 'required' },
-    { preferenceId: 'csection_photos', sectionId: 'csection', value: 'yes' },
-  ],
-  music_narration: [
-    { preferenceId: 'csection_music', sectionId: 'csection', value: 'yes' },
+  no_students: [
+    { preferenceId: 'medical_students', sectionId: 'during_labor', value: 'prefer_not' },
   ],
   standard_procedure: [],
 }
 
 // C-section comfort is a compound question that maps to individual comfort preferences
 const CSECTION_COMFORT_MAP: Record<string, Array<{ preferenceId: string; sectionId: EditorSectionId; value: string }>> = {
-  arms_free: [
-    { preferenceId: 'csection_arm_mobility', sectionId: 'csection', value: 'not_strapped' },
+  dim_quiet: [
+    { preferenceId: 'csection_environment', sectionId: 'csection', value: 'dim_quiet' },
   ],
   music_in_or: [
     { preferenceId: 'csection_music', sectionId: 'csection', value: 'yes' },
   ],
-  surgeon_narrates: [
-    { preferenceId: 'csection_explanation', sectionId: 'csection', value: 'narrate' },
+  photos_video: [
+    { preferenceId: 'csection_photos', sectionId: 'csection', value: 'yes' },
+  ],
+  partner_present: [
+    { preferenceId: 'partner_presence_csection', sectionId: 'csection', value: 'required' },
+  ],
+  doula_present: [
+    { preferenceId: 'doula_presence_csection', sectionId: 'csection', value: 'yes' },
+  ],
+  arms_free: [
+    { preferenceId: 'csection_arm_mobility', sectionId: 'csection', value: 'not_strapped' },
   ],
   standard_fine: [],
 }
@@ -284,6 +297,7 @@ const ENGAGEMENT_ONLY_QUESTIONS = new Set([
   'baby_name',
   'facility_name',
   'due_date',
+  'mother_name',
 ])
 
 // Try to parse a JSON array checklist answer; returns null if not a checklist
@@ -458,14 +472,22 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     sections[sectionId].preferences.forEach((p, i) => { p.sortOrder = i })
   })
 
-  // Build title from baby name or mother's name
+  // Build title and subtitle
+  const motherName = quizState.answers?.mother_name
   const babyName = quizState.answers?.baby_name
-  const motherName = quizState.birthTeam?.fields?.[0]?.value
+
+  // Title: {{name}}'s Birth Plan or "My Birth Plan"
   let title = 'My Birth Plan'
-  if (babyName && babyName !== 'not_yet' && babyName !== 'prefer_not_to_say' && babyName !== 'has_name') {
-    title = `Welcoming ${babyName} into the World`
-  } else if (motherName) {
+  if (motherName && motherName !== 'has_name' && motherName !== 'prefer_not_to_say') {
     title = `${motherName}'s Birth Plan`
+  }
+
+  // Subtitle: Welcoming {{baby_name}} into the World
+  let subtitle: string | undefined
+  if (babyName && babyName !== 'not_yet' && babyName !== 'prefer_not_to_say' && babyName !== 'has_name') {
+    subtitle = `Welcoming ${babyName} into the World`
+  } else {
+    subtitle = 'Welcoming My Baby Into the World'
   }
 
   // Map quiz birth type to editor birth type
@@ -514,6 +536,13 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     } catch { /* ignore parse errors */ }
   }
 
+  // Populate mother name from quiz
+  const motherNameAnswer = quizState.answers?.mother_name
+  if (motherNameAnswer && motherNameAnswer !== 'has_name' && motherNameAnswer !== 'prefer_not_to_say') {
+    const motherField = birthTeam.fields.find(f => f.id === 'mother')
+    if (motherField && !motherField.value) motherField.value = motherNameAnswer
+  }
+
   return {
     birthTeam,
     templateStyle: (quizState.templateStyle || 'minimal') as TemplateStyle,
@@ -521,6 +550,7 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     sections,
     createdFromQuiz: true,
     title,
+    subtitle,
     disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
   }
 }

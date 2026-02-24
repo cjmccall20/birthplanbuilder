@@ -8,7 +8,6 @@ import { QuestionCard } from '@/components/quiz/question-card'
 import { QuizProgressBar } from '@/components/quiz/progress-bar'
 import { QuizPreviewPanel } from '@/components/quiz/QuizPreviewPanel'
 import { Card, CardContent } from '@/components/ui/card'
-import { cn } from '@/lib/utils'
 import { Shield, Baby, Stethoscope, Hospital, Heart, User } from 'lucide-react'
 
 const CATEGORY_TRANSITIONS: Record<string, { icon: typeof Shield; title: string; description: string }> = {
@@ -44,7 +43,7 @@ const CATEGORY_TRANSITIONS: Record<string, { icon: typeof Shield; title: string;
   },
 }
 
-function CategoryTransitionCard({ category, birthType, isFirst }: { category: string; birthType?: string; isFirst: boolean }) {
+function CategoryTransitionCard({ category, birthType }: { category: string; birthType?: string }) {
   const config = CATEGORY_TRANSITIONS[category]
   if (!config) return null
   const Icon = config.icon
@@ -58,27 +57,15 @@ function CategoryTransitionCard({ category, birthType, isFirst }: { category: st
   }
 
   return (
-    <Card className={cn(
-      "w-full max-w-2xl mx-auto bg-muted/40 border-dashed",
-      isFirst ? "mb-6" : "mb-4"
-    )}>
-      <CardContent className={isFirst ? "pt-6 pb-5" : "pt-3 pb-2"}>
+    <Card className="w-full max-w-2xl mx-auto mb-4 bg-muted/40 border-dashed">
+      <CardContent className="pt-3 pb-2">
         <div className="flex items-start gap-3">
-          <Icon className={cn(
-            "text-muted-foreground flex-shrink-0 mt-0.5",
-            isFirst ? "h-6 w-6" : "h-5 w-5"
-          )} />
+          <Icon className="h-5 w-5 text-muted-foreground flex-shrink-0 mt-0.5" />
           <div>
-            <h3 className={cn(
-              "font-serif font-semibold text-foreground mb-1",
-              isFirst ? "text-lg" : "text-base"
-            )}>
+            <h3 className="font-serif font-semibold text-foreground mb-1 text-base">
               {title}
             </h3>
-            <p className={cn(
-              "text-muted-foreground leading-relaxed",
-              isFirst ? "text-sm" : "text-xs"
-            )}>
+            <p className="text-muted-foreground leading-relaxed text-xs">
               {description}
             </p>
           </div>
@@ -106,14 +93,18 @@ function DevResetButton() {
 }
 
 function QuizContent() {
-  const { state, currentQuestion, isComplete, visibleQuestions } = useQuiz()
+  const { state, currentQuestion, visibleQuestions } = useQuiz()
   const router = useRouter()
 
   useEffect(() => {
-    if (isComplete || state.currentStep >= visibleQuestions.length) {
+    // Only redirect when the user has advanced past all questions.
+    // Do NOT redirect based on isComplete alone - the user may still be
+    // viewing the last question (e.g. typing a facility name into a text
+    // input, or navigating back from quiz-results to review answers).
+    if (state.currentStep >= visibleQuestions.length) {
       router.push('/quiz-results')
     }
-  }, [isComplete, state.currentStep, visibleQuestions.length, router])
+  }, [state.currentStep, visibleQuestions.length, router])
 
   // Determine category header: always show (except for very first "Getting Started" question)
   const categoryInfo = useMemo(() => {
@@ -123,8 +114,7 @@ function QuizContent() {
     if (currentIndex === 0) return null
     // Check if this is the first question in this category
     const prevQuestion = visibleQuestions[currentIndex - 1]
-    const isFirst = prevQuestion?.category !== currentQuestion.category
-    return { category: currentQuestion.category, isFirst }
+    return { category: currentQuestion.category }
   }, [currentQuestion, visibleQuestions])
 
   if (!currentQuestion) {
@@ -140,7 +130,7 @@ function QuizContent() {
   return (
     <div className="container py-6 sm:py-8 px-4 pb-16">
       <QuizProgressBar />
-      {categoryInfo && <CategoryTransitionCard category={categoryInfo.category} birthType={state.answers['planned_birth_type']} isFirst={categoryInfo.isFirst} />}
+      {categoryInfo && <CategoryTransitionCard category={categoryInfo.category} birthType={state.answers['planned_birth_type']} />}
       <QuestionCard key={currentQuestion.id} question={currentQuestion} />
       <QuizPreviewPanel />
       <DevResetButton />

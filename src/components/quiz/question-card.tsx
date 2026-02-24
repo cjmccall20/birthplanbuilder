@@ -77,6 +77,12 @@ export function QuestionCard({ question }: QuestionCardProps) {
       setTextInput('')
     }
     setAnswer(question.id, value)
+    // Auto-populate today's date when selecting the date trigger option
+    if (effectiveQuestion.inputType === 'date' && value === effectiveQuestion.textInputOnOption && !textInput) {
+      const today = new Date().toISOString().split('T')[0]
+      setTextInput(today)
+      setAnswer(question.id, today)
+    }
   }
 
   const handleTextChange = (value: string) => {
@@ -194,23 +200,33 @@ export function QuestionCard({ question }: QuestionCardProps) {
                 </Label>
               </div>
 
-              {/* Inline text input when this option triggers it */}
+              {/* Inline text/date input when this option triggers it */}
               {showTextInput && effectiveQuestion.textInputOnOption === option.value && (
                 <div className="ml-8 mt-2 mb-1 space-y-2">
-                  <Input
-                    type="text"
-                    placeholder={
-                      question.id === 'baby_name'
-                        ? "Type baby's name..."
-                        : question.id === 'facility_name'
-                        ? 'Type facility name...'
-                        : 'Type your preference...'
-                    }
-                    value={textInput}
-                    onChange={(e) => handleTextChange(e.target.value)}
-                    className="min-h-[44px] text-base"
-                    autoFocus
-                  />
+                  {effectiveQuestion.inputType === 'date' ? (
+                    <Input
+                      type="date"
+                      value={textInput || new Date().toISOString().split('T')[0]}
+                      onChange={(e) => handleTextChange(e.target.value)}
+                      className="min-h-[44px] text-base"
+                      autoFocus
+                    />
+                  ) : (
+                    <Input
+                      type="text"
+                      placeholder={
+                        question.id === 'baby_name'
+                          ? "Type baby's name..."
+                          : question.id === 'facility_name'
+                          ? 'Type facility name...'
+                          : 'Type your preference...'
+                      }
+                      value={textInput}
+                      onChange={(e) => handleTextChange(e.target.value)}
+                      className="min-h-[44px] text-base"
+                      autoFocus
+                    />
+                  )}
                   {!ENGAGEMENT_ONLY_QUESTIONS.has(question.id) && (
                     <div className="flex items-center gap-1">
                       <span className="text-xs text-muted-foreground mr-1">Stance:</span>

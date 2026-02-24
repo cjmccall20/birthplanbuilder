@@ -17,6 +17,8 @@ export interface CanvasTheme {
   }
   /** Repeating subtle background pattern (CSS background-image value) */
   backgroundPattern?: string
+  /** Unicode symbol used for bullet points in multi-line text */
+  bulletSymbol?: string
 }
 
 export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
@@ -27,6 +29,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#ffffff',
     sectionHeaderBg: 'rgba(212, 165, 165, 0.1)',
     borderColor: '#e5e5e5',
+    bulletSymbol: '\u2665',
   },
   floral: {
     fontFamily: 'Georgia, Times New Roman, serif',
@@ -35,6 +38,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#fff9f9',
     sectionHeaderBg: 'rgba(139, 90, 90, 0.08)',
     borderColor: '#e8d4d4',
+    bulletSymbol: '\u2740',
     decorative: true,
     cornerSvg: {
       topLeft: `<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
@@ -125,6 +129,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#ffffff',
     sectionHeaderBg: 'rgba(44, 62, 80, 0.05)',
     borderColor: '#d1d5db',
+    bulletSymbol: '\u2022',
   },
   elegant: {
     fontFamily: 'Georgia, Times New Roman, serif',
@@ -133,6 +138,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#fffef9',
     sectionHeaderBg: 'rgba(184, 150, 12, 0.06)',
     borderColor: '#e8e4d4',
+    bulletSymbol: '\u2726',
     decorative: true,
     cornerSvg: {
       topLeft: `<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80" fill="none">
@@ -226,6 +232,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#f5f0e1',
     sectionHeaderBg: 'rgba(160, 82, 45, 0.08)',
     borderColor: '#d4c4a8',
+    bulletSymbol: '\u2740',
     decorative: true,
     backgroundPattern: `radial-gradient(circle at 20% 80%, rgba(160, 82, 45, 0.03) 0%, transparent 50%), radial-gradient(circle at 80% 20%, rgba(160, 82, 45, 0.03) 0%, transparent 50%)`,
     cornerSvg: {
@@ -336,6 +343,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#f8fbf8',
     sectionHeaderBg: 'rgba(74, 124, 89, 0.07)',
     borderColor: '#c8d8c8',
+    bulletSymbol: '\u2618',
     decorative: true,
     cornerSvg: {
       topLeft: `<svg xmlns="http://www.w3.org/2000/svg" width="130" height="130" viewBox="0 0 130 130" fill="none">
@@ -427,6 +435,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#f5f9fc',
     sectionHeaderBg: 'rgba(61, 122, 158, 0.06)',
     borderColor: '#c4d8e8',
+    bulletSymbol: '\u223C',
     decorative: true,
     backgroundPattern: `radial-gradient(ellipse at 10% 90%, rgba(61, 122, 158, 0.04) 0%, transparent 60%), radial-gradient(ellipse at 90% 10%, rgba(61, 122, 158, 0.03) 0%, transparent 60%)`,
     cornerSvg: {
@@ -476,6 +485,7 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#fdf8f4',
     sectionHeaderBg: 'rgba(196, 114, 78, 0.07)',
     borderColor: '#e0cec0',
+    bulletSymbol: '\u2726',
     decorative: true,
     cornerSvg: {
       topLeft: `<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100" fill="none">
@@ -597,5 +607,6 @@ export const canvasThemes: Record<TemplateStyle, CanvasTheme> = {
     backgroundColor: '#ffffff',
     sectionHeaderBg: 'rgba(0, 0, 0, 0.04)',
     borderColor: '#cccccc',
+    bulletSymbol: '\u2022',
   },
 }

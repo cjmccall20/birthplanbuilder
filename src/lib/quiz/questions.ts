@@ -25,7 +25,7 @@ export interface QuizQuestion {
   learnMoreContent?: string    // Backward compat - old plain-text learn more
   learnMoreData?: LearnMoreData
   options: QuizOption[]
-  inputType?: 'text' | 'checklist_with_names' | 'checklist'  // 'text' = legacy, 'checklist_with_names' = support people, 'checklist' = multi-select
+  inputType?: 'text' | 'checklist_with_names' | 'checklist' | 'date'  // 'text' = legacy, 'checklist_with_names' = support people, 'checklist' = multi-select, 'date' = native date picker
   textInputOnOption?: string   // Show text input when this option value is selected
   deferredFor?: 'csection'     // Deferred to end for vaginal planners
   conditionalOn?: {            // ONLY used for circumcision
@@ -364,7 +364,7 @@ export const quizQuestions: QuizQuestion[] = [
     },
     options: [
       { value: 'active_labor_4_5', label: 'Active labor (contractions 4-5 min apart)', birthPlanText: 'We plan to arrive when contractions are 4-5 minutes apart, lasting about 1 minute each.', icon: 'Clock' },
-      { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and we are exhibiting the emotional signposts of active labor.', icon: 'Timer' },
+      { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and I am exhibiting the emotional signposts of active labor.', icon: 'Timer' },
       { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason (such as GBS antibiotics).', icon: 'Building2' },
       { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will call our provider and arrive when they recommend.', icon: 'Stethoscope' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
@@ -1190,11 +1190,24 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
+    id: 'mother_name',
+    category: 'Personal',
+    title: 'Your Name',
+    subtitle: 'What name would you like on your birth plan?',
+    order: 21,
+    textInputOnOption: 'has_name',
+    options: [
+      { value: 'has_name', label: 'Enter your name', birthPlanText: '', icon: 'User' },
+      { value: 'prefer_not_to_say', label: 'Prefer not to say', birthPlanText: '', icon: 'Lock' },
+    ],
+  },
+  {
     id: 'due_date',
     category: 'Personal',
     title: 'Due Date',
     subtitle: 'When is your baby due?',
     order: 21.5,
+    inputType: 'date',
     textInputOnOption: 'has_date',
     options: [
       { value: 'has_date', label: 'Enter due date', birthPlanText: '', icon: 'Calendar' },
@@ -1282,49 +1295,38 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'csection_details',
     category: 'C-Section Planning',
     title: 'C-Section Details',
-    subtitle: 'What details matter most during a C-section? (Check all that apply)',
+    subtitle: 'What should your surgical team know? (Check all that apply)',
     order: 24,
     deferredFor: 'csection',
     inputType: 'checklist',
     learnMoreData: {
-      tradeoff: 'Even in a surgical birth, there are many personal touches that can make the experience meaningful. These range from visual (clear drape, photos) to sensory (music, narration) to bonding (skin-to-skin in the OR).',
+      tradeoff: 'Even in a surgical birth, there are many personal touches that can make the experience meaningful. These range from visual (clear drape) to communication (narration) to bonding (skin-to-skin in the OR).',
       pros: [
         'A clear drape lets you see baby emerge without viewing the surgery itself',
-        'Partner presence provides emotional support during the procedure',
-        'Photos capture the moment even when you cannot move freely',
-        'Music and narration create a calmer, more personal atmosphere',
+        'Gentle/family-centered approaches prioritize bonding during surgery',
+        'Immediate skin-to-skin promotes bonding even in the operating room',
+        'Narration helps you feel informed and involved in your own birth',
       ],
       cons: [
         'Some requests may not be possible during emergency C-sections',
         'Hospital policies and individual surgeon preferences vary',
-        'Clear drapes or photos may not appeal to everyone',
+        'Clear drapes may not appeal to everyone',
         'Multiple requests require advance communication with the team',
       ],
       bottomLine: 'Your birth experience matters even when it happens in an operating room. Speak up about the details that will make this moment meaningful for your family.',
       ebookChapter: 'Chapter 12: Cesarean Birth',
     },
     options: [
-      { value: 'clear_drape_skin_to_skin', label: 'Clear drape and immediate skin-to-skin', birthPlanText: 'During a C-section, we would like a clear drape so we can see baby being born, and immediate skin-to-skin contact in the OR.', icon: 'Eye' },
-      { value: 'partner_present_photos', label: 'Partner present with photos', birthPlanText: 'During a C-section, it is very important that my partner be present, and we would like to take photos.', icon: 'Camera' },
-      { value: 'music_narration', label: 'Music and step-by-step narration', birthPlanText: 'During a C-section, we would like to play our own music and have the surgeon narrate what is happening.', icon: 'Music' },
-      { value: 'standard_procedure', label: 'Standard procedure is fine', birthPlanText: 'During a C-section, standard procedures are acceptable.', icon: 'ClipboardCheck' },
-      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Camera' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss C-section detail preferences with our surgical team.', isUnsure: true },
+      { value: 'gentle_csection', label: 'Gentle/family-centered approach if possible', birthPlanText: 'We would like a gentle/family-centered C-section approach, prioritizing bonding and a calm experience.', icon: 'Heart' },
+      { value: 'clear_drape', label: 'Clear drape so we can see baby being born', birthPlanText: 'Please use a clear drape so we can see baby being born.', icon: 'Eye' },
+      { value: 'step_by_step_narration', label: 'Surgeon narrates step-by-step', birthPlanText: 'We would appreciate step-by-step narration of what is happening during the procedure.', icon: 'MessageSquare' },
+      { value: 'immediate_skin_to_skin', label: 'Immediate skin-to-skin on chest', birthPlanText: 'Please place baby on my chest for immediate skin-to-skin contact.', icon: 'Heart' },
+      { value: 'no_students', label: 'No medical students or observers', birthPlanText: 'We prefer no medical students or observers during the surgery.', icon: 'ShieldOff' },
+      { value: 'standard_procedure', label: 'Standard procedure is fine', birthPlanText: '', omitFromPlan: true, icon: 'ClipboardCheck' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
     ],
     textInputOnOption: 'custom',
-    birthTypeVariant: {
-      vaginal: {
-        subtitle: 'What details would matter if you end up having a C-section?',
-      },
-      csection: {
-        subtitle: 'What details matter most during your C-section?',
-        optionOverrides: {
-          clear_drape_skin_to_skin: { birthPlanText: 'During our C-section, we would like a clear drape so we can see baby being born, and immediate skin-to-skin contact in the OR.' },
-          partner_present_photos: { birthPlanText: 'During our C-section, it is very important that my partner be present, and we would like to take photos.' },
-          music_narration: { birthPlanText: 'During our C-section, we would like to play our own music and have the surgeon narrate what is happening.' },
-        },
-      },
-    },
   },
   {
     id: 'csection_cord_clamping',
@@ -1447,45 +1449,40 @@ export const quizQuestions: QuizQuestion[] = [
   {
     id: 'csection_comfort',
     category: 'C-Section Planning',
-    title: 'C-Section Comfort Measures',
-    subtitle: 'What would help you feel more comfortable during surgery? (Check all that apply)',
+    title: 'C-Section Environment',
+    subtitle: 'What would make the environment more comfortable? (Check all that apply)',
     order: 27,
     deferredFor: 'csection',
     inputType: 'checklist',
     learnMoreData: {
-      tradeoff: 'Small touches during a C-section - arms free, music, narration - can transform the experience from clinical to personal. Most of these requests are easy to accommodate, but require advance communication with your surgical team.',
+      tradeoff: 'Small touches during a C-section - lighting, music, having your people present - can transform the experience from clinical to personal. Most of these requests are easy to accommodate, but require advance communication with your surgical team.',
       pros: [
+        'Low lighting and quiet voices create a calmer, more intimate atmosphere',
+        'Music reduces anxiety and makes the experience feel more personal',
+        'Having your partner and/or doula present provides emotional support',
         'Having arms free lets you touch and hold baby as soon as possible',
-        'Music reduces anxiety and creates a calmer, more personal atmosphere',
-        'Surgeon narration helps you feel informed and involved in your own birth',
-        'These small changes can significantly improve the emotional experience of a C-section',
       ],
       cons: [
         'Arms may need to be secured if you are trembling from anesthesia or medication',
         'Music volume must be low enough for the surgical team to communicate',
-        'Not all surgeons are comfortable narrating, and some find it distracting',
+        'Not all hospitals allow doulas in the operating room',
         'Emergency situations may override comfort preferences',
       ],
       bottomLine: 'A C-section is still your birth. These small requests can make the difference between feeling like a patient and feeling like a mother meeting her baby.',
       ebookChapter: 'Chapter 12: Cesarean Birth',
     },
     options: [
-      { value: 'arms_free', label: 'Arms free (not strapped down)', birthPlanText: 'During a C-section, I would prefer to have my arms free and not strapped down.', icon: 'Move' },
-      { value: 'music_in_or', label: 'Music in the OR', birthPlanText: 'During a C-section, we would like to play our own music in the operating room.', icon: 'Music' },
-      { value: 'surgeon_narrates', label: 'Surgeon narrates what\'s happening', birthPlanText: 'During a C-section, we would like the surgeon to narrate what is happening during the procedure.', icon: 'MessageSquare' },
-      { value: 'standard_fine', label: 'Standard procedure is fine', birthPlanText: 'We are comfortable with standard C-section procedures.', icon: 'ClipboardCheck', omitFromPlan: true },
+      { value: 'dim_quiet', label: 'Low lighting and quiet voices', birthPlanText: 'We would appreciate low lighting and quiet voices in the operating room.', icon: 'Moon' },
+      { value: 'music_in_or', label: 'Play our own music', birthPlanText: 'We would like to play our own music during the procedure.', icon: 'Music' },
+      { value: 'photos_video', label: 'Photos and/or video during surgery', birthPlanText: 'We would like to take photos and/or video during the surgery.', icon: 'Camera' },
+      { value: 'partner_present', label: 'Partner present throughout', birthPlanText: 'My partner should be present in the operating room throughout the procedure.', icon: 'Users' },
+      { value: 'doula_present', label: 'Doula present throughout', birthPlanText: 'Our doula should be present in the operating room throughout the procedure.', icon: 'UserCheck' },
+      { value: 'arms_free', label: 'Arms free (not strapped down)', birthPlanText: 'I would prefer my arms to remain free and not strapped down during the procedure.', icon: 'Move' },
+      { value: 'standard_fine', label: 'Standard environment is fine', birthPlanText: '', omitFromPlan: true, icon: 'ClipboardCheck' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
-      { value: 'unsure', label: 'I need to think about this', birthPlanText: 'We would like to discuss comfort options for a C-section with our surgical team.', isUnsure: true },
+      { value: 'unsure', label: 'I need to think about this', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
     ],
     textInputOnOption: 'custom',
-    birthTypeVariant: {
-      vaginal: {
-        subtitle: 'If a C-section happens, what would help you feel comfortable?',
-      },
-      csection: {
-        subtitle: 'What would help you feel most comfortable during surgery?',
-      },
-    },
   },
 ]
 

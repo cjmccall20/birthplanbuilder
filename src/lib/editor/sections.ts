@@ -67,7 +67,7 @@ export const BIRTH_TYPE_SECTIONS: Record<BirthType, Record<EditorSectionId, Sect
   planned_csection: {
     pre_hospital: { visible: true, order: 0 },
     during_labor: { visible: false, order: 99 },
-    csection: { visible: true, title: 'Your C-Section', order: 1 },
+    csection: { visible: true, title: 'My C-Section', order: 1 },
     at_birth: { visible: true, title: 'After Delivery', order: 2 },
     newborn_procedures: { visible: true, order: 3 },
     hospital_stay: { visible: true, order: 4 },

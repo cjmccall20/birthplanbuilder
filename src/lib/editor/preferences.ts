@@ -14,7 +14,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     quizQuestionId: 'when_to_hospital',
     options: [
       { value: 'active_labor_4_5', label: 'Active labor (contractions 4-5 min apart)', birthPlanText: 'We plan to arrive when contractions are 4-5 minutes apart, lasting about 1 minute each.', isPopular: true },
-      { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and we are exhibiting the emotional signposts of active labor.', isPopular: true },
+      { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and I am exhibiting the emotional signposts of active labor.', isPopular: true },
       { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason (such as GBS antibiotics).' },
       { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will call our provider and arrive when they recommend.' },
     ],
@@ -34,7 +34,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
   },
   {
     id: 'photography_video',
-    sectionId: 'pre_hospital',
+    sectionId: 'during_labor',
     title: 'Photography & Video',
     description: 'Plans for documenting the birth',
     icon: 'Camera',
@@ -723,6 +723,30 @@ export const PREFERENCES: PreferenceDefinition[] = [
     options: [
       { value: 'not_strapped', label: 'Prefer not strapped down', birthPlanText: 'I prefer to have my arms free and not strapped down during the C-section.', isPopular: true },
       { value: 'standard', label: 'Standard procedure fine', birthPlanText: 'Standard arm positioning is acceptable.' },
+    ],
+  },
+  {
+    id: 'csection_environment',
+    sectionId: 'csection',
+    title: 'C-Section Environment',
+    description: 'Ambiance preferences for the operating room',
+    icon: 'Moon',
+    allowCustom: true,
+    options: [
+      { value: 'dim_quiet', label: 'Low lighting and quiet voices', birthPlanText: 'We would appreciate low lighting and quiet voices in the operating room.' },
+      { value: 'standard', label: 'Standard environment', birthPlanText: 'Standard operating room environment is fine.' },
+    ],
+  },
+  {
+    id: 'doula_presence_csection',
+    sectionId: 'csection',
+    title: 'Doula During C-Section',
+    description: 'Whether your doula will be present during surgery',
+    icon: 'UserCheck',
+    allowCustom: true,
+    options: [
+      { value: 'yes', label: 'Doula present throughout', birthPlanText: 'Our doula should be present in the operating room throughout the procedure.' },
+      { value: 'no', label: 'No doula during surgery', birthPlanText: 'Our doula will not be present during the surgery.' },
     ],
   },
   {

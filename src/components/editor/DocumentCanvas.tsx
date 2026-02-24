@@ -12,13 +12,49 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
 import { templateStyles } from '@/types'
 import { Button } from '@/components/ui/button'
-import { CheckCircle2, XCircle, StickyNote, Plus, EyeOff, Trash2, HelpCircle } from 'lucide-react'
-import { getIconComponent } from './IconPicker'
+import { CheckCircle2, XCircle, StickyNote, Plus, EyeOff, Trash2, HelpCircle, GripVertical } from 'lucide-react'
+import { getIconComponent, IconPicker } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
 import { canvasThemes } from '@/lib/editor/canvasThemes'
+import {
+  DndContext,
+  closestCenter,
+  KeyboardSensor,
+  PointerSensor,
+  useSensor,
+  useSensors,
+  type DragEndEvent,
+} from '@dnd-kit/core'
+import {
+  SortableContext,
+  sortableKeyboardCoordinates,
+  verticalListSortingStrategy,
+  useSortable,
+} from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import { SortableBulletItem } from './SortableBulletItem'
+
+// Bullet symbol options for the customizer
+const BULLET_OPTIONS = [
+  { symbol: '\u2665', label: 'Heart' },
+  { symbol: '\u2740', label: 'Flower' },
+  { symbol: '\u2022', label: 'Bullet' },
+  { symbol: '\u2726', label: 'Star' },
+  { symbol: '\u2618', label: 'Leaf' },
+  { symbol: '\u223C', label: 'Wave' },
+  { symbol: '\u2605', label: 'Star (filled)' },
+  { symbol: '\u2666', label: 'Diamond' },
+  { symbol: '\u25CF', label: 'Circle' },
+  { symbol: '\u2764', label: 'Red Heart' },
+]
 
 interface CanvasItem {
   sectionId: EditorSectionId
@@ -45,12 +81,38 @@ interface DocumentCanvasProps {
   selectedPreferenceId?: string | null
 }
 
+// Sortable preference card wrapper for section-level reordering
+function SortablePreferenceCard({ id, children }: { id: string; children: React.ReactNode }) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.5 : 1,
+  }
+
+  return (
+    <div ref={setNodeRef} style={style} className="flex items-start gap-1 group/drag">
+      <div className="flex-1 min-w-0">{children}</div>
+      <button
+        {...attributes}
+        {...listeners}
+        className="flex-shrink-0 mt-1 p-0.5 opacity-0 group-hover/drag:opacity-40 hover:!opacity-100 cursor-grab active:cursor-grabbing transition-opacity"
+        tabIndex={-1}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <GripVertical className="h-4 w-4 text-muted-foreground" />
+      </button>
+    </div>
+  )
+}
+
 export function DocumentCanvas({
   onItemSelect,
   onAddDecision,
   selectedPreferenceId,
 }: DocumentCanvasProps) {
-  const { state, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem } = useEditor()
+  const { state, dispatch, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setSubtitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem, setStance, setCustomIcon, setBulletSymbol } = useEditor()
   const [editingItemId, setEditingItemId] = useState<string | null>(null)
   const [expandedNotes, setExpandedNotes] = useState<Set<string>>(new Set())
   const titleInputRef = useRef<HTMLInputElement>(null)
@@ -62,6 +124,12 @@ export function DocumentCanvas({
       titleInputRef.current.focus()
     }
   }, [editingItemId])
+
+  // DnD sensors for preference-level reorder
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 8 } }),
+    useSensor(KeyboardSensor, { coordinateGetter: sortableKeyboardCoordinates })
+  )
 
   // Get visible sections for the current birth type
   const visibleSections = getSectionsForBirthType(state.birthType)
@@ -163,6 +231,7 @@ export function DocumentCanvas({
 
   const canvasSections = sections()
   const theme = canvasThemes[state.templateStyle]
+  const bulletSymbol = state.customBulletSymbol || theme.bulletSymbol || '\u2022'
 
   // Click to start inline editing + open sidebar
   const handleItemClick = (item: CanvasItem) => {
@@ -206,6 +275,65 @@ export function DocumentCanvas({
       setPreference(item.sectionId, item.preferenceId, { isOmitted: true })
     }
     setEditingItemId(null)
+  }
+
+  // Handle icon change from picker - special stance logic for CheckCircle2/XCircle
+  const handleIconChange = (item: CanvasItem, iconName: string) => {
+    if (iconName === 'CheckCircle2') {
+      // Set stance to desired, clear customIcon
+      if (item.isCustomItem && item.customItemId) {
+        updateCustomItem(item.sectionId, item.customItemId, { stance: 'desired', customIcon: undefined })
+      } else {
+        setStance(item.sectionId, item.preferenceId, 'desired')
+        setCustomIcon(item.sectionId, item.preferenceId, '')
+      }
+    } else if (iconName === 'XCircle') {
+      // Set stance to declined, clear customIcon
+      if (item.isCustomItem && item.customItemId) {
+        updateCustomItem(item.sectionId, item.customItemId, { stance: 'declined', customIcon: undefined })
+      } else {
+        setStance(item.sectionId, item.preferenceId, 'declined')
+        setCustomIcon(item.sectionId, item.preferenceId, '')
+      }
+    } else {
+      // Set customIcon, clear stance
+      if (item.isCustomItem && item.customItemId) {
+        updateCustomItem(item.sectionId, item.customItemId, { customIcon: iconName, stance: null })
+      } else {
+        setCustomIcon(item.sectionId, item.preferenceId, iconName)
+        setStance(item.sectionId, item.preferenceId, null)
+      }
+    }
+  }
+
+  // Handle preference-level drag end within a section
+  const handlePreferenceDragEnd = (sectionId: EditorSectionId, event: DragEndEvent) => {
+    const { active, over } = event
+    if (!over || active.id === over.id) return
+
+    const sectionState = state.sections[sectionId]
+    const sortedPrefs = [...sectionState.preferences].sort((a, b) => a.sortOrder - b.sortOrder)
+    const oldIndex = sortedPrefs.findIndex(p => p.preferenceId === active.id)
+    const newIndex = sortedPrefs.findIndex(p => p.preferenceId === over.id)
+
+    if (oldIndex === -1 || newIndex === -1) return
+
+    const newOrder = [...sortedPrefs]
+    const [moved] = newOrder.splice(oldIndex, 1)
+    newOrder.splice(newIndex, 0, moved)
+
+    dispatch({
+      type: 'REORDER_PREFERENCES',
+      payload: { sectionId, preferenceIds: newOrder.map(p => p.preferenceId) },
+    })
+  }
+
+  // Handle bullet-level reorder within a preference's multi-line text
+  const handleBulletReorder = (item: CanvasItem, oldIndex: number, newIndex: number) => {
+    const lines = item.birthPlanText.split('\n').filter(Boolean)
+    const [moved] = lines.splice(oldIndex, 1)
+    lines.splice(newIndex, 0, moved)
+    handleTextEdit(item, lines.join('\n'))
   }
 
   return (
@@ -261,6 +389,40 @@ export function DocumentCanvas({
             </SelectContent>
           </Select>
         </div>
+
+        {/* Bullet symbol picker */}
+        <Popover>
+          <PopoverTrigger asChild>
+            <button
+              className={cn(
+                'h-8 w-8 rounded-md border flex items-center justify-center text-base transition-colors',
+                'hover:bg-gray-100 border-gray-200'
+              )}
+              title="Bullet symbol"
+            >
+              {bulletSymbol}
+            </button>
+          </PopoverTrigger>
+          <PopoverContent className="w-auto p-2" align="start">
+            <p className="text-xs font-medium text-muted-foreground mb-2">Bullet symbol</p>
+            <div className="grid grid-cols-5 gap-1">
+              {BULLET_OPTIONS.map(({ symbol, label }) => (
+                <button
+                  key={symbol}
+                  onClick={() => setBulletSymbol(symbol === (theme.bulletSymbol || '\u2022') ? undefined : symbol)}
+                  className={cn(
+                    'h-8 w-8 rounded flex items-center justify-center text-base transition-colors',
+                    'hover:bg-muted',
+                    bulletSymbol === symbol && 'bg-primary/10 ring-1 ring-primary'
+                  )}
+                  title={label}
+                >
+                  {symbol}
+                </button>
+              ))}
+            </div>
+          </PopoverContent>
+        </Popover>
 
         {/* Separator */}
         <div className="hidden md:block w-px h-6 bg-gray-200" />
@@ -351,6 +513,15 @@ export function DocumentCanvas({
                 placeholder="Birth Plan"
               />
 
+              {/* Subtitle */}
+              <Input
+                value={state.subtitle || ''}
+                onChange={(e) => setSubtitle(e.target.value)}
+                className="text-sm md:text-base text-center border-0 bg-transparent p-0 focus-visible:ring-0 focus-visible:ring-offset-0 w-full"
+                style={{ fontFamily: theme.fontFamily, color: theme.textColor, opacity: 0.65 }}
+                placeholder="Subtitle (optional)"
+              />
+
               {/* Primary name from first birth team field */}
               {state.birthTeam.fields.length > 0 && (
                 <Input
@@ -410,225 +581,342 @@ export function DocumentCanvas({
             </div>
 
             {/* Content Sections */}
-            {canvasSections.map((section) => (
-              <div key={section.sectionId} className="mb-8">
-                <h2
-                  className="text-lg font-semibold pb-2 mb-4 border-b"
-                  style={{
-                    color: theme.primaryColor,
-                    borderColor: theme.borderColor,
-                    backgroundColor: theme.sectionHeaderBg
-                  }}
-                >
-                  {section.title}
-                </h2>
-                <div className="space-y-4">
-                  {section.items.length === 0 && !section.notes && (
-                    <div
-                      className="text-center py-6 border border-dashed rounded-lg"
-                      style={{ borderColor: `${theme.primaryColor}25`, color: theme.textColor, opacity: 0.5 }}
+            {canvasSections.map((section) => {
+              // Build the list of sortable IDs for this section (preference IDs only, not custom)
+              const sortableItemIds = section.items
+                .filter(item => !item.isCustomItem)
+                .map(item => item.preferenceId)
+
+              return (
+                <div key={section.sectionId} className="mb-8">
+                  <h2
+                    className="text-lg font-semibold pb-2 mb-4 border-b"
+                    style={{
+                      color: theme.primaryColor,
+                      borderColor: theme.borderColor,
+                      backgroundColor: theme.sectionHeaderBg
+                    }}
+                  >
+                    {section.title}
+                  </h2>
+
+                  <DndContext
+                    sensors={sensors}
+                    collisionDetection={closestCenter}
+                    onDragEnd={(event) => handlePreferenceDragEnd(section.sectionId, event)}
+                  >
+                    <SortableContext
+                      items={sortableItemIds}
+                      strategy={verticalListSortingStrategy}
                     >
-                      <p className="text-sm">No decisions made yet</p>
-                      <p className="text-xs mt-1">Take the quiz or add preferences from the sidebar</p>
-                    </div>
-                  )}
-                  {section.items.map((item) => {
-                    const ItemIcon = getIconComponent(item.icon || 'Circle')
-                    const isEditing = editingItemId === item.preferenceId
-
-                    // Undecided items get a distinct placeholder appearance
-                    if (item.isUndecided) {
-                      return (
-                        <div
-                          key={item.preferenceId}
-                          data-canvas-item
-                          className={cn(
-                            'group pl-3 border-l-2 border-dashed transition-all cursor-pointer',
-                            selectedPreferenceId === item.preferenceId
-                              ? 'py-1'
-                              : ''
-                          )}
-                          style={{
-                            borderColor: selectedPreferenceId === item.preferenceId
-                              ? `${theme.primaryColor}80`
-                              : `${theme.primaryColor}25`,
-                            opacity: 0.55,
-                          }}
-                          onClick={() => handleItemClick(item)}
-                        >
-                          <div className="flex items-start gap-2">
-                            <div className="mt-0.5 flex-shrink-0">
-                              <HelpCircle className="w-5 h-5" style={{ color: theme.primaryColor }} />
-                            </div>
-                            <div className="flex-1 min-w-0">
-                              <p className="font-medium text-sm" style={{ color: theme.textColor }}>
-                                {item.title}
-                              </p>
-                              <p className="text-xs italic" style={{ color: theme.textColor, opacity: 0.6 }}>
-                                Click to set your preference
-                              </p>
-                            </div>
-                          </div>
-                        </div>
-                      )
-                    }
-
-                    return (
-                      <div
-                        key={item.preferenceId}
-                        data-canvas-item
-                        className={cn(
-                          'group pl-3 border-l-2 transition-all cursor-pointer relative',
-                          isEditing
-                            ? 'py-1'
-                            : selectedPreferenceId === item.preferenceId
-                              ? 'py-1'
-                              : 'border-transparent'
-                        )}
-                        style={{
-                          borderColor: isEditing || selectedPreferenceId === item.preferenceId
-                            ? `${theme.primaryColor}80`
-                            : 'transparent',
-                          backgroundColor: isEditing || selectedPreferenceId === item.preferenceId
-                            ? theme.sectionHeaderBg
-                            : 'transparent'
-                        }}
-                        onClick={() => handleItemClick(item)}
-                      >
-                        {/* Omit/remove button - visible when editing */}
-                        {isEditing && (
-                          <button
-                            onClick={(e) => { e.stopPropagation(); handleToggleOmit(item) }}
-                            className="absolute -right-1 top-0 p-1.5 rounded bg-white shadow-sm border text-muted-foreground hover:text-red-500 transition-colors z-10"
-                            title={item.isCustomItem ? 'Delete custom decision' : 'Remove from plan'}
+                      <div className="space-y-4">
+                        {section.items.length === 0 && !section.notes && (
+                          <div
+                            className="text-center py-6 border border-dashed rounded-lg"
+                            style={{ borderColor: `${theme.primaryColor}25`, color: theme.textColor, opacity: 0.5 }}
                           >
-                            {item.isCustomItem ? <Trash2 className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
-                          </button>
+                            <p className="text-sm">No decisions made yet</p>
+                            <p className="text-xs mt-1">Take the quiz or add preferences from the sidebar</p>
+                          </div>
                         )}
+                        {section.items.map((item) => {
+                          const ItemIcon = getIconComponent(item.icon || 'Circle')
+                          const isEditing = editingItemId === item.preferenceId
+                          const lines = item.birthPlanText ? item.birthPlanText.split('\n').filter(Boolean) : []
+                          const isMultiLine = lines.length > 1
 
-                        <div className="flex items-start gap-2">
-                          {/* Stance indicator or icon */}
-                          <div className="mt-0.5 flex-shrink-0">
-                            {item.stance === 'desired' ? (
-                              <CheckCircle2 className="w-5 h-5 text-green-600" />
-                            ) : item.stance === 'declined' ? (
-                              <XCircle className="w-5 h-5 text-red-500" />
-                            ) : (
-                              <ItemIcon className="w-5 h-5" style={{ color: theme.primaryColor }} />
-                            )}
-                          </div>
-                          <div className="flex-1 min-w-0">
-                            {isEditing ? (
-                              <>
-                                <input
-                                  ref={titleInputRef}
-                                  type="text"
-                                  value={item.title}
-                                  onChange={(e) => handleTitleEdit(item, e.target.value)}
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="w-full font-semibold text-sm mb-1 bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none rounded-none px-0 py-0.5"
-                                  style={{ color: theme.textColor }}
-                                  placeholder={item.isCustomItem ? 'Decision title' : undefined}
-                                />
-                                <textarea
-                                  ref={textareaRef}
-                                  value={item.birthPlanText}
-                                  onChange={(e) => handleTextEdit(item, e.target.value)}
-                                  onClick={(e) => e.stopPropagation()}
-                                  className="w-full text-sm leading-relaxed bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none resize-none rounded-none px-0 py-0.5 min-h-[40px]"
-                                  style={{ color: theme.textColor, opacity: 0.85 }}
-                                  rows={2}
-                                  placeholder={item.isCustomItem ? 'What would you like your birth plan to say?' : undefined}
-                                />
-                              </>
-                            ) : (
-                              <>
-                                <p
-                                  className="font-semibold text-sm mb-0.5"
-                                  style={{ color: theme.textColor }}
+                          // Undecided items get a distinct placeholder appearance
+                          if (item.isUndecided) {
+                            return (
+                              <SortablePreferenceCard key={item.preferenceId} id={item.preferenceId}>
+                                <div
+                                  data-canvas-item
+                                  className={cn(
+                                    'group pl-3 border-l-2 border-dashed transition-all cursor-pointer',
+                                    selectedPreferenceId === item.preferenceId
+                                      ? 'py-1'
+                                      : ''
+                                  )}
+                                  style={{
+                                    borderColor: selectedPreferenceId === item.preferenceId
+                                      ? `${theme.primaryColor}80`
+                                      : `${theme.primaryColor}25`,
+                                    opacity: 0.55,
+                                  }}
+                                  onClick={() => handleItemClick(item)}
                                 >
-                                  {item.title}
-                                </p>
-                                {item.birthPlanText && (
-                                  item.birthPlanText.includes('\n') ? (
-                                    item.birthPlanText.split('\n').map((line, i) => (
-                                      <p key={i} className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
-                                        {line}
+                                  <div className="flex items-start gap-2">
+                                    <div className="mt-0.5 flex-shrink-0">
+                                      <HelpCircle className="w-5 h-5" style={{ color: theme.primaryColor }} />
+                                    </div>
+                                    <div className="flex-1 min-w-0">
+                                      <p className="font-medium text-sm" style={{ color: theme.textColor }}>
+                                        {item.title}
                                       </p>
-                                    ))
-                                  ) : (
-                                    <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
-                                      {item.birthPlanText}
-                                    </p>
-                                  )
+                                      <p className="text-xs italic" style={{ color: theme.textColor, opacity: 0.6 }}>
+                                        Click to set your preference
+                                      </p>
+                                    </div>
+                                  </div>
+                                </div>
+                              </SortablePreferenceCard>
+                            )
+                          }
+
+                          // Render the icon portion - with Popover for editing mode
+                          const iconElement = (
+                            <div className="mt-0.5 flex-shrink-0">
+                              {item.stance === 'desired' ? (
+                                <CheckCircle2 className="w-5 h-5 text-green-600" />
+                              ) : item.stance === 'declined' ? (
+                                <XCircle className="w-5 h-5 text-red-500" />
+                              ) : (
+                                <ItemIcon className="w-5 h-5" style={{ color: theme.primaryColor }} />
+                              )}
+                            </div>
+                          )
+
+                          const cardContent = (
+                            <div
+                              data-canvas-item
+                              className={cn(
+                                'group pl-3 border-l-2 transition-all cursor-pointer relative',
+                                isEditing
+                                  ? 'py-1'
+                                  : selectedPreferenceId === item.preferenceId
+                                    ? 'py-1'
+                                    : 'border-transparent'
+                              )}
+                              style={{
+                                borderColor: isEditing || selectedPreferenceId === item.preferenceId
+                                  ? `${theme.primaryColor}80`
+                                  : 'transparent',
+                                backgroundColor: isEditing || selectedPreferenceId === item.preferenceId
+                                  ? theme.sectionHeaderBg
+                                  : 'transparent'
+                              }}
+                              onClick={() => handleItemClick(item)}
+                            >
+                              {/* Omit/remove button - visible when editing */}
+                              {isEditing && (
+                                <button
+                                  onClick={(e) => { e.stopPropagation(); handleToggleOmit(item) }}
+                                  className="absolute -right-1 top-0 p-1.5 rounded bg-white shadow-sm border text-muted-foreground hover:text-red-500 transition-colors z-10"
+                                  title={item.isCustomItem ? 'Delete custom decision' : 'Remove from plan'}
+                                >
+                                  {item.isCustomItem ? <Trash2 className="w-4 h-4" /> : <EyeOff className="w-4 h-4" />}
+                                </button>
+                              )}
+
+                              <div className="flex items-start gap-2">
+                                {/* Stance indicator or icon - clickable in edit mode */}
+                                {isEditing ? (
+                                  <Popover>
+                                    <PopoverTrigger asChild>
+                                      <button
+                                        className="cursor-pointer hover:scale-110 transition-transform"
+                                        onClick={(e) => e.stopPropagation()}
+                                      >
+                                        {iconElement}
+                                      </button>
+                                    </PopoverTrigger>
+                                    <PopoverContent className="w-auto p-2" onClick={(e) => e.stopPropagation()}>
+                                      <IconPicker
+                                        value={item.icon}
+                                        onChange={(iconName) => handleIconChange(item, iconName)}
+                                      />
+                                    </PopoverContent>
+                                  </Popover>
+                                ) : (
+                                  iconElement
                                 )}
-                              </>
-                            )}
-                          </div>
-                        </div>
+
+                                <div className="flex-1 min-w-0">
+                                  {isEditing ? (
+                                    <>
+                                      <input
+                                        ref={titleInputRef}
+                                        type="text"
+                                        value={item.title}
+                                        onChange={(e) => handleTitleEdit(item, e.target.value)}
+                                        onClick={(e) => e.stopPropagation()}
+                                        className="w-full font-semibold text-sm mb-1 bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none rounded-none px-0 py-0.5"
+                                        style={{ color: theme.textColor }}
+                                        placeholder={item.isCustomItem ? 'Decision title' : undefined}
+                                      />
+                                      {isMultiLine ? (
+                                        <div className="space-y-1">
+                                          <DndContext
+                                            sensors={sensors}
+                                            collisionDetection={closestCenter}
+                                            onDragEnd={(event) => {
+                                              const { active, over } = event
+                                              if (!over || active.id === over.id) return
+                                              const oldIdx = lines.findIndex((_, i) => `bullet-${i}` === active.id)
+                                              const newIdx = lines.findIndex((_, i) => `bullet-${i}` === over.id)
+                                              if (oldIdx !== -1 && newIdx !== -1) {
+                                                handleBulletReorder(item, oldIdx, newIdx)
+                                              }
+                                            }}
+                                          >
+                                            <SortableContext
+                                              items={lines.map((_, i) => `bullet-${i}`)}
+                                              strategy={verticalListSortingStrategy}
+                                            >
+                                              {lines.map((line, i) => (
+                                                <SortableBulletItem key={`bullet-${i}`} id={`bullet-${i}`}>
+                                                  <div className="flex items-center gap-1.5">
+                                                    <span className="flex-shrink-0" style={{ color: theme.primaryColor }}>
+                                                      {bulletSymbol}
+                                                    </span>
+                                                    <input
+                                                      type="text"
+                                                      value={line}
+                                                      onChange={(e) => {
+                                                        const newLines = [...lines]
+                                                        newLines[i] = e.target.value
+                                                        handleTextEdit(item, newLines.join('\n'))
+                                                      }}
+                                                      onClick={(e) => e.stopPropagation()}
+                                                      className="flex-1 text-sm bg-transparent border-0 border-b border-dashed border-muted-foreground/30 p-0 focus:outline-none focus:border-primary"
+                                                      style={{ fontFamily: theme.fontFamily, color: theme.textColor }}
+                                                    />
+                                                  </div>
+                                                </SortableBulletItem>
+                                              ))}
+                                            </SortableContext>
+                                          </DndContext>
+                                          {/* Add new bullet button */}
+                                          <button
+                                            onClick={(e) => {
+                                              e.stopPropagation()
+                                              handleTextEdit(item, [...lines, ''].join('\n'))
+                                            }}
+                                            className="text-xs text-muted-foreground hover:text-foreground flex items-center gap-1 ml-5"
+                                          >
+                                            + Add bullet point
+                                          </button>
+                                        </div>
+                                      ) : (
+                                        <textarea
+                                          ref={textareaRef}
+                                          value={item.birthPlanText}
+                                          onChange={(e) => handleTextEdit(item, e.target.value)}
+                                          onClick={(e) => e.stopPropagation()}
+                                          className="w-full text-sm leading-relaxed bg-transparent border-0 border-b border-dashed border-gray-300 focus:border-primary focus:outline-none resize-none rounded-none px-0 py-0.5 min-h-[40px]"
+                                          style={{ color: theme.textColor, opacity: 0.85 }}
+                                          rows={2}
+                                          placeholder={item.isCustomItem ? 'What would you like your birth plan to say?' : undefined}
+                                        />
+                                      )}
+                                    </>
+                                  ) : (
+                                    <>
+                                      <p
+                                        className="font-semibold text-sm mb-0.5"
+                                        style={{ color: theme.textColor }}
+                                      >
+                                        {item.title}
+                                      </p>
+                                      {item.birthPlanText && (
+                                        isMultiLine ? (
+                                          <ul className="list-none space-y-0.5 pl-0">
+                                            {lines.map((line, i) => (
+                                              <li key={i} className="text-sm leading-relaxed flex items-start gap-1.5">
+                                                <span className="flex-shrink-0 mt-0.5" style={{ color: theme.primaryColor }}>
+                                                  {bulletSymbol}
+                                                </span>
+                                                <span style={{ color: theme.textColor, opacity: 0.85 }}>{line}</span>
+                                              </li>
+                                            ))}
+                                          </ul>
+                                        ) : (
+                                          <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
+                                            {item.birthPlanText}
+                                          </p>
+                                        )
+                                      )}
+                                    </>
+                                  )}
+                                </div>
+                              </div>
+                            </div>
+                          )
+
+                          // Wrap in sortable container (only standard prefs are sortable at section level)
+                          if (!item.isCustomItem) {
+                            return (
+                              <SortablePreferenceCard key={item.preferenceId} id={item.preferenceId}>
+                                {cardContent}
+                              </SortablePreferenceCard>
+                            )
+                          }
+
+                          return <div key={item.preferenceId}>{cardContent}</div>
+                        })}
                       </div>
-                    )
-                  })}
+                    </SortableContext>
+                  </DndContext>
+
+                  {/* Add decision button */}
+                  {onAddDecision && (
+                    <button
+                      onClick={() => onAddDecision(section.sectionId)}
+                      className="mt-3 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+                    >
+                      <Plus className="w-3.5 h-3.5" />
+                      Add decision
+                    </button>
+                  )}
+
+                  {/* Section notes - hidden by default, shown when expanded or has content */}
+                  {(section.notes || expandedNotes.has(section.sectionId)) ? (
+                    <div
+                      className="mt-2 rounded-lg border border-dashed p-3 flex items-start gap-2"
+                      style={{ borderColor: `${theme.primaryColor}30`, backgroundColor: `${theme.sectionHeaderBg}` }}
+                      data-canvas-item
+                    >
+                      <StickyNote className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: theme.primaryColor, opacity: 0.5 }} />
+                      <textarea
+                        value={section.notes}
+                        onChange={(e) => setSectionNotes(section.sectionId, e.target.value)}
+                        className="w-full text-sm bg-transparent border-0 resize-none focus:ring-0 focus:outline-none min-h-[24px]"
+                        style={{ color: theme.textColor, opacity: 0.75 }}
+                        placeholder="Add notes for this section..."
+                        rows={2}
+                        autoFocus={!section.notes}
+                        onInput={(e) => {
+                          const target = e.target as HTMLTextAreaElement
+                          target.style.height = 'auto'
+                          target.style.height = target.scrollHeight + 'px'
+                        }}
+                        onBlur={() => {
+                          if (!section.notes) {
+                            setExpandedNotes(prev => {
+                              const next = new Set(prev)
+                              next.delete(section.sectionId)
+                              return next
+                            })
+                          }
+                        }}
+                      />
+                    </div>
+                  ) : (
+                    <button
+                      onClick={() => setExpandedNotes(prev => {
+                        const next = new Set(prev)
+                        next.add(section.sectionId)
+                        return next
+                      })}
+                      className="mt-1 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+                    >
+                      <StickyNote className="w-3.5 h-3.5" />
+                      Add note
+                    </button>
+                  )}
                 </div>
-
-                {/* Add decision button */}
-                {onAddDecision && (
-                  <button
-                    onClick={() => onAddDecision(section.sectionId)}
-                    className="mt-3 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
-                  >
-                    <Plus className="w-3.5 h-3.5" />
-                    Add decision
-                  </button>
-                )}
-
-                {/* Section notes - hidden by default, shown when expanded or has content */}
-                {(section.notes || expandedNotes.has(section.sectionId)) ? (
-                  <div
-                    className="mt-2 rounded-lg border border-dashed p-3 flex items-start gap-2"
-                    style={{ borderColor: `${theme.primaryColor}30`, backgroundColor: `${theme.sectionHeaderBg}` }}
-                    data-canvas-item
-                  >
-                    <StickyNote className="w-4 h-4 flex-shrink-0 mt-1" style={{ color: theme.primaryColor, opacity: 0.5 }} />
-                    <textarea
-                      value={section.notes}
-                      onChange={(e) => setSectionNotes(section.sectionId, e.target.value)}
-                      className="w-full text-sm bg-transparent border-0 resize-none focus:ring-0 focus:outline-none min-h-[24px]"
-                      style={{ color: theme.textColor, opacity: 0.75 }}
-                      placeholder="Add notes for this section..."
-                      rows={2}
-                      autoFocus={!section.notes}
-                      onInput={(e) => {
-                        const target = e.target as HTMLTextAreaElement
-                        target.style.height = 'auto'
-                        target.style.height = target.scrollHeight + 'px'
-                      }}
-                      onBlur={() => {
-                        if (!section.notes) {
-                          setExpandedNotes(prev => {
-                            const next = new Set(prev)
-                            next.delete(section.sectionId)
-                            return next
-                          })
-                        }
-                      }}
-                    />
-                  </div>
-                ) : (
-                  <button
-                    onClick={() => setExpandedNotes(prev => {
-                      const next = new Set(prev)
-                      next.add(section.sectionId)
-                      return next
-                    })}
-                    className="mt-1 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
-                  >
-                    <StickyNote className="w-3.5 h-3.5" />
-                    Add note
-                  </button>
-                )}
-              </div>
-            ))}
+              )
+            })}
 
             {/* Empty State */}
             {canvasSections.length === 0 && (

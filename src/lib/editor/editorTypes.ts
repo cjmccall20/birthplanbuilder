@@ -73,6 +73,7 @@ export type BirthVenue = 'hospital' | 'birth_center' | 'home'
 export interface EditorState {
   id: string | null // Birth plan ID (null if unsaved)
   title: string
+  subtitle?: string
   templateStyle: TemplateStyle
   birthType: BirthType
   birthVenue: BirthVenue | null
@@ -84,6 +85,7 @@ export interface EditorState {
   disclaimerText: string  // Editable bottom disclaimer
   showAllDecisions: boolean
   hiddenSections: string[]  // Section IDs hidden from canvas/PDF but data preserved
+  customBulletSymbol?: string  // User-chosen Unicode bullet symbol override
 }
 
 // Action types for reducer
@@ -113,5 +115,7 @@ export type EditorAction =
   | { type: 'SET_BIRTH_VENUE'; payload: BirthVenue | null }
   | { type: 'TOGGLE_SHOW_ALL_DECISIONS' }
   | { type: 'TOGGLE_SECTION_VISIBILITY'; payload: { sectionId: string } }
+  | { type: 'SET_SUBTITLE'; payload: string }
+  | { type: 'SET_BULLET_SYMBOL'; payload: string | undefined }
   | { type: 'UNDO' }
   | { type: 'REDO' }

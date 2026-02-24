@@ -248,6 +248,9 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
     case 'RESET':
       return createInitialState()
 
+    case 'SET_SUBTITLE':
+      return { ...state, subtitle: action.payload, isDirty: true }
+
     case 'SET_DISCLAIMER':
       return { ...state, disclaimerText: action.payload, isDirty: true }
 
@@ -359,6 +362,9 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
     case 'TOGGLE_SHOW_ALL_DECISIONS':
       return { ...state, showAllDecisions: !state.showAllDecisions }
 
+    case 'SET_BULLET_SYMBOL':
+      return { ...state, customBulletSymbol: action.payload, isDirty: true }
+
     case 'TOGGLE_SECTION_VISIBILITY': {
       const { sectionId } = action.payload
       const hidden = state.hiddenSections || []
@@ -430,6 +436,7 @@ interface EditorContextType {
   dispatch: React.Dispatch<EditorAction>
   // Convenience methods
   setTitle: (title: string) => void
+  setSubtitle: (subtitle: string) => void
   setTemplate: (style: TemplateStyle) => void
   setBirthTeam: (team: Partial<BirthTeam>) => void
   setPreference: (sectionId: EditorSectionId, preferenceId: string, value: Partial<PreferenceValue>) => void
@@ -452,6 +459,7 @@ interface EditorContextType {
   toggleShowAllDecisions: () => void
   toggleSectionVisibility: (sectionId: string) => void
   setDisclaimer: (text: string) => void
+  setBulletSymbol: (symbol: string | undefined) => void
   undo: () => void
   redo: () => void
   canUndo: boolean
@@ -484,6 +492,9 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
 
   const setTitle = useCallback((title: string) =>
     dispatch({ type: 'SET_TITLE', payload: title }), [])
+
+  const setSubtitle = useCallback((subtitle: string) =>
+    dispatch({ type: 'SET_SUBTITLE', payload: subtitle }), [])
 
   const setTemplate = useCallback((style: TemplateStyle) =>
     dispatch({ type: 'SET_TEMPLATE', payload: style }), [])
@@ -548,6 +559,9 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const setDisclaimer = useCallback((text: string) =>
     dispatch({ type: 'SET_DISCLAIMER', payload: text }), [])
 
+  const setBulletSymbol = useCallback((symbol: string | undefined) =>
+    dispatch({ type: 'SET_BULLET_SYMBOL', payload: symbol }), [])
+
   const undo = useCallback(() => dispatch({ type: 'UNDO' }), [])
   const redo = useCallback(() => dispatch({ type: 'REDO' }), [])
   const canUndo = history.past.length > 0
@@ -558,6 +572,7 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       state,
       dispatch,
       setTitle,
+      setSubtitle,
       setTemplate,
       setBirthTeam,
       setPreference,
@@ -580,6 +595,7 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       toggleShowAllDecisions,
       toggleSectionVisibility,
       setDisclaimer,
+      setBulletSymbol,
       undo,
       redo,
       canUndo,
