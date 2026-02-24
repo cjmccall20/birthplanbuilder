@@ -145,14 +145,14 @@ export function QuestionCard({ question }: QuestionCardProps) {
           <button
             onClick={() => setShowLearnMore(!showLearnMore)}
             className={cn(
-              "flex items-center gap-2.5 w-full text-sm rounded-lg border px-4 py-3 transition-colors mt-3 min-h-[44px]",
+              "flex items-center gap-2.5 w-full rounded-lg border px-4 py-3 transition-colors mt-3 min-h-[44px]",
               showLearnMore
                 ? "border-primary/30 bg-primary/10 text-primary"
                 : "border-primary/20 bg-primary/5 text-primary hover:bg-primary/10"
             )}
           >
-            <Info className="h-4 w-4 flex-shrink-0" />
-            <span className="font-medium">
+            <Info className="h-5 w-5 flex-shrink-0" />
+            <span className="text-[0.935rem] font-semibold italic">
               {showLearnMore ? 'Hide pros & cons' : 'What are the pros & cons?'}
             </span>
             {showLearnMore ? (

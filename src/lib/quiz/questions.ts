@@ -97,6 +97,23 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Type of Birth',
     subtitle: 'Are you planning a vaginal birth or a C-section?',
     order: 0.5,
+    learnMoreData: {
+      tradeoff: 'Your birth type shapes every other decision in your plan. Vaginal birth has a shorter recovery and lower surgical risk but is less predictable. Planned C-sections offer scheduling certainty and avoid labor, but involve major surgery with a longer recovery. VBAC offers a middle path for those with a prior cesarean.',
+      pros: [
+        'Vaginal birth typically has a faster recovery (days vs. weeks) and lower infection risk',
+        'Planned C-sections eliminate the uncertainty of labor and allow precise scheduling',
+        'VBAC avoids the risks of repeat surgery and preserves future birth options',
+        'Vaginal birth releases hormones that benefit both mother and baby during transition',
+      ],
+      cons: [
+        'Vaginal birth is unpredictable - labor can be long, and emergency interventions may still be needed',
+        'C-sections carry surgical risks including infection, blood loss, and longer hospital stays',
+        'VBAC carries a small risk (~0.5%) of uterine rupture at the prior scar site',
+        'Recovery from C-section limits mobility and ability to care for baby independently in the early days',
+      ],
+      bottomLine: 'There is no universally "better" birth type. The right choice depends on your medical history, risk factors, and personal values. Talk with your provider about what makes sense for your specific situation.',
+      ebookChapter: 'Chapter 3: Types of Birth',
+    },
     options: [
       { value: 'vaginal', label: 'Vaginal birth', birthPlanText: '', icon: 'Baby' },
       { value: 'csection', label: 'Planned C-section', birthPlanText: '', icon: 'Scissors' },
