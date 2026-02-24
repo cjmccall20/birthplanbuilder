@@ -304,7 +304,8 @@ export const quizQuestions: QuizQuestion[] = [
       ebookChapter: 'Chapter 40: Feeding',
     },
     options: [
-      { value: 'breastfeed', label: 'Breastfeed', birthPlanText: 'We plan to breastfeed our baby.', icon: 'Baby' },
+      { value: 'exclusive_breastfeed', label: 'Exclusive breastfeeding', birthPlanText: 'We plan to exclusively breastfeed. Please do not offer formula or pacifiers without our consent.', icon: 'Shield' },
+      { value: 'breastfeed', label: 'Breastfeed (open to supplementing if needed)', birthPlanText: 'We plan to breastfeed our baby.', icon: 'Baby' },
       { value: 'formula', label: 'Formula feed', birthPlanText: 'We plan to use formula.', icon: 'Package' },
       { value: 'donor_milk', label: 'Prefer donor milk if supplementation needed', birthPlanText: 'If supplementation is needed, we prefer donor milk over formula.', icon: 'Heart' },
       { value: 'no_formula_without_consent', label: 'No formula without our consent', birthPlanText: 'Please do not give formula without our explicit consent.', icon: 'Shield' },

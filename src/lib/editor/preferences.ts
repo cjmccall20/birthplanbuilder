@@ -701,7 +701,8 @@ export const PREFERENCES: PreferenceDefinition[] = [
     allowCustom: true,
     quizQuestionId: 'feeding',
     options: [
-      { value: 'breastfeed', label: 'Breastfeed', birthPlanText: 'We plan to breastfeed our baby.', isPopular: true },
+      { value: 'exclusive_breastfeed', label: 'Exclusive breastfeeding', birthPlanText: 'We plan to exclusively breastfeed. Please do not offer formula or pacifiers without our consent.', isPopular: true },
+      { value: 'breastfeed', label: 'Breastfeed (open to supplementing)', birthPlanText: 'We plan to breastfeed our baby.' },
       { value: 'formula', label: 'Formula feed', birthPlanText: 'We plan to use formula.' },
       { value: 'donor_milk', label: 'Donor milk if supplementation needed', birthPlanText: 'If supplementation is needed, we prefer donor milk over formula.' },
       { value: 'no_formula_without_consent', label: 'No formula without consent', birthPlanText: 'Please do not give formula without our explicit consent.' },
