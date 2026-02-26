@@ -36,6 +36,11 @@ export function MultiSelectChecklist({ question }: MultiSelectChecklistProps) {
   const [writeInText, setWriteInText] = useState('')
   const writeInRef = useRef<HTMLInputElement>(null)
 
+  // Track all custom entries ever added (persists unchecked ones for re-checking)
+  const [customPool, setCustomPool] = useState<string[]>(() => {
+    return parseAnswer(currentAnswer).filter(v => v.startsWith(CUSTOM_PREFIX))
+  })
+
   // Sync to quiz state when selection changes
   useEffect(() => {
     if (isUnsure) {
@@ -47,9 +52,6 @@ export function MultiSelectChecklist({ question }: MultiSelectChecklistProps) {
 
   const mainOptions = question.options.filter(o => !o.isUnsure && o.value !== 'custom')
   const unsureOption = question.options.find(o => o.isUnsure)
-
-  // Separate predefined selections from custom write-ins
-  const customEntries = selected.filter(v => v.startsWith(CUSTOM_PREFIX))
 
   const isSelected = (value: string) => selected.includes(value)
 
@@ -66,6 +68,11 @@ export function MultiSelectChecklist({ question }: MultiSelectChecklistProps) {
     const trimmed = writeInText.trim()
     if (!trimmed) return
     const customValue = `${CUSTOM_PREFIX}${trimmed}`
+    // Add to customPool if not already there
+    if (!customPool.includes(customValue)) {
+      setCustomPool(prev => [...prev, customValue])
+    }
+    // Add to selected if not already there
     if (!selected.includes(customValue)) {
       setIsUnsure(false)
       setSelected(prev => [...prev, customValue])
@@ -74,6 +81,8 @@ export function MultiSelectChecklist({ question }: MultiSelectChecklistProps) {
   }
 
   const removeCustomEntry = (customValue: string) => {
+    // Permanently remove from pool and from selected
+    setCustomPool(prev => prev.filter(v => v !== customValue))
     setSelected(prev => prev.filter(v => v !== customValue))
   }
 
@@ -115,26 +124,41 @@ export function MultiSelectChecklist({ question }: MultiSelectChecklistProps) {
         </div>
       ))}
 
-      {/* Custom write-in entries */}
-      {customEntries.map((entry) => (
-        <div
-          key={entry}
-          className="flex items-center gap-3 rounded-lg border border-primary bg-primary/5 p-3 sm:p-4 min-h-[44px]"
-        >
-          <Checkbox checked={true} className="pointer-events-none" />
-          <span className="flex-1 text-sm sm:text-base italic">
-            {entry.slice(CUSTOM_PREFIX.length)}
-          </span>
-          <button
-            type="button"
-            onClick={() => removeCustomEntry(entry)}
-            className="p-1 rounded hover:bg-muted/80 transition-colors text-muted-foreground hover:text-foreground"
-            title="Remove"
+      {/* Custom write-in entries from the pool (includes unchecked ones) */}
+      {customPool.map((entry) => {
+        const checked = isSelected(entry)
+        return (
+          <div
+            key={entry}
+            className={cn(
+              "flex items-center gap-3 rounded-lg border p-3 sm:p-4 cursor-pointer transition-colors min-h-[44px]",
+              checked
+                ? "border-primary bg-primary/5"
+                : "border-muted hover:bg-muted/50 opacity-60"
+            )}
+            onClick={() => toggleOption(entry)}
           >
-            <X className="h-4 w-4" />
-          </button>
-        </div>
-      ))}
+            <Checkbox checked={checked} className="pointer-events-none" />
+            <span className={cn(
+              "flex-1 text-sm sm:text-base italic",
+              !checked && "text-muted-foreground"
+            )}>
+              {entry.slice(CUSTOM_PREFIX.length)}
+            </span>
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                removeCustomEntry(entry)
+              }}
+              className="p-1 rounded hover:bg-muted/80 transition-colors text-muted-foreground hover:text-foreground"
+              title="Remove"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        )
+      })}
 
       {/* Write my own input */}
       <div className="border-t border-dashed my-2" />

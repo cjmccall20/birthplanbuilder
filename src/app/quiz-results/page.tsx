@@ -62,9 +62,10 @@ function QuizResultsContent() {
   const unsureQuestions = quizQuestions.filter(q => unsureTopics.includes(q.id))
   const hasUnsureTopics = unsureQuestions.length > 0
 
-  // Count answered questions (use visible questions, not total)
-  const answeredCount = Object.keys(state.answers).length
-  const totalQuestions = getOrderedQuestions(state.answers).length
+  // Count answered questions (only those for currently visible questions)
+  const visibleQuestionIds = new Set(getOrderedQuestions(state.answers).map(q => q.id))
+  const answeredCount = Object.keys(state.answers).filter(id => visibleQuestionIds.has(id)).length
+  const totalQuestions = visibleQuestionIds.size
 
   // Baby name for personalization
   const babyNameAnswer = state.answers?.baby_name

@@ -38,7 +38,7 @@ export function ActionBar({
     : 0
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 border-t bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-[0_-2px_10px_rgba(0,0,0,0.06)]">
+    <div className="hidden md:block fixed bottom-0 left-0 right-0 z-40 border-t bg-white/95 backdrop-blur supports-[backdrop-filter]:bg-white/80 shadow-[0_-2px_10px_rgba(0,0,0,0.06)]">
       <div className="container max-w-7xl mx-auto px-4 py-3 flex items-center gap-4">
         {/* Progress */}
         <div className="hidden sm:flex items-center gap-3 flex-1 min-w-0">

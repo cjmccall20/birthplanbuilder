@@ -159,32 +159,35 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'Where do you picture yourself giving birth?',
     order: 1,
     learnMoreData: {
-      tradeoff: 'Your birth setting shapes the care you receive. Hospitals offer full emergency resources but higher intervention rates; birth centers and home births offer lower intervention with midwifery-model care.',
+      tradeoff: 'Your birth setting is one of the most influential decisions you will make. Each environment comes with its own philosophy of care, available resources, and trade-offs. Hospitals provide the highest level of emergency response but tend toward protocol-driven care. Birth centers blend a home-like atmosphere with professional midwifery care and nearby hospital backup. Home births offer maximum autonomy and comfort with the lowest intervention rates, but require self-preparation and transfer time if complications arise.',
       pros: [
-        'Hospitals have the highest level of emergency care immediately available',
-        'Birth centers offer a home-like environment with hospital backup nearby',
-        'Home births provide maximum comfort, control, and lowest intervention rates',
-        'All three settings have similar safety outcomes for low-risk pregnancies with qualified attendants',
+        'Hospitals have immediate access to surgical suites, anesthesia, NICU, and blood products for emergencies',
+        'Birth centers are staffed by licensed midwives who specialize in physiological birth and offer continuous one-on-one support',
+        'Home births provide complete autonomy over your environment, birth team, food, movement, and pace of labor',
+        'Research shows all three settings have comparable safety outcomes for low-risk pregnancies when attended by qualified providers',
+        'Birth centers and home births have significantly lower C-section and intervention rates compared to hospitals',
+        'Hospital births may be covered more comprehensively by insurance, while birth center and home birth costs vary',
       ],
       cons: [
-        'Hospital epidural rate is around 73%, which often leads to additional interventions',
-        'Unplanned C-Section rates in hospitals are significantly higher for low risk-mothers when compared to alternatives due to the "Cascade of Interventions"',
-        'Birth centers require transfer to a hospital if complications arise',
-        'Home births have a transfer rate of about 16% for first-time mothers',
-        'Some settings may limit your pain management options',
+        'Hospital epidural rates are around 73%, and medical interventions can cascade - one intervention often leads to another',
+        'Unplanned C-section rates in hospitals are significantly higher for low-risk mothers compared to birth centers and home births',
+        'Birth centers require transfer to a hospital (typically 10-30 minutes) if complications arise, and do not have epidurals or surgical capability on-site',
+        'Home births have a transfer rate of about 10-16% for first-time mothers, most often for non-emergency reasons like exhaustion or desire for pain medication',
+        'Hospital policies may restrict eating, movement, who can be present, and how long you labor before interventions are recommended',
+        'Home birth requires preparation: waterproof covers, birth supplies, and a clear transfer plan to a nearby hospital',
       ],
-      bottomLine: 'The setting you choose affects the care you receive. Hospitals are designed for protocols, efficiency, emergencies, and minimizing liability - which means that the hospital may push for unnecessary interventions that can cascade into further interventions.',
+      bottomLine: 'The setting you choose shapes the care philosophy you receive. Hospitals prioritize safety protocols and emergency readiness. Birth centers prioritize physiological birth with professional oversight. Home births prioritize autonomy and comfort. None is universally "better" - the right choice depends on your risk factors, your values, and your support team.',
       ebookChapter: 'Chapter 8: Birth Setting',
     },
     birthTypeVariant: {
       vbac: {
         learnMoreOverrides: {
           cons: [
-            'Hospital epidural rate is around 73%, which often leads to additional interventions',
-            'Unplanned C-Section rates in hospitals are significantly higher for low risk-mothers when compared to alternatives due to the "Cascade of Interventions"',
-            'Birth centers require transfer to a hospital if complications arise',
-            'Home births have a transfer rate of about 16% for first-time mothers',
-            'Some settings may limit your pain management options',
+            'Hospital epidural rates are around 73%, and medical interventions can cascade - one intervention often leads to another',
+            'Unplanned C-section rates in hospitals are significantly higher for low-risk mothers compared to birth centers and home births',
+            'Birth centers require transfer to a hospital if complications arise, and do not have epidurals or surgical capability on-site',
+            'Home births have a transfer rate of about 10-16% for first-time mothers, most often for non-emergency reasons',
+            'Hospital policies may restrict eating, movement, who can be present, and how long you labor before interventions are recommended',
             'ACOG recommends VBAC take place in facilities capable of emergency cesarean delivery. Home and birth center VBAC is possible but carries additional risk if uterine complications arise and surgical intervention is not immediately available.',
           ],
         },
@@ -358,6 +361,9 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'What are your feeding preferences? (Check all that apply)',
     order: 6,
     inputType: 'checklist',
+    venueVariant: {
+      home: { optionOverrides: { lactation_consultant: { label: 'We plan to work with a private lactation consultant', birthPlanText: 'We plan to work with a private lactation consultant for breastfeeding support.' } } },
+    },
     learnMoreData: {
       tradeoff: 'Breastfeeding provides unique immune benefits and dynamic nutrition, but success depends heavily on support, not just determination. Formula is food, not failure; however, introducing formula may make it more difficult to establish breastfeeding. Any breast milk counts.',
       pros: [
@@ -428,6 +434,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Episiotomy Preferences',
     subtitle: 'What are your preferences regarding episiotomy?',
     order: 10.65,
+    venueVariant: {
+      home: { subtitle: 'Episiotomy is very rare in home birth settings. Would you still like to document preferences in case of transfer?' },
+      birth_center: { subtitle: 'Episiotomy is uncommon at birth centers. What are your preferences?' },
+    },
     learnMoreData: {
       tradeoff: 'ACOG no longer recommends routine episiotomy. Research shows that natural tears generally heal better and cause less long-term damage than surgical cuts. However, in rare emergencies, an episiotomy can expedite delivery.',
       pros: [
@@ -653,11 +663,12 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'labor_augmentation',
     category: 'Your Birth',
     title: 'If Labor Slows Down',
-    subtitle: 'If labor seems to slow and baby is doing okay, what would you prefer?',
+    subtitle: 'If labor seems to slow and baby is doing okay, what would you like to try? (Check all that apply)',
     order: 10.15,
+    inputType: 'checklist',
     venueVariant: {
-      home: { subtitle: 'If labor slows at home, what natural methods would you like to try? Medical augmentation (Pitocin) would require hospital transfer.' },
-      birth_center: { subtitle: 'If labor slows at birth centers, what would you like to try first? Pitocin is not available and would require hospital transfer.' },
+      home: { subtitle: 'If labor slows at home, what natural methods would you like to try? Medical augmentation (Pitocin) would require hospital transfer.', hiddenOptions: ['low_dose_pitocin', 'pitocin_stop_active'] },
+      birth_center: { subtitle: 'If labor slows at birth centers, what would you like to try first? Pitocin is not available and would require hospital transfer.', hiddenOptions: ['low_dose_pitocin', 'pitocin_stop_active'] },
     },
     learnMoreData: {
       tradeoff: 'The most important thing to understand about Pitocin is the "endorphin gap." Your body\'s natural oxytocin crosses the blood-brain barrier, triggering endorphins that help you cope with contractions. Pitocin cannot cross the blood-brain barrier, so you get the contractions without your body\'s natural painkillers.',
@@ -671,21 +682,23 @@ export const quizQuestions: QuizQuestion[] = [
         'Pitocin contractions come without endorphins, significantly increasing demand for epidurals',
         'Requires continuous IV and fetal monitoring, restricting your mobility',
         'Pitocin rates above 6 mIU/min exceed natural oxytocin levels, doubling at 10-16 mIU/min',
-        'Can cause hyperstimulation (tachysystole), which doubles fetal distress risk',
+        'Pitocin can cause hyperstimulation (tachysystole), which doubles fetal distress risk',
         'Slow labor is not the same as stalled labor - there may be time to try alternatives',
       ],
       bottomLine: 'Slow labor is not the same as stalled labor. If baby is doing well, there is often time to try natural alternatives like walking, position changes, and rest before reaching for Pitocin.',
       ebookChapter: 'Chapter 27: Pitocin',
     },
     options: [
+      { value: 'nipple_stimulation', label: 'Nipple stimulation to encourage contractions', birthPlanText: 'If labor slows, we would like to try nipple stimulation to encourage contractions.', icon: 'Heart' },
+      { value: 'position_changes', label: 'Position changes and movement (walking, squatting, lunges)', birthPlanText: 'If labor slows, we would like to try position changes and movement to encourage progress.', icon: 'Move' },
+      { value: 'hydrotherapy', label: 'Warm bath or shower', birthPlanText: 'If labor slows, we would like to try a warm bath or shower to encourage progress.', icon: 'Bath' },
+      { value: 'rest_eat', label: 'Rest, eat, and hydrate', birthPlanText: 'If labor slows, we would like to rest, eat, and hydrate before trying other interventions.', icon: 'Coffee' },
+      { value: 'acupressure', label: 'Acupressure or massage', birthPlanText: 'If labor slows, we would like to try acupressure or massage to encourage contractions.', icon: 'HandMetal' },
       { value: 'wait_it_out', label: 'Wait it out - try walking, positions, rest', birthPlanText: 'If labor slows, we prefer to try natural methods first (walking, position changes, rest, hydration) before considering Pitocin.', icon: 'Move' },
       { value: 'low_dose_pitocin', label: 'Open to Pitocin at the lowest effective dose', birthPlanText: 'If augmentation is needed, we prefer Pitocin at the lowest effective dose with slow increases.', icon: 'Syringe' },
       { value: 'pitocin_stop_active', label: 'Pitocin if needed, but turn off at active labor', birthPlanText: 'If Pitocin is used for augmentation, we would like it reduced or stopped once active labor is established.', icon: 'Timer' },
       { value: 'provider_recommends', label: 'Whatever our provider recommends', birthPlanText: 'We trust our provider\'s judgment on augmentation if labor stalls.', icon: 'Stethoscope' },
-      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'MessageSquare' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss augmentation options with our care team.', isUnsure: true },
     ],
-    textInputOnOption: 'custom',
   },
   {
     id: 'eating_drinking',
@@ -693,6 +706,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Eating and Drinking',
     subtitle: 'Would you like to eat and drink during labor?',
     order: 10.2,
+    venueVariant: {
+      home: { hiddenOptions: ['follow_policy'], subtitle: 'You have full freedom to eat and drink at home - what is your plan for staying nourished during labor?' },
+      birth_center: { hiddenOptions: ['follow_policy'], subtitle: 'Most birth centers encourage eating and drinking freely during labor.' },
+    },
     learnMoreData: {
       tradeoff: 'Labor is a marathon - your body needs fuel. Many hospitals still restrict food "in case of surgery," but current evidence supports eating and drinking during labor, particular for lower-risk mothers.',
       pros: [
@@ -891,6 +908,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'First Bath Timing',
     subtitle: 'When should baby get their first bath?',
     order: 11,
+    venueVariant: {
+      home: { hiddenOptions: ['hospital_timing'], subtitle: 'When would you like to give baby their first bath at home?' },
+      birth_center: { hiddenOptions: ['hospital_timing'], subtitle: 'When should baby get their first bath? Most families do this after returning home from the birth center.' },
+    },
     learnMoreData: {
       tradeoff: 'The WHO now recommends delaying baby\'s first bath for at least 24 hours. The vernix (creamy white coating) on baby\'s skin has antibacterial properties, moisturizes, and helps regulate temperature.',
       pros: [
@@ -1021,6 +1042,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Placenta Delivery',
     subtitle: 'How would you like the placenta delivered?',
     order: 14.5,
+    venueVariant: {
+      home: { subtitle: 'How would you like the placenta delivered? Note: Pitocin for hemorrhage prevention would require transfer.', hiddenOptions: ['active_management'] },
+      birth_center: { subtitle: 'How would you like the placenta delivered? Birth centers may have Pitocin available for hemorrhage prevention.' },
+    },
     learnMoreData: {
       tradeoff: 'Routine third-stage Pitocin reduces postpartum hemorrhage risk by approximately 40% and is recommended by WHO, ACOG, and AWHONN. Unlike Pitocin during labor, the endorphin gap and cascade of interventions are no longer relevant after baby is born.',
       pros: [
@@ -1054,6 +1079,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Circumcision',
     subtitle: 'If having a boy, what are your thoughts on circumcision?',
     order: 15,
+    venueVariant: {
+      home: { optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
+      birth_center: { optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
+    },
     conditionalOn: {
       questionId: 'baby_sex',
       values: ['boy', 'unknown', 'surprise', 'prefer_not_to_say'],
@@ -1384,10 +1413,14 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 'pacifier',
-    category: 'Hospital Stay',
+    category: 'Newborn Care',
     title: 'Pacifier Use',
     subtitle: 'How do you feel about pacifier use in the hospital?',
-    order: 18,
+    order: 17.5,
+    venueVariant: {
+      home: { subtitle: "How do you feel about pacifier use in baby's early days?" },
+      birth_center: { subtitle: "How do you feel about pacifier use? You'll likely leave the birth center within a few hours of birth." },
+    },
     learnMoreData: {
       tradeoff: 'Pacifiers satisfy baby\'s natural sucking reflex and may reduce SIDS risk, but early use could interfere with breastfeeding establishment if baby is nursing.',
       pros: [
@@ -1420,6 +1453,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Visitor Preferences',
     subtitle: 'Who would you like to visit after baby arrives?',
     order: 19,
+    venueVariant: {
+      home: { subtitle: 'Who would you like to visit after baby arrives at home?', optionOverrides: { welcome: { label: 'Visitors welcome anytime', birthPlanText: 'We welcome visitors at home after the birth.' }, limited: { birthPlanText: 'We prefer brief visits from close family only.' }, after_home: { label: 'No visitors for the first day', birthPlanText: 'We prefer no visitors for the first day at home.' } } },
+      birth_center: { subtitle: 'Who would you like to visit? At birth centers, visits are typically brief before you head home.', optionOverrides: { welcome: { birthPlanText: 'We welcome visitors at the birth center and at home.' } } },
+    },
     learnMoreData: {
       tradeoff: 'Visitors bring love and excitement, but they can also be exhausting during recovery. Setting boundaries early is easier than trying to enforce them when you are tired and emotional.',
       pros: [
@@ -1493,6 +1530,9 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Placenta Plans',
     subtitle: 'What would you like done with the placenta?',
     order: 20,
+    venueVariant: {
+      birth_center: { optionOverrides: { dispose: { label: 'Facility disposal is fine', birthPlanText: 'The birth center may dispose of the placenta.' } } },
+    },
     learnMoreData: {
       tradeoff: 'The placenta sustained your baby for 9 months. Most families let the hospital dispose of it, but some keep it for encapsulation, burial, or other purposes. Scientific evidence for health benefits of encapsulation is inconclusive.',
       pros: [
@@ -1596,10 +1636,10 @@ export const quizQuestions: QuizQuestion[] = [
   },
   {
     id: 'medical_conditions',
-    category: 'Personal',
+    category: 'Getting Started',
     title: 'Medical Conditions & Allergies',
     subtitle: 'Are there any medical conditions relevant to your birth? (Check all that apply)',
-    order: 22.25,
+    order: 2.75,
     inputType: 'checklist',
     options: [
       { value: 'gestational_diabetes', label: 'Gestational diabetes', birthPlanText: 'I have been diagnosed with gestational diabetes.', icon: 'Activity' },
@@ -1884,8 +1924,6 @@ export const quizQuestions: QuizQuestion[] = [
     textInputOnOption: 'has_plan',
     options: [
       { value: 'has_plan', label: 'We have a backup hospital chosen', birthPlanText: '', icon: 'Building2' },
-      { value: 'discussing', label: 'We are discussing this with our provider', birthPlanText: '', icon: 'MessageSquare' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
     ],
   },
   {
@@ -1916,6 +1954,11 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'heplock', label: 'Hep-lock IV access only (no continuous fluids)', birthPlanText: 'If transferred, we prefer a hep-lock for IV access rather than continuous fluids.', icon: 'Droplet' },
       { value: 'intermittent_monitor', label: 'Request intermittent monitoring if possible', birthPlanText: 'If transferred, we prefer intermittent fetal monitoring if the clinical situation allows.', icon: 'Activity' },
       { value: 'no_students', label: 'No medical students or observers', birthPlanText: 'If transferred, we do not want medical students or observers present.', icon: 'Eye' },
+      { value: 'freedom_movement', label: 'Request freedom to move and change positions', birthPlanText: 'If transferred, we would like freedom to move and change positions during labor.', icon: 'Move' },
+      { value: 'support_person', label: 'Ensure my support person stays with me throughout', birthPlanText: 'If transferred, our support person must stay with us at all times.', icon: 'Users' },
+      { value: 'delayed_cord', label: 'Delayed cord clamping even if in hospital', birthPlanText: 'If transferred, we still want delayed cord clamping.', icon: 'Timer' },
+      { value: 'skin_to_skin', label: 'Immediate skin-to-skin if baby is stable', birthPlanText: 'If transferred, we want immediate skin-to-skin contact if baby is stable.', icon: 'Heart' },
+      { value: 'minimal_separation', label: 'Keep baby with me at all times unless medically necessary', birthPlanText: 'If transferred, please keep baby with us at all times unless medically necessary.', icon: 'Baby' },
     ],
   },
   {
@@ -1931,6 +1974,11 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'no_pacifier', label: 'No pacifiers offered to baby', birthPlanText: 'If at the hospital, please do not offer baby a pacifier.', icon: 'XCircle' },
       { value: 'early_discharge', label: 'Discharge as soon as medically safe', birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.', icon: 'Home' },
       { value: 'limit_visitors', label: 'Limit visitors during recovery', birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.', icon: 'Users' },
+      { value: 'breastfeeding_support', label: 'Request lactation support if breastfeeding', birthPlanText: 'If at the hospital, we would like lactation consultant support.', icon: 'Heart' },
+      { value: 'skin_to_skin_continue', label: 'Continue skin-to-skin as much as possible', birthPlanText: 'If at the hospital, we want to continue skin-to-skin contact as much as possible.', icon: 'Baby' },
+      { value: 'no_formula', label: 'No formula supplementation without discussion first', birthPlanText: 'If at the hospital, please do not give baby formula without discussing with us first.', icon: 'Shield' },
+      { value: 'bath_delay', label: "Delay baby's first bath", birthPlanText: "If at the hospital, please delay baby's first bath for at least 24 hours.", icon: 'Droplets' },
+      { value: 'quiet_recovery', label: 'Request a quiet recovery environment', birthPlanText: 'If at the hospital, we prefer a quiet recovery environment with minimal disruptions.', icon: 'Moon' },
     ],
   },
 

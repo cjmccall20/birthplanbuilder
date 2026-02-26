@@ -80,6 +80,7 @@ interface DocumentCanvasProps {
   onItemSelect?: (sectionId: EditorSectionId, preferenceId: string) => void
   onAddDecision?: (sectionId: EditorSectionId) => void
   selectedPreferenceId?: string | null
+  readOnly?: boolean
 }
 
 // Sortable preference card wrapper for section-level reordering
@@ -121,6 +122,7 @@ export function DocumentCanvas({
   onItemSelect,
   onAddDecision,
   selectedPreferenceId,
+  readOnly = false,
 }: DocumentCanvasProps) {
   const { state, dispatch, setTemplate, setBirthType, setBirthVenue, setBirthTeam, setBirthTeamField, addBirthTeamField, removeBirthTeamField, renameBirthTeamField, setTitle, setSubtitle, setDisclaimer, setPreference, setSectionNotes, updateCustomItem, removeCustomItem, setStance, setCustomIcon, setBulletSymbol, toggleSectionVisibility, setAssignment } = useEditor()
   const [editingItemId, setEditingItemId] = useState<string | null>(null)
@@ -354,6 +356,219 @@ export function DocumentCanvas({
     const [moved] = newLines.splice(oldIndex, 1)
     newLines.splice(newIndex, 0, moved)
     handleTextEdit(item, newLines.join('\n'))
+  }
+
+  // Read-only rendering: no interactive elements, no drag handles, no toolbar
+  if (readOnly) {
+    // Filter out undecided items in readOnly mode
+    const readOnlySections = canvasSections
+      .map(section => ({
+        ...section,
+        items: section.items.filter(item => !item.isUndecided && item.birthPlanText),
+      }))
+      .filter(section => section.items.length > 0 || section.notes)
+
+    return (
+      <div className="flex flex-col h-full">
+        <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
+          <div
+            className="max-w-[650px] mx-auto shadow-lg rounded-sm relative overflow-hidden"
+            style={{
+              backgroundColor: theme.backgroundColor,
+              backgroundImage: theme.backgroundPattern || undefined,
+            }}
+          >
+            {/* Decorative corner SVGs */}
+            {theme.cornerSvg?.topLeft && (
+              <div className="absolute top-0 left-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.topLeft }} />
+            )}
+            {theme.cornerSvg?.topRight && (
+              <div className="absolute top-0 right-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.topRight }} />
+            )}
+            {theme.cornerSvg?.bottomLeft && (
+              <div className="absolute bottom-0 left-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.bottomLeft }} />
+            )}
+            {theme.cornerSvg?.bottomRight && (
+              <div className="absolute bottom-0 right-0 pointer-events-none" dangerouslySetInnerHTML={{ __html: theme.cornerSvg.bottomRight }} />
+            )}
+            <div
+              className="p-8 md:p-12"
+              style={{ fontFamily: theme.fontFamily, color: theme.textColor }}
+            >
+              {/* Header */}
+              <div
+                className="text-center pb-6 mb-8 border-b-2"
+                style={{ borderColor: theme.borderColor }}
+              >
+                <h1 className="text-2xl md:text-3xl font-bold">
+                  {state.title || 'Birth Plan'}
+                </h1>
+                {state.subtitle && (
+                  <p className="text-sm md:text-base mt-1" style={{ opacity: 0.65 }}>
+                    {state.subtitle}
+                  </p>
+                )}
+                {state.birthTeam.fields.length > 0 && state.birthTeam.fields[0].value && (
+                  <p className="text-base text-muted-foreground mt-1">
+                    {state.birthTeam.fields[0].value}
+                  </p>
+                )}
+
+                {/* Birth team info */}
+                {state.birthTeam.fields.slice(1).some(f => f.value) && (
+                  <div
+                    className="mt-4 p-4 rounded-md text-sm text-left space-y-1"
+                    style={{ backgroundColor: theme.sectionHeaderBg }}
+                  >
+                    {state.birthTeam.fields.slice(1).filter(f => f.id !== 'medical_notes').map(field => (
+                      field.value ? (
+                        <div key={field.id} className="flex gap-2">
+                          <span className="font-semibold text-xs uppercase tracking-wide" style={{ opacity: 0.5 }}>
+                            {field.label}
+                          </span>
+                          <span>{field.value}</span>
+                        </div>
+                      ) : null
+                    ))}
+                    {state.birthTeam.due_date && (
+                      <div className="flex gap-2">
+                        <span className="font-semibold text-xs uppercase tracking-wide" style={{ opacity: 0.5 }}>
+                          Due date
+                        </span>
+                        <span>{state.birthTeam.due_date}</span>
+                      </div>
+                    )}
+                    {(() => {
+                      const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
+                      if (!medField || !medField.value) return null
+                      return (
+                        <div className="space-y-1 mt-2">
+                          <span className="font-semibold text-xs uppercase tracking-wide" style={{ opacity: 0.5 }}>
+                            Medical Notes
+                          </span>
+                          <p className="text-sm" style={{ opacity: 0.85 }}>{medField.value}</p>
+                        </div>
+                      )
+                    })()}
+                  </div>
+                )}
+              </div>
+
+              {/* Philosophy Statement */}
+              {(state.showPhilosophy !== false) && state.philosophyStatement && (
+                <div className="mb-6" style={{ fontFamily: theme.fontFamily }}>
+                  <p className="text-sm italic leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
+                    {state.philosophyStatement}
+                  </p>
+                </div>
+              )}
+
+              {/* Content Sections */}
+              {readOnlySections.map((section) => (
+                <div key={section.sectionId} className="mb-8">
+                  <h2
+                    className="text-lg font-semibold pb-2 mb-4 border-b px-1"
+                    style={{ color: theme.primaryColor, borderColor: theme.borderColor, backgroundColor: theme.sectionHeaderBg }}
+                  >
+                    {state.customSectionTitles?.[section.sectionId] || section.title}
+                  </h2>
+
+                  <div className="space-y-4">
+                    {section.items.map((item) => {
+                      const ItemIcon = getIconComponent(item.icon || 'Circle')
+                      const lines = item.birthPlanText.split('\n').filter(Boolean)
+                      const isMultiLine = lines.length > 1
+
+                      return (
+                        <div key={item.preferenceId} className="pl-3 border-l-2 border-transparent">
+                          <div className="flex items-start gap-2">
+                            <div className="mt-0.5 flex-shrink-0">
+                              {item.stance === 'desired' ? (
+                                <CheckCircle2 className="w-5 h-5 text-green-600" />
+                              ) : item.stance === 'declined' ? (
+                                <XCircle className="w-5 h-5 text-red-500" />
+                              ) : item.stance === 'cautious' ? (
+                                <AlertTriangle className="w-5 h-5 text-amber-500" />
+                              ) : (
+                                <ItemIcon className="w-5 h-5" style={{ color: theme.primaryColor }} />
+                              )}
+                            </div>
+                            <div className="flex-1 min-w-0">
+                              <div className="flex items-center gap-1.5 mb-0.5">
+                                <p className="font-semibold text-sm" style={{ color: theme.textColor }}>
+                                  {item.title}
+                                </p>
+                                {item.assignedTo && (
+                                  <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                                    @{item.assignedTo}
+                                  </span>
+                                )}
+                              </div>
+                              {isMultiLine ? (
+                                <ul className="list-none space-y-0.5 pl-0">
+                                  {lines.map((line, i) => (
+                                    <li key={i} className="text-sm leading-relaxed flex items-start gap-1.5">
+                                      <span className="flex-shrink-0 mt-0.5" style={{ color: theme.primaryColor }}>
+                                        {bulletSymbol}
+                                      </span>
+                                      <span style={{ color: theme.textColor, opacity: 0.85 }}>{line}</span>
+                                    </li>
+                                  ))}
+                                </ul>
+                              ) : (
+                                <p className="text-sm leading-relaxed" style={{ color: theme.textColor, opacity: 0.85 }}>
+                                  {item.birthPlanText}
+                                </p>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      )
+                    })}
+                  </div>
+
+                  {/* Section notes */}
+                  {section.notes && (
+                    <div
+                      className="mt-2 rounded-lg border border-dashed p-3 flex items-start gap-2"
+                      style={{ borderColor: `${theme.primaryColor}30`, backgroundColor: theme.sectionHeaderBg }}
+                    >
+                      <StickyNote className="w-4 h-4 flex-shrink-0 mt-0.5" style={{ color: theme.primaryColor, opacity: 0.5 }} />
+                      <p className="text-sm" style={{ color: theme.textColor, opacity: 0.75 }}>
+                        {section.notes}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              ))}
+
+              {/* Empty State */}
+              {readOnlySections.length === 0 && (
+                <div className="text-center py-12" style={{ color: theme.textColor, opacity: 0.6 }}>
+                  <p>Your birth plan is empty.</p>
+                  <p className="text-sm mt-1">Add decisions to see a preview.</p>
+                </div>
+              )}
+
+              {/* Disclaimer */}
+              {state.disclaimerText && (
+                <div
+                  className="mt-8 p-4 rounded-md text-xs leading-relaxed"
+                  style={{ backgroundColor: theme.sectionHeaderBg, opacity: 0.8 }}
+                >
+                  {state.disclaimerText}
+                </div>
+              )}
+
+              {/* Footer */}
+              <div className="mt-6 text-center text-xs" style={{ color: theme.textColor, opacity: 0.5 }}>
+                Created with Birth Plan Builder | birthplanbuilder.com
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   return (

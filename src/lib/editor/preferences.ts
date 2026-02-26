@@ -342,6 +342,11 @@ export const PREFERENCES: PreferenceDefinition[] = [
     clinical: true,
     quizQuestionId: 'labor_augmentation',
     options: [
+      { value: 'nipple_stimulation', label: 'Nipple stimulation', birthPlanText: 'If labor slows, we would like to try nipple stimulation to encourage contractions.' },
+      { value: 'position_changes', label: 'Position changes and movement', birthPlanText: 'If labor slows, we would like to try position changes and movement to encourage progress.' },
+      { value: 'hydrotherapy', label: 'Warm bath or shower', birthPlanText: 'If labor slows, we would like to try a warm bath or shower to encourage progress.' },
+      { value: 'rest_eat', label: 'Rest, eat, and hydrate', birthPlanText: 'If labor slows, we would like to rest, eat, and hydrate before trying other interventions.' },
+      { value: 'acupressure', label: 'Acupressure or massage', birthPlanText: 'If labor slows, we would like to try acupressure or massage to encourage contractions.' },
       { value: 'wait_it_out', label: 'Try natural methods first', birthPlanText: 'If labor slows, we prefer to try natural methods first before considering Pitocin.' },
       { value: 'low_dose_pitocin', label: 'Pitocin at lowest dose', birthPlanText: 'If augmentation is needed, we prefer Pitocin at the lowest effective dose with slow increases.' },
       { value: 'pitocin_stop_active', label: 'Pitocin but turn off at active labor', birthPlanText: 'If Pitocin is used, we would like it reduced or stopped once active labor is established.' },
@@ -795,6 +800,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     quizQuestionId: 'pacifier',
     options: [
       { value: 'no', label: 'No pacifiers please', birthPlanText: 'Please do not give baby a pacifier.', isPopular: true, icon: 'AlertCircle', defaultStance: 'declined' },
+      { value: 'if_needed', label: "Flexible, we'll see", birthPlanText: "We're flexible, if it seems needed then we'd be open to using pacifiers after a discussion.", icon: 'ArrowLeftRight' },
       { value: 'yes', label: 'Pacifiers are fine with us', birthPlanText: 'We plan to use pacifiers.', icon: 'Shield', defaultStance: 'desired' },
     ],
   },
