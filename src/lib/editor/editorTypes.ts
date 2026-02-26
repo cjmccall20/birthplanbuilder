@@ -96,6 +96,8 @@ export interface EditorState {
   philosophyStatement?: string  // Editable intro paragraph at top of birth plan
   showPhilosophy?: boolean  // Toggle visibility of philosophy statement (default true)
   customSectionTitles?: Record<string, string>  // Custom section names, keyed by sectionId
+  whiteBackground?: boolean  // Override theme background with white for printing
+  medicalNotesHidden?: boolean  // Hide medical notes section without deleting content
 }
 
 // Action types for reducer
@@ -131,5 +133,7 @@ export type EditorAction =
   | { type: 'TOGGLE_PHILOSOPHY_VISIBILITY' }
   | { type: 'SET_SECTION_TITLE'; payload: { sectionId: EditorSectionId; title: string } }
   | { type: 'SET_ASSIGNMENT'; payload: { sectionId: EditorSectionId; preferenceId: string; assignedTo: string | null; isCustom?: boolean } }
+  | { type: 'SET_WHITE_BACKGROUND'; payload: boolean }
+  | { type: 'SET_MEDICAL_NOTES_HIDDEN'; payload: boolean }
   | { type: 'UNDO' }
   | { type: 'REDO' }

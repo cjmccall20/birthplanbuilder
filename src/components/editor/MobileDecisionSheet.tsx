@@ -18,6 +18,7 @@ interface MobileDecisionSheetProps {
   onClose: () => void
   selectedPreferenceId?: string | null
   onClearSelection?: () => void
+  expandSection?: EditorSectionId | null
 }
 
 export function MobileDecisionSheet({
@@ -25,6 +26,7 @@ export function MobileDecisionSheet({
   onClose,
   selectedPreferenceId,
   onClearSelection,
+  expandSection,
 }: MobileDecisionSheetProps) {
   const [detailView, setDetailView] = useState<{ sectionId: EditorSectionId; preferenceId: string } | null>(null)
 
@@ -66,6 +68,7 @@ export function MobileDecisionSheet({
             <SectionBrowser
               onSelectPreference={handleSelectPreference}
               selectedPreferenceId={selectedPreferenceId}
+              expandSection={expandSection}
             />
           )}
         </div>

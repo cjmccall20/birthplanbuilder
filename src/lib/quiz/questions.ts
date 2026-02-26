@@ -28,6 +28,7 @@ export interface QuizQuestion {
   options: QuizOption[]
   inputType?: 'text' | 'checklist_with_names' | 'checklist' | 'date'  // 'text' = legacy, 'checklist_with_names' = support people, 'checklist' = multi-select, 'date' = native date picker
   textInputOnOption?: string   // Show text input when this option value is selected
+  textInputPlaceholder?: string // Placeholder text for the text input field
   deferredFor?: 'csection'     // Deferred to end for vaginal planners
   conditionalOn?: {            // Show question only when referenced question has one of the listed values
     questionId: string
@@ -432,8 +433,9 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'episiotomy',
     category: 'Your Birth',
     title: 'Episiotomy Preferences',
-    subtitle: 'What are your preferences regarding episiotomy?',
+    subtitle: 'An episiotomy is a surgical cut made at the vaginal opening during delivery to widen the birth canal. What are your preferences?',
     order: 10.65,
+    inputType: 'checklist',
     venueVariant: {
       home: { subtitle: 'Episiotomy is very rare in home birth settings. Would you still like to document preferences in case of transfer?' },
       birth_center: { subtitle: 'Episiotomy is uncommon at birth centers. What are your preferences?' },
@@ -455,6 +457,7 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'avoid', label: 'Prefer to avoid unless emergency', birthPlanText: 'We prefer to avoid episiotomy. Please use perineal massage and warm compresses instead.', icon: 'Shield' },
       { value: 'only_consent', label: 'Only with our explicit consent', birthPlanText: 'Please do not perform an episiotomy without discussing it with us first.', icon: 'MessageSquare' },
+      { value: 'prevent_upward_tear', label: 'Only if necessary to prevent an upward (clitoral/urethral) tear', birthPlanText: 'If I am about to tear upward toward the clitoris or urethra, I consent to an episiotomy to redirect tearing.', icon: 'AlertCircle' },
       { value: 'provider_judgment', label: 'Trust our provider\'s judgment', birthPlanText: 'We are open to episiotomy if our provider determines it is necessary.', icon: 'Stethoscope' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss episiotomy with our care team.', isUnsure: true },
@@ -469,12 +472,10 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'when_to_hospital',
     category: 'Getting Started',
     title: 'When to Go to the Hospital',
-    subtitle: 'When do you want to head to your birth location?',
+    subtitle: 'When do you want to head to the hospital? What signs would prompt going in?',
     order: 7,
-    venueVariant: {
-      home: { subtitle: 'When will you call your midwife to come to your home? And what would prompt a transfer to the hospital?' },
-      birth_center: { subtitle: 'When do you plan to head to the birth center? What signs would prompt going in?' },
-    },
+    inputType: 'checklist' as const,
+    conditionalOn: { questionId: 'birth_setting', values: ['hospital'] },
     learnMoreData: {
       tradeoff: 'Arriving too early often leads to interventions to "speed things up." Arriving in active labor lets your body establish its rhythm, but requires comfort with laboring at home.',
       pros: [
@@ -496,10 +497,49 @@ export const quizQuestions: QuizQuestion[] = [
     options: [
       { value: 'active_labor_4_5', label: 'Active labor (contractions 4-5 min apart)', birthPlanText: 'We plan to arrive when contractions are 4-5 minutes apart, lasting about 1 minute each.', icon: 'Clock' },
       { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and I am exhibiting the emotional signposts of active labor.', icon: 'Timer' },
+      { value: 'water_breaks', label: 'If my water breaks', birthPlanText: 'We will head to the hospital if my water breaks.', icon: 'Droplet' },
       { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason (such as GBS antibiotics).', icon: 'Building2' },
       { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will call our provider and arrive when they recommend.', icon: 'Stethoscope' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We are still deciding on when to head to the hospital.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
+    id: 'when_to_birth_center',
+    category: 'Getting Started',
+    title: 'When to Go to the Birth Center',
+    subtitle: 'When do you plan to head to the birth center? What signs would prompt going in?',
+    order: 7.1,
+    conditionalOn: { questionId: 'birth_setting', values: ['birth_center'] },
+    inputType: 'checklist' as const,
+    options: [
+      { value: 'active_labor', label: 'When contractions are regular and close together (e.g., 4-5 minutes apart)', birthPlanText: 'We plan to go to the birth center when contractions are regular and close together.', icon: 'Clock' },
+      { value: 'emotional_signposts', label: 'When I can no longer talk through contractions or feel I need support', birthPlanText: 'We will head to the birth center when I can no longer talk through contractions.', icon: 'Heart' },
+      { value: 'water_breaks', label: 'If my water breaks', birthPlanText: 'We will go to the birth center if my water breaks.', icon: 'Droplet' },
+      { value: 'provider_guidance', label: 'When our midwife/provider advises us to come in', birthPlanText: 'We will follow our midwife\'s guidance on when to come to the birth center.', icon: 'Stethoscope' },
+      { value: 'gbs_antibiotics', label: 'Early, for GBS antibiotics or other medical reason', birthPlanText: 'We will arrive early if needed for GBS antibiotics or other medical reasons.', icon: 'Shield' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We are still deciding when to go to the birth center.', isUnsure: true },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
+    id: 'when_to_call_midwife',
+    category: 'Getting Started',
+    title: 'When to Call Your Midwife',
+    subtitle: 'When will you call your midwife to come to your home? What would prompt a transfer to the hospital?',
+    order: 7.2,
+    conditionalOn: { questionId: 'birth_setting', values: ['home'] },
+    inputType: 'checklist' as const,
+    options: [
+      { value: 'active_labor', label: 'When contractions are regular and close together', birthPlanText: 'We will call our midwife when contractions are regular and close together.', icon: 'Clock' },
+      { value: 'emotional_signposts', label: 'When I feel I need my midwife\'s support', birthPlanText: 'We will call our midwife when I feel I need her support.', icon: 'Heart' },
+      { value: 'water_breaks', label: 'If my water breaks', birthPlanText: 'We will call our midwife if my water breaks.', icon: 'Droplet' },
+      { value: 'early_labor_support', label: 'During early labor for reassurance and guidance', birthPlanText: 'We would like our midwife to come during early labor for reassurance.', icon: 'HeartHandshake' },
+      { value: 'provider_guidance', label: 'When my midwife advises based on our check-ins', birthPlanText: 'We will follow our midwife\'s guidance based on phone check-ins.', icon: 'Stethoscope' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
+      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We are still deciding when to call our midwife.', isUnsure: true },
     ],
     textInputOnOption: 'custom',
   },
@@ -597,7 +637,6 @@ export const quizQuestions: QuizQuestion[] = [
       },
       birth_center: {
         subtitle: 'Birth centers use intermittent monitoring with a handheld Doppler. How often would you like your baby monitored?',
-        hiddenOptions: ['continuous'],
       },
     },
     learnMoreData: {
@@ -764,6 +803,7 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'no_after_water', label: 'Decline after water breaks', birthPlanText: 'Please do not perform vaginal exams after my water has broken to reduce infection risk.', icon: 'AlertCircle' },
       { value: 'routine_fine', label: 'Routine checks are fine', birthPlanText: 'Routine cervical checks during labor are fine with us.', icon: 'Check' },
       { value: 'consent_each', label: 'Ask permission before each check', birthPlanText: 'Please ask my permission before each cervical exam.', icon: 'MessageSquare' },
+      { value: 'no_checks', label: 'No cervical checks', birthPlanText: 'I decline all cervical checks unless I specifically request one.', icon: 'X' },
     ],
   },
   {
@@ -945,6 +985,9 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Vitamin K Shot',
     subtitle: 'Vitamin K helps with blood clotting - what\'s your preference?',
     order: 12,
+    venueVariant: {
+      birth_center: { subtitle: 'Vitamin K is routinely offered at birth centers, typically within the first hour after birth.' },
+    },
     learnMoreData: {
       tradeoff: 'A single injection provides near-complete protection against VKDB (a rare but potentially fatal bleeding disorder). The oral alternative exists but requires multiple doses and is less effective.',
       pros: [
@@ -978,6 +1021,9 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Eye Ointment',
     subtitle: 'Antibiotic eye ointment can prevent STDs being transmitted from mother to child',
     order: 13,
+    venueVariant: {
+      birth_center: { subtitle: 'Eye prophylaxis is routinely administered at birth centers and is legally required in most states.' },
+    },
     learnMoreData: {
       tradeoff: 'Erythromycin eye ointment prevents gonorrhea and chlamydia transmission to baby\'s eyes during birth. If you have tested negative for both STIs, your baby\'s risk of these infections is essentially zero.',
       pros: [
@@ -1010,6 +1056,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Hepatitis B Vaccine',
     subtitle: 'The Hep B vaccine is typically offered in the first 24 hours',
     order: 14,
+    venueVariant: {
+      birth_center: { subtitle: 'Many birth centers defer this to the pediatrician. Recent CDC guidance (Dec 2025) allows deferral to 2+ months for mothers who test negative for Hepatitis B.' },
+      home: { subtitle: 'Many birth centers defer this to the pediatrician. Recent CDC guidance (Dec 2025) allows deferral to 2+ months for mothers who test negative for Hepatitis B.' },
+    },
     learnMoreData: {
       tradeoff: 'The birth-dose Hep B vaccine is primarily to catch babies of mothers who test falsely negative. If you are confirmed Hep B-negative, recent ACIP guidelines support individual decision-making about timing.',
       pros: [
@@ -1080,8 +1130,8 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'If having a boy, what are your thoughts on circumcision?',
     order: 15,
     venueVariant: {
-      home: { optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
-      birth_center: { optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
+      home: { subtitle: 'Circumcision is not performed at birth centers or at home. If desired, this is typically scheduled with a pediatrician or urologist in the first 1-10 days.', optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
+      birth_center: { subtitle: 'Circumcision is not performed at birth centers or at home. If desired, this is typically scheduled with a pediatrician or urologist in the first 1-10 days.', optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
     },
     conditionalOn: {
       questionId: 'baby_sex',
@@ -1154,6 +1204,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Newborn Screening (Heel Prick)',
     subtitle: 'The heel prick test screens for rare but serious conditions - what\'s your preference?',
     order: 15.1,
+    venueVariant: {
+      birth_center: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
+      home: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
+    },
     learnMoreData: {
       tradeoff: 'The newborn screening blood test checks for 30-50+ rare but treatable conditions (depending on your state). Early detection allows treatment before symptoms appear, potentially preventing disability or death.',
       pros: [
@@ -1184,6 +1238,10 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Hearing Screening',
     subtitle: 'Would you like baby to have the newborn hearing test?',
     order: 15.2,
+    venueVariant: {
+      birth_center: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
+      home: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
+    },
     learnMoreData: {
       tradeoff: 'The hearing screening is painless and takes 5-10 minutes while baby sleeps. Early detection of hearing loss allows intervention during the critical window for language development.',
       pros: [
@@ -1646,12 +1704,14 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'preeclampsia', label: 'Preeclampsia / high blood pressure', birthPlanText: 'I have been diagnosed with preeclampsia or pregnancy-related high blood pressure.', icon: 'Heart' },
       { value: 'gbs_positive', label: 'GBS positive', birthPlanText: 'I have tested positive for Group B Strep.', icon: 'TestTube' },
       { value: 'latex_allergy', label: 'Latex allergy', birthPlanText: 'I have a latex allergy - please use non-latex gloves and equipment.', icon: 'AlertCircle' },
-      { value: 'medication_allergy', label: 'Medication allergies (specify in notes)', birthPlanText: 'I have medication allergies (see notes).', icon: 'Pill' },
+      { value: 'medication_allergy', label: 'Medication allergies', birthPlanText: 'I have medication allergies (see notes).', icon: 'Pill' },
       { value: 'prior_trauma', label: 'Prior birth trauma or PTSD', birthPlanText: 'I have a history of birth trauma. Please be sensitive to this and communicate clearly before any procedures.', icon: 'Shield' },
       { value: 'blood_clotting', label: 'Blood clotting disorder', birthPlanText: 'I have a blood clotting disorder.', icon: 'Droplet' },
       { value: 'prefer_not', label: 'Prefer not to include in birth plan', birthPlanText: '', omitFromPlan: true, icon: 'Lock' },
       { value: 'none', label: 'No relevant conditions', birthPlanText: '', omitFromPlan: true, icon: 'Check' },
     ],
+    textInputOnOption: 'medication_allergy',
+    textInputPlaceholder: 'List your medication allergies...',
   },
 
   {
@@ -1924,6 +1984,8 @@ export const quizQuestions: QuizQuestion[] = [
     textInputOnOption: 'has_plan',
     options: [
       { value: 'has_plan', label: 'We have a backup hospital chosen', birthPlanText: '', icon: 'Building2' },
+      { value: 'no_backup', label: 'No backup facility chosen yet', birthPlanText: 'We have not yet chosen a backup hospital.', icon: 'AlertCircle' },
+      { value: 'researching', label: 'I need to research backup options', birthPlanText: 'We are still researching backup hospital options.', icon: 'HelpCircle' },
     ],
   },
   {
@@ -1962,24 +2024,43 @@ export const quizQuestions: QuizQuestion[] = [
     ],
   },
   {
+    id: 'hospital_newborn_contingency',
+    category: 'If You Transfer',
+    title: 'Newborn Procedures at the Hospital',
+    subtitle: 'If you transfer to a hospital, what are your preferences for newborn procedures?',
+    order: 1.5,
+    conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
+    inputType: 'checklist' as const,
+    options: [
+      { value: 'delayed_cord', label: 'Delayed cord clamping', birthPlanText: 'We request delayed cord clamping even if in the hospital.', icon: 'Timer' },
+      { value: 'skin_to_skin', label: 'Immediate skin-to-skin if baby is stable', birthPlanText: 'We request immediate skin-to-skin contact if baby is stable.', icon: 'Heart' },
+      { value: 'delay_bath', label: 'Delay baby\'s first bath', birthPlanText: 'Please delay baby\'s first bath.', icon: 'Droplets' },
+      { value: 'delay_exams', label: 'Delay non-urgent newborn exams for bonding', birthPlanText: 'We request that non-urgent newborn exams be delayed for bonding time.', icon: 'Clock' },
+      { value: 'eye_ointment_delay', label: 'Delay eye ointment for bonding', birthPlanText: 'We request eye ointment be delayed to allow for initial bonding.', icon: 'Eye' },
+      { value: 'vitamin_k_yes', label: 'Administer vitamin K injection', birthPlanText: 'Please administer the vitamin K injection.', icon: 'Syringe' },
+      { value: 'no_formula', label: 'No formula supplementation without discussion first', birthPlanText: 'Please do not give formula without discussing with us first.', icon: 'Shield' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
+    ],
+    textInputOnOption: 'custom',
+  },
+  {
     id: 'hospital_stay_contingency',
     category: 'If You Transfer',
-    title: 'If You Stay at the Hospital After Birth',
-    subtitle: 'If you end up staying at the hospital after delivery, what matters most to you?',
+    title: 'Hospital Stay Preferences',
+    subtitle: 'If you end up staying at the hospital, what are your preferences for your stay?',
     order: 2,
     inputType: 'checklist' as const,
     conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
     options: [
       { value: 'rooming_in', label: 'Baby stays with us at all times (rooming in)', birthPlanText: 'If at the hospital, we want baby to room in with us at all times.', icon: 'Baby' },
-      { value: 'no_pacifier', label: 'No pacifiers offered to baby', birthPlanText: 'If at the hospital, please do not offer baby a pacifier.', icon: 'XCircle' },
-      { value: 'early_discharge', label: 'Discharge as soon as medically safe', birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.', icon: 'Home' },
-      { value: 'limit_visitors', label: 'Limit visitors during recovery', birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.', icon: 'Users' },
-      { value: 'breastfeeding_support', label: 'Request lactation support if breastfeeding', birthPlanText: 'If at the hospital, we would like lactation consultant support.', icon: 'Heart' },
-      { value: 'skin_to_skin_continue', label: 'Continue skin-to-skin as much as possible', birthPlanText: 'If at the hospital, we want to continue skin-to-skin contact as much as possible.', icon: 'Baby' },
-      { value: 'no_formula', label: 'No formula supplementation without discussion first', birthPlanText: 'If at the hospital, please do not give baby formula without discussing with us first.', icon: 'Shield' },
-      { value: 'bath_delay', label: "Delay baby's first bath", birthPlanText: "If at the hospital, please delay baby's first bath for at least 24 hours.", icon: 'Droplets' },
+      { value: 'discharge_asap', label: 'Discharge as soon as medically safe', birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.', icon: 'Home' },
+      { value: 'breastfeeding_support', label: 'Request lactation/breastfeeding support', birthPlanText: 'If at the hospital, we would like lactation consultant support.', icon: 'Heart' },
       { value: 'quiet_recovery', label: 'Request a quiet recovery environment', birthPlanText: 'If at the hospital, we prefer a quiet recovery environment with minimal disruptions.', icon: 'Moon' },
+      { value: 'visitor_limits', label: 'Limit visitors during hospital stay', birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.', icon: 'Users' },
+      { value: 'skin_to_skin_continue', label: 'Continue skin-to-skin as much as possible', birthPlanText: 'If at the hospital, we want to continue skin-to-skin contact as much as possible.', icon: 'Baby' },
+      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Settings' },
     ],
+    textInputOnOption: 'custom',
   },
 
   // =========================================================================
@@ -1994,7 +2075,7 @@ export const quizQuestions: QuizQuestion[] = [
     conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
     options: [
       { value: 'water_birth', label: 'Planning a water birth (deliver in the tub/pool)', birthPlanText: 'We are planning a water birth and would like to deliver in the tub/pool.', icon: 'Waves' },
-      { value: 'water_labor', label: 'Water for labor only (deliver on land)', birthPlanText: 'We would like to use the tub/pool for labor comfort but plan to deliver out of the water.', icon: 'Bath' },
+      { value: 'water_labor', label: 'Water for labor only (deliver outside of tub)', birthPlanText: 'We would like to use the tub/pool for labor comfort but plan to deliver outside of the tub.', icon: 'Bath' },
       { value: 'no_water', label: 'Not planning to use water', birthPlanText: '', icon: 'Circle' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: '', isUnsure: true, icon: 'HelpCircle' },
     ],

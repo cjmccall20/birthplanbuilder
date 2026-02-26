@@ -245,6 +245,9 @@ export function DocumentCanvas({
 
   const canvasSections = sections()
   const theme = canvasThemes[state.templateStyle]
+  const effectiveTheme = state.whiteBackground
+    ? { ...theme, backgroundColor: '#ffffff', backgroundPattern: undefined }
+    : theme
   const bulletSymbol = state.customBulletSymbol || theme.bulletSymbol || '\u2022'
 
   // Click to start inline editing + open sidebar
@@ -374,8 +377,8 @@ export function DocumentCanvas({
           <div
             className="max-w-[650px] mx-auto shadow-lg rounded-sm relative overflow-hidden"
             style={{
-              backgroundColor: theme.backgroundColor,
-              backgroundImage: theme.backgroundPattern || undefined,
+              backgroundColor: effectiveTheme.backgroundColor,
+              backgroundImage: effectiveTheme.backgroundPattern || undefined,
             }}
           >
             {/* Decorative corner SVGs */}
@@ -453,8 +456,9 @@ export function DocumentCanvas({
 
               {/* Medical Notes - after philosophy */}
               {(() => {
+                if (state.medicalNotesHidden) return null
                 const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
-                if (!medField || !medField.value) return null
+                if (!medField || !medField.value || !medField.value.trim()) return null
                 return (
                   <div className="mb-6">
                     <div className="space-y-1">
@@ -663,6 +667,20 @@ export function DocumentCanvas({
           </PopoverContent>
         </Popover>
 
+        {/* White background toggle */}
+        <button
+          onClick={() => dispatch({ type: 'SET_WHITE_BACKGROUND', payload: !state.whiteBackground })}
+          className={cn(
+            'px-2 py-1 rounded text-xs font-medium transition-colors border',
+            state.whiteBackground
+              ? 'bg-white border-primary text-primary'
+              : 'border-gray-200 text-muted-foreground hover:bg-gray-50'
+          )}
+          title="Use white background for printing"
+        >
+          White BG
+        </button>
+
         {/* Separator */}
         <div className="hidden md:block w-px h-6 bg-gray-200" />
 
@@ -714,8 +732,8 @@ export function DocumentCanvas({
         <div
           className="max-w-[650px] mx-auto shadow-lg rounded-sm relative overflow-hidden"
           style={{
-            backgroundColor: theme.backgroundColor,
-            backgroundImage: theme.backgroundPattern || undefined,
+            backgroundColor: effectiveTheme.backgroundColor,
+            backgroundImage: effectiveTheme.backgroundPattern || undefined,
           }}
         >
           {/* Decorative corner SVGs */}
@@ -861,13 +879,17 @@ export function DocumentCanvas({
             {(() => {
               const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
               if (!medField) return null
-              const hasContent = !!medField.value
-              return (
-                <div className="mt-4 mb-6">
-                  {!hasContent ? (
+              const hasContent = !!(medField.value && medField.value.trim())
+              const isHidden = state.medicalNotesHidden === true
+
+              // Show "add" button when hidden or when no content
+              if (isHidden || !hasContent) {
+                return (
+                  <div className="mt-4 mb-6">
                     <button
                       onClick={() => {
-                        setBirthTeamField('medical_notes', ' ')
+                        dispatch({ type: 'SET_MEDICAL_NOTES_HIDDEN', payload: false })
+                        if (!hasContent) setBirthTeamField('medical_notes', ' ')
                       }}
                       className="text-xs flex items-center gap-1.5 transition-opacity"
                       style={{ color: theme.primaryColor, opacity: 0.5 }}
@@ -876,30 +898,33 @@ export function DocumentCanvas({
                     >
                       <StickyNote className="w-3.5 h-3.5" /> + Add medical notes
                     </button>
-                  ) : (
-                    <div className="space-y-1">
-                      <div className="flex items-center gap-2">
-                        <span className="font-semibold text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>
-                          Medical Notes
-                        </span>
-                        <button
-                          onClick={() => setBirthTeamField('medical_notes', '')}
-                          className="text-xs text-muted-foreground hover:text-red-500 transition-colors"
-                          title="Remove medical notes"
-                        >
-                          x
-                        </button>
-                      </div>
-                      <textarea
-                        value={medField.value.trim() ? medField.value : ''}
-                        onChange={(e) => setBirthTeamField('medical_notes', e.target.value)}
-                        className="w-full text-sm bg-transparent border border-dashed rounded-lg p-2 focus:outline-none focus:border-primary resize-none"
-                        style={{ color: theme.textColor, borderColor: `${theme.primaryColor}30` }}
-                        placeholder="Medical conditions, allergies, or important notes for your care team..."
-                        rows={Math.min(Math.max(Math.ceil((medField.value || '').length / 60), 2), 6)}
-                      />
-                    </div>
-                  )}
+                  </div>
+                )
+              }
+
+              // Show the textarea with X (hide) button
+              return (
+                <div className="mt-4 mb-6 space-y-1">
+                  <div className="flex items-center gap-2">
+                    <span className="font-semibold text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>
+                      Medical Notes
+                    </span>
+                    <button
+                      onClick={() => dispatch({ type: 'SET_MEDICAL_NOTES_HIDDEN', payload: true })}
+                      className="text-xs text-muted-foreground hover:text-red-500 transition-colors"
+                      title="Hide medical notes"
+                    >
+                      x
+                    </button>
+                  </div>
+                  <textarea
+                    value={medField.value.trim() ? medField.value : ''}
+                    onChange={(e) => setBirthTeamField('medical_notes', e.target.value)}
+                    className="w-full text-sm bg-transparent border border-dashed rounded-lg p-2 focus:outline-none focus:border-primary resize-none"
+                    style={{ color: theme.textColor, borderColor: `${theme.primaryColor}30` }}
+                    placeholder="Medical conditions, allergies, or important notes for your care team..."
+                    rows={Math.min(Math.max(Math.ceil((medField.value || '').length / 60), 2), 6)}
+                  />
                 </div>
               )
             })()}
@@ -913,16 +938,28 @@ export function DocumentCanvas({
 
               return (
                 <div key={section.sectionId} className="mb-8">
-                  <input
-                    type="text"
-                    value={state.customSectionTitles?.[section.sectionId] || section.title}
-                    onChange={(e) => dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId: section.sectionId, title: e.target.value } })}
-                    onBlur={(e) => {
-                      if (!e.target.value.trim()) dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId: section.sectionId, title: e.target.value || section.title } })
-                    }}
-                    className="text-lg font-semibold pb-2 mb-4 border-b w-full bg-transparent focus:outline-none focus:bg-white/50 rounded px-1"
-                    style={{ color: theme.primaryColor, borderColor: theme.borderColor, backgroundColor: theme.sectionHeaderBg }}
-                  />
+                  <div className="group flex items-center gap-1 mb-4">
+                    <input
+                      type="text"
+                      value={state.customSectionTitles?.[section.sectionId] || section.title}
+                      onChange={(e) => dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId: section.sectionId, title: e.target.value } })}
+                      onBlur={(e) => {
+                        if (!e.target.value.trim()) dispatch({ type: 'SET_SECTION_TITLE', payload: { sectionId: section.sectionId, title: e.target.value || section.title } })
+                      }}
+                      className="text-lg font-semibold pb-2 border-b flex-1 min-w-0 bg-transparent focus:outline-none focus:bg-white/50 rounded px-1"
+                      style={{ color: theme.primaryColor, borderColor: theme.borderColor, backgroundColor: theme.sectionHeaderBg }}
+                    />
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        toggleSectionVisibility(section.sectionId)
+                      }}
+                      className="p-1 text-muted-foreground/30 hover:text-red-500 transition-all md:opacity-0 md:group-hover:opacity-100"
+                      title="Hide section"
+                    >
+                      <EyeOff className="h-3.5 w-3.5" />
+                    </button>
+                  </div>
 
                   <DndContext
                     sensors={sensors}

@@ -140,6 +140,13 @@
     writing-mode: vertical-rl;
     text-orientation: mixed;
   }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 /* Respect user's motion preferences for accessibility */

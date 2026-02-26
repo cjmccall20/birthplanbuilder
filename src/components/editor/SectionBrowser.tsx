@@ -75,6 +75,22 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
     )
   }, [activeSection, searchQuery, state.birthType, state.birthVenue])
 
+  // Cross-section search when query is non-empty
+  const crossSectionResults = useMemo(() => {
+    if (!searchQuery) return null
+    const q = searchQuery.toLowerCase()
+    const results: { sectionId: EditorSectionId; pref: PreferenceDefinition }[] = []
+    for (const section of visibleSections) {
+      const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
+      for (const p of prefs) {
+        if (p.title.toLowerCase().includes(q) || (p.description?.toLowerCase().includes(q) ?? false)) {
+          results.push({ sectionId: section.id, pref: p })
+        }
+      }
+    }
+    return results
+  }, [searchQuery, visibleSections, state.birthType, state.birthVenue])
+
   // Get custom items for active section
   const customItems = state.sections[activeSection]?.customItems || []
 
@@ -172,8 +188,8 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
         )}
       </div>
 
-      {/* Section tab buttons */}
-      <div className="flex flex-wrap gap-1.5">
+      {/* Section tab buttons - hidden during search */}
+      {!crossSectionResults && <div className="flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide">
         {visibleSections.map(section => {
           const sectionState = state.sections[section.id]
           const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
@@ -186,11 +202,11 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
           const SectionIcon = getIconComponent(section.icon)
 
           return (
-            <div key={section.id} className="flex items-center gap-0.5">
+            <div key={section.id} className="flex-shrink-0 flex items-center gap-0.5">
               <button
                 onClick={() => setActiveSection(section.id)}
                 className={cn(
-                  'flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border',
+                  'flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border',
                   isHidden && 'opacity-40',
                   isActive
                     ? 'bg-primary text-primary-foreground border-primary'
@@ -198,8 +214,7 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
                 )}
               >
                 <SectionIcon className="h-3 w-3" />
-                <span className="hidden lg:inline">{section.displayTitle}</span>
-                <span className="lg:hidden">{section.displayTitle.split(' ')[0]}</span>
+                <span className="whitespace-nowrap">{section.displayTitle}</span>
                 <span className={cn(
                   'text-[10px] px-1 rounded-full min-w-[18px] text-center',
                   isActive ? 'bg-white/20' : 'bg-muted'
@@ -232,83 +247,110 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
             </div>
           )
         })}
-      </div>
+      </div>}
 
-      {/* Search within section */}
+      {/* Search across all sections */}
       <div className="relative">
         <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
         <Input
           placeholder="Search decisions..."
           value={searchQuery}
           onChange={e => setSearchQuery(e.target.value)}
-          className="pl-9 min-h-[36px] text-sm"
+          className="pl-9 min-h-[36px] text-base"
         />
       </div>
 
-      {/* Decision list for active section */}
-      <div ref={listRef} className="border rounded-lg overflow-hidden">
-        {activePrefs.map(pref => (
-          <PreferenceRow
-            key={pref.id}
-            preference={pref}
-            sectionId={activeSection}
-            isSelected={selectedPreferenceId === pref.id}
-            onSelect={() => onSelectPreference(activeSection, pref.id)}
-          />
-        ))}
+      {/* Decision list */}
+      {crossSectionResults ? (
+        <div className="border rounded-lg overflow-hidden">
+          {crossSectionResults.length === 0 ? (
+            <p className="text-sm text-muted-foreground py-4 text-center">No decisions found for &ldquo;{searchQuery}&rdquo;</p>
+          ) : (
+            crossSectionResults.map(({ sectionId, pref }) => {
+              const section = visibleSections.find(s => s.id === sectionId)
+              return (
+                <div key={`${sectionId}-${pref.id}`}>
+                  <span className="text-[10px] uppercase tracking-wide text-muted-foreground/70 font-medium px-3 pt-1.5 block">
+                    {section?.displayTitle ?? section?.title}
+                  </span>
+                  <PreferenceRow
+                    preference={pref}
+                    sectionId={sectionId}
+                    isSelected={selectedPreferenceId === pref.id}
+                    onSelect={() => onSelectPreference(sectionId, pref.id)}
+                  />
+                </div>
+              )
+            })
+          )}
+        </div>
+      ) : (
+        <>
+          <div ref={listRef} className="border rounded-lg overflow-hidden">
+            {activePrefs.map(pref => (
+              <PreferenceRow
+                key={pref.id}
+                preference={pref}
+                sectionId={activeSection}
+                isSelected={selectedPreferenceId === pref.id}
+                onSelect={() => onSelectPreference(activeSection, pref.id)}
+              />
+            ))}
 
-        {/* Custom items */}
-        {customItems.map(item => (
-          <div
-            key={item.id}
-            className={cn(
-              'flex items-center gap-3 px-3 py-2.5 border-b last:border-b-0 transition-colors bg-white',
-              selectedPreferenceId === `custom_${item.id}` && 'bg-primary/5'
-            )}
-          >
-            <button
-              onClick={() => onSelectCustomItem?.(activeSection, item.id)}
-              className="flex items-center gap-3 flex-1 min-w-0 text-left hover:bg-muted/30 -m-1 p-1 rounded transition-colors"
-            >
-              <div className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
-                {(() => {
-                  const Icon = getIconComponent(item.customIcon || 'Circle')
-                  return <Icon className="h-3.5 w-3.5" />
-                })()}
-              </div>
-              <div className="min-w-0">
-                <span className="text-sm font-medium truncate block">
-                  {item.title || 'Custom decision'}
-                </span>
-                {item.text && (
-                  <p className="text-xs text-muted-foreground truncate">{item.text}</p>
+            {/* Custom items */}
+            {customItems.map(item => (
+              <div
+                key={item.id}
+                className={cn(
+                  'flex items-center gap-3 px-3 py-2.5 border-b last:border-b-0 transition-colors bg-white',
+                  selectedPreferenceId === `custom_${item.id}` && 'bg-primary/5'
                 )}
+              >
+                <button
+                  onClick={() => onSelectCustomItem?.(activeSection, item.id)}
+                  className="flex items-center gap-3 flex-1 min-w-0 text-left hover:bg-muted/30 -m-1 p-1 rounded transition-colors"
+                >
+                  <div className="w-7 h-7 rounded-full bg-primary/10 text-primary flex items-center justify-center flex-shrink-0">
+                    {(() => {
+                      const Icon = getIconComponent(item.customIcon || 'Circle')
+                      return <Icon className="h-3.5 w-3.5" />
+                    })()}
+                  </div>
+                  <div className="min-w-0">
+                    <span className="text-sm font-medium truncate block">
+                      {item.title || 'Custom decision'}
+                    </span>
+                    {item.text && (
+                      <p className="text-xs text-muted-foreground truncate">{item.text}</p>
+                    )}
+                  </div>
+                </button>
+                <button
+                  onClick={() => removeCustomItem(activeSection, item.id)}
+                  className="p-1 text-muted-foreground hover:text-red-500 transition-colors flex-shrink-0"
+                  title="Delete custom decision"
+                >
+                  <Trash2 className="h-3.5 w-3.5" />
+                </button>
               </div>
-            </button>
+            ))}
+
+            {/* Add custom decision */}
             <button
-              onClick={() => removeCustomItem(activeSection, item.id)}
-              className="p-1 text-muted-foreground hover:text-red-500 transition-colors flex-shrink-0"
-              title="Delete custom decision"
+              onClick={handleAddCustom}
+              className="w-full flex items-center gap-2 px-3 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-muted/30 transition-colors border-t"
             >
-              <Trash2 className="h-3.5 w-3.5" />
+              <Plus className="h-3.5 w-3.5" />
+              Add custom decision
             </button>
           </div>
-        ))}
 
-        {/* Add custom decision */}
-        <button
-          onClick={handleAddCustom}
-          className="w-full flex items-center gap-2 px-3 py-2.5 text-sm text-muted-foreground hover:text-primary hover:bg-muted/30 transition-colors border-t"
-        >
-          <Plus className="h-3.5 w-3.5" />
-          Add custom decision
-        </button>
-      </div>
-
-      {activePrefs.length === 0 && customItems.length === 0 && (
-        <div className="text-center py-4 text-muted-foreground text-sm">
-          No decisions match your search.
-        </div>
+          {activePrefs.length === 0 && customItems.length === 0 && (
+            <div className="text-center py-4 text-muted-foreground text-sm">
+              No decisions match your search.
+            </div>
+          )}
+        </>
       )}
     </div>
   )

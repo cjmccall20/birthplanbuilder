@@ -73,7 +73,7 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       return { ...state, title: action.payload, isDirty: true }
 
     case 'SET_TEMPLATE':
-      return { ...state, templateStyle: action.payload, isDirty: true }
+      return { ...state, templateStyle: action.payload, customBulletSymbol: undefined, isDirty: true }
 
     case 'SET_BIRTH_TEAM':
       return {
@@ -453,6 +453,12 @@ function editorReducer(state: EditorState, action: EditorAction): EditorState {
       }
     }
 
+    case 'SET_WHITE_BACKGROUND':
+      return { ...state, whiteBackground: action.payload, isDirty: true }
+
+    case 'SET_MEDICAL_NOTES_HIDDEN':
+      return { ...state, medicalNotesHidden: action.payload, isDirty: true }
+
     case 'SET_ASSIGNMENT': {
       const { sectionId, preferenceId, assignedTo, isCustom } = action.payload
       const section = state.sections[sectionId]
@@ -575,6 +581,7 @@ interface EditorContextType {
   togglePhilosophyVisibility: () => void
   setSectionTitle: (sectionId: EditorSectionId, title: string) => void
   setAssignment: (sectionId: EditorSectionId, preferenceId: string, assignedTo: string | null, isCustom?: boolean) => void
+  toggleWhiteBackground: () => void
   undo: () => void
   redo: () => void
   canUndo: boolean
@@ -689,6 +696,9 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
   const setAssignment = useCallback((sectionId: EditorSectionId, preferenceId: string, assignedTo: string | null, isCustom?: boolean) =>
     dispatch({ type: 'SET_ASSIGNMENT', payload: { sectionId, preferenceId, assignedTo, isCustom } }), [])
 
+  const toggleWhiteBackground = useCallback(() =>
+    dispatch({ type: 'SET_WHITE_BACKGROUND', payload: !state.whiteBackground }), [state.whiteBackground])
+
   const undo = useCallback(() => dispatch({ type: 'UNDO' }), [])
   const redo = useCallback(() => dispatch({ type: 'REDO' }), [])
   const canUndo = history.past.length > 0
@@ -727,6 +737,7 @@ export function EditorProvider({ children, initialState, presetToApply, unsurePr
       togglePhilosophyVisibility,
       setSectionTitle,
       setAssignment,
+      toggleWhiteBackground,
       undo,
       redo,
       canUndo,

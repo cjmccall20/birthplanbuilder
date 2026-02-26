@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useMemo, useEffect, useRef } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useAutoSave } from '@/lib/editor/useAutoSave'
@@ -15,7 +15,8 @@ import { MobilePreviewSheet } from './MobilePreviewSheet'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Card } from '@/components/ui/card'
-import { PanelRightClose, PanelRightOpen, Undo2, Redo2, Eye, EyeOff } from 'lucide-react'
+import { PanelRightClose, PanelRightOpen, Undo2, Redo2, Eye, EyeOff, Save, LogIn } from 'lucide-react'
+import { useRouter } from 'next/navigation'
 import { cn } from '@/lib/utils'
 import { pdf } from '@react-pdf/renderer'
 import { editorStateToPDFData } from '@/lib/editor/editorToPdf'
@@ -45,6 +46,7 @@ const templateMap = {
 
 export function EditorLayout() {
   const { state, setTitle, setTemplate, dispatch, setBirthTeam, undo, redo, canUndo, canRedo, toggleShowAllDecisions } = useEditor()
+  const router = useRouter()
   const { user, isLoading: isAuthLoading } = useAuth()
   const { isSaving, lastSaved, error, savedLocally } = useAutoSave({
     state,
@@ -64,6 +66,22 @@ export function EditorLayout() {
   const [mobilePreferenceEdit, setMobilePreferenceEdit] = useState<{ sectionId: EditorSectionId; preferenceId: string } | null>(null)
   const [showMobileDecisionSheet, setShowMobileDecisionSheet] = useState(false)
   const [showMobilePreview, setShowMobilePreview] = useState(false)
+
+  // Mobile canvas scaling
+  const [canvasScale, setCanvasScale] = useState(1)
+  const canvasContainerRef = useRef<HTMLDivElement>(null)
+
+  useEffect(() => {
+    const updateScale = () => {
+      if (canvasContainerRef.current) {
+        const containerWidth = canvasContainerRef.current.offsetWidth
+        setCanvasScale(Math.min(containerWidth / 650, 1))
+      }
+    }
+    updateScale()
+    window.addEventListener('resize', updateScale)
+    return () => window.removeEventListener('resize', updateScale)
+  }, [])
 
   // Keyboard shortcuts for undo/redo
   useEffect(() => {
@@ -246,14 +264,50 @@ export function EditorLayout() {
             </div>
           </div>
 
-          {/* Document Canvas - same interactive canvas as desktop */}
-          <Card className="overflow-hidden">
-            <DocumentCanvas
-              onItemSelect={handleMobileItemSelect}
-              onAddDecision={handleMobileAddDecision}
-              selectedPreferenceId={selectedPreferenceId}
-            />
-          </Card>
+          {/* Device note + save banner */}
+          <div className="flex items-center justify-between px-2 py-2 bg-muted/30 rounded-lg mb-3">
+            <span className="text-xs text-muted-foreground">Best experience on tablet or computer</span>
+            {user ? (
+              <Button
+                size="sm"
+                variant={isSaving ? 'secondary' : 'default'}
+                className="text-xs h-7 px-3 gap-1.5"
+                disabled={isSaving}
+              >
+                <Save className="h-3 w-3" />
+                {isSaving ? 'Saving...' : lastSaved ? 'Saved' : 'Save Plan'}
+              </Button>
+            ) : (
+              <Button
+                size="sm"
+                variant="default"
+                className="text-xs h-7 px-3 gap-1.5"
+                onClick={() => router.push('/auth/login?redirect=/editor')}
+              >
+                <LogIn className="h-3 w-3" />
+                Save Plan
+              </Button>
+            )}
+          </div>
+
+          {/* Document Canvas - scaled to fit viewport */}
+          <div ref={canvasContainerRef} className="overflow-hidden flex-1" style={{ minHeight: 0 }}>
+            <div
+              style={{
+                transform: `scale(${canvasScale})`,
+                transformOrigin: 'top left',
+                width: '650px',
+              }}
+            >
+              <Card className="overflow-hidden">
+                <DocumentCanvas
+                  onItemSelect={handleMobileItemSelect}
+                  onAddDecision={handleMobileAddDecision}
+                  selectedPreferenceId={selectedPreferenceId}
+                />
+              </Card>
+            </div>
+          </div>
 
           {/* Contextual action bar - appears when item selected */}
           {selectedPreferenceId && selectedSectionId && (
@@ -290,6 +344,7 @@ export function EditorLayout() {
             onClose={() => setShowMobileDecisionSheet(false)}
             selectedPreferenceId={selectedPreferenceId}
             onClearSelection={() => setSelectedPreferenceId(null)}
+            expandSection={addDecisionSection}
           />
 
           {/* Preview sheet */}

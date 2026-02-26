@@ -23,6 +23,16 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     preferenceId: 'when_to_hospital',
     sectionId: 'pre_hospital',
   },
+  when_to_birth_center: {
+    preferenceId: 'when_to_birth_center',
+    sectionId: 'pre_hospital',
+    // Checklist - quiz and pref share: active_labor, emotional_signposts, water_breaks, provider_guidance, gbs_antibiotics
+  },
+  when_to_call_midwife: {
+    preferenceId: 'when_to_call_midwife',
+    sectionId: 'pre_hospital',
+    // Checklist - quiz and pref share: active_labor, emotional_signposts, water_breaks, early_labor_support, provider_guidance
+  },
   birth_photography: {
     preferenceId: 'photography_video',
     sectionId: 'during_labor',
@@ -358,12 +368,25 @@ const HOSPITAL_LABOR_CONTINGENCY_MAP: Record<string, { birthPlanText: string }> 
   no_students: { birthPlanText: 'If transferred, we do not want medical students or observers present.' },
 }
 
+// Hospital newborn contingency is a checklist that maps to the transfer_newborn_prefs preference
+const HOSPITAL_NEWBORN_CONTINGENCY_MAP: Record<string, { birthPlanText: string }> = {
+  delayed_cord: { birthPlanText: 'We request delayed cord clamping even if in the hospital.' },
+  skin_to_skin: { birthPlanText: 'We request immediate skin-to-skin contact if baby is stable.' },
+  delay_bath: { birthPlanText: 'Please delay baby\'s first bath.' },
+  delay_exams: { birthPlanText: 'We request that non-urgent newborn exams be delayed for bonding time.' },
+  eye_ointment_delay: { birthPlanText: 'We request eye ointment be delayed to allow for initial bonding.' },
+  vitamin_k_yes: { birthPlanText: 'Please administer the vitamin K injection.' },
+  no_formula: { birthPlanText: 'Please do not give formula without discussing with us first.' },
+}
+
 // Hospital stay contingency is a checklist that maps to the transfer_stay_prefs preference
 const HOSPITAL_STAY_CONTINGENCY_MAP: Record<string, { birthPlanText: string }> = {
   rooming_in: { birthPlanText: 'If at the hospital, we want baby to room in with us at all times.' },
-  no_pacifier: { birthPlanText: 'If at the hospital, please do not offer baby a pacifier.' },
-  early_discharge: { birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.' },
-  limit_visitors: { birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.' },
+  discharge_asap: { birthPlanText: 'If at the hospital, we would like to be discharged as soon as it is medically safe.' },
+  breastfeeding_support: { birthPlanText: 'If at the hospital, we would like lactation consultant support.' },
+  quiet_recovery: { birthPlanText: 'If at the hospital, we prefer a quiet recovery environment with minimal disruptions.' },
+  visitor_limits: { birthPlanText: 'If at the hospital, we prefer limited visitors during our recovery.' },
+  skin_to_skin_continue: { birthPlanText: 'If at the hospital, we want to continue skin-to-skin contact as much as possible.' },
 }
 
 // Engagement-only quiz questions that don't map to preferences
@@ -385,6 +408,7 @@ const SPECIAL_HANDLING_QUESTIONS = new Set([
   'transfer_plan',
   'vbac_history',
   'hospital_labor_contingency',
+  'hospital_newborn_contingency',
   'hospital_stay_contingency',
 ])
 
@@ -736,6 +760,23 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
         const customText = texts.join('\n')
         applyQuizAnswer(sections, 'hospital_stay', 'transfer_labor_prefs', primaryValue, customText)
         activatedOrder['transfer_labor_prefs'] = activationCounter++
+      }
+    }
+  }
+
+  // --- Special handling: hospital_newborn_contingency (checklist -> transfer_newborn_prefs) ---
+  const newbornContingencyAnswer = quizState.answers?.hospital_newborn_contingency
+  if (newbornContingencyAnswer) {
+    const values = parseChecklistAnswer(newbornContingencyAnswer)
+    if (values && values.length > 0) {
+      const texts = values
+        .map(v => HOSPITAL_NEWBORN_CONTINGENCY_MAP[v]?.birthPlanText)
+        .filter(Boolean)
+      if (texts.length > 0) {
+        const primaryValue = values[0]
+        const customText = texts.join('\n')
+        applyQuizAnswer(sections, 'hospital_stay', 'transfer_newborn_prefs', primaryValue, customText)
+        activatedOrder['transfer_newborn_prefs'] = activationCounter++
       }
     }
   }
