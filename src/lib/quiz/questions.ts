@@ -110,10 +110,10 @@ export const quizQuestions: QuizQuestion[] = [
   // =========================================================================
   {
     id: 'birth_philosophy',
-    category: 'Personal',
+    category: 'Getting Started',
     title: 'Your Birth Philosophy',
-    subtitle: 'This statement will introduce your birth plan to your care team. Choose the approach that feels most like you.',
-    order: 20.5,
+    subtitle: 'This statement will introduce your birth plan. Choose the approach that feels most like you, or write your own.',
+    order: 8,
     options: [
       { value: 'informed_flexible', label: 'Informed but flexible - we\'ve done our research but understand birth is unpredictable', birthPlanText: 'Thank you for being part of our birth team. We have educated ourselves and have preferences, but we understand birth is unpredictable. We ask that you explain any changes to our plan and include us in decision-making.', icon: 'BookOpen' },
       { value: 'natural_focused', label: 'Natural birth focused - we prefer minimal interventions and want to be consulted before any are used', birthPlanText: 'Thank you for supporting our birth experience. We are planning for a natural birth with minimal interventions. Please support us in this goal, and discuss any interventions with us before proceeding.', icon: 'Leaf' },

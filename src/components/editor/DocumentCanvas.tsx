@@ -370,7 +370,7 @@ export function DocumentCanvas({
 
     return (
       <div className="flex flex-col h-full">
-        <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8">
+        <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8 pb-32 md:pb-8">
           <div
             className="max-w-[650px] mx-auto shadow-lg rounded-sm relative overflow-hidden"
             style={{
@@ -438,18 +438,6 @@ export function DocumentCanvas({
                         <span>{state.birthTeam.due_date}</span>
                       </div>
                     )}
-                    {(() => {
-                      const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
-                      if (!medField || !medField.value) return null
-                      return (
-                        <div className="space-y-1 mt-2">
-                          <span className="font-semibold text-xs uppercase tracking-wide" style={{ opacity: 0.5 }}>
-                            Medical Notes
-                          </span>
-                          <p className="text-sm" style={{ opacity: 0.85 }}>{medField.value}</p>
-                        </div>
-                      )
-                    })()}
                   </div>
                 )}
               </div>
@@ -462,6 +450,22 @@ export function DocumentCanvas({
                   </p>
                 </div>
               )}
+
+              {/* Medical Notes - after philosophy */}
+              {(() => {
+                const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
+                if (!medField || !medField.value) return null
+                return (
+                  <div className="mb-6">
+                    <div className="space-y-1">
+                      <span className="font-semibold text-xs uppercase tracking-wide" style={{ opacity: 0.5 }}>
+                        Medical Notes
+                      </span>
+                      <p className="text-sm" style={{ opacity: 0.85 }}>{medField.value}</p>
+                    </div>
+                  </div>
+                )
+              })()}
 
               {/* Content Sections */}
               {readOnlySections.map((section) => (
@@ -706,7 +710,7 @@ export function DocumentCanvas({
       </div>
 
       {/* Document Canvas */}
-      <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8" onClick={handleCanvasClick}>
+      <div className="flex-1 overflow-y-auto bg-gray-100 p-4 md:p-8 pb-32 md:pb-8" onClick={handleCanvasClick}>
         <div
           className="max-w-[650px] mx-auto shadow-lg rounded-sm relative overflow-hidden"
           style={{
@@ -806,26 +810,6 @@ export function DocumentCanvas({
                     style={{ color: theme.textColor }}
                   />
                 </div>
-                {/* Medical Notes - paragraph style, expandable */}
-                {(() => {
-                  const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
-                  if (!medField || !medField.value) return null
-                  return (
-                    <div className="space-y-1 mt-2">
-                      <span className="font-semibold text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>
-                        Medical Notes
-                      </span>
-                      <textarea
-                        value={medField.value}
-                        onChange={(e) => setBirthTeamField('medical_notes', e.target.value)}
-                        className="w-full text-sm bg-transparent border border-dashed rounded-lg p-2 focus:outline-none focus:border-primary resize-none"
-                        style={{ color: theme.textColor, borderColor: `${theme.primaryColor}30` }}
-                        placeholder="Medical conditions, allergies, or important notes for your care team..."
-                        rows={Math.min(Math.max(Math.ceil((medField.value || '').length / 60), 2), 6)}
-                      />
-                    </div>
-                  )
-                })()}
                 <button
                   onClick={() => addBirthTeamField('New Field')}
                   className="text-xs text-primary hover:text-primary/80 transition-colors mt-1"
@@ -872,6 +856,53 @@ export function DocumentCanvas({
                 </button>
               </div>
             )}
+
+            {/* Medical Notes - collapsible, after philosophy */}
+            {(() => {
+              const medField = state.birthTeam.fields.find(f => f.id === 'medical_notes')
+              if (!medField) return null
+              const hasContent = !!medField.value
+              return (
+                <div className="mt-4 mb-6">
+                  {!hasContent ? (
+                    <button
+                      onClick={() => {
+                        setBirthTeamField('medical_notes', ' ')
+                      }}
+                      className="text-xs flex items-center gap-1.5 transition-opacity"
+                      style={{ color: theme.primaryColor, opacity: 0.5 }}
+                      onMouseEnter={(e) => (e.currentTarget.style.opacity = '1')}
+                      onMouseLeave={(e) => (e.currentTarget.style.opacity = '0.5')}
+                    >
+                      <StickyNote className="w-3.5 h-3.5" /> + Add medical notes
+                    </button>
+                  ) : (
+                    <div className="space-y-1">
+                      <div className="flex items-center gap-2">
+                        <span className="font-semibold text-xs uppercase tracking-wide" style={{ color: theme.textColor, opacity: 0.5 }}>
+                          Medical Notes
+                        </span>
+                        <button
+                          onClick={() => setBirthTeamField('medical_notes', '')}
+                          className="text-xs text-muted-foreground hover:text-red-500 transition-colors"
+                          title="Remove medical notes"
+                        >
+                          x
+                        </button>
+                      </div>
+                      <textarea
+                        value={medField.value.trim() ? medField.value : ''}
+                        onChange={(e) => setBirthTeamField('medical_notes', e.target.value)}
+                        className="w-full text-sm bg-transparent border border-dashed rounded-lg p-2 focus:outline-none focus:border-primary resize-none"
+                        style={{ color: theme.textColor, borderColor: `${theme.primaryColor}30` }}
+                        placeholder="Medical conditions, allergies, or important notes for your care team..."
+                        rows={Math.min(Math.max(Math.ceil((medField.value || '').length / 60), 2), 6)}
+                      />
+                    </div>
+                  )}
+                </div>
+              )
+            })()}
 
             {/* Content Sections */}
             {canvasSections.map((section) => {
@@ -982,7 +1013,7 @@ export function DocumentCanvas({
                             <div
                               data-canvas-item
                               className={cn(
-                                'group pl-3 border-l-2 transition-all cursor-pointer relative',
+                                'group pl-3 border-l-2 transition-all cursor-pointer relative min-h-[48px]',
                                 isEditing
                                   ? 'py-1'
                                   : selectedPreferenceId === item.preferenceId

@@ -1,19 +1,16 @@
 'use client'
 
-import { useState, useMemo, useEffect, useCallback } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { useEditor } from '@/lib/editor/context'
 import { useAuth } from '@/components/auth/AuthProvider'
 import { useAutoSave } from '@/lib/editor/useAutoSave'
 import { EditorSidebar } from './EditorSidebar'
 import { DocumentCanvas } from './DocumentCanvas'
 import { ActionBar } from './ActionBar'
-import { MobileHeaderCard } from './MobileHeaderCard'
-import { MobileSectionCard } from './MobileSectionCard'
 import { MobileToolbar } from './MobileToolbar'
+import { MobileContextBar } from './MobileContextBar'
 import { MobilePreferenceSheet } from './MobilePreferenceSheet'
 import { MobileDecisionSheet } from './MobileDecisionSheet'
-import { MobileSectionSheet } from './MobileSectionSheet'
-import { MobileHeaderSheet } from './MobileHeaderSheet'
 import { MobilePreviewSheet } from './MobilePreviewSheet'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
@@ -63,10 +60,8 @@ export function EditorLayout() {
   const [showPreview, setShowPreview] = useState(false)
   const [showOmitted, setShowOmitted] = useState(false)
 
-  // Mobile card-based editor state
+  // Mobile editor state
   const [mobilePreferenceEdit, setMobilePreferenceEdit] = useState<{ sectionId: EditorSectionId; preferenceId: string } | null>(null)
-  const [mobileSectionEdit, setMobileSectionEdit] = useState<EditorSectionId | null>(null)
-  const [mobileHeaderEdit, setMobileHeaderEdit] = useState(false)
   const [showMobileDecisionSheet, setShowMobileDecisionSheet] = useState(false)
   const [showMobilePreview, setShowMobilePreview] = useState(false)
 
@@ -107,14 +102,7 @@ export function EditorLayout() {
     return { decisionsIncluded: included, totalDecisions: total, remainingCount: total - included }
   }, [state.sections, state.birthType])
 
-  // Visible sections for mobile card layout (filtered by birth type and hidden sections)
-  const visibleSections = useMemo(() => {
-    const sections = getSectionsForBirthType(state.birthType)
-    const hidden = state.hiddenSections || []
-    return sections.filter(s => !hidden.includes(s.id))
-  }, [state.birthType, state.hiddenSections])
-
-  // Handle selecting a preference from the canvas (single click)
+  // Handle selecting a preference from the canvas (single click - desktop)
   const handleItemSelect = (sectionId: EditorSectionId, preferenceId: string) => {
     setSelectedPreferenceId(preferenceId)
     setSelectedSectionId(sectionId)
@@ -132,6 +120,19 @@ export function EditorLayout() {
     if (isRightPanelCollapsed) {
       setIsRightPanelCollapsed(false)
     }
+  }
+
+  // Handle selecting a preference from the canvas (mobile - no right panel)
+  const handleMobileItemSelect = (sectionId: EditorSectionId, preferenceId: string) => {
+    setSelectedPreferenceId(preferenceId)
+    setSelectedSectionId(sectionId)
+    setAddDecisionSection(null)
+  }
+
+  // Handle "Add decision" on mobile - open decision sheet
+  const handleMobileAddDecision = (sectionId: EditorSectionId) => {
+    setShowMobileDecisionSheet(true)
+    setAddDecisionSection(sectionId)
   }
 
   // Handle PDF download
@@ -212,29 +213,65 @@ export function EditorLayout() {
           </div>
         </div>
 
-        {/* Mobile Layout: Card-based editor */}
-        <div className="md:hidden flex flex-col min-h-[calc(100vh-120px)]">
-          {/* Header card: title, birth team info */}
-          <MobileHeaderCard onEdit={() => setMobileHeaderEdit(true)} />
-
-          {/* Section cards */}
-          <div className="flex-1 overflow-y-auto pt-3 pb-24 space-y-3">
-            {visibleSections.map(section => (
-              <MobileSectionCard
-                key={section.id}
-                sectionId={section.id}
-                onEditPreference={(prefId) => setMobilePreferenceEdit({ sectionId: section.id, preferenceId: prefId })}
-                onEditSection={() => setMobileSectionEdit(section.id)}
+        {/* Mobile Layout: Document Canvas with contextual editing */}
+        <div className="md:hidden flex flex-col">
+          {/* Top controls: title, show all toggle, undo/redo */}
+          <div className="flex items-center justify-between px-1 mb-3">
+            <div className="flex-1 max-w-[200px]">
+              <Input
+                placeholder="My Birth Plan"
+                className="min-h-[44px] text-lg font-semibold border-0 border-b rounded-none focus:ring-0 px-0"
+                value={state.title}
+                onChange={(e) => setTitle(e.target.value)}
               />
-            ))}
+            </div>
+            <div className="flex items-center gap-1">
+              {remainingCount > 0 && (
+                <Button
+                  variant={state.showAllDecisions ? 'secondary' : 'outline'}
+                  size="sm"
+                  onClick={toggleShowAllDecisions}
+                  className="gap-1 text-xs h-8"
+                >
+                  {state.showAllDecisions ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
+                  {state.showAllDecisions ? 'Hide' : `All (${remainingCount})`}
+                </Button>
+              )}
+              <Button variant="ghost" size="sm" onClick={undo} disabled={!canUndo} className="h-8 w-8 p-0">
+                <Undo2 className="h-4 w-4" />
+              </Button>
+              <Button variant="ghost" size="sm" onClick={redo} disabled={!canRedo} className="h-8 w-8 p-0">
+                <Redo2 className="h-4 w-4" />
+              </Button>
+            </div>
           </div>
+
+          {/* Document Canvas - same interactive canvas as desktop */}
+          <Card className="overflow-hidden">
+            <DocumentCanvas
+              onItemSelect={handleMobileItemSelect}
+              onAddDecision={handleMobileAddDecision}
+              selectedPreferenceId={selectedPreferenceId}
+            />
+          </Card>
+
+          {/* Contextual action bar - appears when item selected */}
+          {selectedPreferenceId && selectedSectionId && (
+            <MobileContextBar
+              sectionId={selectedSectionId}
+              preferenceId={selectedPreferenceId}
+              onEditDetails={() => setMobilePreferenceEdit({ sectionId: selectedSectionId, preferenceId: selectedPreferenceId })}
+              onDismiss={() => { setSelectedPreferenceId(null); setSelectedSectionId(null) }}
+            />
+          )}
 
           {/* Bottom toolbar */}
           <MobileToolbar
             onSections={() => setShowMobileDecisionSheet(true)}
             onAdd={() => setShowOmitted(true)}
             onPreview={() => setShowMobilePreview(true)}
-            onMore={() => handleDownload()}
+            onDownload={handleDownload}
+            onEmail={handleEmail}
             decisionsIncluded={decisionsIncluded}
             totalDecisions={totalDecisions}
           />
@@ -247,7 +284,7 @@ export function EditorLayout() {
             onClose={() => setMobilePreferenceEdit(null)}
           />
 
-          {/* Full decision browser sheet (from toolbar "Sections" button) */}
+          {/* Decision browser sheet */}
           <MobileDecisionSheet
             isOpen={showMobileDecisionSheet}
             onClose={() => setShowMobileDecisionSheet(false)}
@@ -255,24 +292,7 @@ export function EditorLayout() {
             onClearSelection={() => setSelectedPreferenceId(null)}
           />
 
-          {/* Section edit sheet */}
-          <MobileSectionSheet
-            sectionId={mobileSectionEdit}
-            isOpen={!!mobileSectionEdit}
-            onClose={() => setMobileSectionEdit(null)}
-            onEditPreference={(sectionId, preferenceId) => {
-              setMobileSectionEdit(null)
-              setMobilePreferenceEdit({ sectionId, preferenceId })
-            }}
-          />
-
-          {/* Header edit sheet */}
-          <MobileHeaderSheet
-            isOpen={mobileHeaderEdit}
-            onClose={() => setMobileHeaderEdit(false)}
-          />
-
-          {/* Mobile preview sheet */}
+          {/* Preview sheet */}
           <MobilePreviewSheet
             isOpen={showMobilePreview}
             onClose={() => setShowMobilePreview(false)}
