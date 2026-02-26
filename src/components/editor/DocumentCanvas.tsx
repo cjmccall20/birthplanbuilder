@@ -19,7 +19,7 @@ import {
 } from '@/components/ui/popover'
 import { templateStyles } from '@/types'
 import { Button } from '@/components/ui/button'
-import { CheckCircle2, XCircle, AlertTriangle, StickyNote, Plus, EyeOff, Trash2, HelpCircle, GripVertical, FileText, AtSign } from 'lucide-react'
+import { CheckCircle2, XCircle, AlertTriangle, StickyNote, Plus, EyeOff, Trash2, HelpCircle, GripVertical, FileText, AtSign, Pencil } from 'lucide-react'
 import { getIconComponent, IconPicker, IconGrid } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId } from '@/lib/editor/editorTypes'
@@ -74,11 +74,13 @@ interface CanvasSection {
   title: string
   items: CanvasItem[]
   notes: string
+  isHidden?: boolean
 }
 
 interface DocumentCanvasProps {
   onItemSelect?: (sectionId: EditorSectionId, preferenceId: string) => void
   onAddDecision?: (sectionId: EditorSectionId) => void
+  onEditDetails?: (sectionId: string, preferenceId: string) => void
   selectedPreferenceId?: string | null
   readOnly?: boolean
 }
@@ -121,6 +123,7 @@ function bulletId(line: string, index: number): string {
 export function DocumentCanvas({
   onItemSelect,
   onAddDecision,
+  onEditDetails,
   selectedPreferenceId,
   readOnly = false,
 }: DocumentCanvasProps) {
@@ -228,8 +231,17 @@ export function DocumentCanvas({
           })
         })
 
-      // Skip hidden sections
-      if ((state.hiddenSections || []).includes(section.id)) return
+      // Hidden sections get a placeholder instead of full rendering
+      if ((state.hiddenSections || []).includes(section.id)) {
+        result.push({
+          sectionId: section.id,
+          title: section.displayTitle,
+          items: [],
+          notes: '',
+          isHidden: true,
+        })
+        return
+      }
 
       // Always show all active sections (empty ones get a placeholder)
       result.push({
@@ -363,8 +375,9 @@ export function DocumentCanvas({
 
   // Read-only rendering: no interactive elements, no drag handles, no toolbar
   if (readOnly) {
-    // Filter out undecided items in readOnly mode
+    // Filter out undecided items and hidden sections in readOnly mode
     const readOnlySections = canvasSections
+      .filter(section => !section.isHidden)
       .map(section => ({
         ...section,
         items: section.items.filter(item => !item.isUndecided && item.birthPlanText),
@@ -799,6 +812,7 @@ export function DocumentCanvas({
                     <Input
                       value={field.label}
                       onChange={(e) => renameBirthTeamField(field.id, e.target.value)}
+                      placeholder="New Field"
                       className="h-6 w-20 flex-shrink-0 text-xs uppercase tracking-wide font-semibold border-0 bg-transparent focus:ring-0 focus:bg-white/50 rounded px-0"
                       style={{ color: theme.textColor, opacity: 0.5 }}
                     />
@@ -829,7 +843,7 @@ export function DocumentCanvas({
                   />
                 </div>
                 <button
-                  onClick={() => addBirthTeamField('New Field')}
+                  onClick={() => addBirthTeamField('')}
                   className="text-xs text-primary hover:text-primary/80 transition-colors mt-1"
                 >
                   + Add field
@@ -931,6 +945,24 @@ export function DocumentCanvas({
 
             {/* Content Sections */}
             {canvasSections.map((section) => {
+              // Hidden section placeholder
+              if (section.isHidden) {
+                if (readOnly) return null
+                return (
+                  <div
+                    key={section.sectionId}
+                    className="mb-4 py-3 px-4 border border-dashed rounded-md cursor-pointer hover:bg-muted/30 transition-colors text-center"
+                    style={{ borderColor: `${theme.primaryColor}40` }}
+                    onClick={() => toggleSectionVisibility(section.sectionId)}
+                  >
+                    <p className="text-xs text-muted-foreground">
+                      {section.title} is currently hidden.{' '}
+                      <span className="text-primary underline cursor-pointer">Click to unhide</span>
+                    </p>
+                  </div>
+                )
+              }
+
               // Build the list of sortable IDs for this section (preference IDs only, not custom)
               const sortableItemIds = section.items
                 .filter(item => !item.isCustomItem)
@@ -1000,7 +1032,7 @@ export function DocumentCanvas({
                                 <div
                                   data-canvas-item
                                   className={cn(
-                                    'group pl-3 border-l-2 border-dashed transition-all cursor-pointer',
+                                    'group pl-3 border-l-2 border-dashed transition-all cursor-pointer relative',
                                     selectedPreferenceId === item.preferenceId
                                       ? 'py-1'
                                       : ''
@@ -1013,6 +1045,18 @@ export function DocumentCanvas({
                                   }}
                                   onClick={() => handleItemClick(item)}
                                 >
+                                  {/* Mobile inline edit button */}
+                                  {!readOnly && selectedPreferenceId === item.preferenceId && onEditDetails && (
+                                    <button
+                                      onClick={(e) => {
+                                        e.stopPropagation()
+                                        onEditDetails(section.sectionId, item.preferenceId)
+                                      }}
+                                      className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-md z-10 md:hidden"
+                                    >
+                                      <Pencil className="h-4 w-4" />
+                                    </button>
+                                  )}
                                   <div className="flex items-start gap-2">
                                     <div className="mt-0.5 flex-shrink-0">
                                       <HelpCircle className="w-5 h-5" style={{ color: theme.primaryColor }} />
@@ -1067,6 +1111,19 @@ export function DocumentCanvas({
                               }}
                               onClick={() => handleItemClick(item)}
                             >
+                              {/* Mobile inline edit button */}
+                              {!readOnly && selectedPreferenceId === item.preferenceId && onEditDetails && (
+                                <button
+                                  onClick={(e) => {
+                                    e.stopPropagation()
+                                    onEditDetails(section.sectionId, item.preferenceId)
+                                  }}
+                                  className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-md z-10 md:hidden"
+                                >
+                                  <Pencil className="h-4 w-4" />
+                                </button>
+                              )}
+
                               {/* Omit/remove button - visible when editing */}
                               {isEditing && (
                                 <button
@@ -1346,7 +1403,7 @@ export function DocumentCanvas({
                   {onAddDecision && (
                     <button
                       onClick={() => onAddDecision(section.sectionId)}
-                      className="mt-3 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+                      className="mt-3 flex items-center gap-1 text-sm md:text-xs text-muted-foreground hover:text-primary transition-colors py-1 min-h-[40px] md:min-h-0"
                     >
                       <Plus className="w-3.5 h-3.5" />
                       Add decision
@@ -1392,7 +1449,7 @@ export function DocumentCanvas({
                         next.add(section.sectionId)
                         return next
                       })}
-                      className="mt-1 flex items-center gap-1 text-xs text-muted-foreground hover:text-primary transition-colors py-1"
+                      className="mt-1 flex items-center gap-1 text-sm md:text-xs text-muted-foreground hover:text-primary transition-colors py-1 min-h-[40px] md:min-h-0"
                     >
                       <StickyNote className="w-3.5 h-3.5" />
                       Add note

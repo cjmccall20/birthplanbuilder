@@ -260,15 +260,7 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
   },
 
   // C-Section
-  csection_approach: {
-    preferenceId: 'gentle_csection',
-    sectionId: 'csection',
-    valueMap: {
-      gentle_family_centered: 'yes',
-      standard_with_preferences: 'discuss',
-      follow_medical_team: 'standard',
-    },
-  },
+  // csection_approach removed - gentle_csection preference is covered by csection_details compound mapping
   csection_cord_clamping: {
     preferenceId: 'csection_delayed_cord',
     sectionId: 'csection',
@@ -662,15 +654,19 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
   let showPhilosophy: boolean | undefined
   const philosophyAnswer = quizState.answers?.birth_philosophy
   if (philosophyAnswer && philosophyAnswer !== 'unsure') {
-    const philosophyQ = quizQuestions.find(q => q.id === 'birth_philosophy')
-    const philosophyOpt = philosophyQ?.options.find(o => o.value === philosophyAnswer)
-    if (philosophyOpt?.birthPlanText) {
-      philosophyStatement = philosophyOpt.birthPlanText
-      showPhilosophy = true
-    } else if (philosophyAnswer !== 'custom' && philosophyAnswer) {
-      // Custom text entered by user
-      philosophyStatement = philosophyAnswer
-      showPhilosophy = true
+    if (philosophyAnswer === 'no_philosophy') {
+      showPhilosophy = false
+    } else {
+      const philosophyQ = quizQuestions.find(q => q.id === 'birth_philosophy')
+      const philosophyOpt = philosophyQ?.options.find(o => o.value === philosophyAnswer)
+      if (philosophyOpt?.birthPlanText) {
+        philosophyStatement = philosophyOpt.birthPlanText
+        showPhilosophy = true
+      } else if (philosophyAnswer !== 'custom' && philosophyAnswer) {
+        // Custom text entered by user
+        philosophyStatement = philosophyAnswer
+        showPhilosophy = true
+      }
     }
   }
 
@@ -891,7 +887,7 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     title,
     subtitle,
     disclaimerText: 'This birth plan represents my preferences for labor and delivery. I understand that circumstances may change and medical decisions may need to be made for the safety of myself and my baby. I trust my care team to keep us informed and involve us in any decisions when possible.',
-    ...(philosophyStatement ? { philosophyStatement, showPhilosophy } : {}),
+    ...(philosophyStatement ? { philosophyStatement, showPhilosophy } : showPhilosophy === false ? { showPhilosophy } : {}),
     ...(customSectionTitles ? { customSectionTitles } : {}),
   }
 }

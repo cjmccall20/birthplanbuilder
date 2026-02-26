@@ -17,7 +17,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'active_labor_4_5', label: 'Active labor (contractions 4-5 min apart)', birthPlanText: 'We plan to arrive when contractions are 4-5 minutes apart, lasting about 1 minute each.', isPopular: true },
       { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and I am exhibiting the emotional signposts of active labor.', isPopular: true },
       { value: 'water_breaks', label: 'If my water breaks', birthPlanText: 'We will head to the hospital if my water breaks.' },
-      { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason (such as GBS antibiotics).' },
+      { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason.' },
       { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will call our provider and arrive when they recommend.' },
     ],
   },
@@ -636,6 +636,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
       { value: 'discover_ourselves', label: 'We discover ourselves', birthPlanText: 'Please allow us to discover baby\'s sex ourselves - do not announce it.' },
       { value: 'partner_announces', label: 'Partner announces', birthPlanText: 'We would like my partner to announce baby\'s sex.' },
       { value: 'provider_announces', label: 'Provider announces', birthPlanText: 'Our provider may announce baby\'s sex at delivery.' },
+      { value: 'no_preference', label: 'No preference', birthPlanText: '' },
     ],
   },
   {

@@ -113,12 +113,13 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'birth_philosophy',
     category: 'Getting Started',
     title: 'Your Birth Philosophy',
-    subtitle: 'This statement will introduce your birth plan. Choose the approach that feels most like you, or write your own.',
+    subtitle: 'This statement will introduce your birth plan. Choose the approach that feels most like you, or write your own. (You can edit this statement in the editor)',
     order: 8,
     options: [
       { value: 'informed_flexible', label: 'Informed but flexible - we\'ve done our research but understand birth is unpredictable', birthPlanText: 'Thank you for being part of our birth team. We have educated ourselves and have preferences, but we understand birth is unpredictable. We ask that you explain any changes to our plan and include us in decision-making.', icon: 'BookOpen' },
       { value: 'natural_focused', label: 'Natural birth focused - we prefer minimal interventions and want to be consulted before any are used', birthPlanText: 'Thank you for supporting our birth experience. We are planning for a natural birth with minimal interventions. Please support us in this goal, and discuss any interventions with us before proceeding.', icon: 'Leaf' },
       { value: 'trust_team', label: 'Trust the team - we have preferences but ultimately defer to our care team\'s expertise', birthPlanText: 'Thank you for taking care of us. We trust our medical team and are open to your guidance. These preferences reflect our hopes, but we defer to your expertise when needed.', icon: 'HeartHandshake' },
+      { value: 'no_philosophy', label: 'Do not list a philosophy on my birth plan', birthPlanText: '', icon: 'MinusCircle' },
       { value: 'custom', label: 'Write my own philosophy statement', birthPlanText: '', icon: 'MessageSquare' },
     ],
     textInputOnOption: 'custom',
@@ -498,7 +499,7 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'active_labor_4_5', label: 'Active labor (contractions 4-5 min apart)', birthPlanText: 'We plan to arrive when contractions are 4-5 minutes apart, lasting about 1 minute each.', icon: 'Clock' },
       { value: 'active_labor_3_1_1', label: 'Active labor (contractions 3 min apart, emotional signposts)', birthPlanText: 'We plan to arrive when contractions are 3 minutes apart, lasting 1 minute, for at least 1 hour, and I am exhibiting the emotional signposts of active labor.', icon: 'Timer' },
       { value: 'water_breaks', label: 'If my water breaks', birthPlanText: 'We will head to the hospital if my water breaks.', icon: 'Droplet' },
-      { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason (such as GBS antibiotics).', icon: 'Building2' },
+      { value: 'early', label: 'Arrive early for monitoring', birthPlanText: 'We prefer to arrive early for monitoring, support, and/or for a medical reason.', icon: 'Building2' },
       { value: 'provider_guidance', label: 'Follow our provider\'s guidance', birthPlanText: 'We will call our provider and arrive when they recommend.', icon: 'Stethoscope' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Clock' },
       { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We are still deciding on when to head to the hospital.', isUnsure: true },
@@ -1128,7 +1129,7 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'Newborn Care',
     title: 'Circumcision',
     subtitle: 'If having a boy, what are your thoughts on circumcision?',
-    order: 15,
+    order: 10.9,
     venueVariant: {
       home: { subtitle: 'Circumcision is not performed at birth centers or at home. If desired, this is typically scheduled with a pediatrician or urologist in the first 1-10 days.', optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
       birth_center: { subtitle: 'Circumcision is not performed at birth centers or at home. If desired, this is typically scheduled with a pediatrician or urologist in the first 1-10 days.', optionOverrides: { yes_hospital: { label: 'Yes, arrange at hospital/clinic later', birthPlanText: 'We would like our son circumcised and will arrange this at a hospital or clinic.' } } },
@@ -1624,10 +1625,10 @@ export const quizQuestions: QuizQuestion[] = [
   // =========================================================================
   {
     id: 'baby_sex',
-    category: 'Newborn Care',
+    category: 'After Birth',
     title: 'Baby\'s Sex',
     subtitle: 'Do you know if you\'re having a boy or girl?',
-    order: 14.9,
+    order: 20.5,
     options: [
       { value: 'boy', label: 'Boy', birthPlanText: '', icon: 'Baby' },
       { value: 'girl', label: 'Girl', birthPlanText: '', icon: 'Baby' },
@@ -1641,7 +1642,7 @@ export const quizQuestions: QuizQuestion[] = [
     category: 'After Birth',
     title: 'Baby\'s Sex Announcement',
     subtitle: 'Who would you like to announce baby\'s sex at delivery?',
-    order: 14.95,
+    order: 20.6,
     conditionalOn: {
       questionId: 'baby_sex',
       values: ['unknown', 'surprise'],
@@ -1650,6 +1651,7 @@ export const quizQuestions: QuizQuestion[] = [
       { value: 'discover_ourselves', label: 'We want to discover ourselves', birthPlanText: 'Please allow us to discover baby\'s sex ourselves - do not announce it.', icon: 'Sparkles' },
       { value: 'partner_announces', label: 'Partner announces', birthPlanText: 'We would like my partner to announce baby\'s sex.', icon: 'Users' },
       { value: 'provider_announces', label: 'Provider announces', birthPlanText: 'Our provider may announce baby\'s sex at delivery.', icon: 'Stethoscope' },
+      { value: 'no_preference', label: 'No preference', birthPlanText: '', omitFromPlan: true, icon: 'Minus' },
       { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'MessageSquare' },
     ],
     textInputOnOption: 'custom',
@@ -1731,52 +1733,7 @@ export const quizQuestions: QuizQuestion[] = [
   // =========================================================================
   // C-SECTION PLANNING (deferred)
   // =========================================================================
-  {
-    id: 'csection_approach',
-    category: 'C-Section Planning',
-    title: 'C-Section Approach',
-    subtitle: 'If a C-section happens, what approach would you prefer?',
-    order: 23,
-    deferredFor: 'csection',
-    learnMoreData: {
-      tradeoff: 'A "gentle" or family-centered C-section prioritizes bonding: slower delivery, clear drape, immediate skin-to-skin in the OR. Not all hospitals offer this, but many are increasingly open to it.',
-      pros: [
-        'Gentle C-section allows you to watch baby being born through a clear drape',
-        'Immediate skin-to-skin in the OR promotes bonding even during surgery',
-        'Slower delivery allows baby to transition more gradually',
-        'Makes the C-section experience feel more personal and empowering',
-      ],
-      cons: [
-        'Not all hospitals or surgeons are familiar with gentle C-section techniques',
-        'Medical circumstances may override preferences if urgency is needed',
-        'Some people prefer not to see the surgical procedure at all',
-        'Requires advance discussion with your surgical team to set expectations',
-      ],
-      bottomLine: 'A C-section does not have to feel clinical and disconnected. Ask your provider about gentle or family-centered options - more hospitals are offering them every year.',
-      ebookChapter: 'Chapter 12: Cesarean Birth',
-    },
-    options: [
-      { value: 'gentle_family_centered', label: 'Gentle/family-centered C-section', birthPlanText: 'If a C-section is needed, we would like a gentle, family-centered approach: clear drape, immediate skin-to-skin in the OR, and delayed cord clamping when safely possible.', icon: 'Heart' },
-      { value: 'standard_with_preferences', label: 'Standard, but with some preferences', birthPlanText: 'If a C-section is needed, we would like to discuss specific preferences with our surgical team, such as partner presence and music.', icon: 'Settings' },
-      { value: 'follow_medical_team', label: 'Follow the medical team\'s lead', birthPlanText: 'If a C-section becomes necessary, we trust the medical team to follow standard protocols.', icon: 'Stethoscope' },
-      { value: 'custom', label: 'Write my own preference', birthPlanText: '', icon: 'Scissors' },
-      { value: 'unsure', label: 'I need to research this more', birthPlanText: 'We would like to discuss C-section approaches with our care team in advance.', isUnsure: true },
-    ],
-    textInputOnOption: 'custom',
-    birthTypeVariant: {
-      vaginal: {
-        subtitle: 'If a C-section becomes necessary, what approach would you prefer?',
-      },
-      csection: {
-        subtitle: 'What approach would you like for your C-section?',
-        optionOverrides: {
-          gentle_family_centered: { birthPlanText: 'During our C-section, we would like a gentle, family-centered approach: clear drape, immediate skin-to-skin in the OR, and delayed cord clamping when safely possible.' },
-          standard_with_preferences: { birthPlanText: 'During our C-section, we would like to discuss specific preferences with our surgical team, such as partner presence and music.' },
-          follow_medical_team: { birthPlanText: 'We trust the medical team to follow standard protocols during our C-section.' },
-        },
-      },
-    },
-  },
+  // csection_approach removed - gentle_csection preference is covered by csection_details compound mapping
   {
     id: 'csection_details',
     category: 'C-Section Planning',

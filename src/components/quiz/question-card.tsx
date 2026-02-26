@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { QuizQuestion } from '@/lib/quiz/questions'
 import { useQuiz } from '@/lib/quiz/context'
 import { QuizLearnMore } from '@/components/quiz/QuizLearnMore'
@@ -92,6 +92,8 @@ export function QuestionCard({ question }: QuestionCardProps) {
     return merged
   }, [birthTypeResolved, state.answers])
 
+  const dateInputRef = useRef<HTMLInputElement>(null)
+
   const [showLearnMore, setShowLearnMore] = useState(false)
 
   const currentAnswer = state.answers[question.id]
@@ -113,7 +115,9 @@ export function QuestionCard({ question }: QuestionCardProps) {
     if (effectiveQuestion.inputType === 'date' && value === effectiveQuestion.textInputOnOption && !textInput) {
       const today = new Date().toISOString().split('T')[0]
       setTextInput(today)
-      setAnswer(question.id, today)
+      // Don't call setAnswer here - it causes re-render that closes the date picker
+      // The answer will be set when user actually picks a date via handleTextChange
+      return
     }
   }
 
@@ -157,6 +161,16 @@ export function QuestionCard({ question }: QuestionCardProps) {
   )
 
   const hasLearnMore = !!effectiveQuestion.learnMoreData
+
+  // Reliably open the native date picker after the input renders
+  useEffect(() => {
+    if (currentAnswer === effectiveQuestion?.textInputOnOption && effectiveQuestion?.inputType === 'date') {
+      const timer = setTimeout(() => {
+        try { dateInputRef.current?.showPicker?.() } catch (e) { /* showPicker not supported */ }
+      }, 150)
+      return () => clearTimeout(timer)
+    }
+  }, [currentAnswer, effectiveQuestion])
 
   return (
     <Card className="w-full max-w-2xl mx-auto">
@@ -240,11 +254,11 @@ export function QuestionCard({ question }: QuestionCardProps) {
                 <div className="ml-8 mt-2 mb-1 space-y-2">
                   {effectiveQuestion.inputType === 'date' ? (
                     <Input
+                      ref={dateInputRef}
                       type="date"
                       value={textInput || new Date().toISOString().split('T')[0]}
                       onChange={(e) => handleTextChange(e.target.value)}
                       className="min-h-[44px] text-base"
-                      autoFocus
                     />
                   ) : (
                     <Input
@@ -318,7 +332,7 @@ export function QuestionCard({ question }: QuestionCardProps) {
         </RadioGroup>
         )}
 
-        <div className="flex flex-col sm:flex-row justify-between gap-3 pt-4">
+        <div className="flex flex-col-reverse sm:flex-row justify-between gap-3 pt-4">
           <Button
             variant="outline"
             onClick={prevStep}

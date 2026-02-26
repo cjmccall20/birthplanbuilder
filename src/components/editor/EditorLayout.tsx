@@ -8,7 +8,6 @@ import { EditorSidebar } from './EditorSidebar'
 import { DocumentCanvas } from './DocumentCanvas'
 import { ActionBar } from './ActionBar'
 import { MobileToolbar } from './MobileToolbar'
-import { MobileContextBar } from './MobileContextBar'
 import { MobilePreferenceSheet } from './MobilePreferenceSheet'
 import { MobileDecisionSheet } from './MobileDecisionSheet'
 import { MobilePreviewSheet } from './MobilePreviewSheet'
@@ -83,6 +82,18 @@ export function EditorLayout() {
     return () => window.removeEventListener('resize', updateScale)
   }, [])
 
+  // Reset viewport zoom before opening sheets (prevents iOS zoom persistence)
+  const resetViewportZoom = () => {
+    const viewport = document.querySelector('meta[name="viewport"]')
+    if (viewport) {
+      const original = viewport.getAttribute('content') || ''
+      viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1')
+      requestAnimationFrame(() => {
+        viewport.setAttribute('content', original)
+      })
+    }
+  }
+
   // Keyboard shortcuts for undo/redo
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -149,6 +160,7 @@ export function EditorLayout() {
 
   // Handle "Add decision" on mobile - open decision sheet
   const handleMobileAddDecision = (sectionId: EditorSectionId) => {
+    resetViewportZoom()
     setShowMobileDecisionSheet(true)
     setAddDecisionSection(sectionId)
   }
@@ -304,24 +316,19 @@ export function EditorLayout() {
                   onItemSelect={handleMobileItemSelect}
                   onAddDecision={handleMobileAddDecision}
                   selectedPreferenceId={selectedPreferenceId}
+                  onEditDetails={(sectionId, preferenceId) => {
+                    resetViewportZoom()
+                    setMobilePreferenceEdit({ sectionId: sectionId as EditorSectionId, preferenceId })
+                  }}
                 />
               </Card>
             </div>
           </div>
 
-          {/* Contextual action bar - appears when item selected */}
-          {selectedPreferenceId && selectedSectionId && (
-            <MobileContextBar
-              sectionId={selectedSectionId}
-              preferenceId={selectedPreferenceId}
-              onEditDetails={() => setMobilePreferenceEdit({ sectionId: selectedSectionId, preferenceId: selectedPreferenceId })}
-              onDismiss={() => { setSelectedPreferenceId(null); setSelectedSectionId(null) }}
-            />
-          )}
 
           {/* Bottom toolbar */}
           <MobileToolbar
-            onSections={() => setShowMobileDecisionSheet(true)}
+            onSections={() => { resetViewportZoom(); setShowMobileDecisionSheet(true) }}
             onAdd={() => setShowOmitted(true)}
             onPreview={() => setShowMobilePreview(true)}
             onDownload={handleDownload}

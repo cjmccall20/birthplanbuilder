@@ -8,7 +8,13 @@ import { getSectionsForBirthType } from '@/lib/editor/sections'
 import { Switch } from '@/components/ui/switch'
 import { Badge } from '@/components/ui/badge'
 import { Input } from '@/components/ui/input'
-import { Search, Plus, Trash2, Eye, EyeOff, FileText, ChevronDown, ChevronUp, MessageSquare, Sparkles } from 'lucide-react'
+import { Search, Plus, Trash2, Eye, EyeOff, FileText, ChevronDown, ChevronUp, MessageSquare, Sparkles, Check } from 'lucide-react'
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover'
+import { Button } from '@/components/ui/button'
 import { getIconComponent } from './IconPicker'
 import { cn } from '@/lib/utils'
 import type { EditorSectionId, PreferenceDefinition } from '@/lib/editor/editorTypes'
@@ -36,6 +42,7 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
   const [searchQuery, setSearchQuery] = useState('')
   const [statementsOpen, setStatementsOpen] = useState(false)
   const [showSamples, setShowSamples] = useState(false)
+  const [sectionPopoverOpen, setSectionPopoverOpen] = useState(false)
   const listRef = useRef<HTMLDivElement>(null)
 
   // When expandSection changes (from "Add decision" on canvas), switch to that section
@@ -189,65 +196,166 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
       </div>
 
       {/* Section tab buttons - hidden during search */}
-      {!crossSectionResults && <div className="flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide">
-        {visibleSections.map(section => {
-          const sectionState = state.sections[section.id]
-          const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
-          const includedCount = prefs.filter(p => {
-            const val = sectionState?.preferences.find(pv => pv.preferenceId === p.id)
-            return !val?.isOmitted
-          }).length + (sectionState?.customItems.length || 0)
-          const isActive = activeSection === section.id
-          const isHidden = (state.hiddenSections || []).includes(section.id)
-          const SectionIcon = getIconComponent(section.icon)
+      {!crossSectionResults && (
+        <>
+          {/* Desktop: horizontal scroll tabs */}
+          <div className="hidden md:flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide">
+            {visibleSections.map(section => {
+              const sectionState = state.sections[section.id]
+              const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
+              const includedCount = prefs.filter(p => {
+                const val = sectionState?.preferences.find(pv => pv.preferenceId === p.id)
+                return !val?.isOmitted
+              }).length + (sectionState?.customItems.length || 0)
+              const isActive = activeSection === section.id
+              const isHidden = (state.hiddenSections || []).includes(section.id)
+              const SectionIcon = getIconComponent(section.icon)
 
-          return (
-            <div key={section.id} className="flex-shrink-0 flex items-center gap-0.5">
-              <button
-                onClick={() => setActiveSection(section.id)}
-                className={cn(
-                  'flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border',
-                  isHidden && 'opacity-40',
-                  isActive
-                    ? 'bg-primary text-primary-foreground border-primary'
-                    : 'bg-white hover:bg-muted/50 border-border text-muted-foreground'
-                )}
-              >
-                <SectionIcon className="h-3 w-3" />
-                <span className="whitespace-nowrap">{section.displayTitle}</span>
-                <span className={cn(
-                  'text-[10px] px-1 rounded-full min-w-[18px] text-center',
-                  isActive ? 'bg-white/20' : 'bg-muted'
-                )}>
-                  {includedCount}
-                </span>
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  // Confirm if section has active preferences
-                  if (!isHidden && includedCount > 0) {
-                    const confirmed = window.confirm(
-                      `This section has ${includedCount} active preference${includedCount > 1 ? 's' : ''}. Hiding it will remove them from your birth plan PDF. You can re-show it anytime. Continue?`
+              return (
+                <div key={section.id} className="flex-shrink-0 flex items-center gap-0.5">
+                  <button
+                    onClick={() => setActiveSection(section.id)}
+                    className={cn(
+                      'flex-shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-medium transition-colors border',
+                      isHidden && 'opacity-40',
+                      isActive
+                        ? 'bg-primary text-primary-foreground border-primary'
+                        : 'bg-white hover:bg-muted/50 border-border text-muted-foreground'
+                    )}
+                  >
+                    <SectionIcon className="h-3 w-3" />
+                    <span className="whitespace-nowrap">{section.displayTitle}</span>
+                    <span className={cn(
+                      'text-[10px] px-1 rounded-full min-w-[18px] text-center',
+                      isActive ? 'bg-white/20' : 'bg-muted'
+                    )}>
+                      {includedCount}
+                    </span>
+                  </button>
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      // Confirm if section has active preferences
+                      if (!isHidden && includedCount > 0) {
+                        const confirmed = window.confirm(
+                          `This section has ${includedCount} active preference${includedCount > 1 ? 's' : ''}. Hiding it will remove them from your birth plan PDF. You can re-show it anytime. Continue?`
+                        )
+                        if (!confirmed) return
+                      }
+                      toggleSectionVisibility(section.id)
+                    }}
+                    className={cn(
+                      'p-1 rounded transition-colors',
+                      isHidden
+                        ? 'text-muted-foreground/40 hover:text-primary'
+                        : 'text-muted-foreground/60 hover:text-muted-foreground'
+                    )}
+                    title={isHidden ? 'Show section' : 'Hide section'}
+                  >
+                    {isHidden ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
+                  </button>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Mobile: dropdown selector */}
+          <div className="md:hidden mb-2">
+            <Popover open={sectionPopoverOpen} onOpenChange={setSectionPopoverOpen}>
+              <PopoverTrigger asChild>
+                <Button
+                  variant="outline"
+                  className="w-full justify-between text-sm h-10"
+                >
+                  <span className="flex items-center gap-2 truncate">
+                    {(() => {
+                      const activeS = visibleSections.find(s => s.id === activeSection)
+                      if (!activeS) return 'Select section'
+                      const Icon = getIconComponent(activeS.icon)
+                      return (
+                        <>
+                          <Icon className="h-4 w-4 flex-shrink-0" />
+                          <span className="truncate">{activeS.displayTitle}</span>
+                        </>
+                      )
+                    })()}
+                  </span>
+                  <ChevronDown className="h-4 w-4 flex-shrink-0 opacity-50" />
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-[var(--radix-popover-trigger-width)] p-1" align="start">
+                <div className="max-h-[300px] overflow-y-auto">
+                  {visibleSections.map(section => {
+                    const sectionState = state.sections[section.id]
+                    const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
+                    const includedCount = prefs.filter(p => {
+                      const val = sectionState?.preferences.find(pv => pv.preferenceId === p.id)
+                      return !val?.isOmitted
+                    }).length + (sectionState?.customItems.length || 0)
+                    const isActive = activeSection === section.id
+                    const isHidden = (state.hiddenSections || []).includes(section.id)
+                    const SectionIcon = getIconComponent(section.icon)
+
+                    return (
+                      <div
+                        key={section.id}
+                        className={cn(
+                          'flex items-center gap-2 px-2 py-2 rounded-md transition-colors',
+                          isActive ? 'bg-primary/5' : 'hover:bg-muted/50',
+                          isHidden && 'opacity-40'
+                        )}
+                      >
+                        <button
+                          onClick={() => {
+                            setActiveSection(section.id)
+                            setSectionPopoverOpen(false)
+                          }}
+                          className="flex items-center gap-2 flex-1 min-w-0 text-left"
+                        >
+                          <SectionIcon className="h-4 w-4 flex-shrink-0 text-primary" />
+                          <span className={cn(
+                            'text-sm truncate',
+                            isActive ? 'font-medium' : ''
+                          )}>
+                            {section.displayTitle}
+                          </span>
+                          <span className="text-[10px] px-1.5 py-0.5 rounded-full bg-muted text-muted-foreground ml-auto flex-shrink-0">
+                            {includedCount}
+                          </span>
+                          {isActive && (
+                            <Check className="h-3.5 w-3.5 text-primary flex-shrink-0" />
+                          )}
+                        </button>
+                        <button
+                          onClick={(e) => {
+                            e.stopPropagation()
+                            if (!isHidden && includedCount > 0) {
+                              const confirmed = window.confirm(
+                                `This section has ${includedCount} active preference${includedCount > 1 ? 's' : ''}. Hiding it will remove them from your birth plan PDF. You can re-show it anytime. Continue?`
+                              )
+                              if (!confirmed) return
+                            }
+                            toggleSectionVisibility(section.id)
+                          }}
+                          className={cn(
+                            'p-1.5 rounded transition-colors flex-shrink-0',
+                            isHidden
+                              ? 'text-muted-foreground/40 hover:text-primary'
+                              : 'text-muted-foreground/60 hover:text-muted-foreground'
+                          )}
+                          title={isHidden ? 'Show section' : 'Hide section'}
+                        >
+                          {isHidden ? <EyeOff className="h-3.5 w-3.5" /> : <Eye className="h-3.5 w-3.5" />}
+                        </button>
+                      </div>
                     )
-                    if (!confirmed) return
-                  }
-                  toggleSectionVisibility(section.id)
-                }}
-                className={cn(
-                  'p-1 rounded transition-colors',
-                  isHidden
-                    ? 'text-muted-foreground/40 hover:text-primary'
-                    : 'text-muted-foreground/60 hover:text-muted-foreground'
-                )}
-                title={isHidden ? 'Show section' : 'Hide section'}
-              >
-                {isHidden ? <EyeOff className="h-3 w-3" /> : <Eye className="h-3 w-3" />}
-              </button>
-            </div>
-          )
-        })}
-      </div>}
+                  })}
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
+        </>
+      )}
 
       {/* Search across all sections */}
       <div className="relative">
