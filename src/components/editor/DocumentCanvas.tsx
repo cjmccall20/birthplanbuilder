@@ -1045,18 +1045,6 @@ export function DocumentCanvas({
                                   }}
                                   onClick={() => handleItemClick(item)}
                                 >
-                                  {/* Mobile inline edit button */}
-                                  {!readOnly && selectedPreferenceId === item.preferenceId && onEditDetails && (
-                                    <button
-                                      onClick={(e) => {
-                                        e.stopPropagation()
-                                        onEditDetails(section.sectionId, item.preferenceId)
-                                      }}
-                                      className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-md z-10 md:hidden"
-                                    >
-                                      <Pencil className="h-4 w-4" />
-                                    </button>
-                                  )}
                                   <div className="flex items-start gap-2">
                                     <div className="mt-0.5 flex-shrink-0">
                                       <HelpCircle className="w-5 h-5" style={{ color: theme.primaryColor }} />
@@ -1070,6 +1058,21 @@ export function DocumentCanvas({
                                       </p>
                                     </div>
                                   </div>
+                                  {/* Mobile edit bar - below content */}
+                                  {!readOnly && selectedPreferenceId === item.preferenceId && onEditDetails && (
+                                    <div className="mt-2 md:hidden">
+                                      <button
+                                        onClick={(e) => {
+                                          e.stopPropagation()
+                                          onEditDetails(section.sectionId, item.preferenceId)
+                                        }}
+                                        className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium shadow-sm transition-colors"
+                                      >
+                                        <Pencil className="h-4 w-4" />
+                                        Edit in builder
+                                      </button>
+                                    </div>
+                                  )}
                                 </div>
                               </SortablePreferenceCard>
                             )
@@ -1111,19 +1114,6 @@ export function DocumentCanvas({
                               }}
                               onClick={() => handleItemClick(item)}
                             >
-                              {/* Mobile inline edit button */}
-                              {!readOnly && selectedPreferenceId === item.preferenceId && onEditDetails && (
-                                <button
-                                  onClick={(e) => {
-                                    e.stopPropagation()
-                                    onEditDetails(section.sectionId, item.preferenceId)
-                                  }}
-                                  className="absolute -left-3 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-pink-500 text-white flex items-center justify-center shadow-md z-10 md:hidden"
-                                >
-                                  <Pencil className="h-4 w-4" />
-                                </button>
-                              )}
-
                               {/* Omit/remove button - visible when editing */}
                               {isEditing && (
                                 <button
@@ -1381,6 +1371,21 @@ export function DocumentCanvas({
                                   )}
                                 </div>
                               </div>
+                              {/* Mobile edit bar - below content */}
+                              {!readOnly && selectedPreferenceId === item.preferenceId && onEditDetails && (
+                                <div className="mt-2 md:hidden">
+                                  <button
+                                    onClick={(e) => {
+                                      e.stopPropagation()
+                                      onEditDetails(section.sectionId, item.preferenceId)
+                                    }}
+                                    className="w-full flex items-center justify-center gap-2 px-3 py-2.5 rounded-lg bg-pink-500 hover:bg-pink-600 text-white text-sm font-medium shadow-sm transition-colors"
+                                  >
+                                    <Pencil className="h-4 w-4" />
+                                    Edit in builder
+                                  </button>
+                                </div>
+                              )}
                             </div>
                           )
 

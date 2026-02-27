@@ -88,9 +88,9 @@ export function EditorLayout() {
     if (viewport) {
       const original = viewport.getAttribute('content') || ''
       viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1')
-      requestAnimationFrame(() => {
+      setTimeout(() => {
         viewport.setAttribute('content', original)
-      })
+      }, 300)
     }
   }
 
@@ -158,11 +158,15 @@ export function EditorLayout() {
     setAddDecisionSection(null)
   }
 
-  // Handle "Add decision" on mobile - open decision sheet
+  // Handle "Add decision" on mobile - open decision sheet to correct section
   const handleMobileAddDecision = (sectionId: EditorSectionId) => {
     resetViewportZoom()
+    setSelectedPreferenceId(null)
+    setSelectedSectionId(null)
+    setAddDecisionSection(null)
     setShowMobileDecisionSheet(true)
-    setAddDecisionSection(sectionId)
+    // Null->value transition ensures the useEffect always fires, even for same section
+    setTimeout(() => setAddDecisionSection(sectionId), 0)
   }
 
   // Handle PDF download
@@ -348,7 +352,10 @@ export function EditorLayout() {
           {/* Decision browser sheet */}
           <MobileDecisionSheet
             isOpen={showMobileDecisionSheet}
-            onClose={() => setShowMobileDecisionSheet(false)}
+            onClose={() => {
+              setShowMobileDecisionSheet(false)
+              setAddDecisionSection(null)
+            }}
             selectedPreferenceId={selectedPreferenceId}
             onClearSelection={() => setSelectedPreferenceId(null)}
             expandSection={addDecisionSection}
