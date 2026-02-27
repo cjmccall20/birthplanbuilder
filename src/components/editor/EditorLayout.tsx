@@ -82,17 +82,22 @@ export function EditorLayout() {
     return () => window.removeEventListener('resize', updateScale)
   }, [])
 
-  // Reset viewport zoom before opening sheets (prevents iOS zoom persistence)
-  const resetViewportZoom = () => {
+  // Lock viewport zoom on mobile editor to prevent pinch-zoom issues with sheets
+  // Restored on unmount so other pages (quiz, articles) keep normal zoom
+  useEffect(() => {
+    const isMobile = window.innerWidth < 768
+    if (!isMobile) return
+
     const viewport = document.querySelector('meta[name="viewport"]')
-    if (viewport) {
-      const original = viewport.getAttribute('content') || ''
-      viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1')
-      setTimeout(() => {
-        viewport.setAttribute('content', original)
-      }, 300)
+    if (!viewport) return
+
+    const original = viewport.getAttribute('content') || ''
+    viewport.setAttribute('content', 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no')
+
+    return () => {
+      viewport.setAttribute('content', original)
     }
-  }
+  }, [])
 
   // Keyboard shortcuts for undo/redo
   useEffect(() => {
@@ -160,7 +165,6 @@ export function EditorLayout() {
 
   // Handle "Add decision" on mobile - open decision sheet to correct section
   const handleMobileAddDecision = (sectionId: EditorSectionId) => {
-    resetViewportZoom()
     setSelectedPreferenceId(null)
     setSelectedSectionId(null)
     setAddDecisionSection(null)
@@ -321,7 +325,6 @@ export function EditorLayout() {
                   onAddDecision={handleMobileAddDecision}
                   selectedPreferenceId={selectedPreferenceId}
                   onEditDetails={(sectionId, preferenceId) => {
-                    resetViewportZoom()
                     setMobilePreferenceEdit({ sectionId: sectionId as EditorSectionId, preferenceId })
                   }}
                 />
@@ -332,7 +335,7 @@ export function EditorLayout() {
 
           {/* Bottom toolbar */}
           <MobileToolbar
-            onSections={() => { resetViewportZoom(); setShowMobileDecisionSheet(true) }}
+            onSections={() => setShowMobileDecisionSheet(true)}
             onAdd={() => setShowOmitted(true)}
             onPreview={() => setShowMobilePreview(true)}
             onDownload={handleDownload}

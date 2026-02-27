@@ -132,7 +132,7 @@ const QUIZ_TO_PREFERENCE: Record<string, QuizMapping> = {
     sectionId: 'at_birth',
     valueMap: {
       protected: 'protected',
-      partner_backup: 'protected', // Maps to golden hour protected; skin_to_skin handled separately below
+      partner_backup: 'partner_backup',
       flexible: 'flexible',
     },
   },
@@ -542,7 +542,9 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
           return questionDef?.options.find(o => o.value === v)?.birthPlanText
         })
         .filter(Boolean)
-      const customText = allTexts.length > 1 ? allTexts.join('\n') : undefined
+      // Deduplicate in case multiple quiz values map to the same preference text
+      const uniqueTexts = [...new Set(allTexts)]
+      const customText = uniqueTexts.length > 1 ? uniqueTexts.join('\n') : undefined
       applyQuizAnswer(sections, sectionId, preferenceId, translatedPrimary, customText)
       activatedOrder[preferenceId] = activationCounter++
       return

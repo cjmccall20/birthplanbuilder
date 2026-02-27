@@ -621,6 +621,7 @@ export const PREFERENCES: PreferenceDefinition[] = [
     quizQuestionId: 'golden_hour',
     options: [
       { value: 'protected', label: 'Protect it fully - no interruptions', birthPlanText: 'We want the first hour after birth to be uninterrupted skin-to-skin time. Please delay all non-urgent procedures.', isPopular: true },
+      { value: 'partner_backup', label: 'Partner does skin-to-skin if I can\'t', birthPlanText: 'If I am unable to do skin-to-skin immediately, please place baby skin-to-skin with my partner.' },
       { value: 'flexible', label: 'Flexible timing', birthPlanText: 'We are flexible about timing of assessments and procedures.' },
     ],
   },
