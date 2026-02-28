@@ -37,7 +37,7 @@ const PHILOSOPHY_SAMPLES = [
 
 export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selectedPreferenceId, expandSection }: SectionBrowserProps) {
   const { state, setPreference, addCustomItem, removeCustomItem, toggleSectionVisibility, setPhilosophy, togglePhilosophyVisibility, setDisclaimer } = useEditor()
-  const visibleSections = getSectionsForBirthType(state.birthType)
+  const visibleSections = getSectionsForBirthType(state.birthType, state.birthVenue)
   const [activeSection, setActiveSection] = useState<EditorSectionId>('pre_hospital')
   const [searchQuery, setSearchQuery] = useState('')
   const [statementsOpen, setStatementsOpen] = useState(false)
@@ -199,7 +199,7 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
       {!crossSectionResults && (
         <>
           {/* Desktop: horizontal scroll tabs */}
-          <div className="hidden md:flex gap-1.5 overflow-x-auto pb-2 scrollbar-hide">
+          <div className="hidden md:flex md:flex-col gap-1.5 pb-2">
             {visibleSections.map(section => {
               const sectionState = state.sections[section.id]
               const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)
@@ -212,7 +212,7 @@ export function SectionBrowser({ onSelectPreference, onSelectCustomItem, selecte
               const SectionIcon = getIconComponent(section.icon)
 
               return (
-                <div key={section.id} className="flex-shrink-0 flex items-center gap-0.5">
+                <div key={section.id} className="flex items-center gap-0.5">
                   <button
                     onClick={() => setActiveSection(section.id)}
                     className={cn(

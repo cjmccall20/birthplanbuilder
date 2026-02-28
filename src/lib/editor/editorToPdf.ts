@@ -31,7 +31,7 @@ export function editorStateToPDFData(state: EditorState): PDFData {
   const allItems: PlanItem[] = []
 
   // Get visible sections for this birth type
-  const visibleSections = getSectionsForBirthType(state.birthType || 'vaginal')
+  const visibleSections = getSectionsForBirthType(state.birthType || 'vaginal', state.birthVenue)
   const visiblePrefIds = new Set(
     visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType || 'vaginal', state.birthVenue).map(p => p.id))
   )

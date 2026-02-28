@@ -147,7 +147,7 @@ export function DocumentCanvas({
   )
 
   // Get visible sections for the current birth type
-  const visibleSections = getSectionsForBirthType(state.birthType)
+  const visibleSections = getSectionsForBirthType(state.birthType, state.birthVenue)
   // Set of preference IDs visible for this birth type and venue
   const visiblePrefIds = new Set(
     visibleSections.flatMap(s => getPreferencesBySection(s.id, state.birthType, state.birthVenue).map(p => p.id))

@@ -249,6 +249,13 @@ export function QuestionCard({ question }: QuestionCardProps) {
                 </Label>
               </div>
 
+              {/* Birth plan text preview for selected option */}
+              {radioValue === option.value && option.birthPlanText && effectiveQuestion.showBirthPlanPreview && !option.isUnsure && (
+                <p className="ml-8 mt-2 text-xs text-muted-foreground italic leading-relaxed">
+                  &ldquo;{option.birthPlanText}&rdquo;
+                </p>
+              )}
+
               {/* Inline text/date input when this option triggers it */}
               {showTextInput && effectiveQuestion.textInputOnOption === option.value && (
                 <div className="ml-8 mt-2 mb-1 space-y-2">

@@ -29,6 +29,7 @@ export interface QuizQuestion {
   inputType?: 'text' | 'checklist_with_names' | 'checklist' | 'date'  // 'text' = legacy, 'checklist_with_names' = support people, 'checklist' = multi-select, 'date' = native date picker
   textInputOnOption?: string   // Show text input when this option value is selected
   textInputPlaceholder?: string // Placeholder text for the text input field
+  showBirthPlanPreview?: boolean  // Show birthPlanText below selected option
   deferredFor?: 'csection'     // Deferred to end for vaginal planners
   conditionalOn?: {            // Show question only when referenced question has one of the listed values
     questionId: string
@@ -115,6 +116,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Your Birth Philosophy',
     subtitle: 'This statement will introduce your birth plan. Choose the approach that feels most like you, or write your own. (You can edit this statement in the editor)',
     order: 8,
+    showBirthPlanPreview: true,
     options: [
       { value: 'informed_flexible', label: 'Informed but flexible - we\'ve done our research but understand birth is unpredictable', birthPlanText: 'Thank you for being part of our birth team. We have educated ourselves and have preferences, but we understand birth is unpredictable. We ask that you explain any changes to our plan and include us in decision-making.', icon: 'BookOpen' },
       { value: 'natural_focused', label: 'Natural birth focused - we prefer minimal interventions and want to be consulted before any are used', birthPlanText: 'Thank you for supporting our birth experience. We are planning for a natural birth with minimal interventions. Please support us in this goal, and discuss any interventions with us before proceeding.', icon: 'Leaf' },
@@ -131,7 +133,7 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'Are you planning a vaginal birth or a C-section?',
     order: 0.5,
     learnMoreData: {
-      tradeoff: 'Your birth type shapes every other decision in your plan. Vaginal birth has a shorter recovery and lower surgical risk but is less predictable. Planned C-sections offer scheduling certainty and avoid labor, but involve major surgery with a longer recovery. VBAC offers a middle path for those with a prior cesarean.',
+      tradeoff: 'Your birth type shapes every other decision in your plan. Vaginal birth has a shorter recovery and lower surgical risk but is less predictable. Planned C-sections offer scheduling certainty and avoid labor, but involve major surgery with a longer recovery. For those with a prior cesarean, attempting VBAC allows for the physiological benefits of labor - hormone release that aids recovery and bonding, potential microbiome exposure during vaginal birth, and better respiratory transition for baby - even if it ultimately results in a repeat cesarean.',
       pros: [
         'Vaginal birth typically has a faster recovery (days vs. weeks) and lower infection risk',
         'Planned C-sections eliminate the uncertainty of labor and allow precise scheduling',
@@ -215,7 +217,9 @@ export const quizQuestions: QuizQuestion[] = [
       tradeoff: 'Your provider shapes your birth experience more than almost any other factor. OBs are trained surgeons who specialize in high-risk pregnancies; midwives specialize in supporting physiological birth with lower intervention rates.',
       pros: [
         'OBs are trained to handle surgical births and high-risk complications',
+        'OBs complete medical school plus a surgical residency, with training focused primarily on identifying and managing pathology and complications',
         'Certified Nurse-Midwives (CNMs) have hospital privileges and lower C-section rates',
+        'CNMs complete a nursing degree followed by a graduate-level midwifery program focused on physiological birth support, patient education, and shared decision-making',
         'Midwifery model of care emphasizes education, informed consent, and shared decision-making',
         'Many families choose a CNM for prenatal care, and many CNMs work in a practice under an OB in case of higher risk pregnancies',
       ],
@@ -226,6 +230,7 @@ export const quizQuestions: QuizQuestion[] = [
         'Switching providers mid-pregnancy is possible and something to strongly consider if you feel like you are not on the same page or they are dismissive of your desires',
       ],
       bottomLine: 'The provider you choose will influence your birth more than your birth plan. Choose someone whose philosophy aligns with your goals, and interview them before committing.',
+      ebookChapter: 'Chapter 5: Your Care Provider',
     },
     options: [
       { value: 'ob', label: 'OB/GYN', birthPlanText: 'Our provider is an OB/GYN.', icon: 'Stethoscope' },
@@ -434,7 +439,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'episiotomy',
     category: 'Your Birth',
     title: 'Episiotomy Preferences',
-    subtitle: 'An episiotomy is a surgical cut made at the vaginal opening during delivery to widen the birth canal. What are your preferences?',
+    subtitle: 'An episiotomy is a surgical cut made at the vaginal opening during delivery to widen the birth canal. What are your preferences? (Check all that apply)',
     order: 10.65,
     inputType: 'checklist',
     venueVariant: {
@@ -473,7 +478,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'when_to_hospital',
     category: 'Getting Started',
     title: 'When to Go to the Hospital',
-    subtitle: 'When do you want to head to the hospital? What signs would prompt going in?',
+    subtitle: 'When do you want to head to the hospital? What signs would prompt going in? (Check all that apply)',
     order: 7,
     inputType: 'checklist' as const,
     conditionalOn: { questionId: 'birth_setting', values: ['hospital'] },
@@ -510,7 +515,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'when_to_birth_center',
     category: 'Getting Started',
     title: 'When to Go to the Birth Center',
-    subtitle: 'When do you plan to head to the birth center? What signs would prompt going in?',
+    subtitle: 'When do you plan to head to the birth center? What signs would prompt going in? (Check all that apply)',
     order: 7.1,
     conditionalOn: { questionId: 'birth_setting', values: ['birth_center'] },
     inputType: 'checklist' as const,
@@ -529,10 +534,27 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'when_to_call_midwife',
     category: 'Getting Started',
     title: 'When to Call Your Midwife',
-    subtitle: 'When will you call your midwife to come to your home? What would prompt a transfer to the hospital?',
+    subtitle: 'When will you call your midwife to come to your home? (Check all that apply)',
     order: 7.2,
     conditionalOn: { questionId: 'birth_setting', values: ['home'] },
     inputType: 'checklist' as const,
+    learnMoreData: {
+      tradeoff: 'Timing when to call your midwife involves balancing wanting support early against allowing your body to labor undisturbed. Calling too early may mean a long wait together; calling too late may mean less time for your midwife to set up and assess.',
+      pros: [
+        'Calling during active labor ensures your midwife arrives when support is most needed',
+        'Calling during early labor allows time for thorough assessment and setup',
+        'Emotional signposts (like needing encouragement) can be a reliable cue that labor is progressing',
+        'Having a plan for when to call reduces decision-making stress during labor',
+      ],
+      cons: [
+        'Calling too early can mean a very long labor with your midwife present, potentially leading to fatigue for everyone',
+        'Calling too late may mean your midwife is rushing to arrive or misses part of labor',
+        'First-time mothers often underestimate how long early labor takes - patience is important',
+        'Trust your gut: if something feels wrong at any point, call your midwife or go to the hospital. Your instincts matter and no one will judge you for seeking help.',
+      ],
+      bottomLine: 'Have a clear plan, but stay flexible. Most midwives prefer to be called early enough to assess and set up comfortably. If at any point something feels off, trust your instincts and seek care immediately.',
+      ebookChapter: 'Chapter 11: Labor at Home',
+    },
     options: [
       { value: 'active_labor', label: 'When contractions are regular and close together', birthPlanText: 'We will call our midwife when contractions are regular and close together.', icon: 'Clock' },
       { value: 'emotional_signposts', label: 'When I feel I need my midwife\'s support', birthPlanText: 'We will call our midwife when I feel I need her support.', icon: 'Heart' },
@@ -724,6 +746,9 @@ export const quizQuestions: QuizQuestion[] = [
         'Pitocin rates above 6 mIU/min exceed natural oxytocin levels, doubling at 10-16 mIU/min',
         'Pitocin can cause hyperstimulation (tachysystole), which doubles fetal distress risk',
         'Slow labor is not the same as stalled labor - there may be time to try alternatives',
+        'Visitors or extra people can shift your body into "host mode," producing adrenaline that counteracts oxytocin and slows labor',
+        'Environmental changes - bright lights, unfamiliar people, feeling observed - can stall labor as a natural protective response',
+        'Adrenaline from anxiety or lack of privacy inhibits oxytocin release, so sometimes the best augmentation is dimming lights and clearing the room',
       ],
       bottomLine: 'Slow labor is not the same as stalled labor. If baby is doing well, there is often time to try natural alternatives like walking, position changes, and rest before reaching for Pitocin.',
       ebookChapter: 'Chapter 27: Pitocin',
@@ -950,7 +975,7 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'When should baby get their first bath?',
     order: 11,
     venueVariant: {
-      home: { hiddenOptions: ['hospital_timing'], subtitle: 'When would you like to give baby their first bath at home?' },
+      home: { hiddenOptions: ['hospital_timing'], subtitle: 'When would you like to give baby their first bath at home?', optionOverrides: { parents_give: { label: 'We want to give the first bath ourselves', birthPlanText: 'We would like to give baby\'s first bath ourselves.' } } },
       birth_center: { hiddenOptions: ['hospital_timing'], subtitle: 'When should baby get their first bath? Most families do this after returning home from the birth center.' },
     },
     learnMoreData: {
@@ -988,6 +1013,7 @@ export const quizQuestions: QuizQuestion[] = [
     order: 12,
     venueVariant: {
       birth_center: { subtitle: 'Vitamin K is routinely offered at birth centers, typically within the first hour after birth.' },
+      home: { subtitle: 'Vitamin K helps with blood clotting. Your midwife can administer the injection at your home birth. Documenting your newborn care preferences is important even for home births - if a transfer becomes necessary, your birth plan tells the hospital team your wishes.', hiddenOptions: ['oral'] },
     },
     learnMoreData: {
       tradeoff: 'A single injection provides near-complete protection against VKDB (a rare but potentially fatal bleeding disorder). The oral alternative exists but requires multiple doses and is less effective.',
@@ -1207,7 +1233,7 @@ export const quizQuestions: QuizQuestion[] = [
     order: 15.1,
     venueVariant: {
       birth_center: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
-      home: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
+      home: { subtitle: 'For home births, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
     },
     learnMoreData: {
       tradeoff: 'The newborn screening blood test checks for 30-50+ rare but treatable conditions (depending on your state). Early detection allows treatment before symptoms appear, potentially preventing disability or death.',
@@ -1241,7 +1267,7 @@ export const quizQuestions: QuizQuestion[] = [
     order: 15.2,
     venueVariant: {
       birth_center: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
-      home: { subtitle: 'Since most families leave the birth center within 4-6 hours, this screening is typically done at your midwife\'s follow-up visit or first pediatrician appointment.' },
+      home: { subtitle: 'For home births, this screening is typically arranged through your midwife\'s follow-up visit or first pediatrician appointment.' },
     },
     learnMoreData: {
       tradeoff: 'The hearing screening is painless and takes 5-10 minutes while baby sleeps. Early detection of hearing loss allows intervention during the critical window for language development.',
@@ -1407,7 +1433,7 @@ export const quizQuestions: QuizQuestion[] = [
     subtitle: 'Would you like to bank or donate cord blood?',
     order: 16,
     learnMoreData: {
-      tradeoff: 'Cord blood contains stem cells that could potentially treat future illnesses. Private banking is expensive with very low likelihood of use. Public donation helps others at no cost to you.',
+      tradeoff: 'Cord blood contains stem cells that could potentially treat future illnesses. However, banking requires earlier cord clamping, which means baby receives less blood volume, iron stores, and stem cells at birth. Most families who skip banking choose delayed clamping instead for these immediate benefits. Private banking is expensive with very low likelihood of use. Public donation helps others at no cost to you.',
       pros: [
         'Preserves stem cells that could potentially treat leukemia and certain genetic disorders',
         'Public donation can help others who need a stem cell match at no cost to you',
@@ -1591,6 +1617,7 @@ export const quizQuestions: QuizQuestion[] = [
     order: 20,
     venueVariant: {
       birth_center: { optionOverrides: { dispose: { label: 'Facility disposal is fine', birthPlanText: 'The birth center may dispose of the placenta.' } } },
+      home: { optionOverrides: { dispose: { label: 'No special plans for the placenta', birthPlanText: 'We do not have special plans for the placenta.' } } },
     },
     learnMoreData: {
       tradeoff: 'The placenta sustained your baby for 9 months. Most families let the hospital dispose of it, but some keep it for encapsulation, burial, or other purposes. Scientific evidence for health benefits of encapsulation is inconclusive.',
@@ -1722,6 +1749,7 @@ export const quizQuestions: QuizQuestion[] = [
     title: 'Your Birth Facility',
     subtitle: 'Where are you planning to deliver?',
     order: 22.5,
+    conditionalOn: { questionId: 'birth_setting', values: ['hospital', 'birth_center'] },
     textInputOnOption: 'has_facility',
     options: [
       { value: 'has_facility', label: 'I know where - type facility name', birthPlanText: '', icon: 'Building2' },
@@ -1939,6 +1967,7 @@ export const quizQuestions: QuizQuestion[] = [
     order: 0,
     conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
     textInputOnOption: 'has_plan',
+    textInputPlaceholder: 'Type the name of your backup hospital',
     options: [
       { value: 'has_plan', label: 'We have a backup hospital chosen', birthPlanText: '', icon: 'Building2' },
       { value: 'no_backup', label: 'No backup facility chosen yet', birthPlanText: 'We have not yet chosen a backup hospital.', icon: 'AlertCircle' },
@@ -1963,7 +1992,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'hospital_labor_contingency',
     category: 'If You Transfer',
     title: 'If You Labor at the Hospital',
-    subtitle: 'If you transfer during labor, what are your preferences for the hospital experience?',
+    subtitle: 'If you transfer during labor, what are your preferences for the hospital experience? (Check all that apply)',
     order: 1,
     inputType: 'checklist' as const,
     conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
@@ -1984,7 +2013,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'hospital_newborn_contingency',
     category: 'If You Transfer',
     title: 'Newborn Procedures at the Hospital',
-    subtitle: 'If you transfer to a hospital, what are your preferences for newborn procedures?',
+    subtitle: 'If you transfer to a hospital, what are your preferences for newborn procedures? (Check all that apply)',
     order: 1.5,
     conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
     inputType: 'checklist' as const,
@@ -2004,7 +2033,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'hospital_stay_contingency',
     category: 'If You Transfer',
     title: 'Hospital Stay Preferences',
-    subtitle: 'If you end up staying at the hospital, what are your preferences for your stay?',
+    subtitle: 'If you end up staying at the hospital, what are your preferences for your stay? (Check all that apply)',
     order: 2,
     inputType: 'checklist' as const,
     conditionalOn: { questionId: 'birth_setting', values: ['home', 'birth_center'] },
@@ -2058,7 +2087,7 @@ export const quizQuestions: QuizQuestion[] = [
     id: 'birth_space_setup',
     category: 'Your Birth',
     title: 'Your Birth Space',
-    subtitle: 'Since you are birthing at home, you have full control over your environment. What matters to you?',
+    subtitle: 'Since you are birthing at home, you have full control over your environment. What matters to you? (Check all that apply)',
     order: 3.7,
     inputType: 'checklist' as const,
     conditionalOn: { questionId: 'birth_setting', values: ['home'] },

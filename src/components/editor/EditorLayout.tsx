@@ -123,7 +123,7 @@ export function EditorLayout() {
   const { decisionsIncluded, totalDecisions, remainingCount } = useMemo(() => {
     let included = 0
     let total = 0
-    const visibleSections = getSectionsForBirthType(state.birthType)
+    const visibleSections = getSectionsForBirthType(state.birthType, state.birthVenue)
     visibleSections.forEach(section => {
       const sectionState = state.sections[section.id]
       const prefs = getPreferencesBySection(section.id, state.birthType, state.birthVenue)

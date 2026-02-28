@@ -88,14 +88,19 @@ export const VENUE_TITLE_OVERRIDES: Record<'birth_center' | 'home', Partial<Reco
 }
 
 // Get visible sections in order for a given birth type
-export function getSectionsForBirthType(birthType: BirthType): Array<EditorSection & { displayTitle: string }> {
+export function getSectionsForBirthType(
+  birthType: BirthType,
+  birthVenue?: BirthVenue | null
+): Array<EditorSection & { displayTitle: string }> {
   const overrides = BIRTH_TYPE_SECTIONS[birthType]
+  const venueOverrides = birthVenue && birthVenue !== 'hospital'
+    ? VENUE_TITLE_OVERRIDES[birthVenue] : undefined
   return EDITOR_SECTIONS
     .filter(s => overrides[s.id].visible)
     .sort((a, b) => overrides[a.id].order - overrides[b.id].order)
     .map(s => ({
       ...s,
-      displayTitle: overrides[s.id].title || s.title,
+      displayTitle: venueOverrides?.[s.id] || overrides[s.id].title || s.title,
     }))
 }
 

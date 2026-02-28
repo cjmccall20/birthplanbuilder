@@ -1,5 +1,5 @@
 import type { QuizState, TemplateStyle } from '@/types'
-import { createDefaultBirthTeam } from '@/types'
+import { createDefaultBirthTeam, migrateBirthTeam } from '@/types'
 import type { EditorState, EditorSectionId, PreferenceValue, EditorSectionState, BirthType, BirthVenue } from './editorTypes'
 import { PREFERENCES, getPreferencesBySection } from './preferences'
 import { SECTION_ORDER, VENUE_TITLE_OVERRIDES, EDITOR_SECTIONS } from './sections'
@@ -604,7 +604,9 @@ export function mapQuizToEditorState(quizState: QuizState): Partial<EditorState>
     : 'vaginal' // 'vbac' is treated as vaginal for section visibility
 
   // Populate birth team fields from quiz answers (support_people and medical_provider names)
-  const birthTeam = quizState.birthTeam ? { ...quizState.birthTeam, fields: [...(quizState.birthTeam.fields || [])] } : createDefaultBirthTeam()
+  // Run through migrateBirthTeam to ensure old-format (flat) birthTeam objects get the fields array
+  const migratedTeam = quizState.birthTeam ? migrateBirthTeam(quizState.birthTeam) : createDefaultBirthTeam()
+  const birthTeam = { ...migratedTeam, fields: [...migratedTeam.fields] }
   const supportAnswer = quizState.answers?.support_people
   if (supportAnswer && supportAnswer.startsWith('[')) {
     try {

@@ -31,7 +31,7 @@ export function OmittedOptionsPopup({ isOpen, onClose }: OmittedOptionsPopupProp
 
   const omittedBySection = useMemo(() => {
     const result: Record<string, OmittedOption[]> = {}
-    const visibleSections = getSectionsForBirthType(state.birthType)
+    const visibleSections = getSectionsForBirthType(state.birthType, state.birthVenue)
 
     visibleSections.forEach(section => {
       const sectionState = state.sections[section.id]
